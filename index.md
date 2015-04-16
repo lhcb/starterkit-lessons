@@ -15,12 +15,15 @@ Paragraph(s) of introductory material.
 
 This is a rough list of the areas we would like to cover:
 
-* first DecayTreeTuple on the grid (including screen, EOS storage, ...)
+* Setting up your development environment
+* Working with the repository
+* First DecayTreeTuple on the grid (including screen, EOS storage, ...)
 * Fun with LoKi functors
 * (re/ab)using a stripping line
-* swapping mass hypotheses
+* Swapping mass hypotheses
 * Decay tree fitter
 * TIS, TOS and HLT
+* Applying multivariate tools in DecayTreeTuple
 
 Each area needs to be broken down into chunks of 10-15minute topics.
 
