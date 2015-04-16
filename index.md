@@ -11,7 +11,11 @@ Paragraph(s) of introductory material.
 ## Topics
 
 1.  [Using screen to keep things running](01-screen.html)
-2.  [Topic Title 2](02-slug.html)
+2.  basic option file for DaVinci
+3.  find the dataset in the Bookkeeping
+4.  ganga jobs
+5.  retrieve big files from the grid
+6.  open the resulting nTuple in ROOT and make mass peak
 
 This is a rough list of the areas we would like to cover:
 
