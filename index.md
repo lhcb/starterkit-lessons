@@ -14,7 +14,7 @@ Paragraph(s) of introductory material.
 2.  basic option file for DaVinci
 3.  find the dataset in the Bookkeeping
 4.  ganga jobs
-5.  retrieve big files from the grid
+5.  [retrieve big files from the grid](05-files-from-grid.html)
 6.  open the resulting nTuple in ROOT and make mass peak
 
 This is a rough list of the areas we would like to cover:

@@ -26,45 +26,38 @@
       <div class="row">
         <div class="col-md-10 col-md-offset-1">
           <h1 class="title">First Steps in LHCb</h1>
-          
-<p>Paragraph(s) of introductory material.</p>
+          <h2 class="subtitle">Using screen to keep things running</h2>
+<div id="learning-objectives" class="objectives panel panel-warning">
+<div class="panel-heading">
+<h2><span class="glyphicon glyphicon-certificate"></span>Learning Objectives</h2>
+</div>
+<div class="panel-body">
+<ul>
+<li>Obtain a {x,µ,}dst file from the grid</li>
+</ul>
+</div>
+</div>
 <div id="prerequisites" class="prereq panel panel-warning">
 <div class="panel-heading">
 <h2><span class="glyphicon glyphicon-education"></span>Prerequisites</h2>
 </div>
 <div class="panel-body">
-<p>What learners need to know before tackling this lesson.</p>
+<ul>
+<li>Access to lxplus</li>
+<li>A working grid certificate</li>
+<li>Completed section 3</li>
+</ul>
 </div>
 </div>
-<h2 id="topics">Topics</h2>
-<ol style="list-style-type: decimal">
-<li><a href="01-screen.html">Using screen to keep things running</a></li>
-<li>basic option file for DaVinci</li>
-<li>find the dataset in the Bookkeeping</li>
-<li>ganga jobs</li>
-<li><a href="05-files-from-grid.html">retrieve big files from the grid</a></li>
-<li>open the resulting nTuple in ROOT and make mass peak</li>
-</ol>
-<p>This is a rough list of the areas we would like to cover:</p>
-<ul>
-<li>Setting up your development environment</li>
-<li>Working with the repository</li>
-<li>First DecayTreeTuple on the grid (including screen, EOS storage, ...)</li>
-<li>Fun with LoKi functors</li>
-<li>(re/ab)using a stripping line</li>
-<li>Swapping mass hypotheses</li>
-<li>Decay tree fitter</li>
-<li>TIS, TOS and HLT</li>
-<li>Applying multivariate tools in DecayTreeTuple</li>
-</ul>
-<p>Each area needs to be broken down into chunks of 10-15minute topics.</p>
-<h2 id="other-resources">Other Resources</h2>
-<ul>
-<li><a href="motivation.html">Motivation</a></li>
-<li><a href="reference.html">Reference</a></li>
-<li><a href="discussion.html">Discussion</a></li>
-<li><a href="instructors.html">Instructor's Guide</a></li>
-</ul>
+<p>In section <a href="03-.html">&quot;Finding a Dataset in the Bookkeeping&quot;</a>, we obtained a file called <code>....py</code> which looks a bit like this:</p>
+<pre class="sourceCode python"><code class="sourceCode python">FILES = []</code></pre>
+<p>This is a list of files that make up the dataset we are interested in. Each of the files contains a number of individual events so if we just want to take a quick look at the dataset, it is sufficient to just obtain one of those files.</p>
+<p>Before we can download the file, we need to set up our connection with the grid and load the Dirac software:</p>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">lhcb-proxy-init</span>
+<span class="kw">SetupLHCbDirac</span></code></pre>
+<p>Initialisation of the proxy might take a while and should ask you for your certificate password.</p>
+<p>Once we have a working Dirac installation, getting the file is as easy as</p>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">dirac-dms-get-file</span> filename</code></pre>
         </div>
       </div>
       <div class="footer">
