@@ -45,11 +45,11 @@ versions of `Pythia` used to generate the events. We will use
 `Beam4000GeV-2012-MagDown-Nu2.5-Pythia8`.
 
 Next you need to choose what version of the simulation you want to
-use. Usually you want to choose the latest one available. You will
-also have to choose the version of the digitisation, what
-configuration of the trigger and reconstruction version you want to
-have in your simulated sample. However usually there is only one
-choice for these. So go with that.
+use. Usually you want to choose the latest one available (`Sim08e` in
+this case). You will also have to choose the version of the
+digitisation, what configuration of the trigger and reconstruction
+version you want to have in your simulated sample. However usually
+there is only one choice for these. So go with that.
 
 You will also have to select a version of the stripping. Here simply
 choose any as long as it contains the word `Flagged`.
