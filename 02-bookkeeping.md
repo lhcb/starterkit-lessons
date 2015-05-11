@@ -44,12 +44,12 @@ magnet polarity (`MagDown` and `MagUp`) as well as different
 versions of `Pythia` used to generate the events. We will use
 `Beam4000GeV-2012-MagDown-Nu2.5-Pythia8`.
 
-Next you need to choose what verion of the simulation you want to
+Next you need to choose what version of the simulation you want to
 use. Usually you want to choose the latest one available. You will
 also have to choose the version of the digitisation, what
 configuration of the trigger and reconstruction version you want to
 have in your simulated sample. However usually there is only one
-choice for these.
+choice for these. So go with that.
 
 You will also have to select a version of the stripping. Here simply
 choose any as long as it contains the word `Flagged`.
@@ -62,10 +62,13 @@ use for running your DaVinci job. Click it and select `Save as a
 python file`. Clicking `Save` once again in the popupmenu will start a
 download. Save this file somewhere you can find it again.
 
-Once you get a bit of experience with navigating the book-keeping you
-can take a shortcut! At the bottom of your browser window there is a
-text field next to a green "plus" symbol. You can directly enter a
-path here to navigate there directly. For example you could go
-straight to:
-`evt+std://MC/2012/27163003/Beam4000GeV-2012-MagDown-Nu2.5-Pythia8/`
-by typing this path and pressing the `Go` button.
+> ## Shortcut {.callout}
+>
+> Once you get a bit of experience with navigating the book-keeping you
+> can take a shortcut! At the bottom of your browser window there is a
+> text field next to a green "plus" symbol. You can directly enter a
+> path here to navigate there directly. For example you could go
+> straight to:
+> `evt+std://MC/2012/27163003/Beam4000GeV-2012-MagDown-Nu2.5-Pythia8/`
+> by typing this path and pressing the `Go` button.
+

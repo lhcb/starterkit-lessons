@@ -49,10 +49,17 @@
 <p>We will analyse 2012 data, and correspondigly use simulation for 2012 data. To navigate to the simulation expand the folder icon in the &quot;Bookkeeping tree&quot; window. Navigate to the <code>MC/2012</code> folder. This will give you a very long list of all possible decay types for which there is simulated data. We are looking for a folder which is named <code>27163003 (Dst_D0pi,Kpi=DecProdCut)</code>. The number is a numerical representation of the <a href="https://cds.cern.ch/record/855452?ln=en">event type</a>. The text is the human readable version of that.</p>
 <p>This sample of simulated events will only contain decays of the type D* -&gt; D(-&gt; K pi)pi.</p>
 <p>If you expand the <code>27163003 (Dst_D0pi,Kpi=DecProdCut)</code> folder you will find a list of different configurations depending on the magnet polarity (<code>MagDown</code> and <code>MagUp</code>) as well as different versions of <code>Pythia</code> used to generate the events. We will use <code>Beam4000GeV-2012-MagDown-Nu2.5-Pythia8</code>.</p>
-<p>Next you need to choose what verion of the simulation you want to use. Usually you want to choose the latest one available. You will also have to choose the version of the digitisation, what configuration of the trigger and reconstruction version you want to have in your simulated sample. However usually there is only one choice for these.</p>
+<p>Next you need to choose what version of the simulation you want to use. Usually you want to choose the latest one available. You will also have to choose the version of the digitisation, what configuration of the trigger and reconstruction version you want to have in your simulated sample. However usually there is only one choice for these. So go with that.</p>
 <p>You will also have to select a version of the stripping. Here simply choose any as long as it contains the word <code>Flagged</code>.</p>
 <p>After all this you will be presented with a <code>ALLSTREAMS.DST</code> entry. By clicking on it you finally get a list of files that you can process. At the bottom right of the page there is a <code>Save</code> button which will let you download a file specifying the inputs that you can use for running your DaVinci job. Click it and select <code>Save as a python file</code>. Clicking <code>Save</code> once again in the popupmenu will start a download. Save this file somewhere you can find it again.</p>
+<div id="shortcut" class="callout panel panel-info">
+<div class="panel-heading">
+<h2><span class="glyphicon glyphicon-pushpin"></span>Shortcut</h2>
+</div>
+<div class="panel-body">
 <p>Once you get a bit of experience with navigating the book-keeping you can take a shortcut! At the bottom of your browser window there is a text field next to a green &quot;plus&quot; symbol. You can directly enter a path here to navigate there directly. For example you could go straight to: <code>evt+std://MC/2012/27163003/Beam4000GeV-2012-MagDown-Nu2.5-Pythia8/</code> by typing this path and pressing the <code>Go</code> button.</p>
+</div>
+</div>
         </div>
       </div>
       <div class="footer">

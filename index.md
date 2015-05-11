@@ -11,6 +11,7 @@ Paragraph(s) of introductory material.
 
 ## Topics
 
+<<<<<<< HEAD
 1.  Outline
 1.  General introduction to DaVinci
 1.  [Using screen to keep things running](02-screen.html)
