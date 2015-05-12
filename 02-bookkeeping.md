@@ -62,6 +62,8 @@ use for running your DaVinci job. Click it and select `Save as a
 python file`. Clicking `Save` once again in the popupmenu will start a
 download. Save this file somewhere you can find it again.
 
+You can find a copy of the file you just downloaded [here](data/MC_2012_27163003_Beam4000GeV2012MagDownNu2.5Pythia8_Sim08e_Digi13_Trig0x409f0045_Reco14a_Stripping20NoPrescalingFlagged_ALLSTREAMS.DST).
+
 > ## Shortcut {.callout}
 >
 > Once you get a bit of experience with navigating the book-keeping you
