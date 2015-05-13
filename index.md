@@ -28,19 +28,19 @@ Paragraph(s) of introductory material.
 8.  Switch to a new stripping (20 -> 21) for one line in MC
 9.  Split your jobs into subjobs
 10. (Stripping line efficiency)
-11. How to use a stripping line for a slightly differen decay
+11. How to use a stripping line for a slightly different decay
 11. Replace a mass hypothesis
 12. TisTos and what it all means
 13. TupleTools for TISTOS'ing
 14. (Caveats for TISTOS'ing)
 14. More on the HLT?
-15. What is DecayTreeFitter
-16. How do I use DecayTreeFitter
+15. What is DecayTreeFitter?
+16. How do I use DecayTreeFitter?
 17. Minimal DV with mass constraint
 18. Other things one can do with DTF
 
-Each topic should be a chunk of 10-15minute, if that is too
-short we should split it into several topics.
+Each topic should be a chunk of 10-15 minutes.
+If that is too short, we should split it into several topics.
 
 ## Other Resources
 
