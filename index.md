@@ -14,7 +14,7 @@ Paragraph(s) of introductory material.
 1.  Outline
 1.  General introduction to DaVinci
 1.  [Using screen to keep things running](02-screen.html)
-2.  Find the dataset in the Bookkeeping
+2.  [Find the dataset in the Bookkeeping](03-bookkeeping.html)
 2.  Download a file from the grid
 2.  Interactive look inside a DST with python
 3.  General introduction to Stripping

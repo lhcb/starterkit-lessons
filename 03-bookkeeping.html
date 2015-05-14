@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="generator" content="pandoc">
+    <title>Software Carpentry: First Steps in LHCb</title>
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="css/bootstrap/bootstrap.css" />
+    <link rel="stylesheet" type="text/css" href="css/bootstrap/bootstrap-theme.css" />
+    <link rel="stylesheet" type="text/css" href="css/swc.css" />
+    <link rel="alternate" type="application/rss+xml" title="Software Carpentry Blog" href="http://software-carpentry.org/feed.xml"/>
+    <meta charset="UTF-8" />
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body class="lesson">
+    <div class="container card">
+      <div class="banner">
+        <a href="http://software-carpentry.org" title="Software Carpentry">
+          <img alt="Software Carpentry banner" src="img/software-carpentry-banner.png" />
+        </a>
+      </div>
+      <div class="row">
+        <div class="col-md-10 col-md-offset-1">
+          <h1 class="title">First Steps in LHCb</h1>
+          <h2 class="subtitle">Finding data to process</h2>
+<div id="learning-objectives" class="objectives panel panel-warning">
+<div class="panel-heading">
+<h2><span class="glyphicon glyphicon-certificate"></span>Learning Objectives</h2>
+</div>
+<div class="panel-body">
+<ul>
+<li>Find MC in the book-keeping</li>
+<li>Find data in the book-keeping</li>
+<li>Find the decay you want</li>
+<li>check reco</li>
+<li>ignore what (flagged) stripping is used</li>
+<li>run over those files with the strip21 module you want</li>
+<li>nTuples!</li>
+</ul>
+</div>
+</div>
+<p>To feed simulated and/or real data to your DaVinci job you first need to locate some events. In this tutorial we will use the decay D* -&gt; D(-&gt;K pi)pi as an example.</p>
+<p>Navigate to the <a href="https://lhcb-portal-dirac.cern.ch/DIRAC/?view=tabs&amp;theme=Grey&amp;url_state=1|*LHCbDIRAC.BookkeepingBrowser.classes.BookkeepingBrowser:,">book-keeping</a> which lets you find both simulated and real data.</p>
+<p>At the bottom of the &quot;Bookkeeping tree&quot; tab there is a dropdown menu labelled <code>Simulation Condition</code>, open it and change it to <code>Event type</code>.</p>
+<p>We will analyse 2012 data, and correspondigly use simulation for 2012 data. To navigate to the simulation expand the folder icon in the &quot;Bookkeeping tree&quot; window. Navigate to the <code>MC/2012</code> folder. This will give you a very long list of all possible decay types for which there is simulated data. We are looking for a folder which is named <code>27163003 (Dst_D0pi,Kpi=DecProdCut)</code>. The number is a numerical representation of the <a href="https://cds.cern.ch/record/855452?ln=en">event type</a>. The text is the human readable version of that.</p>
+<p>This sample of simulated events will only contain decays of the type D* -&gt; D(-&gt; K pi)pi.</p>
+<p>If you expand the <code>27163003 (Dst_D0pi,Kpi=DecProdCut)</code> folder you will find a list of different configurations depending on the magnet polarity (<code>MagDown</code> and <code>MagUp</code>) as well as different versions of <code>Pythia</code> used to generate the events. We will use <code>Beam4000GeV-2012-MagDown-Nu2.5-Pythia8</code>.</p>
+<p>Next you need to choose what version of the simulation you want to use. Usually you want to choose the latest one available (<code>Sim08e</code> in this case). You will also have to choose the version of the digitisation, what configuration of the trigger and reconstruction version you want to have in your simulated sample. However usually there is only one choice for these. So go with that.</p>
+<p>You will also have to select a version of the stripping. Here simply choose any as long as it contains the word <code>Flagged</code>.</p>
+<p>After all this you will be presented with a <code>ALLSTREAMS.DST</code> entry. By clicking on it you finally get a list of files that you can process. At the bottom right of the page there is a <code>Save</code> button which will let you download a file specifying the inputs that you can use for running your DaVinci job. Click it and select <code>Save as a python file</code>. Clicking <code>Save</code> once again in the popupmenu will start a download. Save this file somewhere you can find it again.</p>
+<p>You can find a copy of the file you just downloaded <a href="data/MC_2012_27163003_Beam4000GeV2012MagDownNu2.5Pythia8_Sim08e_Digi13_Trig0x409f0045_Reco14a_Stripping20NoPrescalingFlagged_ALLSTREAMS.DST">here</a>.</p>
+<div id="shortcut" class="callout panel panel-info">
+<div class="panel-heading">
+<h2><span class="glyphicon glyphicon-pushpin"></span>Shortcut</h2>
+</div>
+<div class="panel-body">
+<p>Once you get a bit of experience with navigating the book-keeping you can take a shortcut! At the bottom of your browser window there is a text field next to a green &quot;plus&quot; symbol. You can directly enter a path here to navigate there directly. For example you could go straight to: <code>evt+std://MC/2012/27163003/Beam4000GeV-2012-MagDown-Nu2.5-Pythia8/</code> by typing this path and pressing the <code>Go</code> button.</p>
+</div>
+</div>
+        </div>
+      </div>
+      <div class="footer">
+        <a class="label swc-blue-bg" href="http://software-carpentry.org">Software Carpentry</a>
+        <a class="label swc-blue-bg" href="https://github.com/swcarpentry/lesson-template">Source</a>
+        <a class="label swc-blue-bg" href="mailto:admin@software-carpentry.org">Contact</a>
+        <a class="label swc-blue-bg" href="LICENSE.html">License</a>
+      </div>
+    </div>
+    <!-- Javascript placed at the end of the document so the pages load faster -->
+    <script src="http://software-carpentry.org/v5/js/jquery-1.9.1.min.js"></script>
+    <script src="css/bootstrap/bootstrap-js/bootstrap.js"></script>
+  </body>
+</html>
