@@ -144,7 +144,7 @@ here](), and the resulting ntuple is [available here]().
 > 1. The `DecayTreeTuple.Inputs` attribute should start at the word
 >    `Phys`; and
 > 2. The `RootInTES` attribute on the `DaVinci` object to be set to 
->    `/Event/STREAM`
+>    `/Event/$STREAM`
 >
 > In context, the changes look like
 >
