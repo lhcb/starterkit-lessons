@@ -86,7 +86,7 @@ DaVinci().UserAlgorithms += [dtt]
 DaVinci().InputType = 'DST'
 DaVinci().TupleFile = 'DVntuple.root'
 DaVinci().PrintFreq = 1000
-DaVinci().DataType = '2011'
+DaVinci().DataType = '2012'
 DaVinci().Simulation = False
 # Only ask for luminosity information when not using simulated data
 DaVinci().Lumi = not DaVinci().Simulation

@@ -73,7 +73,7 @@ DaVinci().UserAlgorithms += [dtt]
 DaVinci().InputType = <span class="st">&#39;DST&#39;</span>
 DaVinci().TupleFile = <span class="st">&#39;DVntuple.root&#39;</span>
 DaVinci().PrintFreq = <span class="dv">1000</span>
-DaVinci().DataType = <span class="st">&#39;2011&#39;</span>
+DaVinci().DataType = <span class="st">&#39;2012&#39;</span>
 DaVinci().Simulation = <span class="ot">False</span>
 <span class="co"># Only ask for luminosity information when not using simulated data</span>
 DaVinci().Lumi = not DaVinci().Simulation
@@ -111,7 +111,7 @@ IOHelper().inputFiles([
 <p>A microDST (or µDST) is a smaller version of a DST. Some stripping lines go to µDSTs, and some go to DSTs. There are two things that need changing it our options file in order to have in work when it is used with a stripping line that goes to a µDST:</p>
 <ol style="list-style-type: decimal">
 <li>The <code>DecayTreeTuple.Inputs</code> attribute should start at the word <code>Phys</code>; and</li>
-<li>The <code>RootInTES</code> attribute on the <code>DaVinci</code> object to be set to <code>/Event/STREAM</code></li>
+<li>The <code>RootInTES</code> attribute on the <code>DaVinci</code> object to be set to <code>/Event/$STREAM</code></li>
 </ol>
 <p>In context, the changes look like</p>
 <pre class="sourceCode python"><code class="sourceCode python">dtt.Inputs = [<span class="st">&#39;Phys/</span><span class="ot">{0}</span><span class="st">/Particles&#39;</span>.<span class="dt">format</span>(line)]
