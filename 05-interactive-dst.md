@@ -168,3 +168,11 @@ print cands[0]
 Which will print out some information about the [Particle](http://lhcb-release-area.web.cern.ch/LHCb-release-area/DOC/davinci/releases/v36r6/doxygen/d0/d13/class_l_h_cb_1_1_particle.html#details). In our case a D*. You can access its daughters with
 `cands[0].daughtersVector()[0]` and `cands[0].daughtersVector()[1]`,
 which will be a D0 and a pion.
+
+There is a useful tool for printing out decay trees, which you can
+pass the top level particle to and it will print out the daughters etc:
+
+```
+print_decay = appMgr.toolsvc().create('PrintDecayTreeTool', interface="IPrintDecayTreeTool")
+print_decay.printTree(cands[0])
+```
