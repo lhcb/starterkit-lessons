@@ -91,15 +91,36 @@ DaVinci().Simulation = False
 # Only ask for luminosity information when not using simulated data
 DaVinci().Lumi = not DaVinci().Simulation
 DaVinci().EvtMax = -1
+DaVinci().CondDBtag = 'sim-20130522-1-vc-md100'
+DaVinci().DDDBtag = 'dddb-20130929-1'
 ```
 
 Nicely, a lot of the attributes of the `DaVinci` object are self-explanatory: 
 `InputType` should be `'DST'` when giving DaVinci DST files; `PrintFreq` 
 defines how often DaVinci should print its status; `DataType` is the year of 
-data-taking the data corresponds to; `Simulation` should be `True` when using 
-Monte Carlo data, `Lumi` defines whether to store information on the integrated 
-luminosity the input data corresponds to; and `EvtMax` defines how many events 
-to run over, where a value of `-1` means "all events".
+data-taking the data corresponds to, which we get from looking at the 
+bookkeeping path used to get the input DST; `Simulation` should be `True` when 
+using Monte Carlo data, `Lumi` defines whether to store information on the 
+integrated luminosity the input data corresponds to; and `EvtMax` defines how 
+many events to run over, where a value of `-1` means "all events".
+
+The `CondDBtag` and `DDDBtag` attributes specify the exact detector conditions 
+that the Monte Carlo was generated with.
+Specifying these tags is important, as without them you can end up with the 
+wrong magnet polarity value in your ntuple, amongst other Bad Things.
+You can find the values for these tags in the [bookkeeping 
+file](data/MC_2012_27163003_Beam4000GeV2012MagDownNu2.5Pythia8_Sim08e_Digi13_Trig0x409f0045_Reco14a_Stripping20NoPrescalingFlagged_ALLSTREAMS.DST) 
+we downloaded earlier.
+
+> ## Database tags {.callout}
+>
+> Generally, the `CondDB` and `DDDB` tags are different for each dataset you 
+> want to use, but will be the same for all DSTs within a given dataset.
+> When using simulated data, *always* find out what the database tags are for 
+> your dataset!
+> For real collision data, you shouldn't specify these tags, as the default 
+> tags are the latest and greatest, so just remove those lines from the options 
+> file.
 
 In order to run an algorithm that we have previously created, we need to add it 
 to the `UserAlgorithms` list.

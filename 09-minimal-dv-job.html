@@ -77,8 +77,19 @@ DaVinci().DataType = <span class="st">&#39;2011&#39;</span>
 DaVinci().Simulation = <span class="ot">False</span>
 <span class="co"># Only ask for luminosity information when not using simulated data</span>
 DaVinci().Lumi = not DaVinci().Simulation
-DaVinci().EvtMax = -<span class="dv">1</span></code></pre>
-<p>Nicely, a lot of the attributes of the <code>DaVinci</code> object are self-explanatory: <code>InputType</code> should be <code>'DST'</code> when giving DaVinci DST files; <code>PrintFreq</code> defines how often DaVinci should print its status; <code>DataType</code> is the year of data-taking the data corresponds to; <code>Simulation</code> should be <code>True</code> when using Monte Carlo data, <code>Lumi</code> defines whether to store information on the integrated luminosity the input data corresponds to; and <code>EvtMax</code> defines how many events to run over, where a value of <code>-1</code> means &quot;all events&quot;.</p>
+DaVinci().EvtMax = -<span class="dv">1</span>
+DaVinci().CondDBtag = <span class="st">&#39;sim-20130522-1-vc-md100&#39;</span>
+DaVinci().DDDBtag = <span class="st">&#39;dddb-20130929-1&#39;</span></code></pre>
+<p>Nicely, a lot of the attributes of the <code>DaVinci</code> object are self-explanatory: <code>InputType</code> should be <code>'DST'</code> when giving DaVinci DST files; <code>PrintFreq</code> defines how often DaVinci should print its status; <code>DataType</code> is the year of data-taking the data corresponds to, which we get from looking at the bookkeeping path used to get the input DST; <code>Simulation</code> should be <code>True</code> when using Monte Carlo data, <code>Lumi</code> defines whether to store information on the integrated luminosity the input data corresponds to; and <code>EvtMax</code> defines how many events to run over, where a value of <code>-1</code> means &quot;all events&quot;.</p>
+<p>The <code>CondDBtag</code> and <code>DDDBtag</code> attributes specify the exact detector conditions that the Monte Carlo was generated with. Specifying these tags is important, as without them you can end up with the wrong magnet polarity value in your ntuple, amongst other Bad Things. You can find the values for these tags in the <a href="data/MC_2012_27163003_Beam4000GeV2012MagDownNu2.5Pythia8_Sim08e_Digi13_Trig0x409f0045_Reco14a_Stripping20NoPrescalingFlagged_ALLSTREAMS.DST">bookkeeping file</a> we downloaded earlier.</p>
+<div id="database-tags" class="callout panel panel-info">
+<div class="panel-heading">
+<h2 id="database-tags" class="callout panel panel-info"><span class="glyphicon glyphicon-pushpin"></span>Database tags</h2>
+</div>
+<div class="panel-body">
+<p>Generally, the <code>CondDB</code> and <code>DDDB</code> tags are different for each dataset you want to use, but will be the same for all DSTs within a given dataset. When using simulated data, <em>always</em> find out what the database tags are for your dataset! For real collision data, you shouldn't specify these tags, as the default tags are the latest and greatest, so just remove those lines from the options file.</p>
+</div>
+</div>
 <p>In order to run an algorithm that we have previously created, we need to add it to the <code>UserAlgorithms</code> list. The <code>TupleFile</code> attribute defines the name of the ROOT output file that DaVinci will store any algorithm output in, which should be our ntuple.</p>
 <p>All that's left to do is to say what data we would like to run over. As we already have a data file <a href="03-bookkeeping.html">downloaded locally</a>, we define that as our input data.</p>
 <pre class="sourceCode python"><code class="sourceCode python"><span class="ch">from</span> GaudiConf <span class="ch">import</span> IOHelper
