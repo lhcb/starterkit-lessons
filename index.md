@@ -19,7 +19,7 @@ Paragraph(s) of introductory material.
 2.  Interactive look inside a DST with python
 3.  General introduction to Stripping
 3.  Finding your stripping line
-2.  Minimal DaVinci running locally
+2.  [Running a minimal DaVinci job locally](09-minimal-dv-job.html)
 3.  Storing large files on EOS
 4.  Minimal DaVinci on the grid
 5.  Add a simple TupleTool to the job
