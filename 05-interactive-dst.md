@@ -134,6 +134,11 @@ def advance(decision):
     n = 0
     while True:
         appMgr.run(1)
+
+        if not evt["/Event/DAQ/RawEvent"]:
+            print "Reached end of input files"
+            break
+
         n += 1
         dec=evt['/Event/Strip/Phys/DecReports']
         if dec.hasDecisionName("Stripping%sDecision"%decision):
