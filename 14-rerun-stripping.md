@@ -16,7 +16,7 @@ For example, what if our data sample uses Stripping 21, while our MC sample uses
 
 In this case, we simply need to rerun our stripping line of choice from the correct stripping version.
 
-[This example](code/07-rerun-stripping/options.py) is an extended version of the minimal DaVinci DecayTreeTuple job that additionally runs the corresponding stripping line from Stripping 21.
+[This example](code/14-rerun-stripping/options.py) is an extended version of the minimal DaVinci DecayTreeTuple job that additionally runs the corresponding stripping line from Stripping 21.
 
 Take a look at the file and try to find out what has changed compared to the [minimal DaVinci example](./code/09-ntuple_options.py).
 
