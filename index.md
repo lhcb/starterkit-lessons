@@ -25,7 +25,7 @@ Paragraph(s) of introductory material.
 5.  Add a simple TupleTool to the job
 6.  LoKi Hybrid tool
 7.  Fun with LoKi functors
-8.  Switch to a new stripping (20 -> 21) for one line in MC
+8.  [Switch to a new stripping (20 -> 21) for one line in MC](14-rerun-stripping.html)
 9.  Split your jobs into subjobs
 10. (Stripping line efficiency)
 11. How to use a stripping line for a slightly different decay
