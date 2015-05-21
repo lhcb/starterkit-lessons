@@ -1,14 +1,18 @@
 
-from GaudiConf import IOHelper
-from Configurables import DaVinci, DecayTreeTuple
-from DecayTreeTuple.Configuration import *
+# This options file demonstrates how to run a stripping line
+# from a specific stripping version on a local MC DST file
+# It is based on the minimal DaVinci DecayTreeTuple example
+
 from StrippingConf.Configuration import StrippingConf, StrippingStream
 from StrippingSettings.Utils import strippingConfiguration
 from StrippingArchive.Utils import buildStreams
 from StrippingArchive import strippingArchive
 
+# Build a new stream called 'CustomStream' that only
+# contains the desired line
 strip = 'stripping21'
-streams = buildStreams(stripping=strippingConfiguration(strip), archive=strippingArchive(strip))
+streams = buildStreams(stripping=strippingConfiguration(strip),
+                       archive=strippingArchive(strip))
 
 custom_stream = StrippingStream("CustomStream")
 custom_line = 'StrippingD2hhCompleteEventPromptDst2D2RSLine'
@@ -20,43 +24,45 @@ for stream in streams:
 
 line = 'D2hhCompleteEventPromptDst2D2RSLine'
 
-dtt = DecayTreeTuple('TupleDstToD0pi_D0ToKpi')
-dtt.Inputs = [
-    'Phys/{1}/Particles'.format(line)
-]
-dtt.Decay = '[D*(2010)+ -> ^(D0 -> ^K- ^pi+) ^pi+]CC'
-dtt.addBranches({
-    'Dst': '[D*(2010)+ -> (D0 -> K- pi+) pi+]CC',
-    'Dst_pi': '[D*(2010)+ -> (D0 -> K- pi+) ^pi+]CC',
-    'D0': '[D*(2010)+ -> ^(D0 -> K- pi+) pi+]CC',
-    'D0_K': '[D*(2010)+ -> (D0 -> ^K- pi+) pi+]CC',
-    'Dp_pi': '[D*(2010)+ -> (D0 -> K- ^pi+) pi+]CC'
-})
-dtt.ToolList = [
-    'TupleToolGeometry',
-    'TupleToolKinematic',
-    'TupleToolPid',
-    'TupleToolPrimaries',
-    'TupleToolTrackInfo',
-    'TupleToolEventInfo'
-]
-# Add the delta mass variable, dm = m(Kpipi) - m(Kpi)
-dst_tt = dtt.Dst.addTupleTool('LoKi__Hybrid__TupleTool/DstTupleTool')
-dst_tt.Variables = {
-    'delta_M': 'M - M1'
-}
+# Create the actual Stripping configurable
+from Configurables import ProcStatusCheck
+filterBadEvents = ProcStatusCheck()
 
+sc = StrippingConf(Streams=[custom_stream],
+                   MaxCandidates=2000,
+                   AcceptBadEvents=False,
+                   HDRLocation = "DumpHDR",
+                   BadEventSelection=filterBadEvents)
+
+from GaudiConf import IOHelper
+from Configurables import DaVinci, DecayTreeTuple
+from DecayTreeTuple.Configuration import *
+
+# The output is placed directly into Phys, so we only need to
+# define the stripping line here
+line = 'D2hhCompleteEventPromptDst2D2RSLine'
+
+# Create an ntuple to capture D*+ decays from the StrippingLine line
+dtt = DecayTreeTuple('TupleDstToD0pi_D0ToKpi')
+dtt.Inputs = ['/Event/Phys/{0}/Particles'.format(line)]
+dtt.Decay = '[D*(2010)+ -> (D0 -> K- pi+) pi+]CC'
+
+# Configure DaVinci
+
+# Important: The selection sequence needs to be inserted into
+# the Gaudi sequence for the stripping to run
+DaVinci().appendToMainSequence([sc.sequence()])
 DaVinci().UserAlgorithms += [dtt]
 DaVinci().InputType = 'DST'
 DaVinci().TupleFile = 'DVntuple.root'
 DaVinci().PrintFreq = 1000
-DaVinci().DataType = '2011'
-DaVinci().Simulation = False
-# Only ask for luminosity information when using collision data
+DaVinci().DataType = '2012'
+DaVinci().Simulation = True
+# Only ask for luminosity information when not using simulated data
 DaVinci().Lumi = not DaVinci().Simulation
-DaVinci().EvtMax = -1
+DaVinci().EvtMax = 5000
 
+# Use the local input data
 IOHelper().inputFiles([
-    './00041838_00047508_1.charmcompleteevent.dst'
+  './00035742_00000002_1.allstreams.dst'
 ], clear=True)
-

@@ -1,69 +1,22 @@
 ---
 layout: page
 title: First Steps in LHCb
-subtitle: Running the stripping on simulated samples
+subtitle: Running a specific stripping version on a DST
 minutes: 15
 ---
 > ## Learning Objectives {.objectives}
 >
-> * Modify the minimal DecayTreeTuple example to apply a different stripping version
+> * Modify the minimal DecayTreeTuple example to apply a different stripping version to an MC sample
 
-We want to use Stripping21 with our simulation sample, but only Stripping20 has been applied to it.
-To get the correct stripping, we will need to run it as part of our DaVinci job.
-This is easier than it might seem at first, because all necessary parts are already there and
-just need to be put together.
+Ideally, our simulated samples should feature the same stripping cuts as the real data we want to work with.
+We can be sure of this if the same stripping version has been used when processing the simulated and real data.
 
-Let's start by importing a few stripping-related tools at the top of our options file:
+But often, our simulated sample will have a different version of the stripping applied to it.
+For example, what if our data sample uses Stripping 21, while our MC sample uses Stripping 20?
 
-~~~ {.python}
-from StrippingConf.Configuration import StrippingConf, StrippingStream
-from StrippingSettings.Utils import strippingConfiguration
-from StrippingArchive.Utils import buildStreams
-from StrippingArchive import strippingArchive
-~~~
+In this case, we simply need to rerun our stripping line of choice from the correct stripping version.
 
-This is how you get all the stripping streams for Stripping21:
+[This example](code/07-rerun-stripping/options.py) is an extended version of the minimal DaVinci DecayTreeTuple job that additionally runs the corresponding stripping line from Stripping 21.
 
-~~~ {.python}
-strip = 'stripping21'
-streams = buildStreams(stripping=strippingConfiguration(strip), archive=strippingArchive(strip))
-~~~
-
-We will build our own custom stream with the desired stripping line.
-By using our custom stream, we will only run a single stripping line and nothing else.
-
-~~~ {.python}
-custom_stream = StrippingStream("CustomStream")
-custom_line = 'StrippingFullDSTDiMuonJpsi2MuMuDetachedLine'
-~~~
-
-Get the stripping line with the right name:
-
-~~~ {.python
-for stream in streams: 
-    for line in stream.lines:
-        if line.name() == custom_line:
-            custom_stream.appendLines([line]) 
-~~~
-
-This is how the stripping is initialized
-
-~~~ {.python}
-from Configurables import ProcStatusCheck
-
-sc = StrippingConf(Streams=[custom_stream],
-                   MaxCandidates=2000,
-                   AcceptBadEvents=False,
-                   BadEventSelection=ProcStatusCheck())
-~~~
-
-Run the stripping as part of our DaVinci job.
-Make sure to access `.sequence()` here.
-
-~~~ {.python}
-DaVinci().appendToMainSequence([sc.sequence()])
-~~~
-
-Make sure that your options file looks like [this example](examples/07-rerun-stripping/options.py).
-
+Take a look at the file and try to find out what has changed compared to the [minimal DaVinci example](./code/09-ntuple_options.py).
 
