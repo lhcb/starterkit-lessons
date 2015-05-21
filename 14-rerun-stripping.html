@@ -40,14 +40,14 @@
 <p>Ideally, our simulated samples should feature the same stripping cuts as the real data we want to work with. We can be sure of this if the same stripping version has been used when processing the simulated and real data.</p>
 <p>But often, our simulated sample will have a different version of the stripping applied to it. For example, what if our data sample uses Stripping 21, while our MC sample uses Stripping 20?</p>
 <p>In this case, we simply need to rerun our stripping line of choice from the correct stripping version.</p>
-<p><a href="code/14-rerun-stripping/options.py">This example</a> is an extended version of the minimal DaVinci DecayTreeTuple job that additionally runs the corresponding stripping line from Stripping 21.</p>
+<p><a href="code/14-rerun-stripping/options.py">This example</a> is an extended version of the <a href="./09-minimal-dv-job.html">minimal DaVinci DecayTreeTuple job</a> that additionally runs the corresponding stripping line from Stripping 21.</p>
 <p>Take a look at the file and try to find out what has changed compared to the <a href="./code/09-ntuple_options.py">minimal DaVinci example</a>.</p>
 <p>The key changes are</p>
 <ul>
 <li>Picking the right stripping line from Stripping 21 (which we prepare with <code>buildStreams</code>):</li>
 <li>Building a custom stream that only contains the desired stripping line</li>
 </ul>
-<pre class="sourceCode python"><code class="sourceCode python">strip = <span class="st">&#39;stripping21&#39;</span>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">strip = <span class="st">&#39;stripping21&#39;</span>
 streams = buildStreams(stripping=strippingConfiguration(strip),
                        archive=strippingArchive(strip))
 
@@ -57,19 +57,19 @@ custom_line = <span class="st">&#39;StrippingD2hhCompleteEventPromptDst2D2RSLine
 <span class="kw">for</span> stream in streams:
     <span class="kw">for</span> line in stream.lines:
         <span class="kw">if</span> line.name() == custom_line:
-            custom_stream.appendLines([line])</code></pre>
+            custom_stream.appendLines([line])</code></pre></div>
 <ul>
 <li>Instantiating a <code>StrippingConf</code> for running the stripping</li>
 </ul>
-<pre class="sourceCode python"><code class="sourceCode python">sc = StrippingConf(Streams=[custom_stream],
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">sc = StrippingConf(Streams=[custom_stream],
                    MaxCandidates=<span class="dv">2000</span>,
                    AcceptBadEvents=<span class="ot">False</span>,
                    HDRLocation = <span class="st">&quot;DumpHDR&quot;</span>,
-                   BadEventSelection=filterBadEvents)</code></pre>
+                   BadEventSelection=filterBadEvents)</code></pre></div>
 <ul>
 <li>Inserting the stripping selection sequence into the Gaudi sequence</li>
 </ul>
-<pre class="sourceCode python"><code class="sourceCode python">DaVinci().appendToMainSequence([sc.sequence()])</code></pre>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">DaVinci().appendToMainSequence([sc.sequence()])</code></pre></div>
         </div>
       </div>
       <div class="footer">
