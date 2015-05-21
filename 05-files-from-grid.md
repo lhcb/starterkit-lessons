@@ -1,7 +1,7 @@
 ---
 layout: page
 title: First Steps in LHCb
-subtitle: Using screen to keep things running
+subtitle: Download a file from the grid
 minutes: 10
 ---
 
