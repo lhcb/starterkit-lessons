@@ -42,6 +42,34 @@
 <p>In this case, we simply need to rerun our stripping line of choice from the correct stripping version.</p>
 <p><a href="code/07-rerun-stripping/options.py">This example</a> is an extended version of the minimal DaVinci DecayTreeTuple job that additionally runs the corresponding stripping line from Stripping 21.</p>
 <p>Take a look at the file and try to find out what has changed compared to the <a href="./code/09-ntuple_options.py">minimal DaVinci example</a>.</p>
+<p>The key changes are</p>
+<ul>
+<li>Picking the right stripping line from Stripping 21 (which we prepare with <code>buildStreams</code>):</li>
+<li>Building a custom stream that only contains the desired stripping line</li>
+</ul>
+<pre class="sourceCode python"><code class="sourceCode python">strip = <span class="st">&#39;stripping21&#39;</span>
+streams = buildStreams(stripping=strippingConfiguration(strip),
+                       archive=strippingArchive(strip))
+
+custom_stream = StrippingStream(<span class="st">&quot;CustomStream&quot;</span>)
+custom_line = <span class="st">&#39;StrippingD2hhCompleteEventPromptDst2D2RSLine&#39;</span>
+
+<span class="kw">for</span> stream in streams:
+    <span class="kw">for</span> line in stream.lines:
+        <span class="kw">if</span> line.name() == custom_line:
+            custom_stream.appendLines([line])</code></pre>
+<ul>
+<li>Instantiating a <code>StrippingConf</code> for running the stripping</li>
+</ul>
+<pre class="sourceCode python"><code class="sourceCode python">sc = StrippingConf(Streams=[custom_stream],
+                   MaxCandidates=<span class="dv">2000</span>,
+                   AcceptBadEvents=<span class="ot">False</span>,
+                   HDRLocation = <span class="st">&quot;DumpHDR&quot;</span>,
+                   BadEventSelection=filterBadEvents)</code></pre>
+<ul>
+<li>Inserting the stripping selection sequence into the Gaudi sequence</li>
+</ul>
+<pre class="sourceCode python"><code class="sourceCode python">DaVinci().appendToMainSequence([sc.sequence()])</code></pre>
         </div>
       </div>
       <div class="footer">
