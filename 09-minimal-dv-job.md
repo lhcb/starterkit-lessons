@@ -35,7 +35,7 @@ from Configurables import DecayTreeTuple
 from DecayTreeTuple.Configuration import *
 
 # Stream and stripping line we want to use
-stream = 'CharmCompleteEvent'
+stream = 'AllStreams'
 line = 'D2hhCompleteEventPromptDst2D2RSLine'
 
 # Create an ntuple to capture D*+ decays from the StrippingLine line
@@ -87,7 +87,7 @@ DaVinci().InputType = 'DST'
 DaVinci().TupleFile = 'DVntuple.root'
 DaVinci().PrintFreq = 1000
 DaVinci().DataType = '2012'
-DaVinci().Simulation = False
+DaVinci().Simulation = True
 # Only ask for luminosity information when not using simulated data
 DaVinci().Lumi = not DaVinci().Simulation
 DaVinci().EvtMax = -1
@@ -128,7 +128,7 @@ The `TupleFile` attribute defines the name of the ROOT output file that DaVinci
 will store any algorithm output in, which should be our ntuple.
 
 All that's left to do is to say what data we would like to run over.
-As we already have a data file [downloaded locally](03-bookkeeping.html), we 
+As we already have a data file [downloaded locally](05-files-from-grid.html), we 
 define that as our input data.
 
 ```python
@@ -136,7 +136,7 @@ from GaudiConf import IOHelper
 
 # Use the local input data
 IOHelper().inputFiles([
-  './00041838_00047508_1.charmcompleteevent.dst'
+  './00035742_00000002_1.allstreams.dst'
 ], clear=True)
 ```
 
@@ -153,7 +153,7 @@ $ lb-run DaVinci v36r6 gaudirun.py ntuple_options.py
 ```
 
 The full options file we've created, `ntuple_options.py`, is [available 
-here](), and the resulting ntuple is [available here]().
+here](./code/09-minimal-dv/ntuple_options.py).
 
 > ## Using a microDST {.callout}
 >
