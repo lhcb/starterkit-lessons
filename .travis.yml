@@ -11,7 +11,7 @@ install:
 script:
 - make preview
 # Don't publish pull requests
-- '[ "${TRAVIS_PULL_REQUEST}" = "false" ] && make publish-travis > /dev/null 2>&1'
+- '[ "${TRAVIS_PULL_REQUEST}" = "false" ] && make publish-travis > /dev/null 2>&1 || true'
 - make check
 env:
   global:
