@@ -14,7 +14,10 @@ We can be sure of this if the same stripping version has been used when processi
 But often, our simulated sample will have a different version of the stripping applied to it.
 For example, what if our data sample uses Stripping 21, while our MC sample uses Stripping 20?
 
-In this case, we simply need to rerun our stripping line of choice from the correct stripping version.
+In this case, we simply need to rerun our stripping line of choice from the correct stripping version with one caveat:
+the decisions of the stripping that ran during the central MC production are placed in a default location in the TES (`/Event/Strip/Phys/DecReports`), so if we try to run our custom stripping it will complain because the location it wants to write the new decisions to already exists.
+To solve this issue, we need to run an instance of `EventNodeKiller` to remove the decisions from the MC production so that our custom stripping can write there instead.
+This is nice, because most tools expect to read the stripping decisions from the default location, so we won't have to reconfigure anything.
 
 [This example](code/14-rerun-stripping/options.py) is an extended version of the [minimal DaVinci DecayTreeTuple job](./09-minimal-dv-job.html) that additionally runs the corresponding stripping line from Stripping 21.
 
