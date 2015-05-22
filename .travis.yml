@@ -6,13 +6,12 @@ install:
 - unzip -j /tmp/pandoc-1.13.1.zip pandoc-1.13.1/linux/debian/x86_64/pandoc -d ${HOME}/pandoc
 - chmod +x ${HOME}/pandoc/pandoc
 - export PATH=$PATH:${HOME}/pandoc
-- sudo pip install ghp-import
-- sudo pip install -r requirements.txt
+- pip install --user ghp-import
+- pip install --user -r requirements.txt
 script:
 - make preview
 - make publish-travis > /dev/null 2>&1
 - make check
-sudo: required
 env:
   global:
     secure: GrjBaEAQs3m0eDOFsSXJmQF+Bv/ltiQd0T4EJhnmSCY0ENqpTlXMiPJiVh6RcXVF9hesWZ+s0e3oF0qupqjIpnyG34TLfTljl5CtjZJN0y6TI/BlbX+qQ/vGAHzmVd+N1tZ2saYJnvUS53prcHdfePz4aVXCOMMSzpEUm4KJc1o=
