@@ -28,7 +28,7 @@
           <h2 class="subtitle">Using screen to keep things running</h2>
 <div id="learning-objectives" class="objectives panel panel-warning">
 <div class="panel-heading">
-<h2 id="learning-objectives" class="objectives panel panel-warning"><span class="glyphicon glyphicon-certificate"></span>Learning Objectives</h2>
+<h2><span class="glyphicon glyphicon-certificate"></span>Learning Objectives</h2>
 </div>
 <div class="panel-body">
 <ul>
@@ -42,34 +42,34 @@
 </div>
 <p>Often we want to run a program for a long time on a computer we connected to via <code>ssh</code>, like the <code>lxplus</code> machines. The <code>screen</code> program allows you to keep programs running on the remote computer even if you disconnect from it. For example when putting your laptop to sleep or losing wifi.</p>
 <p>Connect to <code>lxplus</code>:</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">ssh</span> lxplus.cern.ch</code></pre></div>
+<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">ssh</span> lxplus.cern.ch</code></pre>
 <p>You can start <code>screen</code> by simply typing its name: <sub>~</sub> {.bash} $ screen <sub>~</sub></p>
 <p>Once you do this it will look as if nothing has happened. However you now have a fresh terminal inside what is refered to as a &quot;screen session&quot;. Let's type some commands that generate some output:</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">uptime</span></code></pre></div>
+<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">uptime</span></code></pre>
 <pre class="output"><code> 11:48:02 up 15 days, 20:36, 105 users,  load average: 2.26, 2.10, 3.16</code></pre>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">date</span></code></pre></div>
+<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">date</span></code></pre>
 <pre class="output"><code>Thu Apr 16 11:48:32 CEST 2015</code></pre>
 <p>To disconnect from this session press <code>Ctrl-a d</code>. We are now back to the terminal that we first started in. You can check that your <code>screen</code> session is still running by typing <code>screen -list</code>, which will list all active sessions:</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">screen</span> -list</code></pre></div>
+<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">screen</span> -list</code></pre>
 <pre class="output"><code>There is a screen on:
       25593.pts-44.lxplus0234   (Detached)
 1 Socket in /var/run/screen/S-thead.</code></pre>
 <p>To reconnect to the session you use <code>screen -rD</code>. When there is just one session running (like now) then it will reconnect you to that session. Try it and you should see the date and time output by the <code>date</code> command we ran earlier.</p>
 <p>When you have more than one session you need to provide the name of the session as an argument to <code>screen -rD</code>. The name of the above session is: <code>25593.pts-44.lxplus0234</code>. You can reconnect to it with:</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">screen</span> -rD 25593.pts-44.lxplus0234</code></pre></div>
+<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">screen</span> -rD 25593.pts-44.lxplus0234</code></pre>
 <p>To end a <code>screen</code> session you are currently connected to, simply press <code>Ctrl-d</code>. Just like you would to disconnect from a <code>ssh</code> session.</p>
 <p>A <code>screen</code> session is tied to a specific computer. This means you need to remember which computer you connected to. Even if your <code>screen</code> session keeps running, you can only resume it from the same machine as you started it.</p>
 <p>When connecting to <code>lxplus</code> you are assigned to a random computer, but you can find out its name with <code>hostname</code>:</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">hostname</span></code></pre></div>
+<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">hostname</span></code></pre>
 <pre class="output"><code>lxplus0081.cern.ch</code></pre>
 <p>This tells you that the computer you are connected to is called <code>lxplus0081.cern.ch</code>. Later on you can re-connect to exactly this machine with:</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">ssh</span> lxplus0081.cern.ch</code></pre></div>
+<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">ssh</span> lxplus0081.cern.ch</code></pre>
         </div>
       </div>
       <div class="footer">
         <a class="label swc-blue-bg" href="http://software-carpentry.org">Software Carpentry</a>
-        <a class="label swc-blue-bg" href="https://github.com/swcarpentry/lesson-template">Source</a>
-        <a class="label swc-blue-bg" href="mailto:admin@software-carpentry.org">Contact</a>
+        <a class="label swc-blue-bg" href="https://github.com/betatim/lhcb-first-analysis-steps">Source</a>
+        <a class="label swc-blue-bg" href="mailto:lhcb-starterkit@cern.ch">Contact</a>
         <a class="label swc-blue-bg" href="LICENSE.html">License</a>
       </div>
     </div>
