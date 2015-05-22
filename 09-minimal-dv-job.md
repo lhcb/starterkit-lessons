@@ -109,7 +109,7 @@ that the Monte Carlo was generated with.
 Specifying these tags is important, as without them you can end up with the 
 wrong magnet polarity value in your ntuple, amongst other Bad Things.
 You can find the values for these tags in the [bookkeeping 
-file](data/MC_2012_27163003_Beam4000GeV2012MagDownNu2.5Pythia8_Sim08e_Digi13_Trig0x409f0045_Reco14a_Stripping20NoPrescalingFlagged_ALLSTREAMS.DST) 
+file](data/MC_2012_27163003_Beam4000GeV2012MagDownNu2.5Pythia8_Sim08e_Digi13_Trig0x409f0045_Reco14a_Stripping20NoPrescalingFlagged_ALLSTREAMS.DST.py) 
 we downloaded earlier.
 
 > ## Database tags {.callout}

@@ -1,7 +1,7 @@
 ---
 layout: page
 title: First Steps in LHCb
-subtitle: Running a specific stripping version on a DST
+subtitle: Switch to a new stripping (20 -> 21) for one line in MC
 minutes: 15
 ---
 > ## Learning Objectives {.objectives}
@@ -19,9 +19,9 @@ the decisions of the stripping that ran during the central MC production are pla
 To solve this issue, we need to run an instance of `EventNodeKiller` to remove the decisions from the MC production so that our custom stripping can write there instead.
 This is nice, because most tools expect to read the stripping decisions from the default location, so we won't have to reconfigure anything.
 
-[This example](code/14-rerun-stripping/options.py) is an extended version of the [minimal DaVinci DecayTreeTuple job](./09-minimal-dv-job.html) that additionally runs the corresponding stripping line from Stripping 21.
+[This example](code/14-rerun-stripping/options.py) is an extended version of the [minimal DaVinci DecayTreeTuple job](09-minimal-dv-job.html) that additionally runs the corresponding stripping line from Stripping 21.
 
-Take a look at the file and try to find out what has changed compared to the [minimal DaVinci example](./code/09-ntuple_options.py).
+Take a look at the file and try to find out what has changed compared to the [minimal DaVinci example](code/09-minimal-dv/ntuple_options.py).
 
 The key changes are
 
