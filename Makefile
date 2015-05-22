@@ -38,6 +38,7 @@ check: $(ALL_MD)
 ## clean    : Clean up temporary and intermediate files.
 clean :
 	@rm -rf $$(find . -name '*~' -print)
+	rm -rf ./_site
 
 ## preview  : Build website locally for checking.
 preview : $(DST_ALL)
