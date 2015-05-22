@@ -84,6 +84,5 @@ unittest: tools/check.py tools/validation_helpers.py tools/test_check.py
 	cd tools/ && python3 test_check.py
 
 publish-travis: preview
-	ghp-import -n ./_site
-	@git push -fq https://${GH_TOKEN}@github.com/$(TRAVIS_REPO_SLUG).git gh-pages > /dev/null
+	@ghp-import -n ./_site && git push -fq https://${GH_TOKEN}@github.com/$(TRAVIS_REPO_SLUG).git gh-pages > /dev/null
 
