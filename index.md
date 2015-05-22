@@ -16,7 +16,7 @@ Paragraph(s) of introductory material.
 1.  [Using screen to keep things running](02-screen.html)
 2.  [Find the dataset in the Bookkeeping](03-bookkeeping.html)
 2.  [Download a file from the grid](05-files-from-grid.html)
-2.  [Interactive look inside a DST with python](05-interactive-dst.html)
+2.  [Interactively exploring a DST](05-interactive-dst.html)
 3.  General introduction to Stripping
 3.  Finding your stripping line
 2.  [Running a minimal DaVinci job locally](09-minimal-dv-job.html)
@@ -41,3 +41,5 @@ Paragraph(s) of introductory material.
 
 Each topic should be a chunk of 10-15 minutes.
 If that is too short, we should split it into several topics.
+
+## Other Resources
