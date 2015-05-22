@@ -6,10 +6,11 @@ DST_RMD = $(patsubst %.Rmd,%.md,$(SRC_RMD))
 ALL_MD = $(wildcard *.md) $(DST_RMD)
 EXCLUDE_MD = README.md LAYOUT.md FAQ.md DESIGN.md CONTRIBUTING.md CONDUCT.md
 SRC_MD = $(filter-out $(EXCLUDE_MD),$(ALL_MD))
-DST_HTML = $(patsubst %.md,%.html,$(SRC_MD))
+DST_HTML = $(patsubst %.md,_site/%.html,$(SRC_MD))
+DST_ASSETS = img js data code css
 
 # All outputs.
-DST_ALL = $(DST_HTML)
+DST_ALL = $(DST_HTML) $(patsubst %,_site/%,$(DST_ASSETS))
 
 # Pandoc filters.
 FILTERS = $(wildcard tools/filters/*.py)
@@ -48,13 +49,19 @@ motivation.html : motivation.md _layouts/slides.revealjs Makefile
 	-o $@ $<
 
 # Pattern to build a generic page.
-%.html : %.md _layouts/page.html $(FILTERS)
+_site/%.html : %.md _layouts/page.html $(FILTERS) | _site
 	pandoc -s -t html \
 	--template=_layouts/page \
 	--filter=tools/filters/blockquote2div.py \
 	--filter=tools/filters/id4glossary.py \
 	$(INCLUDES) \
 	-o $@ $<
+
+_site/%: % | _site
+	cp -r $< $@
+
+_site:
+	mkdir -p _site
 
 # Pattern to convert R Markdown to Markdown.
 %.md: %.Rmd $(R_CHUNK_OPTS)
@@ -75,3 +82,8 @@ settings :
 unittest: tools/check.py tools/validation_helpers.py tools/test_check.py
 	cd tools/ && python2 test_check.py
 	cd tools/ && python3 test_check.py
+
+publish-travis: preview
+	ghp-import -n ./_site
+	@git push -fq https://${GH_TOKEN}@github.com/$(TRAVIS_REPO_SLUG).git gh-pages > /dev/null
+

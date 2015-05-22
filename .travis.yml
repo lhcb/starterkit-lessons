@@ -1,0 +1,18 @@
+branches:
+  only:
+  - master
+install:
+- curl -o /tmp/pandoc-1.13.1.zip https://s3.amazonaws.com/rstudio-buildtools/pandoc-1.13.1.zip
+- unzip -j /tmp/pandoc-1.13.1.zip pandoc-1.13.1/linux/debian/x86_64/pandoc -d ${HOME}/pandoc
+- chmod +x ${HOME}/pandoc/pandoc
+- export PATH=$PATH:${HOME}/pandoc
+- sudo pip install ghp-import
+- sudo pip install -r requirements.txt
+script:
+- make preview
+- make publish-travis > /dev/null 2>&1
+- make check
+sudo: required
+env:
+  global:
+    secure: aWcO/zMJZdY/k77AwMbEuJQVXnGuHwrS07S6Y9ARZkixwaAV+X43zZRd7/iHivl50foLYf0KEb0wPIQNt+VmUuXza0o085ziZR9Qi7D8KsfGUVFQBz+558bwP3//qRb3DwE8hLsyszOnN5TSO4LC0BlcVCY7tgiIg8SzSTuMqJ/M2yyDsxewzVHLvVeBX7js4SVAPeaw6aLwyrXH7tWT0Tistzzj/KETIkeH2yNDUPj+RssWJ5DzyKEon7MTHfePqxViMki7C3VTgoHefkMmYxKWkn11G9C/NnTIeMR7PvWP2F4VjA599wqI+ZmMAHNw3rwY8ap6Nw003eG5PhxZy2NWPJqeaFEMNB1zEWYARiJA11ifB0tqnvxWaDl09PYEU7oEc3PS5V61U7XcfOi0NNv4kVIE9XuItpazyQUy9nGOpPnJUD7awBt9E60OXPO6u/FkSx6d2CsDTsBp/SN9ho+ttnP/YcPyq30tmNfCnEZ2YgT2zVFKMUbCjhFLjGOV8BraHf5wLbM+1YX126Klez2S7KfaMpEwDuKMXmwqbYUIygMr6NgXJuNoYzWzCuD++SgJqSPqca0rIWOKRWrVWbMFBpbHnvRRY3SS14S1UK9rrvT7pVq6ApSh4F3u+PxVRKfbyzscdewn+jYVqrc9VIXOwcHXqtOQd8/A4kutSOk=
