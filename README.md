@@ -1,5 +1,4 @@
-First Analysis Steps
-====================
+# First Analysis Steps [![Build Status](https://travis-ci.org/lhcb/first-analysis-steps.svg?branch=master)](https://travis-ci.org/lhcb/first-analysis-steps)
 
 This repository contains lessons that will get you started
 with the basic analysis steps needed for LHCb.
