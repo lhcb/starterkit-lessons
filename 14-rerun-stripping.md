@@ -25,6 +25,14 @@ Take a look at the file and try to find out what has changed compared to the [mi
 
 The key changes are
 
+ - Removing the old stripping reports with a node killer
+
+``` {.python}
+from Configurables import EventNodeKiller
+event_node_killer = EventNodeKiller('StripKiller')
+event_node_killer.Nodes = ['/Event/AllStreams', '/Event/Strip']
+```
+
  - Picking the right stripping line from Stripping 21 (which we prepare with `buildStreams`):
  - Building a custom stream that only contains the desired stripping line
 
@@ -48,13 +56,12 @@ for stream in streams:
 sc = StrippingConf(Streams=[custom_stream],
                    MaxCandidates=2000,
                    AcceptBadEvents=False,
-                   HDRLocation = "DumpHDR",
                    BadEventSelection=filterBadEvents)
 ```
 
- - Inserting the stripping selection sequence into the Gaudi sequence
+ - Inserting the node killer and the stripping selection sequence into the Gaudi sequence
 
 ``` {.python}
-DaVinci().appendToMainSequence([sc.sequence()])
+DaVinci().appendToMainSequence([event_node_killer, sc.sequence()])
 ```
 

@@ -8,6 +8,11 @@ from StrippingSettings.Utils import strippingConfiguration
 from StrippingArchive.Utils import buildStreams
 from StrippingArchive import strippingArchive
 
+# Node killer: remove the previous Stripping
+from Configurables import EventNodeKiller
+event_node_killer = EventNodeKiller('StripKiller')
+event_node_killer.Nodes = ['/Event/AllStreams', '/Event/Strip']
+
 # Build a new stream called 'CustomStream' that only
 # contains the desired line
 strip = 'stripping21'
@@ -31,7 +36,6 @@ filterBadEvents = ProcStatusCheck()
 sc = StrippingConf(Streams=[custom_stream],
                    MaxCandidates=2000,
                    AcceptBadEvents=False,
-                   HDRLocation = "DumpHDR",
                    BadEventSelection=filterBadEvents)
 
 from GaudiConf import IOHelper
@@ -51,7 +55,7 @@ dtt.Decay = '[D*(2010)+ -> (D0 -> K- pi+) pi+]CC'
 
 # Important: The selection sequence needs to be inserted into
 # the Gaudi sequence for the stripping to run
-DaVinci().appendToMainSequence([sc.sequence()])
+DaVinci().appendToMainSequence([event_node_killer, sc.sequence()])
 DaVinci().UserAlgorithms += [dtt]
 DaVinci().InputType = 'DST'
 DaVinci().TupleFile = 'DVntuple.root'

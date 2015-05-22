@@ -43,6 +43,12 @@
 <p>Take a look at the file and try to find out what has changed compared to the <a href="./code/09-ntuple_options.py">minimal DaVinci example</a>.</p>
 <p>The key changes are</p>
 <ul>
+<li>Removing the old stripping reports with a node killer</li>
+</ul>
+<pre class="sourceCode python"><code class="sourceCode python"><span class="ch">from</span> Configurables <span class="ch">import</span> EventNodeKiller
+event_node_killer = EventNodeKiller(<span class="st">&#39;StripKiller&#39;</span>)
+event_node_killer.Nodes = [<span class="st">&#39;/Event/AllStreams&#39;</span>, <span class="st">&#39;/Event/Strip&#39;</span>]</code></pre>
+<ul>
 <li>Picking the right stripping line from Stripping 21 (which we prepare with <code>buildStreams</code>):</li>
 <li>Building a custom stream that only contains the desired stripping line</li>
 </ul>
@@ -63,12 +69,11 @@ custom_line = <span class="st">&#39;StrippingD2hhCompleteEventPromptDst2D2RSLine
 <pre class="sourceCode python"><code class="sourceCode python">sc = StrippingConf(Streams=[custom_stream],
                    MaxCandidates=<span class="dv">2000</span>,
                    AcceptBadEvents=<span class="ot">False</span>,
-                   HDRLocation = <span class="st">&quot;DumpHDR&quot;</span>,
                    BadEventSelection=filterBadEvents)</code></pre>
 <ul>
-<li>Inserting the stripping selection sequence into the Gaudi sequence</li>
+<li>Inserting the node killer and the stripping selection sequence into the Gaudi sequence</li>
 </ul>
-<pre class="sourceCode python"><code class="sourceCode python">DaVinci().appendToMainSequence([sc.sequence()])</code></pre>
+<pre class="sourceCode python"><code class="sourceCode python">DaVinci().appendToMainSequence([event_node_killer, sc.sequence()])</code></pre>
         </div>
       </div>
       <div class="footer">
