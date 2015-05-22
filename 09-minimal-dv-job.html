@@ -2,8 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <meta name="generator" content="pandoc">
-    <title>Software Carpentry: First steps in LHCb</title>
+    <title>LHCb Starterkit: First steps in LHCb</title>
     <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" type="text/css" href="css/bootstrap/bootstrap.css" />
@@ -19,8 +18,8 @@
   <body class="lesson">
     <div class="container card">
       <div class="banner">
-        <a href="http://software-carpentry.org" title="Software Carpentry">
-          <img alt="Software Carpentry banner" src="img/software-carpentry-banner.png" />
+        <a href="{{site.url}}">
+          <img src="img/starterkit.png" height="100" alt="LHCb Starterkit">
         </a>
       </div>
       <div class="row">
@@ -29,7 +28,7 @@
           <h2 class="subtitle">Running a minimal DaVinci job locally</h2>
 <div id="learning-objectives" class="objectives panel panel-warning">
 <div class="panel-heading">
-<h2 id="learning-objectives" class="objectives panel panel-warning"><span class="glyphicon glyphicon-certificate"></span>Learning Objectives</h2>
+<h2><span class="glyphicon glyphicon-certificate"></span>Learning Objectives</h2>
 </div>
 <div class="panel-body">
 <ul>
@@ -42,7 +41,7 @@
 <p>With some stripped data located, it's useful to store the information on the selected particles inside an ntuple. This allows for quick, local analysis with <a href="https://root.cern.ch/">ROOT</a>, rather than always searching through a DST that contains lots of things we're not interested in.</p>
 <p>As well as being the application that runs the stripping, <a href="http://lhcb-release-area.web.cern.ch/LHCb-release-area/DOC/davinci">DaVinci</a> allows you to access events stored in DSTs and copy the information to ROOT ntuples. You tell DaVinci what you want it to do through <em>options files</em>, written in Python. There are lots of things you can do with DaVinci options files, as there's lots of information available on the DST, but for now we'll just work on getting the bare essentials up and running.</p>
 <p>Our main tool will be the <code>DecayTreeTuple</code> object, which we'll create inside a file we will call <code>ntuple_options.py</code>:</p>
-<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="ch">from</span> Configurables <span class="ch">import</span> DecayTreeTuple
+<pre class="sourceCode python"><code class="sourceCode python"><span class="ch">from</span> Configurables <span class="ch">import</span> DecayTreeTuple
 <span class="ch">from</span> DecayTreeTuple.Configuration <span class="ch">import</span> *
 
 <span class="co"># Stream and stripping line we want to use</span>
@@ -52,13 +51,13 @@ line = <span class="st">&#39;D2hhCompleteEventPromptDst2D2RSLine&#39;</span>
 <span class="co"># Create an ntuple to capture D*+ decays from the StrippingLine line</span>
 dtt = DecayTreeTuple(<span class="st">&#39;TupleDstToD0pi_D0ToKpi&#39;</span>)
 dtt.Inputs = [<span class="st">&#39;/Event/</span><span class="ot">{0}</span><span class="st">/Phys/</span><span class="ot">{1}</span><span class="st">/Particles&#39;</span>.<span class="dt">format</span>(stream, line)]
-dtt.Decay = <span class="st">&#39;[D*(2010)+ -&gt; (D0 -&gt; K- pi+) pi+]CC&#39;</span></code></pre></div>
+dtt.Decay = <span class="st">&#39;[D*(2010)+ -&gt; (D0 -&gt; K- pi+) pi+]CC&#39;</span></code></pre>
 <p>This imports the <code>DecayTreeTuple</code> class, and then creates an object called <code>dtt</code> representing our ntuple. Once DaVinci has run, the resulting ntuple will be saved in a folder within the output ROOT file called <code>TupleDstToD0pi_D0ToKpi</code>.</p>
 <p>The <code>Inputs</code> attribute specifies where <code>DecayTreeTuple</code> should look for particles, and here we want it to look at the output of the stripping line we're interested in.</p>
 <p>As stripping lines can save many decays to a DST, the <code>Decay</code> attribute specifies what decay we would like to have in our ntuple. If there are no particles at the <code>Input</code> location, or the <code>Decay</code> string doesn't match any particles at that location, the ntuple will not be filled.</p>
 <div id="decay-descriptors" class="callout panel panel-info">
 <div class="panel-heading">
-<h2 id="decay-descriptors" class="callout panel panel-info"><span class="glyphicon glyphicon-pushpin"></span>Decay descriptors</h2>
+<h2><span class="glyphicon glyphicon-pushpin"></span>Decay descriptors</h2>
 </div>
 <div class="panel-body">
 <p>There is a special syntax for the <code>Decay</code> attribute string, commonly called 'decay descriptors', that allow a lot of flexibility with what you accept. For example, <code>D0 -&gt; K- X+</code> will match any D0 decay that contains one negatively charged kaon and one positively charged track of any species. More information the decay descriptor syntax can be found on the <a href="https://twiki.cern.ch/twiki/bin/view/LHCb/FAQ/LoKiNewDecayFinders">LoKi decay finders TWiki page</a>.</p>
@@ -66,7 +65,7 @@ dtt.Decay = <span class="st">&#39;[D*(2010)+ -&gt; (D0 -&gt; K- pi+) pi+]CC&#39;
 </div>
 <p>Now we need to tell DaVinci how to behave. The <code>DaVinci</code> class allows you to tell DaVinci how many events to run over, what type of data is being used, what algorithms to run over the events, and so on.</p>
 <p>There are <a href="http://lhcb-release-area.web.cern.ch/LHCb-release-area/DOC/davinci/releases/v36r6/doxygen/py/dc/d2f/class_da_vinci_1_1_configuration_1_1_da_vinci.html#ac788f6a80f5f61d47056debe7b86ca71">many configuration attributes</a> defined on the <code>DaVinci</code> object, but we will only set the ones that are necessary for us.</p>
-<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="ch">from</span> Configurables <span class="ch">import</span> DaVinci
+<pre class="sourceCode python"><code class="sourceCode python"><span class="ch">from</span> Configurables <span class="ch">import</span> DaVinci
 
 <span class="co"># Configure DaVinci</span>
 DaVinci().UserAlgorithms += [dtt]
@@ -79,12 +78,12 @@ DaVinci().Simulation = <span class="ot">True</span>
 DaVinci().Lumi = not DaVinci().Simulation
 DaVinci().EvtMax = -<span class="dv">1</span>
 DaVinci().CondDBtag = <span class="st">&#39;sim-20130522-1-vc-md100&#39;</span>
-DaVinci().DDDBtag = <span class="st">&#39;dddb-20130929-1&#39;</span></code></pre></div>
+DaVinci().DDDBtag = <span class="st">&#39;dddb-20130929-1&#39;</span></code></pre>
 <p>Nicely, a lot of the attributes of the <code>DaVinci</code> object are self-explanatory: <code>InputType</code> should be <code>'DST'</code> when giving DaVinci DST files; <code>PrintFreq</code> defines how often DaVinci should print its status; <code>DataType</code> is the year of data-taking the data corresponds to, which we get from looking at the bookkeeping path used to get the input DST; <code>Simulation</code> should be <code>True</code> when using Monte Carlo data, <code>Lumi</code> defines whether to store information on the integrated luminosity the input data corresponds to; and <code>EvtMax</code> defines how many events to run over, where a value of <code>-1</code> means &quot;all events&quot;.</p>
 <p>The <code>CondDBtag</code> and <code>DDDBtag</code> attributes specify the exact detector conditions that the Monte Carlo was generated with. Specifying these tags is important, as without them you can end up with the wrong magnet polarity value in your ntuple, amongst other Bad Things. You can find the values for these tags in the <a href="data/MC_2012_27163003_Beam4000GeV2012MagDownNu2.5Pythia8_Sim08e_Digi13_Trig0x409f0045_Reco14a_Stripping20NoPrescalingFlagged_ALLSTREAMS.DST">bookkeeping file</a> we downloaded earlier.</p>
 <div id="database-tags" class="callout panel panel-info">
 <div class="panel-heading">
-<h2 id="database-tags" class="callout panel panel-info"><span class="glyphicon glyphicon-pushpin"></span>Database tags</h2>
+<h2><span class="glyphicon glyphicon-pushpin"></span>Database tags</h2>
 </div>
 <div class="panel-body">
 <p>Generally, the <code>CondDB</code> and <code>DDDB</code> tags are different for each dataset you want to use, but will be the same for all DSTs within a given dataset. When using simulated data, <em>always</em> find out what the database tags are for your dataset! For real collision data, you shouldn't specify these tags, as the default tags are the latest and greatest, so just remove those lines from the options file.</p>
@@ -92,12 +91,12 @@ DaVinci().DDDBtag = <span class="st">&#39;dddb-20130929-1&#39;</span></code></pr
 </div>
 <p>In order to run an algorithm that we have previously created, we need to add it to the <code>UserAlgorithms</code> list. The <code>TupleFile</code> attribute defines the name of the ROOT output file that DaVinci will store any algorithm output in, which should be our ntuple.</p>
 <p>All that's left to do is to say what data we would like to run over. As we already have a data file <a href="05-files-from-grid.html">downloaded locally</a>, we define that as our input data.</p>
-<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="ch">from</span> GaudiConf <span class="ch">import</span> IOHelper
+<pre class="sourceCode python"><code class="sourceCode python"><span class="ch">from</span> GaudiConf <span class="ch">import</span> IOHelper
 
 <span class="co"># Use the local input data</span>
 IOHelper().inputFiles([
   <span class="st">&#39;./00035742_00000002_1.allstreams.dst&#39;</span>
-], clear=<span class="ot">True</span>)</code></pre></div>
+], clear=<span class="ot">True</span>)</code></pre>
 <p>This says to use the <code>.dst</code> file that is in the same directory as the options file, and to clear any previous input files that might have been defined.</p>
 <p>That's it! We're ready to run DaVinci.</p>
 <p>In the same folder as your options file <code>ntuple_options.py</code> and your DST file ending in <code>.dst</code>, there's just a single command you need run on <code>lxplus</code>.</p>
@@ -105,7 +104,7 @@ IOHelper().inputFiles([
 <p>The full options file we've created, <code>ntuple_options.py</code>, is <a href="./code/09-minimal-dv/ntuple_options.py">available here</a>.</p>
 <div id="using-a-microdst" class="callout panel panel-info">
 <div class="panel-heading">
-<h2 id="using-a-microdst" class="callout panel panel-info"><span class="glyphicon glyphicon-pushpin"></span>Using a microDST</h2>
+<h2><span class="glyphicon glyphicon-pushpin"></span>Using a microDST</h2>
 </div>
 <div class="panel-body">
 <p>A microDST (or µDST) is a smaller version of a DST. Some stripping lines go to µDSTs, and some go to DSTs. There are two things that need changing it our options file in order to have in work when it is used with a stripping line that goes to a µDST:</p>
@@ -114,17 +113,17 @@ IOHelper().inputFiles([
 <li>The <code>RootInTES</code> attribute on the <code>DaVinci</code> object to be set to <code>/Event/$STREAM</code></li>
 </ol>
 <p>In context, the changes look like</p>
-<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">dtt.Inputs = [<span class="st">&#39;Phys/</span><span class="ot">{0}</span><span class="st">/Particles&#39;</span>.<span class="dt">format</span>(line)]
+<pre class="sourceCode python"><code class="sourceCode python">dtt.Inputs = [<span class="st">&#39;Phys/</span><span class="ot">{0}</span><span class="st">/Particles&#39;</span>.<span class="dt">format</span>(line)]
 <span class="co"># ...</span>
-DaVinci().RootInTES = <span class="st">&#39;/Event/</span><span class="ot">{0}</span><span class="st">&#39;</span>.<span class="dt">format</span>(stream)</code></pre></div>
+DaVinci().RootInTES = <span class="st">&#39;/Event/</span><span class="ot">{0}</span><span class="st">&#39;</span>.<span class="dt">format</span>(stream)</code></pre>
 </div>
 </div>
         </div>
       </div>
       <div class="footer">
         <a class="label swc-blue-bg" href="http://software-carpentry.org">Software Carpentry</a>
-        <a class="label swc-blue-bg" href="https://github.com/swcarpentry/lesson-template">Source</a>
-        <a class="label swc-blue-bg" href="mailto:admin@software-carpentry.org">Contact</a>
+        <a class="label swc-blue-bg" href="https://github.com/lhcb/first-analysis-steps">Source</a>
+        <a class="label swc-blue-bg" href="mailto:lhcb-starterkit@cern.ch">Contact</a>
         <a class="label swc-blue-bg" href="LICENSE.html">License</a>
       </div>
     </div>

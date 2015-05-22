@@ -2,8 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <meta name="generator" content="pandoc">
-    <title>Software Carpentry: First Steps in LHCb</title>
+    <title>LHCb Starterkit: First Steps in LHCb</title>
     <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" type="text/css" href="css/bootstrap/bootstrap.css" />
@@ -19,8 +18,8 @@
   <body class="lesson">
     <div class="container card">
       <div class="banner">
-        <a href="http://software-carpentry.org" title="Software Carpentry">
-          <img alt="Software Carpentry banner" src="img/software-carpentry-banner.png" />
+        <a href="{{site.url}}">
+          <img src="img/starterkit.png" height="100" alt="LHCb Starterkit">
         </a>
       </div>
       <div class="row">
@@ -29,7 +28,7 @@
           <h2 class="subtitle">Running a specific stripping version on a DST</h2>
 <div id="learning-objectives" class="objectives panel panel-warning">
 <div class="panel-heading">
-<h2 id="learning-objectives" class="objectives panel panel-warning"><span class="glyphicon glyphicon-certificate"></span>Learning Objectives</h2>
+<h2><span class="glyphicon glyphicon-certificate"></span>Learning Objectives</h2>
 </div>
 <div class="panel-body">
 <ul>
@@ -47,7 +46,7 @@
 <li>Picking the right stripping line from Stripping 21 (which we prepare with <code>buildStreams</code>):</li>
 <li>Building a custom stream that only contains the desired stripping line</li>
 </ul>
-<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">strip = <span class="st">&#39;stripping21&#39;</span>
+<pre class="sourceCode python"><code class="sourceCode python">strip = <span class="st">&#39;stripping21&#39;</span>
 streams = buildStreams(stripping=strippingConfiguration(strip),
                        archive=strippingArchive(strip))
 
@@ -57,25 +56,25 @@ custom_line = <span class="st">&#39;StrippingD2hhCompleteEventPromptDst2D2RSLine
 <span class="kw">for</span> stream in streams:
     <span class="kw">for</span> line in stream.lines:
         <span class="kw">if</span> line.name() == custom_line:
-            custom_stream.appendLines([line])</code></pre></div>
+            custom_stream.appendLines([line])</code></pre>
 <ul>
 <li>Instantiating a <code>StrippingConf</code> for running the stripping</li>
 </ul>
-<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">sc = StrippingConf(Streams=[custom_stream],
+<pre class="sourceCode python"><code class="sourceCode python">sc = StrippingConf(Streams=[custom_stream],
                    MaxCandidates=<span class="dv">2000</span>,
                    AcceptBadEvents=<span class="ot">False</span>,
                    HDRLocation = <span class="st">&quot;DumpHDR&quot;</span>,
-                   BadEventSelection=filterBadEvents)</code></pre></div>
+                   BadEventSelection=filterBadEvents)</code></pre>
 <ul>
 <li>Inserting the stripping selection sequence into the Gaudi sequence</li>
 </ul>
-<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">DaVinci().appendToMainSequence([sc.sequence()])</code></pre></div>
+<pre class="sourceCode python"><code class="sourceCode python">DaVinci().appendToMainSequence([sc.sequence()])</code></pre>
         </div>
       </div>
       <div class="footer">
         <a class="label swc-blue-bg" href="http://software-carpentry.org">Software Carpentry</a>
-        <a class="label swc-blue-bg" href="https://github.com/swcarpentry/lesson-template">Source</a>
-        <a class="label swc-blue-bg" href="mailto:admin@software-carpentry.org">Contact</a>
+        <a class="label swc-blue-bg" href="https://github.com/lhcb/first-analysis-steps">Source</a>
+        <a class="label swc-blue-bg" href="mailto:lhcb-starterkit@cern.ch">Contact</a>
         <a class="label swc-blue-bg" href="LICENSE.html">License</a>
       </div>
     </div>
