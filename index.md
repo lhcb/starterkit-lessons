@@ -41,10 +41,3 @@ Paragraph(s) of introductory material.
 
 Each topic should be a chunk of 10-15 minutes.
 If that is too short, we should split it into several topics.
-
-## Other Resources
-
-*   [Motivation](motivation.html)
-*   [Reference](reference.html)
-*   [Discussion](discussion.html)
-*   [Instructor's Guide](instructors.html)

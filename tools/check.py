@@ -768,13 +768,9 @@ def check_required_files(dir_to_validate):
     REQUIRED_FILES = ["01-*.md",
                       "CONDUCT.md",
                       "CONTRIBUTING.md",
-                      "discussion.md",
                       "index.md",
-                      "instructors.md",
                       "LICENSE.md",
-                      "motivation.md",
-                      "README.md",
-                      "reference.md"]
+                      "README.md"]
     valid = True
 
     for required in REQUIRED_FILES:
