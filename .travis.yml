@@ -16,3 +16,5 @@ script:
 env:
   global:
     secure: GrjBaEAQs3m0eDOFsSXJmQF+Bv/ltiQd0T4EJhnmSCY0ENqpTlXMiPJiVh6RcXVF9hesWZ+s0e3oF0qupqjIpnyG34TLfTljl5CtjZJN0y6TI/BlbX+qQ/vGAHzmVd+N1tZ2saYJnvUS53prcHdfePz4aVXCOMMSzpEUm4KJc1o=
+notifications:
+  slack: lhcb:KdB2DzrWqbbhWJ4XejrY6YSX
