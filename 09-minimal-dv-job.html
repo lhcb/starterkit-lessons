@@ -91,12 +91,12 @@ DaVinci().DDDBtag = <span class="st">&#39;dddb-20130929-1&#39;</span></code></pr
 </div>
 <p>In order to run an algorithm that we have previously created, we need to add it to the <code>UserAlgorithms</code> list. The <code>TupleFile</code> attribute defines the name of the ROOT output file that DaVinci will store any algorithm output in, which should be our ntuple.</p>
 <p>All that's left to do is to say what data we would like to run over. As we already have a data file <a href="05-files-from-grid.html">downloaded locally</a>, we define that as our input data.</p>
-<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="ch">from</span> GaudiConf <span class="ch">import</span> IOHelper
+<pre class="sourceCode python"><code class="sourceCode python"><span class="ch">from</span> GaudiConf <span class="ch">import</span> IOHelper
 
 <span class="co"># Use the local input data</span>
 IOHelper().inputFiles([
   <span class="st">&#39;./00035742_00000002_1.allstreams.dst&#39;</span>
-], clear=<span class="ot">True</span>)</code></pre></div>
+], clear=<span class="ot">True</span>)</code></pre>
 <p>This says to use the <code>.dst</code> file that is in the same directory as the options file, and to clear any previous input files that might have been defined.</p>
 <p>That's it! We're ready to run DaVinci.</p>
 <p>In the same folder as your options file <code>ntuple_options.py</code> and your DST file ending in <code>.dst</code>, there's just a single command you need run on <code>lxplus</code>.</p>
