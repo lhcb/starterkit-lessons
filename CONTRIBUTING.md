@@ -16,6 +16,8 @@ You also agree to abide by our
 1.  We use the [fork and pull][gh-fork-pull] model to manage changes. More information
     about [forking a repository][gh-fork] and [making a Pull Request][gh-pull].
 
+2.  To build the lessons please install the [dependencies](#DEPENDENCIES).
+
 2.  For our lessons,
     you should branch from and submit pull requests against the `master` branch.
 
@@ -24,6 +26,29 @@ You also agree to abide by our
 4.  If you're looking for things to work on,
     please see [the list of issues for this repository][issues].
     Comments on issues and reviews of pull requests are equally welcome.
+
+## Dependencies
+
+To build the lessons locally install the following:
+
+1. [Install Pandoc](http://www.pandoc.org/installing)
+
+2. All Python packages required for lesson creation and validation can 
+   be installed using:
+   
+    ~~~
+    $ pip install -r requirements.txt
+    ~~~
+        
+3. To convert Markdown files into HTML pages in the root directory, go
+   into the root directory of your lesson and run:
+
+   ~~~
+   $ make preview
+   ~~~
+
+   You can run `make` on its own to get a list of other things it will
+   do for you.
 
 ## Other Resources
 
