@@ -41,7 +41,7 @@ Paragraph(s) of introductory material.
 19. How to ask good questions
 20. Where to get help
 21. Contribute to this lesson!
-22. Install party
+22. [Install party](32-install-party.html)
 
 Each topic should be a chunk of 10-15 minutes.
 If that is too short, we should split it into several topics.
