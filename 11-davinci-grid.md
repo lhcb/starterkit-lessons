@@ -65,6 +65,7 @@ j.backend = Dirac()
 j.name = "First ganga job"
 j.inputdata = j.application.readInputData('data/MC_2012_27163003_Beam4000GeV2012MagDownNu2.5Pythia8_Sim08e_Digi13_Trig0x409f0045_Reco14a_Stripping20NoPrescalingFlagged_ALLSTREAMS.DST.py')
 j.application.optsfile = 'code/11-davinci-grid/ntuple_options_grid.py'
+j.submit()
 ```
 
 Which you can execute and submit like so:
@@ -96,7 +97,7 @@ The next thing to do is to find the output of your job. Two things can
 happen to files your job creates:
 
 * They get downloaded by `ganga`, or
-* They are stored "on the grid".
+* they are stored "on the grid".
 
 By default `ganga` will download most files below a size of XX MB. The
 rest will remain on the grid. Log files will almost always be downloaded.
