@@ -56,20 +56,3 @@ Try the following steps with the computer you will use at the workshop:
 During the workshop we will provide you with a machine to connect to from your
 laptop that has all the required software pre-installed and setup. If you can
 successfully execute all of the above steps you are ready to go for the workshop.
-
-If you know what you are doing and want to setup your lxplus environment so that
-you can use it during the workshop, the following instructions are for you.
-
-> These instructions are for people who know what they are doing. We encourage
-> everyone to not try and install things themselves and use the machines we
-> provide for them. We will have an install party at the end of the workshop
-> to make sure you can keep using all the tools you learnt about once the
-> workshop is over.
-
-Only follow these instructions if you know what you are doing! We will not
-provide you with any assitance until the last afternoon of the workshop.
-
-1. Make sure you have `git` version 2.4.1
-2. Install the [Anaconda](http://continuum.io/downloads) python distribution
-   (or otherwise make sure you have `python` version 2.7, `ipython` version
-   3.0.0, and know how to install more packages at a moments notice.)
