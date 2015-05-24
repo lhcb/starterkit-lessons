@@ -7,7 +7,7 @@ Paragraph(s) of introductory material.
 > ## Prerequisites {.prereq}
 >
 > Please make sure you can ssh to lxplus, have a working grid
-> certificate and can access the web based book-keeping 
+> certificate and can access the web based book-keeping.
 
 ## Topics
 
