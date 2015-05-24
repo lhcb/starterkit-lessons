@@ -11,7 +11,7 @@ Paragraph(s) of introductory material.
 
 ## Topics
 
-1.  Outline
+1.  [Pre-workshop Checklist](00-prerequisites.html) 
 1.  General introduction to DaVinci
 1.  [Using screen to keep things running](02-screen.html)
 2.  [Find the dataset in the Bookkeeping](03-bookkeeping.html)

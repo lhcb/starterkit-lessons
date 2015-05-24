@@ -4,6 +4,10 @@ title: First Steps in LHCb
 subtitle: Pre-workshop Checklist
 minutes: 10
 ---
+> ## Learning Objectives {.objectives}
+>
+> * Check you are ready for the workshop
+
 Please read and try the following steps **before** arriving. For
 some of the steps the solution is easy, but requires waiting for
 a day or so. So please try them before arriving and try to fix
@@ -33,4 +37,12 @@ Try the following steps with the computer you will use at the workshop:
 3. Check that XForwarding works by running `xeyes` on lxplus. A set
    of eyes following your mouse should appear on your screen. Press
    `Ctrl-C` to exit.
-4. Try and login to `lhcbstarterkit4.cern.ch` from an lxplus node. 
+4. Try and login to `lhcbstarterkit4.cern.ch` from an lxplus node. If
+   this does not work please email `thead@cern.ch` with your lxplus
+   username (Find out your lxplus username by running `whoami` on lxplus).
+4. On `lhcbstarterkit4.cern.ch` run:
+   
+   - `ipython --version` which should print `3.0.0`
+   - `git --version` which should print `git version 2.4.1`
+   
+   If either of the above do not work please email `thead@cern.ch`
