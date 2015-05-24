@@ -42,13 +42,13 @@ instructions:
 5. Follow the on-screen instructions and go with the default answer to
    all questions.
 
-This will install a modern set of python libraries to `~/.anaconda`. This means you
+This will install a modern set of python libraries to `~/anaconda`. This means you
 need to have some free space on your AFS home directory. Once it is done check
 that the installer added these two lines to your `.bashrc`:
 
 ```bash
 # added by Anaconda 2.2.0 installer
-export PATH="~/.anaconda/bin:$PATH"
+export PATH="~/anaconda/bin:$PATH"
 ````
 
 Log out of `lxplus` and back in. Now you should be able to start `python` as well as
@@ -56,7 +56,7 @@ Log out of `lxplus` and back in. Now you should be able to start `python` as wel
 
 > ## Removing Anaconda {.callout}
 > To remove `Anaconda` temporarily, simply comment out the two lines that were
-> added to your `.bashrc` file. To permanently remove it simply delete the `.anaconda`
+> added to your `.bashrc` file. To permanently remove it simply delete the `anaconda`
 > directory in your home directory.
 
 
@@ -74,7 +74,7 @@ $ wget https://github.com/git/git/archive/v2.4.1.tar.gz
    instructions.
 7. To install `git` in your home directory type:
 ```bash
-$ export CURLDIR=$HOME/.anaconda
+$ export CURLDIR=$HOME/anaconda
 $ mkdir $HOME/git-install-2.4.1
 $ make prefix=$HOME/git-install-2.4.1
 $ make prefix=$HOME/git-install-2.4.1 install
