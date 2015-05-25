@@ -119,3 +119,17 @@ Take a look at the contents of this directory.
 > by typing `!ls /tmp/`. This will list the contents of the `/tmp` directory.
 > In our case we can use this to list the contents of the job output directory
 > with `!ls $output` as we stored the path in the variable `output`.
+
+To look at the `root` file produced by the job start a new terminal, and
+type:
+
+```bash
+$ SetupProject DaVinci v36r6
+$ root -l path/to/the/job/output
+```
+
+You need to setup `DaVinci` as we need ROOT version 6 to read the nTuple.
+
+> ## Getting help with ganga {.callout}
+>
+> To find out more take a look at the [Ganga FAQ](https://twiki.cern.ch/twiki/bin/view/LHCb/FAQ/GangaLHCbFAQ)
