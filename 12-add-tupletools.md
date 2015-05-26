@@ -61,7 +61,7 @@ dtt.Decay = '[D*(2010)+ -> ^(D0 -> ^K- ^pi+) pi+]CC'
 ```
 
 This will run all the configured `TupleTools` on the marked particles, with the caveat that some tools are only run on certain types of particles (eg, tracking tools on particles that have an associated track).
-Clearly, this configuration is not optimal, since there may be tools which we only want to run on the D's and some only on the children. Enter `Branches`, which allow us to specify which tools get applied to which particle in the decay (in addition to the `TupleTools` configured at the top level).
+This configuration is not optimal, since there may be tools which we only want to run on the D's and some only on the children. Enter `Branches`, which allow us to specify which tools get applied to which particle in the decay (in addition to the `TupleTools` configured at the top level).
 
 Branches are configured by means of a `dict` that relates the variable name and the decay descriptor needed to select it. This also allows to give more descriptive names to the particles, which will be used as the prefix of the tuple leaves (of the form `PARTICLENAME_VARNAME`)
 
@@ -98,7 +98,7 @@ The usage of `Branches` is very important (and strongly encouraged) to keep the 
 > - `DecayTreeTupleTrigger` for accessing to the trigger information of the candidates.
 >
 > The `TupleTools` are placed in the `src` folder within each package and it's usually easy to get what they do just by looking at their name.
-> However, the best way to know what a tool does is check its documentation, either by opening its `.h` file or be searching for it in the latest `doxygen`.
+> However, the best way to know what a tool does is check its documentation, either by opening its `.h` file or be searching for it in the latest [`doxygen`](http://lhcb-release-area.web.cern.ch/LHCb-release-area/DOC/davinci/releases/latest/doxygen/index.html).
 > Most tools are very well documented and will also inform you of their configuration options.
 > As an example, to get the information on the `TupleToolTrackInfo` we used before we could either check its [source code](https://svnweb.cern.ch/trac/lhcb/browser/Analysis/trunk/Phys/DecayTreeTupleReco/src/TupleToolTrackInfo.h) or its [web documentation](http://lhcb-release-area.web.cern.ch/LHCb-release-area/DOC/analysis/releases/latest/doxygen/da/ddd/class_tuple_tool_track_info.html).
 > In case we need more information or need to know *exactly* what the code does, the `fill` method is the one we need to look at.
