@@ -25,7 +25,7 @@ a computer. There will be no machines for you to use in the room.
 
 If this is the first time you are bringing your laptop to CERN, you
 will have to [register it](https://network.cern.ch) before it can
-access the internet.
+access the internet. Both wifi and ethernet connection.
 
 Please bring an ethernet/network cable (even if you have wifi) and
 your power supply, as well as a plug adaptor to swiss and european plugs.
@@ -76,11 +76,11 @@ Proxies uploaded:
  4. Check that XForwarding works by typing `xeyes` on lxplus. A set
     of eyes following your mouse should appear on your screen. Press
     `Ctrl-C` to exit.
- 5. From `lxplus` connect to `lhcbstarterkit4` with `ssh lhcbstarterkit4`. If
+ 5. From `lxplus` connect to `lhcbstarterkit8` with `ssh lhcbstarterkit8`. If
     this does not work please email `lhcb-starterkit@cern.ch` with your lxplus
     username (Find out your lxplus username by running `whoami` on lxplus) and
     the error message you get.
- 6. On `lhcbstarterkit4.cern.ch` run:
+ 6. On `lhcbstarterkit8.cern.ch` run:
 
       1. `ipython --version` which should print `3.0.0`
       2. `git --version` which should print `git version 2.4.1`
