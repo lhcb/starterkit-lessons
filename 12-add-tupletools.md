@@ -12,10 +12,7 @@ minutes: 15
 > * Use branches
 > * Find useful TupleTools
 
-### Adding more information in our tuple
-
-Usually, the default information stored by `DecayTreeTuple` as shown in our [minimal DaVinci
-job](09-minimal-dv-job.html) is not enough for physics analysis. 
+Usually, the default information stored by `DecayTreeTuple` as shown in our [minimal DaVinci job](09-minimal-dv-job.html) is not enough for physics analysis. 
 Fortunately, most of the information we need can be added by adding C++ tools (known as `TupleTools`) to `dtt`;
 there is an extensive library of these, which will be briefly discussed later.
 
@@ -28,14 +25,15 @@ there is an extensive library of these, which will be briefly discussed later.
 >  - `TupleToolGeometry`, which stores the geometrical variables (IP, vertex position, etc) of the particle.
 >  - `TupleToolEventInfo`, which stores general information (event number, run number, GPS time, etc) of the event.
 
-In order to add a tool to `dtt`, we have to use the `addTupleTool` method of `DecayTreeTuple` (only available when we have `from DecayTreeTuple.Configuration import *` in our script), which adds the tool and returns it.
+In order to add `TupleTools` to `dtt`, we have to use the `addTupleTool` method of `DecayTreeTuple` (only available when we have `from DecayTreeTuple.Configuration import *` in our script).
+This method instantiates the tool, adds it to the list of tools to execute and returns it.
 For example, if we want to fill the tracking information of our particles, we can add the `TupleToolTrackInfo` tool in the following way:
 
 ```python
 track_tool = dtt.addTupleTool('TupleToolTrackInfo')
 ```
 
-Some tools accept some configuration parameters. For example, if we wanted further information from the tracks, such as the number of degrees of freedom of the track fit, we would have to turn on the verbose mode of the tool
+Some tools can be configured. For example, if we wanted further information from the tracks, such as the number of degrees of freedom of the track fit, we would have to turn on the verbose mode of the tool:
 
 ```python
 track_tool.Verbose = True
@@ -48,26 +46,24 @@ For example, if we wanted the information of the PV associated to our particle, 
 dtt.addTupleTool('TupleToolPrimaries')
 ```
 
-### Selectively filling the tuple (or how to make your tuples smaller)
-
-The way the `DecayTreeTuple.Decay` is configured, ie, 
+The way the `DecayTreeTuple.Decay` is written in in our [minimal DaVinci job](09-minimal-dv-job.html), 
 
 ```python
 dtt.Decay = '[D*(2010)+ -> (D0 -> K- pi+) pi+]CC'
 ```
 
-will only run the configured `TupleTools` on the head of the decay, that is, the D*.
-In order to select the particles for which we want the information stored, we need to mark them with a `^` symbol on the decay descriptor.
-For example, if we want to fill the information of the D0 and its children, we would modify the `dtt` configuration to look like this:
+means that the configured `TupleTools` will only run on the head of the decay chain, that is, the D*.
+In order to select the particles for which we want the information stored, we need to mark them with a `^` symbol in the decay descriptor.
+For example, if we want to fill the information of the D0 and its children, we would modify the `dtt` to look like this:
 
 ```python
 dtt.Decay = '[D*(2010)+ -> ^(D0 -> ^K- ^pi+) pi+]CC'
 ```
 
-This will run all the configured `TupleTools` on the marked particles.
+This will run all the configured `TupleTools` on the marked particles, with the caveat that some tools are only run on certain types of particles (eg, tracking tools on particles that have an associated track).
 Clearly, this configuration is not optimal, since there may be tools which we only want to run on the D's and some only on the children. Enter `Branches`, which allow us to specify which tools get applied to which particle in the decay (in addition to the `TupleTools` configured at the top level).
 
-Branches are configured by means of a `dict` that relates the variable name and the decay descriptor needed to select it. This also allows to give more descriptive names to the particles:
+Branches are configured by means of a `dict` that relates the variable name and the decay descriptor needed to select it. This also allows to give more descriptive names to the particles, which will be used as the prefix of the tuple leaves (of the form `PARTICLENAME_VARNAME`)
 
 ```python
 dtt.addBranches({'Dstar' : '^[D*(2010)+ -> (D0 -> K- pi+) pi+]CC',
