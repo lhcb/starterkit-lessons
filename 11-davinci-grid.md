@@ -53,9 +53,7 @@ ship it off to the grid.
 While it runs, let's submit an identical job via slightly different
 method. Having to type in the details of each job every time you want
 to run it is error prone and tedious. Instead you can place all the
-lines that define a job in a file and simply run that. Quit `ganga`
-by pressing Ctrl-d (Control - d). It will ask if you really want to
-quit, so say Yes.
+lines that define a job in a file and simply run that.
 
 Place the following in a file called [`first-job.py`](code/11-davinci-grid/first-job.py):
 
@@ -68,14 +66,15 @@ j.application.optsfile = 'code/11-davinci-grid/ntuple_options_grid.py'
 j.submit()
 ```
 
-Which you can execute and submit like so:
+Which you can execute and submit like so, from within a `ganga`
+session:
 
-```bash
-$ ganga first-job.py
+```python
+%ganga first-job.py
 ```
 
 This will print output similar to submitting the job from with in
-`ganga`. Once it is done, start `ganga` again.
+`ganga`.
 
 You can check on your jobs by typing `jobs` into a `ganga`
 console. This will list all of your jobs, their status, what kind of
