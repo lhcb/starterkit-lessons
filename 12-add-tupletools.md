@@ -103,3 +103,15 @@ The usage of `Branches` is very important (and strongly encouraged) to keep the 
 > As an example, to get the information on the `TupleToolTrackInfo` we used before we could either check its [source code](https://svnweb.cern.ch/trac/lhcb/browser/Analysis/trunk/Phys/DecayTreeTupleReco/src/TupleToolTrackInfo.h) or its [web documentation](http://lhcb-release-area.web.cern.ch/LHCb-release-area/DOC/analysis/releases/latest/doxygen/da/ddd/class_tuple_tool_track_info.html).
 > In case we need more information or need to know *exactly* what the code does, the `fill` method is the one we need to look at.
 
+The updated options `ntuple_options.py`, which can be found [here](./code/12-add_tupletools/ntuple_options.py) can be run in the same way is in the [minimal DaVinci job](09-minimal-dv-job.html) lesson.
+We will obtain a `DVntuple.root` file, which we can open and inspect with `ROOT`'s `TBrowser`:
+
+```
+$ root DVntuple.root
+root [0]
+Attaching file DVntuple.root as _file0...
+root [1] TBrowser *b = new TBrowser()
+root [2]
+```
+
+Now you can try to locate the branches we have added, which are placed in the `TupleDstToD0pi_D0ToKpi/DecayTree`, and plot some distributions by double-clicking the leaves.
