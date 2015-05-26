@@ -1,7 +1,7 @@
 ---
 layout: page
 title: First steps in LHCb
-subtitle: Changing a mass hypothesis
+subtitle: Replace a mass hypothesis
 minutes: 10
 ---
 
