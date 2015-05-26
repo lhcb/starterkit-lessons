@@ -7,11 +7,11 @@ Paragraph(s) of introductory material.
 > ## Prerequisites {.prereq}
 >
 > Please make sure you can ssh to lxplus, have a working grid
-> certificate and can access the web based book-keeping 
+> certificate and can access the web based book-keeping.
 
 ## Topics
 
-1.  Outline
+1.  [Pre-workshop Checklist](00-prerequisites.html) 
 1.  General introduction to DaVinci
 1.  [Using screen to keep things running](02-screen.html)
 2.  [Find the dataset in the Bookkeeping](03-bookkeeping.html)
