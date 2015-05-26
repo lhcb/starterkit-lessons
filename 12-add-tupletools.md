@@ -14,7 +14,7 @@ minutes: 15
 
 Usually, the default information stored by `DecayTreeTuple` as shown in our [minimal DaVinci job](09-minimal-dv-job.html) is not enough for physics analysis. 
 Fortunately, most of the information we need can be added by adding C++ tools (known as `TupleTools`) to `dtt`;
-there is an extensive library of these, which will be briefly discussed later.
+there is an extensive library of these, some of which will be briefly discussed during the lesson.
 
 > ## Default DecayTreeTuple tools {.callout}
 > The default tools added in `DecayTreeTuple` are:
@@ -83,5 +83,23 @@ dtt.D0.addTupleTool('TupleToolPropertime')
 The usage of `Branches` is very important (and strongly encouraged) to keep the size of your ntuples small, since it prevents us from storing unneeded information (for example trigger information, which will be discussed at a later lesson).
 
 > ## Where to find TupleTools {.callout}
-> TODO
+> One of the most difficult things is to know which tool we need to add to our `DecayTreeTuple` in order to get the information we want.
+> For this, it is necessary to know where to find `TupleTools` and their code.
+> `TupleTools` are spread in 9 packages under `Analysis/Phys` (see the head of `svn` [here](https://svnweb.cern.ch/trac/lhcb/browser/Analysis/trunk/Phys)), all starting with the prefix `DecayTreeTuple`, according to the type of information they fill in our ntuple:
+>
+> - `DecayTreeTuple` for the more general tools.
+> - `DecayTreeTupleANNPID` for the NeuralNet-based PID tools.
+> - `DecayTreeTupleDalitz` for Dalitz analysis.
+> - `DecayTreeTupleJets` for obtaining information on jets.
+> - `DecayTreeTupleMC` gives us access to MC-level information.
+> - `DecayTreeTupleMuonCalib` for muon calibration tools.
+> - `DecayTreeTupleReco` for reconstruction-level information, such as `TupleToolTrackInfo`.
+> - `DecayTreeTupleTracking` for more detailed tools regarding tracking.
+> - `DecayTreeTupleTrigger` for accessing to the trigger information of the candidates.
+>
+> The `TupleTools` are placed in the `src` folder within each package and it's usually easy to get what they do just by looking at their name.
+> However, the best way to know what a tool does is check its documentation, either by opening its `.h` file or be searching for it in the latest `doxygen`.
+> Most tools are very well documented and will also inform you of their configuration options.
+> As an example, to get the information on the `TupleToolTrackInfo` we used before we could either check its [source code](https://svnweb.cern.ch/trac/lhcb/browser/Analysis/trunk/Phys/DecayTreeTupleReco/src/TupleToolTrackInfo.h) or its [web documentation](http://lhcb-release-area.web.cern.ch/LHCb-release-area/DOC/analysis/releases/latest/doxygen/da/ddd/class_tuple_tool_track_info.html).
+> In case we need more information or need to know *exactly* what the code does, the `fill` method is the one we need to look at.
 
