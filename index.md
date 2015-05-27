@@ -20,7 +20,7 @@ Paragraph(s) of introductory material.
 3.  General introduction to Stripping
 3.  Finding your stripping line
 2.  [Running a minimal DaVinci job locally](09-minimal-dv-job.html)
-3.  Storing large files on EOS
+3.  [Storing large files on EOS](10-eos-storage.html)
 4.  [Minimal DaVinci on the grid](11-davinci-grid.html)
 5.  Add a simple TupleTool to the job
 6.  LoKi Hybrid tool
