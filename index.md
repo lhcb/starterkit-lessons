@@ -29,7 +29,7 @@ Paragraph(s) of introductory material.
 9.  Split your jobs into subjobs
 10. (Stripping line efficiency)
 11. [Replace a mass hypothesis](17-switch-mass-hypo.html)
-12. TisTos and what it all means
+12. [TisTos and what it all means](18-tistos-what-it-means.html)
 13. TupleTools for TISTOS'ing
 14. (Caveats for TISTOS'ing)
 14. More on the HLT?
