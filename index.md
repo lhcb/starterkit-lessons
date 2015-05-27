@@ -28,8 +28,7 @@ Paragraph(s) of introductory material.
 8.  [Switch to a new stripping (20 -> 21) for one line in MC](14-rerun-stripping.html)
 9.  Split your jobs into subjobs
 10. (Stripping line efficiency)
-11. How to use a stripping line for a slightly different decay
-11. Replace a mass hypothesis
+11. [Replace a mass hypothesis](17-switch-mass-hypo.html)
 12. TisTos and what it all means
 13. TupleTools for TISTOS'ing
 14. (Caveats for TISTOS'ing)
