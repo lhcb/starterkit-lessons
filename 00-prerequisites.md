@@ -30,9 +30,9 @@ access the internet. Both wifi and ethernet connection.
 Please bring an ethernet/network cable (even if you have wifi) and
 your power supply, as well as a plug adaptor to swiss and european plugs.
 
-> In the following we assume you use Mac OS or Linux, unfortunately
-> we do not know how to do these things on Windows. If you do know,
-> please contact us (lhcb-starterkit@cern.ch) so we can update these instructions.
+> In the following we assume you use Mac OS or Linux. If you are running
+> Windows, step 2 is replaced by a list of instructions given at the bottom
+> of this page.
 
 Try the following steps with the computer you will use at the workshop:
 
@@ -88,3 +88,24 @@ Proxies uploaded:
       If either of the above two commands do not work please email `lhcb-starterkit@cern.ch`
 
 If you can successfully execute all of the above steps you are ready to go for the workshop.
+
+> ## Windows-specific Instructions {.callout}
+>
+> On Windows, some steps are required before you can connect via SSH.
+>
+> Setup steps (you only have to perform this once):
+> 1. Download the [Xming installer](http://sourceforge.net/projects/xming/files/latest/download).
+> 2. Run the installer.
+> 3. Download [PuTTY](http://the.earth.li/~sgtatham/putty/latest/x86/putty.exe).
+>
+> The following steps have to be executed each time you want to connect:
+>  1. Start PuTTY.
+>  2. In the list on the left, unfold `Connection` and `SSH`, then click the `X11` item.
+>  3. In the window that appears, make sure the check box labeled `Enable X11 forwarding` is checked.
+>  4. Return to the previous window by selecting `Session` int he list on the left.
+>  5. In the text box labeled `Host Name (or IP address)`, type `lxplus.cern.ch`.
+>  6. Make sure the `Port` text box contains the number `22`.
+>  7. Click the `Open` button on the bottom of the screen.
+>  8. A window appears with the text `login as:`. Type your CERN username, followed by Enter.
+>  9. The window should say `Using keyboard-interactive authentication. Password:`. Type your password, again followed by Enter.
+> 10. You now have a remote SSH session at an lxplus server node!
