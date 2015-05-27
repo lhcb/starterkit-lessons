@@ -19,7 +19,7 @@ from PhysSelPython.Wrappers import DataOnDemand
 
 strippingSels = [DataOnDemand(Location=tesLoc)] 
 
-# instantiat a Selection that uses the algorithm defined above
+# instantiate a selection that uses the algorithm defined above
 # and gets the stripping selection as input
 sel = Selection('Dst2D0pi_D0Kpi_Sel', Algorithm=alg, RequiredSelections=strippingSels)
 
