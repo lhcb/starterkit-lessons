@@ -146,3 +146,20 @@ visible here:
 ```bash
 $ ls eos/lhcb/user/a/another/starterkit
 ```
+
+Once you have found your file you can open it in `ROOT` like this:
+
+```bash
+$ root ~/eos/lhcb/user/a/another/starterkit/myfavouritefile.root
+```
+
+Before disconnecting from `lxplus` it is good practice to unmount
+your EOS directory with `eosumount ~/eos`.
+
+> ## Direct access in ROOT {.callout}
+>
+> You can also open ROOT files on EOS directly from your ROOT
+> script with:
+> ```python
+> TFile::Open("root://eoslhcb.cern.ch//eos/lhcb/user/a/another/starterkit/myfavouritefile.root")
+> ```
