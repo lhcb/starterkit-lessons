@@ -8,9 +8,9 @@ line = 'D2hhCompleteEventPromptDst2D2RSLine'
 tesLoc = '/Event/{0}/Phys/{1}/Particles'.format(stream, line)
 
 # prepare a Filter algorithm to creat a new Selection of particles
-from Configurables import FilterDesktop
-alg = FilterDesktop('SelFilter')
-alg.Code = 'ALL' # we could filter out some data here. For now just select ALL candidates
+#from Configurables import FilterDesktop
+#alg = FilterDesktop('SelFilter')
+#alg.Code = 'ALL' # we could filter out some data here. For now just select ALL candidates
 
 # get the selection(s) created by the stripping
 from PhysSelPython.Wrappers import Selection
@@ -21,7 +21,7 @@ strippingSels = [DataOnDemand(Location=tesLoc)]
 
 # instantiate a selection that uses the algorithm defined above
 # and gets the stripping selection as input
-sel = Selection('Dst2D0pi_D0Kpi_Sel', Algorithm=alg, RequiredSelections=strippingSels)
+#sel = Selection('Dst2D0pi_D0Kpi_Sel', Algorithm=alg, RequiredSelections=strippingSels)
 
 # configure an algorithm to substitute the Kaon in the D0-decay by a second pion 
 from Configurables import SubstitutePID
@@ -35,7 +35,7 @@ Subs = SubstitutePID(
 )
 
 # create a selection using the substitution algorithm
-selSub = Selection("Dst2D0pi_D02pipi_Sel", Algorithm=Subs, RequiredSelections=[sel])
+selSub = Selection("Dst2D0pi_D02pipi_Sel", Algorithm=Subs, RequiredSelections=[strippingSel])
 # in order to add the selection into the program make a sequence
 selSeq = SelectionSequence('SelSeq', TopSelection=selSub)
 
