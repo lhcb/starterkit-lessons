@@ -63,7 +63,8 @@ dtt.Decay = '[D*(2010)+ -> ^(D0 -> ^K- ^pi+) pi+]CC'
 This will run all the configured `TupleTools` on the marked particles, with the caveat that some tools are only run on certain types of particles (eg, tracking tools on particles that have an associated track).
 This configuration is not optimal, since there may be tools which we only want to run on the D's and some only on the children. Enter `Branches`, which allow us to specify which tools get applied to which particle in the decay (in addition to the `TupleTools` configured at the top level).
 
-Branches are configured by means of a `dict` that relates the variable name and the decay descriptor needed to select it. This also allows to give more descriptive names to the particles, which will be used as the prefix of the tuple leaves (of the form `PARTICLENAME_VARNAME`)
+Branches let you define custom namespaces in your ntuple by means of a `dict`:
+its keys define the name of each branch (and, as a consequence, the prefix of the corresponding leaves in the ntuple), while the corresponding values are decay descriptors that specify which particles you want to include in the branch.
 
 ```python
 dtt.addBranches({'Dstar' : '^[D*(2010)+ -> (D0 -> K- pi+) pi+]CC',
