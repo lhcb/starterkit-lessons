@@ -102,3 +102,47 @@ file will be:
 
 The final line tells your `ganga` job that the `outputfiles` of this
 job that need special treatment.
+
+One important thing to note is that `ganga` has to be running after
+your job has completed to copy the files to EOS. The job can not
+copy things to EOS itself. You can leave `ganga` running in a
+[screen session](02-screen.html) and it will copy files as they
+become available.
+
+Once your job has completed and the files have been copied to
+EOS by `ganga` you can access them from your terminal by mounting
+your EOS area.
+
+On `lxplus` you can mount EOS like this:
+
+```bash
+$ mkdir ~/eos
+$ eosmount eos
+```
+
+```output
+warning: assuming you gave a relative path with respect to current working directory => mountpoint=eos
+OK
+===> Mountpoint   : /afs/cern.ch/user/a/another/eos
+===> Fuse-Options : kernel_cache,attr_timeout=30,entry_timeout=30,max_readahead=131072,max_write=4194304,fsname=eoslhcb.cern.ch root://eoslhcb.cern.ch//eos/
+===> xrootd ra             : 131072
+===> xrootd cache          : 393216
+===> fuse debug            : 0
+===> fuse write-cache      : 1
+===> fuse write-cache-size : 100000000
+```
+
+The first line creates a new directory in your home area, and the second line actually mounts
+EOS there. If you list the contents of your `~/eos` directory you should see
+
+```output
+lhcb ship
+```
+
+If you used `/eos/lhcb/user/a/another/starterkit/{jid}_{fname}` when
+configuring your `MassStorageFiles` there should now be files
+visible here:
+
+```bash
+$ ls eos/lhcb/user/a/another/starterkit
+```
