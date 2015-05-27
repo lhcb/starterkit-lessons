@@ -22,7 +22,7 @@ Paragraph(s) of introductory material.
 2.  [Running a minimal DaVinci job locally](09-minimal-dv-job.html)
 3.  [Storing large files on EOS](10-eos-storage.html)
 4.  [Minimal DaVinci on the grid](11-davinci-grid.html)
-5.  Add a simple TupleTool to the job
+5.  [TupleTools and branches](12-add-tupletools.html)
 6.  LoKi Hybrid tool
 7.  Fun with LoKi functors
 8.  [Switch to a new stripping (20 -> 21) for one line in MC](14-rerun-stripping.html)
