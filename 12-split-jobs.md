@@ -57,3 +57,26 @@ for j in jobs(787).subjobs:
     print(j.id)
 ```
 
+It's possible that some of your subjobs will be stuck in a certain state (submitting/completing/...).
+If that is the case, try to reset the Dirac backend:
+```python
+jobs(787).subjobs(42).backend.reset()
+```
+If that doesn't help, try failing the job and resubmitting:
+```python
+jobs(787).subjobs(42).force_status('failed')
+jobs(787).subjobs(42).resubmit()
+```
+
+It can take quite a while to submit all of your subjobs.
+If you want to continue working in ganga while submitting jobs, you can use the `queues` feature to do just that.
+Simply call `queues.add` with the `submit` function of a job without adding parentheses, like this:
+```
+queues.add(j.submit)
+```
+Ganga will then submit this job (and its subjobs) in the background.
+Make sure not to close `ganga` before the submission is finished, or you will have to start submitting the rest of the jobs again later on.
+
+Try splitting the `ganga` job from our previous lesson with `splitByFiles=1` ([reference code](code/12-split-jobs/first-job.py)) and submit it with `ganga`.
+
+
