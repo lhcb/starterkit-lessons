@@ -9,7 +9,18 @@ line = 'D2hhCompleteEventPromptDst2D2RSLine'
 # Create an ntuple to capture D*+ decays from the StrippingLine line
 dtt = DecayTreeTuple('TupleDstToD0pi_D0ToKpi')
 dtt.Inputs = ['/Event/{0}/Phys/{1}/Particles'.format(stream, line)]
-dtt.Decay = '[D*(2010)+ -> (D0 -> K- pi+) pi+]CC'
+dtt.Decay = '[D*(2010)+ -> ^(D0 -> ^K- ^pi+) ^pi+]CC'
+
+# add a kinematic fitter
+from Configurables import TupleToolDecayTreeFitter,TupleToolDecay
+dtt.addTool(TupleToolDecay, name = 'Dstar')
+dtt.Branches["Dstar"] = "[D*(2010)+ -> (D0 -> K- pi+) pi+]CC" 
+tpl.Dstar.ToolList =  ["TupleToolDecayTreeFitter/ConsD"]
+tpl.Dstar.addTool(TupleToolDecayTreeFitter("ConsD"))
+tpl.dtt.ConsD.constrainToOriginVertex = True
+tpl.dtt.ConsD.Verbose = True
+tpl.dtt.ConsD.daughtersToConstrain = [ "D0" ]
+
 
 # Configure DaVinci
 DaVinci().UserAlgorithms += [dtt]

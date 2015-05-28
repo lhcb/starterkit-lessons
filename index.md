@@ -32,9 +32,7 @@ Paragraph(s) of introductory material.
 13. TupleTools for TISTOS'ing
 14. (Caveats for TISTOS'ing)
 14. More on the HLT?
-15. What is DecayTreeFitter?
-16. How do I use DecayTreeFitter?
-17. Minimal DV with mass constraint
+22. [How do I use DecayTreeFitter?](22-decay-tree-fitter.html)
 18. Other things one can do with DTF
 19. How to ask good questions
 20. Where to get help
