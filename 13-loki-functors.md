@@ -121,6 +121,15 @@ MAXTREE(ISBASIC and HASTRACK, PT, -1)(cand) == max_pt
 In this example, we have used two selection functors, `ISBASIC` and `HASTRACK`, which return true if the particle doesn't have children and is made up by a track, respectively.
 We can see that they do the same thing as `particle.isBasicParticle()` and `particle.proto().track()` in a more compact way.
 
+Similarly, the `SUMTREE` functor allows us to accumulate quantities for those children that pass a certain selection:
+```python
+from LoKiPhys.decorators import SUMTREE, ABSID
+print SUMTREE(211==ABSID, PT)(cand)
+print SUMTREE('pi+'==ABSID, PT)(cand)
+```
+In this case, we have summed the transverse momentum of the pions in the tree.
+Note the usage of the `ABSID` functor, which allows to select particles of a given ID using either ther PID or their name.
+
 Another very useful LoKi functor is `CHILD`, which allows to access a property of a single children of the particle.
 To specify which child we want, its order is used, so we need to know how the candidate was built.
 For example, from
@@ -171,6 +180,7 @@ To add LoKi-based leaves to the tree, we need to use the `LoKi::Hybrid::TupleToo
                               'dira': 'BPVDIRA',
                               'max_pt': 'MAXTREE(ISBASIC & HASTRACK, PT, -1)',
                               'max_pt_preambulo': 'TRACK_MAX_PT',
+                              'sum_pt_pions': 'SUMTREE(211 == ABSID, PT)'
                               'n_highpt_tracks': 'NINTREE(ISBASIC & HASTRACK & (PT > 1500*MeV))'}
     d0_hybrid.Variables = {'mass': 'MM',
                            'pt': 'PT',
