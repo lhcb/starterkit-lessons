@@ -1,7 +1,7 @@
 ---
 layout: page
 title: First steps in LHCb
-subtitle: LoKi functors. What are they and how can we use them
+subtitle: Fun with LoKi Functors
 minutes: 15
 ---
 

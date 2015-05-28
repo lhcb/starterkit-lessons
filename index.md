@@ -23,8 +23,7 @@ Paragraph(s) of introductory material.
 3.  [Storing large files on EOS](10-eos-storage.html)
 4.  [Minimal DaVinci on the grid](11-davinci-grid.html)
 5.  [TupleTools and branches](12-add-tupletools.html)
-6.  LoKi Hybrid tool
-7.  Fun with LoKi functors
+7.  [Fun with LoKi Functors](13-loki-functors.html)
 8.  [Switch to a new stripping (20 -> 21) for one line in MC](14-rerun-stripping.html)
 9.  Split your jobs into subjobs
 10. (Stripping line efficiency)
