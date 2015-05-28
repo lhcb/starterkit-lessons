@@ -11,7 +11,7 @@ minutes: 15
 > * Learn how to use them in a DecayTreeTuple
 > * Be able to find functors that do what we want
 
-LoKi functors are designed to flexibly compute and compare properties of the current decay, from simple quantities such as the tranverse momentum of particle to complicated ones like helicity angles.
+LoKi functors are designed to flexibly compute and compare properties of the current decay, from simple quantities such as the transverse momentum of particle to complicated ones like helicity angles.
 Internally, functors are implemented as C++ classes that take an object of type `TYPE1` and return another of `TYPE2`.
 They can be used both in C++ and in python code, and can be combined with each other using logical operations.
 
@@ -88,9 +88,9 @@ Some functors also end with the suffix `DV`, which means they can only be used i
 > ## Finding LoKi functors {.callout}
 > The full list of defined LoKi functors can be found in the `LoKi::Cuts` namespace in the [doxygen](http://lhcb-release-area.web.cern.ch/LHCb-release-area/DOC/davinci/releases/latest/doxygen/d7/dae/namespace_lo_ki_1_1_cuts.html).
 > They are quite well documented with examples on how to use them.
-> The list can be overwhelming, so it's also worth checking a more curated selection of functors in the Twiki, [here](https://twiki.cern.ch/twiki/bin/view/LHCb/LoKiHybridFilters) and [here](https://twiki.cern.ch/twiki/bin/view/LHCb/LoKiParticleFunctions).
+> The list can be overwhelming, so it's also worth checking a more curated selection of functors in the TWiki, [here](https://twiki.cern.ch/twiki/bin/view/LHCb/LoKiHybridFilters) and [here](https://twiki.cern.ch/twiki/bin/view/LHCb/LoKiParticleFunctions).
 
-So far we've only looked at the properties of the head of the decay (that is, the D*), but what if we want to get information of its daughters? As an example, let's take get the largest transverse momentum of the final state particles.
+So far we've only looked at the properties of the head of the decay (that is, the D\*), but what if we want to get information of its daughters? As an example, let's take get the largest transverse momentum of the final state particles.
 A simple solution would be to navigate the tree and calculate the maximum `PT`
 
 ```python
@@ -128,7 +128,7 @@ print SUMTREE(211==ABSID, PT)(cand)
 print SUMTREE('pi+'==ABSID, PT)(cand)
 ```
 In this case, we have summed the transverse momentum of the pions in the tree.
-Note the usage of the `ABSID` functor, which allows to select particles of a given ID using either ther PID or their name.
+Note the usage of the `ABSID` functor, which allows to select particles of a given ID using either their PID or their name.
 
 Another very useful LoKi functor is `CHILD`, which allows to access a property of a single children of the particle.
 To specify which child we want, its order is used, so we need to know how the candidate was built.
@@ -144,7 +144,7 @@ Out[10]:
  0 |->pi+                          M/PT/E/PX/PY/PZ: 0.1396/ 0.3701/ 2.678/-0.2873/-0.2333/ 2.649 [GeV]  # 10
 ```
 we know that `D0` is the first child and `pi+` is the second.
-Therefore, to access the `PT` of the D0 we have 2 options
+Therefore, to access the `PT` of the `D0` we have 2 options
 ```python
 from LoKiPhys.decorators import CHILD
 mass = MM(cand.daughtersVector()[0])

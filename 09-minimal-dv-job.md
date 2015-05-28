@@ -159,12 +159,12 @@ here](./code/09-minimal-dv/ntuple_options.py).
 >
 > A microDST (or µDST) is a smaller version of a DST.
 > Some stripping lines go to µDSTs, and some go to DSTs.
-> There are two things that need changing it our options file in order to have 
-> in work when it is used with a stripping line that goes to a µDST:
+> There are two things that need changing in our options file in order to have 
+> it work when it is used with a stripping line that goes to a µDST:
 >
 > 1. The `DecayTreeTuple.Inputs` attribute should start at the word
 >    `Phys`; and
-> 2. The `RootInTES` attribute on the `DaVinci` object to be set to 
+> 2. The `RootInTES` attribute on the `DaVinci` object has to be set to 
 >    `/Event/$STREAM`
 >
 > In context, the changes look like
