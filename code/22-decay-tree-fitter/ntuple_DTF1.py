@@ -15,11 +15,11 @@ dtt.Decay = '[D*(2010)+ -> ^(D0 -> ^K- ^pi+) ^pi+]CC'
 from Configurables import TupleToolDecayTreeFitter,TupleToolDecay
 dtt.addTool(TupleToolDecay, name = 'Dstar')
 dtt.Branches["Dstar"] = "[D*(2010)+ -> (D0 -> K- pi+) pi+]CC" 
-tpl.Dstar.ToolList =  ["TupleToolDecayTreeFitter/ConsD"]
-tpl.Dstar.addTool(TupleToolDecayTreeFitter("ConsD"))
-tpl.dtt.ConsD.constrainToOriginVertex = True
-tpl.dtt.ConsD.Verbose = True
-tpl.dtt.ConsD.daughtersToConstrain = [ "D0" ]
+dtt.Dstar.ToolList =  ["TupleToolDecayTreeFitter/ConsD"]
+dtt.Dstar.addTool(TupleToolDecayTreeFitter("ConsD"))
+dtt.Dstar.ConsD.constrainToOriginVertex = True
+dtt.Dstar.ConsD.Verbose = True
+dtt.Dstar.ConsD.daughtersToConstrain = [ "D0" ]
 
 
 # Configure DaVinci
