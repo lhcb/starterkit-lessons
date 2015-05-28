@@ -15,26 +15,41 @@ minutes: 5
 > * How can I browse the code/documentation of the LHCb software?
 > * How can I check out an LHCb package?
 
-**Which problems specific to HEP/LHCb is Gaudi designed to solve?**
+A HEP experiment like LHCb needs to solve many computational challenges, some of which are
 
-[Gaudi](https://proj-gaudi.web.cern.ch/proj-gaudi/) is software framework for building software frameworks for HEP experiments. It is used by several experiments and maintained separately.
+ - How do we collect data as it is recorded by the detector?
+ - How do we filter and process the recorded data efficiently?
+ - How do we manage all the complex tasks required to work with particle events?
+ - How do we organize all the data of a single particle event in a flexible way?
+ - How do we configure our software flexibly without having to recompile it?
 
-TODO: Needs more content.
+At LHCb, we base our software on the [Gaudi](https://proj-gaudi.web.cern.ch/proj-gaudi/) framework, which was specifically designed with the above questions in mind.
+In order to understand how the LHCb software works, you should know about the following basic Gaudi concepts:
 
-You can find comprehensive documentation in the [Gaudi Doxygen](https://proj-gaudi.web.cern.ch/proj-gaudi/releases/latest/doxygen/).
+ - Because the individual collisions are almost completely independent of each other, it makes sense to process them one by one (as a *stream*), without holding them all in memory at once.
+   Gaudi provides a global *EventLoop*, which runs over individual events, and allows you to process them one by one
+ - A single event contains lots of different data objects (*Particles*, *Vertices*, *Tracks*, *Hits*, ...).
+   In Gaudi, these are organized in the *Transient Event Storage* (TES).
+   You can think of it as a per-event file system with locations like `/Event/Rec/Track/Best` or `/Event/Phys/MyParticles`.
+   These usually contain containers of C++ objects.
+   When running over the event stream, Gaudi allows you to `get` and `put` to/from these locations, like a key-value store.
+ - An *Algorithm* is a C++ class with `initialize`, `execute` and `finalize` methods.
+   These allow you to set up and perform a certain function on the event stream (Like filtering events, calculating/deleting data, ...).
+ - Often, algorithms will want to make use of common functionality (vertex fitting, finding primary vertices, ...).
+   These are implemented as *Tools*, which are shared between Algorithms.
+ - To make all of this configurable, Gaudi allows you to set properties of *Algorithms* and *Tools* from a Python script, called an *option* file.
+   In an option file, you can specify which Algorithms are run in which order, and set their properties (strings, integers, doubles, and lists and dicts of these things can be set).
+   You can then start the Gaudi EventLoop using this option file, and it will set up and run the corresponding C++ objects with specified settings.
 
-**What are Algorithms and Tools?**
+You can find comprehensive documentation in the [Gaudi Doxygen](https://proj-gaudi.web.cern.ch/proj-gaudi/releases/latest/doxygen/) or the [Gaudi Manual](http://lhcb-comp.web.cern.ch/lhcb-comp/Frameworks/Gaudi/Gaudi_v9/GUG/GUG.pdf).
 
-**What is an option file?**
-
-An option file is a Python script that is used to configure a Gaudi instance. In it, you configure which Algorithms you want to run and their respective options.
+TODO: This is all very abstract. Needs some diagrams and/or code examples.
 
 **What is the relationship between DaVinci and Gaudi?**
 
 **What are `lb-run` and `lb-dev`?**
 
 Both are small programs that help you set up an environment for your LHCb software. If you just want to run software without making any modifications, `lb-run` is your tool of choice. In order to (for example) run `v36r6` of DaVinci, you just type
-
 
 ```bash
 lb-run DaVinci v36r6 bash
