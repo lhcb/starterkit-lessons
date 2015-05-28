@@ -11,6 +11,7 @@ minutes: 15
 > * Configure the extra TupleTools
 > * Use branches
 > * Find useful TupleTools
+> * Learn how to use LoKi functors in a DecayTreeTuple
 
 Usually, the default information stored by `DecayTreeTuple` as shown in our [minimal DaVinci job](09-minimal-dv-job.html) is not enough for physics analysis. 
 Fortunately, most of the information we need can be added by adding C++ tools (known as `TupleTools`) to `dtt`;
@@ -104,15 +105,63 @@ The usage of `Branches` is very important (and strongly encouraged) to keep the 
 > As an example, to get the information on the `TupleToolTrackInfo` we used before we could either check its [source code](https://svnweb.cern.ch/trac/lhcb/browser/Analysis/trunk/Phys/DecayTreeTupleReco/src/TupleToolTrackInfo.h) or its [web documentation](http://lhcb-release-area.web.cern.ch/LHCb-release-area/DOC/analysis/releases/latest/doxygen/da/ddd/class_tuple_tool_track_info.html).
 > In case we need more information or need to know *exactly* what the code does, the `fill` method is the one we need to look at.
 
-The updated options `ntuple_options.py`, which can be found [here](./code/12-add_tupletools/ntuple_options.py) can be run in the same way as in the [minimal DaVinci job](09-minimal-dv-job.html) lesson.
-We will obtain a `DVntuple.root` file, which we can open and inspect with `ROOT`'s `TBrowser`:
+The updated options can be found [here](./code/12-add_tupletools/ntuple_options.py).
 
-```
-$ root DVntuple.root
-root [0]
-Attaching file DVntuple.root as _file0...
-root [1] TBrowser *b = new TBrowser()
-root [2]
-```
+> ## Test your ntuple {.challenge}
+> Run the options in the same way as in the [minimal DaVinci job](09-minimal-dv-job.html) lesson.
+> You will obtain a `DVntuple.root` file, which we can open and inspect with `ROOT`'s `TBrowser`:
+> 
+> ```
+> $ root DVntuple.root
+> root [0]
+> Attaching file DVntuple.root as _file0...
+> root [1] TBrowser *b = new TBrowser()
+> root [2]
+> ```
+> 
+> Try to locate the branches we have added, which are placed in the `TupleDstToD0pi_D0ToKpi/DecayTree`, and plot some distributions by double-clicking the leaves.
 
-Now you can try to locate the branches we have added, which are placed in the `TupleDstToD0pi_D0ToKpi/DecayTree`, and plot some distributions by double-clicking the leaves.
+Picking up with the [LoKi functors lesson](06-loki-functors.html), let's store some specific bits of information discussed there in our ntuple.
+To add LoKi-based leaves to the tree, we need to use the `LoKi::Hybrid::TupleTool`, which is configured with 3 arguments:
+
+  - Its *name*, specified in the `addTupleTool` call after a `/`.  This is very useful (and recommended) if we want to have different `LoKi::Hybrid::TupleTool` for each of our branches. For instance, we may want to add some information on the D*, the D0 and the soft $\pi$:
+    ```python
+    dstar_hybrid = dtt.Dstar.addTupleTool("LoKi::Hybrid::TupleTool/LoKi_Dstar")
+    d0_hybrid = dtt.D0.addTupleTool("LoKi::Hybrid::TupleTool/LoKi_D0")
+    pisoft_hybrid = dtt.pisoft.addTupleTool("LoKi::Hybrid::TupleTool/LoKi_PiSoft")
+    ```
+  - The `Preambulo` property, which lets us perform preprocessing of the LoKi functors to simplify the code that is used to fill the leaves, for example creating combinations of LoKi functors or performing mathematical operations:
+    ```python
+    preamble = ['DZ = VFASPF(VZ) - BPV(VZ)',
+                'TRACK_MAX_PT = MAXTREE(ISBASIC & HASTRACK, PT, -1)']
+    dstar_hybrid.Preambulo = preamble
+    d0_hybrid.Preambulo = preamble
+    ```
+  - The `Variables` property, consisting of a `dict` of (variable name, LoKi functor) pairs. In here, LoKi functors can be used, as well as any variable we may have defined in the `Preambulo`:
+    ```python
+    dstar_hybrid.Variables = {'mass': 'MM',
+                              'mass_D0': 'CHILD(MM, 1)',
+                              'pt': 'PT',
+                              'dz': 'DZ',
+                              'dira': 'BPVDIRA',
+                              'max_pt': 'MAXTREE(ISBASIC & HASTRACK, PT, -1)',
+                              'max_pt_preambulo': 'TRACK_MAX_PT',
+                              'sum_pt_pions': 'SUMTREE(211 == ABSID, PT)'
+                              'n_highpt_tracks': 'NINTREE(ISBASIC & HASTRACK & (PT > 1500*MeV))'}
+    d0_hybrid.Variables = {'mass': 'MM',
+                           'pt': 'PT',
+                           'dira': 'BPVDIRA',
+                           'vtx_chi2': 'VFASPF(VCHI2)',
+                           'dz': 'DZ'}
+    pisoft_hybrid.Variables = {'p': 'P',
+                               'pt': 'PT'}
+    ```
+
+In the code snippets specified above (available [here](code/12-add-tupletools/ntuple_options_loki.py)), there are several things to notice:
+    
+  - The `and` we used in the interactive session to combine `ISBASIC` and `HASTRACK` has been replaced by the logical symbol `&`, since we're not accessing the LoKi functors directly but loading them through text strings.
+  - The `NINTREE` functor counts the number of particles that pass the specified criteria. While this is not very useful for ntuple-building (we can always do it offline), it's a very powerful functor to use when building decay selections.
+
+> ## Getting more practice {.challenge}
+> In the `LoKi::Hybrid::TupleTool`we've used some  functors that have not been described previously. Find out what they do in the [doxygen](http://lhcb-release-area.web.cern.ch/LHCb-release-area/DOC/davinci/releases/latest/doxygen/d7/dae/namespace_lo_ki_1_1_cuts.html).
+> To check `SUMTREE` and `CHILD`, run the code above and check that the `Dstar_max_pt` and `Dstar_max_pt_preambulo` and the `Dstar_mass_D0` and `D0_mass` branches have exactly the same values.
