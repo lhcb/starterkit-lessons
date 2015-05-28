@@ -25,6 +25,7 @@ $ ssh lxplus.cern.ch
 ~~~
 
 You can start `screen` by simply typing its name:
+
 ~~~ {.bash}
 $ screen
 ~~~
