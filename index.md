@@ -12,8 +12,8 @@ Paragraph(s) of introductory material.
 ## Topics
 
 1.  [Pre-workshop Checklist](00-prerequisites.html) 
-1.  [General Introduction to DaVinci](01-davinci.html)
-1.  [Working with LHCb Software](01-lhcb-dev.html)
+1.  [Introduction to the LHCb Software](01-davinci.html)
+1.  [Developing the LHCb Software](01-lhcb-dev.html)
 1.  [Using screen to keep things running](02-screen.html)
 2.  [Find the dataset in the Bookkeeping](03-bookkeeping.html)
 2.  [Download a file from the grid](05-files-from-grid.html)
