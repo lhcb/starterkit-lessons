@@ -22,10 +22,9 @@ Paragraph(s) of introductory material.
 2.  [Running a minimal DaVinci job locally](09-minimal-dv-job.html)
 3.  [Storing large files on EOS](10-eos-storage.html)
 4.  [Minimal DaVinci on the grid](11-davinci-grid.html)
-9.  [Split a job into subjobs](12-split-jobs.html)
+9.  [Splitting a job into subjobs](12-split-jobs.html)
 5.  [TupleTools and branches](12-add-tupletools.html)
 7.  [Fun with LoKi Functors](13-loki-functors.html)
-5.  Add a simple TupleTool to the job
 8.  [Switch to a new stripping (20 -> 21) for one line in MC](14-rerun-stripping.html)
 10. (Stripping line efficiency)
 11. [Replace a mass hypothesis](17-switch-mass-hypo.html)
