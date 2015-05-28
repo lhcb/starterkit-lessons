@@ -29,7 +29,7 @@ In order to understand how the LHCb software works, you should know about the fo
  - Because the individual collisions are almost completely independent of each other, it makes sense to process them one by one (as a *stream*), without holding them all in memory at once.
    Gaudi provides a global *EventLoop*, which runs over individual events, and allows you to process them one by one
  - A single event contains lots of different data objects (*Particles*, *Vertices*, *Tracks*, *Hits*, ...).
-   In Gaudi, these are organized in the *Transient Event Storage* (TES).
+   In Gaudi, these are organized in the *Transient Event Store* (TES).
    You can think of it as a per-event file system with locations like `/Event/Rec/Track/Best` or `/Event/Phys/MyParticles`.
    These usually contain containers of C++ objects.
    When running over the event stream, Gaudi allows you to `get` and `put` to/from these locations, like a key-value store.
