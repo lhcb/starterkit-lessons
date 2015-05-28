@@ -105,7 +105,7 @@ The usage of `Branches` is very important (and strongly encouraged) to keep the 
 > As an example, to get the information on the `TupleToolTrackInfo` we used before we could either check its [source code](https://svnweb.cern.ch/trac/lhcb/browser/Analysis/trunk/Phys/DecayTreeTupleReco/src/TupleToolTrackInfo.h) or its [web documentation](http://lhcb-release-area.web.cern.ch/LHCb-release-area/DOC/analysis/releases/latest/doxygen/da/ddd/class_tuple_tool_track_info.html).
 > In case we need more information or need to know *exactly* what the code does, the `fill` method is the one we need to look at.
 
-The updated options can be found [here](./code/12-add_tupletools/ntuple_options.py).
+The updated options can be found [here](./code/12-add-tupletools/ntuple_options.py).
 
 > ## Test your ntuple {.challenge}
 > Run the options in the same way as in the [minimal DaVinci job](09-minimal-dv-job.html) lesson.
