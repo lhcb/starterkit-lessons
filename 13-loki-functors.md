@@ -181,11 +181,11 @@ To add LoKi-based leaves to the tree, we need to use the `LoKi::Hybrid::TupleToo
                                'pt': 'PT'}
     ```
 
-In the code snippets specified above, there are several things to notice:
+In the code snippets specified above (available [here](code/13-loki-functors/ntuple_options.py)), there are several things to notice:
     
   - The `and` we used in the interactive session to combine `ISBASIC` and `HASTRACK` has been replaced by the logical symbol `&`, since we're not accessing the LoKi functors directly but loading them through text strings.
   - The `NINTREE` functor counts the number of particles that pass the specified criteria. While this is not very useful for ntuple-building (we can always do it offline), it's a very powerful functor to use when building decay selections.
   - We've used some other functors that have not been described previously. Find out what they do in the [doxygen](http://lhcb-release-area.web.cern.ch/LHCb-release-area/DOC/davinci/releases/latest/doxygen/d7/dae/namespace_lo_ki_1_1_cuts.html).
-  - After running, you can check that the `Dstar_max_pt` and `Dstar_max_pt_preambulo` and the `Dstar_mass_D0` and `D0_mass` branches have exactly the same values.
+  - Run the code above, and check that the `Dstar_max_pt` and `Dstar_max_pt_preambulo` and the `Dstar_mass_D0` and `D0_mass` branches have exactly the same values.
 
 
