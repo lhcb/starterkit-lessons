@@ -135,7 +135,7 @@ def advance(decision):
     while True:
         appMgr.run(1)
 
-        if not evt["/Event/DAQ/RawEvent"]:
+        if not evt["/Event/Rec/Header"]:
             print "Reached end of input files"
             break
 
@@ -147,9 +147,18 @@ def advance(decision):
     return n
 ```
 
-Add this to your script and restart `ipython` as before. Using
-the name of our stripping line we can now advance through the DST
-until we reach an event which contains a candidate:
+Add this to your script and restart `ipython` as before.
+
+> ## Detecting file ends {.callout}
+>
+> It is not easy to detect that the input file has ended. Especially
+> if you want to get it right for data and simulation. Checking that
+> `/Event/Rec/Header` exists is a safe bet in simulation and data if
+> your file has been processed by `Brunel` (the event reconstruction
+> software. It might not work in other cases.
+
+Using the name of our stripping line we can now advance through the
+DST until we reach an event which contains a candidate:
 
 ```python
 line = 'D2hhCompleteEventPromptDst2D2RSLine'
