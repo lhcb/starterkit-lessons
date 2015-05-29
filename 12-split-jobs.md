@@ -77,6 +77,7 @@ queues.add(j.submit)
 Ganga will then submit this job (and its subjobs) in the background.
 Make sure not to close `ganga` before the submission is finished, or you will have to start submitting the rest of the jobs again later on.
 
-Try splitting the `ganga` job from our previous lesson with `splitByFiles=1` ([reference code](code/12-split-jobs/first-job.py)) and submit it with `ganga`.
+> ## Splitting your first job {.challenge}
+> Try splitting the `ganga` job from our previous lesson with `splitByFiles=1` ([reference code](code/12-split-jobs/first-job.py)) and submit it with `ganga`.
 
 
