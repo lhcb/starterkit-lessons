@@ -7,17 +7,21 @@ minutes: 10
 
 > ## Learning Objectives {.objectives}
 > * Learn the key concepts needed to work with the LHCb software
-> * Learn how to use `lb-run` to 
+> * Learn how to launch the LHCb software with `lb-run`
 
-Welcome to the **First Steps in LHCb** tutorial!
-
-A HEP experiment like LHCb needs to solve many computational challenges, some of which are
+Imagine you want to design and run a new particle detector.
+Apart from organizing a collaboration, creating the design and specification, and several other tasks, you will also have to find solutions to many computational challenges.
+It's worth thinking about these for a second:
 
  - How do we collect data as it is recorded by the detector?
  - How do we filter and process the recorded data efficiently?
  - How do we manage all the complex tasks required to work with collision data?
  - How do we organize all the data of a single bunch crossing in a flexible way?
  - How do we configure our software flexibly without having to recompile it?
+ - Can you think of more?
+
+How would you go about solving these?
+The decisions you make will affect the performance of your experiment during datataking and analysis.
 
 At LHCb, we base our software on the [Gaudi](https://proj-gaudi.web.cern.ch/proj-gaudi/) framework, which was specifically designed with the above questions in mind.
 It's worth getting an idea of some of the most important Gaudi concepts at this point.
