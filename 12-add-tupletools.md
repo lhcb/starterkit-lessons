@@ -124,7 +124,7 @@ The updated options can be found [here](./code/12-add-tupletools/ntuple_options.
 Picking up with the [LoKi functors lesson](06-loki-functors.html), let's store some specific bits of information discussed there in our ntuple.
 To add LoKi-based leaves to the tree, we need to use the `LoKi::Hybrid::TupleTool`, which is configured with 3 arguments:
 
-  - Its *name*, specified in the `addTupleTool` call after a `/`.  This is very useful (and recommended) if we want to have different `LoKi::Hybrid::TupleTool` for each of our branches. For instance, we may want to add some information on the D*, the D0 and the soft $\pi$:
+  - Its *name*, specified in the `addTupleTool` call after a `/`.  This is very useful (and recommended) if we want to have different `LoKi::Hybrid::TupleTool` for each of our branches. For instance, we may want to add different information for the D*, the D0 and the soft $\pi$:
     ```python
     dstar_hybrid = dtt.Dstar.addTupleTool("LoKi::Hybrid::TupleTool/LoKi_Dstar")
     d0_hybrid = dtt.D0.addTupleTool("LoKi::Hybrid::TupleTool/LoKi_D0")
