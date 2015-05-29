@@ -12,14 +12,14 @@ dtt.Inputs = ['/Event/{0}/Phys/{1}/Particles'.format(stream, line)]
 dtt.Decay = '[D*(2010)+ -> ^(D0 -> ^K- ^pi+) ^pi+]CC'
 
 # add a kinematic fitter
-from Configurables import TupleToolDecayTreeFitter,TupleToolDecay
-dtt.addTool(TupleToolDecay, name = 'Dstar')
-dtt.Branches["Dstar"] = "[D*(2010)+ -> (D0 -> K- pi+) pi+]CC" 
-dtt.Dstar.ToolList =  ["TupleToolDecayTreeFitter/ConsD"]
-dtt.Dstar.addTool(TupleToolDecayTreeFitter("ConsD"))
+from Configurables import TupleToolDecayTreeFitter
+dtt.addBranches({
+    'Dstar' : '[D*(2010)+ -> (D0 -> K- pi+) pi+]CC',
+}) 
+dtt.Dstar.addTupleTool(TupleToolDecayTreeFitter('ConsD'))
 dtt.Dstar.ConsD.constrainToOriginVertex = True
 dtt.Dstar.ConsD.Verbose = True
-dtt.Dstar.ConsD.daughtersToConstrain = [ "D0" ]
+dtt.Dstar.ConsD.daughtersToConstrain = [ 'D0' ]
 
 
 # Configure DaVinci
