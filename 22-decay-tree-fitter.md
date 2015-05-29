@@ -41,7 +41,27 @@ dtt.Dstar.ConsD.constrainToOriginVertex = True
 dtt.Dstar.ConsD.Verbose = True
 dtt.Dstar.ConsD.daughtersToConstrain = [ 'D0' ]
 ```
-Note that you can constrain more than one intermediate state at once if that fit's your decay. That's it. 
+Note that you can constrain more than one intermediate state at once if that fits your decay. 
+
+Once you have produced your ntuple you can have a look at the refitted variables.
+```shell
+root -l DVntuple.root
+TupleDstToD0pi_D0ToKpi->cd()
+DecayTree->StartViewer()
+```
+Plotting the raw mass of the D* (without the fit) `Dstar_MM` you should see a broad signal around 2 GeV:
+![alt text](./img/DstarRaw.png "Raw D* mass")
+
+Now let us look at the refitted mass of the D*, with the D0 constrained to its nominal mass. This stored in the variable `Dstar_ConsD_M`. If you plot this you will note that some values are unphysical. So let's restrict the range we look at to something that makes sense. On the root prompt use the `arrow-up` key to get the last draw command and modify it to pipe the output into a histogram `h`:  
+```C++
+tv__tree->Draw("Dstar_ConsD_M>>h(200,2000,2030)","","");
+```
+
+![alt text](./img/DstarRefit.png "Refitted D* mass")
 
 The solution to this exercise `ntuple_DTF1.py`, is [available 
 here](./code/22-decay-tree-fitter/ntuple_DTF1.py).
+
+> ## Explore {.challenge}
+> Look at the `status` variable to check if the fits converged.
+> Look at the chi2 distribution of the fit 
