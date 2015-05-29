@@ -34,6 +34,7 @@ all : commands
 ## check    : Validate all lesson content against the template.
 check: $(ALL_MD)
 	python tools/check.py .
+	pep8 code/*.py
 
 ## clean    : Clean up temporary and intermediate files.
 clean :
