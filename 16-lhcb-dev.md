@@ -8,35 +8,10 @@ minutes: 10
 > ## Learning Objectives {.objectives}
 > * Learn the basics of how to work with and modify LHCb software packages
 
-This lesson introduces you to three commands:
+This lesson introduces you to two commands:
 
- - `lb-run` for running LHCb software on the command line
  - `lb-dev` for setting up a new development environment
  - `getpack` for downloading LHCb software packages
-
-If you just want to run the existing software without making any modifications to it, `lb-run` is your tool of choice.
-In order to (for example) run version `v36r6` of DaVinci, you just type
-
-```bash
-lb-run DaVinci v36r6 bash
-```
-
-and the script automatically starts a new bash session for you where all necessary environment variables are set for you. If you want to confirm that this indeed worked, just run `gaudirun.py`.
-
-For an overview of all available versions of DaVinci type
-
-```bash
-lb-run --list DaVinci
-```
-
-> ## Using SetupProject instead of lb-run {.callout}
-> When reading through other tutorials, you will come across `SetupProject`.
-> This is an older way of setting up a shell that is configured to run LHCb software.
-> `lb-run` is the new way of doing things and has some nice benefits over `SetupProject`.
-> For most purposes, `SetupProject DaVinci v36r6` is equivalent to
-> ```bash
-> lb-run DaVinci v36r6 $SHELL
-> ```
 
 If you want to make changes to a software package, you will need to set up a development environment. `lb-dev` is your friend here:
 
