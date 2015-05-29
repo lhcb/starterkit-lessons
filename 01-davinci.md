@@ -14,20 +14,20 @@ A HEP experiment like LHCb needs to solve many computational challenges, some of
 
  - How do we collect data as it is recorded by the detector?
  - How do we filter and process the recorded data efficiently?
- - How do we manage all the complex tasks required to work with particle events?
- - How do we organize all the data of a single particle event in a flexible way?
+ - How do we manage all the complex tasks required to work with collision data?
+ - How do we organize all the per-collision data in a flexible way?
  - How do we configure our software flexibly without having to recompile it?
 
 At LHCb, we base our software on the [Gaudi](https://proj-gaudi.web.cern.ch/proj-gaudi/) framework, which was specifically designed with the above questions in mind.
 In order to understand how the LHCb software works, you should know about the following basic Gaudi concepts:
 
- - Because the individual collisions are almost completely independent of each other, it makes sense to process them one by one (as a *stream*), without holding them all in memory at once.
+ - Because the individual bunch crossings are almost completely independent of each other, it makes sense to process them one by one (as a *stream*), without holding them all in memory at once.
    Gaudi provides a global *EventLoop*, which runs over individual events, and allows you to process them one by one
  - A single event contains lots of different data objects (*Particles*, *Vertices*, *Tracks*, *Hits*, ...).
    In Gaudi, these are organized in the *Transient Event Store* (TES).
    You can think of it as a per-event file system with locations like `/Event/Rec/Track/Best` or `/Event/Phys/MyParticles`.
    These usually contain containers of C++ objects.
-   When running over the event stream, Gaudi allows you to `get` and `put` to/from these locations, like a key-value store.
+   When running over the event stream, Gaudi allows you to `get` and `put` from/to these locations, like a key-value store.
  - An *Algorithm* is a C++ class with `initialize`, `execute` and `finalize` methods.
    These allow you to set up and perform a certain function on the event stream (Like filtering events, calculating/deleting data, ...).
  - Often, algorithms will want to make use of common functionality (vertex fitting, finding primary vertices, ...).
