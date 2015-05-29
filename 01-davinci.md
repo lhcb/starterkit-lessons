@@ -6,40 +6,50 @@ minutes: 10
 ---
 
 > ## Learning Objectives {.objectives}
-> * Which basic problems is the LHCb software framework designed to solve?
 > * Learn the key concepts needed to work with the LHCb software
->
+> * Learn how to use `lb-run` to 
+
+Welcome to the **First Steps in LHCb** tutorial!
 
 A HEP experiment like LHCb needs to solve many computational challenges, some of which are
 
  - How do we collect data as it is recorded by the detector?
  - How do we filter and process the recorded data efficiently?
  - How do we manage all the complex tasks required to work with collision data?
- - How do we organize all the per-collision data in a flexible way?
+ - How do we organize all the data of a single bunch crossing in a flexible way?
  - How do we configure our software flexibly without having to recompile it?
 
 At LHCb, we base our software on the [Gaudi](https://proj-gaudi.web.cern.ch/proj-gaudi/) framework, which was specifically designed with the above questions in mind.
-In order to understand how the LHCb software works, you should know about the following basic Gaudi concepts:
+It's worth getting an idea of some of the most important Gaudi concepts at this point.
+After this, we will jump right into running the software and getting useful things done.
 
- - Because the individual bunch crossings are almost completely independent of each other, it makes sense to process them one by one (as a *stream*), without holding them all in memory at once.
-   Gaudi provides a global *EventLoop*, which runs over individual events, and allows you to process them one by one
- - A single event contains lots of different data objects (*Particles*, *Vertices*, *Tracks*, *Hits*, ...).
-   In Gaudi, these are organized in the *Transient Event Store* (TES).
-   You can think of it as a per-event file system with locations like `/Event/Rec/Track/Best` or `/Event/Phys/MyParticles`.
-   These usually contain containers of C++ objects.
-   When running over the event stream, Gaudi allows you to `get` and `put` from/to these locations, like a key-value store.
- - An *Algorithm* is a C++ class with `initialize`, `execute` and `finalize` methods.
-   These allow you to set up and perform a certain function on the event stream (Like filtering events, calculating/deleting data, ...).
- - Often, algorithms will want to make use of common functionality (vertex fitting, finding primary vertices, ...).
-   These are implemented as *Tools*, which are shared between Algorithms.
- - To make all of this configurable, Gaudi allows you to set properties of *Algorithms* and *Tools* from a Python script, called an *option* file.
-   In an option file, you can specify which Algorithms are run in which order, and set their properties (strings, integers, doubles, and lists and dicts of these things can be set).
-   You can then start the Gaudi EventLoop using this option file, and it will set up and run the corresponding C++ objects with specified settings.
+**Event Loop**
+Because the individual bunch crossings are almost completely independent of each other, it makes sense to process them one by one, without holding them all in memory at once.
+Gaudi provides a global *EventLoop*, which runs over individual events, and allows you to process them one by one
+
+**Transient Event Store**
+A single event contains lots of different data objects (*Particles*, *Vertices*, *Tracks*, *Hits*, ...).
+In Gaudi, these are organized in the *Transient Event Store* (TES).
+You can think of it as a per-event file system with locations like `/Event/Rec/Track/Best` or `/Event/Phys/MyParticles`.
+When running over the event stream, Gaudi allows you to `get` and `put` from/to these locations.
+
+**Algorithms**
+An *Algorithm* is a C++ class that can be inserted into the EventLoop.
+These allow you to perform a certain function for each bunch crossing (like filtering events, reconstructing particles, ...).
+
+**Tools**
+Often, algorithms will want to make use of some common function (vertex fitting, calculating distances, associating a primary vertex, ...).
+These are implemented as *Tools*, which are shared between Algorithms.
+
+**Options**
+To make all of this configurable, Gaudi allows you to set properties of *Algorithms* and *Tools* from a Python script, called an *option* file.
+In an option file, you can specify which Algorithms are run in which order, and set their properties (strings, integers, doubles, and lists and dicts of these things can be set).
+You can then start the Gaudi EventLoop using this option file, and it will set up and run the corresponding C++ objects with specified settings.
 
 You can find comprehensive documentation in the [Gaudi Doxygen](https://proj-gaudi.web.cern.ch/proj-gaudi/releases/latest/doxygen/) or the [Gaudi Manual](http://lhcb-comp.web.cern.ch/lhcb-comp/Frameworks/Gaudi/Gaudi_v9/GUG/GUG.pdf).
 
-Gaudi is just the foundation of the LHCb software that several other packages build on.
-One of the most important packages is *DaVinci*, which provides code (lots of *Algorithms* and *Tools*) for analysing physics events.
+Usually, you will work with one of the LHCb software projects that are based on Gaudi.
+One of the most important ones is *DaVinci*, which provides lots of *Algorithms* and *Tools* for physics analysis.
 
 You can run DaVinci using the following command:
 ```bash
@@ -77,6 +87,29 @@ Usually, you will write an option file (e.g. `options.py`) and specify it as an 
 lb-run DaVinci v36r6 gaudirun.py options.py
 ```
 
-Many of the later lessons will introduce a certain functionality in DaVinci and show you how to use it in your `options.py`.
-You can then use the above command to test it.
+An `option.py` is just a regular Python script that specifies how to set things up in the software.
+Many of the following lessons will teach you how to do something with DaVinci by showing you how to write or extend an `options.py`.
+You can use the above command to test it.
+
+Do you want to get an overview of which versions of DaVinci exist? Use
+```bash
+lb-run --list DaVinci
+```
+Do you want to start a shell that already contains the LHCb environment, so you don't have to use `lb-run`?
+Execute
+```bash
+lb-run DaVinci v36r6 $SHELL
+```
+A simple `gaudirun.py` should work as well now.
+Typing `exit` will close the shell and leave the LHCb environment behind.
+
+> ## Using SetupProject instead of lb-run {.callout}
+> When reading through other tutorials, you will come across `SetupProject`.
+> This is an older way of setting up a shell that is configured to run LHCb software.
+> `lb-run` is the new way of doing things and has some nice benefits over `SetupProject`.
+> For most purposes, `SetupProject DaVinci v36r6` is equivalent to
+> ```bash
+> lb-run DaVinci v36r6 $SHELL
+> ```
+
 
