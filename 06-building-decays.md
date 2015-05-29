@@ -42,14 +42,101 @@ To solve this problem, the [Selection Framework](https://twiki.cern.ch/twiki/bin
 > The `SelectionSequence` takes a `Selection` object, resolves its `Selection` requirements, and builds a flat, chained and ordered list of `Selections`. It then exports (via the `selection` method) a self-contained `GaudiSequencer` with all the algorithm configurables necessary to run the selection.
 > It also makes the output locations of the data written by the head of the selection chain available via the `outputLocations` method.
 
+To get our input particles we have two equivalent options:
 
-To get our input particles we have two options:
+ - Use the `DataOnDemand` class with the `Phys/StdAllNoPIDsPions/Particles` and `Phys/StdAllLooseKaons/Particles` as inputs for pions and kaons, respectively.
 
- - Use the `DataOnDemand` class, a `Selection` which takes as input a TES location and gets the objects (building them if necessary) from there. This service has a list of 
- -
+```python
+from PhysSelPython.Wrappers import DataOnDemand
+Pions = DataOnDemand('Phys/StdAllNoPIDsPions/Particles')
+Kaons = DataOnDemand('Phys/StdAllLooseKaons/Particles')
+```
 
-Selection framework
+ - Load the equivalent particle creation algorithms from the `CommonParticles` package:
 
-CommonParticles
-CombineParticles
-FilterDesktop
+```python
+from CommonParticles.StdAllNoPIDsPions import StdAllNoPIDsPions as Pions
+from CommonParticles.StdAllLooseKaons import StdAllLooseKaons as Kaons
+```
+
+The `CommonParticles` package, which you can find [here](https://svnweb.cern.ch/trac/lhcb/browser/Stripping/trunk/Phys/CommonParticles/python/CommonParticles), allows to access premade particles with reasonable selections and gives easy access to common particles used in selections.
+If you access the code for `StdAllNoPIDsPions`, you can see that in it the algorithm for creating the particles is instantiated and the map of the `DataOnDemand` service is updated via the `updateDoD` function.
+
+Once we have the input pions and kaons, we can combine them to build a D0 by means of the `CombineParticles` algorithm.
+This algorithm performs the combinatorics for us according to a given decay descriptor and puts the resulting particle in the TES, allowing also to apply some cuts on them:
+
+ - `DaughtersCuts` is a dictionary that maps each child particle we want to cut on with a selection LoKi particle functor (or combination of functors) which results in a `bool`. Optionally, one can specify also a `Preambulo` property that allows us to make imports, preprocess functors, etc (more on this in the [LoKi functors](https://lhcb.github.io/first-analysis-steps/06-loki-functors.html) lesson). For example:
+
+```python
+d0_daughters = {'pi-': '(PT > 750*MeV) & (P > 4000*MeV) & (MIPCHI2DV(PRIMARY) > 4)',
+                'K+': '(PT > 750*MeV) & (P > 4000*MeV) & (MIPCHI2DV(PRIMARY) > 4)'}
+```
+
+ - `CombinationCut` is a particle array LoKi functor (note the `A` prefix, see more [here](https://twiki.cern.ch/twiki/bin/view/LHCb/LoKiHybridFilters#Particle_Array_Functors)) that is given as input the array of particles in a single combination, in our case a kaon and a pion. This cut is performed the vertex fit, so typically can be used to save CPU cycles by performing some sanity cuts such as `AMAXDOCA` or `ADAMASS` (do you know what they do?) before the vertex fit is performed:
+ 
+```python
+d0_comb = "(AMAXDOCA('') < 0.2*mm) & (ADAMASS('D0') < 100*MeV)"
+```
+ 
+ - `MotherCut` is a selection LoKi particle functor that acts on the parent particle after the vertex fit, which allows to further filter on those variables that require the particle to be built:
+
+```python
+d0_mother = "(VFASPF(VCHI2/VDOF)< 9) & (BPVDIRA > 0.9997) & (ADMASS('D0') < 70*MeV)"
+```
+
+So we can build a combiner as
+
+```python
+from Configurables import CombineParticles
+d0 = CombineParticles("Combine_D0",
+                      Decay='([D0 -> pi- K+]CC)',
+                      DaughtersCuts=d0_daughters,
+                      CombinationCut=d0_comb,
+                      MotherCut=d0_mother)
+```
+
+Now we have to build a `Selection` out of it so we can later on put all pieces together:
+
+```python
+from PhysSelPython.Wrappers import Selection
+d0_sel = Selection("Sel_D0",
+                   Algorithm=d0,
+                   RequiredSelections=[Pions, Kaons])
+```
+
+We may now apply some selection on the soft pion before combining it with the D0.
+Instead of using `DaughtersCuts`, we can make use of the `FilterDesktop` algorithm, which takes a TES location and filters the particles inside according to a given LoKi functor in the `Code` property:
+
+```python
+from Configurables import FilterDesktop
+soft_pion = FilterDesktop("Filter_SoftPi",
+                          Code='(TRCHI2DOF < 3) & (PT > 100*MeV)')
+soft_pion_sel = Selection("Sel_SoftPi",
+                          Algorithm=soft_pion,
+                          RequiredSelections=[Pions])
+```
+
+Now we can use another `CombineParticles` to build the D* using our filtered pion and the D0 as inputs:
+
+```python
+dstar = CombineParticles("CombineDstar",
+                         Decay='[D*(2010)+ -> D0 pi+]cc',
+                         CombinationCut="(ADAMASS('D*(2010)+') < 400*MeV)",
+                         MotherCut="(abs(M-MAXTREE('D0'==ABSID,M)-145.42) < 10*MeV) & (VFASPF(VCHI2/VDOF)< 9)")
+dstar_sel = Selection("Sel_Dstar",
+                      Algorithm=dstar,
+                      RequiredSelections=[d0_sel, soft_pion_sel])
+```
+
+We can build build a `SelectionSequence` to add to the `DaVinci` execution sequence
+
+```python
+from PhysSelPython.Wrappers import SelectionSequence
+dstar_seq = SelectionSequence('Dstar_Seq', TopSelection=dstar_sel)
+from Configurables import DaVinci
+DaVinci().UserAlgorithms += [dstar_seq.sequence()]
+```
+
+Now you can finish the script (the base of which can be found [here](code/06-building-decays/build_decays.py)) by adapting the basic `DaVinci` configuration from its corresponding [lesson](09-minimal-dv-job.html) and check the output ntuple.
+
+Congratulations! You've built the base of a Stripping line!
