@@ -17,6 +17,7 @@ Paragraph(s) of introductory material.
 2.  [Find the dataset in the Bookkeeping](03-bookkeeping.html)
 2.  [Download a file from the grid](05-files-from-grid.html)
 2.  [Interactively exploring a DST](05-interactive-dst.html)
+2.  [Fun with LoKi Functors](06-loki-functors.html)
 3.  General introduction to Stripping
 3.  Finding your stripping line
 2.  [Running a minimal DaVinci job locally](09-minimal-dv-job.html)
@@ -24,7 +25,6 @@ Paragraph(s) of introductory material.
 4.  [Minimal DaVinci on the grid](11-davinci-grid.html)
 9.  [Splitting a job into subjobs](12-split-jobs.html)
 5.  [TupleTools and branches](12-add-tupletools.html)
-7.  [Fun with LoKi Functors](13-loki-functors.html)
 8.  [Switch to a new stripping (20 -> 21) for one line in MC](14-rerun-stripping.html)
 10. (Stripping line efficiency)
 11. [Replace a mass hypothesis](17-switch-mass-hypo.html)

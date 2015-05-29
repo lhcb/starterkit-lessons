@@ -33,7 +33,7 @@ subs = SubstitutePID(
 )
 ```
 
-The algorithm is configured with a name `MakeD02pipi`. In the `Code` argument we need to specify the initial selection. This is done by using LoKi functors. Since we know we will be using an already prepared selection, we can simply use the `DECTREE` functor to search for candidates fulfilling this decay structure. See the [lesson on LoKi](13-loki-functors.html) for more info on what you can do here. 
+The algorithm is configured with a name `MakeD02pipi`. In the `Code` argument we need to specify the initial selection. This is done by using LoKi functors. Since we know we will be using an already prepared selection, we can simply use the `DECTREE` functor to search for candidates fulfilling this decay structure. See the [lesson on LoKi](06-loki-functors.html) for more info on what you can do here. 
 
 Now we ware ready to specify which hypotheses to change. `Substitutions` is a dictionary where the keys are decay descriptors and the values are the names of the replacement particles. The particle that should be replaced is marked with a `^`. So in the example above
 ```python

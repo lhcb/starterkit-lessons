@@ -8,7 +8,7 @@ minutes: 15
 > ## Learning Objectives {.objectives}
 >
 > * Understand what LoKi functors are
-> * Learn how to use them in a DecayTreeTuple
+> * Use LoKi functors interactively
 > * Be able to find functors that do what we want
 
 LoKi functors are designed to flexibly compute and compare properties of the current decay, from simple quantities such as the transverse momentum of particle to complicated ones like helicity angles.
@@ -154,48 +154,6 @@ mass == mass_child
 
 The usage of LoKi functors extends much further than in the interactive `GaudiPython` world.
 On one side, they constitute the basis of particle filtering in the *selection framework*;
-on the other, they can be used directly inside `DecayTreeTuple` to store specific bits of information without the need for a complicated C++-based `TupleTool`.
-To further explore this second option, let's go to the `DecayTreeTuple` with branches as configured in the [TupleTools and branches lesson](12-add-tupletools.html).
-To add LoKi-based leaves to the tree, we need to use the `LoKi::Hybrid::TupleTool`, which is configured with 3 arguments:
-
-  - Its *name*, specified in the `addTupleTool` call after a `/`.  This is very useful (and recommended) if we want to have different `LoKi::Hybrid::TupleTool` for each of our branches. For instance, we may want to add some information on the D*, the D0 and the soft $\pi$:
-    ```python
-    dstar_hybrid = dtt.Dstar.addTupleTool("LoKi::Hybrid::TupleTool/LoKi_Dstar")
-    d0_hybrid = dtt.D0.addTupleTool("LoKi::Hybrid::TupleTool/LoKi_D0")
-    pisoft_hybrid = dtt.pisoft.addTupleTool("LoKi::Hybrid::TupleTool/LoKi_PiSoft")
-    ```
-  - The `Preambulo` property, which lets us perform preprocessing of the LoKi functors to simplify the code that is used to fill the leaves, for example creating combinations of LoKi functors or performing mathematical operations:
-    ```python
-    preamble = ['DZ = VFASPF(VZ) - BPV(VZ)',
-                'TRACK_MAX_PT = MAXTREE(ISBASIC & HASTRACK, PT, -1)']
-    dstar_hybrid.Preambulo = preamble
-    d0_hybrid.Preambulo = preamble
-    ```
-  - The `Variables` property, consisting of a `dict` of (variable name, LoKi functor) pairs. In here, LoKi functors can be used, as well as any variable we may have defined in the `Preambulo`:
-    ```python
-    dstar_hybrid.Variables = {'mass': 'MM',
-                              'mass_D0': 'CHILD(MM, 1)',
-                              'pt': 'PT',
-                              'dz': 'DZ',
-                              'dira': 'BPVDIRA',
-                              'max_pt': 'MAXTREE(ISBASIC & HASTRACK, PT, -1)',
-                              'max_pt_preambulo': 'TRACK_MAX_PT',
-                              'sum_pt_pions': 'SUMTREE(211 == ABSID, PT)'
-                              'n_highpt_tracks': 'NINTREE(ISBASIC & HASTRACK & (PT > 1500*MeV))'}
-    d0_hybrid.Variables = {'mass': 'MM',
-                           'pt': 'PT',
-                           'dira': 'BPVDIRA',
-                           'vtx_chi2': 'VFASPF(VCHI2)',
-                           'dz': 'DZ'}
-    pisoft_hybrid.Variables = {'p': 'P',
-                               'pt': 'PT'}
-    ```
-
-In the code snippets specified above (available [here](code/13-loki-functors/ntuple_options.py)), there are several things to notice:
-    
-  - The `and` we used in the interactive session to combine `ISBASIC` and `HASTRACK` has been replaced by the logical symbol `&`, since we're not accessing the LoKi functors directly but loading them through text strings.
-  - The `NINTREE` functor counts the number of particles that pass the specified criteria. While this is not very useful for ntuple-building (we can always do it offline), it's a very powerful functor to use when building decay selections.
-  - We've used some other functors that have not been described previously. Find out what they do in the [doxygen](http://lhcb-release-area.web.cern.ch/LHCb-release-area/DOC/davinci/releases/latest/doxygen/d7/dae/namespace_lo_ki_1_1_cuts.html).
-  - Run the code above, and check that the `Dstar_max_pt` and `Dstar_max_pt_preambulo` and the `Dstar_mass_D0` and `D0_mass` branches have exactly the same values.
-
+on the other, they can be used directly inside our `DaVinci` jobs to store specific bits of information in our ntuples without the need for a complicated C++-based algorithms.
+This second option will be discussed in the [TupleTools and branches lesson](12-add-tupletools.html).
 
