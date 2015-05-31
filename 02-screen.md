@@ -118,3 +118,19 @@ $ screen
 # now inside the screen session
 $ kinit
 ```
+
+> ## Finding lost screens {.callout}
+>
+> Once you start a `screen` session you need to remember which
+> `lxplus` node it is running on. If you forget to note that down
+> you can use the following little snippet to find any `screen`
+> sessions running on `lxplus` nodes:
+>
+> ```bash
+> for i in $(seq -f "%04g" 1 500); do
+>  ssh -o ConnectTimeout=10 -o PreferredAuthentications=gssapi-with-mic,gssapi -o GSSAPIAuthentication=yes -o StrictHostKeyChecking=no -o LogLevel=quiet lxplus$i.cern.ch "(screen -list | head -1 | grep -q 'There is a screen on') && hostname && screen -list"
+> done
+> ```
+> This will connect to the first 500 lxplus nodes in
+> turn, checking if a `screen` session is running and if
+> yes prints the hostname and output of `screen -list`.
