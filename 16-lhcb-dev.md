@@ -30,11 +30,11 @@ lb-dev --name DaVinciDev --nightly lhcb-head DaVinci
 The output should look similar to this:
 
 ```
-Successfully created the local project DaVinciTest in .
+Successfully created the local project DaVinciDev in .
 
 To start working:
 
-  > cd ./DaVinciTest
+  > cd ./DaVinciDev
   > getpack MyPackage vXrY
 
 then
@@ -65,13 +65,21 @@ So why not check out out one of the existing LHCb packages, which are stored in 
 Let's assume you have already used `lb-dev` to set up your development environment and you are currently inside it.
 In order to obtain the source code of the package you want to work on, use `getpack`.
 This is an LHCb-aware wrapper around SVN.
-For example, if you want to write a custom stripping selection, write
+For example, if you want to write a custom stripping selection, execute the following in the `DaVinciDev` directory:
 
 ```bash
-getpack Phys/StrippingSelection
-# Make your local changes
-make
-./run bash
+getpack Phys/StrippingSelection head
+```
+
+Under the hood, `getpack` will `svn checkout` (≈ `git clone`) the corresponding SVN repository.
+The first argument to `getpack` is the name of the package you want to checkout, while the second argument allows you to choose a specific branch.
+`head` is usually the one one that contains the newest development changes and he one you should commit new changes to.
+
+You can now modify the `StrippingSelection` package and run `make` to build it with your changes.
+You can test your changes with the `./run` script.
+It works similar to `lb-run`, without the need to specify a package and version:
+```bash
+./run gaudirun.py options.py
 ```
 
 > ## What if getpack asks for my password 1000 times? {.callout}
@@ -87,14 +95,15 @@ make
 > getpack -p anonymous Phys/StrippingSelection
 > ```
 
-Under the hood, `getpack` will `svn checkout` (≈ `git clone`) the corresponding SVN repository.
 If you have made changes that are supposed to be integrated into the official LHCb repositories, you can use `svn commit`.
 Be advised that you should always communicate with the package maintainers before committing changes!
 
-If you just want to take a look at a source file, without checking it out, you can comfortably access the repository through two different web UIs:
+If you just want to take a look at a source file, without checking it out, you can comfortably access the repository through two different web UIs.
 
  * [Trac](https://svnweb.cern.ch/trac/lhcb/)
  * [SVNweb](http://svnweb.cern.ch/world/wsvn/lhcb)
+
+(which one to use? It is just a matter of taste, pick the one that looks nicest)
 
 To get an idea of how a certain component of the LHCb software works, you can access its doxygen documentation.
 There is a page for each project, a list of which can be found here: [https://lhcb-release-area.web.cern.ch/LHCb-release-area/DOC/davinci/latest_doxygen/index.html](https://lhcb-release-area.web.cern.ch/LHCb-release-area/DOC/davinci/latest_doxygen/index.html).
