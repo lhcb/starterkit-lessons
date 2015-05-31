@@ -25,6 +25,7 @@ $ ssh lxplus.cern.ch
 ~~~
 
 You can start `screen` by simply typing its name:
+
 ~~~ {.bash}
 $ screen
 ~~~
@@ -97,3 +98,39 @@ machine with:
 ~~~ {.bash}
 $ ssh lxplus0081.cern.ch
 ~~~
+
+Another complication are your kerberos tokens. These typically
+expire as soon as you disconnect from a `lxplus` machine. This means
+the program you left running inside the `screen` session will
+suddenly not be able to write to any files in your home directory
+anymore. This is particularly annoying if you are running `ganga`
+in your screen session.
+
+One way to stop your tokens from expiring is to type `kinit`
+when you first start a new `screen` session. The tokens you get
+this way will survive you disconnecting. However they will
+expire after 24 hours, so you will have to type `kinit` again
+to renew them if you leave `screen` running for longer than
+24 hours.
+
+```bash
+$ screen
+# now inside the screen session
+$ kinit
+```
+
+> ## Finding lost screens {.callout}
+>
+> Once you start a `screen` session you need to remember which
+> `lxplus` node it is running on. If you forget to note that down
+> you can use the following little snippet to find any `screen`
+> sessions running on `lxplus` nodes:
+>
+> ```bash
+> for i in $(seq -f "%04g" 1 500); do
+>  ssh -o ConnectTimeout=10 -o PreferredAuthentications=gssapi-with-mic,gssapi -o GSSAPIAuthentication=yes -o StrictHostKeyChecking=no -o LogLevel=quiet lxplus$i.cern.ch "(screen -list | head -1 | grep -q 'There is a screen on') && hostname && screen -list"
+> done
+> ```
+> This will connect to the first 500 lxplus nodes in
+> turn, checking if a `screen` session is running and if
+> yes prints the hostname and output of `screen -list`.
