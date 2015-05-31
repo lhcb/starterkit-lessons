@@ -62,11 +62,10 @@ evt.dump()
 ~~~
 
 Place this into a file called `first.py` and run the following
-commands in a new terminal:
+command in a new terminal:
 
 ```bash
-$ SetupProject DaVinci v36r6
-$ ipython -i first.py 00035742_00000002_1.allstreams.dst
+$ lb-run DaVinci v36r6 ipython -i first.py 00035742_00000002_1.allstreams.dst
 ```
 
 This will open the DST and print out some of the TES locations

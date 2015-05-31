@@ -31,7 +31,7 @@ This is a list of files that make up the dataset we are interested in. Each of t
 Before we can download the file, we need to set up our connection with the grid and load the Dirac software:
 ```bash
 lhcb-proxy-init
-SetupLHCbDirac
+lb-run LHCbDirac $SHELL
 ```
 
 Initialisation of the proxy might take a while and should ask you for your certificate password.
