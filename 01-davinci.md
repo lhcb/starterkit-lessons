@@ -94,6 +94,11 @@ lb-run DaVinci v36r6 gaudirun.py options.py
 An `option.py` is just a regular Python script that specifies how to set things up in the software.
 Many of the following lessons will teach you how to do something with DaVinci by showing you how to write or extend an `options.py`.
 You can use the above command to test it.
+You can also specify several option files like this:
+```bash
+lb-run DaVinci v36r6 gaudirun.py options1.py options2.py
+```
+They will then both be used to set up DaVinci.
 
 Do you want to get an overview of which versions of DaVinci exist? Use
 ```bash
