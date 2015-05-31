@@ -1,10 +1,3 @@
-#!/usr/bin/env python
-# -*- coding: utf-8 -*-
-# =============================================================================
-# @file   build_decays.py
-# @author Albert Puig (albert.puig@cern.ch)
-# @date   29.05.2015
-# =============================================================================
 """Build D* -> D0 (->K pi) pi decays from scratch."""
 
 from CommonParticles.StdAllNoPIDsPions import StdAllNoPIDsPions as Pions
@@ -27,20 +20,14 @@ d0_sel = Selection("Sel_D0",
                    Algorithm=d0,
                    RequiredSelections=[Pions, Kaons])
 
-from Configurables import FilterDesktop
-soft_pion = FilterDesktop("Filter_SoftPi",
-                          Code='(TRCHI2DOF < 3) & (PT > 100*MeV)')
-soft_pion_sel = Selection("Sel_SoftPi",
-                          Algorithm=soft_pion,
-                          RequiredSelections=[Pions])
-
 dstar = CombineParticles("CombineDstar",
                          Decay='[D*(2010)+ -> D0 pi+]cc',
+                         DaughtersCuts={'pi+': '(TRCHI2DOF < 3) & (PT > 100*MeV)'}
                          CombinationCut="(ADAMASS('D*(2010)+') < 400*MeV)",
                          MotherCut="(abs(M-MAXTREE('D0'==ABSID,M)-145.42) < 10*MeV) & (VFASPF(VCHI2/VDOF)< 9)")
 dstar_sel = Selection("Sel_Dstar",
                       Algorithm=dstar,
-                      RequiredSelections=[d0_sel, soft_pion_sel])
+                      RequiredSelections=[d0_sel, Pions])
 
 from PhysSelPython.Wrappers import SelectionSequence
 dstar_seq = SelectionSequence('Dstar_Seq', TopSelection=dstar_sel)
