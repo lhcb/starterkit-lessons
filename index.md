@@ -26,7 +26,6 @@ Paragraph(s) of introductory material.
 9.  [Splitting a job into subjobs](12-split-jobs.html)
 5.  [TupleTools and branches](12-add-tupletools.html)
 8.  [Switch to a new stripping (20 -> 21) for one line in MC](14-rerun-stripping.html)
-10. (Stripping line efficiency)
 11. [Replace a mass hypothesis](17-switch-mass-hypo.html)
 12. TisTos and what it all means
 13. TupleTools for TISTOS'ing
