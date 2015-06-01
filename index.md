@@ -36,7 +36,7 @@ Paragraph(s) of introductory material.
 16. How do I use DecayTreeFitter?
 17. Minimal DV with mass constraint
 18. Other things one can do with DTF
-19. [How to ask good questions](26-asking-questions.md)
+19. [Asking good questions](26-asking-questions.html)
 20. Where to get help
 21. Contribute to this lesson!
 22. [Install party](32-install-party.html)
