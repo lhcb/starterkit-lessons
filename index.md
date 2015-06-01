@@ -2,12 +2,14 @@
 layout: lesson
 title: First Steps in LHCb
 ---
-Paragraph(s) of introductory material.
 
-> ## Prerequisites {.prereq}
->
-> Please make sure you can ssh to lxplus, have a working grid
-> certificate and can access the web based book-keeping.
+This is the LHCb Starterkit, a series of lessons for getting analysts working 
+confidently with LHCb software.
+The lessons are best approached one after the other, as most lessons build on 
+the knowledge gained from the previous ones.
+
+If you have any problems or questions, you can [send an email to 
+`lhcb-starterkit@cern.ch`](mailto:lhcb-starterkit@cern.ch).
 
 ## Topics
 
