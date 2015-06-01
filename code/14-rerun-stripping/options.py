@@ -1,15 +1,23 @@
-
-# This options file demonstrates how to run a stripping line
-# from a specific stripping version on a local MC DST file
-# It is based on the minimal DaVinci DecayTreeTuple example
+"""
+This options file demonstrates how to run a stripping line
+from a specific stripping version on a local MC DST file
+It is based on the minimal DaVinci DecayTreeTuple example
+"""
 
 from StrippingConf.Configuration import StrippingConf, StrippingStream
 from StrippingSettings.Utils import strippingConfiguration
 from StrippingArchive.Utils import buildStreams
 from StrippingArchive import strippingArchive
+from Configurables import (
+    EventNodeKiller,
+    ProcStatusCheck,
+    DaVinci,
+    DecayTreeTuple
+)
+from GaudiConf import IOHelper
+from DecayTreeTuple.Configuration import *
 
 # Node killer: remove the previous Stripping
-from Configurables import EventNodeKiller
 event_node_killer = EventNodeKiller('StripKiller')
 event_node_killer.Nodes = ['/Event/AllStreams', '/Event/Strip']
 
@@ -19,7 +27,7 @@ strip = 'stripping21'
 streams = buildStreams(stripping=strippingConfiguration(strip),
                        archive=strippingArchive(strip))
 
-custom_stream = StrippingStream("CustomStream")
+custom_stream = StrippingStream('CustomStream')
 custom_line = 'StrippingD2hhCompleteEventPromptDst2D2RSLine'
 
 for stream in streams:
@@ -30,17 +38,12 @@ for stream in streams:
 line = 'D2hhCompleteEventPromptDst2D2RSLine'
 
 # Create the actual Stripping configurable
-from Configurables import ProcStatusCheck
 filterBadEvents = ProcStatusCheck()
 
 sc = StrippingConf(Streams=[custom_stream],
                    MaxCandidates=2000,
                    AcceptBadEvents=False,
                    BadEventSelection=filterBadEvents)
-
-from GaudiConf import IOHelper
-from Configurables import DaVinci, DecayTreeTuple
-from DecayTreeTuple.Configuration import *
 
 # The output is placed directly into Phys, so we only need to
 # define the stripping line here
@@ -68,5 +71,5 @@ DaVinci().EvtMax = 5000
 
 # Use the local input data
 IOHelper().inputFiles([
-  './00035742_00000002_1.allstreams.dst'
+    './00035742_00000002_1.allstreams.dst'
 ], clear=True)
