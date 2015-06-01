@@ -11,6 +11,15 @@ the knowledge gained from the previous ones.
 If you have any problems or questions, you can [send an email to 
 `lhcb-starterkit@cern.ch`](mailto:lhcb-starterkit@cern.ch).
 
+> ## Prerequisites {.prereq}
+>
+> Before starting, you should be familiar with using a shell, like `bash`, and 
+> with programming in Python.
+>
+> The [Software Carpentry 
+> workshop](http://twitwi.github.io/2015-06-02-cern-lhcb/) gives a great 
+> introduction to these, as well as to many other useful computing tools.
+
 ## Topics
 
 1.  [Pre-workshop checklist](00-prerequisites.html) 
