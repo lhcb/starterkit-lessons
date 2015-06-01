@@ -31,16 +31,20 @@ import sys
 
 import GaudiPython as GP
 from GaudiConf import IOHelper
-from Configurables import LHCbApp, ApplicationMgr, DataOnDemandSvc
-from Configurables import DecodeRawEvent
-from Configurables import CondDB
-from Configurables import DaVinci
+from Configurables import (
+  LHCbApp,
+  ApplicationMgr,
+  DataOnDemandSvc,
+  DecodeRawEvent,
+  CondDB,
+  DaVinci
+)
 
 
 appConf = ApplicationMgr()
 
 dv = DaVinci()
-dv.DataType = "2012"
+dv.DataType = '2012'
 
 dre = DecodeRawEvent()
 dre.DataOnDemand = True
@@ -99,7 +103,7 @@ def nodes(evt, node=None):
         for l in evt.leaves(node):
             # skip a location that takes forever to load
             # XXX How to detect these automatically??
-            if "Swum" in l.identifier():
+            if 'Swum' in l.identifier():
                 continue
 
             temp = evt[l.identifier()]
@@ -134,13 +138,13 @@ def advance(decision):
     while True:
         appMgr.run(1)
 
-        if not evt["/Event/Rec/Header"]:
-            print "Reached end of input files"
+        if not evt['/Event/Rec/Header']:
+            print 'Reached end of input files'
             break
 
         n += 1
         dec=evt['/Event/Strip/Phys/DecReports']
-        if dec.hasDecisionName("Stripping%sDecision"%decision):
+        if dec.hasDecisionName('Stripping{0}Decision".format(decision)):
             break
 
     return n
@@ -186,6 +190,8 @@ There is a useful tool for printing out decay trees, which you can
 pass the top level particle to and it will print out the daughters etc:
 
 ```
-print_decay = appMgr.toolsvc().create('PrintDecayTreeTool', interface="IPrintDecayTreeTool")
+print_decay = appMgr.toolsvc().create(
+  'PrintDecayTreeTool', interface='IPrintDecayTreeTool'
+)
 print_decay.printTree(cands[0])
 ```

@@ -126,35 +126,43 @@ To add LoKi-based leaves to the tree, we need to use the `LoKi::Hybrid::TupleToo
 
   - Its *name*, specified in the `addTupleTool` call after a `/`.  This is very useful (and recommended) if we want to have different `LoKi::Hybrid::TupleTool` for each of our branches. For instance, we may want to add different information for the D*, the D0 and the soft $\pi$:
     ```python
-    dstar_hybrid = dtt.Dstar.addTupleTool("LoKi::Hybrid::TupleTool/LoKi_Dstar")
-    d0_hybrid = dtt.D0.addTupleTool("LoKi::Hybrid::TupleTool/LoKi_D0")
-    pisoft_hybrid = dtt.pisoft.addTupleTool("LoKi::Hybrid::TupleTool/LoKi_PiSoft")
+    dstar_hybrid = dtt.Dstar.addTupleTool('LoKi::Hybrid::TupleTool/LoKi_Dstar')
+    d0_hybrid = dtt.D0.addTupleTool('LoKi::Hybrid::TupleTool/LoKi_D0')
+    pisoft_hybrid = dtt.pisoft.addTupleTool('LoKi::Hybrid::TupleTool/LoKi_PiSoft')
     ```
   - The `Preambulo` property, which lets us perform preprocessing of the LoKi functors to simplify the code that is used to fill the leaves, for example creating combinations of LoKi functors or performing mathematical operations:
     ```python
-    preamble = ['DZ = VFASPF(VZ) - BPV(VZ)',
-                'TRACK_MAX_PT = MAXTREE(ISBASIC & HASTRACK, PT, -1)']
+    preamble = [
+        'DZ = VFASPF(VZ) - BPV(VZ)',
+        'TRACK_MAX_PT = MAXTREE(ISBASIC & HASTRACK, PT, -1)'
+    ]
     dstar_hybrid.Preambulo = preamble
     d0_hybrid.Preambulo = preamble
     ```
   - The `Variables` property, consisting of a `dict` of (variable name, LoKi functor) pairs. In here, LoKi functors can be used, as well as any variable we may have defined in the `Preambulo`:
     ```python
-    dstar_hybrid.Variables = {'mass': 'MM',
-                              'mass_D0': 'CHILD(MM, 1)',
-                              'pt': 'PT',
-                              'dz': 'DZ',
-                              'dira': 'BPVDIRA',
-                              'max_pt': 'MAXTREE(ISBASIC & HASTRACK, PT, -1)',
-                              'max_pt_preambulo': 'TRACK_MAX_PT',
-                              'sum_pt_pions': 'SUMTREE(211 == ABSID, PT)'
-                              'n_highpt_tracks': 'NINTREE(ISBASIC & HASTRACK & (PT > 1500*MeV))'}
-    d0_hybrid.Variables = {'mass': 'MM',
-                           'pt': 'PT',
-                           'dira': 'BPVDIRA',
-                           'vtx_chi2': 'VFASPF(VCHI2)',
-                           'dz': 'DZ'}
-    pisoft_hybrid.Variables = {'p': 'P',
-                               'pt': 'PT'}
+    dstar_hybrid.Variables = {
+        'mass': 'MM',
+        'mass_D0': 'CHILD(MM, 1)',
+        'pt': 'PT',
+        'dz': 'DZ',
+        'dira': 'BPVDIRA',
+        'max_pt': 'MAXTREE(ISBASIC & HASTRACK, PT, -1)',
+        'max_pt_preambulo': 'TRACK_MAX_PT',
+        'sum_pt_pions': 'SUMTREE(211 == ABSID, PT)'
+        'n_highpt_tracks': 'NINTREE(ISBASIC & HASTRACK & (PT > 1500*MeV))'
+    }
+    d0_hybrid.Variables = {
+        'mass': 'MM',
+        'pt': 'PT',
+        'dira': 'BPVDIRA',
+        'vtx_chi2': 'VFASPF(VCHI2)',
+        'dz': 'DZ'
+    }
+    pisoft_hybrid.Variables = {
+        'p': 'P',
+        'pt': 'PT'
+    }
     ```
 
 In the code snippets specified above (available [here](code/12-add-tupletools/ntuple_options_loki.py)), there are several things to notice:

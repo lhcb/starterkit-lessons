@@ -28,7 +28,7 @@ So how do we use a `TupleToolDecayTreeFitter` to our DaVinci script? Let's creat
 ```python
 from Configurables import TupleToolDecayTreeFitter,TupleToolDecay
 dtt.addBranches({
-    'Dstar' : '[D*(2010)+ -> (D0 -> K- pi+) pi+]CC',
+    'Dstar': '[D*(2010)+ -> (D0 -> K- pi+) pi+]CC',
 }) 
 ```
 To this branch we can now apply the `TupleToolDecayTreeFitter`. 
@@ -39,7 +39,7 @@ Now we can proceed with the configuration of the fitter. We are going to constra
 ```python
 dtt.Dstar.ConsD.constrainToOriginVertex = True
 dtt.Dstar.ConsD.Verbose = True
-dtt.Dstar.ConsD.daughtersToConstrain = [ 'D0' ]
+dtt.Dstar.ConsD.daughtersToConstrain = ['D0']
 ```
 Note that you can constrain more than one intermediate state at once if that fits your decay. 
 

@@ -49,7 +49,8 @@ Since those tuples tend to be quite large, you might want to use your AFS work d
 If you want to obtain all the files, you can copy and paste the list of file names from the file you got from the bookkeeping and paste them into the following python script for convenience.
 
 ```python
-FILES = []  # Your list of file names here
+# Your list of file names here
+FILES = []
 
 if __name__ == '__main__':
     from subprocess import call
@@ -61,9 +62,9 @@ if __name__ == '__main__':
 
     files = FILES[:n_files]
     for f in files:
-        print('Getting file %s.' % f)
-        call('dirac-dms-get-file %s' % f, shell=True)
-    print('Done getting %d files.' % n_files)
+        print('Getting file {0}.'.format(f))
+        call('dirac-dms-get-file {0}'.format(f), shell=True)
+    print('Done getting {0} files.'.format(n_files))
 ```
 
 Save it as `getEvents.py` and use it via `python getEvents.py [n]`. If you specify `n`, the script will only get the first n files from the grid.
