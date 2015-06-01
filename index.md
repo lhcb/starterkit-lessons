@@ -18,6 +18,7 @@ Paragraph(s) of introductory material.
 2.  [Download a file from the grid](05-files-from-grid.html)
 2.  [Interactively exploring a DST](05-interactive-dst.html)
 2.  [Fun with LoKi Functors](06-loki-functors.html)
+3.  [Building your own decay](06-building-decays.html)
 3.  General introduction to Stripping
 3.  Finding your stripping line
 2.  [Running a minimal DaVinci job locally](09-minimal-dv-job.html)
