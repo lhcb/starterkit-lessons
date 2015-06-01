@@ -19,14 +19,6 @@ If you want to make changes to a software package, you will need to set up a dev
 lb-dev --name DaVinciDev DaVinci v36r6
 ```
 
-<!-- This doesn't seem to work atm
-Alternatively, if you want to use the most recent nightly builds:
-
-```bash
-lb-dev --name DaVinciDev --nightly lhcb-head DaVinci
-```
--->
-
 The output should look similar to this:
 
 ```
@@ -95,9 +87,6 @@ It works similar to `lb-run`, without the need to specify a package and version:
 > getpack -p anonymous Phys/StrippingSelection
 > ```
 
-If you have made changes that are supposed to be integrated into the official LHCb repositories, you can use `svn commit`.
-Be advised that you should always communicate with the package maintainers before committing changes!
-
 If you just want to take a look at a source file, without checking it out, you can comfortably access the repository through two different web UIs.
 
  * [Trac](https://svnweb.cern.ch/trac/lhcb/)
@@ -106,5 +95,51 @@ If you just want to take a look at a source file, without checking it out, you c
 (which one to use? It is just a matter of taste, pick the one that looks nicest)
 
 To get an idea of how a certain component of the LHCb software works, you can access its doxygen documentation.
-There is a page for each project, a list of which can be found here: [https://lhcb-release-area.web.cern.ch/LHCb-release-area/DOC/davinci/latest_doxygen/index.html](https://lhcb-release-area.web.cern.ch/LHCb-release-area/DOC/davinci/latest_doxygen/index.html).
+There is a page for each project, lists of projects can be found here:
+
+ * [https://lhcb-release-area.web.cern.ch/LHCb-release-area/DOC/davinci/latest_doxygen/index.html](https://lhcb-release-area.web.cern.ch/LHCb-release-area/DOC/davinci/latest_doxygen/index.html).
+ * [http://lhcb-comp.web.cern.ch/lhcb-comp/](http://lhcb-comp.web.cern.ch/lhcb-comp/)
+
+Another useful tool available on lxplus machines is `Lbglimpse`. It allows you to search for a given string in the source code of LHCb software.
+```bash
+Lbglimpse "PVRefitter" DaVinci v36r6
+```
+It works with every LHCb project and released version.
+
+If you have made changes that are supposed to be integrated into the official LHCb repositories, you can use `svn commit`.
+But read the instructions in the SVN usage guidelines first.
+
+ * [SVNUsageGuidelines](https://twiki.cern.ch/twiki/bin/view/LHCb/SVNUsageGuidelines)
+
+Be advised that you should always communicate with the package maintainers before committing changes!
+The release managers have to find the packages to include in a new release. Therefore make sure
+to document your changes in the release notes which are found in `doc/release.notes`.
+After that put your commit into the tag collector.
+
+ * [Tag collector FAQ](https://twiki.cern.ch/twiki/bin/view/LHCb/FAQ/TagCollectorFAQ)
+ * [LHCb Tag Collector](https://lhcb-tag-collector.web.cern.ch/lhcb-tag-collector/index.html)
+
+(The login button is in the top right corner.)
+
+It is advisable to test new developments on the so-called nightly builds.
+They take everything which is committed in the head versions of all packages
+and try to build the given project.
+You can checkout this version by doing:
+```bash
+lb-dev DaVinci HEAD --nightly lhcb-head 
+```
+A more detailed description of the command is found here:
+
+ * [SoftwareEnvTools](https://twiki.cern.ch/twiki/bin/view/LHCb/SoftwareEnvTools)
+
+It is advisable to test new or changed code on the nightly build before committing.
+Sometimes mistakes happen and the commit is broken. Therefore the nightly tests are performed.
+They run some reference jobs and compare the output of the new build with a reference file.
+The results of the nightly builds can be found here.
+ * [Nightly tests](https://buildlhcb.cern.ch/nightlies/)
+
+If the aim of the commit was to change the ouput, e.g. because you increased the
+track reconstruction efficiency by a factor of two, inform the release manager of the package
+such that he can update the reference file.
+
 
