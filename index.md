@@ -12,7 +12,7 @@ Paragraph(s) of introductory material.
 ## Topics
 
 1.  [Pre-workshop Checklist](00-prerequisites.html) 
-1.  General introduction to DaVinci
+1.  [Introduction to the LHCb Software](01-davinci.html)
 1.  [Using screen to keep things running](02-screen.html)
 2.  [Find the dataset in the Bookkeeping](03-bookkeeping.html)
 2.  [Download a file from the grid](05-files-from-grid.html)
@@ -34,6 +34,7 @@ Paragraph(s) of introductory material.
 22. [How do I use DecayTreeFitter?](22-decay-tree-fitter.html)
 18. Other things one can do with DTF
 19. [Asking good questions](26-asking-questions.html)
+19. [Developing the LHCb Software](16-lhcb-dev.html)
 20. Where to get help
 21. Contribute to this lesson!
 22. [Install party](32-install-party.html)
