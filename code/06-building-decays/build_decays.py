@@ -1,5 +1,7 @@
 """Build D* -> D0 (->K pi) pi decays from scratch."""
 
+from PhysSelPython.Wrappers import Selection, SelectionSequence
+from Configurables import CombineParticles, DaVinci
 from CommonParticles.StdAllNoPIDsPions import StdAllNoPIDsPions as Pions
 from CommonParticles.StdAllLooseKaons import StdAllLooseKaons as Kaons
 
@@ -8,31 +10,30 @@ d0_daughters = {'pi-': '(PT > 750*MeV) & (P > 4000*MeV) & (MIPCHI2DV(PRIMARY) > 
 d0_comb = "(AMAXDOCA('') < 0.2*mm) & (ADAMASS('D0') < 100*MeV)"
 d0_mother = "(VFASPF(VCHI2/VDOF)< 9) & (BPVDIRA > 0.9997) & (ADMASS('D0') < 70*MeV)"
 
-from Configurables import CombineParticles
-d0 = CombineParticles("Combine_D0",
+d0 = CombineParticles('Combine_D0',
                       Decay='([D0 -> pi- K+]CC)',
                       DaughtersCuts=d0_daughters,
                       CombinationCut=d0_comb,
                       MotherCut=d0_mother)
 
-from PhysSelPython.Wrappers import Selection
 d0_sel = Selection("Sel_D0",
                    Algorithm=d0,
                    RequiredSelections=[Pions, Kaons])
 
-dstar = CombineParticles("CombineDstar",
+dstar_daughters = {'pi+': '(TRCHI2DOF < 3) & (PT > 100*MeV)'}
+dstar_comb = "(ADAMASS('D*(2010)+') < 400*MeV)"
+dstar_mother = "(abs(M-MAXTREE('D0'==ABSID,M)-145.42) < 10*MeV) & (VFASPF(VCHI2/VDOF)< 9)"
+dstar = CombineParticles('CombineDstar',
                          Decay='[D*(2010)+ -> D0 pi+]cc',
-                         DaughtersCuts={'pi+': '(TRCHI2DOF < 3) & (PT > 100*MeV)'}
-                         CombinationCut="(ADAMASS('D*(2010)+') < 400*MeV)",
-                         MotherCut="(abs(M-MAXTREE('D0'==ABSID,M)-145.42) < 10*MeV) & (VFASPF(VCHI2/VDOF)< 9)")
-dstar_sel = Selection("Sel_Dstar",
+                         DaughtersCuts=dstar_daughters,
+                         CombinationCut=dstar_comb,
+                         MotherCut=dstar_mother)
+dstar_sel = Selection('Sel_Dstar',
                       Algorithm=dstar,
                       RequiredSelections=[d0_sel, Pions])
 
-from PhysSelPython.Wrappers import SelectionSequence
 dstar_seq = SelectionSequence('Dstar_Seq', TopSelection=dstar_sel)
 
-from Configurables import DaVinci
 DaVinci().UserAlgorithms += [dstar_seq.sequence()]
 
 

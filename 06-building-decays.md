@@ -20,7 +20,7 @@ Get your [LoKi skills](https://lhcb.github.io/first-analysis-steps/06-loki-funct
 The typical approach is to build the decay from the bottom up. Therefore, we need to
 
   1. Get input pions and kaons and filter them according to our physics needs.
-  2. Combine a pion and a kaon to build a D0, and applying selection cuts to it.
+  2. Combine a pion and a kaon to build a D0, and apply selection cuts to it.
   3. Combine this D0 with a pion to build the D*, again filtering when necessary.
 
 To do that, we need to know a little bit more about how the LHCb analysis framework works.
@@ -30,17 +30,17 @@ To solve this problem, the [Selection Framework](https://twiki.cern.ch/twiki/bin
 
 > ## Selections {.callout}
 > The `Selection` is the basic unit of the framework. It uses other `Selections` to process `LHCb::Particles` and writes them to a TES location easily findable through its `outputLocation` method. Additionally, it knows about other `Selections` that it requires to pass in order to obtain input particles through its `RequiredSelections` argument.
-> A `Selection` requires *all* its `RequiredSelections` to pass.
+> A `Selection` requires *all* of its `RequiredSelections` to pass.
 >
 > There are several types of selections, namely
 >
 > - `Selection`, the most basic class.
-> - `MergedSelection`, which is used to join the output of several `Selection` objects in a single TES location.
-> - `AutomaticData` (also known as `DataOnDemand`), which builds objects from their TES location using a preconfigured map of (location, algorithm) pairs.
+> - `MergedSelection`, which is used to join the output of several `Selection` objects into a single TES location.
+> - `DataOnDemand` (also known as `AutomaticData`), which builds objects from their TES location using a preconfigured map of (location, algorithm) pairs.
 
 > ## Selection sequences {.callout}
 > The `SelectionSequence` takes a `Selection` object, resolves its `Selection` requirements, and builds a flat, chained and ordered list of `Selections`. It then exports (via the `selection` method) a self-contained `GaudiSequencer` with all the algorithm configurables necessary to run the selection.
-> It also makes the output locations of the data written by the head of the selection chain available via the `outputLocations` method.
+> It also makes the output locations of the data written by the selection chain available via the `outputLocations` method.
 
 To get our input particles we load the particle creation algorithms from the `CommonParticles` package:
 
@@ -65,7 +65,7 @@ This package, which you can find [here](https://svnweb.cern.ch/trac/lhcb/browser
 > In fact, if you access the [code](https://svnweb.cern.ch/trac/lhcb/browser/Stripping/trunk/Phys/CommonParticles/python/CommonParticles/StdAllNoPIDsPions.py) for `StdAllNoPIDsPions`, you can see that in it the algorithm for creating the particles is instantiated and the map of the `DataOnDemand` service is updated via the `updateDoD` function.
 >
 > Using the `DataOnDemand` service has the caveat that we need to hardcode the location of the particles, instead of loading a python class such as `StdAllNoPIDsPions`, and therefore must be used with care;
-> its usage is only necessary in a few non-trivial cases where we have no access to the algorithm that build the objects we need.
+> its usage is only necessary in a few cases where we have no access to the algorithm that build the objects we need.
 
 
 Once we have the input pions and kaons, we can combine them to build a D0 by means of the `CombineParticles` algorithm.
@@ -78,7 +78,7 @@ d0_daughters = {'pi-': '(PT > 750*MeV) & (P > 4000*MeV) & (MIPCHI2DV(PRIMARY) > 
                 'K+': '(PT > 750*MeV) & (P > 4000*MeV) & (MIPCHI2DV(PRIMARY) > 4)'}
 ```
 
- - `CombinationCut` is a particle array LoKi functor (note the `A` prefix, see more [here](https://twiki.cern.ch/twiki/bin/view/LHCb/LoKiHybridFilters#Particle_Array_Functors)) that is given the array of particles in a single combination (the *children*) as input (in our case a kaon and a pion). This cut is applied before the vertex fit so it is typically used to save CPU cycles by performing some sanity cuts such as `AMAXDOCA` or `ADAMASS` (do you know what they do?) before the CPU-consuming fit:
+ - `CombinationCut` is a particle array LoKi functor (note the `A` prefix, see more [here](https://twiki.cern.ch/twiki/bin/view/LHCb/LoKiHybridFilters#Particle_Array_Functors)) that is given the array of particles in a single combination (the *children*) as input (in our case a kaon and a pion). This cut is applied before the vertex fit so it is typically used to save CPU time by performing some sanity cuts such as `AMAXDOCA` or `ADAMASS` before the CPU-consuming fit:
  
 ```python
 d0_comb = "(AMAXDOCA('') < 0.2*mm) & (ADAMASS('D0') < 100*MeV)"
@@ -113,12 +113,15 @@ d0_sel = Selection("Sel_D0",
 Now we can use another `CombineParticles` to build the D* with pions and the D0's as inputs, and applying a filtering only on the soft pion:
 
 ```python
-dstar = CombineParticles("CombineDstar",
+dstar_daughters = {'pi+': '(TRCHI2DOF < 3) & (PT > 100*MeV)'}
+dstar_comb = "(ADAMASS('D*(2010)+') < 400*MeV)"
+dstar_mother = "(abs(M-MAXTREE('D0'==ABSID,M)-145.42) < 10*MeV) & (VFASPF(VCHI2/VDOF)< 9)"
+dstar = CombineParticles('CombineDstar',
                          Decay='[D*(2010)+ -> D0 pi+]cc',
-                         DaughtersCuts={'pi+': '(TRCHI2DOF < 3) & (PT > 100*MeV)'}
-                         CombinationCut="(ADAMASS('D*(2010)+') < 400*MeV)",
-                         MotherCut="(abs(M-MAXTREE('D0'==ABSID,M)-145.42) < 10*MeV) & (VFASPF(VCHI2/VDOF)< 9)")
-dstar_sel = Selection("Sel_Dstar",
+                         DaughtersCuts=dstar_daughters,
+                         CombinationCut=dstar_comb,
+                         MotherCut=dstar_mother)
+dstar_sel = Selection('Sel_Dstar',
                       Algorithm=dstar,
                       RequiredSelections=[d0_sel, Pions])
 ```
@@ -144,7 +147,7 @@ dstar_sel = Selection("Sel_Dstar",
 >                       RequiredSelections=[d0_sel, soft_pion_sel])
 > ```
 >
-> This allows to (a) save time by performing the filtering of the soft pions only once, and (b) keep all the common cuts in a single place, avoiding duplication of code.
+> This allows us to save time by performing the filtering of the soft pions only once, and to keep all the common cuts in a single place, avoiding duplication of code.
 
 
 We can now build build a `SelectionSequence` to add to the `DaVinci` execution sequence
@@ -156,6 +159,8 @@ from Configurables import DaVinci
 DaVinci().UserAlgorithms += [dstar_seq.sequence()]
 ```
 
-Now you can finish the script (the base of which can be found [here](code/06-building-decays/build_decays.py)) by adapting the basic `DaVinci` configuration from its corresponding [lesson](09-minimal-dv-job.html) and check the output ntuple.
+> ## Work to do {.challenge}
+>  - Finish the script (the base of which can be found [here](code/06-building-decays/build_decays.py)) by adapting the basic `DaVinci` configuration from its corresponding [lesson](09-minimal-dv-job.html) and check the output ntuple.
+>  - Do you know what the used LoKi functors (`AMAXDOCA`, `ADAMASS`, `MIPCHI2DV`, etc) do? 
 
-Congratulations! You've built the base of a Stripping line!
+Congratulations! You've built the base of a stripping line!
