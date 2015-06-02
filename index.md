@@ -11,7 +11,7 @@ Paragraph(s) of introductory material.
 
 ## Topics
 
-1.  [Pre-workshop checklist](00-prerequisites.html) 
+1.  [Pre-workshop checklist](00-prerequisites.html)
 1.  [Introduction to the LHCb Software](01-davinci.html)
 1.  [Using screen to keep things running](02-screen.html)
 2.  [Find the dataset in the Bookkeeping](03-bookkeeping.html)
@@ -28,10 +28,9 @@ Paragraph(s) of introductory material.
 5.  [TupleTools and branches](12-add-tupletools.html)
 8.  [Switch to a new stripping (20 -> 21) for one line in MC](14-rerun-stripping.html)
 11. [Replace a mass hypothesis](17-switch-mass-hypo.html)
-12. [TisTos and what it all means](18-tistos-what-it-means.html)
-13. TupleTools for TISTOS'ing
-14. (Caveats for TISTOS'ing)
-14. More on the HLT?
+12. [HLT intro](18-hlt-intro.html)
+13. [TisTos DIY](18-tistos-diy.html)
+14. TupleTools for TISTOS'ing
 22. [How do I use DecayTreeFitter?](22-decay-tree-fitter.html)
 18. Other things one can do with DTF
 19. [Asking good questions](26-asking-questions.html)
