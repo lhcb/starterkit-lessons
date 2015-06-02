@@ -65,7 +65,7 @@ getpack Phys/StrippingSelection head
 
 Under the hood, `getpack` will `svn checkout` (≈ `git clone`) the corresponding SVN repository.
 The first argument to `getpack` is the name of the package you want to checkout, while the second argument allows you to choose a specific branch.
-`head` is usually the one one that contains the newest development changes and he one you should commit new changes to.
+`head` is usually the one one that contains the newest development changes and the one you should commit new changes to.
 
 You can now modify the `StrippingSelection` package and run `make` to build it with your changes.
 You can test your changes with the `./run` script.
@@ -132,11 +132,11 @@ A more detailed description of the command is found here:
 
  * [SoftwareEnvTools](https://twiki.cern.ch/twiki/bin/view/LHCb/SoftwareEnvTools)
 
-It is advisable to test new or changed code on the nightly build before committing.
 Sometimes mistakes happen and the commit is broken. Therefore the nightly tests are performed.
 They run some reference jobs and compare the output of the new build with a reference file.
 The results of the nightly builds can be found here.
- * [Nightly tests](https://buildlhcb.cern.ch/nightlies/)
+
+* [Nightly tests](https://buildlhcb.cern.ch/nightlies/)
 
 If the aim of the commit was to change the ouput, e.g. because you increased the
 track reconstruction efficiency by a factor of two, inform the release manager of the package
