@@ -104,7 +104,7 @@ report.substructure().substructure()[0].lhcbIDs()
 Excercise: The LHCbIDs can tell you which sub-detector they belong too. Have a
 look at the doxygen to see what methods you can use (hint: find "LHCbID (LHCb)
 in the
-[class index]("http://lhcb-release-area.web.cern.ch/LHCb-release-area/DOC/davinci/latest_doxygen/classes.html")). And
+[class index](http://lhcb-release-area.web.cern.ch/LHCb-release-area/DOC/davinci/latest_doxygen/classes.html)). And
 get an idea of how many sub-detector hits are on the tracks. Does this match
 what you would expect?
 
