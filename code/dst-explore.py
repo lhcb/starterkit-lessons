@@ -1,4 +1,3 @@
-# SetupProject DaVinci v36r6
 import sys
 
 import GaudiPython as GP

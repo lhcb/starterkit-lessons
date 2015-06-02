@@ -16,7 +16,7 @@ strippingSels = [DataOnDemand(Location=tesLoc)]
 
 # configure an algorithm to substitute the Kaon in the D0-decay by a second pion 
 from Configurables import SubstitutePID
-Subs = SubstitutePID(
+subs = SubstitutePID(
         'MakeD02pipi',
         Code = "DECTREE('[D*(2010)+ -> (D0 -> K- pi+) pi+]CC')",
         Substitutions = { # note that SubstitutePID can't handle automatic CC
@@ -26,7 +26,7 @@ Subs = SubstitutePID(
 )
 
 # create a selection using the substitution algorithm
-selSub = Selection("Dst2D0pi_D02pipi_Sel", Algorithm=Subs, RequiredSelections=strippingSels)
+selSub = Selection("Dst2D0pi_D02pipi_Sel", Algorithm=subs, RequiredSelections=strippingSels)
 # in order to add the selection into the program make a sequence
 selSeq = SelectionSequence('SelSeq', TopSelection=selSub)
 
