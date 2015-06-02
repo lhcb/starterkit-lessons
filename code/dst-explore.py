@@ -16,7 +16,7 @@ MCHit = GP.gbl.LHCb.MCHit
 
 def nodes(evt, node=None):
     nodenames = []
-    
+
     if node is None:
         root = evt.retrieveObject('')
         node = root.registry()
@@ -28,10 +28,10 @@ def nodes(evt, node=None):
             # XXX How to detect these automatically??
             if "Swum" in l.identifier():
                 continue
-            
+
             temp = evt[l.identifier()]
             nodenames += nodes(evt, l)
-                    
+
     else:
         nodenames.append(node.identifier())
 
@@ -43,8 +43,11 @@ def advance(decision='B02DKWSD2HHHBeauty2CharmLine'):
     n = 0
     while True:
         appMgr.run(1)
+        if not evt['/Event']:
+            n = 0
+            break
         n += 1
-        dec=evt['/Event/Strip/Phys/DecReports']
+        dec = evt['/Event/Strip/Phys/DecReports']
         if dec.hasDecisionName("Stripping%sDecision"%decision):
             break
 
@@ -68,16 +71,16 @@ dre = DecodeRawEvent()
 dre.DataOnDemand = True
 
 lhcbApp = LHCbApp()
-lhcbApp.Simulation = True 
+lhcbApp.Simulation = True
 CondDB().Upgrade = False
 # don't really need tags for looking around
-#LHCbApp().DDDBtag = ... 
+#LHCbApp().DDDBtag = ...
 #LHCbApp().CondDBtag  = ...
 
 # Pass file to open as first command line argument
 inputFiles = [sys.argv[-1]]
 IOHelper('ROOT').inputFiles(inputFiles)
-    
+
 
 # Configuration done, run time!
 appMgr = GP.AppMgr()
