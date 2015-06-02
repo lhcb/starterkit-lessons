@@ -132,8 +132,9 @@ A more detailed description of the command is found here:
 
  * [SoftwareEnvTools](https://twiki.cern.ch/twiki/bin/view/LHCb/SoftwareEnvTools)
 
-Sometimes mistakes happen and the commit is broken. Therefore the nightly tests are performed.
-They run some reference jobs and compare the output of the new build with a reference file.
+Sometimes mistakes happen and the committed code is either not compiling or does not do what it is supposed to do.
+Therefore the nightly tests are performed. They first try to build the full software stack.
+If that is successful, they run some reference jobs and compare the output of the new build with a reference file.
 The results of the nightly builds can be found here.
 
 * [Nightly tests](https://buildlhcb.cern.ch/nightlies/)
