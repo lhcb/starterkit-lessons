@@ -42,31 +42,21 @@ To solve this problem, the [Selection Framework](https://twiki.cern.ch/twiki/bin
 > The `SelectionSequence` takes a `Selection` object, resolves its `Selection` requirements, and builds a flat, chained and ordered list of `Selections`. It then exports (via the `selection` method) a self-contained `GaudiSequencer` with all the algorithm configurables necessary to run the selection.
 > It also makes the output locations of the data written by the selection chain available via the `outputLocations` method.
 
-To get our input particles we load the particle creation algorithms from the `CommonParticles` package:
+To get our input particles we use the `DataOnDemand` service:
 
 ```python
-from CommonParticles.StdAllNoPIDsPions import StdAllNoPIDsPions as Pions
-from CommonParticles.StdAllLooseKaons import StdAllLooseKaons as Kaons
+from PhysSelPython.Wrappers import DataOnDemand
+Pions = DataOnDemand('Phys/StdAllNoPIDsPions/Particles')
+Kaons = DataOnDemand('Phys/StdAllLooseKaons/Particles')
 ```
 
-This package, which you can find [here](https://svnweb.cern.ch/trac/lhcb/browser/Stripping/trunk/Phys/CommonParticles/python/CommonParticles), allows to access premade particles with reasonable selections and gives easy access to common particles used in selections.
-
-> ## Using the `DataOnDemand` selection {.callout}
+> ## Finding the correct inputs for `CombineParticles` algorithms {.callout}
 > As discussed previously, the `DataOnDemand` or `AutomaticData` selection builds objects from their TES location.
 > In Gaudi, the TES location of the output of an algorithm is generally determined as `Phys/ALGO_NAME/OBJECT_TYPE`, where `OBJECT_TYPE` refers to `Particles`, `Vertices`, etc.
-> For example, in our specific case, we could have used the `DataOnDemand` class with the `Phys/StdAllNoPIDsPions/Particles` and `Phys/StdAllLooseKaons/Particles` as inputs for pions and kaons, respectively:
+>
+> The `CommonParticles` package, which you can find [here](https://svnweb.cern.ch/trac/lhcb/browser/Stripping/trunk/Phys/CommonParticles/python/CommonParticles), allows to access premade particles with reasonable selections for us to use with `DataOnDemand`.
+> For example, in our specific case, we use the `DataOnDemand` class with the `Phys/StdAllNoPIDsPions/Particles` and `Phys/StdAllLooseKaons/Particles` locations to access the output of the `StdAllNoPIDsPions` and `StdAllLooseKaons` algorithms, respectively:
 > 
-> ```python
-> from PhysSelPython.Wrappers import DataOnDemand
-> Pions = DataOnDemand('Phys/StdAllNoPIDsPions/Particles')
-> Kaons = DataOnDemand('Phys/StdAllLooseKaons/Particles')
-> ```
->
-> In fact, if you access the [code](https://svnweb.cern.ch/trac/lhcb/browser/Stripping/trunk/Phys/CommonParticles/python/CommonParticles/StdAllNoPIDsPions.py) for `StdAllNoPIDsPions`, you can see that in it the algorithm for creating the particles is instantiated and the map of the `DataOnDemand` service is updated via the `updateDoD` function.
->
-> Using the `DataOnDemand` service has the caveat that we need to hardcode the location of the particles, instead of loading a python class such as `StdAllNoPIDsPions`, and therefore must be used with care;
-> its usage is only necessary in a few cases where we have no access to the algorithm that build the objects we need.
-
 
 Once we have the input pions and kaons, we can combine them to build a D0 by means of the `CombineParticles` algorithm.
 This algorithm performs the combinatorics for us according to a given decay descriptor and puts the resulting particle in the TES, allowing also to apply some cuts on them:
@@ -95,7 +85,7 @@ Then, we can build a combiner as
 ```python
 from Configurables import CombineParticles
 d0 = CombineParticles("Combine_D0",
-                      Decay='([D0 -> pi- K+]CC)',
+                      DecayDescriptor='([D0 -> pi- K+]CC)',
                       DaughtersCuts=d0_daughters,
                       CombinationCut=d0_comb,
                       MotherCut=d0_mother)
@@ -117,7 +107,7 @@ dstar_daughters = {'pi+': '(TRCHI2DOF < 3) & (PT > 100*MeV)'}
 dstar_comb = "(ADAMASS('D*(2010)+') < 400*MeV)"
 dstar_mother = "(abs(M-MAXTREE('D0'==ABSID,M)-145.42) < 10*MeV) & (VFASPF(VCHI2/VDOF)< 9)"
 dstar = CombineParticles('CombineDstar',
-                         Decay='[D*(2010)+ -> D0 pi+]cc',
+                         DecayDescriptor='[D*(2010)+ -> D0 pi+]cc',
                          DaughtersCuts=dstar_daughters,
                          CombinationCut=dstar_comb,
                          MotherCut=dstar_mother)
@@ -139,7 +129,7 @@ dstar_sel = Selection('Sel_Dstar',
 >                           Algorithm=soft_pion,
 >                           RequiredSelections=[Pions])
 > dstar = CombineParticles("CombineDstar",
->                          Decay='[D*(2010)+ -> D0 pi+]cc',
+>                          DecayDescriptor='[D*(2010)+ -> D0 pi+]cc',
 >                          CombinationCut="(ADAMASS('D*(2010)+') < 400*MeV)",
 >                          MotherCut="(abs(M-MAXTREE('D0'==ABSID,M)-145.42) < 10*MeV) & (VFASPF(VCHI2/VDOF)< 9)")
 > dstar_sel = Selection("Sel_Dstar",
