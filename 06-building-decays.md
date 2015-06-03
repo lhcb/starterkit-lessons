@@ -191,7 +191,7 @@ DaVinci().UserAlgorithms += [dstar_seq.sequence()]
 > The `PhysSelPython.Wrappers` offers a very useful utility for debugging your selection chains, called `PrintSelection`.
 > It gets a `Selection` as input and it can be used the same way, except it will print the decay tree everytime making use of the `PrintDecayTree` algorithm which was discussed in the [Exploring a DST](05-interactive-dst.html) lesson.
 >
-> For more complex debugging, one can setup `DaVinci` with `graphviz` (see more details [here](www.graphviz.org))
+> For more complex debugging, one can setup `DaVinci` with `graphviz` (see more details [here](http://www.graphviz.org))
 > ```shell
 > SetupDaVinci --use "graphviz v* LCG_Interfaces"
 > ```
