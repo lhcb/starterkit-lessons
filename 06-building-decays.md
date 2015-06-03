@@ -145,7 +145,7 @@ dstar_daughters = {'pi+': '(TRCHI2DOF < 3) & (PT > 100*MeV)'}
 dstar_comb = "(ADAMASS('D*(2010)+') < 400*MeV)"
 dstar_mother = "(abs(M-MAXTREE('D0'==ABSID,M)-145.42) < 10*MeV) & (VFASPF(VCHI2/VDOF)< 9)"
 dstar_sel = SimpleSelection('Sel_Dstar',
-                            CombineParticles,
+                            GenCombineParticles,
                             [d0_sel, Pions],
                             DecayDescriptor='[D*(2010)+ -> D0 pi+]cc',
                             DaughtersCuts=dstar_daughters,
@@ -191,16 +191,16 @@ DaVinci().UserAlgorithms += [dstar_seq.sequence()]
 > The `PhysSelPython.Wrappers` offers a very useful utility for debugging your selection chains, called `PrintSelection`.
 > It gets a `Selection` as input and it can be used the same way, except it will print the decay tree everytime making use of the `PrintDecayTree` algorithm which was discussed in the [Exploring a DST](05-interactive-dst.html) lesson.
 >
-> For more complex debugging, one can setup `DaVinci` with `graphviz
+> For more complex debugging, one can setup `DaVinci` with `graphviz` (see more details [here](www.graphviz.org))
 > ```shell
 > SetupDaVinci --use "graphviz v* LCG_Interfaces"
 > ```
->
-> And add a nice graphical representation of the selection sequence
+> and create a graph representation of the sequence of algorithms and their dependencies:
 > ```python
 >from SelPy.graph import graph
 >graph(dtsar_sel, format='png')
 >```
+> Note that currently it is not possible to load `graphviz` with `lb-run`, but it is expected it will be possible in the near future.
 
 
 > ## Work to do {.challenge}
@@ -208,4 +208,5 @@ DaVinci().UserAlgorithms += [dstar_seq.sequence()]
 >  - Replace the `"Combine_D0"` and `"Sel_D0"` objects by a single `SimpleSelection`.
 >  - Do you know what the used LoKi functors (`AMAXDOCA`, `ADAMASS`, `MIPCHI2DV`, etc) do? 
 >  - Add a `PrintSelection` in your selections and run again.
+>  - Create a `graph` of the selection.
 
