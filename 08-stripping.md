@@ -31,3 +31,25 @@ The data flow is designed so the processing of real data and simulated one are a
 
  5. Users can run their own analysis tools, such as [`DecayTreeTuple`](09-minimal-dv-job.html), to extract variables useful for analysis.
  The processing is slightly different between `DST` and `µDST`, since some calculations, such as isolations, need the other tracks in the event (not only the signal), which are not available in the latter format.
+
+Steps 1 to 4 are performed centrally, while 5 is performed by the users.
+Step 3, the reconstruction, is rarely performed, only when data are taken and when a new reconstruction configuration is available.
+Step 4, the stripping, can be performed more often, since it runs on reconstructed data. Strippings are identified by a `SXrYpZ` version, which help identify the different types of strippings:
+
+ - The digit `X` marks the major stripping version. This marks all major *restrippings*, in which the full list of lines is processed, with or without re-reconstruction.
+ - The digit `Y` is the release version, whch was used during Run-I to mark the data type, that is, the year: 0 was used for 2012 and 1 for 2011. The legacy stripping, `S21` is used for 2012 and `S21r1` for 2011.
+ - The digit `Z` marks the patch version, which correspond to *incremental strippings*, stripping campaigns based on a major version in which only a handful of lines is run (either for bug fixes or to add new ones). In the case of incremental strippings, no re-reconstruction is performed.
+
+To get information on the stripping, the best resource is the [stripping Twiki](https://twiki.cern.ch/twiki/bin/view/LHCb/LHCbStripping).
+In it we can find:
+
+  - The status of the current strippings, eg, for [Stripping `S21r1`](http://lhcbproject.web.cern.ch/lhcbproject/Reprocessing/stats-re-stripping-fall14.html).
+  - The configuration of all strippings, eg, for [Stripping `S21`](https://twiki.cern.ch/twiki/bin/view/LHCb/Stripping21Configuration)
+
+Additionally, the information on all strippings can be found in the [stripping project website](http://lhcb-release-area.web.cern.ch/LHCb-release-area/DOC/stripping/), where you can see all the algorithms run and cuts applied in each line.
+For example, if we wanted to understand the `StrippingD2hhCompleteEventPromptDst2D2RSLine` line, which we will use from now on, we would go [here](http://lhcb-release-area.web.cern.ch/LHCb-release-area/DOC/stripping/config/stripping21/charmcompleteevent/strippingd2hhcompleteeventpromptdst2d2rsline.html).
+
+> # Understanding a stripping line {.challenge}
+> Go to the `StrippingD2hhCompleteEventPromptDst2D2RSLine` line definition [here](http://lhcb-release-area.web.cern.ch/LHCb-release-area/DOC/stripping/config/stripping21/charmcompleteevent/strippingd2hhcompleteeventpromptdst2d2rsline.html) and try to understand what do the `CombineParticles` (`D2hhCompleteEventPromptD2KPiSel` and `D2hhCompleteEventPromptDst2D2RSLine`) in there do.
+> How are they different from the decay we built in the [Build your own decay](06-building-decays.html) lesson?
+> Do you understand all LoKi functors?
