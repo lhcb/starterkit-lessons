@@ -160,8 +160,9 @@ mass == mass_child
 ```
 
 The usage of LoKi functors extends much further than in the interactive `GaudiPython` world.
-On one side, they constitute the basis of particle filtering in the *selection framework*, discussed in the [Building your own decay chain](06-building-decays.html) lesson.
-Selecting particles means using LoKi *predicates*, ie, functors that give a `bool` output.
+
+They constitute the basis of particle filtering in the *selection framework*, discussed in the [Building your own decay chain](06-building-decays.html) lesson.
+Selecting particles means using LoKi *predicates*, ie, functors that give a `bool` output, which we have not discussed so far.
 Amongst these, a key expression is `in_range`, which returns `True` if the value of the given *function* functor (that is, the functor that returns a `double`) is within the given lower and upper limit.
 It helps writing CPU-efficient functors and thus is very important when building time-critical software like trigger or stripping lines.
 
@@ -171,7 +172,7 @@ in_range(2000, MM, 2014)(cand)
 in_range(1860, CHILD(MM, 1), 1870)(cand)
 ```
 
-On the other, they can be used directly inside our `DaVinci` jobs to store specific bits of information in our ntuples without the need for a complicated C++-based algorithms;
+Additionally, LoKi functors can be used directly inside our `DaVinci` jobs to store specific bits of information in our ntuples without the need for a complicated C++-based algorithms;
 this second option will be discussed in the [TupleTools and branches lesson](12-add-tupletools.html).
 
 > ## Debugging LoKi functors {.callout}
