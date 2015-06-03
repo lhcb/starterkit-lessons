@@ -102,13 +102,13 @@ d0_sel = Selection("Sel_D0",
 
 This two-step process for building the `Selection` (creating an algorithm and building a selection with it) can be simplified by using a helper function in the `PhysSelPython.Wrappers` module, called `SimpleSelection`.
 It gets a selection name, the algorithm type we want to run, the inputs and any other parameters that need to be passed to the algorithm (as keyword arguments), and returns a `Selection` object build in the same two-step way.
-With that in mind, we could rewrite the previous two pieces of code as
+With that in mind, we can rewrite the previous two pieces of code as
 
 ```python
-from GaudiConfUtils.ConfigurableGenerators import CombineParticles as GenCombineParticles
+import GaudiConfUtils.ConfigurableGenerators as ConfigurableGenerators
 from PhysSelPython.Wrappers import SimpleSelection
 d0_sel = SimpleSelection("Sel_D0",
-                         GenCombineParticles,
+                         ConfigurableGenerators.CombineParticles,
                          [Pions, Kaons],
                          DecayDescriptor='([D0 -> pi- K+]CC)',
                          DaughtersCuts=d0_daughters,
@@ -116,7 +116,8 @@ d0_sel = SimpleSelection("Sel_D0",
                          MotherCut=d0_mother)
 ```
 
-Note how we needed to import a different version of `CombineParticles` to make this work. This is because the LHCb algorithms are configured as singletons and it is mandatory to give them a name.
+Note how we needed to use the `CombineParticles` from `GaudiConfUtils.ConfigurableGenerators` instead of the `PhysSelPython.Wrappers` one to make this work.
+This is because the LHCb algorithms are configured as singletons and it is mandatory to give them a name, which we don't want to in `SimpleSelection` (we want to skip steps!).
 
 > ## The LHCb singletons {.callout}
 > If we had tried to simply use `CombineParticles` inside our `SimpleSelection`, we would have seen it fail with the following error
@@ -145,7 +146,7 @@ dstar_daughters = {'pi+': '(TRCHI2DOF < 3) & (PT > 100*MeV)'}
 dstar_comb = "(ADAMASS('D*(2010)+') < 400*MeV)"
 dstar_mother = "(abs(M-MAXTREE('D0'==ABSID,M)-145.42) < 10*MeV) & (VFASPF(VCHI2/VDOF)< 9)"
 dstar_sel = SimpleSelection('Sel_Dstar',
-                            GenCombineParticles,
+                            ConfigurableGenerators.CombineParticles,
                             [d0_sel, Pions],
                             DecayDescriptor='[D*(2010)+ -> D0 pi+]cc',
                             DaughtersCuts=dstar_daughters,
@@ -198,8 +199,10 @@ DaVinci().UserAlgorithms += [dstar_seq.sequence()]
 > and create a graph representation of the sequence of algorithms and their dependencies:
 > ```python
 >from SelPy.graph import graph
->graph(dtsar_sel, format='png')
+>graph(dstar_sel, format='png')
 >```
+><img src="./img/Sel_Dstar.png" alt="Dstar selection graph" style="width: 500px;"/>
+>
 > Note that currently it is not possible to load `graphviz` with `lb-run`, but it is expected it will be possible in the near future.
 
 

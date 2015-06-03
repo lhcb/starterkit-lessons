@@ -1,7 +1,7 @@
 """Build D* -> D0 (->K pi) pi decays from scratch."""
 
 from PhysSelPython.Wrappers import Selection, SelectionSequence, DataOnDemand, SimpleSelection
-from GaudiConfUtils.ConfigurableGenerators import CombineParticles as GenCombineParticles
+import GaudiConfUtils.ConfigurableGenerators as ConfigurableGenerators
 from Configurables import CombineParticles, DaVinci
 
 Pions = DataOnDemand('Phys/StdAllNoPIDsPions/Particles')
@@ -26,7 +26,7 @@ dstar_daughters = {'pi+': '(TRCHI2DOF < 3) & (PT > 100*MeV)'}
 dstar_comb = "(ADAMASS('D*(2010)+') < 400*MeV)"
 dstar_mother = "(abs(M-MAXTREE('D0'==ABSID,M)-145.42) < 10*MeV) & (VFASPF(VCHI2/VDOF)< 9)"
 dstar_sel = SimpleSelection('Sel_Dstar',
-                            GenCombineParticles,
+                            ConfigurableGenerators.CombineParticles,
                             [d0_sel, Pions],
                             DecayDescriptor='[D*(2010)+ -> D0 pi+]cc',
                             DaughtersCuts=dstar_daughters,
