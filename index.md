@@ -48,7 +48,7 @@ If you have any problems or questions, you can [send an email to
 19. [Asking good questions](26-asking-questions.html)
 19. [Developing the LHCb Software](16-lhcb-dev.html)
 20. Where to get help
-21. Contribute to this lesson!
+21. [Contribute to this lesson](27-contributing.html)
 22. [Install party](32-install-party.html)
 
 Each topic should be a chunk of 10-15 minutes.
