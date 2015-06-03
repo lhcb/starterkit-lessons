@@ -6,7 +6,7 @@ minutes: 10
 ---
 
 > ## Learning Objectives {.objectives}
-> * Unerstand the LHCb data flow
+> * Understand the LHCb data flow
 > * Learn the key concepts on the stripping
 
 Collisions recorded by the LHCb detector go through a very specific data flow in order to ensure the maximum data-taking efficiency and data quality.
