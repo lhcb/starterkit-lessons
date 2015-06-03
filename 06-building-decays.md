@@ -32,7 +32,7 @@ To solve this problem, the [Selection Framework](https://twiki.cern.ch/twiki/bin
 > The `Selection` is the basic unit of the framework. It uses other `Selections` to process `LHCb::Particles` and writes them to a TES location easily findable through its `outputLocation` method. Additionally, it knows about other `Selections` that it requires to pass in order to obtain input particles through its `RequiredSelections` argument.
 > A `Selection` requires *all* of its `RequiredSelections` to pass.
 >
-> There are several types of selections, namely
+> There are several types of selections, for example
 >
 > - `Selection`, the most basic class.
 > - `MergedSelection`, which is used to join the output of several `Selection` objects into a single TES location.
@@ -63,22 +63,22 @@ This algorithm performs the combinatorics for us according to a given decay desc
 
  - `DaughtersCuts` is a dictionary that maps each child particle type to a LoKi particle functor that determines if that particular particle satisfies our selection criteria. Optionally, one can specify also a `Preambulo` property that allows us to make imports, preprocess functors, etc (more on this in the [LoKi functors](https://lhcb.github.io/first-analysis-steps/06-loki-functors.html) lesson). For example:
 
-```python
-d0_daughters = {'pi-': '(PT > 750*MeV) & (P > 4000*MeV) & (MIPCHI2DV(PRIMARY) > 4)',
-                'K+': '(PT > 750*MeV) & (P > 4000*MeV) & (MIPCHI2DV(PRIMARY) > 4)'}
-```
+	```python
+	d0_daughters = {'pi-': '(PT > 750*MeV) & (P > 4000*MeV) & (MIPCHI2DV(PRIMARY) > 4)',
+					'K+': '(PT > 750*MeV) & (P > 4000*MeV) & (MIPCHI2DV(PRIMARY) > 4)'}
+	```
 
  - `CombinationCut` is a particle array LoKi functor (note the `A` prefix, see more [here](https://twiki.cern.ch/twiki/bin/view/LHCb/LoKiHybridFilters#Particle_Array_Functors)) that is given the array of particles in a single combination (the *children*) as input (in our case a kaon and a pion). This cut is applied before the vertex fit so it is typically used to save CPU time by performing some sanity cuts such as `AMAXDOCA` or `ADAMASS` before the CPU-consuming fit:
  
-```python
-d0_comb = "(AMAXDOCA('') < 0.2*mm) & (ADAMASS('D0') < 100*MeV)"
-```
+	```python
+	d0_comb = "(AMAXDOCA('') < 0.2*mm) & (ADAMASS('D0') < 100*MeV)"
+	```
  
  - `MotherCut` is a selection LoKi particle functor that acts on the particle produced by the vertex fit (the *parent*) from the input particles, which allows to apply cuts on those variables that require a vertex, for example:
 
-```python
-d0_mother = "(VFASPF(VCHI2/VDOF)< 9) & (BPVDIRA > 0.9997) & (ADMASS('D0') < 70*MeV)"
-```
+	```python
+	d0_mother = "(VFASPF(VCHI2/VDOF)< 9) & (BPVDIRA > 0.9997) & (ADMASS('D0') < 70*MeV)"
+	```
 
 Then, we can build a combiner as
 
@@ -100,23 +100,60 @@ d0_sel = Selection("Sel_D0",
                    RequiredSelections=[Pions, Kaons])
 ```
 
+This two-step process for building the `Selection` (creating an algorithm and building a selection with it) can be simplified by using a helper function in the `PhysSelPython.Wrappers` module, called `SimpleSelection`.
+It gets a selection name, the algorithm type we want to run, the inputs and any other parameters that need to be passed to the algorithm (as keyword arguments), and returns a `Selection` object build in the same two-step way.
+With that in mind, we could rewrite the previous two pieces of code as
+
+```python
+from GaudiConfUtils.ConfigurableGenerators import CombineParticles as GenCombineParticles
+from PhysSelPython.Wrappers import SimpleSelection
+d0_sel = SimpleSelection("Sel_D0",
+                         GenCombineParticles,
+                         [Pions, Kaons],
+                         DecayDescriptor='([D0 -> pi- K+]CC)',
+                         DaughtersCuts=d0_daughters,
+                         CombinationCut=d0_comb,
+                         MotherCut=d0_mother)
+```
+
+Note how we needed to import a different version of `CombineParticles` to make this work. This is because the LHCb algorithms are configured as singletons and it is mandatory to give them a name.
+
+> ## The LHCb singletons {.callout}
+> If we had tried to simply use `CombineParticles` inside our `SimpleSelection`, we would have seen it fail with the following error
+> 
+> ```output
+> NameError: Could not instantiate Selection because input Configurable CombineParticles has default name. This is too unsafe to be allowed.
+> ```
+>
+> The reason for this is that all LHCb algorithms need an explicit and unique name because they are *singletons*, and therefore an exception is thrown if we don't do that.
+> A [singleton](http://en.wikipedia.org/wiki/Singleton_pattern) is a software design pattern that restricts the instantiation of a class to one object. In our case, only one algorithm with a given name can be instantiated.
+> This allows to reuse and reload algorithms that have already been created in the configuration sequence, eg, we could have reloaded the `"Combine_D0"` `CombineParticles` by name and modified it (even in another file loaded in the same `gaudirun.py` call!):
+>
+> ```python
+> d0_copy = CombineParticles("Combine_D0")
+> print d0_copy.DecayDescriptor
+>```
+>
+> This is very useful to build complicated configuration chains.
+>
+> The solution for the `SimpleSelection` problem, in which we actually don't care about the `CombineParticles` name, is the `GaudiConfUtils.ConfigurableGenerators` package: it contains wrappers around algorithms such as `CombineParticles` or `FilterDesktop` allowing them to be instantiated without an explicit name argument.
+
 Now we can use another `CombineParticles` to build the D* with pions and the D0's as inputs, and applying a filtering only on the soft pion:
 
 ```python
 dstar_daughters = {'pi+': '(TRCHI2DOF < 3) & (PT > 100*MeV)'}
 dstar_comb = "(ADAMASS('D*(2010)+') < 400*MeV)"
 dstar_mother = "(abs(M-MAXTREE('D0'==ABSID,M)-145.42) < 10*MeV) & (VFASPF(VCHI2/VDOF)< 9)"
-dstar = CombineParticles('CombineDstar',
-                         DecayDescriptor='[D*(2010)+ -> D0 pi+]cc',
-                         DaughtersCuts=dstar_daughters,
-                         CombinationCut=dstar_comb,
-                         MotherCut=dstar_mother)
-dstar_sel = Selection('Sel_Dstar',
-                      Algorithm=dstar,
-                      RequiredSelections=[d0_sel, Pions])
+dstar_sel = SimpleSelection('Sel_Dstar',
+                            CombineParticles,
+                            [d0_sel, Pions],
+                            DecayDescriptor='[D*(2010)+ -> D0 pi+]cc',
+                            DaughtersCuts=dstar_daughters,
+                            CombinationCut=dstar_comb,
+                            MotherCut=dstar_mother)
 ```
 
-> ## Performing shared selections {.callout}
+> ## Building shared selections {.callout}
 > In some cases we may want to build several decays in the same script with some common particles/selection;
 > for example, in our case we could have been building D0->KK in the same script, and then we would have wanted to select the soft pion in the same way when building the D*.
 > In this situation, we can make use of the `FilterDesktop` algorithm, which takes a TES location and filters the particles inside according to a given LoKi functor in the `Code` property, which then can be given as input to a `Selection`:
@@ -149,8 +186,26 @@ from Configurables import DaVinci
 DaVinci().UserAlgorithms += [dstar_seq.sequence()]
 ```
 
+
+> ## Debugging your selection chain {.callout}
+> The `PhysSelPython.Wrappers` offers a very useful utility for debugging your selection chains, called `PrintSelection`.
+> It gets a `Selection` as input and it can be used the same way, except it will print the decay tree everytime making use of the `PrintDecayTree` algorithm which was discussed in the [Exploring a DST](05-interactive-dst.html) lesson.
+>
+> For more complex debugging, one can setup `DaVinci` with `graphviz
+> ```shell
+> SetupDaVinci --use "graphviz v* LCG_Interfaces"
+> ```
+>
+> And add a nice graphical representation of the selection sequence
+> ```python
+>from SelPy.graph import graph
+>graph(dtsar_sel, format='png')
+>```
+
+
 > ## Work to do {.challenge}
 >  - Finish the script (the base of which can be found [here](code/06-building-decays/build_decays.py)) by adapting the basic `DaVinci` configuration from its corresponding [lesson](09-minimal-dv-job.html) and check the output ntuple.
+>  - Replace the `"Combine_D0"` and `"Sel_D0"` objects by a single `SimpleSelection`.
 >  - Do you know what the used LoKi functors (`AMAXDOCA`, `ADAMASS`, `MIPCHI2DV`, etc) do? 
+>  - Add a `PrintSelection` in your selections and run again.
 
-Congratulations! You've built the base of a stripping line!
