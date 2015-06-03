@@ -63,29 +63,29 @@ This algorithm performs the combinatorics for us according to a given decay desc
 
  - `DaughtersCuts` is a dictionary that maps each child particle type to a LoKi particle functor that determines if that particular particle satisfies our selection criteria. Optionally, one can specify also a `Preambulo` property that allows us to make imports, preprocess functors, etc (more on this in the [LoKi functors](https://lhcb.github.io/first-analysis-steps/06-loki-functors.html) lesson). For example:
 
-```python
-d0_daughters = {
-  'pi-': '(PT > 750*MeV) & (P > 4000*MeV) & (MIPCHI2DV(PRIMARY) > 4)',
-  'K+': '(PT > 750*MeV) & (P > 4000*MeV) & (MIPCHI2DV(PRIMARY) > 4)'
-}
-```
+    ```python
+    d0_daughters = {
+      'pi-': '(PT > 750*MeV) & (P > 4000*MeV) & (MIPCHI2DV(PRIMARY) > 4)',
+      'K+': '(PT > 750*MeV) & (P > 4000*MeV) & (MIPCHI2DV(PRIMARY) > 4)'
+    }
+    ```
 
  - `CombinationCut` is a particle array LoKi functor (note the `A` prefix, see more [here](https://twiki.cern.ch/twiki/bin/view/LHCb/LoKiHybridFilters#Particle_Array_Functors)) that is given the array of particles in a single combination (the *children*) as input (in our case a kaon and a pion). This cut is applied before the vertex fit so it is typically used to save CPU time by performing some sanity cuts such as `AMAXDOCA` or `ADAMASS` before the CPU-consuming fit:
  
-	```python
-	d0_comb = "(AMAXDOCA('') < 0.2*mm) & (ADAMASS('D0') < 100*MeV)"
-	```
+    ```python
+    d0_comb = "(AMAXDOCA('') < 0.2*mm) & (ADAMASS('D0') < 100*MeV)"
+    ```
  
  - `MotherCut` is a selection LoKi particle functor that acts on the particle produced by the vertex fit (the *parent*) from the input particles, which allows to apply cuts on those variables that require a vertex, for example:
 
-```python
-# We can split long selections across multiple lines
-d0_mother = (
-  '(VFASPF(VCHI2/VDOF)< 9)'
-  '& (BPVDIRA > 0.9997)'
-  "& (ADMASS('D0') < 70*MeV)"
-)
-```
+    ```python
+    # We can split long selections across multiple lines
+    d0_mother = (
+      '(VFASPF(VCHI2/VDOF)< 9)'
+      '& (BPVDIRA > 0.9997)'
+      "& (ADMASS('D0') < 70*MeV)"
+    )
+    ```
 
 Then, we can build a combiner as
 
@@ -104,9 +104,11 @@ Now we have to build a `Selection` out of it so we can later on put all pieces t
 
 ```python
 from PhysSelPython.Wrappers import Selection
-d0_sel = Selection('Sel_D0',
-                   Algorithm=d0,
-                   RequiredSelections=[Pions, Kaons])
+d0_sel = Selection(
+    'Sel_D0',
+    Algorithm=d0,
+    RequiredSelections=[Pions, Kaons]
+)
 ```
 
 This two-step process for building the `Selection` (creating an algorithm and building a selection with it) can be simplified by using a helper function in the `PhysSelPython.Wrappers` module, called `SimpleSelection`.
@@ -116,13 +118,15 @@ With that in mind, we can rewrite the previous two pieces of code as
 ```python
 import GaudiConfUtils.ConfigurableGenerators as ConfigurableGenerators
 from PhysSelPython.Wrappers import SimpleSelection
-d0_sel = SimpleSelection("Sel_D0",
-                         ConfigurableGenerators.CombineParticles,
-                         [Pions, Kaons],
-                         DecayDescriptor='([D0 -> pi- K+]CC)',
-                         DaughtersCuts=d0_daughters,
-                         CombinationCut=d0_comb,
-                         MotherCut=d0_mother)
+d0_sel = SimpleSelection(
+    'Sel_D0',
+    ConfigurableGenerators.CombineParticles,
+    [Pions, Kaons],
+    DecayDescriptor='([D0 -> pi- K+]CC)',
+    DaughtersCuts=d0_daughters,
+    CombinationCut=d0_comb,
+    MotherCut=d0_mother
+)
 ```
 
 Note how we needed to use the `CombineParticles` from `GaudiConfUtils.ConfigurableGenerators` instead of the `PhysSelPython.Wrappers` one to make this work.
@@ -140,7 +144,7 @@ This is because the LHCb algorithms are configured as singletons and it is manda
 > This allows to reuse and reload algorithms that have already been created in the configuration sequence, eg, we could have reloaded the `"Combine_D0"` `CombineParticles` by name and modified it (even in another file loaded in the same `gaudirun.py` call!):
 >
 > ```python
-> d0_copy = CombineParticles("Combine_D0")
+> d0_copy = CombineParticles('Combine_D0')
 > print d0_copy.DecayDescriptor
 >```
 >

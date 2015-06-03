@@ -1,6 +1,11 @@
 """Build D* -> D0 (->K pi) pi decays from scratch."""
 
-from PhysSelPython.Wrappers import Selection, SelectionSequence, DataOnDemand, SimpleSelection
+from PhysSelPython.Wrappers import (
+    Selection,
+    SelectionSequence,
+    DataOnDemand,
+    SimpleSelection
+)
 import GaudiConfUtils.ConfigurableGenerators as ConfigurableGenerators
 from Configurables import CombineParticles, DaVinci
 

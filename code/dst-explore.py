@@ -105,9 +105,17 @@ old_decay_finder = appMgr.toolsvc().create(
 )
 
 # works
-# decay_desc = '[[B0]cc -> (^D- => {^K- ^K+ ^pi-, ^K- ^pi+ ^pi-,^pi+ ^pi- ^pi-, ^K- ^K- ^pi+}) ^K-]cc'
+# decay_desc = (
+#     '[[B0]cc -> '
+#     '(^D- => {^K- ^K+ ^pi-, ^K- ^pi+ ^pi-,^pi+ ^pi- ^pi-, ^K- ^K- ^pi+})'
+#     '^K-]cc'
+# )
 # doesn't work
-decay_desc = '[[B0]cc -> (^D- => {^K- ^K+ ^pi-, ^K- ^pi+ ^pi-,^pi+ ^pi- ^pi-}) ^K-]cc'
+decay_desc = (
+    '[[B0]cc -> '
+    '(^D- => {^K- ^K+ ^pi-, ^K- ^pi+ ^pi-,^pi+ ^pi- ^pi-})'
+    '^K-]cc'
+)
 old_decay_finder.setDecay(decay_desc)
 
 # process first event
