@@ -56,8 +56,8 @@ is a simple text file with a few clever lines with special meaning.
 The format the files are written in is called
 [Markdown](http://daringfireball.net/projects/markdown/basics). It is
 a very simple language, which adds some basic formatting to text
-files. `**Bold text**` leads to **Bold text**, `*Italic*` is *italic*
-and `[http://google.com](the search engine)` makes a link to [the
+files. `**Bold text**` leads to **Bold text**, `_Italic_` is _italic_
+and `[the search engine](http://google.com)` makes a link to [the
 search engine](http://google.com).
 
 > ## Trying it out live {.callout}
