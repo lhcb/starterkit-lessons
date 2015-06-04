@@ -31,15 +31,15 @@ make-up the Hlt1DiMuonHighMass candidates must overlap with the LHCbIDs of two
 tracks that are part of the offline candidate.
 
 To have a look at how this works, we'll use candidates from the
-"D2hhPromptDst2D2RS" selection, which can be retrieved thusly:
+D2hhPromptDst2D2RS selection, which can be retrieved thusly:
 
 ~~~ {.python}
 candidates = evt['AllStreams/Phys/D2hhPromptDst2D2RSLine/Particles']
 candidates.size()
 ~~~
 
-I could be that there are more than one candidates, which are unlikely to all be
-"real". MC matching could be used to find the real one when running on
+It could be that there are more than one candidates, which are unlikely to all be
+real. MC matching could be used to find the real one when running on
 simulation and on data a single candidate can be selected, either randomly or
 using some criterium. Dealing with multiple candidates correctly is beyond the
 scope of this tutorial, so just always take the first one in the container.
@@ -59,8 +59,8 @@ ToolSvc().Hlt1TriggerTisTos.HltSelReportsLocation = 'Hlt1/SelReports'
 
 Create the tools in the same way you created others during the
 [other lesson](05-interactive-dst.html), but use instance-specific names that
-correspond to the configuration we just added: "Hlt1TriggerTisTos" and
-"Hlt2TriggerTisTos". The tools use ITriggerTisTos as an interface.
+correspond to the configuration we just added: `Hlt1TriggerTisTos` and
+`Hlt2TriggerTisTos`. The tools use `ITriggerTisTos` as an interface.
 
 Use the advance function to find an event that has some candidates for the
 chosen selection and set the TisTos tools to use our candidate and trigger selection:
@@ -75,8 +75,8 @@ result = hlt1TisTosTool.tisTosTobTrigger()
 result.tos()
 ~~~
 
-The "set" calls reset the internal storage of candidate or trigger information,
-and the "addTo" calls then add the things we are interested in.
+The `set` calls reset the internal storage of candidate or trigger information,
+and the `addTo` calls then add the things we are interested in.
 
 An offline candidate is considered to be Tis with respect to a trigger selection
 if removing it from the event would still cause the trigger selection to accept
