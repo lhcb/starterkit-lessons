@@ -37,6 +37,7 @@ def nodes(evt, node=None):
 
     return nodenames
 
+
 def advance(decision='D2hhPromptDst2D2RSLine'):
     """Advance until stripping decision is true, returns
     number of events by which we advanced"""
@@ -52,6 +53,7 @@ def advance(decision='D2hhPromptDst2D2RSLine'):
             break
 
     return n
+
 
 def advance_hlt(decision):
     """Advance until HLT decision is true, returns
@@ -77,7 +79,7 @@ def advance_hlt(decision):
 
 # Configure all the unpacking, algorithms, tags and input files
 appConf = ApplicationMgr()
-appConf.ExtSvc+= ['ToolSvc', 'DataOnDemandSvc', LoKiSvc()]
+appConf.ExtSvc += ['ToolSvc', 'DataOnDemandSvc', LoKiSvc()]
 
 from Configurables import DaVinci
 dv = DaVinci()
@@ -94,8 +96,8 @@ lhcbApp = LHCbApp()
 lhcbApp.Simulation = True
 CondDB().Upgrade = False
 # don't really need tags for looking around
-#LHCbApp().DDDBtag = ...
-#LHCbApp().CondDBtag  = ...
+# LHCbApp().DDDBtag = ...
+# LHCbApp().CondDBtag  = ...
 
 # Pass file to open as first command line argument
 inputFiles = [sys.argv[-1]]
@@ -115,8 +117,10 @@ appMgr = GP.AppMgr()
 evt = appMgr.evtsvc()
 
 # Instantiate the TisTos tools we configured above
-hlt1TisTosTool = appMgr.toolsvc().create('TriggerTisTos/Hlt1TriggerTisTos', interface = "ITriggerTisTos")
-hlt2TisTosTool = appMgr.toolsvc().create('TriggerTisTos/Hlt2TriggerTisTos', interface = "ITriggerTisTos")
+hlt1TisTosTool = appMgr.toolsvc().create('TriggerTisTos/Hlt1TriggerTisTos',
+                                         interface="ITriggerTisTos")
+hlt2TisTosTool = appMgr.toolsvc().create('TriggerTisTos/Hlt2TriggerTisTos',
+                                         interface="ITriggerTisTos")
 
 # process some events
 n = None
