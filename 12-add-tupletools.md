@@ -165,10 +165,7 @@ To add LoKi-based leaves to the tree, we need to use the `LoKi::Hybrid::TupleToo
     }
     ```
 
-In the code snippets specified above (available [here](code/12-add-tupletools/ntuple_options_loki.py)), there are several things to notice:
-    
-  - The `and` we used in the interactive session to combine `ISBASIC` and `HASTRACK` has been replaced by the logical symbol `&`, since we're not accessing the LoKi functors directly but loading them through text strings.
-  - The `NINTREE` functor counts the number of particles that pass the specified criteria. While this is not very useful for ntuple-building (we can always do it offline), it's a very powerful functor to use when building decay selections.
+In the code snippets specified above (available [here](code/12-add-tupletools/ntuple_options_loki.py)), you can see that the `NINTREE` functor counts the number of particles that pass the specified criteria. While this is not very useful for ntuple-building (we can always do it offline), it's a very powerful functor to use when building decay selections.
 
 > ## Getting more practice {.challenge}
 > In the `LoKi::Hybrid::TupleTool`we've used some  functors that have not been described previously. Find out what they do in the [doxygen](http://lhcb-release-area.web.cern.ch/LHCb-release-area/DOC/davinci/releases/latest/doxygen/d7/dae/namespace_lo_ki_1_1_cuts.html).

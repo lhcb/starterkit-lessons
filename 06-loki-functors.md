@@ -122,7 +122,7 @@ In our example,
 
 ```python
 from LoKiPhys.decorators import MAXTREE, ISBASIC, HASTRACK
-MAXTREE(ISBASIC and HASTRACK, PT, -1)(cand) == max_pt
+MAXTREE(ISBASIC & HASTRACK, PT, -1)(cand) == max_pt
 ```
 
 In this example, we have used two selection functors, `ISBASIC` and `HASTRACK`, which return true if the particle doesn't have children and is made up by a track, respectively.
