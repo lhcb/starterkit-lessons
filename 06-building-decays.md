@@ -63,41 +63,52 @@ This algorithm performs the combinatorics for us according to a given decay desc
 
  - `DaughtersCuts` is a dictionary that maps each child particle type to a LoKi particle functor that determines if that particular particle satisfies our selection criteria. Optionally, one can specify also a `Preambulo` property that allows us to make imports, preprocess functors, etc (more on this in the [LoKi functors](https://lhcb.github.io/first-analysis-steps/06-loki-functors.html) lesson). For example:
 
-	```python
-	d0_daughters = {'pi-': '(PT > 750*MeV) & (P > 4000*MeV) & (MIPCHI2DV(PRIMARY) > 4)',
-					'K+': '(PT > 750*MeV) & (P > 4000*MeV) & (MIPCHI2DV(PRIMARY) > 4)'}
-	```
+    ```python
+    d0_daughters = {
+      'pi-': '(PT > 750*MeV) & (P > 4000*MeV) & (MIPCHI2DV(PRIMARY) > 4)',
+      'K+': '(PT > 750*MeV) & (P > 4000*MeV) & (MIPCHI2DV(PRIMARY) > 4)'
+    }
+    ```
 
  - `CombinationCut` is a particle array LoKi functor (note the `A` prefix, see more [here](https://twiki.cern.ch/twiki/bin/view/LHCb/LoKiHybridFilters#Particle_Array_Functors)) that is given the array of particles in a single combination (the *children*) as input (in our case a kaon and a pion). This cut is applied before the vertex fit so it is typically used to save CPU time by performing some sanity cuts such as `AMAXDOCA` or `ADAMASS` before the CPU-consuming fit:
  
-	```python
-	d0_comb = "(AMAXDOCA('') < 0.2*mm) & (ADAMASS('D0') < 100*MeV)"
-	```
+    ```python
+    d0_comb = "(AMAXDOCA('') < 0.2*mm) & (ADAMASS('D0') < 100*MeV)"
+    ```
  
  - `MotherCut` is a selection LoKi particle functor that acts on the particle produced by the vertex fit (the *parent*) from the input particles, which allows to apply cuts on those variables that require a vertex, for example:
 
-	```python
-	d0_mother = "(VFASPF(VCHI2/VDOF)< 9) & (BPVDIRA > 0.9997) & (ADMASS('D0') < 70*MeV)"
-	```
+    ```python
+    # We can split long selections across multiple lines
+    d0_mother = (
+      '(VFASPF(VCHI2/VDOF)< 9)'
+      '& (BPVDIRA > 0.9997)'
+      "& (ADMASS('D0') < 70*MeV)"
+    )
+    ```
 
 Then, we can build a combiner as
 
 ```python
 from Configurables import CombineParticles
-d0 = CombineParticles("Combine_D0",
-                      DecayDescriptor='([D0 -> pi- K+]CC)',
-                      DaughtersCuts=d0_daughters,
-                      CombinationCut=d0_comb,
-                      MotherCut=d0_mother)
+d0 = CombineParticles(
+    'Combine_D0',
+    DecayDescriptor='([D0 -> pi- K+]CC)',
+    DaughtersCuts=d0_daughters,
+    CombinationCut=d0_comb,
+    MotherCut=d0_mother
+)
 ```
 
 Now we have to build a `Selection` out of it so we can later on put all pieces together:
 
 ```python
 from PhysSelPython.Wrappers import Selection
-d0_sel = Selection("Sel_D0",
-                   Algorithm=d0,
-                   RequiredSelections=[Pions, Kaons])
+d0_sel = Selection(
+    'Sel_D0',
+    Algorithm=d0,
+    RequiredSelections=[Pions, Kaons]
+)
 ```
 
 This two-step process for building the `Selection` (creating an algorithm and building a selection with it) can be simplified by using a helper function in the `PhysSelPython.Wrappers` module, called `SimpleSelection`.
@@ -107,13 +118,15 @@ With that in mind, we can rewrite the previous two pieces of code as
 ```python
 import GaudiConfUtils.ConfigurableGenerators as ConfigurableGenerators
 from PhysSelPython.Wrappers import SimpleSelection
-d0_sel = SimpleSelection("Sel_D0",
-                         ConfigurableGenerators.CombineParticles,
-                         [Pions, Kaons],
-                         DecayDescriptor='([D0 -> pi- K+]CC)',
-                         DaughtersCuts=d0_daughters,
-                         CombinationCut=d0_comb,
-                         MotherCut=d0_mother)
+d0_sel = SimpleSelection(
+    'Sel_D0',
+    ConfigurableGenerators.CombineParticles,
+    [Pions, Kaons],
+    DecayDescriptor='([D0 -> pi- K+]CC)',
+    DaughtersCuts=d0_daughters,
+    CombinationCut=d0_comb,
+    MotherCut=d0_mother
+)
 ```
 
 Note how we needed to use the `CombineParticles` from `GaudiConfUtils.ConfigurableGenerators` instead of the `PhysSelPython.Wrappers` one to make this work.
@@ -131,7 +144,7 @@ This is because the LHCb algorithms are configured as singletons and it is manda
 > This allows to reuse and reload algorithms that have already been created in the configuration sequence, eg, we could have reloaded the `"Combine_D0"` `CombineParticles` by name and modified it (even in another file loaded in the same `gaudirun.py` call!):
 >
 > ```python
-> d0_copy = CombineParticles("Combine_D0")
+> d0_copy = CombineParticles('Combine_D0')
 > print d0_copy.DecayDescriptor
 >```
 >
@@ -142,16 +155,23 @@ This is because the LHCb algorithms are configured as singletons and it is manda
 Now we can use another `CombineParticles` to build the D* with pions and the D0's as inputs, and applying a filtering only on the soft pion:
 
 ```python
-dstar_daughters = {'pi+': '(TRCHI2DOF < 3) & (PT > 100*MeV)'}
+dstar_daughters = {
+  'pi+': '(TRCHI2DOF < 3) & (PT > 100*MeV)'
+}
 dstar_comb = "(ADAMASS('D*(2010)+') < 400*MeV)"
-dstar_mother = "(abs(M-MAXTREE('D0'==ABSID,M)-145.42) < 10*MeV) & (VFASPF(VCHI2/VDOF)< 9)"
-dstar_sel = SimpleSelection('Sel_Dstar',
-                            ConfigurableGenerators.CombineParticles,
-                            [d0_sel, Pions],
-                            DecayDescriptor='[D*(2010)+ -> D0 pi+]cc',
-                            DaughtersCuts=dstar_daughters,
-                            CombinationCut=dstar_comb,
-                            MotherCut=dstar_mother)
+dstar_mother = (
+    "(abs(M-MAXTREE('D0'==ABSID,M)-145.42) < 10*MeV)"
+    '& (VFASPF(VCHI2/VDOF)< 9)'
+)
+dstar_sel = SimpleSelection(
+    'Sel_Dstar',
+    ConfigurableGenerators.CombineParticles,
+    [d0_sel, Pions],
+    DecayDescriptor='[D*(2010)+ -> D0 pi+]cc',
+    DaughtersCuts=dstar_daughters,
+    CombinationCut=dstar_comb,
+    MotherCut=dstar_mother
+)
 ```
 
 > ## Building shared selections {.callout}
@@ -161,18 +181,25 @@ dstar_sel = SimpleSelection('Sel_Dstar',
 > 
 > ```python
 > from Configurables import FilterDesktop
-> soft_pion = FilterDesktop("Filter_SoftPi",
+> soft_pion = FilterDesktop('Filter_SoftPi',
 >                           Code='(TRCHI2DOF < 3) & (PT > 100*MeV)')
-> soft_pion_sel = Selection("Sel_SoftPi",
+> soft_pion_sel = Selection('Sel_SoftPi',
 >                           Algorithm=soft_pion,
 >                           RequiredSelections=[Pions])
-> dstar = CombineParticles("CombineDstar",
->                          DecayDescriptor='[D*(2010)+ -> D0 pi+]cc',
->                          CombinationCut="(ADAMASS('D*(2010)+') < 400*MeV)",
->                          MotherCut="(abs(M-MAXTREE('D0'==ABSID,M)-145.42) < 10*MeV) & (VFASPF(VCHI2/VDOF)< 9)")
-> dstar_sel = Selection("Sel_Dstar",
->                       Algorithm=dstar,
->                       RequiredSelections=[d0_sel, soft_pion_sel])
+> dstar = CombineParticles(
+>     'CombineDstar',
+>     DecayDescriptor='[D*(2010)+ -> D0 pi+]cc',
+>     CombinationCut="(ADAMASS('D*(2010)+') < 400*MeV)",
+>     MotherCut=(
+>         "(abs(M-MAXTREE('D0'==ABSID,M)-145.42) < 10*MeV)"
+>         '& (VFASPF(VCHI2/VDOF)< 9)'
+>     )
+> )
+> dstar_sel = Selection(
+>     'Sel_Dstar',
+>     Algorithm=dstar,
+>     RequiredSelections=[d0_sel, soft_pion_sel]
+> )
 > ```
 >
 > This allows us to save time by performing the filtering of the soft pions only once, and to keep all the common cuts in a single place, avoiding duplication of code.

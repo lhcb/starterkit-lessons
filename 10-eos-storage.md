@@ -70,8 +70,8 @@ Make a copy of `first-job.py` and add the following three lines
 before the `j.submit()` line:
 
 ```python
-f = MassStorageFile("DVntuple.root")
-f.outputfilenameformat = "/starterkit/{jid}_{fname}"
+f = MassStorageFile('DVntuple.root')
+f.outputfilenameformat = '/starterkit/{jid}_{fname}'
 j.outputfiles = [f] 
 ```
 
@@ -161,5 +161,5 @@ your EOS directory with `eosumount ~/eos`.
 > You can also open ROOT files on EOS directly from your ROOT
 > script with:
 > ```python
-> TFile::Open("root://eoslhcb.cern.ch//eos/lhcb/user/a/another/starterkit/myfavouritefile.root")
+> TFile::Open('root://eoslhcb.cern.ch//eos/lhcb/user/a/another/starterkit/myfavouritefile.root')
 > ```

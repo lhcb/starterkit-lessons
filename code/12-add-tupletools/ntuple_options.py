@@ -14,11 +14,13 @@ track_tool = dtt.addTupleTool('TupleToolTrackInfo')
 track_tool.Verbose = True
 dtt.addTupleTool('TupleToolPrimaries')
 
-dtt.addBranches({'Dstar' : '^[D*(2010)+ -> (D0 -> K- pi+) pi+]CC',
-                 'D0'    : '[D*(2010)+ -> ^(D0 -> K- pi+) pi+]CC',
-                 'Kminus': '[D*(2010)+ -> (D0 -> ^K- pi+) pi+]CC',
-                 'piplus': '[D*(2010)+ -> (D0 -> K- ^pi+) pi+]CC',
-                 'pisoft': '[D*(2010)+ -> (D0 -> K- pi+) ^pi+]CC'})
+dtt.addBranches({
+    'Dstar': '[D*(2010)+ -> (D0 -> K- pi+) pi+]CC',
+    'D0': '[D*(2010)+ -> ^(D0 -> K- pi+) pi+]CC',
+    'Kminus': '[D*(2010)+ -> (D0 -> ^K- pi+) pi+]CC',
+    'piplus': '[D*(2010)+ -> (D0 -> K- ^pi+) pi+]CC',
+    'pisoft': '[D*(2010)+ -> (D0 -> K- pi+) ^pi+]CC'
+})
 
 dtt.D0.addTupleTool('TupleToolPropertime')
 
@@ -35,5 +37,5 @@ DaVinci().EvtMax = -1
 
 # Use the local input data
 IOHelper().inputFiles([
-  './00035742_00000002_1.allstreams.dst'
+    './00035742_00000002_1.allstreams.dst'
 ], clear=True)
