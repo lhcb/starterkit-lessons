@@ -11,9 +11,9 @@ minutes: 10
 > * Apply a mass constraint
 > * Inspect the refitted decay tree
 
-Once you have made a hypothesis on the chain of decays that have lead to your final state, you then can incorporate the additional knowledge that comes with this hypothesis to get a new best estimate for the particle parameters - in particular their momenta. The additional knowledge is represented as constaints, which your decay tree has to fulfill.
+Once you have made a hypothesis on the chain of decays that have lead to your final state, you then can incorporate the additional knowledge that comes with this hypothesis to get a new best estimate for the particle parameters - in particular their momenta. The additional knowledge is represented as constraints, which your decay tree has to fulfill.
 
-For example for the decay
+For example, for the decay
 ```python
 '[D*(2010)+ -> (D0 -> K- pi+) pi+]CC'
 ``` 
@@ -24,7 +24,7 @@ Applying such kinematic constraints leads to new best estimates for the track pa
 > ## The physics and mathematics behind DecayTreeFitter {.callout}
 > For details of the method see the paper on [Decay chain fitting with a Kalman filter](http://arxiv.org/abs/physics/0503191).
 
-So how do we use a `TupleToolDecayTreeFitter` to our DaVinci script? Let's create a branch to add the tool to. Let's just name it `'Dstar'`:
+So how do we use a `TupleToolDecayTreeFitter` to our DaVinci script? Let's create a branch to add the tool to. We'll just name it `'Dstar'`:
 ```python
 from Configurables import TupleToolDecayTreeFitter,TupleToolDecay
 dtt.addBranches({
