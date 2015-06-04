@@ -84,9 +84,36 @@ tv__tree->Draw("Dstar_ConsD_D0_M[0]>>h(100,1800,1900)","","", 128, 0);
 
 As expected, the D0 candidates are forced onto their PDG mass value.
 
-The solution to this exercise `ntuple_DTF1.py`, is [available 
-here](./code/22-decay-tree-fitter/ntuple_DTF1.py).
 
 > ## Explore {.challenge}
 > * Look at the `status` variable to check if the fits converged.
 > * Look at the chi2 distribution of the fit 
+
+`DecayTreeFitter` can be told to change some of the hypotheses in the decay tree. This is very useful if you want to slightly change, which decays you want to look at. As an example let's say we want to examine the cabbibo-suppressed decay of the D0 into pi- pi+ instead of K- pi+. For this we add a second fitter, giving it a new name `ConsDpipi`:
+```python
+dtt.Dstar.addTupleTool(TupleToolDecayTreeFitter('ConsDpipi'))
+dtt.Dstar.ConsDpipi.constrainToOriginVertex = True
+dtt.Dstar.ConsDpipi.Verbose = True
+dtt.Dstar.ConsDpipi.daughtersToConstrain = ['D0']
+```
+We now can tell the fitter to substitute the kaon in the D0 decay by a pion.
+```python
+dtt.Dstar.ConsDpipi.Substitutions = {
+    'Charm -> (D0 -> ^K- pi+) Meson': 'pi-',
+    'Charm -> (D~0 -> ^K+ pi-) Meson': 'pi+'
+}
+```
+In the dictionary that is passed to the `Substitutions` property of the fitter, the keys are decay descriptors, where the respective particle to be substituted is marked with a `^`. The values are the repective new particle hypotheses. The substitution will only work if you start from a decay descriptor that actually matches your candidates. However, you are allowed to generalise parts of the decay. Here we replaced `D*(2010)` with the more general `Charm` and the bachelor `pi-` is just represented by a `Meson`.
+ 
+Note that the substitution mechanism does not understand the `CC` symbol. Both charge states have to be specified explicitely.
+
+Running the ntuple script again with these additions gives you fit results for the re-interpreted decay. 
+
+> ## Challenge {.challenge}
+> * Compare the outcome of the two fits with the different mass hypothesis
+> * Compare the fit quality between the correct and the the wrong hypothesis 
+
+
+The solution to this exercise `ntuple_DTF1.py`, is [available 
+here](./code/22-decay-tree-fitter/ntuple_DTF1.py).
+
