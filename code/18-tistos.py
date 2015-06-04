@@ -2,6 +2,8 @@ import sys
 
 import GaudiPython as GP
 from GaudiConf import IOHelper
+from Configurables import DaVinci
+from Configurables import ToolSvc, TriggerTisTos
 from Configurables import LHCbApp, ApplicationMgr, DataOnDemandSvc
 from Configurables import SimConf, DigiConf, DecodeRawEvent
 from Configurables import CondDB, DstConf, PhysConf
@@ -81,7 +83,6 @@ def advance_hlt(decision):
 appConf = ApplicationMgr()
 appConf.ExtSvc += ['ToolSvc', 'DataOnDemandSvc', LoKiSvc()]
 
-from Configurables import DaVinci
 dv = DaVinci()
 dv.DataType = "2012"
 
@@ -105,7 +106,6 @@ IOHelper('ROOT').inputFiles(inputFiles)
 
 # Configure two instances of the TriggerTisTos tool to pick things up from the
 # split Hlt1 and Hlt2 locations.
-from Configurables import ToolSvc, TriggerTisTos
 for stage in ('Hlt1', 'Hlt2'):
     ToolSvc().addTool(TriggerTisTos, stage + "TriggerTisTos")
     ttt = getattr(ToolSvc(), stage + "TriggerTisTos")
