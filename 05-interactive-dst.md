@@ -144,7 +144,7 @@ def advance(decision):
 
         n += 1
         dec=evt['/Event/Strip/Phys/DecReports']
-        if dec.hasDecisionName('Stripping{0}Decision".format(decision)):
+        if dec.hasDecisionName('Stripping{0}Decision'.format(decision)):
             break
 
     return n
