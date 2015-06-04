@@ -35,7 +35,7 @@ dtt.Dstar.ConsDpipi.daughtersToConstrain = ['D0']
 # CC does not work here!
 dtt.Dstar.ConsDpipi.Substitutions = {
     'Charm -> (D0 -> ^K- pi+) Meson': 'pi-',
-    'Charm -> (D0 -> ^K+ pi-) Meson': 'pi+'
+    'Charm -> (D~0 -> ^K+ pi-) Meson': 'pi+'
 }
 
 
