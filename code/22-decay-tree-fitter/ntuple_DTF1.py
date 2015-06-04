@@ -31,7 +31,7 @@ dtt.Dstar.ConsDpipi.Verbose = True
 dtt.Dstar.ConsDpipi.daughtersToConstrain = ['D0']
 
 # make the hypothesis that actually we had the decay D0->pi+pi-
-# note that you have to explicitely give both charges 
+# note that you have to explicitely give both charges
 # CC does not work here!
 dtt.Dstar.ConsDpipi.Substitutions = {
     'Charm -> (D0 -> ^K- pi+) Meson': 'pi-',
