@@ -56,6 +56,13 @@ LoKiSvc.REPORT      ERROR The   ERROR message is suppressed : 'LoKi::AuxDesktopB
 This is related to the fact that some functors need to run in the `DaVinci` scope and they are all loaded in the `LoKiPhys.decorators` module, but it's harmless in the examples we will use.
 Additionally, if the import is made *before* the instantiation of the `ApplicationMgr`, there will be no warnings.
 
+Math operations are also allowed:
+```python
+from LoKiPhys.decorators import PX, PY, PZ
+p_components_sum = PX + PY + PZ
+p_components_sum(cand)
+```
+
 If we want to get the properties of the B vertex, for example its $\chi^2$, we need to pass the correct object to the LoKi functors
 
 ```python
@@ -115,7 +122,7 @@ In our example,
 
 ```python
 from LoKiPhys.decorators import MAXTREE, ISBASIC, HASTRACK
-MAXTREE(ISBASIC and HASTRACK, PT, -1)(cand) == max_pt
+MAXTREE(ISBASIC & HASTRACK, PT, -1)(cand) == max_pt
 ```
 
 In this example, we have used two selection functors, `ISBASIC` and `HASTRACK`, which return true if the particle doesn't have children and is made up by a track, respectively.
@@ -153,7 +160,37 @@ mass == mass_child
 ```
 
 The usage of LoKi functors extends much further than in the interactive `GaudiPython` world.
-On one side, they constitute the basis of particle filtering in the *selection framework*;
-on the other, they can be used directly inside our `DaVinci` jobs to store specific bits of information in our ntuples without the need for a complicated C++-based algorithms.
-This second option will be discussed in the [TupleTools and branches lesson](12-add-tupletools.html).
+
+They constitute the basis of particle filtering in the *selection framework*, discussed in the [Building your own decay chain](06-building-decays.html) lesson.
+Selecting particles means using LoKi *predicates*, ie, functors that give a `bool` output, which we have not discussed so far.
+Amongst these, a key expression is `in_range`, which returns `True` if the value of the given *function* functor (that is, the functor that returns a `double`) is within the given lower and upper limit.
+It helps writing CPU-efficient functors and thus is very important when building time-critical software like trigger or stripping lines.
+
+```python
+from LoKiCore.functions import in_range
+in_range(2000, MM, 2014)(cand)
+in_range(1860, CHILD(MM, 1), 1870)(cand)
+```
+
+Additionally, LoKi functors can be used directly inside our `DaVinci` jobs to store specific bits of information in our ntuples without the need for a complicated C++-based algorithms;
+this second option will be discussed in the [TupleTools and branches lesson](12-add-tupletools.html).
+
+> ## Debugging LoKi functors {.callout}
+> If you write complicated LoKi functors, typically in the context of selections, you need functions for debugging when things go wrong.
+> LoKi provides wrapper functors that evaluate a functor (or functor expression), print debugging information and return the result;
+> the most important of these are:
+>
+>  - `dump1`, which prints the input object and returns the calculated functor value,
+    ```python
+    from LoKiCore.functions import dump1
+    debug_p_components_sum = dump1(p_components_sum)
+    debug_p_components_sum(cand)
+    ```
+>  - `monitor` which prints the input the functor string and returns the calculated functor value,
+    ```python
+    from LoKiCore.functions import monitor
+    monitor_p_components_sum = monitor(p_components_sum)
+    monitor_p_components_sum(cand)
+    ```
+
 

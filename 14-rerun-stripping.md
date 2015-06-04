@@ -41,7 +41,7 @@ strip = 'stripping21'
 streams = buildStreams(stripping=strippingConfiguration(strip),
                        archive=strippingArchive(strip))
 
-custom_stream = StrippingStream("CustomStream")
+custom_stream = StrippingStream('CustomStream')
 custom_line = 'StrippingD2hhCompleteEventPromptDst2D2RSLine'
 
 for stream in streams:

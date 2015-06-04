@@ -2,10 +2,19 @@ import sys
 
 import GaudiPython as GP
 from GaudiConf import IOHelper
-from Configurables import LHCbApp, ApplicationMgr, DataOnDemandSvc
-from Configurables import SimConf, DigiConf, DecodeRawEvent
-from Configurables import CondDB, DstConf, PhysConf
-from Configurables import LoKiSvc
+from Configurables import (
+    LHCbApp,
+    ApplicationMgr,
+    DataOnDemandSvc,
+    SimConf,
+    DigiConf,
+    DecodeRawEvent,
+    CondDB,
+    DstConf,
+    PhysConf,
+    LoKiSvc,
+    DaVinci
+)
 
 # Some name shortcuts
 MCParticle = GP.gbl.LHCb.MCParticle
@@ -26,7 +35,7 @@ def nodes(evt, node=None):
         for l in evt.leaves(node):
             # skip a location that takes forever to load
             # XXX How to detect these automatically??
-            if "Swum" in l.identifier():
+            if 'Swum' in l.identifier():
                 continue
 
             temp = evt[l.identifier()]
@@ -37,7 +46,8 @@ def nodes(evt, node=None):
 
     return nodenames
 
-def advance(decision='B02DKWSD2HHHBeauty2CharmLine'):
+
+def advance(decision):
     """Advance until stripping decision is true, returns
     number of events by which we advanced"""
     n = 0
@@ -48,7 +58,7 @@ def advance(decision='B02DKWSD2HHHBeauty2CharmLine'):
             break
         n += 1
         dec = evt['/Event/Strip/Phys/DecReports']
-        if dec.hasDecisionName("Stripping%sDecision"%decision):
+        if dec.hasDecisionName('Stripping{0}Decision'.format(decision)):
             break
 
     return n
@@ -56,11 +66,10 @@ def advance(decision='B02DKWSD2HHHBeauty2CharmLine'):
 
 # Configure all the unpacking, algorithms, tags and input files
 appConf = ApplicationMgr()
-appConf.ExtSvc+= ['ToolSvc', 'DataOnDemandSvc', LoKiSvc()]
+appConf.ExtSvc += ['ToolSvc', 'DataOnDemandSvc', LoKiSvc()]
 
-from Configurables import DaVinci
 dv = DaVinci()
-dv.DataType = "2012"
+dv.DataType = '2012'
 
 
 # disable for older versions of DV
@@ -74,30 +83,24 @@ lhcbApp = LHCbApp()
 lhcbApp.Simulation = True
 CondDB().Upgrade = False
 # don't really need tags for looking around
-#LHCbApp().DDDBtag = ...
-#LHCbApp().CondDBtag  = ...
+# LHCbApp().DDDBtag = ...
+# LHCbApp().CondDBtag  = ...
 
 # Pass file to open as first command line argument
 inputFiles = [sys.argv[-1]]
 IOHelper('ROOT').inputFiles(inputFiles)
 
-
 # Configuration done, run time!
 appMgr = GP.AppMgr()
 evt = appMgr.evtsvc()
 
-print_decay = appMgr.toolsvc().create('PrintDecayTreeTool', interface="IPrintDecayTreeTool")
+print_decay = appMgr.toolsvc().create(
+    'PrintDecayTreeTool', interface='IPrintDecayTreeTool'
+)
 
-# New style decay descriptors, also known as LoKi decays
-loki_decay_finder = appMgr.toolsvc().create('LoKi::Decay', interface="Decays::IDecay")
-# Old style decay descriptors
-old_decay_finder = appMgr.toolsvc().create("DecayFinder", interface="IDecayFinder")
-
-# works
-#decay_desc = "[[B0]cc -> (^D- => {^K- ^K+ ^pi-, ^K- ^pi+ ^pi-,^pi+ ^pi- ^pi-, ^K- ^K- ^pi+}) ^K-]cc"
-# doesn't work
-decay_desc = "[[B0]cc -> (^D- => {^K- ^K+ ^pi-, ^K- ^pi+ ^pi-,^pi+ ^pi- ^pi-}) ^K-]cc"
-old_decay_finder.setDecay(decay_desc)
+decay_finder = appMgr.toolsvc().create(
+    'LoKi::Decay', interface='Decays::IDecay'
+)
 
 # process first event
 appMgr.run(1)
@@ -108,28 +111,30 @@ evt.dump()
 # print out "all" TES locations
 # prints out packed locations, so you need to know
 # what the unpacked location is called to actually access it
-print "-"*80
+print '-'*80
 for node in nodes(evt):
     print node
 
 # print out the stripping lines which fired for this event
-print "-"*80
+print '-'*80
 print evt['/Event/Strip/Phys/DecReports']
 
 
-# Figure out why your decay descriptor does not work
-# type the following into the python terminal
-#advance()
+"""
+To try and figure out why your decay descriptor does not work,
+type the following into the python terminal
 
-#WS_candidates = evt['/Event/Bhadron/Phys/B02DKWSD2HHHBeauty2CharmLine/Particles']
-#B = WS_candidates[0]
-#print_decay.printTree(B)
-# Can we find the decay?
-#old_decay_finder.hasDecay(WS_candidates)
+>>> advance()
+>>> stream = '$MYSTREAM'
+>>> line = '$MYLINE'
+>>> candidates = evt['/Event/{0}/Phys/{1}/Particles'.format(stream, line)]
+>>> head = candidates[0]
+>>> print_decay.printTree(head)
 
-# Beware, you can not repeatedly call this. It somehow keeps track
-# of how often it has been called/recursion stuff :-s
-#head = Particle()
-#old_decay_finder.findDecay(WS_candidates, head)
-# head will contain the head of the decay tree
-#print head
+Can we find match the candidate with the decay descriptor?
+
+>>> decay_finder.hasDecay(candidates)
+
+Beware, you can not repeatedly call this. It somehow keeps track
+of how often it has been called/recursion stuff :-s
+"""

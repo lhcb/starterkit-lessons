@@ -32,7 +32,7 @@ To create your first `ganga` job type the following:
 ```python
 j = Job(application=DaVinci(version='v36r6'))
 j.backend = Dirac()
-j.name = "First ganga job"
+j.name = 'First ganga job'
 j.inputdata = j.application.readInputData('data/MC_2012_27163003_Beam4000GeV2012MagDownNu2.5Pythia8_Sim08e_Digi13_Trig0x409f0045_Reco14a_Stripping20NoPrescalingFlagged_ALLSTREAMS.DST.py')
 j.application.optsfile = 'code/11-davinci-grid/ntuple_options_grid.py'
 ```
@@ -60,7 +60,7 @@ Place the following in a file called [`first-job.py`](code/11-davinci-grid/first
 ```python
 j = Job(application=DaVinci(version='v36r6'))
 j.backend = Dirac()
-j.name = "First ganga job"
+j.name = 'First ganga job'
 j.inputdata = j.application.readInputData('data/MC_2012_27163003_Beam4000GeV2012MagDownNu2.5Pythia8_Sim08e_Digi13_Trig0x409f0045_Reco14a_Stripping20NoPrescalingFlagged_ALLSTREAMS.DST.py')
 j.application.optsfile = 'code/11-davinci-grid/ntuple_options_grid.py'
 j.submit()
@@ -89,7 +89,7 @@ Once your job has finished its status will be `completed`. Check this
 by typing `jobs` or by printing out the status of one particular job:
 
 ```python
-print "Status of my job:", jobs(787).status
+print 'Status of my job:', jobs(787).status
 ```
 
 The next thing to do is to find the output of your job. Two things can
@@ -106,7 +106,7 @@ property of your job.
 
 ```python
 output = job(787).outputdir
-print "Job output stored in:", output
+print 'Job output stored in:', output
 ```
 
 Take a look at the contents of this directory.

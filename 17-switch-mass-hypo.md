@@ -24,12 +24,13 @@ There is an algorithm that allows us to replace parts of the decay descriptor ca
 # configure an algorithm to substitute the Kaon in the D0-decay by a second pion 
 from Configurables import SubstitutePID
 subs = SubstitutePID(
-        'MakeD02pipi',
-        Code = "DECTREE('[D*(2010)+ -> (D0 -> K- pi+) pi+]CC')",
-        Substitutions = { # note that SubstitutePID can't handle automatic CC
-        'Charm -> (D0 -> ^K- pi+) Meson' : 'pi-', 
-        'Charm -> (D0 -> ^K+ pi-) Meson' : 'pi+', 
-        }
+    'MakeD02pipi',
+    Code = "DECTREE('[D*(2010)+ -> (D0 -> K- pi+) pi+]CC')",
+    # note that SubstitutePID can't handle automatic CC
+    Substitutions = {
+        'Charm -> (D0 -> ^K- pi+) Meson': 'pi-',
+        'Charm -> (D0 -> ^K+ pi-) Meson': 'pi+'
+    }
 )
 ```
 
@@ -37,7 +38,7 @@ The algorithm is configured with a name `MakeD02pipi`. In the `Code` argument we
 
 Now we ware ready to specify which hypotheses to change. `Substitutions` is a dictionary where the keys are decay descriptors and the values are the names of the replacement particles. The particle that should be replaced is marked with a `^`. So in the example above
 ```python
-'Charm -> (D0 -> ^K- pi+) Meson' : 'pi-'
+'Charm -> (D0 -> ^K- pi+) Meson': 'pi-'
 ```
 means: Look for a decay of a Charm-particle into D0 plus any meson, where the D0 decays to (K- pi+) and replace the K- with a pi-.
 
@@ -45,24 +46,28 @@ Note that `SubstitutePID` does not automatically handle complex conjugation via 
 
 Next we have to handle the input and output of this algorithm. This is accomplished using [particle selections](https://twiki.cern.ch/twiki/bin/view/LHCb/ParticleSelection). The input to our substitution algorithm will be the candidates produced by the stripping. In order to make them look like a selection we can use the `DataOnDemand` service:
 ```python
+from PhysSelPython.Wrappers import Selection
+from PhysSelPython.Wrappers import SelectionSequence
+from PhysSelPython.Wrappers import DataOnDemand
+
 # Stream and stripping line we want to use
 stream = 'AllStreams'
 line = 'D2hhCompleteEventPromptDst2D2RSLine'
 tesLoc = '/Event/{0}/Phys/{1}/Particles'.format(stream, line)
 
 # get the selection(s) created by the stripping
-from PhysSelPython.Wrappers import Selection
-from PhysSelPython.Wrappers import SelectionSequence
-from PhysSelPython.Wrappers import DataOnDemand
-
-strippingSels = [DataOnDemand(Location=tesLoc)] 
+strippingSels = [DataOnDemand(Location=tesLoc)]
 ```
 
 The output of the algorithm has to be packaged into a new selection:
 
 ```python
 # create a selection using the substitution algorithm
-selSub = Selection("Dst2D0pi_D02pipi_Sel", Algorithm=Subs, RequiredSelections=strippingSels)
+selSub = Selection(
+    'Dst2D0pi_D02pipi_Sel',
+    Algorithm=Subs,
+    RequiredSelections=strippingSels
+)
 ```
 
 Note how the input stripping selection is daisy-chained to the output selection through the `RequiredSelections` (it has to be a list of selections) argument. The new selection is added into a `SelectionSequnce` for further use by DaVinci:
@@ -76,7 +81,8 @@ We are now ready to produce an ntuple on our newly created selection. As usual w
 # Create an ntuple to capture D*+ decays from the new selection
 dtt = DecayTreeTuple('TupleDstToD0pi_D0Topipi')
 dtt.Inputs = [selSeq.outputLocation()]
-dtt.Decay = '[D*(2010)+ -> ^(D0 -> ^pi- ^pi+) ^pi+]CC'  #note the redefined decay of the D0 
+# note the redefined decay of the D0
+dtt.Decay = '[D*(2010)+ -> ^(D0 -> ^pi- ^pi+) ^pi+]CC'
 ```
 
 The input to the `DecayTreeTuple` is taken as the `outputLocations` of the `SelectionSequence` we just created. 

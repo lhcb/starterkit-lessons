@@ -2,12 +2,23 @@
 layout: lesson
 title: First Steps in LHCb
 ---
-Paragraph(s) of introductory material.
+
+This is the LHCb Starterkit, a series of lessons for getting analysts working 
+confidently with LHCb software.
+The lessons are best approached one after the other, as most lessons build on 
+the knowledge gained from the previous ones.
+
+If you have any problems or questions, you can [send an email to 
+`lhcb-starterkit@cern.ch`](mailto:lhcb-starterkit@cern.ch).
 
 > ## Prerequisites {.prereq}
 >
-> Please make sure you can ssh to lxplus, have a working grid
-> certificate and can access the web based book-keeping.
+> Before starting, you should be familiar with using a shell, like `bash`, and 
+> with programming in Python.
+>
+> The [Software Carpentry 
+> workshop](http://twitwi.github.io/2015-06-02-cern-lhcb/) gives a great 
+> introduction to these, as well as to many other useful computing tools.
 
 ## Topics
 
@@ -19,8 +30,7 @@ Paragraph(s) of introductory material.
 2.  [Interactively exploring a DST](05-interactive-dst.html)
 2.  [Fun with LoKi Functors](06-loki-functors.html)
 3.  [Building your own decay](06-building-decays.html)
-3.  General introduction to Stripping
-3.  Finding your stripping line
+3.  [Introduction to the LHCb data flow](08-stripping.html)
 2.  [Running a minimal DaVinci job locally](09-minimal-dv-job.html)
 3.  [Storing large files on EOS](10-eos-storage.html)
 4.  [Minimal DaVinci on the grid](11-davinci-grid.html)

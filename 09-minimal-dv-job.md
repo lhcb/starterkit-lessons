@@ -136,7 +136,7 @@ from GaudiConf import IOHelper
 
 # Use the local input data
 IOHelper().inputFiles([
-  './00035742_00000002_1.allstreams.dst'
+    './00035742_00000002_1.allstreams.dst'
 ], clear=True)
 ```
 

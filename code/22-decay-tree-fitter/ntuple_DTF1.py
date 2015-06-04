@@ -1,5 +1,9 @@
 from GaudiConf import IOHelper
-from Configurables import DaVinci, DecayTreeTuple
+from Configurables import (
+    DaVinci,
+    DecayTreeTuple,
+    TupleToolDecayTreeFitter
+)
 from DecayTreeTuple.Configuration import *
 
 # Stream and stripping line we want to use
@@ -12,14 +16,13 @@ dtt.Inputs = ['/Event/{0}/Phys/{1}/Particles'.format(stream, line)]
 dtt.Decay = '[D*(2010)+ -> ^(D0 -> ^K- ^pi+) ^pi+]CC'
 
 # add a kinematic fitter
-from Configurables import TupleToolDecayTreeFitter
 dtt.addBranches({
-    'Dstar' : '[D*(2010)+ -> (D0 -> K- pi+) pi+]CC',
-}) 
+    'Dstar': '[D*(2010)+ -> (D0 -> K- pi+) pi+]CC',
+})
 dtt.Dstar.addTupleTool(TupleToolDecayTreeFitter('ConsD'))
 dtt.Dstar.ConsD.constrainToOriginVertex = True
 dtt.Dstar.ConsD.Verbose = True
-dtt.Dstar.ConsD.daughtersToConstrain = [ 'D0' ]
+dtt.Dstar.ConsD.daughtersToConstrain = ['D0']
 
 
 # Configure DaVinci
@@ -35,5 +38,5 @@ DaVinci().EvtMax = -1
 
 # Use the local input data
 IOHelper().inputFiles([
-  './00035742_00000002_1.allstreams.dst'
+    './00035742_00000002_1.allstreams.dst'
 ], clear=True)
