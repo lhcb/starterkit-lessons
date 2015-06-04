@@ -16,7 +16,8 @@ to edit the lessons. There are probably several mistakes in these
 lessons, or they will be outdated soon. Keeping them working and
 fixing all mistakes is a monumental task for one single person.
 
-![The starterkit needs you](img/Kitchener-leete.jpg)
+![The starterkit needs you! (Alfred Leete [Public domain], via
+ Wikimedia Commons)](img/Kitchener-leete.jpg)
 
 We need you! You know everything you need to in order to
 contribute. Take advantage of this.
@@ -33,7 +34,9 @@ The source of this lesson is hosted on GitHub:
 
 You do not need anyone's permission to start making changes. You can
 start directly. If you want to edit something the first thing to do is
-to create a fork of the repository. Visit [lhcb/first-analysis-steps](https://github.com/lhcb/first-analysis-steps) and click the "Fork" button at the top right.
+to create a fork of the repository. Visit
+[lhcb/first-analysis-steps](https://github.com/lhcb/first-analysis-steps)
+and click the "Fork" button at the top right.
 
 > ## GitHub {.callout}
 >
@@ -44,6 +47,25 @@ to create a fork of the repository. Visit [lhcb/first-analysis-steps](https://gi
 
 Each lesson is in its own `.md` file. For example the source of this
 lesson is in
-[`27-contributing.md`](https://github.com/lhcb/first-analysis-steps/blob/master/27-contributing.md). It is a simple text file with a few clever lines with special
-meaning.
+[`27-contributing.md`](https://github.com/lhcb/first-analysis-steps/blob/master/27-contributing.md). It
+is a simple text file with a few clever lines with special meaning.
+
+The format the files are written in is called [Markdown](http://daringfireball.net/projects/markdown/basics). It is a very simple language, which adds some
+basic formatting to text files. `**Bold text**` leads to **Bold text**,
+`*Italic*` is *italic* and `[http://google.com](the search engine)`
+makes a link to [the search engine](http://google.com).
+
+> ## Trying it out live {.callout}
+>
+> Try out Markdown live in your browser with [Dillinger](http://dillinger.io/).
+
+To get the source of this repository clone your fork of the lessons.
+
+```bash
+$ git clone https://YOURUSERNAME@github.com/YOURUSERNAME/first-analysis-steps.git
+```
+
+As you can see each lesson has its own `.md` file. You can modify one
+and then commit it. After `git push`'ing it visit your copy of the
+repository on github: `https://github.com/YOURUSERNAME/first-analysis-steps`.
 
