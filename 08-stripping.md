@@ -15,7 +15,7 @@ The data flow is designed so the processing of real data and simulated one are a
 
  1. (Only in simulation) The _pp_ collisions are generated using `Pythia` (currently `Pythia8`), decays of hadronic particles are described by `EvtGen` and the interaction of the generated particles with the detectors and its response are implemented using the `Geant` toolkit.
  The simulation step is managed by the `Gauss` application, while the digitization of the simulated events is performed by `Boole`.
- 2. Data from the detector (or from `Boole`) are filtered through the *trigger*, which consists of L0, implemented in hardware, and HLT, implemented in software. The LHCb application responsible for the HLT is `Moore`, which will be discussed in further detail in the [trigger lesson](18-hlt-intro.html).
+ 2. Data from the detector (or from `Boole`) are filtered through the *trigger*, which consists of L0, implemented in hardware, and HLT, implemented in software. The LHCb application responsible for the HLT is `Moore`, which will be discussed in further detail in the trigger lesson.
  In the case of real data, these are saved to disk and sent to CERN.
  3. Triggered, raw data are reconstructed to transform the detector hits into physical objects such as tracks, clusters, etc, through the `Brunel` application. These are stored into an output file in `DST` format.
  4. The reconstructed `DST` files are suitable for analysis, but they are not accessible to users due to computing restrictions. Data must be filtered futher through a set of selections called *stripping*, which write output either in `DST` or `µDST` format.
@@ -47,9 +47,9 @@ In it we can find:
   - The configuration of all strippings, eg, for [Stripping `S21`](https://twiki.cern.ch/twiki/bin/view/LHCb/Stripping21Configuration)
 
 Additionally, the information on all strippings can be found in the [stripping project website](http://lhcb-release-area.web.cern.ch/LHCb-release-area/DOC/stripping/), where you can see all the algorithms run and cuts applied in each line.
-For example, if we wanted to understand the `StrippingD2hhCompleteEventPromptDst2D2RSLine` line, which we will use from now on, we would go [here](http://lhcb-release-area.web.cern.ch/LHCb-release-area/DOC/stripping/config/stripping21/charmcompleteevent/strippingd2hhcompleteeventpromptdst2d2rsline.html).
+For example, if we wanted to understand the `StrippingD2hhCompleteEventPromptDst2D2RSLine` line, which we used in the [exploring a DST](05-interactive-dst.html) lesson from now on, we would go [here](http://lhcb-release-area.web.cern.ch/LHCb-release-area/DOC/stripping/config/stripping21/charmcompleteevent/strippingd2hhcompleteeventpromptdst2d2rsline.html).
 
-> # Understanding a stripping line {.challenge}
+> ## Understanding a stripping line {.challenge}
 > Go to the `StrippingD2hhCompleteEventPromptDst2D2RSLine` line definition [here](http://lhcb-release-area.web.cern.ch/LHCb-release-area/DOC/stripping/config/stripping21/charmcompleteevent/strippingd2hhcompleteeventpromptdst2d2rsline.html) and try to understand what do the `CombineParticles` (`D2hhCompleteEventPromptD2KPiSel` and `D2hhCompleteEventPromptDst2D2RSLine`) in there do.
 > How are they different from the decay we built in the [Build your own decay](06-building-decays.html) lesson?
 > Do you understand all LoKi functors?

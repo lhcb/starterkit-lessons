@@ -30,8 +30,7 @@ If you have any problems or questions, you can [send an email to
 2.  [Interactively exploring a DST](05-interactive-dst.html)
 2.  [Fun with LoKi Functors](06-loki-functors.html)
 3.  [Building your own decay](06-building-decays.html)
-3.  General introduction to Stripping
-3.  Finding your stripping line
+3.  [Introduction to the LHCb data flow](08-stripping.html)
 2.  [Running a minimal DaVinci job locally](09-minimal-dv-job.html)
 3.  [Storing large files on EOS](10-eos-storage.html)
 4.  [Minimal DaVinci on the grid](11-davinci-grid.html)
