@@ -47,7 +47,7 @@ def nodes(evt, node=None):
     return nodenames
 
 
-def advance(decision='B02DKWSD2HHHBeauty2CharmLine'):
+def advance(decision):
     """Advance until stripping decision is true, returns
     number of events by which we advanced"""
     n = 0
@@ -95,28 +95,9 @@ print_decay = appMgr.toolsvc().create(
     'PrintDecayTreeTool', interface='IPrintDecayTreeTool'
 )
 
-# New style decay descriptors, also known as LoKi decays
-loki_decay_finder = appMgr.toolsvc().create(
+decay_finder = appMgr.toolsvc().create(
     'LoKi::Decay', interface='Decays::IDecay'
 )
-# Old style decay descriptors
-old_decay_finder = appMgr.toolsvc().create(
-    'DecayFinder', interface='IDecayFinder'
-)
-
-# works
-# decay_desc = (
-#     '[[B0]cc -> '
-#     '(^D- => {^K- ^K+ ^pi-, ^K- ^pi+ ^pi-,^pi+ ^pi- ^pi-, ^K- ^K- ^pi+})'
-#     '^K-]cc'
-# )
-# doesn't work
-decay_desc = (
-    '[[B0]cc -> '
-    '(^D- => {^K- ^K+ ^pi-, ^K- ^pi+ ^pi-,^pi+ ^pi- ^pi-})'
-    '^K-]cc'
-)
-old_decay_finder.setDecay(decay_desc)
 
 # process first event
 appMgr.run(1)
@@ -136,21 +117,21 @@ print '-'*80
 print evt['/Event/Strip/Phys/DecReports']
 
 
-# Figure out why your decay descriptor does not work
-# type the following into the python terminal
-# advance()
+"""
+To try and figure out why your decay descriptor does not work,
+type the following into the python terminal
 
-# stream = 'Bhadron'
-# line = 'B02DKWSD2HHHBeauty2CharmLine'
-# WS_candidates = evt['/Event/{0}/Phys/{1}/Particles'.format(stream, line)]
-# B = WS_candidates[0]
-# print_decay.printTree(B)
-# Can we find the decay?
-# old_decay_finder.hasDecay(WS_candidates)
+>>> advance()
+>>> stream = '$MYSTREAM'
+>>> line = '$MYLINE'
+>>> candidates = evt['/Event/{0}/Phys/{1}/Particles'.format(stream, line)]
+>>> head = candidates[0]
+>>> print_decay.printTree(head)
 
-# Beware, you can not repeatedly call this. It somehow keeps track
-# of how often it has been called/recursion stuff :-s
-# head = Particle()
-# old_decay_finder.findDecay(WS_candidates, head)
-# head will contain the head of the decay tree
-# print head
+Can we find match the candidate with the decay descriptor?
+
+>>> decay_finder.hasDecay(candidates)
+
+Beware, you can not repeatedly call this. It somehow keeps track
+of how often it has been called/recursion stuff :-s
+"""
