@@ -133,3 +133,21 @@ $ svn update
 ```
 
 You can now edit the file, exit our editor, then type `r` to tell SVN that the conflict has been resolved.
+
+You can play around with SVN by creating a folder in the [LHCb documents repository](https://svnweb.cern.ch/cern/wsvn/lhcbdocs), where every LHCb user is allowed to create their own folder in the `/Users` directory.
+
+```bash
+# Make a user's folder if it doesn't already exist
+$ svn mkdir svn+ssh://svn.cern.ch/reps/lhcbdocs/Users/$USERNAME
+# Then create the playground
+$ svn mkdir svn+ssh://svn.cern.ch/reps/lhcbdocs/Users/$USERNAME/TestFolder
+```
+
+where you should substitute `$USERNAME` with your lxplus username.
+This will open your editor, where you should enter a message describing the folder and then save it and close it.
+
+You can checkout this repository and begin playing with it using the commands above.
+
+```bash
+$ svn co svn+ssh://svn.cern.ch/reps/lhcbdocs/Users/$USERNAME/TestFolder
+```
