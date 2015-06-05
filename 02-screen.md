@@ -134,7 +134,7 @@ $ kinit
 > This will connect to the first 500 lxplus nodes in
 > turn, checking if a `screen` session is running and if
 > yes prints the hostname and output of `screen -list`.
-
+ 
 > ## Using tabs in screen {.callout}
 >
 > Screen supports some features beyond detaching a session. A very useful feature is different sessions in tab pages, all within a single instance of `screen`. 
@@ -145,7 +145,7 @@ $ kinit
 > hardstatus alwayslastline
 > hardstatus string '%{= BG}%{.g}[ %{.G}%H %{.g}][ %{= Bw}%?%-Lw%?%{Yr}%{.k}%n*%f%? %t%?%?(%u)%?%{.r}%{Bw}%?%+Lw%? %{.g}%=][%{.W} %Y-%m-%d %c %{.g}]'
 > ```
-> Note that this has predefined colours and layout that you can easily change yourself, for a detailed discussion see eg. here(http://sourceopen.com/2014/06/09/gnu-screen-status-bar-tips-tricks-basics/).
+> Note that this has predefined colours and layout that you can easily change yourself, for a detailed discussion see eg. http://sourceopen.com/2014/06/09/gnu-screen-status-bar-tips-tricks-basics/.
 >
 > The following commands should help you get started using multiple tabs in a screen window. Note that `^a` stands for `Ctrl-a` in this list.
 > * Create a new tab: `^a c`
