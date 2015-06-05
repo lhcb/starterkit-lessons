@@ -47,6 +47,7 @@ If you have any problems or questions, you can [send an email to
 18. Other things one can do with DTF
 19. [Asking good questions](26-asking-questions.html)
 19. [Developing the LHCb Software](16-lhcb-dev.html)
+20. [Using SVN](18-using-svn.html)
 20. Where to get help
 21. Contribute to this lesson!
 22. [Install party](32-install-party.html)
