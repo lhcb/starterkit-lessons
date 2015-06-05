@@ -11,13 +11,13 @@ minutes: 10
 > * Apply a mass constraint
 > * Inspect the refitted decay tree
 
-Once you have made a hypothesis on the chain of decays that have lead to your final state, you then can incorporate the additional knowledge that comes with this hypothesis to get a new best estimate for the particle parameters - in particular their momenta. The additional knowledge is represented as constraints, which your decay tree has to fulfill.
+Once you have made a hypothesis on the chain of decays that lead to your final state, you then can incorporate the additional knowledge that comes with this hypothesis to get a new best estimate for the particle parameters -- in particular their momenta. The additional knowledge is represented as constraints, which your decay tree has to fulfill.
 
 For example, for the decay
 ```python
 '[D*(2010)+ -> (D0 -> K- pi+) pi+]CC'
 ``` 
-you make the assumption that the (K- pi+) combine to form a D0 with a specific invariant mass. This results in a so called *mass-constraint*. In addition the kaon and the pion are supposed to originate from exactly the same point in space. If you are looking for prompt D* you can require them to come from the primary vertex. Boundary conditions like those are called *vertex-constraints*. 
+you can make the assumption that the (K- pi+) combine to form a D0 with a specific invariant mass. This results in a so called *mass-constraint*. In addition the kaon and the pion should originate from exactly the same point in space. If you know that your data only contains prompt D* candidates, you can constrain them to do come from the primary vertex. Boundary conditions like those are called *vertex-constraints*. 
 
 Applying such kinematic constraints leads to new best estimates for the track parameters of the final state particles. The process of calculating those is called a *kinematic refit* and the `TupleToolDecayTreeFitter` is the algorithm that performs this task for us. 
 
@@ -26,14 +26,13 @@ Applying such kinematic constraints leads to new best estimates for the track pa
 
 So how do we use a `TupleToolDecayTreeFitter` to our DaVinci script? Let's create a branch to add the tool to. We'll just name it `'Dstar'`:
 ```python
-from Configurables import TupleToolDecayTreeFitter,TupleToolDecay
 dtt.addBranches({
     'Dstar': '[D*(2010)+ -> (D0 -> K- pi+) pi+]CC',
 }) 
 ```
 To this branch we can now apply the `TupleToolDecayTreeFitter`. 
 ```python
-dtt.Dstar.addTupleTool(TupleToolDecayTreeFitter('ConsD'))
+dtt.Dstar.addTupleTool('TupleToolDecayTreeFitter/ConsD')
 ```
 Now we can proceed with the configuration of the fitter. We are going to constrain the decay tree to the primary vertex of origin. We want all the output available, so we set the `verbose` option. Finally we want to apply the mass constraint on the D0:
 ```python
@@ -89,9 +88,9 @@ As expected, the D0 candidates are forced onto their PDG mass value.
 > * Look at the `status` variable to check if the fits converged.
 > * Look at the chi2 distribution of the fit 
 
-`DecayTreeFitter` can be told to change some of the hypotheses in the decay tree. This is very useful if you want to slightly change, which decays you want to look at. As an example let's say we want to examine the cabbibo-suppressed decay of the D0 into pi- pi+ instead of K- pi+. For this we add a second fitter, giving it a new name `ConsDpipi`:
+`DecayTreeFitter` can be told to change some of the hypotheses in the decay tree. This is very useful if you want to slightly change which decays you want to look at. As an example let's say we want to examine the Cabibbo-suppressed decay of the D0 into pi- pi+ instead of K- pi+. For this we add a second fitter, giving it a new name `ConsDpipi`:
 ```python
-dtt.Dstar.addTupleTool(TupleToolDecayTreeFitter('ConsDpipi'))
+dtt.Dstar.addTupleTool('TupleToolDecayTreeFitter/ConsDpipi')
 dtt.Dstar.ConsDpipi.constrainToOriginVertex = True
 dtt.Dstar.ConsDpipi.Verbose = True
 dtt.Dstar.ConsDpipi.daughtersToConstrain = ['D0']
@@ -103,7 +102,7 @@ dtt.Dstar.ConsDpipi.Substitutions = {
     'Charm -> (D~0 -> ^K+ pi-) Meson': 'pi+'
 }
 ```
-In the dictionary that is passed to the `Substitutions` property of the fitter, the keys are decay descriptors, where the respective particle to be substituted is marked with a `^`. The values are the repective new particle hypotheses. The substitution will only work if you start from a decay descriptor that actually matches your candidates. However, you are allowed to generalise parts of the decay. Here we replaced `D*(2010)` with the more general `Charm` and the bachelor `pi-` is just represented by a `Meson`.
+In the dictionary that is passed to the `Substitutions` property of the fitter, the keys are decay descriptors, where the respective particle to be substituted is marked with a `^`. The values are the respective new particle hypotheses. The substitution will only work if you start from a decay descriptor that actually matches your candidates. However, you are allowed to generalise parts of the decay. Here we replaced `D*(2010)` with the more general `Charm` and the bachelor `pi-` is just represented by a `Meson`.
  
 Note that the substitution mechanism does not understand the `CC` symbol. Both charge states have to be specified explicitely.
 
