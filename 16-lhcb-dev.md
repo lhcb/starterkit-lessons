@@ -60,14 +60,14 @@ This is an LHCb-aware wrapper around SVN.
 For example, if you want to write a custom stripping selection, execute the following in the `DaVinciDev` directory:
 
 ```bash
-getpack Phys/StrippingSelection head
+getpack Phys/StrippingSelections head
 ```
 
 Under the hood, `getpack` will `svn checkout` (≈ `git clone`) the corresponding SVN repository.
 The first argument to `getpack` is the name of the package you want to checkout, while the second argument allows you to choose a specific branch.
 `head` is usually the one one that contains the newest development changes and the one you should commit new changes to.
 
-You can now modify the `StrippingSelection` package and run `make` to build it with your changes.
+You can now modify the `StrippingSelections` package and run `make` to build it with your changes.
 You can test your changes with the `./run` script.
 It works similar to `lb-run`, without the need to specify a package and version:
 ```bash
@@ -84,7 +84,7 @@ It works similar to `lb-run`, without the need to specify a package and version:
 > 
 > Alternatively, you can perform an anonymous checkout:
 > ```
-> getpack -p anonymous Phys/StrippingSelection
+> getpack -p anonymous Phys/StrippingSelections
 > ```
 
 If you just want to take a look at a source file, without checking it out, you can comfortably access the repository through two different web UIs.
