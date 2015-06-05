@@ -2,7 +2,6 @@ from GaudiConf import IOHelper
 from Configurables import (
     DaVinci,
     DecayTreeTuple,
-    TupleToolDecayTreeFitter
 )
 from DecayTreeTuple.Configuration import *
 
@@ -19,10 +18,24 @@ dtt.Decay = '[D*(2010)+ -> ^(D0 -> ^K- ^pi+) ^pi+]CC'
 dtt.addBranches({
     'Dstar': '[D*(2010)+ -> (D0 -> K- pi+) pi+]CC',
 })
-dtt.Dstar.addTupleTool(TupleToolDecayTreeFitter('ConsD'))
+dtt.Dstar.addTupleTool('TupleToolDecayTreeFitter/ConsD')
 dtt.Dstar.ConsD.constrainToOriginVertex = True
 dtt.Dstar.ConsD.Verbose = True
 dtt.Dstar.ConsD.daughtersToConstrain = ['D0']
+
+# add another fitter, this time we will change a mass hypothesis
+dtt.Dstar.addTupleTool('TupleToolDecayTreeFitter/ConsDpipi')
+dtt.Dstar.ConsDpipi.constrainToOriginVertex = True
+dtt.Dstar.ConsDpipi.Verbose = True
+dtt.Dstar.ConsDpipi.daughtersToConstrain = ['D0']
+
+# make the hypothesis that actually we had the decay D0->pi+pi-
+# note that you have to explicitely give both charges
+# CC does not work here!
+dtt.Dstar.ConsDpipi.Substitutions = {
+    'Charm -> (D0 -> ^K- pi+) Meson': 'pi-',
+    'Charm -> (D~0 -> ^K+ pi-) Meson': 'pi+'
+}
 
 
 # Configure DaVinci

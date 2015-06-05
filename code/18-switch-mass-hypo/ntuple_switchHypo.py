@@ -20,7 +20,7 @@ subs = SubstitutePID(
     # note that SubstitutePID can't handle automatic CC
     Substitutions={
         'Charm -> (D0 -> ^K- pi+) Meson': 'pi-',
-        'Charm -> (D0 -> ^K+ pi-) Meson': 'pi+'
+        'Charm -> (D~0 -> ^K+ pi-) Meson': 'pi+'
     }
 )
 
