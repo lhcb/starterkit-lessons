@@ -149,7 +149,7 @@ To add LoKi-based leaves to the tree, we need to use the `LoKi::Hybrid::TupleToo
         'dira': 'BPVDIRA',
         'max_pt': 'MAXTREE(ISBASIC & HASTRACK, PT, -1)',
         'max_pt_preambulo': 'TRACK_MAX_PT',
-        'sum_pt_pions': 'SUMTREE(211 == ABSID, PT)'
+        'sum_pt_pions': 'SUMTREE(211 == ABSID, PT)',
         'n_highpt_tracks': 'NINTREE(ISBASIC & HASTRACK & (PT > 1500*MeV))'
     }
     d0_hybrid.Variables = {
