@@ -105,7 +105,7 @@ result = hlt1TisTosTool.tisTosTobTrigger()
 
 The (Tos) trigger efficiency of a trigger selection can be calculated as:
 
-eps\_{Tos} = N\_{Tis AND Tos} / N\_{Tis}
+$\epsilon_{\mathrm{Tos}}=N_{\mathrm{Tis}\&\mathrm{Tos}} / {N_{\mathrm{Tis}}}$
 
 Loop over the events in the DST and calculate the efficiency of
 Hlt1TrackAllL0. You can add some more Hlt1 selecitons when checking for Tis,
