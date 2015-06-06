@@ -53,6 +53,9 @@ def advance(decision):
     n = 0
     while True:
         appMgr.run(1)
+        if not evt['/Event']:
+            n = 0
+            break
         n += 1
         dec = evt['/Event/Strip/Phys/DecReports']
         if dec.hasDecisionName('Stripping{0}Decision'.format(decision)):
