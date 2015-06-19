@@ -13,7 +13,7 @@ minutes: 15
 > * Find useful TupleTools
 > * Learn how to use LoKi functors in a DecayTreeTuple
 
-Usually, the default information stored by `DecayTreeTuple` as shown in our [minimal DaVinci job](09-minimal-dv-job.html) is not enough for physics analysis. 
+Usually, the default information stored by `DecayTreeTuple` as shown in our [minimal DaVinci job](08-minimal-dv-job.html) is not enough for physics analysis. 
 Fortunately, most of the information we need can be added by adding C++ tools (known as `TupleTools`) to `dtt`;
 there is an extensive library of these, some of which will be briefly discussed during the lesson.
 
@@ -47,7 +47,7 @@ For example, if we wanted the information of the PV associated to our particle, 
 dtt.addTupleTool('TupleToolPrimaries')
 ```
 
-The way the `DecayTreeTuple.Decay` is written in in our [minimal DaVinci job](09-minimal-dv-job.html), 
+The way the `DecayTreeTuple.Decay` is written in in our [minimal DaVinci job](08-minimal-dv-job.html), 
 
 ```python
 dtt.Decay = '[D*(2010)+ -> (D0 -> K- pi+) pi+]CC'
@@ -108,7 +108,7 @@ The usage of `Branches` is very important (and strongly encouraged) to keep the 
 The updated options can be found [here](./code/12-add-tupletools/ntuple_options.py).
 
 > ## Test your ntuple {.challenge}
-> Run the options in the same way as in the [minimal DaVinci job](09-minimal-dv-job.html) lesson.
+> Run the options in the same way as in the [minimal DaVinci job](08-minimal-dv-job.html) lesson.
 > You will obtain a `DVntuple.root` file, which we can open and inspect with `ROOT`'s `TBrowser`:
 > 
 > ```

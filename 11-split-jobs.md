@@ -10,7 +10,7 @@ minutes: 10
 >   by splitting a job into many subjobs
 >
 
-In the [previous lesson](11-davinci-grid.md), you've submitted a job to the LHC grid.
+In the [previous lesson](10-davinci-grid.html), you've submitted a job to the LHC grid.
 You will notice that the job will take a long time to finish.
 This is because it has to process many gigabytes of data.
 

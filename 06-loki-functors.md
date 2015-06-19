@@ -161,7 +161,7 @@ mass == mass_child
 
 The usage of LoKi functors extends much further than in the interactive `GaudiPython` world.
 
-They constitute the basis of particle filtering in the *selection framework*, discussed in the [Building your own decay chain](06-building-decays.html) lesson.
+They constitute the basis of particle filtering in the *selection framework*, discussed in the [Building your own decay chain] lesson in [second-analysis-steps](https://lhcb.github.io/second-analysis-steps/).
 Selecting particles means using LoKi *predicates*, ie, functors that give a `bool` output, which we have not discussed so far.
 Amongst these, a key expression is `in_range`, which returns `True` if the value of the given *function* functor (that is, the functor that returns a `double`) is within the given lower and upper limit.
 It helps writing CPU-efficient functors and thus is very important when building time-critical software like trigger or stripping lines.
