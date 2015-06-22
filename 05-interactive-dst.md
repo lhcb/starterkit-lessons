@@ -20,7 +20,7 @@ This is particularly useful if you want to quickly find
 something out, or the more complex processing in DaVinci
 is not working as expected.
 
-The file we [downloaded from the grid](05-files-from-grid.html)
+The file we [downloaded from the grid](04-files-from-grid.html)
 contains simulated data, with stripping and trigger decisions
 and so on. Here we assumed the file you downloaded is called `00035742_00000002_1.allstreams.dst`.
 To take a look at the contents of the TES we need a simple

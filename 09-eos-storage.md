@@ -64,7 +64,7 @@ DiracFile = {'fileExtensions': ['*.dst'],
 ```
 
 Now that `ganga` is configured we will modify the [minimal DaVinci
-job](09-minimal-dv-job.html) to store the nTuple it produces on EOS.
+job](08-minimal-dv-job.html) to store the nTuple it produces on EOS.
 
 Make a copy of `first-job.py` and add the following three lines
 before the `j.submit()` line:

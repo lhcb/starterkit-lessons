@@ -128,7 +128,7 @@ The `TupleFile` attribute defines the name of the ROOT output file that DaVinci
 will store any algorithm output in, which should be our ntuple.
 
 All that's left to do is to say what data we would like to run over.
-As we already have a data file [downloaded locally](05-files-from-grid.html), we 
+As we already have a data file [downloaded locally](04-files-from-grid.html), we 
 define that as our input data.
 
 ```python

@@ -29,7 +29,7 @@ The data flow is designed so the processing of real data and simulated one are a
     >
 
 
- 5. Users can run their own analysis tools, such as [`DecayTreeTuple`](09-minimal-dv-job.html), to extract variables useful for analysis.
+ 5. Users can run their own analysis tools, such as [`DecayTreeTuple`](08-minimal-dv-job.html), to extract variables useful for analysis.
  The processing is slightly different between `DST` and `µDST`, since some calculations, such as isolations, need the other tracks in the event (not only the signal), which are not available in the latter format.
 
 Steps 1 to 4 are performed centrally, while 5 is performed by the users.
@@ -50,6 +50,5 @@ Additionally, the information on all strippings can be found in the [stripping p
 For example, if we wanted to understand the `StrippingD2hhCompleteEventPromptDst2D2RSLine` line, which we used in the [exploring a DST](05-interactive-dst.html) lesson from now on, we would go [here](http://lhcb-release-area.web.cern.ch/LHCb-release-area/DOC/stripping/config/stripping21/charmcompleteevent/strippingd2hhcompleteeventpromptdst2d2rsline.html).
 
 > ## Understanding a stripping line {.challenge}
-> Go to the `StrippingD2hhCompleteEventPromptDst2D2RSLine` line definition [here](http://lhcb-release-area.web.cern.ch/LHCb-release-area/DOC/stripping/config/stripping21/charmcompleteevent/strippingd2hhcompleteeventpromptdst2d2rsline.html) and try to understand what do the `CombineParticles` (`D2hhCompleteEventPromptD2KPiSel` and `D2hhCompleteEventPromptDst2D2RSLine`) in there do.
-> How are they different from the decay we built in the [Build your own decay](06-building-decays.html) lesson?
+> Go to the `StrippingD2hhCompleteEventPromptDst2D2RSLine` line definition [here](http://lhcb-release-area.web.cern.ch/LHCb-release-area/DOC/stripping/config/stripping21/charmcompleteevent/strippingd2hhcompleteeventpromptdst2d2rsline.html) and try to understand what the `CombineParticles` (`D2hhCompleteEventPromptD2KPiSel` and `D2hhCompleteEventPromptDst2D2RSLine`) in there do.
 > Do you understand all LoKi functors?
