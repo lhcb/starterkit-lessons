@@ -154,9 +154,9 @@ svn co svn+ssh://svn.cern.ch/reps/lhcbdocs/Users/$USERNAME/TestFolder
 
 
 > ## Using SVN outside the lxplus cluster {.callout}
-> Sometimes you may want to `getpack` and/or `commit` from other places, e.g. your local machine, the online cluster...
+> When you work on lxplus, SVN automatically fetches your identity through your Kerberos token.
 >
-> While on lxplus SVN access fetches your identity through your Kerberos token, on other machines you may have to either setup SVN access via public SSH keys, or input your password several times for every action.
+> If you want to `getpack` and/or `commit` from other places, e.g. your local machine or the [online cluster](https://lbtwiki.cern.ch/bin/view/Online/WebHome), you will have to either setup SVN access via public SSH keys, or input your password several times for every action.
 >
 > You can follow [this link](http://information-technology.web.cern.ch/book/how-start-working-svn/accessing-svn-repository#accessing-sshlinux) for more information. However, here are the steps to take to setup SSH access:
 > ```bash
