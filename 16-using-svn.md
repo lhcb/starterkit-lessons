@@ -45,9 +45,9 @@ To copy a remote repository locally, use `svn checkout`, or `svn co` for short:
 
 ```bash
 # Get some documentation, saved to the ANA-2015-004 folder
-$ svn co svn+ssh://svn.cern.ch/reps/lhcbdocs/Notes/ANA/2015/004 ANA-2015-004
+svn co svn+ssh://svn.cern.ch/reps/lhcbdocs/Notes/ANA/2015/004 ANA-2015-004
 # Get some code
-$ svn co svn+ssh://svn.cern.ch/reps/lhcb/Analysis/trunk/Phys/DecayTreeTuple
+svn co svn+ssh://svn.cern.ch/reps/lhcb/Analysis/trunk/Phys/DecayTreeTuple
 ```
 
 Notice that `lhcbdocs` is the name of the _repository_, but we can choose to 
@@ -60,9 +60,9 @@ of the local copy of the repository and the remote copy.
 
 ```bash
 # Check locally
-$ svn status
+svn status
 # Check remotely with the -u flag
-$ svn status -u
+svn status -u
 ```
 
 If you have changes you wish to commit back to the remote repository, use `svn 
@@ -70,9 +70,9 @@ commit`, or `svn ci` for short:
 
 ```bash
 # Commit all changes in the local copy to the remote copy
-$ svn ci -m "Add cool stuff."
+svn ci -m "Add cool stuff."
 # Commit only changes to certain files
-$ svn ci -m "Add cool stuff to two chapters." selection.tex theory.tex
+svn ci -m "Add cool stuff to two chapters." selection.tex theory.tex
 ```
 
 This is **different** from Git, as `git commit` will only add what's in the 
@@ -87,7 +87,7 @@ If you've made a change to the file but haven't committed it yet, you can
 discard your changes with `svn revert`:
 
 ```bash
-$ svn revert my_changed_file.tex
+svn revert my_changed_file.tex
 ```
 
 If want to revert a file to some older version, you just need to find the 
@@ -96,11 +96,11 @@ essentially merge the old version of the file with the new version:
 
 ```bash
 # Find the current and old revision number by looking at the history
-$ svn log
+svn log
 # Revert the current revision number 123 to the old 109
-$ svn merge -r 123:109 some_file.tex
+svn merge -r 123:109 some_file.tex
 # Save the changes
-$ svn ci -m "Revert some_file.tex to revision 109."
+svn ci -m "Revert some_file.tex to revision 109."
 ```
 
 When you have new files to add to the repository you can use `svn add`, and you 
@@ -108,9 +108,9 @@ can use `svn rm` to remove files you no longer want:
 
 ```bash
 # Add a new file
-$ svn add python.tex
+svn add python.tex
 # Remove some file that's no longer needed
-$ svn rm cpp.tex
+svn rm cpp.tex
 ```
 
 Finally, to update your local copy of the repository with newer changes in the 
@@ -118,18 +118,18 @@ remote copy, use `svn update`:
 
 ```bash
 # Reminder: check the status of the remote repository
-$ svn status -u
+svn status -u
 # Now fetch the newer changes and merge them in to the local repository
-$ svn update
+svn update
 ```
 
 If you have conflicts when committing, for example if you have made changes to 
 a file that has since been updated remotely, you will need to manually resolve the conflicts by editing the problematic file(s).
 
 ```bash
-$ svn ci -m "Making a change that will conflict with the central repo."
+svn ci -m "Making a change that will conflict with the central repo."
 # A conflict is detected, need to update
-$ svn update
+svn update
 ```
 
 You can now edit the file, exit our editor, then type `r` to tell SVN that the conflict has been resolved.
@@ -138,9 +138,9 @@ You can play around with SVN by creating a folder in the [LHCb documents reposit
 
 ```bash
 # Make a user's folder if it doesn't already exist
-$ svn mkdir svn+ssh://svn.cern.ch/reps/lhcbdocs/Users/$USERNAME
+svn mkdir svn+ssh://svn.cern.ch/reps/lhcbdocs/Users/$USERNAME
 # Then create the playground
-$ svn mkdir svn+ssh://svn.cern.ch/reps/lhcbdocs/Users/$USERNAME/TestFolder
+svn mkdir svn+ssh://svn.cern.ch/reps/lhcbdocs/Users/$USERNAME/TestFolder
 ```
 
 where you should substitute `$USERNAME` with your lxplus username.
@@ -149,5 +149,25 @@ This will open your editor, where you should enter a message describing the fold
 You can checkout this repository and begin playing with it using the commands above.
 
 ```bash
-$ svn co svn+ssh://svn.cern.ch/reps/lhcbdocs/Users/$USERNAME/TestFolder
+svn co svn+ssh://svn.cern.ch/reps/lhcbdocs/Users/$USERNAME/TestFolder
 ```
+
+
+> ## Using SVN outside the lxplus cluster {.callout}
+> When you work on lxplus, SVN automatically fetches your identity through your Kerberos token.
+>
+> If you want to `getpack` and/or `commit` from other places, e.g. your local machine or the [online cluster](https://lbtwiki.cern.ch/bin/view/Online/WebHome), you will have to either setup SVN access via public SSH keys, or input your password several times for every action.
+>
+> You can follow [this link](http://information-technology.web.cern.ch/book/how-start-working-svn/accessing-svn-repository#accessing-sshlinux) for more information. However, here are the steps to take to setup SSH access:
+> ```bash
+> # Create an SSH key pair if you do not have one:
+> ssh-keygen -t rsa
+> # Copy your key to lxplus and run set_ssh:
+> scp ~/.ssh/id_rsa.pub USERNAME@lxplus.cern.ch:~/.ssh/
+> ssh USERNAME@lxplus
+> /afs/cern.ch/project/svn/public/bin/set_ssh
+> exit
+> # Now try to login to the SVN server:
+> ssh USERNAME@svn.cern.ch 
+> ```
+> If this does not prompt you for a password, and you see a login message, you're done. Otherwise, make sure you are using the same key pair on which you ran `set_ssh`.
