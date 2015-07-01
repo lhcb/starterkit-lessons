@@ -13,7 +13,7 @@ minutes: 15
 > * Find useful TupleTools
 > * Learn how to use LoKi functors in a DecayTreeTuple
 
-Usually, the default information stored by `DecayTreeTuple` as shown in our [minimal DaVinci job](08-minimal-dv-job.html) is not enough for physics analysis. 
+Usually, the default information stored by `DecayTreeTuple` as shown in our [minimal DaVinci job](08-minimal-dv-job.html) is not enough for physics analysis.
 Fortunately, most of the information we need can be added by adding C++ tools (known as `TupleTools`) to `dtt`;
 there is an extensive library of these, some of which will be briefly discussed during the lesson.
 
@@ -47,7 +47,7 @@ For example, if we wanted the information of the PV associated to our particle, 
 dtt.addTupleTool('TupleToolPrimaries')
 ```
 
-The way the `DecayTreeTuple.Decay` is written in in our [minimal DaVinci job](08-minimal-dv-job.html), 
+The way the `DecayTreeTuple.Decay` is written in in our [minimal DaVinci job](08-minimal-dv-job.html),
 
 ```python
 dtt.Decay = '[D*(2010)+ -> (D0 -> K- pi+) pi+]CC'
@@ -110,7 +110,7 @@ The updated options can be found [here](./code/12-add-tupletools/ntuple_options.
 > ## Test your ntuple {.challenge}
 > Run the options in the same way as in the [minimal DaVinci job](08-minimal-dv-job.html) lesson.
 > You will obtain a `DVntuple.root` file, which we can open and inspect with `ROOT`'s `TBrowser`:
-> 
+>
 > ```
 > $ root DVntuple.root
 > root [0]
@@ -118,7 +118,7 @@ The updated options can be found [here](./code/12-add-tupletools/ntuple_options.
 > root [1] TBrowser *b = new TBrowser()
 > root [2]
 > ```
-> 
+>
 > Try to locate the branches we have added, which are placed in the `TupleDstToD0pi_D0ToKpi/DecayTree`, and plot some distributions by double-clicking the leaves.
 
 Picking up with the [LoKi functors lesson](06-loki-functors.html), let's store some specific bits of information discussed there in our ntuple.
@@ -168,5 +168,5 @@ To add LoKi-based leaves to the tree, we need to use the `LoKi::Hybrid::TupleToo
 In the code snippets specified above (available [here](code/12-add-tupletools/ntuple_options_loki.py)), you can see that the `NINTREE` functor counts the number of particles that pass the specified criteria. While this is not very useful for ntuple-building (we can always do it offline), it's a very powerful functor to use when building decay selections.
 
 > ## Getting more practice {.challenge}
-> In the `LoKi::Hybrid::TupleTool`we've used some  functors that have not been described previously. Find out what they do in the [doxygen](http://lhcb-release-area.web.cern.ch/LHCb-release-area/DOC/davinci/releases/latest/doxygen/d7/dae/namespace_lo_ki_1_1_cuts.html).
+> In the `LoKi::Hybrid::TupleTool`we've used some  functors that have not been described previously. Find out what they do in the [doxygen](http://lhcb-release-area.web.cern.ch/LHCb-release-area/DOC/davinci/latest_doxygen/d7/dae/namespace_lo_ki_1_1_cuts.html).
 > To check `SUMTREE` and `CHILD`, run the code above and check that the `Dstar_max_pt` and `Dstar_max_pt_preambulo` and the `Dstar_mass_D0` and `D0_mass` branches have exactly the same values.

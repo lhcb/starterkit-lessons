@@ -16,7 +16,7 @@ Internally, functors are implemented as C++ classes that take an object of type 
 They can be used both in C++ and in python code, and can be combined with each other using logical operations.
 
 According to `TYPE2` there are 3 types of functors:
- 
+
  - *Functions*, which return `double`.
  - *Predicates*, which return a `bool`.
  - *Streamers*, which return a `std::vector` of some other type `TYPE3`.
@@ -25,9 +25,9 @@ When filling tuples, the most used functors are functions, while predicates are 
 
 According to `TYPE1`, there are many types of functors, the most important of which are (you can find a full list in the [LoKi FAQ](https://twiki.cern.ch/twiki/bin/view/LHCb/FAQ/LoKiFAQ#How_to_code_own_LoKi_functor)):
 
- - *Particle functors*, which take `LHCb::Particle*` as input. 
+ - *Particle functors*, which take `LHCb::Particle*` as input.
  - *Vertex functors*, which take `LHCb::VertexBase*` as input.
- - *MC particle functors*, which take `LHCb::MCParticle*` as input. 
+ - *MC particle functors*, which take `LHCb::MCParticle*` as input.
  - *MC vertex functors*, which take `LHCb::MCVertex*` as input.
  - *Array particle functors*, which take a `LoKi::Range_` (an array of particles) as input.
  - *Track functors*, which take `LHCb::Track` as input.
@@ -70,7 +70,7 @@ from LoKiPhys.decorators import VCHI2
 print VCHI2(cand.endVertex())
 ```
 
-This is inconvenient when running from python options, since in that case we don't have any way of calling the `endVertex` method. 
+This is inconvenient when running from python options, since in that case we don't have any way of calling the `endVertex` method.
 In that case, we can use the `VFASPF` adaptor functor, which allows to use vertex functors as if they were particle functors (note how the functor is built by combining two functors)
 
 ```python
@@ -93,7 +93,7 @@ Given that this is a very common operation, we have the possibility of using, in
 Some functors also end with the suffix `DV`, which means they can only be used in the `DaVinci` context.
 
 > ## Finding LoKi functors {.callout}
-> The full list of defined LoKi functors can be found in the `LoKi::Cuts` namespace in the [doxygen](http://lhcb-release-area.web.cern.ch/LHCb-release-area/DOC/davinci/releases/latest/doxygen/d7/dae/namespace_lo_ki_1_1_cuts.html).
+> The full list of defined LoKi functors can be found in the `LoKi::Cuts` namespace in the [doxygen](http://lhcb-release-area.web.cern.ch/LHCb-release-area/DOC/davinci/latest_doxygen/d7/dae/namespace_lo_ki_1_1_cuts.html).
 > They are quite well documented with examples on how to use them.
 > The list can be overwhelming, so it's also worth checking a more curated selection of functors in the TWiki, [here](https://twiki.cern.ch/twiki/bin/view/LHCb/LoKiHybridFilters) and [here](https://twiki.cern.ch/twiki/bin/view/LHCb/LoKiParticleFunctions).
 
@@ -192,5 +192,3 @@ this second option will be discussed in the [TupleTools and branches lesson](12-
     monitor_p_components_sum = monitor(p_components_sum)
     monitor_p_components_sum(cand)
     ```
-
-
