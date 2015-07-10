@@ -42,8 +42,13 @@ dtt.Dstar.ConsD.daughtersToConstrain = ['D0']
 ```
 Note that you can constrain more than one intermediate state at once if that fits your decay. 
 
+When using the `DecayTreeFitter` in a `DecayTreeTuple`, all the variables created by the other TupleTools are not affected by the change, but some new variables are created, one set per `DecayTreeFitter` instance. Depending on whether the `Verbose` option is specified, the new variables are created for the head particle only or for the head particle and its daughters too.
+
+> ## Daughters of daughters {.callout}
+> If the daughters are not stable particles and decay further, the daughters of the daughters have no new variables associated to them. In some cases it might be useful to make this information available too. This can done by using the `DecayTreeFitter` via LoKi functors, see the [second-analysis-steps](https://lhcb.github.io/second-analysis-steps/) for details.
+
 > ## Which constraints to apply {.callout}
-> It is important to be aware what assumptions you bake into your ntuple. For example, after you require the vertex constraint you can't use the `IP_CHI2_OWNPV` anymore, since the particle you are looking at is *forced* to point to the PV. Which constraints make most sense for you depends on the questions you want to ask in your analysis. 
+> It is important to be aware what assumptions you bake into your ntuple. For example, after you require the vertex constraint you must be careful if using the `IPCHI2_OWNPV`, since the particle you are looking at is *forced* to point to the PV. Which constraints make most sense for you depends on the questions you want to ask in your analysis, so ask your supervisor/working group in case of doubt. 
 
 
 Once you have produced your ntuple you can have a look at the refitted variables.
