@@ -80,16 +80,6 @@ Proxies uploaded:
  4. Check that X11 forwarding works by typing `xeyes` on lxplus. A set
     of eyes following your mouse should appear on your screen. Press
     `Ctrl-C` to exit.
- 5. From `lxplus`, connect to `lhcbstarterkit8` with `ssh lhcbstarterkit8`. If
-    this does not work please email `lhcb-starterkit@cern.ch` with your lxplus
-    username (Find out your lxplus username by running `whoami` on lxplus) and
-    the error message you get.
- 6. On `lhcbstarterkit8.cern.ch` run:
-
-      1. `ipython --version` which should print `3.0.0`
-      2. `git --version` which should print `git version 2.4.1`
-
-      If either of the above two commands do not work please email `lhcb-starterkit@cern.ch`
 
 If you can successfully execute all of the above steps, you are ready to go for 
 the workshop!
