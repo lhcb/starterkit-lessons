@@ -23,6 +23,7 @@ If you have any problems or questions, you can [send an email to
 ## Topics
 
 1.  [Pre-workshop checklist](00-prerequisites.html)
+2.  [Goals of the course](19-introduction-to-course.html)
 3.  [The LHCb data flow](07-dataflow.html)
 4.  [An introduction to LHCb Software](01-davinci.html)
 5.  [Find the dataset in the Bookkeeping](03-bookkeeping.html)
