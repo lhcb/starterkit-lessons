@@ -42,8 +42,7 @@ anyway.
 The Turbo stream runs in parallel with the regular data flow, and so everything 
 now looks like this:
 
-[!["The flow of real and simulated data during Run 2 of the 
-LHC"](/img/lhcb_run_2_data_flow.png)](/img/lhcb_run_2_data_flow.png)
+[!["The flow of real and simulated data during Run 2 of the LHC"](img/lhcb_run_2_data_flow.png)](img/lhcb_run_2_data_flow.png)
 
 The change here is the addition of the Turbo stream in the storage output of 
 the trigger.

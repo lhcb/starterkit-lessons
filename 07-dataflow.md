@@ -93,7 +93,7 @@ the detector response:
 
 So, the data flow and the associated applications look like this:
 
-[!["The flow of real and simulated data during Run 1 of the LHC"](/img/lhcb_data_flow.png)](/img/lhcb_data_flow.png)
+[!["The flow of real and simulated data during Run 1 of the LHC"](img/lhcb_data_flow.png)](img/lhcb_data_flow.png)
 
 Knowing this flow is essential in selecting your data! Different application 
 versions can produce very different physics, so it's very useful to know how 
