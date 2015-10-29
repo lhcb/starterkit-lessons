@@ -1,8 +1,8 @@
 ---
 layout: page
 title: First Steps in LHCb
-subtitle: Introduction to the LHCb data flow
-minutes: 10
+subtitle: The LHCb data flow
+minutes: 20
 ---
 
 > ## Learning Objectives {.objectives}

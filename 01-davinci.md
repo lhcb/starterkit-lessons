@@ -1,7 +1,7 @@
 ---
 layout: page
 title: First Steps in LHCb
-subtitle: Introduction to the LHCb Software
+subtitle: An introduction to LHCb Software
 minutes: 10
 ---
 
