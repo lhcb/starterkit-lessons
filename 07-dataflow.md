@@ -50,12 +50,13 @@ These steps are as follows:
     application. The objects are stored into an output file in a ‘DST’ format.
  3. The reconstructed DST files are suitable for analysis, but they are not 
     accessible to users due to computing restrictions. Data are filtered 
-    further through a set of selections called the *stripping*, controlled by the 
-    DaVinci application which write output either in DST or ‘µDST’ (micro-DST) 
-    format. To save disk space and to speed up access for analysts, stripping 
-    selections that select similar types of decays, such as those containing fully 
-    hadronic decays of charm hadrons and those containing a dimuon pair, there a 
-    _streams_ which contain similar selections.
+    further through a set of selections called the *stripping*, controlled by 
+    the DaVinci application which write out data either in the DST or ‘µDST’ 
+    (micro-DST) format. To save disk space and to speed up access for analysts, the 
+    output files are grouped into _streams_ which contain similar selections.
+    By grouping all of the fully hadronic charm selections together, for 
+    example, analysts interested in that type of physics don't waste time running 
+    over the output of the dimuon selections.
 
     > ## The output format {.callout}
     > A DST file is a ROOT file which contains the full event information, such 
