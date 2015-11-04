@@ -106,7 +106,7 @@ job that need special treatment.
 One important thing to note is that `ganga` has to be running after
 your job has completed to copy the files to EOS. The job can not
 copy things to EOS itself. You can leave `ganga` running in a
-[screen session](02-screen.html) and it will copy files as they
+screen session and it will copy files as they
 become available.
 
 Once your job has completed and the files have been copied to

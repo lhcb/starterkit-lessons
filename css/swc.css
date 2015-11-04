@@ -44,6 +44,9 @@ class. */
     font-family: inherit;
     font-weight: 500;
     line-height: 1.1;
+    border: none;
+    background: none;
+    box-shadow: none;
 }
 
 /* Make space between the glyphicon and the rest of the header */
@@ -150,6 +153,11 @@ pre.error {
     div.banner a img {
         padding: 20px 0px;
     }
+}
+
+/* Images in lessons should be 100% of the article width */
+.lesson p img {
+  width: 100%;
 }
 
 /*----------------------------------------*/
