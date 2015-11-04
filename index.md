@@ -38,10 +38,11 @@ If you have any problems or questions, you can [send an email to
 11. [Minimal DaVinci on the grid](10-davinci-grid.html)
 12. [Splitting a job into subjobs](11-split-jobs.html)
 15. [Asking good questions](14-asking-questions.html)
-16. [Developing the LHCb Software](15-lhcb-dev.html)
-27. [Using SVN](16-using-svn.html)
-18. [Contribute to this lesson](17-contributing.html)
-19. [Install party](18-install-party.html)
+16. [Early career, gender and diversity](22-ecgd.html)
+17. [Developing the LHCb Software](15-lhcb-dev.html)
+18. [Using SVN](16-using-svn.html)
+19. [Contribute to this lesson](17-contributing.html)
+20. [Install party](18-install-party.html)
 
 Each topic should be a chunk of 10-15 minutes.
 If that is too short, we should split it into several topics.
