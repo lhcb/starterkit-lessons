@@ -55,7 +55,7 @@ dtt.Decay = '[D*(2010)+ -> (D0 -> K- pi+) pi+]CC'
 
 means that the configured `TupleTools` will only run on the head of the decay chain, that is, the D*.
 In order to select more particles for which we want the information stored, we need to mark them with a `^` symbol in the decay descriptor.
-For example, if we want to also fill the information of the D0 and its children, we would modify the `dtt` to look like this:
+For example, if we want to fill the information of the D0 and its children, we would modify the `dtt` to look like this:
 
 ```python
 dtt.Decay = '[D*(2010)+ -> ^(D0 -> ^K- ^pi+) pi+]CC'
@@ -87,11 +87,25 @@ The usage of `Branches` is very important (and strongly encouraged) to keep the 
 > ## Where to find TupleTools {.callout}
 > One of the most difficult things is to know which tool we need to add to our `DecayTreeTuple` in order to get the information we want.
 > For this, it is necessary to know where to find `TupleTools` and their code.
+> `TupleTools` are spread in 9 packages under `Analysis/Phys` (see the head of `svn` [here](https://svnweb.cern.ch/trac/lhcb/browser/Analysis/trunk/Phys)), all starting with the prefix `DecayTreeTuple`, according to the type of information they fill in our ntuple:
 >
-> `TupleTools` are Gaudi tools that implement the [`IParticleTupleTool`](http://lhcb-release-area.web.cern.ch/LHCb-release-area/DOC/davinci/releases/latest/doxygen/d1/d77/class_i_particle_tuple_tool.html) interface (if they fill information about an `LHCb::Particle`) or the [`IEventTupleTool`](http://lhcb-release-area.web.cern.ch/LHCb-release-area/DOC/davinci/releases/latest/doxygen/d7/d5c/class_i_event_tuple_tool.html) interface (if they fill information about the event in general), so we can get the complete list of `TupleTools` of each type at the top of the doxygen page of the interface.
+> - `DecayTreeTuple` for the more general tools.
+> - `DecayTreeTupleANNPID` for the NeuralNet-based PID tools.
+> - `DecayTreeTupleDalitz` for Dalitz analysis.
+> - `DecayTreeTupleJets` for obtaining information on jets.
+> - `DecayTreeTupleMC` gives us access to MC-level information.
+> - `DecayTreeTupleMuonCalib` for muon calibration tools.
+> - `DecayTreeTupleReco` for reconstruction-level information, such as `TupleToolTrackInfo`.
+> - `DecayTreeTupleTracking` for more detailed tools regarding tracking.
+> - `DecayTreeTupleTrigger` for accessing to the trigger information of the candidates.
 >
+> The `TupleTools` are placed in the `src` folder within each package and it's usually easy to get what they do just by looking at their name.
+> However, the best way to know what a tool does is check its documentation, either by opening its `.h` file or be searching for it in the latest [`doxygen`](http://lhcb-release-area.web.cern.ch/LHCb-release-area/DOC/davinci/releases/latest/doxygen/index.html).
 > Most tools are very well documented and will also inform you of their configuration options.
+> As an example, to get the information on the `TupleToolTrackInfo` we used before we could either check its [source code](https://svnweb.cern.ch/trac/lhcb/browser/Analysis/trunk/Phys/DecayTreeTupleReco/src/TupleToolTrackInfo.h) or its [web documentation](http://lhcb-release-area.web.cern.ch/LHCb-release-area/DOC/analysis/releases/latest/doxygen/da/ddd/class_tuple_tool_track_info.html).
 > In case we need more information or need to know *exactly* what the code does, the `fill` method is the one we need to look at.
+>
+> As a shortcut, the list of tupletools can also be found in doxygen at the top of the pages for the [`IParticleTupleTool`](http://lhcb-release-area.web.cern.ch/LHCb-release-area/DOC/davinci/releases/latest/doxygen/d1/d77/class_i_particle_tuple_tool.html) and the [`IEventTupleTool`](http://lhcb-release-area.web.cern.ch/LHCb-release-area/DOC/davinci/releases/latest/doxygen/d7/d5c/class_i_event_tuple_tool.html) interfaces (depending on whether they fill information about specific particles or the event in general).
 
 The updated options can be found [here](./code/12-add-tupletools/ntuple_options.py).
 
