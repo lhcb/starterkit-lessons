@@ -54,8 +54,8 @@ dtt.Decay = '[D*(2010)+ -> (D0 -> K- pi+) pi+]CC'
 ```
 
 means that the configured `TupleTools` will only run on the head of the decay chain, that is, the D*.
-In order to select the particles for which we want the information stored, we need to mark them with a `^` symbol in the decay descriptor.
-For example, if we want to fill the information of the D0 and its children, we would modify the `dtt` to look like this:
+In order to select more particles for which we want the information stored, we need to mark them with a `^` symbol in the decay descriptor.
+For example, if we want to also fill the information of the D0 and its children, we would modify the `dtt` to look like this:
 
 ```python
 dtt.Decay = '[D*(2010)+ -> ^(D0 -> ^K- ^pi+) pi+]CC'
@@ -68,7 +68,7 @@ Branches let you define custom namespaces in your ntuple by means of a `dict`.
 Its keys define the name of each branch (and, as a consequence, the prefix of the corresponding leaves in the ntuple), while the corresponding values are decay descriptors that specify which particles you want to include in the branch.
 
 ```python
-dtt.addBranches({'Dstar' : '^[D*(2010)+ -> (D0 -> K- pi+) pi+]CC',
+dtt.addBranches({'Dstar' : '[D*(2010)+ -> (D0 -> K- pi+) pi+]CC',
                  'D0'    : '[D*(2010)+ -> ^(D0 -> K- pi+) pi+]CC',
                  'Kminus': '[D*(2010)+ -> (D0 -> ^K- pi+) pi+]CC',
                  'piplus': '[D*(2010)+ -> (D0 -> K- ^pi+) pi+]CC',
