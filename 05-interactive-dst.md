@@ -23,7 +23,7 @@ is not working as expected.
 The file we [downloaded from the grid](04-files-from-grid.html)
 contains simulated data, with stripping and trigger decisions
 and so on. Here we assumed the file you downloaded is called `00035742_00000002_1.allstreams.dst`.
-To take a look at the contents of the TES we to write a small
+To take a look at the contents of the TES, we need to write a small
 Python file:
 
 ```python

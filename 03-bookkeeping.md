@@ -52,7 +52,7 @@ although the decay might not have been fully reconstructed. (Not all simulated
 samples have the same requirements made on the signal decay.)
 
 If you expand the `27163003 (Dst_D0pi,Kpi=DecProdCut)` folder you
-will find a several different subfolders to choose from. The names of these 
+will find several different subfolders to choose from. The names of these 
 subfolders correspond to different data-taking conditions, such as magnet 
 polarity (`MagDown` and `MagUp`), as well as different software versions used 
 to create the different samples that are available. We will use 
