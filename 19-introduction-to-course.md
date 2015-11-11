@@ -36,6 +36,9 @@ We'll also cover how to efficiently run software locally and on the Grid using
 Ganga, as well as how to ask good questions when you're stuck and where to ask 
 them.
 
+The lessons will start with a lot of explaining, but then we'll get in to the
+hands-on stuff.
+
 These lessons have been put together by a group of people who are passionate 
 about teaching good software practices and demystifying code.
 Over the course of 2015, these lessons have been written on 
@@ -43,9 +46,9 @@ Over the course of 2015, these lessons have been written on
 You can find the source code of these lessons in the 
 [`lhcb/first-analysis-steps`](https://github.com/lhcb/first-analysis-steps) 
 repository, and _you_ can contribute!
-Please do [submit an 
-issue](https://github.com/lhcb/first-analysis-steps/issues) if you spot a 
-mistake or you think something isn't clear enough, or you can [make the changes 
+Please [submit an issue](https://github.com/lhcb/first-analysis-steps/issues) 
+if you spot a mistake or you think something isn't clear enough, or you can 
+[make the changes 
 yourself](https://github.com/lhcb/first-analysis-steps/blob/master/CONTRIBUTING.md) 
 and open a pull request.
 If you're not already familiar with git, you could check out our [analysis 
