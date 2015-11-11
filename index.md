@@ -44,7 +44,4 @@ If you have any problems or questions, you can [send an email to
 19. [Contribute to this lesson](17-contributing.html)
 20. [Install party](18-install-party.html)
 
-Each topic should be a chunk of 10-15 minutes.
-If that is too short, we should split it into several topics.
-
 ## Other Resources
