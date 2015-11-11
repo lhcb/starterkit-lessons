@@ -27,7 +27,7 @@ If you have any problems or questions, you can [send an email to
 3.  [The LHCb data flow](07-dataflow.html)
 4.  [Changes to the data flow in Run 2](21-run-2-data-flow.html)
 4.  [An introduction to LHCb Software](01-davinci.html)
-5.  [Find the dataset in the Bookkeeping](03-bookkeeping.html)
+5.  [Finding data in the Bookkeeping](03-bookkeeping.html)
 6.  [Download a file from the grid](04-files-from-grid.html)
 7.  [Interactively exploring a DST](05-interactive-dst.html)
 8.  [Fun with LoKi Functors](06-loki-functors.html)
