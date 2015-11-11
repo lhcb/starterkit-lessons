@@ -48,6 +48,12 @@ dirac-dms-get-file LFN:/lhcb/MC/2012/ALLSTREAMS.DST/00035742/0000/00035742_00000
 
 Again this will take a while but afterwards you should have a file called `00035742_00000002_1.allstreams.dst` in the directory where you called the command.
 
+> ## Downloading the file during a Starterkit lesson {.callout}
+> Lots of people downloading the same file at the same time can be very slow. As a workout, the file is also available on EOS, and can be downloaded to your current directory with the following command:
+> ```bash
+> $ xrdcp root://eoslhcb.cern.ch//eos/lhcb/user/a/apearce/Starterkit/Nov2015/00035742_00000001_1.allstreams.dst
+> ```
+
 Since these files tend to be quite large, you might want to use your AFS work 
 directory instead of your AFS user directory to store files.
 
