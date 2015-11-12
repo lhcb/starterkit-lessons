@@ -52,10 +52,13 @@ motivation.html : motivation.md _layouts/slides.revealjs Makefile
 
 # Pattern to build a generic page.
 _site/%.html : %.md _layouts/page.html $(FILTERS) | _site
+	# The --mathjax flag will change $ and $$ to \(\) and \[\],
+	# which our KaTeX installation will auto-convert to LaTeX
 	pandoc -s -t html \
 	--template=_layouts/page \
 	--filter=tools/filters/blockquote2div.py \
 	--filter=tools/filters/id4glossary.py \
+	--mathjax \
 	$(INCLUDES) \
 	-o $@ $<
 

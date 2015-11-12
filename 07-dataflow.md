@@ -100,6 +100,12 @@ Knowing this flow is essential in selecting your data! Different application
 versions can produce very different physics, so it's very useful to know how 
 each application has manipulated the data you want to use.
 
+> ## Why are there multiple applications? {.challenge}
+> It's often simpler to create and visualise a single, monolithic program that 
+> does _everything_, but that's not how the data flow is set up in LHCb. Why 
+> not? What are the advantages of splitting up the software per task? What are 
+> the disadvantages?
+
 With the exception of a few specific studies, it is only the DaVinci 
 application that is ran by users, everything else is run ‘centrally’ either on 
 the computing farm next to the detector or on the Grid.

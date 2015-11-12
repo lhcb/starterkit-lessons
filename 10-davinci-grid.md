@@ -1,7 +1,7 @@
 ---
 layout: page
 title: First Steps in LHCb
-subtitle: Minimal DaVinci on the grid 
+subtitle: Running DaVinci on the grid
 minutes: 10
 ---
 > ## Learning Objectives {.objectives}

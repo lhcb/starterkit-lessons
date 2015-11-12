@@ -27,24 +27,21 @@ If you have any problems or questions, you can [send an email to
 3.  [The LHCb data flow](07-dataflow.html)
 4.  [Changes to the data flow in Run 2](21-run-2-data-flow.html)
 4.  [An introduction to LHCb Software](01-davinci.html)
-5.  [Find the dataset in the Bookkeeping](03-bookkeeping.html)
-6.  [Download a file from the grid](04-files-from-grid.html)
+5.  [Finding data in the Bookkeeping](03-bookkeeping.html)
+6.  [Downloading a file from the grid](04-files-from-grid.html)
 7.  [Interactively exploring a DST](05-interactive-dst.html)
 8.  [Fun with LoKi Functors](06-loki-functors.html)
+9.  [Running a minimal DaVinci job locally](08-minimal-dv-job.html)
 13. [TupleTools and branches](12-add-tupletools.html)
 14. [How do I use DecayTreeFitter?](13-decay-tree-fitter.html)
-9.  [Running a minimal DaVinci job locally](08-minimal-dv-job.html)
 10. [Storing large files on EOS](09-eos-storage.html)
-11. [Minimal DaVinci on the grid](10-davinci-grid.html)
+11. [Running DaVinci on the grid](10-davinci-grid.html)
 12. [Splitting a job into subjobs](11-split-jobs.html)
 15. [Asking good questions](14-asking-questions.html)
 16. [Early career, gender and diversity](22-ecgd.html)
-17. [Developing the LHCb Software](15-lhcb-dev.html)
+17. [Developing LHCb Software](15-lhcb-dev.html)
 18. [Using SVN](16-using-svn.html)
 19. [Contribute to this lesson](17-contributing.html)
 20. [Install party](18-install-party.html)
-
-Each topic should be a chunk of 10-15 minutes.
-If that is too short, we should split it into several topics.
 
 ## Other Resources

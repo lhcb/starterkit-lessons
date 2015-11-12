@@ -23,35 +23,18 @@ is not working as expected.
 The file we [downloaded from the grid](04-files-from-grid.html)
 contains simulated data, with stripping and trigger decisions
 and so on. Here we assumed the file you downloaded is called `00035742_00000002_1.allstreams.dst`.
-To take a look at the contents of the TES we need a simple
-options file:
+To take a look at the contents of the TES, we need to write a small
+Python file:
 
-~~~ {.python}
+```python
 import sys
 
 import GaudiPython as GP
 from GaudiConf import IOHelper
-from Configurables import (
-  LHCbApp,
-  ApplicationMgr,
-  DataOnDemandSvc,
-  DecodeRawEvent,
-  CondDB,
-  DaVinci
-)
-
-
-appConf = ApplicationMgr()
+from Configurables import DaVinci
 
 dv = DaVinci()
 dv.DataType = '2012'
-
-dre = DecodeRawEvent()
-dre.DataOnDemand = True
-
-lhcbApp = LHCbApp()
-lhcbApp.Simulation = True
-CondDB().Upgrade = False
 
 # Pass file to open as first command line argument
 inputFiles = [sys.argv[-1]]
@@ -61,9 +44,8 @@ appMgr = GP.AppMgr()
 evt = appMgr.evtsvc()
 
 appMgr.run(1)
-
 evt.dump()
-~~~
+```
 
 Place this into a file called `first.py` and run the following
 command in a new terminal:
@@ -189,9 +171,13 @@ which will be a D0 and a pion.
 There is a useful tool for printing out decay trees, which you can
 pass the top level particle to and it will print out the daughters etc:
 
-```
+```python
 print_decay = appMgr.toolsvc().create(
   'PrintDecayTreeTool', interface='IPrintDecayTreeTool'
 )
 print_decay.printTree(cands[0])
 ```
+
+With our candidates in hand, it would be nice to be able to retrieve and 
+compute the variables we need for an analysis. On to [LoKi 
+functors](06-loki-functors.html)!

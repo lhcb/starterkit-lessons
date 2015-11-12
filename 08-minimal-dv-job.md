@@ -5,6 +5,17 @@ subtitle: Running a minimal DaVinci job locally
 minutes: 10
 ---
 
+[Looping event-by-event](05-interactive-dst.html) over a file and [inspecting 
+interesting quantities with LoKi functors](06-loki-functors.html) is great for 
+exploration: to checking that the file contains the candidates you need, that 
+the topology makes sense, and so on.
+It's impractical for most cases, though, where you want _all_ the candidates 
+your trigger/stripping line produced, which could be tens of millions of 
+decays.
+In these cases we use DaVinci, the application for analysing high-level 
+information such as tracks and vertices, which we'll look at in this lesson to 
+produce a ROOT ntuple.
+
 > ## Learning Objectives {.objectives}
 >
 > * Run a DaVinci job over a local DST
