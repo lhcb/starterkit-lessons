@@ -3,21 +3,21 @@ layout: lesson
 title: First Steps in LHCb
 ---
 
-This is the LHCb Starterkit, a series of lessons for getting analysts working 
+This is the LHCb Starterkit, a series of lessons for getting analysts working
 confidently with LHCb data and software.
-The lessons are best approached one after the other, as most lessons build on 
+The lessons are best approached one after the other, as most lessons build on
 the knowledge gained from the previous ones.
 
-If you have any problems or questions, you can [send an email to 
+If you have any problems or questions, you can [send an email to
 `lhcb-starterkit@cern.ch`](mailto:lhcb-starterkit@cern.ch).
 
 > ## Prerequisites {.prereq}
 >
-> Before starting, you should be familiar with using a shell, like `bash`, and 
+> Before starting, you should be familiar with using a shell, like `bash`, and
 > with programming in Python.
 >
-> The [Software Carpentry 
-> workshop](http://twitwi.github.io/2015-06-02-cern-lhcb/) gives a great 
+> The [Software Carpentry
+> workshop](http://twitwi.github.io/2015-06-02-cern-lhcb/) gives a great
 > introduction to these, as well as to many other useful computing tools.
 
 ## Topics
@@ -34,8 +34,8 @@ If you have any problems or questions, you can [send an email to
 9.  [Running a minimal DaVinci job locally](08-minimal-dv-job.html)
 13. [TupleTools and branches](12-add-tupletools.html)
 14. [How do I use DecayTreeFitter?](13-decay-tree-fitter.html)
-10. [Storing large files on EOS](09-eos-storage.html)
-11. [Running DaVinci on the grid](10-davinci-grid.html)
+10. [Running DaVinci on the grid](10-davinci-grid.html)
+11. [Storing large files on EOS](11-eos-storage.html)
 12. [Splitting a job into subjobs](11-split-jobs.html)
 15. [Asking good questions](14-asking-questions.html)
 16. [Early career, gender and diversity](22-ecgd.html)
