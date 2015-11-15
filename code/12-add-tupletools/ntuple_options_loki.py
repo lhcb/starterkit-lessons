@@ -9,7 +9,7 @@ line = 'D2hhCompleteEventPromptDst2D2RSLine'
 # Create an ntuple to capture D*+ decays from the StrippingLine line
 dtt = DecayTreeTuple('TupleDstToD0pi_D0ToKpi')
 dtt.Inputs = ['/Event/{0}/Phys/{1}/Particles'.format(stream, line)]
-dtt.Decay = '[D*(2010)+ -> (D0 -> K- pi+) pi+]CC'
+dtt.Decay = '[D*(2010)+ -> ^(D0 -> ^K- ^pi+) ^pi+]CC'
 track_tool = dtt.addTupleTool('TupleToolTrackInfo')
 track_tool.Verbose = True
 dtt.addTupleTool('TupleToolPrimaries')
