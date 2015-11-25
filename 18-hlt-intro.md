@@ -33,8 +33,8 @@ is saved are all the LHCbIDs of the final state particles of a decay tree.
 LHCbIDs are unique identifiers for detector hits.
 
 We will now have a look at the LHCbIDs of some of the stored candidates. We will
-use the script we [created earlier](05-interactive-dst.html) as a starting
-point, and the file you [downloaded before](05-files-from-grid.html). Fire up
+use the script we [created earlier](http://lhcb.github.io/first-analysis-steps/05-interactive-dst.html) as a starting
+point, and the file you [downloaded before](http://lhcb.github.io/first-analysis-steps/05-files-from-grid.html). Fire up
 your favourite editor, open the script and save a copy to work on as
 `tistos.py`. There are a few things in the script that we don't need and can be
 removed, such as the print_decay and decay finder tools.

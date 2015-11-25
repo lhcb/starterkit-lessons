@@ -10,7 +10,7 @@ minutes: 10
 > * Learn the key concepts on the stripping
 
 Collisions recorded by the LHCb detector go through a very specific data flow in order to ensure the maximum data-taking efficiency and data quality.
-In each step, specific [Gaudi](01-davinci.html)-based applications process the data and produce the output for the next step.
+In each step, specific [Gaudi](http://lhcb.github.io/first-analysis-steps/01-davinci.html)-based applications process the data and produce the output for the next step.
 The data flow is designed so the processing of real data and simulated one are as close to each other as possible, with small differences that will be discussed when applicable:
 
  1. (Only in simulation) The _pp_ collisions are generated using `Pythia` (currently `Pythia8`), decays of hadronic particles are described by `EvtGen` and the interaction of the generated particles with the detectors and its response are implemented using the `Geant` toolkit.
@@ -29,7 +29,7 @@ The data flow is designed so the processing of real data and simulated one are a
     >
 
 
- 5. Users can run their own analysis tools, such as [`DecayTreeTuple`](09-minimal-dv-job.html), to extract variables useful for analysis.
+ 5. Users can run their own analysis tools, such as [`DecayTreeTuple`](http://lhcb.github.io/first-analysis-steps/09-minimal-dv-job.html), to extract variables useful for analysis.
  The processing is slightly different between `DST` and `µDST`, since some calculations, such as isolations, need the other tracks in the event (not only the signal), which are not available in the latter format.
 
 Steps 1 to 4 are performed centrally, while 5 is performed by the users.
@@ -47,7 +47,7 @@ In it we can find:
   - The configuration of all strippings, eg, for [Stripping `S21`](https://twiki.cern.ch/twiki/bin/view/LHCb/Stripping21Configuration)
 
 Additionally, the information on all strippings can be found in the [stripping project website](http://lhcb-release-area.web.cern.ch/LHCb-release-area/DOC/stripping/), where you can see all the algorithms run and cuts applied in each line.
-For example, if we wanted to understand the `StrippingD2hhCompleteEventPromptDst2D2RSLine` line, which we used in the [exploring a DST](05-interactive-dst.html) lesson from now on, we would go [here](http://lhcb-release-area.web.cern.ch/LHCb-release-area/DOC/stripping/config/stripping21/charmcompleteevent/strippingd2hhcompleteeventpromptdst2d2rsline.html).
+For example, if we wanted to understand the `StrippingD2hhCompleteEventPromptDst2D2RSLine` line, which we used in the [exploring a DST](http://lhcb.github.io/first-analysis-steps/05-interactive-dst.html) lesson from now on, we would go [here](http://lhcb-release-area.web.cern.ch/LHCb-release-area/DOC/stripping/config/stripping21/charmcompleteevent/strippingd2hhcompleteeventpromptdst2d2rsline.html).
 
 > ## Understanding a stripping line {.challenge}
 > Go to the `StrippingD2hhCompleteEventPromptDst2D2RSLine` line definition [here](http://lhcb-release-area.web.cern.ch/LHCb-release-area/DOC/stripping/config/stripping21/charmcompleteevent/strippingd2hhcompleteeventpromptdst2d2rsline.html) and try to understand what do the `CombineParticles` (`D2hhCompleteEventPromptD2KPiSel` and `D2hhCompleteEventPromptDst2D2RSLine`) in there do.

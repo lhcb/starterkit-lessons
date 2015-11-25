@@ -14,7 +14,7 @@ In order to perform most physics analyses we need to build a *decay chain* with 
 In LHCb, this decay chain can be built through `LHCb::Particle` (`LHCb::MCParticle`) objects that represent individual particles and contain links to their children, also represented by the same type of object.
 
 We'll learn all the concepts involved by running through a full example:
-using the DST file we downloaded in the [Downloading a file from the Grid](05-files-from-grid.html) lesson, we will build our own $D^*\rightarrow D^0(\rightarrow K \pi) \pi$ decay chain from scratch.
+using the DST file we downloaded in the [Downloading a file from the Grid](http://lhcb.github.io/first-analysis-steps/05-files-from-grid.html) lesson, we will build our own $D^*\rightarrow D^0(\rightarrow K \pi) \pi$ decay chain from scratch.
 Get your [LoKi skills](https://lhcb.github.io/first-analysis-steps/06-loki-functors.html) ready and let's start.
 
 The typical approach is to build the decay from the bottom up. Therefore, we need to
@@ -24,7 +24,7 @@ The typical approach is to build the decay from the bottom up. Therefore, we nee
   3. Combine this D0 with a pion to build the D*, again filtering when necessary.
 
 To do that, we need to know a little bit more about how the LHCb analysis framework works.
-As discussed in the [Gaudi introduction](01-davinci.html), `Gaudi` is based on the event-by-event sequential (chained) execution of algorithms wrapped in a `GaudiSequencer`, which takes care of handling the execution order such that processing stops when an algorithm is *not passed*.
+As discussed in the [Gaudi introduction](http://lhcb.github.io/first-analysis-steps/01-davinci.html), `Gaudi` is based on the event-by-event sequential (chained) execution of algorithms wrapped in a `GaudiSequencer`, which takes care of handling the execution order such that processing stops when an algorithm is *not passed*.
 However, it does not handle the data dependencies between these algorithms nor does it give easy access to them.
 To solve this problem, the [Selection Framework](https://twiki.cern.ch/twiki/bin/view/LHCb/ParticleSelection) was created, and it is based on two types of objects: `Selection` and `SelectionSequence`.
 
@@ -217,7 +217,7 @@ DaVinci().UserAlgorithms += [dstar_seq.sequence()]
 
 > ## Debugging your selection chain {.callout}
 > The `PhysSelPython.Wrappers` offers a very useful utility for debugging your selection chains, called `PrintSelection`.
-> It gets a `Selection` as input and it can be used the same way, except it will print the decay tree everytime making use of the `PrintDecayTree` algorithm which was discussed in the [Exploring a DST](05-interactive-dst.html) lesson.
+> It gets a `Selection` as input and it can be used the same way, except it will print the decay tree everytime making use of the `PrintDecayTree` algorithm which was discussed in the [Exploring a DST](http://lhcb.github.io/first-analysis-steps/05-interactive-dst.html) lesson.
 >
 > For more complex debugging, one can setup `DaVinci` with `graphviz` (see more details [here](http://www.graphviz.org))
 > ```shell
@@ -234,7 +234,7 @@ DaVinci().UserAlgorithms += [dstar_seq.sequence()]
 
 
 > ## Work to do {.challenge}
->  - Finish the script (the base of which can be found [here](code/06-building-decays/build_decays.py)) by adapting the basic `DaVinci` configuration from its corresponding [lesson](09-minimal-dv-job.html) and check the output ntuple.
+>  - Finish the script (the base of which can be found [here](code/06-building-decays/build_decays.py)) by adapting the basic `DaVinci` configuration from its corresponding [lesson](http://lhcb.github.io/first-analysis-steps/09-minimal-dv-job.html) and check the output ntuple.
 >  - Replace the `"Combine_D0"` and `"Sel_D0"` objects by a single `SimpleSelection`.
 >  - Do you know what the used LoKi functors (`AMAXDOCA`, `ADAMASS`, `MIPCHI2DV`, etc) do? 
 >  - Add a `PrintSelection` in your selections and run again.

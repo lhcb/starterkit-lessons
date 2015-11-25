@@ -58,7 +58,7 @@ ToolSvc().Hlt1TriggerTisTos.HltSelReportsLocation = 'Hlt1/SelReports'
 ~~~
 
 Create the tools in the same way you created others during the
-[other lesson](05-interactive-dst.html), but use instance-specific names that
+[other lesson](http://lhcb.github.io/first-analysis-steps/05-interactive-dst.html), but use instance-specific names that
 correspond to the configuration we just added: `Hlt1TriggerTisTos` and
 `Hlt2TriggerTisTos`. The tools use `ITriggerTisTos` as an interface.
 
