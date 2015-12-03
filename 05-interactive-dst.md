@@ -181,3 +181,23 @@ print_decay.printTree(cands[0])
 With our candidates in hand, it would be nice to be able to retrieve and 
 compute the variables we need for an analysis. On to [LoKi 
 functors](06-loki-functors.html)!
+
+> ## Fast DST browsing {.callout}
+>
+> While here we have discussed for pedagogical reasons all the configuration
+> options needed in order to browse a `DST` file, in your daily life as a
+> physicist is often useful to use the `bender` application that belongs to
+> the `Bender` project.
+>
+> For example, to explore the `DST` we could have simply done:
+>
+> ```
+> lb-run Bender v27r0p1 bender 00035742_00000001_1.allstreams.dst
+> ```
+>
+> This leaves us in a prompt in which we can proceed as discussed in this 
+> lesson, with the advantage that some functions are already provided
+> for us, such as `seekStripDecision` (which replaces our `advance`) or
+> `ls` and `get`, which allow to list and get TES locations.
+> Other examples of useful functions are listed in the `bender` starting
+> banner.
