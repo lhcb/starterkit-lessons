@@ -51,5 +51,5 @@ For example, if we wanted to understand the `StrippingD2hhCompleteEventPromptDst
 
 > ## Understanding a stripping line {.challenge}
 > Go to the `StrippingD2hhCompleteEventPromptDst2D2RSLine` line definition [here](http://lhcb-release-area.web.cern.ch/LHCb-release-area/DOC/stripping/config/stripping21/charmcompleteevent/strippingd2hhcompleteeventpromptdst2d2rsline.html) and try to understand what do the `CombineParticles` (`D2hhCompleteEventPromptD2KPiSel` and `D2hhCompleteEventPromptDst2D2RSLine`) in there do.
-> How are they different from the decay we built in the [Build your own decay](06-building-decays.html) lesson?
+> How are they different from the decay we built in the [Build your own decay](01-building-decays.html) lesson?
 > Do you understand all LoKi functors?
