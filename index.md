@@ -18,7 +18,7 @@ If you have any problems or questions, you can [send an email to
 
 ## Topics
 
-1. [Building your own decay](06-building-decays.html)
+1. [Building your own decay](01-building-decays.html)
 1. [Introduction to the LHCb data flow](08-stripping.html)
 1. [Switch to a new stripping (20 -> 21) for one line in MC](14-rerun-stripping.html)
 1. [Replace a mass hypothesis](17-switch-mass-hypo.html)
