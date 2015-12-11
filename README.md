@@ -1,7 +1,7 @@
-# First Analysis Steps [![Build Status](https://travis-ci.org/lhcb/first-analysis-steps.svg?branch=master)](https://travis-ci.org/lhcb/first-analysis-steps)
+# Second Analysis Steps [![Build Status](https://travis-ci.org/lhcb/second-analysis-steps.svg?branch=master)](https://travis-ci.org/lhcb/second-analysis-steps)
 
 This repository contains lessons that will get you started
-with the basic analysis steps needed for LHCb.
+with more advanced analysis steps needed for LHCb.
 
 > Please see [CONTRIBUTING.md](CONTRIBUTING.md)
 > for instructions on how to contribute.
