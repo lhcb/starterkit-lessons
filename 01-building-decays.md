@@ -14,14 +14,14 @@ In order to perform most physics analyses we need to build a *decay chain* with 
 In LHCb, this decay chain can be built through `LHCb::Particle` (`LHCb::MCParticle`) objects that represent individual particles and contain links to their children, also represented by the same type of object.
 
 We'll learn all the concepts involved by running through a full example:
-using the DST file we downloaded in the [Downloading a file from the Grid](http://lhcb.github.io/first-analysis-steps/05-files-from-grid.html) lesson, we will build our own $D^*\rightarrow D^0(\rightarrow K \pi) \pi$ decay chain from scratch.
+using the DST file we downloaded in the [Downloading a file from the Grid](http://lhcb.github.io/first-analysis-steps/05-files-from-grid.html) lesson, we will build our own $D^\ast\rightarrow D^0(\rightarrow K \pi) \pi$ decay chain from scratch.
 Get your [LoKi skills](https://lhcb.github.io/first-analysis-steps/06-loki-functors.html) ready and let's start.
 
 The typical approach is to build the decay from the bottom up. Therefore, we need to
 
   1. Get input pions and kaons and filter them according to our physics needs.
-  2. Combine a pion and a kaon to build a D0, and apply selection cuts to it.
-  3. Combine this D0 with a pion to build the D*, again filtering when necessary.
+  2. Combine a pion and a kaon to build a $D^0$, and apply selection cuts to it.
+  3. Combine this $D^0$ with a pion to build the $D^\ast$, again filtering when necessary.
 
 To do that, we need to know a little bit more about how the LHCb analysis framework works.
 As discussed in the [Gaudi introduction](http://lhcb.github.io/first-analysis-steps/01-davinci.html), `Gaudi` is based on the event-by-event sequential (chained) execution of algorithms wrapped in a `GaudiSequencer`, which takes care of handling the execution order such that processing stops when an algorithm is *not passed*.
@@ -58,7 +58,7 @@ Kaons = DataOnDemand('Phys/StdAllLooseKaons/Particles')
 > For example, in our specific case, we use the `DataOnDemand` class with the `Phys/StdAllNoPIDsPions/Particles` and `Phys/StdAllLooseKaons/Particles` locations to access the output of the `StdAllNoPIDsPions` and `StdAllLooseKaons` algorithms, respectively:
 > 
 
-Once we have the input pions and kaons, we can combine them to build a D0 by means of the `CombineParticles` algorithm.
+Once we have the input pions and kaons, we can combine them to build a $D^0$ by means of the `CombineParticles` algorithm.
 This algorithm performs the combinatorics for us according to a given decay descriptor and puts the resulting particle in the TES, allowing also to apply some cuts on them:
 
  - `DaughtersCuts` is a dictionary that maps each child particle type to a LoKi particle functor that determines if that particular particle satisfies our selection criteria. Optionally, one can specify also a `Preambulo` property that allows us to make imports, preprocess functors, etc (more on this in the [LoKi functors](https://lhcb.github.io/first-analysis-steps/06-loki-functors.html) lesson). For example:
@@ -152,7 +152,7 @@ This is because the LHCb algorithms are configured as singletons and it is manda
 >
 > The solution for the `SimpleSelection` problem, in which we actually don't care about the `CombineParticles` name, is the `GaudiConfUtils.ConfigurableGenerators` package: it contains wrappers around algorithms such as `CombineParticles` or `FilterDesktop` allowing them to be instantiated without an explicit name argument.
 
-Now we can use another `CombineParticles` to build the D* with pions and the D0's as inputs, and applying a filtering only on the soft pion:
+Now we can use another `CombineParticles` to build the $D^\ast$ with pions and the $D^0$'s as inputs, and applying a filtering only on the soft pion:
 
 ```python
 dstar_daughters = {
@@ -176,7 +176,7 @@ dstar_sel = SimpleSelection(
 
 > ## Building shared selections {.callout}
 > In some cases we may want to build several decays in the same script with some common particles/selection;
-> for example, in our case we could have been building D0->KK in the same script, and then we would have wanted to select the soft pion in the same way when building the D*.
+> for example, in our case we could have been building $D^0\rightarrow KK$ in the same script, and then we would have wanted to select the soft pion in the same way when building the $D^\ast$.
 > In this situation, we can make use of the `FilterDesktop` algorithm, which takes a TES location and filters the particles inside according to a given LoKi functor in the `Code` property, which then can be given as input to a `Selection`:
 > 
 > ```python
