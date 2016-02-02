@@ -81,3 +81,11 @@ if __name__ == '__main__':
 ```
 
 Save it as `getEvents.py` and use it via `python getEvents.py [n]`. If you specify `n`, the script will only get the first n files from the grid.
+
+> ## Such a clever script! {.callout}
+> dirac-dms-get-file (and the other dirac-dms-* scripts) is actually able to extract the LFNs from any file
+> and download them for you. So a simple
+> ```python
+>  dirac-dms-get-file MC_2012_27163003_Beam4000GeV2012MagDownNu2.5Pythia8_Sim08e_Digi13_Trig0x409f0045_Reco14a_Stripping20NoPrescalingFlagged_ALLSTREAMS.DST.py
+> ```
+> would do to download them all!
