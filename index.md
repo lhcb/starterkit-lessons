@@ -28,6 +28,7 @@ developed][second-ana-repo], or you can [send an email to
 
 ## Topics
 
+1. [Using git to develop LHCb software](02-lb-git.html)
 1. [Building your own decay](01-building-decays.html)
 1. [Run a different stripping line on simulated data](14-rerun-stripping.html)
 1. [Using git to develop LHCb software](02-lb-git.html)
