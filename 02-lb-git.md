@@ -93,7 +93,7 @@ This will also fetch the `SKTest` git repository from Gitlab.
 
 You can then run
 ```
-git lb-checkout SKTest TheTestPackage
+git lb-checkout SKTest/master TheTestPackage
 ```
 to check out the files inside the `SKTest` project that belong to the
 `TheTestPackage` package.
@@ -105,7 +105,12 @@ You can now run
 make
 ```
 to build the project, make some changes, run `make` again, etc.
-Once you're happy with the changes, you can run
+You can also use
+```
+make test
+```
+to run the tests.
+Once you're happy with the changes, run
 ```
 git add <your-changed-files>
 ```
@@ -127,7 +132,8 @@ Once you want to upload your commits for review, run
 ```
 git lb-push SKTest <username>-new-feature
 ```
-To upload them to the `<username>-new-feature` branch on the main repository.
+to create a new `<username>-new-feature` branch on the main Gitlab repository
+and upload your commits to it.
 This will calculate the changes between your local dev repository and the
 remote project repository, and create corresponding commits for the remote
 project.
