@@ -1,6 +1,6 @@
 ---
 layout: page
-title: First Steps in LHCb
+title: Second analysis steps
 subtitle: Building your own decay
 minutes: 15
 ---
@@ -10,11 +10,11 @@ minutes: 15
 > * Learn the concepts behind the LHCb selection framework
 > * Build a decay chain 
 
-In order to perform most physics analyses we need to build a *decay chain* with reconstructed (or MC) particles that represents the physics process we want to study.
-In LHCb, this decay chain can be built through `LHCb::Particle` (`LHCb::MCParticle`) objects that represent individual particles and contain links to their children, also represented by the same type of object.
+In order to perform most physics analyses we need to build a *decay chain* with reconstructed particles that represents the physics process we want to study.
+In LHCb, this decay chain can be built through `LHCb::Particle` and `LHCb::MCParticle` objects that represent individual particles and contain links to their children, also represented by the same type of object.
 
 We'll learn all the concepts involved by running through a full example:
-using the DST file we downloaded in the [Downloading a file from the Grid](http://lhcb.github.io/first-analysis-steps/05-files-from-grid.html) lesson, we will build our own $D^\ast\rightarrow D^0(\rightarrow K \pi) \pi$ decay chain from scratch.
+using the DST file we downloaded in the [Downloading a file from the Grid](http://lhcb.github.io/first-analysis-steps/05-files-from-grid.html) lesson, we will build our own $D^\ast\rightarrow D^0(\rightarrow K^{-} \pi^{+}) \pi$ decay chain from scratch.
 Get your [LoKi skills](https://lhcb.github.io/first-analysis-steps/06-loki-functors.html) ready and let's start.
 
 The typical approach is to build the decay from the bottom up. Therefore, we need to

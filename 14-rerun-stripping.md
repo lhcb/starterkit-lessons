@@ -1,7 +1,7 @@
 ---
 layout: page
-title: First Steps in LHCb
-subtitle: Switch to a new stripping (20 -> 21) for one line in MC
+title: Second analysis steps
+subtitle: Run a different stripping line on simulated data
 minutes: 15
 ---
 > ## Learning Objectives {.objectives}
