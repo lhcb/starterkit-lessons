@@ -93,7 +93,7 @@ Then, we can build a combiner as
 from Configurables import CombineParticles
 d0 = CombineParticles(
     'Combine_D0',
-    DecayDescriptor='([D0 -> pi- K+]CC)',
+    DecayDescriptor='[D0 -> pi- K+]cc',
     DaughtersCuts=d0_daughters,
     CombinationCut=d0_comb,
     MotherCut=d0_mother

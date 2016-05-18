@@ -30,9 +30,10 @@ developed][second-ana-repo], or you can [send an email to
 
 1. [Using git to develop LHCb software](02-lb-git.html)
 1. [Building your own decay](01-building-decays.html)
+1. [What to do when something fails](07-fixing-errors.html)
 1. [Run a different stripping line on simulated data](14-rerun-stripping.html)
-1. [Using git to develop LHCb software](02-lb-git.html)
 1. [Replace a mass hypothesis](17-switch-mass-hypo.html)
+1. [Reuse particles from a decay tree](18-filter-in-trees.html)
 1. [HLT intro](18-hlt-intro.html)
 1. [TisTos DIY](18-tistos-diy.html)
 
