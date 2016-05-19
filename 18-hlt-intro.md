@@ -32,15 +32,24 @@ lines are saved to the raw event in a stripped-down form. One of the things that
 is saved are all the LHCbIDs of the final state particles of a decay tree.
 LHCbIDs are unique identifiers for detector hits.
 
-We will now have a look at the LHCbIDs of some of the stored candidates. We will
-use the script we [created earlier](http://lhcb.github.io/first-analysis-steps/05-interactive-dst.html) as a starting
-point, and the file you [downloaded before](http://lhcb.github.io/first-analysis-steps/05-files-from-grid.html). Fire up
-your favourite editor, open the script and save a copy to work on as
-`tistos.py`. There are a few things in the script that we don't need and can be
-removed, such as the print_decay and decay finder tools.
+A new feature in Run II is the so-called Turbo stream. Since the reconstruction
+available in HLT2 is the same as the offline reconstruction, physics analysis
+can be done with the candidates created in HLT2. If a line is configured to be a
+Turbo line, all information on the candidates that it selects is stored in the
+raw event. These candidates can be resurrected later by the Tesla application and
+written to a microDST.
+
+We will now have a look at some of the candidates stored by the HLT. We will use the script we
+[used last time](http://lhcb.github.io/first-analysis-steps/05-interactive-dst.html)
+as a starting point, and the file
+`root://eoslhcb.cern.ch//eos/lhcb/user/r/raaij/Impactkit/00051318_00000509_1.turbo.mdst`.
+This file contains some 2016 Turbo events from run 174252.  Fire up your
+favourite editor, open the script and save a copy to work on as
+`hlt_info.py`. There are a few things in the script that we don't need and can
+be removed, such as the print_decay and decay finder tools.
 
 Like the stripping, the decisions of the HLT are saved in so-called
-DecReports. You can find them in `Hlt/DecReports` and `Hlt2/DecReports`, have a
+DecReports. You can find them in `Hlt1/DecReports` and `Hlt2/DecReports`, have a
 look at what they contain.
 
 ~~~ {.python}
@@ -60,28 +69,29 @@ report = reports.decReport('Hlt1TrackAllL0Decision')
 print report.decision()
 ~~~
 
-The HLT1 selection that was most efficient for hadronic charm and beauty decays
-in Run-I was called Hlt1TrackAllL0. Use the advance function to find an event
-that was accepted by that trigger selection.
+The HLT1 selections that are most efficient for hadronic charm and beauty decays
+in Run-II are called Hlt1TrackMVA and Hlt1TwoTrackMVA. Use the advance function
+to find an event that was accepted by either of these trigger selections.
 
 The DecReports only contain the decisions, the candidates are stored in the
 SelReports ("Hlt{1,2}/SelReports"). Get the Hlt1 SelReports from the event store
-and retrieve the one for Hlt1TrackAllL0 using the selReport function,
+and retrieve the one for one of the TrackMVA selections using the selReport function,
 analogously to how the DecReport was retrieved above.
 
 The SelReports store candidates in a tree of sub-structures, which can be
 accessed using the substructure member funtion of a report. Any SelReport has at
 least one level of sub-structure. The sub-structure is internally stored in
 SmartRefs, which can be derefereced using their "data" method. Let's have a look
-at a SelReport for Hlt1TrackAllL0.
+at a SelReport for an TrackMVA selection.
 
 ~~~ {.python}
 reports = evt['Hlt1/SelReports']
-report = reports.selReport('Hlt1TrackAllL0Decision')
+report = reports.selReport('Hlt1TrackMVADecision')
 print report
 report.substructure().size()
-report.substructure().substructure()[0]
-report.substructure().substructure()[0].data()
+report.substructure()[0].substructure().size()
+report.substructure()[0].substructure()[0]
+report.substructure()[0].substructure()[0].data()
 ~~~
 
 In addition to the LHCbIDs, some numbers are also stored, such as the momentum
@@ -89,25 +99,26 @@ of the track. These are stored in the numerical info dictionary that can be
 retrieved using:
 
 ~~~ {.python}
-report.substructure().substructure()[0].numericalInfo()
+report.substructure()[0].substructure()[0].numericalInfo()
 ~~~
 
 > ## Plot the transverse momentum distribution {.challenge}
 >
 > Make a plot of the total and transverse moment distributions of all candidates
-> accepted by the Hlt1TrackAllL0 selection.
+> accepted by the Hlt1TrackMVA selection. Then add Hlt1TwoTrackMVA and
+> consider the difference.
 
 The LHCbIDs of the (in this case) track can be retrieved using:
 
 ~~~ {.python}
-report.substructure().substructure()[0].lhcbIDs()
+report.substructure()[0].substructure()[0].lhcbIDs()
 ~~~
 
-> ## Subdetector LHCb IDs. {.challenge}
+> ## Turbo candidates {.challenge}
 >
-> The LHCbIDs can tell you which sub-detector they belong too. Have a
-> look at the doxygen to see what methods you can use (hint: find "LHCbID (LHCb)
-> in the
-> [class index](http://lhcb-release-area.web.cern.ch/LHCb-release-area/DOC/davinci/latest_doxygen/classes.html)).
-> And get an idea of how many sub-detector hits are on the tracks. Does this match
-> what you would expect?
+> Now let's have a look at the same information that is stored for a candidate
+> created by a Turbo line, for example Hlt2CharmHadDsp2KS0PimPipPip_KS0LLTurbo.
+> Adapt the `advance_hlt` with an additional argument that allows specification
+> of the location of `DecReports` it uses, then advance to an event that was selected by
+> Hlt2CharmHadDsp2KS0PimPipPip_KS0LLTurbo, retrieve its `SelReport` and have a
+> look at what's stored.
