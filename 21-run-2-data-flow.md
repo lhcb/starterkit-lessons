@@ -49,8 +49,8 @@ the trigger.
 This stream cannot be re-reconstructed because the information needed to do 
 that is thrown away to save disk space.
 
-From our point of view, though, this doesn't things much because we can run 
-DaVinci over the Turbo stream in exactly the same manor as for the stripping 
+From our point of view, though, this doesn't change things much because we can run 
+DaVinci over the Turbo stream in exactly the same manner as for the stripping 
 output. We will just need to look in a different place to find the selection 
 definitions, this time for _trigger lines_ rather than stripping lines.
 
