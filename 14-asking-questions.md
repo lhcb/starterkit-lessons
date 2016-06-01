@@ -25,6 +25,12 @@ will depend very much on the way you ask your question.
 > more general questions [Stack overflow](http://stackoverflow.com/) and
 > [google](http://google.com) are good starting places.
 
+> ## [LHCb Q&A](https://lhcbqa.web.cern.ch/lhcbqa/) {.callout}
+>
+> An experimental alternative to he mailing lists is the [LHCb Questions and Answers website](https://lhcbqa.web.cern.ch/lhcbqa/).
+> It works like [Stack overflow](https://stackoverflow.com/), but focuses on LHCb-specific questions.
+> You can post your question there and you should usually receive an answer within a few hours or days.
+
 The title/subject is the first thing people will see of your
 question. If it is not interesting, they will not read the rest.
 If you are struggling with a good title, write it last! Having
