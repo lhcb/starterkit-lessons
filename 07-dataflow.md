@@ -107,7 +107,7 @@ each application has manipulated the data you want to use.
 > the disadvantages?
 
 With the exception of a few specific studies, it is only the DaVinci 
-application that is ran by users, everything else is run ‘centrally’ either on 
+application that is run by users, everything else is run ‘centrally’ either on 
 the computing farm next to the detector or on the Grid.
 
 The reconstruction, Brunel, is rarely performed as it is very computationally 
