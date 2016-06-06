@@ -140,7 +140,7 @@ Add this to your script and restart `ipython` as before.
 > if you want to get it right for data and simulation. Checking that
 > `/Event/Rec/Header` exists is a safe bet in simulation and data if
 > your file has been processed by `Brunel` (the event reconstruction
-> software. It might not work in other cases.
+> software). It might not work in other cases.
 
 Using the name of our stripping line we can now advance through the
 DST until we reach an event which contains a candidate:
