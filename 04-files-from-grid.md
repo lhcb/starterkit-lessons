@@ -53,7 +53,7 @@ Again this will take a while but afterwards you should have a file called `00035
 > As a workaround, the file is also available on EOS, and can be downloaded to
 > your current directory with the following command:
 > ```bash
-> $ xrdcp root://eoslhcb.cern.ch//eos/lhcb/user/a/apearce/Starterkit/Nov2015/00035742_00000001_1.allstreams.dst
+> $ xrdcp root://eoslhcb.cern.ch//eos/lhcb/user/a/apearce/Starterkit/Nov2015/00035742_00000001_1.allstreams.dst .
 > ```
 
 Since these files tend to be quite large, you might want to use your AFS work 
