@@ -16,7 +16,7 @@ This lesson introduces you to two commands:
 If you want to make changes to a software package, you will need to set up a development environment. `lb-dev` is your friend here:
 
 ```bash
-lb-dev --name DaVinciDev DaVinci v36r6
+lb-dev --name DaVinciDev DaVinci v40r2
 ```
 
 The output should look similar to this:
@@ -102,7 +102,7 @@ There is a page for each project, lists of projects can be found here:
 
 Another useful tool available on lxplus machines is `Lbglimpse`. It allows you to search for a given string in the source code of LHCb software.
 ```bash
-Lbglimpse "PVRefitter" DaVinci v36r6
+Lbglimpse "PVRefitter" DaVinci v40r2
 ```
 It works with every LHCb project and released version.
 

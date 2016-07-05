@@ -1,4 +1,4 @@
-j = Job(application=DaVinci(version='v36r6'))
+j = Job(application=DaVinci(version='v40r2'))
 j.backend = Dirac()
 j.name = 'First ganga job'
 j.inputdata = j.application.readInputData((

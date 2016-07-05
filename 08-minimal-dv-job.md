@@ -85,7 +85,7 @@ what type of data is being used, what algorithms to run over the events, and so
 on.
 
 There are [many configuration 
-attributes](http://lhcb-release-area.web.cern.ch/LHCb-release-area/DOC/davinci/releases/v36r6/doxygen/py/dc/d2f/class_da_vinci_1_1_configuration_1_1_da_vinci.html#ac788f6a80f5f61d47056debe7b86ca71) 
+attributes](http://lhcb-release-area.web.cern.ch/LHCb-release-area/DOC/davinci/releases/v40r2/doxygen/py/dc/d2f/class_da_vinci_1_1_configuration_1_1_da_vinci.html#ac788f6a80f5f61d47056debe7b86ca71) 
 defined on the `DaVinci` object, but we will only set the ones that are 
 necessary for us.
 
@@ -160,7 +160,7 @@ In the same folder as your options file `ntuple_options.py` and your DST file
 ending in `.dst`, there's just a single command you need run on `lxplus`.
 
 ```shell
-$ lb-run DaVinci v36r6 gaudirun.py ntuple_options.py
+$ lb-run DaVinci v40r2 gaudirun.py ntuple_options.py
 ```
 
 The full options file we've created, `ntuple_options.py`, is [available 

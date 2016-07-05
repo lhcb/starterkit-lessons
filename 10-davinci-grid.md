@@ -30,7 +30,7 @@ to some special commands provided by `ganga`.
 To create your first `ganga` job type the following:
 
 ```python
-j = Job(application=DaVinci(version='v36r6'))
+j = Job(application=DaVinci(version='v40r2'))
 j.backend = Dirac()
 j.name = 'First ganga job'
 j.inputdata = j.application.readInputData('data/MC_2012_27163003_Beam4000GeV2012MagDownNu2.5Pythia8_Sim08e_Digi13_Trig0x409f0045_Reco14a_Stripping20NoPrescalingFlagged_ALLSTREAMS.DST.py')
@@ -47,7 +47,7 @@ use to configure the job.
 
 Now you have created your first job, however it has not started
 running yet. To submit it type `j.submit()`. Now `ganga` will do the
-equivalent of `SetupProject DaVinci v36r6`, prepare your job and then
+equivalent of `SetupProject DaVinci v40r2`, prepare your job and then
 ship it off to the grid.
 
 While it runs, let's submit an identical job via slightly different
@@ -58,7 +58,7 @@ lines that define a job in a file and simply run that.
 Place the following in a file called [`first-job.py`](code/11-davinci-grid/first-job.py):
 
 ```python
-j = Job(application=DaVinci(version='v36r6'))
+j = Job(application=DaVinci(version='v40r2'))
 j.backend = Dirac()
 j.name = 'First ganga job'
 j.inputdata = j.application.readInputData('data/MC_2012_27163003_Beam4000GeV2012MagDownNu2.5Pythia8_Sim08e_Digi13_Trig0x409f0045_Reco14a_Stripping20NoPrescalingFlagged_ALLSTREAMS.DST.py')
@@ -81,7 +81,7 @@ console. This will list all of your jobs, their status, what kind of
 application they are and more.
 
 You can get more detailed information about your job by typing
-`jobs($jobid)`. Replacing `$jobid` with the `id` of the job you are
+`jobs($jobid)`, replacing `$jobid` with the `id` of the job you are
 interested in. For concretness we will assume you are interested in
 a job with jobid 787 in this example.
 
@@ -123,7 +123,7 @@ To look at the `root` file produced by the job start a new terminal, and
 type:
 
 ```bash
-$ lb-run DaVinci v36r6 $SHELL
+$ lb-run DaVinci v40r2 $SHELL
 $ root -l path/to/the/job/output
 ```
 
