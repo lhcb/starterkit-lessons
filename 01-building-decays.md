@@ -234,7 +234,7 @@ DaVinci().UserAlgorithms += [dstar_seq.sequence()]
 
 
 > ## Work to do {.challenge}
->  - Finish the script (the base of which can be found [here](code/06-building-decays/build_decays.py)) by adapting the basic `DaVinci` configuration from its corresponding [lesson](http://lhcb.github.io/first-analysis-steps/09-minimal-dv-job.html) and check the output ntuple.
+>  - Finish the script (the base of which can be found [here](code/06-building-decays/build_decays.py)) by adapting the basic `DaVinci` configuration from its corresponding [lesson](http://lhcb.github.io/first-analysis-steps/08-minimal-dv-job.html) and check the output ntuple.
 >  - Replace the `"Combine_D0"` and `"Sel_D0"` objects by a single `SimpleSelection`.
 >  - Do you know what the used LoKi functors (`AMAXDOCA`, `ADAMASS`, `MIPCHI2DV`, etc) do? 
 >  - Add a `PrintSelection` in your selections and run again.
