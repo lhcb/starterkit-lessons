@@ -105,7 +105,7 @@ To find where the files `ganga` downloaded are you can check the `outputdir`
 property of your job.
 
 ```python
-output = job(787).outputdir
+output = jobs(787).outputdir
 print 'Job output stored in:', output
 ```
 
