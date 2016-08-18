@@ -192,7 +192,7 @@ functors](06-loki-functors.html)!
 > For example, to explore the `DST` we could have simply done:
 >
 > ```
-> lb-run Bender bender 00035742_00000001_1.allstreams.dst
+> lb-run Bender bender 00035742_00000002_1.allstreams.dst
 > ```
 >
 > This leaves us in a prompt in which we can proceed as discussed in this 
