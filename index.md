@@ -26,13 +26,19 @@ If you have any problems or questions, you can [send an email to
     2. [DaVinci](03b-davinci)
     3. [Tesla/Turbo](03c-tesla)
     4. [Ganga](03d-ganga)
+    5. [Dirac](03e-dirac)
 4. Design
     1. [The event model](04a-event)
-    2. [Designing an algorithm](04b-algo)
-5. General topics
-    1. [C++ performance](05a-cperf)
-    2. [Python in the upgrade era](05b-python)
-    3. [Essentials of multithreading](05c-multi)
+    2. [Designing a (functional) algorithm](04b-algo)
+5. New features in C++
+    1. [C++11](05a-cpp11)
+    1. [C++14](05b-cpp14)
+    1. [C++17](05c-cpp17)
+    4. [C++ Future](05d-cppfuture)
+6. General topics
+    1. [C++ performance](06a-cperf)
+    2. [Python in the upgrade era](06b-python)
+    3. [Essentials of multithreading](06c-multi)
 
 ## Other Resources
 
