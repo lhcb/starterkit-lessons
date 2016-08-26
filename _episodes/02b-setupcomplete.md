@@ -10,11 +10,16 @@ keypoints:
 - "Usage of raw git commands."
 ---
 
-# Preparing for building
 
-Before building, there are a few recommended and required things to prepare in your environment, besides those discussed in the preivious lesson. You should have a valid LHCb environment (`source /cvmfs/lhcb.cern.ch/group_login.sh`) at this point
+> ## Prerequisites for building LHCb software
+> 
+> You should have a valid LHCb environment, using one of the ways previously mentioned.
+> You may need to run `source /cvmfs/lhcb.cern.ch/group_login.sh` to set up your environment variables.
+{: .prereq}
 
-## Ninja (optional)
+Before building, there are a few recommended customisations to prepare in your environment, besides those discussed in the previous lesson.
+
+### Ninja (optional)
 
 If you have ninja in your path, it will be used to (marginally) speed up the make process, and it is automatic; you still use `make ...` commands. To add it:
 ```
@@ -29,7 +34,7 @@ export VERBOSE=
 
 if you are a fan of reduced noise when building.
 
-## CCache (optional)
+### CCache (optional)
 
 If you rebuild often, you should be using CCache. This program stores the results of compiling and reuses them if nothing changes. You should be able to do something like this after you install CCache:
 
@@ -44,7 +49,7 @@ If you installed CCache from source locally to $HOME/.local, then you'll need th
 export PATH=$HOME/.local/bin:$PATH
 ```
 
-## Debug builds
+### Debug builds
 
 If you want a debug build, you'll need to change some environment variables with the LbLogin program, which will start a new bash instance with the required variables using the configuration name in `$CMTDEB`:
 
@@ -52,7 +57,7 @@ If you want a debug build, you'll need to change some environment variables with
 LbLogin -c $CMTDEB
 ```
 
-## Paths
+### Path
 
 You should have a main development directory, and it should be in your CMTPROJECTPATH variable. If you use `$HOME/lhcbdev`, then you would do:
 
@@ -66,6 +71,20 @@ In VMs and Docker, sometimes the root directory `/workspace` is used.
 
 You can set up a development environment with complete LHCb packages, and build them from scratch. This allows you to make large scale changes without locating sub-packages online, and is similar to the standard procedures in other projects. The downside to this is that they take a while to compile, due to the size of LHCb projects. Since the following is very similar to standard git procedures, most online git tutorials are also helpful in understanding the meaning of the various
 git command used.
+
+> ## Help for the git novice
+> 
+> There are a lot of sites available for help with vanilla git commands. A few are listed here.
+> 
+> 1. [The git documentation](https://git-scm.com/docs/gittutorial). 
+> 2. [Github's interactive tutorial series](https://try.github.io/levels/1/challenges/1). This is an excellent resource for running simple commands to get a feel for how git works on the command line, right in your browser.
+> 3. [Atlassian's git guru tutorials](https://www.atlassian.com/git/tutorials/).
+> 4. [TutorialsPoint's git tutorials](http://www.tutorialspoint.com/git/).
+>
+> There are always cheetsheets, too, such as [this one](http://www.cheat-sheets.org/saved-copy/git-cheat-sheet.pdf).
+{: .discussion}
+
+
 
 Before using git, you should go to your gitlab.cern.ch account and set up an ssh key. The procedure is the same as with github (and the public key is the same). In short, on Linux or Mac, make sure you have key pair in `~/.ssh/id_rsa.pub` and `~/.ssh/id_rsa`. If you don't have one, run
 
@@ -81,8 +100,10 @@ and use the default location. If you don't put in a passphrase, you can directly
 
 when you start a terminal to enter your passphrase once per session. Your computer keychain (Mac, Ubuntu, etc) can also store your password once per login.
 
+> ## If you encounter problems
+> 
 > If you get an error about your ssh agent not running, you can execute the output of the ssh-agent command with `eval $(ssh-agent)` and try again.
-{: .note}
+{: .discussion}
 
 Once you verify you have an ssh key pair, you need to go to the gitlab website, go to your profile (possibly hidden behind the hamburger button), then edit, then SSH Keys [(or just go here)](https://gitlab.cern.ch/profile/keys), and paste the contents of the `id_rsa.pub` file into the key edit box. You can give it a title that allows you to identify the computer or VM associated with the key.
 
@@ -151,7 +172,10 @@ make install
 
 This should take a long time the first time, and should be much faster after that.
 
+> ## Future reading
+>
 > The twiki page [Git4LHCb](https://twiki.cern.ch/twiki/bin/view/LHCb/Git4LHCb) is currently the best source for git examples.
+{: .callout}
 
 
 
