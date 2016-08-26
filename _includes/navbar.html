@@ -10,15 +10,15 @@
 
       {% comment %} Select what logo to display. {% endcomment %}
       {% if page.carpentry == "swc" %}
-      <a href="{{ site.swc_site }}" class="pull-left">
+      <a href="{{ site.github.url }}" class="pull-left">
         <img class="navbar-logo" src="{{ site.github.url }}/assets/img/DevelopKit.png" alt="Software Carpentry logo" />
       </a>
       {% elsif page.carpentry == "dc" %}
-      <a href="{{ site.dc_site }}" class="pull-left">
+      <a href="{{ site.github.url }}" class="pull-left">
         <img class="navbar-logo" src="{{ site.github.url }}/assets/img/dc-icon-black.svg" alt="Data Carpentry logo" />
       </a>
       {% elsif site.carpentry == "swc" %}
-      <a href="{{ site.swc_site }}" class="pull-left">
+      <a href="{{ site.github.url }}" class="pull-left">
         <img class="navbar-logo" src="{{ site.github.url }}/assets/img/DevelopKit.png" alt="Software Carpentry logo" />
       </a>
       {% elsif site.carpentry == "dc" %}
