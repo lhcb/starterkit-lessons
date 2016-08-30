@@ -10,8 +10,6 @@ keypoints:
 - "Learn about C++ plans"
 ---
 
-# C++ Future
-
 C++ is on a 3 year cycle, with groups working on Technical Specifications (TS's). Many TS's were proposed for C++17, but failed to make the cut. They may make it into a later version, however, and may need support from users like you. So here are the most interesting plans:
 
 ## Parallelism II
