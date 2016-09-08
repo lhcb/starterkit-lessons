@@ -1,5 +1,5 @@
 ---
-title: "New features in the distant future for LHCb Physists"
+title: "New features in the distant future for LHCb Physicists"
 teaching: 15
 exercises: 0
 questions:
