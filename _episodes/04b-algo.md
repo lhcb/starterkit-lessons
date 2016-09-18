@@ -1,17 +1,16 @@
 ---
-title: "The Gaudi framework"
+title: "The New Algorithms"
 teaching: 60
 exercises: 60
 questions:
-- "Why is Gaudi used?"
+- "What does a new algorithm look like?"
 objectives:
-- "Learn about the Gaudi framework."
+- "Learn about designing algorithms."
 keypoints:
-- "Work with Gaudi."
+- "Work with Algorithms."
 ---
 
 
 
-## AnyDataHandle
 
 

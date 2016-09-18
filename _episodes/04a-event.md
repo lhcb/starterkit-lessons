@@ -1,17 +1,16 @@
 ---
-title: "The Gaudi framework"
+title: "The Event Model"
 teaching: 60
 exercises: 60
 questions:
-- "Why is Gaudi used?"
+- "What might the new event model look like?"
 objectives:
-- "Learn about the Gaudi framework."
+- "Learn about the new event model."
 keypoints:
-- "Work with Gaudi."
+- "Work with concepts of the new event model"
 ---
 
 
 
-## AnyDataHandle
 
 
