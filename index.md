@@ -18,10 +18,11 @@ If you have any problems or questions, you can [send an email to
     1. [CernVM](01a-cernvm)
     2. [Docker](01b-docker)
     3. [SLC6](01c-sl6)
-2. Development environment
-    1. [Setting up a development environment for minor changes](02a-setupsimple)
-    2. [Setting up a development environment completely](02b-setupcomplete)
-3. Frameworks
+    1. [Setting up a development environment for minor changes](01d-setupsimple)
+    2. [Setting up a development environment completely](01e-setupcomplete)
+2. Introduction to Gaudi
+    1. [Intro to Gaudi](02a-gaudi-intro)
+3. Frameworks in the update
     1. [The Gaudi Framework](03a-gaudi)
     2. [DaVinci](03b-davinci)
     3. [Tesla/Turbo](03c-tesla)
