@@ -21,7 +21,9 @@ If you have any problems or questions, you can [send an email to
     1. [Setting up a development environment for minor changes](01d-setupsimple)
     2. [Setting up a development environment completely](01e-setupcomplete)
 2. Introduction to Gaudi
-    1. [Intro to Gaudi](02a-gaudi-intro)
+    1. [Intro to the Gaudi Framework](02a-gaudi-intro)
+    2. [Intro to Conditions](02b-conditions)
+    3. [Detector Description](02c-detectordesc)
 3. Frameworks in the update
     1. [The Gaudi Framework](03a-gaudi)
     2. [DaVinci](03b-davinci)
