@@ -44,7 +44,7 @@ $ CPUPROFILE=prof.out LD_PRELOAD=/usr/lib/libprofiler.so.0 ./my_program
 $ google-pprof -text ./my_program prof.out
 ```
 >
-> {: .discussion}
+{: .discussion}
 
 > ## Example for callgrind
 >
@@ -56,7 +56,7 @@ $ valgrind -tool=callgrind -dump-instr=yes -collect -jumps=yes -cache -sim=yes -
 $ kcachegrind
 ```
 >
-> {: .discussion}
+{: .discussion}
 
 ## Keep clarity a focus
 
@@ -102,5 +102,5 @@ If you are working inside a framework, like much of the code for LHCb, and that 
 > 
 > * [https://gitlab.cern.ch/mschille/fellow-meeting-performance-talk/blob/master/talk.pdf](Performance in C++ for LHCb)
 > 
-> {: .callout}
+{: .callout}
 
