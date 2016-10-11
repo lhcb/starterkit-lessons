@@ -31,12 +31,14 @@ $ gprof ./my_program
 ```
 > 
 > You can also use the kernal and CPU to help (may require root privileges):
+>
 > ```bash
 $ perf record ./my_program
 $ perf report ./my_program
 ```
 > 
 > Google also has a profiling tool:
+>
 > ```bash
 $ CPUPROFILE=prof.out LD_PRELOAD=/usr/lib/libprofiler.so.0 ./my_program
 $ google-pprof -text ./my_program prof.out
@@ -96,8 +98,9 @@ One of the hottest topics in programming is the use of multiple threads; on a mu
 If you are working inside a framework, like much of the code for LHCb, and that framework is already multithreaded, it is often slower to then try to introduce more threads; the other CPUs are already busy. Much of the work for these components is in making them **thread-safe**, that is, making them able to run in parallel with other algorithms or with themselves without conflicts for writing/reading memory.
 
 
-# See also
-
-* [https://gitlab.cern.ch/mschille/fellow-meeting-performance-talk/blob/master/talk.pdf](Performance in C++ for LHCb)
-
+> ## Future reading
+> 
+> * [https://gitlab.cern.ch/mschille/fellow-meeting-performance-talk/blob/master/talk.pdf](Performance in C++ for LHCb)
+> 
+> {: .callout}
 
