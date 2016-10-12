@@ -10,7 +10,7 @@ keypoints:
 - "Learn about writing performant code."
 ---
 
-# The way to optimize
+# Optimizing code
 
 One of the goals of coding is to make clean, clear code that closely matches the intent of the user, both in language and syntax. Really, almost all languages and features are truly optional; programs could technically be written with a tiny subset of any modern computing language. The point of classes, exceptions, structures, and the like is to make code match intent in a manor obvious to the user. Another goal of writing code is to be able to use one piece of code in multiple cases, avoiding rewriting or maintaining multiple copies. A related goal is to be able to create it quickly with minimal hassle.
 
@@ -150,6 +150,7 @@ std::cout << "The result is " << f.get() << std::endl;
 ## Data Races
 
 Multithreading's biggest issue tends to be data races. Let's make a pseudocode example:
+
 ```cpp
 int x = 0
 void thread_1() {
@@ -171,7 +172,6 @@ There are several ways to manage these values. Besides futures and promises, whi
 A mutex such as `std::mutex` allows a lock to be placed around segments of code that must run sequentially. For example, you may notice that `std::cout` tends to get mangled when multiple threads are printing to the screen. If you place a mutex around each output, the mangling will no longer be an issue. For example:
 
 ```cpp
-
 std::mutex m; // Must be the same mutex in the different threads
 
 m.lock(); // This line only completes when m is not locked already
