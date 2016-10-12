@@ -1,7 +1,7 @@
 ---
 title: "Python in the upgrade era"
-teaching: 10
-exercises: 10
+teaching: 20
+exercises: 0
 questions:
 - "What are some good resources for transitioning to Python 3?"
 objectives:

@@ -41,7 +41,6 @@ If you have any problems or questions, you can [send an email to
 6. General topics
     1. [C++ performance](06a-perf)
     2. [Python in the upgrade era](06b-python)
-    3. [Essentials of multithreading](06c-multi)
 
 ## Other Resources
 

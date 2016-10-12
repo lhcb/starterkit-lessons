@@ -1,6 +1,6 @@
 ---
 title: "C++ Performance"
-teaching: 10
+teaching: 20
 exercises: 10
 questions:
 - "How do I write fast code?"
