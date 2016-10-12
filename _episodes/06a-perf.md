@@ -76,7 +76,7 @@ Some common issues with writing C++ are:
 * Using globals. Don't.
 * Forgetting `const`. This should be used for every interface, and in C++11, is an indication of multithread safety.
 * Custom memory management inside a framework (like Gaudi) that does that for you. This can be made into a more general rule: if a framework provides something, use it. Then the framework can be upgraded, and your code will receive the benefits.
-* Try to support and use pass by reference and move semantics. This allows you to avoid copying large data strutures many times.
+* Try to support and use pass by reference and move semantics. This allows you to avoid copying large data structures many times.
 * Using `iterator++` instead of `++iterator`, the first is often making a copy wastefully.
 * Forgetting to use noexcept if you can't throw an exception; this can allow the compiler to do more optimization for you.
 
@@ -86,9 +86,12 @@ The following are common ways to speed up computation.
 
 * Precompute expressions, and reuse the results. If you use the expression `sin(x)*cos(y)` multiple times, you can save processor steps by precomputing it to a temporary variable. Note that if you do this excessively, you might end up with temporary variables in the main memory instead of the cache, so look for many usages or something that takes many processor cycles.
 * C++ allows return value optimization; if you return an object created in the function, and it otherwise would go out of scope and be destroyed, it is moved out of the function instead of copied. (Note: This is the case with most compilers for C++11, and is required by the language in most cases for C++17). Make sure all your return statements return the same object for this optimization. (Unnamed object get this automatically, too)
-* Perfect forwarding: this is a handy trick in several cases; as a common example, you can construct an object inside a vector instead of copying it in, using `emplace_back`. The method forward the arguments after the first to the constructor (the first argument), but makes it inplace inside the vector instead of a move or copy.
+* Perfect forwarding: this is a handy trick in several cases; as a common example, you can construct an object inside a vector instead of copying it in, using `emplace_back`. The method forward the arguments after the first to the constructor (the first argument), but makes it in-place inside the vector instead of a move or copy.
+* Watch for slow general functions, like `pow(x,2)`, that are designed to be flexible at runtime, when a simple compile time version `x*x` is available. Profile! 
 
+## Approximations
 
+Pay attention to the level of precision you need; if you can make an approximation to an expensive calculation, this can reduce your computing time significantly. Be careful, though, often it can be difficult to speed up functions in the standard library or high-performance libraries; test and measure any improvements you try to make.
 
 
 # To multithread or not to multithread
@@ -96,6 +99,110 @@ The following are common ways to speed up computation.
 One of the hottest topics in programming is the use of multiple threads; on a multithreaded computer or a GPU, the promise of speedup by factors of 2+ is enticing. But there are conditions to these gains besides the obvious requirement that the procedure must be able to be done in parallel; if you have a memory bottleneck for example (very common), that will remain the limiting factor. Another common bottleneck is I/O; that is often improved by threads even on a single core processor.
 
 If you are working inside a framework, like much of the code for LHCb, and that framework is already multithreaded, it is often slower to then try to introduce more threads; the other CPUs are already busy. Much of the work for these components is in making them **thread-safe**, that is, making them able to run in parallel with other algorithms or with themselves without conflicts for writing/reading memory.
+
+## Multithreading basics in C++11
+Multithreading is difficult for most languages to handle well, since we write source code in a linear fashion. There are several common methods for multithreading in C++11:
+
+### Thread
+With `std::thread`, you can run a function immediately in parallel, with perfect forwarding. Values are not returned; you will need to pass in pointers, etc. to get results.
+
+```cpp
+std::thread t1(my_function, my_argument1);
+// Starts running along side code
+t1.join(); // Finish the function and return.
+```
+
+## Future
+
+You often want to start a function, go do something else, and then get the result of that function. Futures and promises allow you to do that. A promise is a value that you promise to give at some point, but does not necessarily have a value right now. A future is an object associated with that promise that lets you wait for the result and retrieve it when it is ready. Here is some pseudocode (see similar example [here](code/perf/future.cpp)):
+
+```cpp
+void some_slow_function(std::promise<int> p) {
+    std::this_thread::sleep_for(5s);
+    p.set_value(42);
+}
+
+std::promise<int> p;
+std::future<int> f = p.get_future();
+
+std::thread t(some_slow_function, std::move(p));
+// Could do other things here
+std::cout << "The result is " << f.get() << std::endl;
+t.join();
+```
+
+## Async
+
+This usage of futures can be made much easier in some cases using `std::async`. Notice that the last example had to have a special `some_slow_function` that worked with a promise. Often you will just want to wrap an existing function that slow, and returns a value. The previous example then [becomes](code/perf/async.cpp):
+
+```cpp
+int some_slow_function(int time) {
+    std::this_thread::sleep_for(time * 1s);
+    return 42;
+}
+
+std::future<int> f = std::async(std::launch::async, some_slow_function, 5);
+// Could do other things here
+std::cout << "The result is " << f.get() << std::endl;
+```
+
+
+## Data Races
+
+Multithreading's biggest issue tends to be data races. Let's make a pseudocode example:
+```cpp
+int x = 0
+void thread_1() {
+    x += 1;
+}
+void thread_2() {
+    x -= 1;
+}
+// Run thread_1 and thread_2 in parallel
+```
+
+What is the value of `x` after running? The expected answer is 0, since 1 is being added, and 1 is being subtracted. But when  you run this, you'll randomly get -1, 0, and 1 as an answer. This is because you have to read the value of x in (one operation) and then add 1 to it in the register (one operation) then return it to the `x` memory location (one operation). When the operations are running in parallel, you might load the value in the second thread before the write happens in the first
+thread, giving you the unexpected results seen previously.
+
+There are several ways to manage these values. Besides futures and promises, which can be used between threads, the following low level constructs are available.
+
+### Mutexes
+
+A mutex such as `std::mutex` allows a lock to be placed around segments of code that must run sequentially. For example, you may notice that `std::cout` tends to get mangled when multiple threads are printing to the screen. If you place a mutex around each output, the mangling will no longer be an issue. For example:
+
+```cpp
+
+std::mutex m; // Must be the same mutex in the different threads
+
+m.lock(); // This line only completes when m is not locked already
+std::cout << "A line" << " that is not interleaved as long as protected by m" << std::endl;
+m.unlock();
+```
+
+If you forget to unlock the mutex, your code will stall forever when it comes on a new lock statement. A `std::lock_guard` will accept a mutex, locking it immediately, and then unlocking when the lock guard goes out of scope. If you have if statements or code that can throw exceptions, this might be easier than making sure `.unlock` is called every place it is needed.
+
+Mutexes solve the issue of linearising a piece of code, but at a huge cost: they make that part of your code completely sequential and also have some small overhead too.
+
+### Atomics
+
+If you are worried about setting and accessing a single value, a faster and simpler method than mutexes are atomics. These often have hardware level support, allowing them to run faster than a matching mutex. These are special version of values that insure that reads and writes never collide. The only difference vs. a normal variable is the use of `.load()` to access the value (other operations are overloaded to behave as expected). The data race example becomes:
+
+```cpp
+std::atomic<int> x = 0
+void thread_1() {
+    x += 1;
+}
+void thread_2() {
+    x -= 1;
+}
+// Run thread_1 and thread_2 in parallel
+```
+
+And the code always gives a result of `x.load() == 0`.
+
+### Conditions
+
+The final method that can be used to communicate between threads is condition variables. This behaves a bit like an atomic, but can be waited on until a thread "notifies" that the variable is ready.
 
 
 > ## Future reading
