@@ -208,6 +208,7 @@ The final method that can be used to communicate between threads is condition va
 > ## Future reading
 > 
 > * [Performance in C++ for LHCb](https://gitlab.cern.ch/mschille/fellow-meeting-performance-talk/blob/master/talk.pdf)
+> * [LHCb Code Analysis Tools](https://twiki.cern.ch/twiki/bin/view/LHCb/CodeAnalysisTools)
 > 
 {: .callout}
 

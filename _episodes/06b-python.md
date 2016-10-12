@@ -144,8 +144,8 @@ Python dictionaries are now partially ordered; due to huge speedups in the C def
 > ## Further reading:
 > 
 > * [The old Python wiki page](https://wiki.python.org/moin/Python2orPython3)
+> * [What's new in Python](https://docs.python.org/3.7/whatsnew/3.6.html)
+> * [10 awesome features of Python that you can't use](https://asmeurer.github.io/python3-presentation/slides.html#1)
 {: .callout}
 
 
-https://www.digitalocean.com/community/tutorials/python-2-vs-python-3-practical-considerations-2
-me
