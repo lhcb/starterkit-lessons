@@ -47,7 +47,7 @@ using Ganga.
 
 > ## Making a fresh start {.callout}
 > Throughout this lesson, we'll be using the most up-to-date version of Ganga 
-> that's available, v601r19.
+> that's available, v602r2.
 > To make sure there will be no files from older versions of Ganga to interfere, 
 > we will move them to a backup location.
 >
@@ -66,7 +66,7 @@ using Ganga.
 We'll be doing everything in Ganga, so let's start it up.
 
 ```shell
-$ lb-run Ganga v601r19 ganga
+$ lb-run Ganga v602r2 ganga
 ```
 
 If it's your first time starting Ganga, you'll be asked if you want to create a 
@@ -244,17 +244,6 @@ To download the output, we use `.get` as usual.
 ```python
 j2.outputfiles.get(DiracFile)[0].get(localPath='.')
 ```
-
-> ## Using Ganga v600r44 {.callout}
-> Using `DiracFile` with the `Local` backend doesn't work with Ganga v601r19.
-> You can try again with Ganga v600r44, that happens to work in this instance, 
-> with the following commands:
-> ```shell
-> $ export CMTCONFIG=x86_64-slc6-gcc48-opt
-> $ LbLogin
-> $ SetupProject Ganga v600r44
-> $ ganga
-> ```
 
 Being able to manipulate files with Ganga can be very useful. Particularly for 
 Gaudi-based jobs where:

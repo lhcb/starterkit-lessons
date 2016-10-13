@@ -15,12 +15,6 @@ gives some advice about choosing a Ganga version, making a clean environment
 for running Ganga in, and where to go to get help when things in Ganga go 
 wrong.
 
-The `lb-dev` command allows you to start hacking on LHCb code very quickly. The 
-downside is that Ganga does not yet support the use of local projects created 
-with `lb-dev` when you run an application.
-
-In this lesson, we will go through a workaround that will allow you to use 
-local projects with Ganga jobs, wherever they run.
 
 > ## How things used to be {.callout}
 >
@@ -31,15 +25,8 @@ local projects with Ganga jobs, wherever they run.
 > would then pick up the local version of DaVinci, similarly to how the `./run` 
 > command does things today.
 >
-> Ganga only supports this ‘cmtuser-style’ of local projects. If you create a 
-> `Job` with a `DaVinci(version='v36r5')` application, Ganga will automatically 
-> use the local version of DaVinci in `~/cmtuser`, and will even ship this to 
-> the Grid of your job will run there. The Ganga developers are [working on 
-> `lb-dev` support][ganga-lbdev].
->
-> The use of ‘cmtuser-style’ projects created with `SetupProject` is 
-> discouraged by everyone else in favour of `lb-dev`, so try not to use it if 
-> at all possible.
+> Ganga now supports lb-dev packages, so the `SetupProject` style of use is deprecated as of
+> version 6.2, and will quickly become unsupported.
 
 We will create a local version of DaVinci with some modified algorithm, so that 
 we can check that Ganga is using the local version when we submit a job.
@@ -47,9 +34,10 @@ First, we'll create a local DaVinci with `lb-dev`, and will then fetch the
 [`DecayTreeTuple`][dtt-package], which lives under the `Phys` hat.
 
 ```shell
-$ lb-dev DaVinci v40r1p3
-$ cd DaVinciDev_v40r1p3
-$ getpack Phys/DecayTreeTuple v5r6
+$ lb-dev DaVinci v41r2p1
+$ cd DaVinciDev_v41r2p1
+$ git lb-use Analysis
+$ git lb-checkout Analysis/v17r3 Phys/DecayTreeTuple
 ```
 
 We will do something silly as a test: add a `_2M` branch to 
@@ -81,43 +69,43 @@ $ make -j8
 $ make install
 ```
 
-This will create a folder called `InstallArea`. Ganga needs to 
-know about this folder a couple of others to use the local project. We will create [symbolic links][symlink] 
-to these folders in the place that Ganga looks.
+This will create a folder called `InstallArea`. This is the folder that Ganga will provide on the Grid.
+
+Now we can proceed as usual, defining a job running DaVinci in Ganga. But instead of
+using the built in version of our app (`DaVinci()`), we will use `GaudiExec()` to make a 
+custom application:
 
 ```shell
-$ mkdir -p ~/cmtuser/DaVinci_v40r1p3
-$ cd ~/cmtuser/DaVinci_v40r1p3
-$ ln -s ~/DaVinciDev_v40r1p3/cmt
-$ ln -s ~/DaVinciDev_v40r1p3/DaVinciDevSys
-$ ln -s ~/DaVinciDev_v40r1p3/InstallArea
-$ ls -la
-drwxr-xr-x.  2 username z5 2048 May 19 09:05 .
-drwxr-xr-x.  2 username z5 2048 May 19 09:05 ..
-lrwxr-xr-x.  1 username z5   58 May 19 09:05 cmt -> /afs/cern.ch/user/a/apearce/DaVinciDev_v40r1p3/cmt
-lrwxr-xr-x.  1 username z5   58 May 19 09:05 DaVinciDevSys -> /afs/cern.ch/user/a/apearce/DaVinciDev_v40r1p3/DaVinciDevSys
-lrwxr-xr-x.  1 username z5   58 May 19 09:05 InstallArea -> /afs/cern.ch/user/a/apearce/DaVinciDev_v40r1p3/InstallArea
-```
-
-You can see the link in the output of `ls -la`. For example, the arrow `->` 
-says that `InstallArea` is a link to our `InstallArea` created by `lb-dev`.
-
-Now we can proceed as usual, defining a job running DaVinci in Ganga.
-
-```shell
-$ lb-run Ganga v601r19 ganga
+$ lb-run Ganga v602r2 ganga
 ```
 
 ```
 j = Job(name='Local_DaVinci_Test')
-j.application = DaVinci(version='v40r1p3')
-j.applications.optsfile = [...]
+myApp = GaudiExec()
+myApp.directory = "/path/to/DaVinciDev_v41r2p1"
+myApp.options = ["/path/to/DaVinciDev_v41r2p1/myOptions.py"]
+j.application = myApp
 j.inputdata = [...]
 j.outputfiles = [LocalFile('*.root')]
 j.submit()
 ```
 
-You can then confirm that you have a `_2M` branch in your output ROOT file.
+> ## Details of GaudiExec {.callout}
+>
+> Here, `.options` is a list of arguments that are passed to `gaudirun.py`. The actual command
+> looks like:
+>
+> ```bash
+$ ./run gaudirun.py [options contents] [inputdata contents]
+```
+>
+> If you want to run a program directly without the `gaudirun.py` script, you can add `j.application.useGaudiRun = False`.
+>
+> For more info, do `help(GaudiExec)` in Ganga.
+
+After running this job, confirm that you have a `_2M` branch in your output ROOT file.
+
+
 
 > ## You know what to do {.challenge}
 >
@@ -126,13 +114,6 @@ You can then confirm that you have a `_2M` branch in your output ROOT file.
 > yourself. You could re-use an options file that we made previously, and use 
 > the same data.
 
-> ## Warning {.callout}
->
-> This is a workaround and is not a permanent solution. You have to be careful 
-> when using this method, as things other than Ganga also look in `~/cmtuser` 
-> for existing projects when building and configuring. The `lb-dev` tool is one 
-> of these things. The folder in `~/cmtuser` **should be deleted after 
-> submitting the job** in Ganga to stop it interfering with anything else.
 
 [first-ganga]: 01-managing-files-with-ganga.html
 [ganga-lbdev]: https://github.com/ganga-devs/ganga/issues/73
