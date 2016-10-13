@@ -58,6 +58,26 @@ $ kcachegrind
 >
 {: .discussion}
 
+> ## Another option: IgProf
+>
+> Another option is IgProf, which is available on the CERN stack. In comparison with the other options, it provides the following benifits and drawbacks: 
+>
+> ### With gprof
+>
+> * Does not require special compilation flags.
+> * More robust when monitoring programs that do nontrivial stuff such as calling libraries or spawning new processes and threads.
+> * Has a fancy HTML frontend for reports.
+> * Much faster sampling rate -> misses less, but produces bigger output.
+> * It is a bit hard to use outside of CERN (e.g. no package in the Debian repos).
+> * Does not seem to have an option to produce line-by-line annotated source, a gprof feature which can be quite handy in perf analysis
+>
+> ### With valgrind/callgrind
+>  
+> * Does not run your code in a virtual machine -> enormously faster, however output is less precise (e.g. no cache info).
+> * Does not bias your performance profile by inflating the relative cost of CPU w.r.t. IO by a factor of 100.
+>  
+{: .discussion}
+
 ## Keep clarity a focus
 
 Your code should have well defined, independent blocks that do as few jobs each as possible, and it should be structured to match a user's expected behavior (good documentation can allow minor deviations from this). This is, in almost all cases, something you should not have to sacrifice for speed. Package highly optimized code inside these blocks, with a clear indication of what they are supposed to do. Good function/class/etc names go a long way. Try to avoid "ugly" coding practices, as described below.
