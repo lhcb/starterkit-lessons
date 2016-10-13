@@ -165,6 +165,9 @@ $ lb-run DaVinci v40r2 gaudirun.py ntuple_options.py
 
 The full options file we've created, `ntuple_options.py`, is [available 
 here](./code/09-minimal-dv/ntuple_options.py).
+A slightly modified version that uses remote files (using an XML catalog as
+[described here](04-files-from-grid.html)) is [available
+here](./code/09-minimal-dv/ntuple_options_xmlcatalog.py)
 
 > ## Using a microDST {.callout}
 >

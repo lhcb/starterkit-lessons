@@ -59,6 +59,22 @@ Again this will take a while but afterwards you should have a file called `00035
 Since these files tend to be quite large, you might want to use your AFS work 
 directory instead of your AFS user directory to store files.
 
+> ## Alternative: read files remotely instead of downloading them {.callout}
+> To avoid filling up your AFS quota with DST files, you can also pass Gaudi an XML catalog such that it can access them remotely.
+>
+> First generate the XML catalog with
+> ```bash
+> dirac-bookkeeping-genXMLCatalog --Options=MC_2012_27163003_Beam4000GeV2012MagDownNu2.5Pythia8_Sim08e_Digi13_Trig0x409f0045_Reco14a_Stripping20NoPrescalingFlagged_ALLSTREAMS.DST.py --Catalog=myCatalog.xml
+> ```
+> and add
+> ```python
+> from Gaudi.Configuration import FileCatalog
+> FileCatalog().Catalogs = [ "xmlcatalog_file:/path/to/myCatalog.xml" ]
+> ```
+> to your options file.
+>
+> Warning: the replicas of an LFN may change, so first try to regenerate the XML catalog in case you cannot access a file using this recipe.
+
 If you want to obtain all the files, you can copy and paste the list of file names from the file you got from the bookkeeping and paste them into the following python script for convenience.
 
 ```python
