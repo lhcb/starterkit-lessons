@@ -29,24 +29,24 @@ About ten years ago, Guido Van Rossum, the Python author and Benevolent Dictator
 * Adding `nonlocal` variables
 * Extended tuple unpacking, like `first, *rest = makes_a_tuple()`
 * Removing the proliferation of `.pyc` files, instead using `__pycache__` directories
-* Automatic selection of C-based libraries over pure Python ones
+* Automatic selection of C-based standard library modules over pure Python ones if available
 * Unified the `int` and `long` types into one unlimited length integer type
 
-Unfortunately, this list was comprehensive enough to break every python script ever written. So, to ease the transition, 3.0 and 2.6 were released simultaneously, with the other, backward compatible new features of 3.0 being also included in 2.6. This happened again with the releases of 3.1 and 2.7. Not wanting to maintain two Pythons, the BDFL declared that 2.7 was the last Python 2 series release.
+Unfortunately, this list was comprehensive enough to break virtually every python script ever written. So, to ease the transition, 3.0 and 2.6 were released simultaneously, with the other, backward compatible new features of 3.0 being also included in 2.6. This happened again with the releases of 3.1 and 2.7. Not wanting to maintain two Pythons, the BDFL declared that 2.7 was the last Python 2 series release.
 
 > ## Side note about speed
 > 
-> These changes (mostly the unicode one) also made Python much slower in version 3.0. Since then, however, there have been many speed and memory improvements. Combined with new C extensions for some modules, Python 3 can be as fast or faster than Python 2.
+> These changes (mostly the unicode one) also made Python much slower in version 3.0. Since then, however, there have been many speed and memory improvements. Combined with new C extensions for some modules, Python 3 is now usually as fast or faster than Python 2.
 {: .callout}
 
-The original, Python sanctioned upgrade path was one of the biggest issues with moving to Python 3. A script, `2to3`, was supposed to convert code to Python 3, and then the old version could be eventually dropped. This script required a lot of manual intervention (things like the unicode strings require knowledge of the programmer's intent), and required library authors to maintain two separate versions of the code. This hindered initial adoption with many major libraries unavailable for
-Python 3.
+The original, officially sanctioned upgrade path was one of the biggest issues with moving to Python 3. A script, `2to3`, was supposed to convert code to Python 3, and then the old version could be eventually dropped. This script required a lot of manual intervention (things like the unicode strings require knowledge of the programmer's intent), and required library authors to maintain two separate versions of the code. This hindered initial adoption with many major libraries unwilling to support two versions for
+Python 3 support.
 
 Unofficial authors tried making a new script, `3to2`, which worked significantly better, but still was hindered by the dual copies of code issue.
 
-Another decision also may have slowed adoption. Part way through the development of Python 3.2 up to 3.4, the decision was made to avoid adding any new features, to give authors time to adopt code to a stable Python 3. This statement could be taken the other way; why update to Python 3 when it does not have any new features to use? The original changes (as listed above) were not enough to cause mass adoption.
+Another decision also may have slowed adoption. Part way through the development of Python 3.2 up to 3.4, the decision was made to avoid adding any new features, to give authors time to adopt code to a stable Python 3. This statement could be taken in reverse; why update to Python 3 when it does not have any new features to improve your program? The original changes (as listed above) were not enough to cause mass adoption.
 
-This dreary time in Python development is now drawing to a close, thanks to a change in the way authors started approaching Python compatibility. There was such a good overlap between Python 2.6 or Python 2.7 and Python 3.3+ that a single code base can support them both. The reason for this is the following three things:
+This dreary time in Python development is now drawing to a close, thanks to a change in the way authors started approaching Python compatibility. There is such a good overlap between Python 2.6 or Python 2.7 and Python 3.3+ that a single code base can support them both. The reason for this is the following three things:
 
 * Good Python 2 is almost the same as Python 3. The things that were dropped were mostly things you shouldn't do in Python 2 anyway.
 * Several changes in syntax are available in Python 2 using `__future__`
@@ -83,7 +83,7 @@ Several of the new libraries and features have been backported to Python 2. I'm 
 * `trollius`: The `asyncio` package, with a new syntax for `yield from`, from Python 3.4
 * Smaller changes: `configparser`, `subprocess32`, `functools32`, and the various `backports`-dot-something packages. 
 
-# New features in newer Pythons
+# New features in modern Python
 
 These are features that have been released in a version of Python after 3.0 that are not in the older Python 2 series:
 
@@ -136,10 +136,24 @@ Python dictionaries are now partially ordered; due to huge speedups in the C def
 ### Other smaller features:
 
 * Underscores in numeric literals. You can add arbitrary spacers to numbers now, such as `1_000_000`.
-* Windows encoding improvements
-* Simpler customization of class creation, using `__init_subclass__` class method
-* Descriptor access to the name of the class and the descriptor, using `__set_name__` 
-* A file system path protocol, `__fspath__()`, allows any object to indicate that it represents a path. Finally pathlib works with wrapping it in a `str()`!
+* Windows encoding improvements.
+* Simpler customization of class creation, using `__init_subclass__` class method.
+* Descriptor access to the name of the class and the descriptor, using `__set_name__`. 
+* A file system path protocol, `__fspath__()`, allows any object to indicate that it represents a path. Finally pathlib works without wrapping it in a `str()`!
+* Better support for `async` list comprehensions, and `async` generators.
+* A `secrets` module for password related randomization functions.
+
+## Status of Python
+
+The current status of the python releases is as follows:
+
+* Python 2.5: Dead.
+* Python 2.6: Most libraries are dropping support, officially discontinued, but still on some legacy systems, like the default environment in SL6.
+* Python 2.7: The officially supported Python 2 release, critical security flaws fixed till roughly 2020. PyPy supports 2.7.10. Windows version is stuck requiring Visual Studio 2008 for builds.
+* Python 3.0-3.2: Never used significantly, no library support.
+    * Python 3.3: Better backwards compatibility makes this the first generally used Python 3, with Windows downloads [outpacing](http://ianozsvald.com/2013/04/15/more-python-3-3-downloads-than-python-2-7-for-past-3-months/) Python 2.7 for the first time. `u""` was added back in as a no-op. Note that PyPy3 is currently based on Python 3.3.5.
+* Python 3.4: Addition of asyncio features and pathlib provided even more interest.
+* Python 3.5: New features, such as matrix multiplication, are accelerating the transition from Python 2.
 
 > ## Further reading:
 > 
