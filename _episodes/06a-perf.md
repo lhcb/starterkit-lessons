@@ -20,8 +20,30 @@ Optimization may seem to be exactly the opposite of these goals, obfuscating you
 
 This is key; most algorithms have a bottleneck somewhere; it's been said that 1% of your code tend to take 99% of the time. It is important to **profile** your code to understand where time is being spent. Only optimize the portions that take the most time; it is not worth the impact to readability to optimize something that takes less than 5% of the total time.
 
-There are simple tools for profiling, as well as complex. The obvious manual methods, using `std::chrono::high_resolution_clock::now()` and printing times, might be faster for a single use, but in the long run will take far more of your time than learning a profiler. There are two common classes of profilers; one samples the stack during execution (`gprof`, `linux-perf`, `google-perftools`), and the other modifies the execution of the program (`callgrind`). The later is much slower, and
-can affect the proportion of time spent in calls, etc.
+There are simple tools for profiling, as well as complex. The obvious manual methods, using `std::chrono::high_resolution_clock::now()` and printing times, might be faster for a single use, but in the long run will take far more of your time than learning a profiler.
+
+The following are three common classes of profilers.
+
+### Code insertion
+These modify the execution of the program, such as `callgrind`. This causes your program to run much slower, and
+can affect the proportion of time spent in calls. Small calls or IO tend to be heavily impacted by using these tools.
+
+
+> ## Example for callgrind
+>
+> The following example shows the procedure for obtaining a graphical result of the time spent in each portion of your program:
+>
+> ```bash
+$ g++ -g -O2 -std=c++11 -pedantic -Wall -Wextra my_program.cpp -o my_program
+$ valgrind -tool=callgrind -dump-instr=yes -collect -jumps=yes -cache -sim=yes -branch-sim=yes ./my_program
+$ kcachegrind
+```
+>
+{: .discussion}
+
+### Stack sampling profilers
+
+These sample the program stack during execution (`gprof`, `linux-perf`, `google-perftools`, `igprof`), providing minimal changes to the runtime of the program. These trade knoledge of every call for a representation of a normal run.
 
 > ## Example for sample profiling
 > 
@@ -46,37 +68,42 @@ $ google-pprof -text ./my_program prof.out
 >
 {: .discussion}
 
-> ## Example for callgrind
->
-> The following example shows the procedure for obtaining a graphical result of the time spent in each portion of your program:
->
+Another option is igprof, which is available on the CERN stack. In comparison with the other sampling profilers, it provides several unique advantages. The following are benifits and drawbacks compared to gprof:
+
+* Does not require special compilation flags.
+* More robust when monitoring programs that do nontrivial stuff such as calling libraries or spawning new processes and threads.
+* Has a fancy HTML frontend for reports.
+* Much faster sampling rate -> misses less, but produces bigger output.
+* It is a bit hard to use outside of CERN (e.g. no package in the Debian repos).
+* Does not seem to have an option to produce line-by-line annotated source, a gprof feature which can be quite handy in perf analysis
+
+Compared to valgrind/callgrind:
+
+* Does not run your code in a virtual machine -> enormously faster, however output is less precise (e.g. no cache info).
+* Does not bias your performance profile by inflating the relative cost of CPU w.r.t. IO by a factor of 100.
+ 
+> ## Examples of usage
+> 
+> You can profile a program as follows:
 > ```bash
-$ g++ -g -O2 -std=c++11 -pedantic -Wall -Wextra my_program.cpp -o my_program
-$ valgrind -tool=callgrind -dump-instr=yes -collect -jumps=yes -cache -sim=yes -branch-sim=yes ./my_program
-$ kcachegrind
+$ igprof -d -pp -z -o my_program.pp.gz my_program
+$ igprof-analyse -d -v -g my_program.pp.gz >& my_program.pp.out
 ```
->
+> 
+> The first line produces a profile, the second line converts it to a readable text report.
 {: .discussion}
 
-> ## Another option: IgProf
->
-> Another option is IgProf, which is available on the CERN stack. In comparison with the other options, it provides the following benifits and drawbacks: 
->
-> ### With gprof
->
-> * Does not require special compilation flags.
-> * More robust when monitoring programs that do nontrivial stuff such as calling libraries or spawning new processes and threads.
-> * Has a fancy HTML frontend for reports.
-> * Much faster sampling rate -> misses less, but produces bigger output.
-> * It is a bit hard to use outside of CERN (e.g. no package in the Debian repos).
-> * Does not seem to have an option to produce line-by-line annotated source, a gprof feature which can be quite handy in perf analysis
->
-> ### With valgrind/callgrind
->  
-> * Does not run your code in a virtual machine -> enormously faster, however output is less precise (e.g. no cache info).
-> * Does not bias your performance profile by inflating the relative cost of CPU w.r.t. IO by a factor of 100.
->  
-{: .discussion}
+### Kernel sampling profilers
+
+These are similar to the other sampling profilers, but they use extra information from the Linux kernel when sampling, such as CPU performance counters. This leads them to the following benifits and drawbacks: 
+
+* They are hopelessely unportable to non-linux OSs. Compare them with XCode Instruments on OSX and the Windows Performance Toolkit.
+* The information that they provide is hardware and kernel-specific, and in particular they won't run at all if your Linux kernel is too old.
+* They tend to make the system protection features of modern Linux distros (e.g. SELinux) go crazy, making it a pain to get them to run.
+* As a compensation for all these drawbacks, they promise much more detailed information, comparable to what one can usually only get through callgrind, thanks to the use of hardware performance counters.
+* And they can also do system-wide profiling, which is useful when studying interactions between "unrelated" processes.
+
+Some examples are `perf` and `oprofile`.
 
 ## Keep clarity a focus
 
