@@ -144,8 +144,8 @@ To add LoKi-based leaves to the tree, we need to use the `LoKi::Hybrid::TupleToo
   - The `Variables` property, consisting of a `dict` of (variable name, LoKi functor) pairs. In here, LoKi functors can be used, as well as any variable we may have defined in the `Preambulo`:
     ```python
     dstar_hybrid.Variables = {
-        'mass': 'MM',
-        'mass_D0': 'CHILD(MM, 1)',
+        'mass': 'M',
+        'mass_D0': 'CHILD(M, 1)',
         'pt': 'PT',
         'dz': 'DZ',
         'dira': 'BPVDIRA',
@@ -155,7 +155,7 @@ To add LoKi-based leaves to the tree, we need to use the `LoKi::Hybrid::TupleToo
         'n_highpt_tracks': 'NINTREE(ISBASIC & HASTRACK & (PT > 1500*MeV))'
     }
     d0_hybrid.Variables = {
-        'mass': 'MM',
+        'mass': 'M',
         'pt': 'PT',
         'dira': 'BPVDIRA',
         'vtx_chi2': 'VFASPF(VCHI2)',

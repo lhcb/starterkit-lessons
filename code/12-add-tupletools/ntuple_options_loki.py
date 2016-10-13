@@ -35,8 +35,8 @@ dstar_hybrid.Preambulo = preamble
 d0_hybrid.Preambulo = preamble
 
 dstar_hybrid.Variables = {
-    'mass': 'MM',
-    'mass_D0': 'CHILD(MM, 1)',
+    'mass': 'M',
+    'mass_D0': 'CHILD(M, 1)',
     'pt': 'PT',
     'dz': 'DZ',
     'dira': 'BPVDIRA',
@@ -45,7 +45,7 @@ dstar_hybrid.Variables = {
     'n_highpt_tracks': 'NINTREE(ISBASIC & HASTRACK & (PT > 1500*MeV))'
 }
 d0_hybrid.Variables = {
-    'mass': 'MM',
+    'mass': 'M',
     'pt': 'PT',
     'dira': 'BPVDIRA',
     'vtx_chi2': 'VFASPF(VCHI2)',
