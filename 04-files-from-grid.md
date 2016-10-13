@@ -34,8 +34,7 @@ quick look at the dataset, it is sufficient to just obtain one of those files.
 
 Before we can download the file, we need to set up our connection with the grid and load the Dirac software:
 ```bash
-lhcb-proxy-init
-lb-run LHCbDirac $SHELL
+lb-run LHCbDIRAC lhcb-proxy-init
 ```
 
 Initialisation of the proxy might take a while and should ask you for your certificate password.
@@ -43,7 +42,7 @@ Initialisation of the proxy might take a while and should ask you for your certi
 Once we have a working Dirac installation, getting the file is as easy as
 
 ```bash
-dirac-dms-get-file LFN:/lhcb/MC/2012/ALLSTREAMS.DST/00035742/0000/00035742_00000002_1.allstreams.dst
+lb-run LHCbDIRAC dirac-dms-get-file LFN:/lhcb/MC/2012/ALLSTREAMS.DST/00035742/0000/00035742_00000002_1.allstreams.dst
 ```
 
 Again this will take a while but afterwards you should have a file called `00035742_00000002_1.allstreams.dst` in the directory where you called the command.
@@ -96,12 +95,12 @@ if __name__ == '__main__':
     print('Done getting {0} files.'.format(n_files))
 ```
 
-Save it as `getEvents.py` and use it via `python getEvents.py [n]`. If you specify `n`, the script will only get the first n files from the grid.
+Save it as `getEvents.py` and use it via `lb-run LHCbDIRAC python getEvents.py [n]`. If you specify `n`, the script will only get the first n files from the grid.
 
 > ## Such a clever script! {.callout}
 > dirac-dms-get-file (and the other dirac-dms-* scripts) is actually able to extract the LFNs from any file
 > and download them for you. So a simple
 > ```python
->  dirac-dms-get-file MC_2012_27163003_Beam4000GeV2012MagDownNu2.5Pythia8_Sim08e_Digi13_Trig0x409f0045_Reco14a_Stripping20NoPrescalingFlagged_ALLSTREAMS.DST.py
+>  lb-run LHCbDIRAC dirac-dms-get-file MC_2012_27163003_Beam4000GeV2012MagDownNu2.5Pythia8_Sim08e_Digi13_Trig0x409f0045_Reco14a_Stripping20NoPrescalingFlagged_ALLSTREAMS.DST.py
 > ```
 > would do to download them all!
