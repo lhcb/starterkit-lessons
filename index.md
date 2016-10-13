@@ -18,8 +18,9 @@ If you have any problems or questions, you can [send an email to
     1. [CernVM](01a-cernvm)
     2. [Docker](01b-docker)
     3. [SLC6](01c-sl6)
-    1. [Setting up a development environment for minor changes](01d-setupsimple)
-    2. [Setting up a development environment completely](01e-setupcomplete)
+    4. [Setting up a development environment for minor changes](01d-setupsimple)
+    5. [Setting up a development environment completely](01e-setupcomplete)
+    6. [Building LHCb software](01f-building)
 2. Introduction to Gaudi
     1. [Intro to the Gaudi Framework](02a-gaudi-intro)
     2. [Intro to Conditions](02b-conditions)
@@ -35,8 +36,8 @@ If you have any problems or questions, you can [send an email to
     2. [Designing a (functional) algorithm](04b-algo)
 5. New features in C++
     1. [C++11](05a-cpp11)
-    1. [C++14](05b-cpp14)
-    1. [C++17](05c-cpp17)
+    2. [C++14](05b-cpp14)
+    3. [C++17](05c-cpp17)
     4. [C++ Future](05d-cppfuture)
 6. General topics
     1. [C++ performance](06a-perf)
