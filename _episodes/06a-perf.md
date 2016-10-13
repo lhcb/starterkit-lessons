@@ -29,7 +29,7 @@ These modify the execution of the program, such as `callgrind`. This causes your
 can affect the proportion of time spent in calls. Small calls or IO tend to be heavily impacted by using these tools.
 
 
-> ## Example for callgrind
+> ## Example of callgrind
 >
 > The following example shows the procedure for obtaining a graphical result of the time spent in each portion of your program:
 >
@@ -45,18 +45,11 @@ $ kcachegrind
 
 These sample the program stack during execution (`gprof`, `google-perftools`, `igprof`), providing minimal changes to the runtime of the program. These trade knoledge of every call for a representation of a normal run.
 
-> ## Example for sample profiling
+> ## Examples of sample profiling
 > 
 > To use, you'll want the compiler to add profile info (`-pg`) and optionally debug info (`-g`). You also may want the compiler to avoid inline functions (`-fno-inline`). The binary can now be run through gprof:
 > ```bash
 $ gprof ./my_program
-```
-> 
-> You can also use the kernal and CPU to help (may require root privileges):
->
-> ```bash
-$ perf record ./my_program
-$ perf report ./my_program
 ```
 > 
 > Google also has a profiling tool:
@@ -82,7 +75,7 @@ Compared to valgrind/callgrind:
 * Does not run your code in a virtual machine -> enormously faster, however output is less precise (e.g. no cache info).
 * Does not bias your performance profile by inflating the relative cost of CPU w.r.t. IO by a factor of 100.
  
-> ## Examples of usage
+> ## Example of igperf
 > 
 > You can profile a program as follows:
 > ```bash
@@ -104,6 +97,17 @@ These are similar to the other sampling profilers, but they use extra informatio
 * And they can also do system-wide profiling, which is useful when studying interactions between "unrelated" processes.
 
 Some examples are `linux-perf` and `oprofile`.
+
+> ## Example of Kernel profiling
+>
+> You can also use the kernel and CPU to help (may require root privileges):
+>
+> ```bash
+$ perf record ./my_program
+$ perf report ./my_program
+```
+>
+{: .discussion}
 
 ## Keep clarity a focus
 
