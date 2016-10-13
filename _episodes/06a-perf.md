@@ -43,7 +43,7 @@ $ kcachegrind
 
 ### Stack sampling profilers
 
-These sample the program stack during execution (`gprof`, `linux-perf`, `google-perftools`, `igprof`), providing minimal changes to the runtime of the program. These trade knoledge of every call for a representation of a normal run.
+These sample the program stack during execution (`gprof`, `google-perftools`, `igprof`), providing minimal changes to the runtime of the program. These trade knoledge of every call for a representation of a normal run.
 
 > ## Example for sample profiling
 > 
@@ -103,7 +103,7 @@ These are similar to the other sampling profilers, but they use extra informatio
 * As a compensation for all these drawbacks, they promise much more detailed information, comparable to what one can usually only get through callgrind, thanks to the use of hardware performance counters.
 * And they can also do system-wide profiling, which is useful when studying interactions between "unrelated" processes.
 
-Some examples are `perf` and `oprofile`.
+Some examples are `linux-perf` and `oprofile`.
 
 ## Keep clarity a focus
 
