@@ -74,8 +74,8 @@ private:
 };
 ```
 
-
 The implementation is simple:
+
 ```cpp
 #include "HelloWorld.h"
 
@@ -122,6 +122,7 @@ StatusCode HelloWorld::endRun() {
 ```
 
 An example `gaudi_opts.py` options file that does nothing other than add our algorithm:
+
 ```python
 from Gaudi.Configuration import *
 from Configurables import HelloWorld
@@ -137,3 +138,5 @@ $ lb-project-init
 $ make
 $ ./build.x86_64-slc6-gcc49-opt/run gaudirun.py gaudi_opts.py
 ```
+
+The code for these files is [here](/DevelopKit/code/gaudi/hello_world).
