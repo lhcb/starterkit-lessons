@@ -1,25 +1,14 @@
 ---
-title: "Introduction to the Gaudi framework"
+title: "Hello world the Gaudi framework"
 teaching: 20
 exercises: 30
 questions:
-- "How is Gauid currently used?"
+- "How do I make a simple Gaudi program?"
 objectives:
-- "Learn the basics of the Gaudi framework."
+- "Learn how to write a simple test Gaudi program."
 keypoints:
-- "Work with Gaudi."
+- "Hello world in Gaudi."
 ---
-
-# What is the Gaudi framework?
-
-The Gaudi framework coordinates **Data Objects**, which can hold a variety of data. A **Transiant Event Store (TES)** stores data objects in a way to make them accessible to the rest of the framework, and parts of it can be made persistent in a ROOT format file. The data in the TES is created and accessed by  **Algorithms**, which produce data objects and process data objects. The Application Manager manages these components.
-
-
-
-## Algorithms
-
-This is the most important component of the framework for an user to know. Algorithms are called once per physics event, and (traditionally) implement three methods beyond constructor/destructor: `initialize`, `execute`, and `finalize`. 
-
 
 ## Hello World in Gaudi
 
@@ -65,12 +54,6 @@ public:
 
 private:
     bool m_initialized;
-
-    /// These data members are used in the execution of this algorithm
-    /// They are set in the initialisation phase by the job options service
-    IntegerProperty m_int;
-    DoubleProperty  m_double;
-    StringProperty  m_string;
 };
 ```
 
@@ -121,18 +104,23 @@ StatusCode HelloWorld::endRun() {
 }
 ```
 
-An example `gaudi_opts.py` options file that does nothing other than add our algorithm:
+An example `gaudi_opts.py` options file that uses our algorithm:
 
 ```python
 from Gaudi.Configuration import *
 from Configurables import HelloWorld
 
-alg = HelloWorld()
+ApplicationMgr().EvtMax = 10
+ApplicationMgr().EvtSel = "NONE"
 
+alg = HelloWorld()
 ApplicationMgr().TopAlg.append(alg)
 ```
 
+Note the `EvtSel = "NONE"` statement; that sets the input events to none, since we are not running over a real data file or detector.
+
 To run, the following commands can be used:
+
 ```bash
 $ lb-project-init
 $ make

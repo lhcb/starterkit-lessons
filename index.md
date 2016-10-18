@@ -22,9 +22,10 @@ If you have any problems or questions, you can [send an email to
     5. [Setting up a development environment completely](01e-setupcomplete)
     6. [Building LHCb software](01f-building)
 2. Introduction to Gaudi
-    1. [Intro to the Gaudi Framework](02a-gaudi-intro)
-    2. [Intro to Conditions](02b-conditions)
-    3. [Detector Description](02c-detectordesc)
+    1. [Hello World in the Gaudi Framework](02a-gaudi-helloworld)
+    2. [Intro to the Gaudi Framework](02b-gaudi-intro)
+    3. [Intro to Conditions](02c-conditions)
+    4. [Detector Description](02d-detectordesc)
 3. Frameworks in the update
     1. [The Gaudi Framework](03a-gaudi)
     2. [DaVinci](03b-davinci)
