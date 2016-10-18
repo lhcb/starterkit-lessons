@@ -53,6 +53,7 @@ Internally, this tells CMake to find and load other projects in a specific direc
 Gaudi supplies a few other commands, as well.
 
 Later, explain:
+
 * `gaudi_add_library`
 * `gaudi_depends_on_subdirs`
 * `gaudi_add_module`

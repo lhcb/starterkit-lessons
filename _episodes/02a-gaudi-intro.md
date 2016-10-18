@@ -139,12 +139,20 @@ $ make
 $ ./build.x86_64-slc6-gcc49-opt/run gaudirun.py gaudi_opts.py
 ```
 
-The code for these files is here:
+> ## Code
+>
+> The code for these files is here:
+> 
+> * [README.txt](/DevelopKit/code/gaudi/hello_world/README.txt)
+> * [CMakeLists.txt](/DevelopKit/code/gaudi/hello_world/CMakeLists.txt)
+> * [HelloWorld.cpp](/DevelopKit/code/gaudi/hello_world/HelloWorld.cpp)
+> * [HelloWorld.h](/DevelopKit/code/gaudi/hello_world/HelloWorld.h)
+> * [gaudi_opts.py](/DevelopKit/code/gaudi/hello_world/gaudi_opts.py)
+> 
+{: .callout}
 
-* [README.txt](/DevelopKit/code/gaudi/hello_world/README.txt)
-* [CMakeLists.txt](/DevelopKit/code/gaudi/hello_world/CMakeLists.txt)
-* [HelloWorld.cpp](/DevelopKit/code/gaudi/hello_world/HelloWorld.cpp)
-* [HelloWorld.h](/DevelopKit/code/gaudi/hello_world/HelloWorld.h)
-* [gaudi_opts.py](/DevelopKit/code/gaudi/hello_world/gaudi_opts.py)
-
-
+> ## Futher reading
+> 
+> There are further examples in the repoository for [Gaudi/GaudiPython/src/Test](https://gitlab.cern.ch/lhcb/Gaudi/tree/future/GaudiPython/src/Test).
+> 
+{: .callout}
