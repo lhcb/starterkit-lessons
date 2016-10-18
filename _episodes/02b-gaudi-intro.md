@@ -12,7 +12,8 @@ keypoints:
 
 # What is the Gaudi framework?
 
-The Gaudi framework runs over a list of events, providing ways to process them and store data in a new format. It coordinates **Data Objects**, which can hold a variety of data. A **Transiant Event Store (TES)** stores data objects in a way to make them accessible to the rest of the framework, and parts of it can be made persistent in a ROOT format file. The data in the TES is created and accessed by **Algorithms**, which produce data objects and process data objects. The Application Manager manages these components.
+The Gaudi framework runs over a list of events, providing ways to process them and store data in a new format. It creates and manages **Data Objects**, which can hold a variety of data. A **Transiant Event Store (TES)** stores data objects in a way to make them accessible to the rest of the framework, and parts of it can be made persistent in a ROOT format file. The data in the TES is created and accessed by **Algorithms**, which produce data objects and process data objects. Gaudi also
+provides **Services**, which provide useful tools, such as histograms. The Application Manager manages these components.
 
 
 ## Algorithms
@@ -21,15 +22,17 @@ This is the most important component of the framework for an user to know. Algor
 
 
 
+
+
 > ## Code
 >
 > The code for these files is here:
 > 
-> * [README.txt](/DevelopKit/code/gaudi/hello_world/README.txt)
-> * [CMakeLists.txt](/DevelopKit/code/gaudi/hello_world/CMakeLists.txt)
-> * [HelloWorld.cpp](/DevelopKit/code/gaudi/hello_world/HelloWorld.cpp)
-> * [HelloWorld.h](/DevelopKit/code/gaudi/hello_world/HelloWorld.h)
-> * [gaudi_opts.py](/DevelopKit/code/gaudi/hello_world/gaudi_opts.py)
+> * [README.txt](/DevelopKit/code/gaudi/data_trans/README.txt)
+> * [CMakeLists.txt](/DevelopKit/code/gaudi/data_trans/CMakeLists.txt)
+> * [DataTrans.cpp](/DevelopKit/code/gaudi/data_trans/DataTrans.cpp)
+> * [DataTrans.h](/DevelopKit/code/gaudi/data_trans/DataTrans.h)
+> * [gaudi_opts.py](/DevelopKit/code/gaudi/data_trans/gaudi_opts.py)
 > 
 {: .callout}
 
