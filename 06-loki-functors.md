@@ -150,7 +150,10 @@ def find_tracks(particle):
         if proto:
             track = proto.track()
             if track:
-                tracks.append(particle.data())
+                try:
+                    tracks.append(particle.data())
+                except AttributeError:
+                    tracks.append(particle)
     else:
         for child in particle.daughters():
             tracks.extend(find_tracks(child))
@@ -158,6 +161,10 @@ def find_tracks(particle):
 
 max_pt = max([PT(child) for child in find_tracks(cand)])
 ```
+> ## A note about the try/except {.callout}
+>
+> If you import LoKi before running this example, it magically removes the `.data()` function and allows the particle to be used directly. The code above is made general using the `try`/`except` block and will work in either case.
+
 
 However, LoKi offers functions for performing such operations, namely `MAXTREE` and `MINTREE`, which get as parameters the selection criteria, the functor to calculate and a default value.
 In our example,
