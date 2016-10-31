@@ -50,7 +50,7 @@ Try the following steps with the computer you will use at the workshop:
  3. Once connected, check your grid certificate works by typing
     `lhcb-proxy-init`. If you need help with your grid certificate there is the
     [Grid certificate FAQ](https://twiki.cern.ch/twiki/bin/view/LHCb/FAQ/Certificate)
-    and you can ask questions on `lhcb-distributed-analysis@cern.ch`.
+    and you can ask questions on `project-lcg-vo-lhcb-admin@cern.ch`.
     `lhcb-proxy-init` will ask you for the password of your grid certificate and then print something like:
 
 ~~~ {.output}
