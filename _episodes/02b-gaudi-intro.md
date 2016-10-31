@@ -40,4 +40,6 @@ This is the most important component of the framework for an user to know. Algor
 > 
 > There are further examples in the repoository for [Gaudi/GaudiPython/src/Test](https://gitlab.cern.ch/lhcb/Gaudi/tree/future/GaudiPython/src/Test).
 > 
+> * [Gaudi workshop 2016](https://indico.cern.ch/event/556551/)
+> 
 {: .callout}
