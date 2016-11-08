@@ -4,9 +4,9 @@
 #include "GaudiKernel/Property.h"
 #include "GaudiKernel/MsgStream.h"
 
-class HelloWorld : public Algorithm {
+class HelloWorldEx : public Algorithm {
 public:
-    HelloWorld(const std::string& name, ISvcLocator* pSvcLocator); 
+    HelloWorldEx(const std::string& name, ISvcLocator* pSvcLocator); 
     StatusCode initialize() override;
     StatusCode execute() override;
     StatusCode finalize() override;

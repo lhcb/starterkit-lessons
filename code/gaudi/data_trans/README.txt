@@ -1,4 +1,4 @@
-Hello World Gaudi example:
+Data Transmission Gaudi example:
 
 To build:
 

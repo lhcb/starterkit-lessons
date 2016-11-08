@@ -1,8 +1,8 @@
 from Gaudi.Configuration import *
-from Configurables import HelloWorld
+from Configurables import HelloWorldEx
 
 ApplicationMgr().EvtMax = 10
 ApplicationMgr().EvtSel = "NONE"
 
-alg = HelloWorld()
+alg = HelloWorldEx()
 ApplicationMgr().TopAlg.append(alg)

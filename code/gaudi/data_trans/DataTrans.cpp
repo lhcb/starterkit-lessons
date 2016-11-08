@@ -10,7 +10,7 @@ DataTrans::DataTrans(const std::string& name, ISvcLocator* ploc) :
 StatusCode DataTrans::initialize() {
   if( m_initialized ) return StatusCode::SUCCESS;
 
-  info() << "initializing...." << endmsg;
+  info() << "initializing DataTrans...." << endmsg;
   m_initialized = true;
   return StatusCode::SUCCESS;
 }
@@ -20,24 +20,44 @@ StatusCode DataTrans::execute() {
   return StatusCode::SUCCESS;
 }
 
-StatusCode DataTrans::finalize() {
-  info() << "finalizing...." << endmsg;
+DECLARE_COMPONENT(DataProducer)
 
-  m_initialized = false;
-  return StatusCode::SUCCESS;
-}
+DataProducer::DataProducer(const std::string& name, ISvcLocator* ploc) :
+    Algorithm(name, ploc) {
+        m_initialized = false;
+    }
 
-StatusCode DataTrans::beginRun() {
-  info() << "beginning new run...." << endmsg;
+StatusCode DataProducer::initialize() {
+  if( m_initialized ) return StatusCode::SUCCESS;
 
+  info() << "initializing DataProducer...." << endmsg;
   m_initialized = true;
   return StatusCode::SUCCESS;
 }
 
-StatusCode DataTrans::endRun() {
-  info() << "ending new run...." << endmsg;
+StatusCode DataProducer::execute() {
+  info() << "executing...." << endmsg;
+  return StatusCode::SUCCESS;
+}
 
+DECLARE_COMPONENT(DataConsumer)
+
+DataConsumer::DataConsumer(const std::string& name, ISvcLocator* ploc) :
+    Algorithm(name, ploc) {
+        m_initialized = false;
+    }
+
+StatusCode DataConsumer::initialize() {
+  if( m_initialized ) return StatusCode::SUCCESS;
+
+  info() << "initializing DataConsumer...." << endmsg;
   m_initialized = true;
   return StatusCode::SUCCESS;
 }
+
+StatusCode DataConsumer::execute() {
+  info() << "executing DataConsumer...." << endmsg;
+  return StatusCode::SUCCESS;
+}
+
 

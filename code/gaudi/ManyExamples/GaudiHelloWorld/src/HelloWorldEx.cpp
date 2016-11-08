@@ -1,40 +1,40 @@
-#include "HelloWorld.h"
+#include "HelloWorldEx.h"
 
-DECLARE_COMPONENT(HelloWorld)
+DECLARE_COMPONENT(HelloWorldEx)
 
-HelloWorld::HelloWorld(const std::string& name, ISvcLocator* ploc) :
+HelloWorldEx::HelloWorldEx(const std::string& name, ISvcLocator* ploc) :
     Algorithm(name, ploc) {
         m_initialized = false;
     }
 
-StatusCode HelloWorld::initialize() {
+StatusCode HelloWorldEx::initialize() {
   if( m_initialized ) return StatusCode::SUCCESS;
 
-  info() << "initializing...." << endmsg;
+  info() << "initializing hello world..." << endmsg;
   m_initialized = true;
   return StatusCode::SUCCESS;
 }
 
-StatusCode HelloWorld::execute() {
-  info() << "executing...." << endmsg;
+StatusCode HelloWorldEx::execute() {
+  info() << "executing hello world..." << endmsg;
   return StatusCode::SUCCESS;
 }
 
-StatusCode HelloWorld::finalize() {
-  info() << "finalizing...." << endmsg;
+StatusCode HelloWorldEx::finalize() {
+  info() << "finalizing hello world..." << endmsg;
 
   m_initialized = false;
   return StatusCode::SUCCESS;
 }
 
-StatusCode HelloWorld::beginRun() {
+StatusCode HelloWorldEx::beginRun() {
   info() << "beginning new run...." << endmsg;
 
   m_initialized = true;
   return StatusCode::SUCCESS;
 }
 
-StatusCode HelloWorld::endRun() {
+StatusCode HelloWorldEx::endRun() {
   info() << "ending new run...." << endmsg;
 
   m_initialized = true;

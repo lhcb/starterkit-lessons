@@ -9,9 +9,26 @@ public:
     DataTrans(const std::string& name, ISvcLocator* pSvcLocator); 
     StatusCode initialize() override;
     StatusCode execute() override;
-    StatusCode finalize() override;
-    StatusCode beginRun() override;
-    StatusCode endRun() override;
+
+private:
+    bool m_initialized;
+};
+
+class DataProducer : public Algorithm {
+public:
+    DataProducer(const std::string& name, ISvcLocator* pSvcLocator); 
+    StatusCode initialize() override;
+    StatusCode execute() override;
+
+private:
+    bool m_initialized;
+};
+
+class DataConsumer : public Algorithm {
+public:
+    DataConsumer(const std::string& name, ISvcLocator* pSvcLocator); 
+    StatusCode initialize() override;
+    StatusCode execute() override;
 
 private:
     bool m_initialized;
