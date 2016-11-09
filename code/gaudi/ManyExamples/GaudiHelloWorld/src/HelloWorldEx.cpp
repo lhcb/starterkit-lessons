@@ -4,40 +4,36 @@ DECLARE_COMPONENT(HelloWorldEx)
 
 HelloWorldEx::HelloWorldEx(const std::string& name, ISvcLocator* ploc) :
     Algorithm(name, ploc) {
-        m_initialized = false;
+        // Code here runs when the object gets created
     }
 
-StatusCode HelloWorldEx::initialize() {
-  if( m_initialized ) return StatusCode::SUCCESS;
 
-  info() << "initializing hello world..." << endmsg;
-  m_initialized = true;
+StatusCode HelloWorldEx::initialize() {
+  
+  StatusCode sc = Algorithm::initialize(); // must be executed first
+  if(sc.isFailure() ) return sc; // Initialize failed, propogate
+
+  info() << "Hello World: Inilializing..." << endmsg;
   return StatusCode::SUCCESS;
 }
 
 StatusCode HelloWorldEx::execute() {
-  info() << "executing hello world..." << endmsg;
+  info() << "Hello World: Executing..." << endmsg;
   return StatusCode::SUCCESS;
 }
 
 StatusCode HelloWorldEx::finalize() {
-  info() << "finalizing hello world..." << endmsg;
-
-  m_initialized = false;
-  return StatusCode::SUCCESS;
+  info() << "Hello World: Finalizing..." << endmsg;
+  return Algorithm::finalize(); // must be executed last
 }
 
 StatusCode HelloWorldEx::beginRun() {
-  info() << "beginning new run...." << endmsg;
-
-  m_initialized = true;
+  info() << "Hello World: Begining run..." << endmsg;
   return StatusCode::SUCCESS;
 }
 
 StatusCode HelloWorldEx::endRun() {
-  info() << "ending new run...." << endmsg;
-
-  m_initialized = true;
+  info() << "Hello World: Ending run..." << endmsg;
   return StatusCode::SUCCESS;
 }
 

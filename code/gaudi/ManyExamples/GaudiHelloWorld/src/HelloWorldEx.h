@@ -12,7 +12,4 @@ public:
     StatusCode finalize() override;
     StatusCode beginRun() override;
     StatusCode endRun() override;
-
-private:
-    bool m_initialized;
 };
