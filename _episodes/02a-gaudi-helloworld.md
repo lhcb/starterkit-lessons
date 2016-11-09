@@ -44,7 +44,7 @@ gaudi_project(AGaudiProject v1r0
 This first line sets the CMake version, and the second loads the GaudiProject CMake module. Then a new project (`AGaudiProject`) is declared, and Gaudi is set as a dependency. Gaudi automatically looks for directories in the current one for packages. This is done because it makes it simple to grab a few packages, and they are automatically picked up by the project, and if the rest of the project is built and ready elsewhere in the path, the local and remote portions are combined. This makes
 it easy to build a small piece of a project with rebuilding the entire project, or add a piece to a project.
 
-A futher orginizational tool are subprojects; which are simply one more layer of folders. We don't need it for this project, but to add it is as simple as adding one more directory to the path. No extra CMakeLists are needed. It is commonly used to factor out common code between multiple projects, with the subprojects living in seperate git repositories.
+A further organizational tool are subprojects; which are simply one more layer of folders. We don't need it for this project, but to add it is as simple as adding one more directory to the path. No extra CMakeLists are needed. It is commonly used to factor out common code between multiple projects, with the subprojects living in separate git repositories.
 
 An example of this would be writing an Algorithm for DaVinci; DaVinci is the project, Phys is the subproject, and DaVinciUser is the package, and is the only piece you need to clone in git. The code lives in the Phys git repository, which means it could be used by other projects too.
 
@@ -59,7 +59,7 @@ gaudi_add_module(GaudiHelloWorld src/*.cpp
                 LINK_LIBRARIES GaudiKernel)
 ```
 
-This is tagged as a Gaudi subdirectory. The module we are making is added as `GaudiHelloWorld`, and linked to the Gaudi Kernel. More advanced algorithms may need to be linked to more libraries, including some that are discoved by `find_package`.
+This is tagged as a Gaudi subdirectory. The module we are making is added as `GaudiHelloWorld`, and linked to the Gaudi Kernel. More advanced algorithms may need to be linked to more libraries, including some that are discovered by `find_package`.
 
 ### The header file
 
@@ -83,7 +83,18 @@ public:
 };
 ```
 
-This creates a new algrithm, and overrides the 5 user-accessable functions. Many algorithms will not need to override all of these. The constructor is needed primarily to delegate to the Algorithm constructor, and is also needed if you want to use it to initalize member variables.
+This creates a new algorithm, and overrides the 5 user-accessible functions. Many algorithms will not need to override all of these. The constructor is needed primarily to delegate to the Algorithm constructor, and is also needed if you want to use it to initialize member variables.
+
+> ## Note on inheriting constructors
+> 
+> If you don't need to add anything to the constructor, you can inherit the default constructor by replacing the constructor line above with:
+>
+> ```cpp
+using Algorithm::Algorithm;
+```
+>
+> And if all you need a non-default constructor for is to initialize member variables, that can be done in the inline in their definition instead.
+{: .callout}
 
 ### The implementation
 
@@ -116,7 +127,7 @@ StatusCode HelloWorldEx::initialize() {
 }
 ```
 
-This is an optional initialization method. If run, it should first call the base class's initalize method, and return the status code if it was not successful. After that, any initialization code you may need can be added. In this example, we are simply printing a message.
+This is an optional initialization method. If run, it should first call the base class's initialize method, and return the status code if it was not successful. After that, any initialization code you may need can be added. In this example, we are simply printing a message.
 
 ```cpp
 StatusCode HelloWorldEx::execute() {
@@ -184,6 +195,6 @@ $ ./build.x86_64-slc6-gcc49-opt/run gaudirun.py GaudiHelloWorld/options/gaudi_op
 
 > ## Futher reading
 > 
-> There are further examples in the repoository for [Gaudi/GaudiPython/src/Test](https://gitlab.cern.ch/lhcb/Gaudi/tree/future/GaudiPython/src/Test).
+> There are further examples in the repository for [Gaudi/GaudiPython/src/Test](https://gitlab.cern.ch/lhcb/Gaudi/tree/future/GaudiPython/src/Test).
 > 
 {: .callout}
