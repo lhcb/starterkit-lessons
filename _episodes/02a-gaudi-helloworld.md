@@ -1,5 +1,5 @@
 ---
-title: "Hello world the Gaudi framework"
+title: "Hello World in the Gaudi Framework"
 teaching: 20
 exercises: 30
 questions:
