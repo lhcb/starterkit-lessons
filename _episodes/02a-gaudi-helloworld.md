@@ -14,25 +14,54 @@ keypoints:
 
 The following is a minimum example to build an algorithm in Gaudi as a new package.
 
-First, you will need to set up a new package. Here is an example `CMakeLists.txt` for a new LHCb package:
+### Project
+
+First, you will need to set up a new project, with a package in it. This is done to match the way that most Gaudi projects work, with packages inside.  This is the recommended directory structure for this example:
+
+```
+└── AGaudiProject
+    ├── CMakeLists.txt
+    └── GaudiHelloWorld
+        ├── CMakeLists.txt
+        ├── src
+        │   ├── HelloWorld.cpp
+        │   └── HelloWorld.h
+        └── options
+            └── gaudi_opts.py
+```
+
+Here is an example top-level `CMakeLists.txt` for a new LHCb package:
 
 ```cmake
-CMAKE_MINIMUM_REQUIRED(VERSION 2.8.5)
+cmake_minimum_required(VERSION 2.8.5)
 
 find_package(GaudiProject)
 
-gaudi_project(HelloWorld v1r0
-    USE Gaudi v27r1)
-
-gaudi_add_library(GaudiHelloWorld *.cpp
-    LINK_LIBRARIES GaudiKernel
-    NO_PUBLIC_HEADERS)
-    
-include_directories(.)
+gaudi_project(AGaudiProject v1r0
+              USE Gaudi v27r1)
 ```
 
-This first sets the CMake version and loads the GaudiProject CMake module. Then a new project (HelloWorld) is declared, and Gaudi is set as a dependency. 
-The library we are making is added as GaudiHelloWorld, linked to the Gaudi Kernel, and no headers are exported. Finally, the current directory is added to the CMake includes.
+This first line sets the CMake version, and the second loads the GaudiProject CMake module. Then a new project (`AGaudiProject`) is declared, and Gaudi is set as a dependency. Gaudi automatically looks for directories in the current one for packages. This is done because it makes it simple to grab a few packages, and they are automatically picked up by the project, and if the rest of the project is built and ready elsewhere in the path, the local and remote portions are combined. This makes
+it easy to build a small piece of a project with rebuilding the entire project, or add a piece to a project.
+
+A futher orginizational tool are subprojects; which are simply one more layer of folders. We don't need it for this project, but to add it is as simple as adding one more directory to the path. No extra CMakeLists are needed. It is commonly used to factor out common code between multiple projects, with the subprojects living in seperate git repositories.
+
+An example of this would be writing an Algorithm for DaVinci; DaVinci is the project, Phys is the subproject, and DaVinciUser is the package, and is the only piece you need to clone in git. The code lives in the Phys git repository, which means it could be used by other projects too.
+
+The package needs to be created in the `GaudiHelloWorld` subdirectory, and has a CMakeLists.txt that looks like this:
+
+```cpp
+cmake_minimum_required(VERSION 2.8.5)
+
+gaudi_subdir(GaudiHelloWorld)
+
+gaudi_add_module(GaudiHelloWorld src/*.cpp
+                LINK_LIBRARIES GaudiKernel)
+```
+
+This is tagged as a Gaudi subdirectory. The module we are making is added as `GaudiHelloWorld`, and linked to the Gaudi Kernel. More advanced algorithms may need to be linked to more libraries, including some that are discoved by `find_package`.
+
+### The header file
 
 To create an algorithm, the following header file is used:
 
@@ -43,77 +72,98 @@ To create an algorithm, the following header file is used:
 #include "GaudiKernel/Property.h"
 #include "GaudiKernel/MsgStream.h"
 
-class HelloWorld : public Algorithm {
+class HelloWorldEx : public Algorithm {
 public:
-    HelloWorld(const std::string& name, ISvcLocator* pSvcLocator); 
+    HelloWorldEx(const std::string& name, ISvcLocator* pSvcLocator); 
     StatusCode initialize() override;
     StatusCode execute() override;
     StatusCode finalize() override;
     StatusCode beginRun() override;
     StatusCode endRun() override;
-
-private:
-    bool m_initialized;
 };
 ```
+
+This creates a new algrithm, and overrides the 5 user-accessable functions. Many algorithms will not need to override all of these. The constructor is needed primarily to delegate to the Algorithm constructor, and is also needed if you want to use it to initalize member variables.
+
+### The implementation
 
 The implementation is simple:
 
 ```cpp
-#include "HelloWorld.h"
+#include "HelloWorldEx.h"
 
-DECLARE_COMPONENT(HelloWorld)
+DECLARE_COMPONENT(HelloWorldEx)
+```
 
-HelloWorld::HelloWorld(const std::string& name, ISvcLocator* ploc) :
+Here, we include our header file and use the `DECLARE_COMPONENT` macro to register this as a Gaudi factory in Gaudi's Registry singleton.
+
+```cpp
+HelloWorldEx::HelloWorldEx(const std::string& name, ISvcLocator* ploc) :
     Algorithm(name, ploc) {
-        m_initialized = false;
     }
+```
 
-StatusCode HelloWorld::initialize() {
-  if( m_initialized ) return StatusCode::SUCCESS;
+The only requirement for the constructor is to pass on the two arguments to the Algorithm constructor, written here with C++ forwarding syntax. Any code here will be run when the C++ object is created, so can be used for local initialization.
 
-  info() << "initializing...." << endmsg;
-  m_initialized = true;
-  return StatusCode::SUCCESS;
-}
+```cpp
+StatusCode HelloWorldEx::initialize() {
+  
+  StatusCode sc = Algorithm::initialize();
+  if(sc.isFailure() ) return sc;
 
-StatusCode HelloWorld::execute() {
-  info() << "executing...." << endmsg;
-  return StatusCode::SUCCESS;
-}
-
-StatusCode HelloWorld::finalize() {
-  info() << "finalizing...." << endmsg;
-
-  m_initialized = false;
-  return StatusCode::SUCCESS;
-}
-
-StatusCode HelloWorld::beginRun() {
-  info() << "beginning new run...." << endmsg;
-
-  m_initialized = true;
-  return StatusCode::SUCCESS;
-}
-
-StatusCode HelloWorld::endRun() {
-  info() << "ending new run...." << endmsg;
-
-  m_initialized = true;
+  info() << "Hello World: Inilializing..." << endmsg;
   return StatusCode::SUCCESS;
 }
 ```
+
+This is an optional initialization method. If run, it should first call the base class's initalize method, and return the status code if it was not successful. After that, any initialization code you may need can be added. In this example, we are simply printing a message.
+
+```cpp
+StatusCode HelloWorldEx::execute() {
+  info() << "Hello World: Executing..." << endmsg;
+  return StatusCode::SUCCESS;
+}
+```
+
+This is the execute method. It will run once per event. This usually is the most important method, and ideally is the only one present. Most of the other methods break the concept of stateless algorithms, making this hard to move into a multithreaded framework.
+
+```cpp
+StatusCode HelloWorldEx::finalize() {
+  info() << "Hello World: Finalizing..." << endmsg;
+  return Algorithm::finalize(); // must be executed last
+}
+```
+
+This is the final method. If you do implement it, you should end by passing on to the base class finalize method.
+
+```cpp
+StatusCode HelloWorldEx::beginRun() {
+  info() << "Hello World: Begining run..." << endmsg;
+  return StatusCode::SUCCESS;
+}
+
+StatusCode HelloWorldEx::endRun() {
+  info() << "Hello World: Ending run..." << endmsg;
+  return StatusCode::SUCCESS;
+}
+```
+
+If you need to perform operations at the beginning or ending of a run, these methods are available.
+
+
+
+### Performing the run
 
 An example `gaudi_opts.py` options file that uses our algorithm:
 
 ```python
 from Gaudi.Configuration import *
-from Configurables import HelloWorld
+from Configurables import HelloWorldEx
 
 ApplicationMgr().EvtMax = 10
 ApplicationMgr().EvtSel = "NONE"
 
-alg = HelloWorld()
+alg = ExHelloWorld()
 ApplicationMgr().TopAlg.append(alg)
 ```
 
@@ -124,19 +174,12 @@ To run, the following commands can be used:
 ```bash
 $ lb-project-init
 $ make
-$ ./build.x86_64-slc6-gcc49-opt/run gaudirun.py gaudi_opts.py
+$ ./build.x86_64-slc6-gcc49-opt/run gaudirun.py GaudiHelloWorld/options/gaudi_opts.py
 ```
 
 > ## Code
 >
-> The code for these files is here:
-> 
-> * [README.txt](/DevelopKit/code/gaudi/hello_world/README.txt)
-> * [CMakeLists.txt](/DevelopKit/code/gaudi/hello_world/CMakeLists.txt)
-> * [HelloWorld.cpp](/DevelopKit/code/gaudi/hello_world/HelloWorld.cpp)
-> * [HelloWorld.h](/DevelopKit/code/gaudi/hello_world/HelloWorld.h)
-> * [gaudi_opts.py](/DevelopKit/code/gaudi/hello_world/gaudi_opts.py)
-> 
+> The code for these files is in the DevelopKit repository, under `code/gaudi/ManyExamples`.
 {: .callout}
 
 > ## Futher reading
