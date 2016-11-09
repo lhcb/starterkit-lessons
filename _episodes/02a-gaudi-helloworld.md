@@ -44,7 +44,8 @@ gaudi_project(AGaudiProject v1r0
 This first line sets the CMake version, and the second loads the GaudiProject CMake module. Then a new project (`AGaudiProject`) is declared, and Gaudi is set as a dependency. Gaudi automatically looks for directories in the current one for packages. This is done because it makes it simple to grab a few packages, and they are automatically picked up by the project, and if the rest of the project is built and ready elsewhere in the path, the local and remote portions are combined. This makes
 it easy to build a small piece of a project with rebuilding the entire project, or add a piece to a project.
 
-A further organizational tool are subprojects; which are simply one more layer of folders. We don't need it for this project, but to add it is as simple as adding one more directory to the path. No extra CMakeLists are needed. It is commonly used to factor out common code between multiple projects, with the subprojects living in separate git repositories.
+A further organizational tool are project groups; which are simply one more layer of folders. We don't need it for this project, but to add it is as simple as adding one more directory to the path. No extra CMakeLists are needed. It is commonly used to factor out common code between multiple projects, with the subprojects living in separate git repositories.
+For an often out of date but useful description, see this [TWiki page](https://twiki.cern.ch/twiki/bin/view/LHCb/LHCbSoftwareTrainingBasics).
 
 An example of this would be writing an Algorithm for DaVinci; DaVinci is the project, Phys is the subproject, and DaVinciUser is the package, and is the only piece you need to clone in git. The code lives in the Phys git repository, which means it could be used by other projects too.
 
