@@ -1,13 +1,6 @@
 #include "DataTrans.h"
 #include "Event/ThreeVecEx.h"
 
-DECLARE_COMPONENT(DataTrans)
-
-StatusCode DataTrans::execute() {
-  info() << "executing DataTrans..." << endmsg;
-  return StatusCode::SUCCESS;
-}
-
 DECLARE_COMPONENT(DataProducer)
 
 DataProducer::DataProducer(const std::string& name,

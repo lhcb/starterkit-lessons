@@ -5,16 +5,10 @@
 #include "GaudiKernel/MsgStream.h"
 #include "GaudiKernel/DataObject.h"
 
-class DataTrans : public GaudiAlgorithm {
-public:
-    using GaudiAlgorithm::GaudiAlgorithm;
-    StatusCode execute() override;
-};
-
 class DataProducer : public GaudiAlgorithm {
 public:
     DataProducer(const std::string& name,
-                               ISvcLocator* pSvc);
+                       ISvcLocator* pSvc);
     StatusCode initialize() override;
     StatusCode execute() override;
 
