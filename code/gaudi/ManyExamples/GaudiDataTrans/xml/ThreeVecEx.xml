@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE gdd SYSTEM "gdd.dtd">
+
+<gdd>
+    <package name="ThreeVecPackage">
+        <class
+          name="ThreeVecEx"
+          author="tbd"
+          desc="Some description"
+        >
+            <base name="DataObject"/>
+            <attribute name="x" type="double" desc="Value x"/>
+            <attribute name="y" type="double" desc="Value y"/>
+            <attribute name="z" type="double" desc="Value z"/>
+        </class>
+    </package>
+</gdd>

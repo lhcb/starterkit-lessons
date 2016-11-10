@@ -1,5 +1,5 @@
 #include "DataTrans.h"
-#include "GaudiExamples/Counter.h"
+#include "Event/ThreeVecEx.h"
 
 DECLARE_COMPONENT(DataTrans)
 
@@ -20,9 +20,12 @@ StatusCode DataProducer::initialize() {
 }
 
 StatusCode DataProducer::execute() {
-    auto counter = new Gaudi::Examples::Counter();
-    counter->set(f_counter);
-    put(counter, "/Event/Unknown");
+    auto vec = new LHCb::ThreeVecEx();
+    vec->setX(f_counter);
+    vec->setY(f_counter+1);
+    vec->setZ(f_counter+2);
+
+    put(vec, "/Event/UnknownVec");
     info() << "executing DataProducer:" << f_counter << " ..." << endmsg;
     f_counter++;
     return StatusCode::SUCCESS;
@@ -32,9 +35,8 @@ StatusCode DataProducer::execute() {
 DECLARE_COMPONENT(DataConsumer)
 
 StatusCode DataConsumer::execute() {
-    Gaudi::Examples::Counter* counter = get<Gaudi::Examples::Counter>("/Event/Unknown");
-    info() << "executing DataConsumer ("<< counter->value() <<")..." << endmsg;
-    counter->increment();
+    auto vec = get<LHCb::ThreeVecEx>("/Event/UnknownVec");
+    info() << "executing DataConsumer: ("<< *vec <<")..." << endmsg;
     return StatusCode::SUCCESS;
 }
 
