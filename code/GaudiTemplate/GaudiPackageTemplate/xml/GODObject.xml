@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE gdd SYSTEM "gdd.dtd">
 
+<!-- To use GOD, uncomment the necessary lines in the CMakeLists.txt file -->
 <gdd>
     <package name="GODTemplatePackage">
         <class
-          name="GOD"
+          name="GODObject"
           author="tbd"
           desc="Some description"
         >
