@@ -13,8 +13,8 @@ alg2 = DataConsumer()
 alg1p = DataProducerProp()
 alg2p = DataConsumerProp()
 
-alg1.StartingValue = 12
-alg1p.StartingValue = 17
+alg1.StartingValue = 2
+alg1p.StartingValue = 12
 
 ApplicationMgr().TopAlg.append(alg1)
 ApplicationMgr().TopAlg.append(alg2)
