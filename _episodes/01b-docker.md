@@ -20,6 +20,26 @@ The following setup is based on the Hackathon setup [here](https://gitlab.cern.c
 If you cannot get Docker or CVMFS running, you can use
 the CernVM-based approach described later in the page.
 
+> ## Mounting cvmfs manually
+>
+> If you want to mount CVMFS manually, such as for accessing it for other tasks, this is how you can do that:
+>
+> Set your proxy, for example: echo "CVMFS_HTTP_PROXY=DIRECT" | sudo tee -a /etc/cvmfs/default.local
+>
+> Mount a CernVM-FS repository using the following steps:
+> 
+> ~~~
+sudo mkdir /cvmfs/lhcb.cern.ch
+sudo mount -t cvmfs lhcb.cern.ch /cvmfs/lhcb.cern.ch
+
+sudo mkdir /cvmfs/lhcbdev.cern.ch
+sudo mount -t cvmfs lhcb.cern.ch /cvmfs/lhcbdev.cern.ch
+~~~
+> {: .input}
+> 
+> If you are on Mac, you will also need to add the /cvmfs directory to the shared directory list in the Docker applet.
+{: .discussion}
+
 ## Quick start
 To get started, get the tools with:
 
@@ -52,6 +72,16 @@ mapped to the directory `hackathon`.
 > The force-cvmfs will mount /cvmfs on your system, and is not needed if you already have it mounted.
 >
 {: .callout}
+
+If you start out as root, you can switch to your user with:
+
+~~~
+$ useradd username
+$ su username
+~~~
+{: .input}
+
+You should see the appropriate logon information when you change to the new user. Your home directory was already created and linked to a docker home directory if you used `--home`.
 
 Building the whole stack the first time may take a lot of time, so you can
 optionally get a pre-built image with:
