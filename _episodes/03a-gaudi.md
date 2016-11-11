@@ -15,21 +15,71 @@ keypoints:
 Gaudi is being improved with the following goals in mind:
 
 * Improve scaling by making the interface simpler and more uniform. This allows simpler code, thereby allowing more complex code to be written.
-* Improve memory usage, to be cache friendly and avoid pointers to pointers. Use C++11 move
-* Thread-safe code, with no state or local threading
+* Improve memory usage, to be cache friendly and avoid pointers to pointers. Use C++11 move where possible.
+* Thread-safe code, with no state or local threading. This allows Gaudi to be multithreaded in the future.
 
 In order to reach those goals, the following choices should be made when designing Gaudi algorithms:
 
-* Proper `const` usage: Since C++11, `const` and `mutable` are defined in terms of data races (see [this video](https://channel9.msdn.com/posts/C-and-Beyond-2012-Herb-Sutter-You-dont-know-blank-and-blank))
-* No global state: impossible to multithread
-* Tools: should be private or public
-* Ban `beginEvent`/`endEvent`, since there might be multiple events
-* No explicit `new`/`delete` usage
-* Remove `get/put<MyData>("")`
+* Proper `const` usage: Since C++11, `const` and `mutable` are defined in terms of data races (see [this video](https://channel9.msdn.com/posts/C-and-Beyond-2012-Herb-Sutter-You-dont-know-blank-and-blank)).
+* No global state; otherwise it would be impossible to multithread.
+* Tools: should be private or public.
+* Ban `beginEvent`/`endEvent`, since there might be multiple events.
+* No explicit `new`/`delete` usage (C++11 goal).
+* Remove `get/put<MyData>("")` for safer constructs.
+
+## Gaudi properties
+
+One of the standout features of new Gaudi is in the new properties; they can be directly defined in the class definition instead of the implementation and used everywhere in the class, instead of requiring special calls in the constructor and custom management of the data. So the following now creates a property:
+
+```cpp
+Gaudi::Property<int> m_some_int{this, "SomeInt", 0, "Description of some int"};
+```
+
+This defines a member variable of type `Gaudi::Property<int>`, and calls the constructor on initialization with several parameters. The first is `this`, a pointer to the current class. The second is the property name. The third is the default value. You can also optionally give a description.
+
+> ## Notes on the new syntax
+> 
+> The usage of `this` is a common feature of the new interfaces, giving Gaudi components access to the algorithms that contain them. The location of `this` is not consistent across the components, however, as you will see with `AnyDataHandle`.
+> 
+{: .callout}
+
+
+## AnyDataHandle
+
+The requirement to inherit from `DataObject` has been lifted with `AnyDataHandle`. This provides a wrapper than can be put into the TES, and can be retrieved from it as well. Assuming you have some object called `Anything`, you can wrap it in `AnyDataHandleWrapper` and then use the traditional get/put syntax:
+
+```cpp
+auto vec = new AnyDataWrapper<Anything>(Anything{1,2,3,4});
+put(vec, "/Event/Anything");
+```
+
+```cpp
+auto base = getIfExists<AnyDataWrapperBase>("/Event/Anything");
+const auto i = dynamic_cast<const AnyDataWrapper<Anything>*>(base);
+const Anything anything = i->getData();
+```
+
+This, however, is significantly convoluted. A much cleaner way to add an `AnyDataHandle` is to construct it as a member of your class, just like a `Gaudi::Property`, and then use the `.get` and `.put` methods.
+
+```cpp
+AnyDataHandle<Anything> m_anything{"/Event/Anything", Gaudi::DataHandle::Writer, this};
+m_anything.put(Anything{1,2,3,4});
+```
+
+```cpp
+AnyDataHandle<Anything> m_anything{"/Event/Anything", Gaudi::DataHandle::Reader, this};
+const Anything* p_anything = m_anything.get();
+```
+
+
+> ## Notes on the new syntax
+>
+> Adding AnyDataHandle as a member variable breaks compatibility with the `using` statement, so you will need to explicitly define the constructor.
+{: .callout}
 
 ## Gaudi::Functional
 
-Rather than provide a series of specialised tools, the new `Gaudi::Functional` provides a general building block that is well defined and multithreading friendly. This standardizes the common patter of getting data our of the TES, working on it, and putting it back in (in a different location). This reduces the amount of code, makes it more uniform, and encourages 'best practice' procedures in coding in the event store. The 'annoying details', or scaffolding is left to the
+Rather than provide a series of specialised tools, the new `Gaudi::`Functional` provides a general building block that is well defined and multithreading friendly. This standardizes the common pattern of getting data our of the TES, working on it, and putting it back in (in a different location). This reduces the amount of code, makes it more uniform, and encourages 'best practice' procedures in coding in the event store. The 'annoying details', or scaffolding, is left to the
 framework.
 
 The functionals are named by the data they work on (with examples):
@@ -51,6 +101,7 @@ The functionals are named by the data they work on (with examples):
     - `Hlt/HltDAQ`: `HltRawBankDecoderBase`
 * Converting a scalar transformation to a vector one: `ScalarTransformer`
     - `Calo/CaloReco`: `CaloElectronAlg`, `CaloSinglePhotonAlg`
+
 
 ### Consumer
 
@@ -94,20 +145,15 @@ The tuple that is produced can be replaced with a single type if only one output
 ## Transformers
 
 
-## AnyDataHandle
 
 
 
-# Conversion
+# Conversion from the old framework to the new
 
-Try to convert everything to a `Gaudi::Functional` algorithm. Split into smaller basic algorithms and build a `SuperAlgorithm` from the smaller ones if needed.
-
-At least try to migrate to data handles + tool handles.
-
-Make sure the event loop code is `const`; do not cache event dependent data. Interface code, especially for tools, should be `const`.
-
-Try to migrate away from `beginEvent`, `endEvent` incidents.
-
-Please add as many tests as possible!
+* Try to convert everything to a `Gaudi::Functional` algorithm. Split into smaller basic algorithms and build a `SuperAlgorithm` from the smaller ones if needed.
+* At least try to migrate to data handles + tool handles.
+* Make sure the event loop code is `const`; do not cache event dependent data. Interface code, especially for tools, should be `const`.
+* Try to migrate away from `beginEvent`, `endEvent` incidents.
+* Please add as many tests as possible!
 
 

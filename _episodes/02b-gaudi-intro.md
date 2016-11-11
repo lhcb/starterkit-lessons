@@ -106,7 +106,7 @@ $ svn export https://github.com/henryiii/DevelopKit/trunk/code/GaudiTemplate MyG
 >
 > This will give you a directory called MyGaudiProject with the basics ready. Edit the CMakeLists and directory name inside the project, then you will just need to work on the files in `src` and `options`.
 >
-> You will want to add something to the TES. 
+> To facilitate building, a `build_and_run.sh` script is included in the project. This will automatically run the commands needed to build the project and run the options file.
 >
 > > ## Solution
 > >  
