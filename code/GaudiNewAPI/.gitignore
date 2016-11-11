@@ -5,3 +5,4 @@
 .*.swp
 /Makefile
 /toolchain.cmake
+/run

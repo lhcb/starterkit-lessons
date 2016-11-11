@@ -7,4 +7,4 @@ lb-project-init
 make
 ./build.x86_64-slc6-gcc49-opt/run gaudirun.py GaudiDataTrans/options/gaudi_opts.py
 
-
+Or, for the truly lazy, just run the build_and_run.sh shell script.

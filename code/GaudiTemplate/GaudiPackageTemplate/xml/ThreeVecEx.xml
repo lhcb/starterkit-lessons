@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE gdd SYSTEM "gdd.dtd">
+
+<gdd>
+    <package name="GODTemplatePackage">
+        <class
+          name="GOD"
+          author="tbd"
+          desc="Some description"
+        >
+            <base name="DataObject"/>
+            <attribute name="example" type="int" desc="Value example"/>
+        </class>
+    </package>
+</gdd>
