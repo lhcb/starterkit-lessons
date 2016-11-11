@@ -37,7 +37,6 @@ $ echo "CVMFS_HTTP_PROXY=DIRECT" | sudo tee -a /etc/cvmfs/default.local
 > ~~~
 $ sudo mkdir /cvmfs/lhcb.cern.ch
 $ sudo mount -t cvmfs lhcb.cern.ch /cvmfs/lhcb.cern.ch
-
 $ sudo mkdir /cvmfs/lhcbdev.cern.ch
 $ sudo mount -t cvmfs lhcb.cern.ch /cvmfs/lhcbdev.cern.ch
 ~~~
