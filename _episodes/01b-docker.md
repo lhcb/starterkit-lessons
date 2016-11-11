@@ -15,7 +15,8 @@ The following setup is based on the Hackathon setup [here](https://gitlab.cern.c
 
 ## Prerequisites
 * Docker: you should be able to run Docker containers. On a Mac you should have the latest version of Docker, which finally has built in virtualization.
-* CVMFS: you should have access to /cvmfs/lhcb.cern.ch. On a Mac you will need [OSXFuse](http://osxfuse.github.io/) and [CernVM-FS](http://cernvm.cern.ch/portal/filesystem/cvmfs-2.3) (possibly a pre-release of 2.3.3 if you are on Sierra).
+* Fuse: You should have a very recent version of Fuse (or OSXFuse on MacOS)
+* CVMFS: you should have access to /cvmfs/lhcb.cern.ch. On a Mac you will need [OSXFuse](http://osxfuse.github.io/) and [CernVM-FS](http://cernvm.cern.ch/portal/filesystem/cvmfs-2.3) (possibly a pre-release of 2.3.3 if you are on MacOS Sierra).
 
 If you cannot get Docker or CVMFS running, you can use
 the CernVM-based approach described later in the page.
@@ -73,15 +74,18 @@ mapped to the directory `hackathon`.
 >
 {: .callout}
 
-If you start out as root, you can switch to your user with:
-
-~~~
+> ## Logged in as root user?
+>
+> If you start out as root, you should switch to your user with:
+> 
+> ~~~
 $ useradd username
 $ su username
 ~~~
-{: .input}
-
-You should see the appropriate logon information when you change to the new user. Your home directory was already created and linked to a docker home directory if you used `--home`.
+> {: .input}
+> 
+> You should see the appropriate log-on information when you change to the new user. Your home directory was already created and linked to a docker home directory if you used `--home`.
+{: .discussion}
 
 Building the whole stack the first time may take a lot of time, so you can
 optionally get a pre-built image with:
