@@ -165,7 +165,7 @@ t1.join(); // Finish the function and return.
 
 ## Future
 
-You often want to start a function, go do something else, and then get the result of that function. Futures and promises allow you to do that. A promise is a value that you promise to give at some point, but does not necessarily have a value right now. A future is an object associated with that promise that lets you wait for the result and retrieve it when it is ready. Here is some pseudocode (see similar example [here](/DevelopKit/code/perf/future.cpp)):
+You often want to start a function, go do something else, and then get the result of that function. Futures and promises allow you to do that. A promise is a value that you promise to give at some point, but does not necessarily have a value right now. A future is an object associated with that promise that lets you wait for the result and retrieve it when it is ready. Here is some pseudocode (see similar example [here](/DevelopKit/code/Performance/future.cpp)):
 
 ```cpp
 void some_slow_function(std::promise<int> p) {
@@ -184,7 +184,7 @@ t.join();
 
 ## Async
 
-This usage of futures can be made much easier in some cases using `std::async`. Notice that the last example had to have a special `some_slow_function` that worked with a promise. Often you will just want to wrap an existing function that slow, and returns a value. The previous example then [becomes](/DevelopKit/code/perf/async.cpp):
+This usage of futures can be made much easier in some cases using `std::async`. Notice that the last example had to have a special `some_slow_function` that worked with a promise. Often you will just want to wrap an existing function that slow, and returns a value. The previous example then [becomes](/DevelopKit/code/Performance/async.cpp):
 
 ```cpp
 int some_slow_function(int time) {
