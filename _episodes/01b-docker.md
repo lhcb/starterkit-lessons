@@ -25,20 +25,25 @@ the CernVM-based approach described later in the page.
 >
 > If you want to mount CVMFS manually, such as for accessing it for other tasks, this is how you can do that:
 >
-> Set your proxy, for example: echo "CVMFS_HTTP_PROXY=DIRECT" | sudo tee -a /etc/cvmfs/default.local
+> Set your proxy, for example: 
+>
+> ~~~
+$ echo "CVMFS_HTTP_PROXY=DIRECT" | sudo tee -a /etc/cvmfs/default.local
+~~~
+> {: .input}
 >
 > Mount a CernVM-FS repository using the following steps:
 > 
 > ~~~
-sudo mkdir /cvmfs/lhcb.cern.ch
-sudo mount -t cvmfs lhcb.cern.ch /cvmfs/lhcb.cern.ch
+$ sudo mkdir /cvmfs/lhcb.cern.ch
+$ sudo mount -t cvmfs lhcb.cern.ch /cvmfs/lhcb.cern.ch
 
-sudo mkdir /cvmfs/lhcbdev.cern.ch
-sudo mount -t cvmfs lhcb.cern.ch /cvmfs/lhcbdev.cern.ch
+$ sudo mkdir /cvmfs/lhcbdev.cern.ch
+$ sudo mount -t cvmfs lhcb.cern.ch /cvmfs/lhcbdev.cern.ch
 ~~~
 > {: .input}
 > 
-> If you are on Mac, you will also need to add the /cvmfs directory to the shared directory list in the Docker applet.
+> If you are on Mac, you will also need to add the `/cvmfs` directory to the shared directory list in the Docker applet.
 {: .discussion}
 
 ## Quick start
@@ -58,7 +63,7 @@ Then from the `hackathon` directory just created invoke:
 
 which will pull the latest image of the SLC6 Docker image we use to build our
 software and start an interactive shell in the special directory `/workspace`,
-mapped to the directory `hackathon`.
+mapped to the local `hackathon` directory.
 
 > ## Note:
 >
