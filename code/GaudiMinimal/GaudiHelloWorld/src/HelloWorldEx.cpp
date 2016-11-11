@@ -1,5 +1,7 @@
 #include "HelloWorldEx.h"
 
+#include "GaudiKernel/MsgStream.h"
+
 DECLARE_COMPONENT(HelloWorldEx)
 
 HelloWorldEx::HelloWorldEx(const std::string& name, ISvcLocator* ploc) :

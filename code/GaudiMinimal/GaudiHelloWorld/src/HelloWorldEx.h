@@ -1,8 +1,6 @@
 #pragma once
 
 #include "GaudiKernel/Algorithm.h"
-#include "GaudiKernel/Property.h"
-#include "GaudiKernel/MsgStream.h"
 
 /// For simplicity, this inherits from Algorithm. Most will inherit from GaudiAlgorithm instead
 class HelloWorldEx : public Algorithm {
