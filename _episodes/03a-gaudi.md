@@ -77,14 +77,38 @@ const Anything* p_anything = m_anything.get();
 > Adding AnyDataHandle as a member variable breaks compatibility with the `using` statement, so you will need to explicitly define the constructor.
 {: .callout}
 
+This works by replacing inheritance with *type erasure*.
+
 ## Gaudi::Functional
 
-Rather than provide a series of specialised tools, the new `Gaudi::`Functional` provides a general building block that is well defined and multithreading friendly. This standardizes the common pattern of getting data our of the TES, working on it, and putting it back in (in a different location). This reduces the amount of code, makes it more uniform, and encourages 'best practice' procedures in coding in the event store. The 'annoying details', or scaffolding, is left to the
+Rather than provide a series of specialised tools, the new `Gaudi::`Functional` provides a general building block that is well defined and multithreading friendly. This standardizes the common pattern of getting data our of the TES, working on it, and putting it back in (in a different location). This reduces the amount of code, makes it more uniform, and encourages 'best practice' procedures in coding in the event store. The "annoying details", or scaffolding, of the design is left to the
 framework.
 
-The functionals are named by the data they work on (with examples):
+A functional, in general, looks like this example of a transform algorithm to sum two bits of data:
 
-* One input, no output: Consumer
+```cpp
+class MySum
+ : public TransformAlgorithm<OutputData(const Input1&, const Input2&)> {
+
+     MySum(const std::string& name, ISvcLocator* pSvc)
+      : TransformAlgorithm(
+           name,
+           pSvc, {
+              KeyValue("Input1Loc", "Data1"),
+              KeyValue("Input2Loc", "Data2") },
+           KeyValue("OutputLoc", "Output/Data")) { }
+
+    OutputData operator()(const Input1& in1, const Input2& in2) const override {
+        return in1 + in2;
+    }
+```
+
+This example highlights several features of the new design. This starts by inheriting from a templated class, where the template defines the input and output expected. Different functionals may have no input and/or output, and might have multiple inputs or outputs. The constructor takes KeyValue objects that define the data inputs and outputs, with multiple data elements input as a initializer list. The `operator()` method is overridden, and is `const` to ensure thread safety
+and proper design. This takes the inputs and returns an output.
+
+The functionals available in the framework are named by the data they work on (with examples):
+
+* One input, no output: `Consumer`
     - `Rec/RecAlgs`: `EventTimeMonitor`, `ProcStatusAbortMoni`, `TimingTuple`
 * No input, one or more output: `Producer`
 * True/False only as output: `FilterPredicate`
@@ -102,6 +126,16 @@ The functionals are named by the data they work on (with examples):
 * Converting a scalar transformation to a vector one: `ScalarTransformer`
     - `Calo/CaloReco`: `CaloElectronAlg`, `CaloSinglePhotonAlg`
 
+> A note on stateless algorithms
+> 
+> A stateless algorithm (one that does not store state between events) provides several important benefits:
+>
+> * Thread safety
+> * Better scalability
+> * Leaner code
+>
+> The downside is that a lot of code needs to be migrated.
+{: .callout}
 
 ### Consumer
 
@@ -141,6 +175,8 @@ class Producer<std::tuple<Out...>(), Traits_> {
 The tuple that is produced can be replaced with a single type if only one output is produced. The pass is done by value, due to move improvements in modern C++. 
 
 ## FilterPredicate
+
+
 
 ## Transformers
 
