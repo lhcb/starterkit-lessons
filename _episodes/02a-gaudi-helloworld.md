@@ -85,8 +85,6 @@ public:
     StatusCode initialize() override;
     StatusCode execute() override;
     StatusCode finalize() override;
-    StatusCode beginRun() override;
-    StatusCode endRun() override;
 };
 ```
 
@@ -156,21 +154,6 @@ StatusCode HelloWorldEx::finalize() {
 
 This is the final method. If you do implement it, you should end by passing on to the base class finalize method.
 
-```cpp
-StatusCode HelloWorldEx::beginRun() {
-  info() << "Hello World: Begining run..." << endmsg;
-  return StatusCode::SUCCESS;
-}
-
-StatusCode HelloWorldEx::endRun() {
-  info() << "Hello World: Ending run..." << endmsg;
-  return StatusCode::SUCCESS;
-}
-```
-
-If you need to perform operations at the beginning or ending of a run, these methods are available.
-
-
 
 ### Performing the run
 
@@ -222,7 +205,6 @@ EventLoopMgr      WARNING No events will be processed from external input.
 HistogramPersis...WARNING Histograms saving not required.
 ApplicationMgr       INFO Application Manager Initialized successfully
 ApplicationMgr       INFO Application Manager Started successfully
-HelloWorldEx         INFO Hello World: Begining run...
 HelloWorldEx         INFO Hello World: Executing...
 HelloWorldEx         INFO Hello World: Executing...
 HelloWorldEx         INFO Hello World: Executing...
@@ -233,7 +215,6 @@ HelloWorldEx         INFO Hello World: Executing...
 HelloWorldEx         INFO Hello World: Executing...
 HelloWorldEx         INFO Hello World: Executing...
 HelloWorldEx         INFO Hello World: Executing...
-HelloWorldEx         INFO Hello World: Ending run...
 ApplicationMgr       INFO Application Manager Stopped successfully
 HelloWorldEx         INFO Hello World: Finalizing...
 EventLoopMgr         INFO Histograms converted successfully according to request.
