@@ -119,7 +119,7 @@ $ svn export https://github.com/henryiii/DevelopKit/trunk/code/GaudiTemplate MyG
 
 > ## Futher reading
 > 
-> There are further examples in the repoository for [Gaudi/GaudiPython/src/Test](https://gitlab.cern.ch/lhcb/Gaudi/tree/future/GaudiPython/src/Test).
+> There are further examples in the Gaudi repository: [Gaudi/GaudiExamples/src](https://gitlab.cern.ch/gaudi/Gaudi/tree/master/GaudiExamples/src).
 > 
 > * [Gaudi workshop 2016](https://indico.cern.ch/event/556551/)
 > 
