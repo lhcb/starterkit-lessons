@@ -227,6 +227,6 @@ You should be able to see your algorithm running, and the output at the various 
 
 > ## Futher reading
 > 
-> There are further examples in the Gaudi repository: [Gaudi/GaudiPython/src/Test](https://gitlab.cern.ch/lhcb/Gaudi/tree/future/GaudiPython/src/Test).
+> There are further examples in the Gaudi repository: [Gaudi/GaudiExamples/src](https://gitlab.cern.ch/gaudi/Gaudi/tree/master/GaudiExamples/src).
 > 
 {: .callout}
