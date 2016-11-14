@@ -65,7 +65,7 @@ cmake_minimum_required(VERSION 2.8.5)
 gaudi_subdir(GaudiHelloWorld)
 
 gaudi_add_module(GaudiHelloWorld src/*.cpp
-                LINK_LIBRARIES GaudiKernel)
+                LINK_LIBRARIES GaudiAlg)
 ```
 
 This is tagged as a Gaudi subdirectory. The module we are making is added as `GaudiHelloWorld`, and linked to the Gaudi Kernel. More advanced algorithms may need to be linked to more libraries, including some that are discovered by `find_package`.
@@ -77,9 +77,9 @@ To create an algorithm, the following header file is used:
 ```cpp
 #pragma once
 
-#include "GaudiKernel/Algorithm.h"
+#include "GaudiAlg/GaudiAlgorithm.h"
 
-class HelloWorldEx : public Algorithm {
+class HelloWorldEx : public GaudiAlgorithm {
 public:
     HelloWorldEx(const std::string& name, ISvcLocator* pSvcLocator); 
     StatusCode initialize() override;
@@ -95,7 +95,7 @@ This creates a new algorithm, and overrides all five of the user-accessible func
 > If you don't need to add anything to the constructor, you can inherit the default constructor by replacing the constructor line above with:
 >
 > ```cpp
-using Algorithm::Algorithm;
+using GaudiAlgorithm::GaudiAlgorithm;
 ```
 >
 > And if all you need a non-default constructor for is to initialize member variables, that can be done in the inline in their definition instead.
