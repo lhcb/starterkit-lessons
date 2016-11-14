@@ -107,20 +107,19 @@ when you start a terminal to enter your passphrase once per session. Your comput
 
 Once you verify you have an ssh key pair, you need to go to the gitlab website, go to your profile (possibly hidden behind the hamburger button), then edit, then SSH Keys [(or just go here)](https://gitlab.cern.ch/profile/keys), and paste the contents of the `id_rsa.pub` file into the key edit box. You can give it a title that allows you to identify the computer or VM associated with the key.
 
-## Setting up the packages
+## Setting up the projects
 
-To get a complete package for development, the following command will work:
+To get a complete project for development, the following command will work:
 
 ```bash
-    git clone ssh://git@gitlab.cern.ch:7999/lhcb/PackageName.git
+    git clone ssh://git@gitlab.cern.ch:7999/lhcb/Project.git
 ```
 
-where `PackageName` is the name of the package. The location of this package on your computer is important! It should have the following structure:
+where `Project` is the name of the project. The location of this project on your computer is important! It should have the following structure:
 
 * Main LHCb folder (any name, like `$HOME/lhcbdev`)
-  * `PackageName`
-    * `PACKAGENAME_versionname` (git folder here)
-  * `AnotherPackageName`
+  * `Project` (git folder here)
+  * `AnotherProject`
 
 The package structure is this way to allow the package search system to find names and versions. The main folder should be listed in the `$CMTPROJECTPATH` environment variable.
 
@@ -131,16 +130,16 @@ An complete example for the Lbcom package would look like this, using a destinat
 ```bash
 mkdir ~/lhcbdev
 cd ~/lhcbdev
-git clone ssh://git@gitlab.cern.ch:7999/lhcb/LHCb.git LHCB/LHCB_upgradeTracking
-cd LHCB/LHCB_upgradeTracking
+git clone ssh://git@gitlab.cern.ch:7999/lhcb/LHCb.git
+cd LHCb
 git checkout -b upgradeTracking
 ```
 
 Inside the project, the CMakeLists.txt file may reference other projects, like this:
 
 ```
-gaudi_project(Package LocalVersion
-              USE ReferredToPackage RemoteVersion
+gaudi_project(Project LocalVersion
+              USE ReferredToProject RemoteVersion
               DATA OtherStuff)
 ```
 

@@ -65,7 +65,7 @@ cmake_minimum_required(VERSION 2.8.5)
 gaudi_subdir(GaudiHelloWorld)
 
 gaudi_add_module(GaudiHelloWorld src/*.cpp
-                LINK_LIBRARIES GaudiKernel)
+                LINK_LIBRARIES GaudiAlg)
 ```
 
 This is tagged as a Gaudi subdirectory. The module we are making is added as `GaudiHelloWorld`, and linked to the Gaudi Kernel. More advanced algorithms may need to be linked to more libraries, including some that are discovered by `find_package`.
@@ -77,16 +77,14 @@ To create an algorithm, the following header file is used:
 ```cpp
 #pragma once
 
-#include "GaudiKernel/Algorithm.h"
+#include "GaudiAlg/GaudiAlgorithm.h"
 
-class HelloWorldEx : public Algorithm {
+class HelloWorldEx : public GaudiAlgorithm {
 public:
     HelloWorldEx(const std::string& name, ISvcLocator* pSvcLocator); 
     StatusCode initialize() override;
     StatusCode execute() override;
     StatusCode finalize() override;
-    StatusCode beginRun() override;
-    StatusCode endRun() override;
 };
 ```
 
@@ -97,7 +95,7 @@ This creates a new algorithm, and overrides all five of the user-accessible func
 > If you don't need to add anything to the constructor, you can inherit the default constructor by replacing the constructor line above with:
 >
 > ```cpp
-using Algorithm::Algorithm;
+using GaudiAlgorithm::GaudiAlgorithm;
 ```
 >
 > And if all you need a non-default constructor for is to initialize member variables, that can be done in the inline in their definition instead.
@@ -156,21 +154,6 @@ StatusCode HelloWorldEx::finalize() {
 
 This is the final method. If you do implement it, you should end by passing on to the base class finalize method.
 
-```cpp
-StatusCode HelloWorldEx::beginRun() {
-  info() << "Hello World: Begining run..." << endmsg;
-  return StatusCode::SUCCESS;
-}
-
-StatusCode HelloWorldEx::endRun() {
-  info() << "Hello World: Ending run..." << endmsg;
-  return StatusCode::SUCCESS;
-}
-```
-
-If you need to perform operations at the beginning or ending of a run, these methods are available.
-
-
 
 ### Performing the run
 
@@ -222,7 +205,6 @@ EventLoopMgr      WARNING No events will be processed from external input.
 HistogramPersis...WARNING Histograms saving not required.
 ApplicationMgr       INFO Application Manager Initialized successfully
 ApplicationMgr       INFO Application Manager Started successfully
-HelloWorldEx         INFO Hello World: Begining run...
 HelloWorldEx         INFO Hello World: Executing...
 HelloWorldEx         INFO Hello World: Executing...
 HelloWorldEx         INFO Hello World: Executing...
@@ -233,7 +215,6 @@ HelloWorldEx         INFO Hello World: Executing...
 HelloWorldEx         INFO Hello World: Executing...
 HelloWorldEx         INFO Hello World: Executing...
 HelloWorldEx         INFO Hello World: Executing...
-HelloWorldEx         INFO Hello World: Ending run...
 ApplicationMgr       INFO Application Manager Stopped successfully
 HelloWorldEx         INFO Hello World: Finalizing...
 EventLoopMgr         INFO Histograms converted successfully according to request.
@@ -246,6 +227,6 @@ You should be able to see your algorithm running, and the output at the various 
 
 > ## Futher reading
 > 
-> There are further examples in the Gaudi repository: [Gaudi/GaudiPython/src/Test](https://gitlab.cern.ch/lhcb/Gaudi/tree/future/GaudiPython/src/Test).
+> There are further examples in the Gaudi repository: [Gaudi/GaudiExamples/src](https://gitlab.cern.ch/gaudi/Gaudi/tree/master/GaudiExamples/src).
 > 
 {: .callout}
