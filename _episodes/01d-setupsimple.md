@@ -86,7 +86,7 @@ If you want to setup a satellite project (local project) for small changes, you'
 
 ```bash
 lb-dev Project vXrY
-cd Project_vXrY
+cd ProjectDev_vXrY
 ```
 
 For example, the project might be `DaVinci`, and the version might be `v40r3p1`. Then, you'll been to tell git where it can checkout subprojects from:
