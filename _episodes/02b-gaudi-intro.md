@@ -100,7 +100,7 @@ auto data = get<DataObject>("/Event/SomeData");
 > You can get a blank template to start this project with:
 > 
 > ~~~
-$ svn export https://github.com/henryiii/DevelopKit/trunk/code/GaudiTemplate MyGaudiProject
+$ svn export https://github.com/lhcb/DevelopKit/trunk/code/GaudiTemplate MyGaudiProject
 ~~~
 > {: .input}
 >

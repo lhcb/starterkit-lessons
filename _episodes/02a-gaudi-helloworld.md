@@ -15,7 +15,7 @@ keypoints:
 The following is a minimum example to build an algorithm in Gaudi as a new package. This code is part of this repository, in `/code/GaudiMinimal`. If you don't have this repository cloned aleady, the following line will just get the project you need for this lesson:
 
 ~~~
-$ svn export https://github.com/henryiii/DevelopKit/trunk/code/GaudiMinimal GaudiMinimal
+$ svn export https://github.com/lhcb/DevelopKit/trunk/code/GaudiMinimal GaudiMinimal
 ~~~
 {: .input}
 
