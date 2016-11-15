@@ -12,5 +12,5 @@ gaudi_subdir(GaudiPackageTemplate)
 # You might need gaudi_add_library instead
 gaudi_add_module(GaudiPackageTemplate src/*.cpp
 # Any dependencies for linking
-                LINK_LIBRARIES GaudiKernel)
+    LINK_LIBRARIES GaudiAlg)
 
