@@ -13,7 +13,7 @@ keypoints:
 
 # Setting up a CernVM
 
-To get a virtual machine setup, follow the instructions at the [CernVM website](cernvm-online.cern.ch). Since there are quite a few choices listed, here is a recommended method for setting up a CernVM.
+To get a virtual machine setup, follow the instructions at the [CernVM website](https://cernvm-online.cern.ch). Since there are quite a few choices listed, here is a recommended method for setting up a CernVM.
 
 In order to use a virtual machine, you will need to create a context. Select LHCb as your main group, and make sure you pay attention to your user settings; that's how you will log in later. Under CernVM preferences, you'll want to look at the CernVM Edition variable, and set it to desktop if you want a UI.
 
