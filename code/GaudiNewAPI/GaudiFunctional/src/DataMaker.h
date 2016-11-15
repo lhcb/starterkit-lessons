@@ -2,17 +2,19 @@
 
 #include <GaudiKernel/AnyDataHandle.h>
 #include <GaudiAlg/Producer.h>
+#include <tuple>
 
 #include "ThreeVecEx.h"
 
-typedef ThreeVecEx ThreeVecType;
+using namespace Gaudi;
 
-class DataMaker : public Functional::Producer<ThreeVecType(),
-                         Functional::Traits::useDefaults> {
+typedef AnyDataHandle<ThreeVecEx> ThreeVecType;
+
+class DataMaker : public Functional::Producer<ThreeVecType()> {
 public:
     DataMaker(const std::string& name, ISvcLocator* svcLoc)
              : Functional::Producer( name, svcLoc,
-               KeyValue("InputData", {"MyVec"} ) :
+               KeyValue("OutputLocation", {"MyVec"} ) :
 
     ThreeVecType execute() const override;
 };

@@ -8,6 +8,7 @@ echo " ln -s build*/run run"
 echo
 
 export CMTPROJECTPATH=/cvmfs/lhcbdev.cern.ch/nightlies/lhcb-future/Today:$CMTPROJECTPATH
+export CMTPROJECTPATH=$HOME/hackathon
 
 if [[ ! -f Makefile ]]; then
 lb-project-init

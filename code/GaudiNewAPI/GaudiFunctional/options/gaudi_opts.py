@@ -1,11 +1,10 @@
 from Gaudi.Configuration import *
-from Configurables import (
-                           DataMaker)
+#from Configurables import (
+#                           DataMaker)
 
 ApplicationMgr().EvtMax = 5
 ApplicationMgr().EvtSel = "NONE"
 
-alg1 = DataMaker()
+#alg1 = DataMaker()
 
 
-ApplicationMgr().TopAlg.append(alg1)
