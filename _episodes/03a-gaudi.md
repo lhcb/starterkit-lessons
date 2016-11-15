@@ -106,11 +106,15 @@ class MySum
 This example highlights several features of the new design. This starts by inheriting from a templated class, where the template defines the input and output expected. Different functionals may have no input and/or output, and might have multiple inputs or outputs. The constructor takes KeyValue objects that define the data inputs and outputs, with multiple data elements input as a initializer list. The `operator()` method is overridden, and is `const` to ensure thread safety
 and proper design. This takes the inputs and returns an output.
 
+
+
+
 The functionals available in the framework are named by the data they work on (with examples):
 
 * One input, no output: `Consumer`
     - `Rec/RecAlgs`: `EventTimeMonitor`, `ProcStatusAbortMoni`, `TimingTuple`
 * No input, one or more output: `Producer`
+    - Should be used for File IO, constant data
 * True/False only as output: `FilterPredicate`
     - `Phys/LoKiHlt`: `HDRFilter`, `L0Filter`, `ODINFilter`
     - `Phys/LoKiGen`: `MCFilter`
@@ -125,6 +129,7 @@ The functionals available in the framework are named by the data they work on (w
     - `Hlt/HltDAQ`: `HltRawBankDecoderBase`
 * Converting a scalar transformation to a vector one: `ScalarTransformer`
     - `Calo/CaloReco`: `CaloElectronAlg`, `CaloSinglePhotonAlg`
+    - This is used for vector to vector transformations where the same algorithm is applied on each vector element with 1 to 1 mapping.
 
 > A note on stateless algorithms
 > 
@@ -176,13 +181,11 @@ The tuple that is produced can be replaced with a single type if only one output
 
 ## FilterPredicate
 
-
+This blocks algorithms behind it, returns "filterPassed".
 
 ## Transformers
 
-
-
-
+Split or merge containers.
 
 # Conversion from the old framework to the new
 
