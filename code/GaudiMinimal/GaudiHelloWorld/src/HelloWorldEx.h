@@ -1,6 +1,6 @@
 #pragma once
 
-#include "GaudiKernel/Algorithm.h"
+#include <GaudiAlg/GaudiAlgorithm.h>
 
 class HelloWorldEx : public GaudiAlgorithm {
 public:
