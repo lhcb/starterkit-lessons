@@ -3,7 +3,7 @@
 
 DECLARE_COMPONENT(DataMaker)
 
-ThreeVecType DataMaker::operator() {
+ThreeVecEx DataMaker::operator()() const{
     info() << "executing DataMaker" << endmsg;
     return ThreeVecEx{1, 2, 3};
 }
