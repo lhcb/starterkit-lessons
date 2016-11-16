@@ -1,6 +1,6 @@
 #pragma once
 
-#include "GaudiKernel/Algorithm.h"
+#include "GaudiAlg/GaudiAlgorithm.h"
 #include "GaudiKernel/Property.h"
 
 class GaudiTemplateAlgorithm : public GaudiAlgorithm {

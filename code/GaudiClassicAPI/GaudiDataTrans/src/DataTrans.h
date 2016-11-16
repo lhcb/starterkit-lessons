@@ -9,7 +9,6 @@ class DataProducer : public GaudiAlgorithm {
 public:
     DataProducer(const std::string& name,
                        ISvcLocator* pSvc);
-    StatusCode initialize() override;
     StatusCode execute() override;
 
 private:

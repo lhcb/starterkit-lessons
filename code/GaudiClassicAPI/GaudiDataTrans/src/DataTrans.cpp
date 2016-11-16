@@ -8,9 +8,6 @@ DataProducer::DataProducer(const std::string& name,
     declareProperty("StartingValue", f_counter, "Starting value");
 
 }
-StatusCode DataProducer::initialize() {
-    return StatusCode::SUCCESS;
-}
 
 StatusCode DataProducer::execute() {
     auto vec = new LHCb::ThreeVecEx();

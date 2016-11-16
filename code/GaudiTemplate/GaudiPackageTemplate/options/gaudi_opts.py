@@ -6,5 +6,5 @@ ApplicationMgr().EvtMax = 10
 ApplicationMgr().EvtSel = "NONE"
 
 #Test your algorithm here
-alg = HelloWorldEx()
+alg = GaudiTemplateAlg()
 ApplicationMgr().TopAlg.append(alg)

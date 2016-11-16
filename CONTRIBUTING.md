@@ -75,7 +75,7 @@ To build the lessons locally install the following:
 2.  For a list of helpful commands run `make` in this directory.
 
 [conduct]: CONDUCT.md
-[issues]: https://github.com/henryiiii/DevelopKit/issues
+[issues]: https://github.com/lhcb/DevelopKit/issues
 [license]: LICENSE.md
 [pro-git-chapter]: http://git-scm.com/book/en/v2/GitHub-Contributing-to-a-Project
 [gh-fork]: https://help.github.com/articles/fork-a-repo/
