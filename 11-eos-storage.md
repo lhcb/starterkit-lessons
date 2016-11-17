@@ -119,30 +119,33 @@ your EOS area.
 > Important: mounting eos is discouraged by the LHCb data management team,
 > and no support will be provided by them for problems/questions related to it.
 
-On `lxplus` you can mount EOS like this:
+On `lxplus` EOS is mount under /eos like this:
 
 ```bash
-$ mkdir ~/eos
-$ eosmount eos
+$ ls -al /eos/user
 ```
 
 ```output
-warning: assuming you gave a relative path with respect to current working directory => mountpoint=eos
-OK
-===> Mountpoint   : /afs/cern.ch/user/a/another/eos
-===> Fuse-Options : kernel_cache,attr_timeout=30,entry_timeout=30,max_readahead=131072,max_write=4194304,fsname=eoslhcb.cern.ch root://eoslhcb.cern.ch//eos/
-===> xrootd ra             : 131072
-===> xrootd cache          : 393216
-===> fuse debug            : 0
-===> fuse write-cache      : 1
-===> fuse write-cache-size : 100000000
+total 0
+drwxr-xr-x. 1 daemon root 269935142640435 Oct  6  2014 .
+drwxr-xr-x. 9 root   root               0 Oct 24 11:30 ..
+drwxr-xr-x. 1 daemon root               0 Dec 15  2014 0
+drwxr-xr-x. 1 daemon root  15407422735850 Oct 28 10:13 a
+drwxr-xr-x. 1 daemon root   4213907467001 Oct 26 16:10 b
+drwxr-xr-x. 1 daemon root   4592926796516 Oct 27 21:49 c
+drwxr-xr-x. 1 daemon root   3951569840852 Oct 26 08:20 d
+drwxr-xr-x. 1 daemon root   3104338965290 Oct 27 14:27 e
+drwxr-xr-x. 1 daemon root   2243039535809 Oct 27 13:48 f
+drwxr-xr-x. 1 daemon root   5916063359888 Oct 28 10:05 g
+drwxr-xr-x. 1 daemon root   2778840054706 Oct 30 19:56 h
+drwxr-xr-x. 1 daemon root    442304842811 Oct 26 10:35 i
+drwxr-xr-x. 1 daemon root   8360665587286 Oct 30 13:46 j
 ```
 
-The first line creates a new directory in your home area, and the second line actually mounts
-EOS there. If you list the contents of your `~/eos` directory you should see
+If you list the contents of the `/eos` directory you should see
 
 ```output
-lhcb ship
+lhcb ship user
 ```
 
 If you used `/eos/lhcb/user/a/another/starterkit/{jid}_{fname}` when
@@ -150,17 +153,14 @@ configuring your `MassStorageFiles` there should now be files
 visible here:
 
 ```bash
-$ ls eos/lhcb/user/a/another/starterkit
+$ ls /eos/lhcb/user/a/another/starterkit
 ```
 
 Once you have found your file you can open it in `ROOT` like this:
 
 ```bash
-$ root ~/eos/lhcb/user/a/another/starterkit/myfavouritefile.root
+$ root /eos/lhcb/user/a/another/starterkit/myfavouritefile.root
 ```
-
-Before disconnecting from `lxplus` it is good practice to unmount
-your EOS directory with `eosumount ~/eos`.
 
 > ## Direct access in ROOT {.callout}
 >
