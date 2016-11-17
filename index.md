@@ -21,6 +21,7 @@ If you have any problems or questions, you can [send an email to
     4. [Setting up a development environment for minor changes](01d-setupsimple)
     5. [Setting up a development environment completely](01e-setupcomplete)
     6. [Building LHCb software](01f-building) (partial)
+    7. [Testing and examples in LHCb](01g-testing) (new)
 2. Introduction to Gaudi
     1. [Hello World in the Gaudi Framework](02a-gaudi-helloworld)
     2. [Intro to the Gaudi Framework](02b-gaudi-intro)

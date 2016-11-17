@@ -131,7 +131,7 @@ The functionals available in the framework are named by the data they work on (w
     - `Calo/CaloReco`: `CaloElectronAlg`, `CaloSinglePhotonAlg`
     - This is used for vector to vector transformations where the same algorithm is applied on each vector element with 1 to 1 mapping.
 
-> A note on stateless algorithms
+> ## A note on stateless algorithms
 > 
 > A stateless algorithm (one that does not store state between events) provides several important benefits:
 >
@@ -142,42 +142,50 @@ The functionals available in the framework are named by the data they work on (w
 > The downside is that a lot of code needs to be migrated.
 {: .callout}
 
+
+## Producer
+
+The simplest of the functional algorithms, this produces `Out1` to `OutN` given nothing:
+
+```cpp
+class MyProducer : public Gaudi::Functional::Consumer<int()> {
+public:
+    MyProducer(const std::string& name, ISvcLocator* svcLoc)
+              : Producer( name, svcLoc,
+                KeyValue("OutputLocation", {"MyNumber"})) {}
+
+    int operator()() const override {
+        return 314;
+    }
+}
+```
+
+This inherits from the templated Producer, where the template is the signature of the `operator()` function. Here, it is a function that produces an int given nothing. When making the constructor, the base class is called with one more argument, the output(s) of the function as `KeyValue`, where the first argment is the key (output location), and the second one is a list of locations in the TES that will be produced (here, it is `/Event/MyNumber`).
+
+The important part of the class is the `operator()`, which produces an int (just 314 in this example) that gets placed on the TES. The Producer is currenlty unused in the LHCb codebase, but is intended for use for IO from files, and for random number generation.
+
+If you want to produce several outputs, you can return a tuple, and give a list of KeyValues, one for each tuple member.
+
 ### Consumer
 
 This is a class that takes in TES data. It looks like:
 
 ```cpp
-class EventTimeMonitor : public Gaudi::Functional::Consumer<
-                void(const LHCb::ODIN&),
-                Gaudi::Functional::Traits::BaseClass_t<GaudiHistoAlg>
-                > {
-    
-    EventTimeMonitor(const std::string& name, ISvcLocator* pSvcLocator)
-        : Consumer(name, pSvcLocator, KeyValue{"Input"}, LHCb::ODINLocation::Default } ) 
-    { ... }
+class MyConsumer : public Gaudi::Functional::Consumer<void(const int&)> {
+public:
+    MyConsumer(const std::string& name, ISvcLocator* svcLoc)
+              : Consumer( name, svcLoc,
+                KeyValue("InputLocation", {"MyNumber"})) {}
 
-    void EventTimeMonitor::operator()(const LHCb::ODIN& odin) const override
-    { ... }
-```
-
-The class is created inheriting the templated class `Consumer`, with the signature of the `operator()` function as it's first argument, and the `Traits`, which allows the selection of a base class to use (default is `GaudiAlgorithm`.
-
-The constructor should delegate the Consumer constructor, with one additional argument, the input that it will use. This is done by constructing a `KeyValue` with property `"input"` set (in this case, to the default location).
-
-The work is then done in the `operator()` method.
-
-## Producer
-
-This is the inverse of the consumer. Produces `Out1` to `OutN` given nothing:
-
-```cpp
-template <typename... Out, typename Traits_>
-class Producer<std::tuple<Out...>(), Traits_> {
-      virtual std::tuple<Out...> operator()() const = 0;
+    void operator()(const int& input) const override {
+        info << "Printing input: " << input << endmsg;
+    }
 }
 ```
 
-The tuple that is produced can be replaced with a single type if only one output is produced. The pass is done by value, due to move improvements in modern C++. 
+The class is created inheriting the templated class `Consumer`, with the signature of the `operator()` function as it's first argument as before.
+
+The constructor should include the `KeyValue` input that it will use. The Consumer in the example above takes the int we put in the TES before and prints it to the info log. The value in the TES is obtained by reference.
 
 ## FilterPredicate
 
@@ -185,7 +193,7 @@ This blocks algorithms behind it, returns "filterPassed".
 
 ## Transformers
 
-Split or merge containers.
+Split or merge containers. These take 1 or more inputs, and produce one or more outputs.
 
 # Conversion from the old framework to the new
 
