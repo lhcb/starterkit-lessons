@@ -88,3 +88,28 @@ class Test(BaseTest):
         self.args=["$GAUDIEXAMPLESROOT/options/AlgSequencer.py"]
         self.reference = "refs/AlgSequencer_pyopts.ref"
 ```
+
+## Running a test
+
+You can run all the tests with `make test`. This interally runs the ctest command in the build directory. You can pass on arguments to the ctest file through the make command though the `ARGS` variable. For example, to run a single named test:
+
+~~~
+make test ARGS="-R algsequencer_pyopts"
+~~~
+{: .input}
+
+
+The arguments that can be passed to `ctest` can be found with `ctest --help`.
+Some examples:
+
+* `-N`: just print the names of the tests
+* `-R <regex>`: select tests by regular expression
+* `-V`: verbose printout (extra details, command line)
+
+Note that `gaudirun.py` can take read and run a `.qmt` file directly. This allows you to see the output of the run, as `ctest` hides the output. 
+
+
+> ## See also
+> 
+> [Hackathon introduction](https://gitlab.cern.ch/lhcb/upgrade-hackathon-setup)
+{: .callout}
