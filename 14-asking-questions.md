@@ -66,16 +66,16 @@ willing to be an active partner in developing a solution.
 
 Before posting your question try:
 
-1. [searching the archives](https://e-groups.cern.ch/e-groups/EgroupsSearchForm.do) of the forum/mailing list
-2. searching the web
-3. finding the answer in a FAQ
-4. finding the answer by experimenting
-5. asking a skilled friend
-6. or reading the code
+1. [Searching the archives](https://e-groups.cern.ch/e-groups/EgroupsSearchForm.do) of the forum/mailing list
+2. Searching the web
+3. Finding the answer in a FAQ
+4. Finding the answer by experimenting
+5. Asking a skilled friend
+6. Or reading the code
 
 When asking your question, mention which of these steps you have tried. It
 will help demonstrate that you are not lazy and put in some effort. If you
-learnt something from trying this, mention it!
+learned something from trying this, mention it!
 
 The beginning of your email should explain what you are trying to do and
 why, as well as where the problem occurs. Often it is useful to describe
@@ -83,8 +83,8 @@ the big goal, and not the particular step you are stuck with.
 
 Help others reproduce your problem by including the necessary details. If
 the problem is with code you wrote, include it. However do not post all of your
-program. Try and make a minimal example that demosntrates the problem. Stack
-overflow has a good guide on creating a [minimal, complete, and verifiable
+program. Try and make a minimal example that demonstrates the problem. Stack
+Overflow has a good guide on creating a [minimal, complete, and verifiable
 example](http://stackoverflow.com/help/mcve).
 
 You have to be precise. Do not simply dump all possible information that
