@@ -53,18 +53,18 @@ The way the `DecayTreeTuple.Decay` is written in in our [minimal DaVinci job](08
 dtt.Decay = '[D*(2010)+ -> (D0 -> K- pi+) pi+]CC'
 ```
 
-means that the configured `TupleTools` will only run on the head of the decay chain, that is, the D*.
-In order to select more particles for which we want the information stored, we need to mark them with a `^` symbol in the decay descriptor.
-For example, if we want to fill the information of the D0 and its children, we would modify the `dtt` to look like this:
+means that the configured `TupleTools` will only run on the head of the decay chain, that is, the `D*(2010)+`.
+In order to select the particles for which we want the information stored, we need to mark them with a `^` symbol in the decay descriptor.
+For example, if we want to fill the information of the `D0` and its children, as well as the soft `pi+`, we would modify the above line to look like this:
 
 ```python
-dtt.Decay = '[D*(2010)+ -> ^(D0 -> ^K- ^pi+) pi+]CC'
+dtt.Decay = '[D*(2010)+ -> ^(D0 -> ^K- ^pi+) ^pi+]CC'
 ```
 
 This will run all the configured `TupleTools` on the marked particles, with the caveat that some tools are only run on certain types of particles (eg, tracking tools on particles that have an associated track).
 This configuration is not optimal, since there may be tools which we only want to run on the D's and some only on the children. Enter `Branches`, which allow us to specify which tools get applied to which particle in the decay (in addition to the `TupleTools` configured at the top level).
 
-Branches let you define custom namespaces in your ntuple by means of a `dict`.
+*Branches* let you define custom namespaces in your ntuple by means of a `dict`.
 Its keys define the name of each branch (and, as a consequence, the prefix of the corresponding leaves in the ntuple), while the corresponding values are decay descriptors that specify which particles you want to include in the branch.
 
 ```python
@@ -74,6 +74,9 @@ dtt.addBranches({'Dstar' : '[D*(2010)+ -> (D0 -> K- pi+) pi+]CC',
                  'piplus': '[D*(2010)+ -> (D0 -> K- ^pi+) pi+]CC',
                  'pisoft': '[D*(2010)+ -> (D0 -> K- pi+) ^pi+]CC'})
 ```
+
+Note that in order to use branches, we have to make sure that all particles we want to use are marked in the main decay descriptor (`dtt.Decay`).
+DaVinci will ignore branches for particles that have not been marked in `dtt.Decay`!
 
 Once the branches have been configured, they can be accessed as `dtt.PARTICLENAME`and `TupleTools` can be added as discussed before.
 For example, if we want to store the proper time information of the D0, we would do
