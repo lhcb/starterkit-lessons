@@ -79,6 +79,28 @@ add 00-lesson-you-edited.md` and then `git commit`. After `git
 push`'ing it, visit your copy of the repository on github:
 `https://github.com/YOURUSERNAME/first-analysis-steps`.
 
+In order to test your changes, you can run the starterkit website locally.
+To do so, first install the required python packages.
+This can be done by passing the `requirements.txt` that is present in the git repository to pip
+```
+pip install -r requirements.txt --user
+```
+Besides these packages you need to install pandoc on your system.
+Once all requirements are satisfied, run
+```
+make preview
+cd _site
+python -m http.server
+```
+in the top level of the git repository.
+
+This will start a webserver on your computer.
+Then open you web browser and navigate to
+```
+localhost:8000
+```
+to see the website.
+
 Next you want to [create a pull
 request](https://help.github.com/articles/creating-a-pull-request/). The
 github documentation is excellent, so we will not duplicate it here. Simply
