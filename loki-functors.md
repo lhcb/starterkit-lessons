@@ -177,13 +177,29 @@ MAXTREE(ISBASIC & HASTRACK, PT, -1)(cand) == max_pt
 In this example, we have used two selection functors, `ISBASIC` and `HASTRACK`, which return true if the particle doesn't have children and is made up by a track, respectively.
 We can see that they do the same thing as `particle.isBasicParticle()` and `particle.proto().track()` in a more compact way.
 
+> ## Combining LoKi cuts {.callout}
+> You might have noticed above we used the `&` operator ("bitwise AND") to combine the `ISBASIC` and `HASTRACK` cuts above.
+> This is because Python doesn't allow LoKi to override the behaviour of `and` and `or` ("logical AND/OR"), so if we use them
+> the Python interpreter tries to combine the two cuts straight away, before we have even passed in our candidate:
+> ```python
+> In [1]: ((M>1200) or (PT > 500))
+> Out[1]:  (M>1200)
+> ```
+> the result is that our `PT` cut vanishes!
+> If we use the `|` operator ("bitwise OR") then LoKi correctly builds a functor representing the `OR` of our cuts:
+> ```python
+> In [2]: ((M>1200) | (PT > 500))
+> Out[2]:  ( (M>1200) || (PT>500) )
+> ```
+> This is why you should **always** use `&` and `|` when combining LoKi functors, and **never** use `and` and `or`.
+
 Similarly, the `SUMTREE` functor allows us to accumulate quantities for those children that pass a certain selection:
 ```python
 from LoKiPhys.decorators import SUMTREE, ABSID
 print SUMTREE(211 == ABSID, PT)(cand)
 print SUMTREE('pi+' == ABSID, PT)(cand)
 ```
-In this case, we have summed the transverse momentum of the pions in the tree.
+In this case, we have summed the transverse momentum of the charged pions in the tree.
 Note the usage of the `ABSID` functor, which selects particles from the decay 
 tree using either their [PDG Monte Carlo 
 ID](http://pdg.lbl.gov/2015/mcdata/mc_particle_id_contents.html) or their name.
