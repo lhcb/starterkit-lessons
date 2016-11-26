@@ -85,6 +85,15 @@ For example, if we want to store the proper time information of the D0, we would
 dtt.D0.addTupleTool('TupleToolPropertime')
 ```
 
+> ## Do I really have to type my decay descriptor that many times? {.callout}
+> No! You can use the (new) `dtt.setDescriptorTemplate()` method to set up your decay descriptor and branches in just one line!
+> Well, nearly: because this is a new feature it is not available in most released versions of `DaVinci`, but [this snippet](https://gitlab.cern.ch/snippets/147) will add it to an older version.
+> With that out of the way, you can simply use
+> ```python
+> dtt.setDescriptorTemplate('${Dstar}[D*(2010)+ -> ${D0}(D0 -> ${Kminus}K- ${piplus}pi+) ${pisoft}pi+]CC')
+> ```
+> This will set up both `dtt.Decay` and `Branches` for you.
+
 The usage of `Branches` is very important (and strongly encouraged) to keep the size of your ntuples small, since it prevents us from storing unneeded information (for example trigger information, which will be discussed at a later lesson).
 
 > ## Where to find TupleTools {.callout}
