@@ -40,7 +40,7 @@ According to `TYPE1`, there are many types of functors, the most important of wh
 > if ever.
 
 To understand what we can do with LoKi functors, we will pick up from where we 
-left off [exploring a DST interactively](05-interactive-dst.html).
+left off [exploring a DST interactively](interactive-dst.html).
 Open the DST and get the first candidate in the `D2hhCompleteEventPromptDst2D2RS` line:
 
 ```python
@@ -91,7 +91,7 @@ print VCHI2(cand.endVertex())
 ```
 
 This is inconvenient when [running DaVinci with Python options 
-files](08-minimal-dv-job.html), since in that case we don't have any way of 
+files](minimal-dv-job.html), since in that case we don't have any way of 
 calling the `endVertex` method.
 Instead, we can use the `VFASPF` *adaptor* functor, which allows us to use 
 vertex functors as if they were particle functors (note how the functor is 
@@ -236,7 +236,7 @@ in_range(1860, CHILD(MM, 1), 1870)(cand)
 ```
 
 Additionally, LoKi functors can be used directly inside our `DaVinci` jobs to store specific bits of information in our ntuples without the need for a complicated C++-based algorithms.
-This second option will be discussed in the [TupleTools and branches lesson](12-add-tupletools.html).
+This second option will be discussed in the [TupleTools and branches lesson](add-tupletools.html).
 
 > ## Debugging LoKi functors {.callout}
 > If you write complicated LoKi functors, typically in the context of selections, you need functions for debugging when things go wrong.

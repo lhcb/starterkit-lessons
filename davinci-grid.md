@@ -12,7 +12,7 @@ minutes: 10
 > * Find the job output
 
 This lesson will teach you how to take our [minimal DaVinci
-job](08-minimal-dv-job.html) and run it on the grid.
+job](minimal-dv-job.html) and run it on the grid.
 
 `ganga` is a program which you can use to interact with your grid
 jobs. Start it with:

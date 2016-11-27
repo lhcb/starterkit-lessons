@@ -662,13 +662,14 @@ class DiscussionPageValidator(MarkdownValidator):
 
 # Associate lesson template names with validators. This list used by CLI.
 #   Dict of {name: (Validator, filename_pattern)}
-LESSON_TEMPLATES = {"index": (IndexPageValidator, "^index"),
-                    "topic": (TopicPageValidator, "^[0-9]{2}-.*"),
-                    "motivation": (MotivationPageValidator, "^motivation"),
-                    "reference": (ReferencePageValidator, "^reference"),
-                    "instructor": (InstructorPageValidator, "^instructors"),
-                    "license": (LicensePageValidator, "^LICENSE"),
-                    "discussion": (DiscussionPageValidator, "^discussion")}
+LESSON_TEMPLATES = collections.OrderedDict([
+                    ("index", (IndexPageValidator, "^index")),
+                    ("motivation", (MotivationPageValidator, "^motivation")),
+                    ("reference", (ReferencePageValidator, "^reference")),
+                    ("instructor", (InstructorPageValidator, "^instructors")),
+                    ("license", (LicensePageValidator, "^LICENSE")),
+                    ("discussion", (DiscussionPageValidator, "^discussion")),
+                    ("topic", (TopicPageValidator, r"\.md$"))])
 
 # List of files in the lesson directory that should not be validated at all
 SKIP_FILES = ("CONDUCT.md", "CONTRIBUTING.md",
@@ -765,8 +766,7 @@ def command_line():
 
 def check_required_files(dir_to_validate):
     """Check if required files exists."""
-    REQUIRED_FILES = ["01-*.md",
-                      "CONDUCT.md",
+    REQUIRED_FILES = ["CONDUCT.md",
                       "CONTRIBUTING.md",
                       "index.md",
                       "LICENSE.md",
