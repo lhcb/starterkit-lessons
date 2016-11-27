@@ -34,7 +34,7 @@ j = Job(application=DaVinci(version='v40r2'))
 j.backend = Dirac()
 j.name = 'First ganga job'
 j.inputdata = j.application.readInputData('data/MC_2012_27163003_Beam4000GeV2012MagDownNu2.5Pythia8_Sim08e_Digi13_Trig0x409f0045_Reco14a_Stripping20NoPrescalingFlagged_ALLSTREAMS.DST.py')
-j.application.optsfile = 'code/11-davinci-grid/ntuple_options_grid.py'
+j.application.optsfile = 'code/davinci-grid/ntuple_options_grid.py'
 ```
 
 This will create a `Job` object that will execute `DaVinci` using a
@@ -55,14 +55,14 @@ method. Having to type in the details of each job every time you want
 to run it is error prone and tedious. Instead you can place all the
 lines that define a job in a file and simply run that.
 
-Place the following in a file called [`first-job.py`](code/11-davinci-grid/first-job.py):
+Place the following in a file called [`first-job.py`](code/davinci-grid/first-job.py):
 
 ```python
 j = Job(application=DaVinci(version='v40r2'))
 j.backend = Dirac()
 j.name = 'First ganga job'
 j.inputdata = j.application.readInputData('data/MC_2012_27163003_Beam4000GeV2012MagDownNu2.5Pythia8_Sim08e_Digi13_Trig0x409f0045_Reco14a_Stripping20NoPrescalingFlagged_ALLSTREAMS.DST.py')
-j.application.optsfile = 'code/11-davinci-grid/ntuple_options_grid.py'
+j.application.optsfile = 'code/davinci-grid/ntuple_options_grid.py'
 j.submit()
 ```
 

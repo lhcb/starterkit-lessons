@@ -125,4 +125,4 @@ Running the ntuple script again with these additions gives you fit results for t
 
 
 The solution to this exercise `ntuple_DTF1.py`, is [available
-here](./code/22-decay-tree-fitter/ntuple_DTF1.py).
+here](./code/decay-tree-fitter/ntuple_DTF1.py).
