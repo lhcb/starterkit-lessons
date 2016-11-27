@@ -154,5 +154,5 @@ website](http://lhcb-release-area.web.cern.ch/LHCb-release-area/DOC/stripping/),
 where you can see all the algorithms run and cuts applied in each _line_.
 For example, if we wanted to understand the 
 `StrippingD2hhCompleteEventPromptDst2D2RSLine` line, which we used in the 
-[exploring a DST](05-interactive-dst.html) lesson from now on, we would go 
+[exploring a DST](interactive-dst.html) lesson from now on, we would go 
 [here](http://lhcb-release-area.web.cern.ch/LHCb-release-area/DOC/stripping/config/stripping21/charmcompleteevent/strippingd2hhcompleteeventpromptdst2d2rsline.html).

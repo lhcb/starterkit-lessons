@@ -10,7 +10,7 @@ minutes: 10
 >   by splitting a job into many subjobs
 >
 
-In the [previous lesson](10-davinci-grid.html), you've submitted a job to the LHC grid.
+In the [previous lesson](davinci-grid.html), you've submitted a job to the LHC grid.
 You will notice that the job will take a long time to finish.
 This is because it has to process many gigabytes of data.
 
@@ -78,6 +78,6 @@ Ganga will then submit this job (and its subjobs) in the background.
 Make sure not to close `ganga` before the submission is finished, or you will have to start submitting the rest of the jobs again later on.
 
 > ## Splitting your first job {.challenge}
-> Try splitting the `ganga` job from our previous lesson with `splitByFiles=1` ([reference code](code/12-split-jobs/first-job.py)) and submit it with `ganga`.
+> Try splitting the `ganga` job from our previous lesson with `splitByFiles=1` ([reference code](code/split-jobs/first-job.py)) and submit it with `ganga`.
 
 

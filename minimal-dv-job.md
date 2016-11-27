@@ -5,8 +5,8 @@ subtitle: Running a minimal DaVinci job locally
 minutes: 10
 ---
 
-[Looping event-by-event](05-interactive-dst.html) over a file and [inspecting 
-interesting quantities with LoKi functors](06-loki-functors.html) is great for 
+[Looping event-by-event](interactive-dst.html) over a file and [inspecting 
+interesting quantities with LoKi functors](loki-functors.html) is great for 
 exploration: to checking that the file contains the candidates you need, that 
 the topology makes sense, and so on.
 It's impractical for most cases, though, where you want _all_ the candidates 
@@ -139,7 +139,7 @@ The `TupleFile` attribute defines the name of the ROOT output file that DaVinci
 will store any algorithm output in, which should be our ntuple.
 
 All that's left to do is to say what data we would like to run over.
-As we already have a data file [downloaded locally](04-files-from-grid.html), we 
+As we already have a data file [downloaded locally](files-from-grid.html), we 
 define that as our input data.
 
 ```python
@@ -164,10 +164,10 @@ $ lb-run DaVinci v40r2 gaudirun.py ntuple_options.py
 ```
 
 The full options file we've created, `ntuple_options.py`, is [available 
-here](./code/09-minimal-dv/ntuple_options.py).
+here](./code/minimal-dv/ntuple_options.py).
 A slightly modified version that uses remote files (using an XML catalog as
-[described here](04-files-from-grid.html)) is [available
-here](./code/09-minimal-dv/ntuple_options_xmlcatalog.py)
+[described here](files-from-grid.html)) is [available
+here](./code/minimal-dv/ntuple_options_xmlcatalog.py)
 
 > ## Using a microDST {.callout}
 >
