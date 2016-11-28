@@ -201,3 +201,13 @@ functors](loki-functors.html)!
 > `ls` and `get`, which allow to list and get TES locations.
 > Other examples of useful functions are listed in the `bender` starting
 > banner.
+>
+> `Bender` also provides a useful command `dst-dump`, which is a quick way of
+> figuring out what objects are present on a `DST` and where. Try out:
+> ```
+> lb-run Bender dst-dump -f -n 100 00035742_00000002_1.allstreams.dst
+> ```
+> The `-f` option tells `Bender` to try and "unpack" the locations such as
+> `/Event/AllStreams/pPhys/Particles` that we mentioned above, while `-n 100`
+> tells it to only process the first 100 events on the `DST`.
+> Give this a try if you're ever stuck figuring out where your candidates are hiding!
