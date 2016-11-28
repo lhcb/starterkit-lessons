@@ -9,22 +9,20 @@ minutes: 10
 > * Install git from source
 > * Install Anaconda
 
-The `lhcbstarterkitN` machines you used during this workshop will stop
-existing after the weekend. In order for you to keep using the great tools
-you learnt about in the last few days on `lxplus` you have to install
-them there by hand.
+In order to follow the Basics part of the workshop (first two days) you will
+need to have recent versions of Python and Git installed either on your laptop
+or on lxplus.
+The instructions below explain how you can install Python and libraries for
+scientific computing on lxplus by using the the Anaconda Python distribution.
+After that, they explain how you can compile a recent version of git, because
+the default version on lxplus is very old and doesn't support all the features
+we'll need.
 
 > ## Health warning {.callout}
 > Once you install things yourself you have an environment that is different
 > from the "standard" LHCb setup. It means you have to keep software up-to-date
 > yourself and when things start going wrong everyone will blame it on your
-> custom setup. Keep that in mind. With great tools, comes great responsibility.
-
-These instructions are fairly straight forward and set you up with all the
-tools you learnt about in the last few days. It is also fairly easy to undo
-this setup and return to the standard LHCb setup.
-
-We will install a modern version of `git` and the `Anaconda` python distribution.
+> custom setup. Keep that in mind. With great tools comes great responsibility.
 
 `Anaconda` is a complete set of `python` interpreter and useful libraries. For example
 it comes with `ipython` pre-installed as well as `matplotlib` and `scikit-learn`.
@@ -59,31 +57,30 @@ Log out of `lxplus` and back in. Now you should be able to start `python` as wel
 > added to your `.bashrc` file. To permanently remove it simply delete the `anaconda`
 > directory in your home directory.
 
-
 To install `git` "from source" on `lxplus` follow these instructions.
 
 1. Visit the [git repository](https://github.com/git/git) on github
 2. Click on "releases", which takes you to the list of [all git releases](https://github.com/git/git/releases)
-3. Download the `.tar.gz` for the latest release (2.4.1) to `lxplus`:
+3. Download the `.tar.gz` for the latest release (v2.10.2) to `lxplus`:
 ```bash
-$ wget https://github.com/git/git/archive/v2.4.1.tar.gz
+$ wget https://github.com/git/git/archive/v2.10.2.tar.gz
 ```
-4. unpack the `.tar.gz` with `tar xzf v2.4.1.tar.gz`
-5. Change to the newly created `git-2.4.1` directory: `cd git-2.4.1`
+4. unpack the `.tar.gz` with `tar xzf v2.10.2.tar.gz`
+5. Change to the newly created `git-2.10.2` directory: `cd git-2.20.2`
 6. Follow the [INSTALL](https://github.com/git/git/blob/master/INSTALL)
    instructions.
 7. To install `git` in your home directory type:
 ```bash
 $ export CURLDIR=$HOME/anaconda
-$ mkdir $HOME/git-install-2.4.1
-$ make prefix=$HOME/git-install-2.4.1
-$ make prefix=$HOME/git-install-2.4.1 install
+$ mkdir $HOME/git-install-2.10.2
+$ make prefix=$HOME/git-install-2.10.2
+$ make prefix=$HOME/git-install-2.10.2 install
 ```
 8. Add the following line to your `.bashrc`:
 ```bash
-export PATH="$HOME/git-install-2.4.1/bin:$PATH"
+export PATH="$HOME/git-install-2.10.2/bin:$PATH"
 ```
 
 > ## Removing git {.callout}
 > To temporarily remove `git` remove the line you added to your `.bashrc`, and delete
-> the `git-install-2.4.1` directory in your home directory to remove it permanently.
+> the `git-install-2.10.2` directory in your home directory to remove it permanently.
