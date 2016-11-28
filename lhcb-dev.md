@@ -16,7 +16,7 @@ This lesson introduces you to two commands:
 If you want to make changes to a software package, you will need to set up a development environment. `lb-dev` is your friend here:
 
 ```bash
-lb-dev --name DaVinciDev DaVinci v40r2
+lb-dev --name DaVinciDev DaVinci v41r2
 ```
 
 The output should look similar to this:
@@ -27,20 +27,20 @@ Successfully created the local project DaVinciDev in .
 To start working:
 
   > cd ./DaVinciDev
-  > getpack MyPackage vXrY
+  > git lb-use DaVinci
+  > git lb-checkout DaVinci/vXrY MyPackage
 
 then
 
   > make
   > make test
-  > make QMTestSummary
 
-and optionally
+and optionally (CMake only)
 
   > make install
 
-You can customize the configuration by editing the files 'CMakeLists.txt'
-(see http://cern.ch/gaudi/CMake for details).
+You can customize the configuration by editing the files 'build.conf' and
+'CMakeLists.txt' (see http://cern.ch/gaudi/CMake for details).
 ```
 
 Follow those instructions and once you've compiled your software run
@@ -55,37 +55,33 @@ Your new development environment won't be very useful without any software to mo
 So why not check out out one of the existing LHCb packages, which are stored in the LHCb SVN repository?
 
 Let's assume you have already used `lb-dev` to set up your development environment and you are currently inside it.
-In order to obtain the source code of the package you want to work on, use `getpack`.
-This is an LHCb-aware wrapper around SVN.
+In order to obtain the source code of the package you want to work on, use the [Git4LHCb](https://twiki.cern.ch/twiki/bin/view/LHCb/Git4LHCb) scripts.
+These are a set of aliases, starting with `git lb-`, that are designed to make developing LHCb software easier.
 For example, if you want to write a custom stripping selection, execute the following in the `DaVinciDev` directory:
 
 ```bash
-getpack Phys/StrippingSelections head
+git lb-use Stripping
+git lb-checkout Stripping/master Phys/StrippingSelections
+make configure
 ```
 
-Under the hood, `getpack` will `svn checkout` (≈ `git clone`) the corresponding SVN repository.
-The first argument to `getpack` is the name of the package you want to checkout, while the second argument allows you to choose a specific branch.
-`head` is usually the one one that contains the newest development changes and the one you should commit new changes to.
+Under the hood, `git lb-use` will add the [`Stripping`](https://gitlab.cern.ch/lhcb/Stripping) repository as a remote in git.
+`git lb-checkout` will then perform a partial checkout of the master branch of the Stripping repository, only adding the files under [`Phys/StrippingSelections`](https://gitlab.cern.ch/lhcb/Stripping/tree/master/Phys/StrippingSelections).
 
-You can now modify the `StrippingSelections` package and run `make` to build it with your changes.
+You can now modify the `StrippingSelections` package and run `make purge && make` to build it with your changes.
 You can test your changes with the `./run` script.
 It works similar to `lb-run`, without the need to specify a package and version:
 ```bash
 ./run gaudirun.py options.py
 ```
 
-> ## What if getpack asks for my password 1000 times? {.callout}
-> `getpack` might ask you for your password several times.
+> ## What if git asks for my password 1000 times? {.callout}
+> `git` might ask you for your password several times.
 > To avoid this, you can create a kerberos token with
 > ```
-> kinit
+> kinit $USER@CERN.CH
 > ```
-> You will have to enter your password once, and further password prompts will be skipped
-> 
-> Alternatively, you can perform an anonymous checkout:
-> ```
-> getpack -p anonymous Phys/StrippingSelections
-> ```
+> You will have to enter your password once, and further password prompts will be skipped.
 
 If you just want to take a look at a source file, without checking it out, you can comfortably access the repository through two different web UIs.
 
@@ -102,7 +98,7 @@ There is a page for each project, lists of projects can be found here:
 
 Another useful tool available on lxplus machines is `Lbglimpse`. It allows you to search for a given string in the source code of LHCb software.
 ```bash
-Lbglimpse "PVRefitter" DaVinci v40r2
+Lbglimpse "PVRefitter" DaVinci v41r2
 ```
 It works with every LHCb project and released version.
 
