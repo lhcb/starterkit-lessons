@@ -58,7 +58,7 @@ One of the most important ones is *DaVinci*, which provides lots of *Algorithms*
 
 You can run DaVinci using the following command:
 ```bash
-lb-run DaVinci v41r2 gaudirun.py
+lb-run DaVinci/v41r2 gaudirun.py
 ```
 
 This will run the `gaudirun.py` command using version v41r2 of DaVinci.
@@ -89,7 +89,7 @@ During this run, DaVinci didn't do anything: We didn't specify any algorithms to
 Usually, you will write an option file (e.g. `options.py`) and specify it as an argument to `gaudirun.py`:
 
 ```bash
-lb-run DaVinci v41r2 gaudirun.py options.py
+lb-run DaVinci/v41r2 gaudirun.py options.py
 ```
 
 An `option.py` is just a regular Python script that specifies how to set things up in the software.
@@ -97,7 +97,7 @@ Many of the following lessons will teach you how to do something with DaVinci by
 You can use the above command to test it.
 You can also specify several option files like this:
 ```bash
-lb-run DaVinci v41r2 gaudirun.py options1.py options2.py
+lb-run DaVinci/v41r2 gaudirun.py options1.py options2.py
 ```
 They will then both be used to set up DaVinci.
 
@@ -108,7 +108,7 @@ lb-run --list DaVinci
 Do you want to start a shell that already contains the LHCb environment, so you don't have to use `lb-run`?
 Execute
 ```bash
-lb-run DaVinci v41r2 $SHELL
+lb-run DaVinci/v41r2 $SHELL
 ```
 A simple `gaudirun.py` should work as well now.
 Typing `exit` will close the shell and leave the LHCb environment behind.
@@ -119,7 +119,5 @@ Typing `exit` will close the shell and leave the LHCb environment behind.
 > `lb-run` is the new way of doing things and has some nice benefits over `SetupProject`.
 > For most purposes, `SetupProject DaVinci v41r2` is equivalent to
 > ```bash
-> lb-run DaVinci v41r2 $SHELL
+> lb-run DaVinci/v41r2 $SHELL
 > ```
-
-

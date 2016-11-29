@@ -10,7 +10,7 @@ minutes: 10
 > * Print all nodes in a DST
 > * Explore the contents of the TES
 > * Inspect a track
-> * Inspect a stripping location 
+> * Inspect a stripping location
 
 Data is stored in files called DSTs, which are processed
 by DaVinci to make nTuples. However you can also explore
@@ -51,7 +51,7 @@ Place this into a file called `first.py` and run the following
 command in a new terminal:
 
 ```bash
-$ lb-run DaVinci v41r2 ipython -i first.py 00035742_00000002_1.allstreams.dst
+$ lb-run DaVinci/v41r2 ipython -i first.py 00035742_00000002_1.allstreams.dst
 ```
 
 This will open the DST and print out some of the TES locations
@@ -178,8 +178,8 @@ print_decay = appMgr.toolsvc().create(
 print_decay.printTree(cands[0])
 ```
 
-With our candidates in hand, it would be nice to be able to retrieve and 
-compute the variables we need for an analysis. On to [LoKi 
+With our candidates in hand, it would be nice to be able to retrieve and
+compute the variables we need for an analysis. On to [LoKi
 functors](loki-functors.html)!
 
 > ## Fast DST browsing {.callout}
@@ -192,10 +192,10 @@ functors](loki-functors.html)!
 > For example, to explore the `DST` we could have simply done:
 >
 > ```
-> lb-run Bender bender 00035742_00000002_1.allstreams.dst
+> lb-run Bender/latest bender 00035742_00000002_1.allstreams.dst
 > ```
 >
-> This leaves us in a prompt in which we can proceed as discussed in this 
+> This leaves us in a prompt in which we can proceed as discussed in this
 > lesson, with the advantage that some functions are already provided
 > for us, such as `seekStripDecision` (which replaces our `advance`) or
 > `ls` and `get`, which allow to list and get TES locations.
@@ -205,7 +205,7 @@ functors](loki-functors.html)!
 > `Bender` also provides a useful command `dst-dump`, which is a quick way of
 > figuring out what objects are present on a `DST` and where. Try out:
 > ```
-> lb-run Bender dst-dump -f -n 100 00035742_00000002_1.allstreams.dst
+> lb-run Bender/latest dst-dump -f -n 100 00035742_00000002_1.allstreams.dst
 > ```
 > The `-f` option tells `Bender` to try and "unpack" the locations such as
 > `/Event/AllStreams/pPhys/Particles` that we mentioned above, while `-n 100`

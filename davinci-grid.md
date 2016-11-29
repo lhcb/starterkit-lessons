@@ -123,7 +123,7 @@ To look at the `root` file produced by the job start a new terminal, and
 type:
 
 ```bash
-$ lb-run DaVinci v41r2 $SHELL
+$ lb-run DaVinci/v41r2 $SHELL
 $ root -l path/to/the/job/output
 ```
 
