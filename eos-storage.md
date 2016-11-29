@@ -13,7 +13,64 @@ minutes: 10
 During a real analysis the output of your jobs will quickly grow
 beyond what fits onto your AFS space. CERN provides you with 2TB of
 space on a set of hard drives called the [EOS
-service](http://information-technology.web.cern.ch/services/eos-service).
+service](http://information-technology.web.cern.ch/services/eos-service) and
+a grid storage quota of 2TB.
+
+To retrieve a job outputfile, one can use three types of files:  
+- `LocalFile`: the standard one with the output file directly downloaded to
+the `gangadir`.  
+- `DiracFile`: the output file is stored directly on the grid and be accessed
+through the XRootD protocol.  
+
+In this lesson, we will focus on the use of `DiracFile` in `ganga` to manage big
+output files.
+
+We can reuse what has been done to run [a DaVinci job on the
+grid](https://lhcb.github.io/first-analysis-steps/davinci-grid.html) and adapt
+the `j.outputfiles` part.
+
+To add the DiracFile in the configuration of the job we just need:
+```python
+j = Job(application=DaVinci(version='v41r2'))
+j.backend = Dirac()
+j.name = 'First ganga job'
+j.inputdata = j.application.readInputData('data/MC_2012_27163003_Beam4000GeV2012MagDownNu2.5Pythia8_Sim08e_Digi13_Trig0x409f0045_Reco14a_Stripping20NoPrescalingFlagged_ALLSTREAMS.DST.py')
+j.application.optsfile = 'code/davinci-grid/ntuple_options_grid.py'
+j.outputfiles = [
+    DiracFile('DVntuple.root')
+]
+```
+
+When the job is completed, no output is dowloaded but some interesting
+information are provided by typing `j.outputfiles[0]`:
+
+```python
+DiracFile(namePattern='DVntuple.root',
+          lfn='/lhcb/user/a/another/2016_11/146255/146255492/DVntuple.root',
+          localDir='/afs/cern.ch/user/a/another/gangadir/workspace/vrenaudi/LocalXML/129/output')
+```
+Apart from the `namePattern` which was set during the configuration of the job,
+we can retrieve the `localDir` which is the path in your gangadir to the output
+of the job and its `lfn` which stands for Logical File Name.
+
+This LFN can then be given as an argument in order to download the file. But
+more important in most of the cases, you don't even need to download the file
+thanks to the `accessURL` function which will give you the URL of your output
+file by typing `j.outputfiles[0].accessURL()`:
+
+```python
+['root://eoslhcb.cern.ch//eos/lhcb/grid/user/lhcb/user/a/another/2016_11/146255/146255492/DVntuple.root']
+```
+
+This URL can be directly used in your ROOT script as follows:  
+
+```python
+TFile::Open("root://eoslhcb.cern.ch//eos/lhcb/grid/user/lhcb/user/a/another/2016_11/146255/146255492/DVntuple.root")  
+```  
+
+
+> ## Deprecation of the use of MassStorageFile {.callout}
+> The use of `MassStorageFile` is deprecated as it is quite sensitive to network problems when ganga is downloading the output of the job to EOS. 
 
 `ganga` needs configuring in order to know which files to store on
 EOS, as well as where on EOS to store them. Open `~/.gangarc` in your
