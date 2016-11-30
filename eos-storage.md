@@ -31,14 +31,17 @@ the `j.outputfiles` part.
 
 To add the DiracFile in the configuration of the job we just need:
 ```python
-j = Job(application=DaVinci(version='v41r2'))
+j = Job(name='First ganga job')
+myApp = GaudiExec()
+myApp.directory = "./DaVinciDev_v41r2"
+j.application = myApp
+j.application.options = ['code/davinci-grid/ntuple_options_grid.py']
+j.application.readInputData('data/MC_2012_27163003_Beam4000GeV2012MagDownNu2.5Pythia8_Sim08e_Digi13_Trig0x409f0045_Reco14a_Stripping20NoPrescalingFlagged_ALLSTREAMS.DST.py')
 j.backend = Dirac()
-j.name = 'First ganga job'
-j.inputdata = j.application.readInputData('data/MC_2012_27163003_Beam4000GeV2012MagDownNu2.5Pythia8_Sim08e_Digi13_Trig0x409f0045_Reco14a_Stripping20NoPrescalingFlagged_ALLSTREAMS.DST.py')
-j.application.optsfile = 'code/davinci-grid/ntuple_options_grid.py'
 j.outputfiles = [
     DiracFile('DVntuple.root')
 ]
+j.submit()
 ```
 
 When the job is completed, no output is dowloaded but some interesting
