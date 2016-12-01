@@ -52,9 +52,9 @@ We can now try to get very simple properties of the $D^{*+}$ candidate, such as
 its transverse momentum and measured mass.
 
 ```python
-from LoKiPhys.decorators import PT, MM
+from LoKiPhys.decorators import PT, M
 print PT(cand)
-print MM(cand)
+print M(cand)
 ```
 
 You will see an error when loading the functors:
@@ -78,7 +78,7 @@ p_components_sum(cand)
 > ## Does it make sense? {.challenge}
 > Retrieve the momentum magnitude $p$ and see if you can get the same answer 
 > with the `PX`, `PY`, `PZ` functors.
-> Also compute the invariant mass $m$ and see if it matches what the `MM` 
+> Also compute the invariant mass $m$ and see if it matches what the `M` 
 > functor returned.
 
 
@@ -223,9 +223,9 @@ Therefore, to access the $p_{\text{T}}$ of the $D^{0}$ we have 2 options.
 ```python
 from LoKiPhys.decorators import CHILD
 # Option 1
-mass = MM(cand.daughtersVector()[0])
+mass = M(cand.daughtersVector()[0])
 # Option 2
-mass_child = CHILD(MM, 1)(cand)
+mass_child = CHILD(M, 1)(cand)
 # Do they agree?
 mass == mass_child
 ```
@@ -247,8 +247,8 @@ It helps writing CPU-efficient functors and thus is very important when building
 
 ```python
 from LoKiCore.functions import in_range
-in_range(2000, MM, 2014)(cand)
-in_range(1860, CHILD(MM, 1), 1870)(cand)
+in_range(2000, M, 2014)(cand)
+in_range(1860, CHILD(M, 1), 1870)(cand)
 ```
 
 Additionally, LoKi functors can be used directly inside our `DaVinci` jobs to store specific bits of information in our ntuples without the need for a complicated C++-based algorithms.

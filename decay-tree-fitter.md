@@ -51,7 +51,7 @@ dtt.Dstar.ConsD.UpdateDaughters = True
 ```
 
 > ## DecayTreeFitter and LoKi functors {.callout}
-> Alternatively, many of the operations described above can done by using the `DecayTreeFitter` via LoKi functors, see the [second-analysis-steps](https://lhcb.github.io/second-analysis-steps/) for details.
+> Alternatively, many of the operations described above can done by using the `DecayTreeFitter` via LoKi functors, see the [DaVinci tutorial](https://twiki.cern.ch/twiki/bin/view/LHCb/DaVinciTutorial9b) for details.
 
 > ## Which constraints to apply {.callout}
 > It is important to be aware what assumptions you bake into your ntuple. For example, after you require the vertex constraint you must be careful if using the `IPCHI2_OWNPV`, since the particle you are looking at is *forced* to point to the PV. Which constraints make most sense for you depends on the questions you want to ask in your analysis, so ask your supervisor/working group in case of doubt.
@@ -63,9 +63,13 @@ root -l DVntuple.root
 TupleDstToD0pi_D0ToKpi->cd()
 DecayTree->StartViewer()
 ```
-Plotting the raw mass of the D* (without the fit) `Dstar_MM` you should see a broad signal around 2 GeV:
+Plotting the raw mass of the D* (without the fit) `Dstar_M` you should see a broad signal around 2 GeV:
 
 <img src="./img/DstarRaw.png" alt="Dstar raw" style="width: 500px;"/>
+
+> ## Which mass variable to use {.callout}
+> In many ntuples you also find a mass variable called `_MM`. This confusingly refers to measured mass. However, it is usually better to use `_M`. `_MM` is the sum of the 4-momenta of the final state particles extrapolated back to the fitted vertex position, but not the result of the actual vertex fit.
+
 
 Now let us look at the refitted mass of the D*, with the D0 constrained to its nominal mass. It is stored in the variable `Dstar_ConsD_M`. If you plot this you will note that some values are unphysical. So, let's restrict the range we look at to something that makes sense.
 
