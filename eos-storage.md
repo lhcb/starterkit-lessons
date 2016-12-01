@@ -50,7 +50,7 @@ information are provided by typing `j.outputfiles[0]`:
 ```python
 DiracFile(namePattern='DVntuple.root',
           lfn='/lhcb/user/a/another/2016_11/146255/146255492/DVntuple.root',
-          localDir='/afs/cern.ch/user/a/another/gangadir/workspace/vrenaudi/LocalXML/129/output')
+          localDir='/afs/cern.ch/user/a/another/gangadir/workspace/another/LocalXML/129/output')
 ```
 Apart from the `namePattern` which was set during the configuration of the job,
 we can retrieve the `localDir` which is the path in your gangadir to the output
@@ -65,12 +65,16 @@ file by typing `j.outputfiles[0].accessURL()`:
 ['root://eoslhcb.cern.ch//eos/lhcb/grid/user/lhcb/user/a/another/2016_11/146255/146255492/DVntuple.root']
 ```
 
-This URL can be directly used in your ROOT script as follows:  
+This URL can be directly used in your ROOT script with the help of the XRootD
+protocol as follows:  
 
 ```python
 TFile::Open("root://eoslhcb.cern.ch//eos/lhcb/grid/user/lhcb/user/a/another/2016_11/146255/146255492/DVntuple.root")  
 ```  
 
+> ## Use of the XRootD protocol  {.callout}
+> In order to access files on every grid site with the XRootD protocol, be sure
+> to have a valid proxy using `lhcb-proxy-init`.
 
 > ## Deprecation of the use of MassStorageFile {.callout}
 > The use of `MassStorageFile` is deprecated as it is quite sensitive to network problems when ganga is downloading the output of the job to EOS. 
