@@ -36,7 +36,7 @@ If you have any problems or questions, you can [send an email to
 1. [Running DaVinci on the grid](davinci-grid.html)
 1. [TupleTools and branches](add-tupletools.html)
 1. [How do I use DecayTreeFitter?](decay-tree-fitter.html)
-1. [More Ganga](ganga-data.md)
+1. [More Ganga](ganga-data.html)
 1. [Storing large files on EOS](eos-storage.html)
 1. [Splitting a job into subjobs](split-jobs.html)
 1. [Developing LHCb Software](lhcb-dev.html)

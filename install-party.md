@@ -32,9 +32,13 @@ instructions:
 
 1. Visit the [`Anaconda downloads`](http://continuum.io/downloads) page.
 2. Make sure to select the correct operating system (Windows, Mac or Linux)
-3. For `lxplus` download the [Linux 64bit - Python2.7](https://3230d63b5fc54e62148e-c95ac804525aac4b6dba79b00b39d1d3.ssl.cf1.rackcdn.com/Anaconda-2.2.0-Linux-x86_64.sh)
-   installer.
-4. Then on `lxplus` type `bash Anaconda-2.2.0-Linux-x86_64.sh` in the
+3. For `lxplus` download the Linux 64bit - Python2.7 installer. To do this, right click on 64-bit installer for python 2.7 and click on copy link address.To begin installing this on `lxplus` you need to use wget:
+
+   ```bash
+   $ wget https://repo.continuum.io/archive/Anaconda2-4.2.0-Linux-x86_64.sh
+   ```
+   Where the argument to wget is the link address you copied. The link address may change as new versions of anaconda are released so be aware!
+4. Then on `lxplus` type `bash Anaconda2-4.2.0-Linux-x86_64.sh` in the
    directory to which you downloaded the installer. Use `bash` no matter
    what your shell actually is.
 5. Follow the on-screen instructions and go with the default answer to
@@ -45,8 +49,8 @@ need to have some free space on your AFS home directory. Once it is done check
 that the installer added these two lines to your `.bashrc`:
 
 ```bash
-# added by Anaconda 2.2.0 installer
-export PATH="~/anaconda/bin:$PATH"
+# added by Anaconda2 4.2.0 installer
+export PATH="~/anaconda2/bin:$PATH"
 ````
 
 Log out of `lxplus` and back in. Now you should be able to start `python` as well as
