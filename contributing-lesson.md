@@ -64,7 +64,7 @@ search engine](http://google.com).
 >
 > Try out Markdown live in your browser with [Dillinger](http://dillinger.io/).
 
-If you want to see what your changes look like, simpyly paste a lesson
+If you want to see what your changes look like, simply paste a lesson
 to Dillinger.
 
 If you found something to improve, create a new branch with a fitting
