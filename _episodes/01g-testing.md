@@ -18,10 +18,10 @@ One of the most important components of writing code is testing. The following s
 The Gaudi examples are available in `Gaudi/GaudiExamples`. On lxplus, you can grab them and build with a partial checkout:
 
 ~~~
-lb-dev Gaudi v28r0
-cd Gaudi_v28r0
+lb-dev Gaudi v28r1
+cd Gaudi_v28r1
 git lb-use Gaudi
-git lb-checkout Gaudi/v28r0 GaudiExamples
+git lb-checkout Gaudi/v28r1 GaudiExamples
 make
 ~~~
 {: .input}
@@ -49,7 +49,7 @@ git grep AlgSequencer
 > To search the online source, you can do:
 >
 > ~~~
-Lbglimpse AlgSequencer Ganga v28r0
+Lbglimpse AlgSequencer Ganga v28r1
 ~~~
 > {: .input}
 {: .discussion}

@@ -7,10 +7,10 @@ find_package(GaudiProject)
 # case you should not need this file)
 
 gaudi_project(GaudiTemplate v1r0
-              USE Lbcom v19r1
+              USE Lbcom v20r0
              )
          # Could be 
-         #USE Gaudi v28r0
+         #USE Gaudi v28r1
 # Any data dependencies
 #             DATA MyData v*
 
