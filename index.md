@@ -29,10 +29,11 @@ If you have any problems or questions, you can [send an email to
     4. ~~[Detector Description](02d-detectordesc) (needs volenteer)~~
 3. Frameworks in the update
     1. [The Gaudi Framework](03a-gaudi)
-    2. ~~[DaVinci](03b-davinci) (needs volenteer)~~
+    1. [Upgrading Algorithms](03b-upgrading)
     3. ~~[Tesla/Turbo](03c-tesla) (needs volenteer)~~
     4. ~~[Ganga](03d-ganga) (needs volenteer)~~
     5. ~~[Dirac](03e-dirac) (needs volenteer)~~
+    6. ~~[DaVinci](03f-davinci) (needs volenteer)~~
 4. Design
     1. [The event model](04a-event) (in progress)
     2. [Designing a (functional) algorithm](04b-algo) (in progress)
