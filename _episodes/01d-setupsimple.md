@@ -25,15 +25,18 @@ LHCb uses the git versioning system.
 
 Before using git, you should go to your [gitlab.cern.ch](https://gitlab.cern.ch) account and set up an ssh key. The procedure is the same as with github (and the public key is the same). In short, on Linux or Mac, make sure you have key pair in `~/.ssh/id_rsa.pub` and `~/.ssh/id_rsa`. If you don't have one, run
 
-```bash
-    ssh-keygen
-```
+~~~
+ssh-keygen
+~~~
+{: .input}
 
 and use the default location. If you don't put in a passphrase, you can directly push and pull without a password; if you do put a passphrase, you can run
 
-```bash
-    ssh-add
-```
+~~~
+test -z "$SSH_AGENT_PID" && eval $(ssh-agent)
+ssh-add
+~~~
+{: .input}
 
 when you start a terminal to enter your passphrase once per session. Your computer keychain (Mac, Ubuntu, etc) can also store your password once per login.
 
@@ -49,15 +52,17 @@ Once you verify you have an ssh key pair, you need to go to the gitlab website, 
 
 You can set the lb-commands to default to ssh by running the following line to save a global (all repository) config variable:
 
-```bash
+~~~
 git config --global lb-use.protocol ssh
-```
+~~~
+{: .input}
 
 You can also set the git default push policy for git if you have a version between 1.7.11 and 2.0:
 
-```bash
+~~~
 git config --global push.default simple
-```
+~~~
+{: .input}
 
 This is not mandatory, but is a more reasonable default (and is the default in git 2.0. Note that SLC6 systems, like lxplus, have a version less than 1.7.11. On these systems, you can still set the default to `current`, which is better than the original default of `matching`.
 

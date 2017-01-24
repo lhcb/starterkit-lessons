@@ -25,18 +25,18 @@ The following setup is based on the Hackathon setup [here](https://gitlab.cern.c
 > Set your proxy, for example: 
 >
 > ~~~
-$ echo "CVMFS_HTTP_PROXY=DIRECT" | sudo tee -a /etc/cvmfs/default.local
-~~~
+> $ echo "CVMFS_HTTP_PROXY=DIRECT" | sudo tee -a /etc/cvmfs/default.local
+> ~~~
 > {: .input}
 >
 > Mount a CernVM-FS repository using the following steps:
 > 
 > ~~~
-$ sudo mkdir /cvmfs/lhcb.cern.ch
-$ sudo mount -t cvmfs lhcb.cern.ch /cvmfs/lhcb.cern.ch
-$ sudo mkdir /cvmfs/lhcbdev.cern.ch
-$ sudo mount -t cvmfs lhcb.cern.ch /cvmfs/lhcbdev.cern.ch
-~~~
+> sudo mkdir /cvmfs/lhcb.cern.ch
+> sudo mount -t cvmfs lhcb.cern.ch /cvmfs/lhcb.cern.ch
+> sudo mkdir /cvmfs/lhcbdev.cern.ch
+> sudo mount -t cvmfs lhcb.cern.ch /cvmfs/lhcbdev.cern.ch
+> ~~~
 > {: .input}
 > 
 > If you are on Mac, you will also need to add the `/cvmfs` directory to the shared directory list in the Docker applet.
@@ -49,6 +49,19 @@ To get started, get the tools with:
 git clone ssh://git@gitlab.cern.ch:7999/lhcb/upgrade-hackathon-setup.git hackathon
 ~~~
 {: .input}
+
+> ## Using your ssh key inside the container
+> 
+> If you have loaded your identity, you can share to the container. To load it, type:
+> 
+> ~~~
+> test -z "$SSH_AGENT_PID" && eval $(ssh-agent)
+> ssh-add
+> ~~~
+> {: .input}
+> 
+> This is also useful, since it keeps you from having to type a passphrase every time you try to use git. The `test -z` command is just ensuring that you don't run the agent multiple times. If you are using multiple identities on one account, you can tell `ssh-add` to add the correct one.
+{: .discussion}
 
 Then from the `hackathon` directory just created invoke:
 
@@ -70,19 +83,21 @@ mapped to the local `hackathon` directory.
 ~~~
 > {: .input}
 > 
-> The persistent home option used above may require that you own /<username> on your system as well.
-> The force-cvmfs will mount /cvmfs on your system, and is not needed if you already have it mounted.
+> The persistent home option used above may require that you own `/<username>` on your system as well.
+>  
+> The `--force-cvmfs` will mount `/cvmfs` on your system, and is not needed if you already have it mounted.
+> And the `--ssh-agent` option forwards your ssh identity to the container (if one was added).
 >
 {: .callout}
 
 > ## Logged in as root user?
 >
-> The latest version of the Docker container should have solved this issue for Mac users. First try running git pull in the hackaathon directory. If you still start out as root, you should switch to your user with:
+> The latest version of the Docker container should have solved this issue for Mac users. First try running git pull in the hackathon directory. If you still start out as root, you should switch to your user with:
 > 
 > ~~~
-$ useradd username
-$ su username
-~~~
+> useradd username
+> su username
+> ~~~
 > {: .input}
 > 
 > You should see the appropriate log-on information when you change to the new user. Your home directory was already created and linked to a docker home directory if you used `--home`.
@@ -107,4 +122,20 @@ make
 If you didn't pull the pre-built image, this command will checkout the
 code and build from scratch.
 
+> ## Building a project
+>
+> This is how you would run MiniBrunel:
+>
+> ~~~
+> . /cvmfs/lhcb.cern.ch/lib/lhcb/LBSCRIPTS/dev/InstallArea/scripts/LbLogin.sh -c x86_64-slc6-gcc49-opt
+> lb-dev --nightly-cvmfs --nightly lhcb-future 282 Brunel/future
+> cd BrunelDev_future
+> git lb-use -q Brunel
+> git lb-use -q Rec
+> git lb-checkout Brunel/future Rec/Brunel
+> make
+> ./run gaudirun.py Rec/Brunel/options/MiniBrunel.py
+> ~~~
+> {: .input}
+{: .discussion}
 
