@@ -189,11 +189,11 @@ The constructor should include the `KeyValue` input that it will use. The Consum
 
 ## FilterPredicate
 
-This blocks algorithms behind it, returns "filterPassed".
+This blocks algorithms behind it, returns `filterPassed`.
 
 ## Transformers
 
-Split or merge containers. These take 1 or more inputs, and produce one or more outputs.
+Split or merge containers. These take one or more inputs, and produce one or more outputs.
 
 # Conversion from the old framework to the new
 
@@ -204,9 +204,10 @@ Split or merge containers. These take 1 or more inputs, and produce one or more 
 * Please add as many tests as possible!
 
 
-> # An example
+> ## An example
 >
 > An example with some of these features can be found by running:
+>
 > ~~~
 svn export https://github.com/lhcb/DevelopKit/trunk/code/GaudiNewAPI GaudiNewAPI
 cd GaudiNewAPI/GaudiFunctional
@@ -214,6 +215,6 @@ source build_and_run.sh
 ~~~
 > {: .input}
 > 
-> 
+> This package has two examples, `GaudiFunctional` and `GaudiDataTrans`, which use the new system to transfer data in and out of the TES using DataHandles and the functional approach. Feel free to explore and modify these examples. If you come up with a new useful example, please submit it as a PR.
 > 
 {: .callout}
