@@ -204,3 +204,16 @@ Split or merge containers. These take 1 or more inputs, and produce one or more 
 * Please add as many tests as possible!
 
 
+> # An example
+>
+> An example with some of these features can be found by running:
+> ~~~
+svn export https://github.com/lhcb/DevelopKit/trunk/code/GaudiNewAPI GaudiNewAPI
+cd GaudiNewAPI/GaudiFunctional
+source build_and_run.sh
+~~~
+> {: .input}
+> 
+> 
+> 
+{: .callout}
