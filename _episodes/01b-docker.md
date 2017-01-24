@@ -18,9 +18,6 @@ The following setup is based on the Hackathon setup [here](https://gitlab.cern.c
 * Fuse: You should have a very recent version of Fuse (or OSXFuse on MacOS)
 * CVMFS: you should have access to /cvmfs/lhcb.cern.ch. On a Mac you will need [OSXFuse](http://osxfuse.github.io/) and [CernVM-FS](http://cernvm.cern.ch/portal/filesystem/cvmfs-2.3) (possibly a pre-release of 2.3.3 if you are on MacOS Sierra).
 
-If you cannot get Docker or CVMFS running, you can use
-the CernVM-based approach described later in the page.
-
 > ## Mounting cvmfs manually
 >
 > If you want to mount CVMFS manually, such as for accessing it for other tasks, this is how you can do that:
@@ -80,7 +77,7 @@ mapped to the local `hackathon` directory.
 
 > ## Logged in as root user?
 >
-> If you start out as root, you should switch to your user with:
+> The latest version of the Docker container should have solved this issue for Mac users. First try running git pull in the hackaathon directory. If you still start out as root, you should switch to your user with:
 > 
 > ~~~
 $ useradd username
