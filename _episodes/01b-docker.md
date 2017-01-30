@@ -14,7 +14,7 @@ keypoints:
 The following setup is based on the Hackathon setup [here](https://gitlab.cern.ch/lhcb/upgrade-hackathon-setup).
 
 ## Prerequisites
-* Docker: you should be able to run Docker containers. On a Mac you should have the latest version of Docker, which finally has built in virtualization.
+* Docker: you should be able to run Docker containers. On MacOS you should have the latest version of Docker, which finally has built in virtualization. Be sure to use the most recent version of `upgrade-hackathon-setup`, as well, as several Mac related issues were fixed, and Mac is now fully supported with no (known) caveats.
 * Fuse: You should have a very recent version of Fuse (or OSXFuse on MacOS)
 * CVMFS: you should have access to /cvmfs/lhcb.cern.ch. On a Mac you will need [OSXFuse](http://osxfuse.github.io/) and [CernVM-FS](http://cernvm.cern.ch/portal/filesystem/cvmfs-2.3) (possibly a pre-release of 2.3.3 if you are on MacOS Sierra).
 
@@ -90,19 +90,6 @@ mapped to the local `hackathon` directory.
 >
 {: .callout}
 
-> ## Logged in as root user?
->
-> The latest version of the Docker container should have solved this issue for Mac users. First try running git pull in the hackathon directory. If you still start out as root, you should switch to your user with:
-> 
-> ~~~
-> useradd username
-> su username
-> ~~~
-> {: .input}
-> 
-> You should see the appropriate log-on information when you change to the new user. Your home directory was already created and linked to a docker home directory if you used `--home`.
-{: .discussion}
-
 Building the whole stack the first time may take a lot of time, so you can
 optionally get a pre-built image with:
 
@@ -121,6 +108,18 @@ make
 
 If you didn't pull the pre-built image, this command will checkout the
 code and build from scratch.
+
+> ## Using CVMFS
+>
+> Using CVMFS requires a few changes compared to working on LxPlus, where you have access to AFS. If you run an `lb-dev` or `lb-run` command on the nightlies, you should add `--nightly-cvmfs` to the command. For example:
+> 
+> ~~~
+> lb-run --nightly-cvmfs --nightly lhcb-head Kepler HEAD $SHELL
+> ~~~
+> {: .input}
+>
+> Would drop you into a shell with the CVMFS nightly head of the Kepler package.
+{: .callout}
 
 > ## Building a project
 >
