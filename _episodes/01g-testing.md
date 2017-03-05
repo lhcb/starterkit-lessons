@@ -19,7 +19,7 @@ The Gaudi examples are available in `Gaudi/GaudiExamples`. On lxplus, you can gr
 
 ~~~
 lb-dev Gaudi v28r1
-cd Gaudi_v28r1
+cd GaudiDev_v28r1
 git lb-use Gaudi
 git lb-checkout Gaudi/v28r1 GaudiExamples
 make
