@@ -35,7 +35,7 @@ The following setup is based on the Hackathon setup [here](https://gitlab.cern.c
 > sudo mkdir /cvmfs/lhcb.cern.ch
 > sudo mount -t cvmfs lhcb.cern.ch /cvmfs/lhcb.cern.ch
 > sudo mkdir /cvmfs/lhcbdev.cern.ch
-> sudo mount -t cvmfs lhcb.cern.ch /cvmfs/lhcbdev.cern.ch
+> sudo mount -t cvmfs lhcbdev.cern.ch /cvmfs/lhcbdev.cern.ch
 > ~~~
 > {: .input}
 > 
