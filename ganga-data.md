@@ -43,7 +43,7 @@ In the previous lesson we looked at the location of the ouput with `job(782).out
 >
 > The location of the `gangadir` can be changed in the configuration file '~/.gangarc'. Just search for the `gangadir` attribute and change it to where you like (on the CERN AFS the `work` area is a popular choice).
 
-To avoid filling up the filespace it is wise to put the large files produced by your job somewhere with lots of storge - the grid. You can do so by setting the `outputfiles` attribute:
+To avoid filling up the filespace it is wise to put the large files produced by your job somewhere with lots of storage - the grid. You can do so by setting the `outputfiles` attribute:
 
 ```python
 j.outputfiles = [DiracFile('*.root'), LocalFile('stdout')]
