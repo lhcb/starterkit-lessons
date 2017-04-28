@@ -30,7 +30,7 @@ developed][second-ana-repo], or you can [send an email to
 
 1. [Using git to develop LHCb software](lb-git.html)
 1. [Building your own decay. The Selection Framework](building-decays-part0.html)
-1. [Building your own decay. An Historical Approach](building-decays-part1.html)
+1. [Building your own decay. A Historical Approach](building-decays-part1.html)
 1. [Building your own decay. Modern Selection Framework](building-decays-part2.html)
 1. [What to do when something fails](fixing-errors.html)
 1. [Run a different stripping line on simulated data](rerun-stripping.html)

@@ -32,10 +32,13 @@ To solve this problem, the [Selection Framework](https://twiki.cern.ch/twiki/bin
   - The `SelectionSequence` takes a `Selection` object, resolves its `Selection` requirements, and builds a flat, chained and ordered list of `Selections`. It then exports (via the `selection` method) a self-contained `GaudiSequencer` with all the algorithm configurables necessary to run the selection.
  It also makes the output locations of the data written by the selection chain available via the `outputLocations` method.
 
-As a third important element, filtering algorithms such as `FilterDesktop` are used to give the `Selection` objects data processing capabilities, since `Selection`s don't do any work by themselves, but just organize the dependencies properly.
+Additionally, we need algorithms to perform the particle combination and filtering (or other data processing capabilities), since `Selection`s don't do any work by themselves, but just organize the dependencies properly.
+Two of the most important data processing algorithms are `CombineParticles` and `FilterDesktop`, which will be discussed in the [next lesson](building-decays-part1.html).
 
 The advantages of using this framework are several:
 
+  - Building the algorithms with bare Configurables and chaining their `Input` and `Output` is a responsibility of the users.
+  This means the user needs to put the algorithms in the correct order, not only chaining properly the inputs/outputs but also executing the algorithms in sequence. The use of the Selection Framework places all algorithms in *correct sequences in the optimal order*, allowing to achieve the maximal possible CPU efficiency.
   - Its *reusability*: one can use/re-use the same code for data analysis on "user"-level for MC processing for building of Stripping lines, since usually only the input particles need to be changed.
   - *Easiness of debugging*: one can visualize the selection chain, for example using the `PrintSelection` algorithm for debugging of the data flow.
   - Some (advanced) tasks are *virtually impossible* to do without it, such as accessing some features for MC µDST (MCTruth for inclusive lines, for example) or applying the momentum scaling in Turbo.
