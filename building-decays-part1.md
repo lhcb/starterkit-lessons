@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Second analysis steps
-subtitle: Building your own decay. An Historical Approach
+subtitle: Building your own decay. A Historical Approach
 minutes: 20
 ---
 
@@ -10,7 +10,13 @@ minutes: 20
 > * Build a decay chain using the most basic tools
 > * Understand the limitations and problems of these tools
 
-We'll learn all the concepts involved by running through a full example:
+> ## Lesson caveat {.callout}
+> In this lesson we will explain how to work with the most basic building blocks of the Selection Framework.
+> This is not the most optimal way to use it, but it is included here because their use is very generalized, for example in the Stripping, and understanding them is very useful for understanding most of our current code.
+> At the end of this lesson its shortcomings will be highlighted and a better way to approach the problem will be presented in the [following lesson](building-decays-part2.html).
+>
+
+Now we'll learn to apply the concepts of the Selection Framework by running through a full example:
 using the DST files from the [Downloading a file from the Grid](http://lhcb.github.io/first-analysis-steps/files-from-grid.html) lesson, we will build our own $D^\ast\rightarrow D^0(\rightarrow K^{-} \pi^{+}) \pi$ decay chain from scratch.
 Get your [LoKi skills](https://lhcb.github.io/first-analysis-steps/06-loki-functors.html) ready and let's start.
 
@@ -26,27 +32,28 @@ Get your [LoKi skills](https://lhcb.github.io/first-analysis-steps/06-loki-funct
 > 
 > The starting code for this exercise can be found in [code/building-decays/00.start.py](code/building-decays/00.start.py).
 
-There are several types of selections, for example
-
-- `Selection`, the most basic class.
-- `MergedSelection`, which is used to join the output of several `Selection` objects into a single TES location.
-- `AutomaticData`, which builds objects from their TES location using a preconfigured map of (location, algorithm) pairs.
-
-To get our input particles we use the `AutomaticData` service:
+Our input pions and kaons can be imported from the `StandardParticles` package:
 
 ```python
-from PhysConf.Selections import AutomaticData
-Pions = AutomaticData('Phys/StdAllNoPIDsPions/Particles')
-Kaons = AutomaticData('Phys/StdAllLooseKaons/Particles')
+from StandardParticles import StdAllNoPIDsPions as Pions
+from StandardParticles import StdAllLooseKaons as Kaons
 ```
 
-> ## Finding the correct inputs for `CombineParticles` algorithms {.callout}
-> As discussed previously, the `AutomaticData` selection builds objects from their TES location.
-> In Gaudi, the TES location of the output of an algorithm is generally determined as `Phys/ALGO_NAME/OBJECT_TYPE`, where `OBJECT_TYPE` refers to `Particles`, `Vertices`, etc.
->
-> The `CommonParticles` package, which you can find [here](https://svnweb.cern.ch/trac/lhcb/browser/Stripping/trunk/Phys/CommonParticles/python/CommonParticles), allows to access premade particles with reasonable selections for us to use with `AutomaticData`.
-> For example, in our specific case, we use the `AutomaticData` class with the `Phys/StdAllNoPIDsPions/Particles` and `Phys/StdAllLooseKaons/Particles` locations to access the output of the `StdAllNoPIDsPions` and `StdAllLooseKaons` algorithms, respectively:
+This is an ideal way to get pre-made particles with the standard LHCb configuration.
+
+> ## Where do `StandardParticles` come from? {.callout}
 > 
+> One important type of `Selection` is the `AutomaticData`, which builds objects from their TES location using a centrally predefined algorithm.
+> The `StandardParticles`/`CommonParticles` packages (one imports the other), which you can find [here](https://gitlab.cern.ch/lhcb/Phys/tree/master/Phys/CommonParticles), allow to access premade particles with reasonable reconstruction/selections for us to use with `AutomaticData`.
+>
+> For example, in our specific case, we use the `AutomaticData` class with the `Phys/StdAllNoPIDsPions/Particles` and `Phys/StdAllLooseKaons/Particles` locations to access the output of the `StdAllNoPIDsPions` and `StdAllLooseKaons` algorithms, respectively (see [here](https://gitlab.cern.ch/lhcb/Phys/blob/master/Phys/CommonParticles/python/CommonParticles/StdAllNoPIDsPions.py) and [here](https://gitlab.cern.ch/lhcb/Phys/tree/master/Phys/CommonParticles)).
+> Therefore, the following code would be equivalent to what we have used:
+> ```python
+>from PhysConf.Selections import AutomaticData
+>Pions = AutomaticData('Phys/StdAllNoPIDsPions/Particles')
+>Kaons = AutomaticData('Phys/StdAllLooseKaons/Particles')
+>```
+>
 
 Once we have the input pions and kaons, we can combine them to build a $D^0$ by means of the `CombineParticles` algorithm.
 This algorithm performs the combinatorics for us according to a given decay descriptor and puts the resulting particle in the TES, allowing also to apply some cuts on them:
@@ -76,8 +83,7 @@ This algorithm performs the combinatorics for us according to a given decay desc
       "& (ADMASS('D0') < 70*MeV)"
     )
     ```
-
-Then, we can build a combiner as
+With all the selections ready, we can build a combiner as
 
 ```python
 from Configurables import CombineParticles
@@ -90,6 +96,10 @@ d0 = CombineParticles(
 )
 ```
 
+> ## A small question {.challenge}
+>  - Do you understand this selection?
+>  - Do you know what each of these LoKi functors does?
+
 Now we have to build a `Selection` out of it so we can later on put all pieces together:
 
 ```python
@@ -101,66 +111,32 @@ d0_sel = Selection(
 )
 ```
 
-This two-step process for building the `Selection` (creating an algorithm and building a selection with it) can be simplified by using a helper function in the `PhysConf.Selections` module, called `SimpleSelection`.
-It gets a selection name, the algorithm type we want to run, the inputs and any other parameters that need to be passed to the algorithm (as keyword arguments), and returns a `Selection` object build in the same two-step way.
-With that in mind, we can rewrite the previous two pieces of code as
+We can already see that this two-step process (building the `CombineParticles` and the `Selection`) is a bit cumbersome.
+This can be simplified using a `SimpleSelection` object, which will be discussed in the next lesson.
 
-```python
-import GaudiConfUtils.ConfigurableGenerators as ConfigurableGenerators
-from PhysConf.Selections import SimpleSelection
-d0_sel = SimpleSelection(
-    'Sel_D0',
-    ConfigurableGenerators.CombineParticles,
-    [Pions, Kaons],
-    DecayDescriptor='([D0 -> pi- K+]CC)',
-    DaughtersCuts=d0_daughters,
-    CombinationCut=d0_comb,
-    MotherCut=d0_mother
-)
-```
-
-Note how we needed to use the `CombineParticles` from `GaudiConfUtils.ConfigurableGenerators` instead of the `PhysConf.Selections` one to make this work.
-This is because the LHCb algorithms are configured as singletons and it is mandatory to give them a name, which we don't want to in `SimpleSelection` (we want to skip steps!).
-
-> ## The LHCb singletons {.callout}
-> If we had tried to simply use `CombineParticles` inside our `SimpleSelection`, we would have seen it fail with the following error
-> 
-> ```output
-> NameError: Could not instantiate Selection because input Configurable CombineParticles has default name. This is too unsafe to be allowed.
-> ```
->
-> The reason for this is that all LHCb algorithms need an explicit and unique name because they are *singletons*, and therefore an exception is thrown if we don't do that.
-> A [singleton](http://en.wikipedia.org/wiki/Singleton_pattern) is a software design pattern that restricts the instantiation of a class to one object. In our case, only one algorithm with a given name can be instantiated.
-> This allows to reuse and reload algorithms that have already been created in the configuration sequence, eg, we could have reloaded the `"Combine_D0"` `CombineParticles` by name and modified it (even in another file loaded in the same `gaudirun.py` call!):
->
-> ```python
-> d0_copy = CombineParticles('Combine_D0')
-> print d0_copy.DecayDescriptor
->```
->
-> This is very useful to build complicated configuration chains.
->
-> The solution for the `SimpleSelection` problem, in which we actually don't care about the `CombineParticles` name, is the `GaudiConfUtils.ConfigurableGenerators` package: it contains wrappers around algorithms such as `CombineParticles` or `FilterDesktop` allowing them to be instantiated without an explicit name argument.
-
+For the time being, let's finish building our candidates.
 Now we can use another `CombineParticles` to build the $D^\ast$ with pions and the $D^0$'s as inputs, and applying a filtering only on the soft pion:
 
 ```python
-dstar_daughters = {
-  'pi+': '(TRCHI2DOF < 3) & (PT > 100*MeV)'
-}
+dstar_daughters = {'pi+': '(TRCHI2DOF < 3) & (PT > 100*MeV)'}
 dstar_comb = "(ADAMASS('D*(2010)+') < 400*MeV)"
 dstar_mother = (
     "(abs(M-MAXTREE('D0'==ABSID,M)-145.42) < 10*MeV)"
     '& (VFASPF(VCHI2/VDOF)< 9)'
 )
-dstar_sel = SimpleSelection(
-    'Sel_Dstar',
-    ConfigurableGenerators.CombineParticles,
-    [d0_sel, Pions],
-    DecayDescriptor='[D*(2010)+ -> D0 pi+]cc',
+
+dstar = CombineParticles(
+    'Combine_Dstar',
+    DecayDescriptor='[D0 -> pi- K+]cc',
     DaughtersCuts=dstar_daughters,
     CombinationCut=dstar_comb,
     MotherCut=dstar_mother
+)
+
+dstar_sel = Selection(
+    'Sel_Dstar',
+    Algorithm=dstar,
+    RequiredSelections=[dstar, Pions]
 )
 ```
 
@@ -204,29 +180,11 @@ from Configurables import DaVinci
 DaVinci().UserAlgorithms += [dstar_seq.sequence()]
 ```
 
-
-> ## Debugging your selection chain {.callout}
-> The `PhysConf.Selections` offers a very useful utility for debugging your selection chains, called `PrintSelection`.
-> It gets a `Selection` as input and it can be used the same way, except it will print the decay tree everytime making use of the `PrintDecayTree` algorithm which was discussed in the [Exploring a DST](http://lhcb.github.io/first-analysis-steps/05-interactive-dst.html) lesson.
->
-> For more complex debugging, one can setup `DaVinci` with `graphviz` (see more details [here](http://www.graphviz.org))
-> ```shell
-> SetupDaVinci --use "graphviz v* LCG_Interfaces"
-> ```
-> and create a graph representation of the sequence of algorithms and their dependencies:
-> ```python
->from SelPy.graph import graph
->graph(dstar_sel, format='png')
->```
-><img src="./img/Sel_Dstar.png" alt="Dstar selection graph" style="width: 500px;"/>
->
-> Note that currently it is not possible to load `graphviz` with `lb-run`, but it is expected it will be possible in the near future.
-
-
 > ## Work to do {.challenge}
->  - Finish the script (the base of which can be found [here](code/building-decays/build_decays.py)) by adapting the basic `DaVinci` configuration from its corresponding [lesson](http://lhcb.github.io/first-analysis-steps/08-minimal-dv-job.html) and check the output ntuple.
->  - Replace the `"Combine_D0"` and `"Sel_D0"` objects by a single `SimpleSelection`.
->  - Do you know what the used LoKi functors (`AMAXDOCA`, `ADAMASS`, `MIPCHI2DV`, etc) do? 
->  - Add a `PrintSelection` in your selections and run again.
->  - Create a `graph` of the selection.
+>  - Finish the script by adapting the basic `DaVinci` configuration from its corresponding [lesson](http://lhcb.github.io/first-analysis-steps/minimal-dv-job.html) and check the output ntuple (run over 10000 events to make sure your tuple has enough entries). The solution can be found [here](code/building-decays/01.historical.py)).
+>  - Add a `PrintSelection` algorithm in your selections and run again. It gets a `Selection` as input and it can be used the same way, except it will print the decay tree everytime making use of the `PrintDecayTree` algorithm which was discussed in the [Exploring a DST](http://lhcb.github.io/first-analysis-steps/05-interactive-dst.html) lesson.
+>  - Compare your selection with what is done in the actual Stripping, which can be found [here](https://gitlab.cern.ch/lhcb/Stripping/blob/master/Phys/StrippingArchive/python/StrippingArchive/Stripping20/StrippingD2hh.py). You can appreciate the power of the Selection Framework in the modularity of that Stripping.
 
+By looking at the final script, there is one striking thing:
+there is a lot of repetition (`CombineParticles`-`Selection` sequence) which leads to complicated naming schemes, due to the fact that we want our `Selection` or `CombineParticle` objects to have a unique name.
+To help with these name clashes and to allow a much more streamlined `Selection` building, the `PhysConf.Selections` module offers a large set of more optimized classes, which we'll discuss in the [next lesson](building-decays-part2.html).
