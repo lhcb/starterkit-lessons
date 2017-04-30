@@ -186,5 +186,6 @@ DaVinci().UserAlgorithms += [dstar_seq.sequence()]
 >  - Compare your selection with what is done in the actual Stripping, which can be found [here](https://gitlab.cern.ch/lhcb/Stripping/blob/master/Phys/StrippingArchive/python/StrippingArchive/Stripping20/StrippingD2hh.py). You can appreciate the power of the Selection Framework in the modularity of that Stripping.
 
 By looking at the final script, there is one striking thing:
-there is a lot of repetition (`CombineParticles`-`Selection` sequence) which leads to complicated naming schemes, due to the fact that we want our `Selection` or `CombineParticle` objects to have a unique name.
+there is a lot of repetition (for example in the `CombineParticles`-`Selection` sequence) which leads to complicated naming schemes, due to the fact that we need our `Selection` and `CombineParticle` objects to have a unique name.
 To help with these name clashes and to allow a much more streamlined `Selection` building, the `PhysConf.Selections` module offers a large set of more optimized classes, which we'll discuss in the [next lesson](building-decays-part2.html).
+
