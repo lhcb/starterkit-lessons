@@ -13,9 +13,9 @@ minutes: 15
 As discussed previously, the Selection Framework can become a bit cumbersome in terms of the naming and construction of the `Selection`-`CombineParticles` repetitions.
 For this reason, the Selection Framework offers a more streamlined set of `Selection`s to deal with these issues.
 
-This two-step process for building the `Selection` (creating an algorithm and building a selection with it) can be simplified by using the `SimpleSelection` object:
-it gets a selection name, the algorithm type we want to run, the inputs and any other parameters that need to be passed to the algorithm (as keyword arguments), and returns a `Selection` object build in the same two-step way.
-With that in mind, we can rewrite the $D^0$ selection as:
+This two-step process for building the `Selection` (creating an algorithm and building a selection with it) can be simplified by using a helper function in the `PhysConf.Selections` module, called `SimpleSelection`.
+It gets a selection name, the algorithm type we want to run, the inputs and any other parameters that need to be passed to the algorithm (as keyword arguments), and returns a `Selection` object build in the same two-step way.
+With that in mind, we can rewrite the previous two pieces of code as
 
 ```python
 import GaudiConfUtils.ConfigurableGenerators as ConfigurableGenerators
