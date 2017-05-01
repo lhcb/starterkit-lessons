@@ -220,10 +220,10 @@ $ git lb-checkout Hlt/master Hlt/HltSettings
 $ git lb-checkout Hlt/master Hlt/Hlt2Lines
 $ make
 ```
-Go to ```Hlt/HltSettings/python/HltSettings/DiMuon/DiMuon_pp_2017.py``, search for prescale and change the prescale of ```Hlt2DiMuonJPsi``` to 1.0.
+Go to ```Hlt/HltSettings/python/HltSettings/DiMuon/DiMuon_pp_2017.py```, search for prescale and change the prescale of ```Hlt2DiMuonJPsi``` to 1.0.
 Run Moore again and see if the rate of this line has increased.
 
-The line is defined in ```Hlt/Hlt2Lines/python/Hlt2Lines/DiMuon/Lines.py``. The cut properties appear in the dictionary under ```JPsi```.
+The line is defined in ```Hlt/Hlt2Lines/python/Hlt2Lines/DiMuon/Lines.py```. The cut properties appear in the dictionary under ```JPsi```.
 Add an entry with the key ```MinProbNN``` and set some value. If you search for ```JPsi``` in the file, you will find that the lines
 uses ```JpsiFilter``` from ```Stages.py```. As it is used by another line as well, you have to add the entry to ```JPsiHighPT``` as well.
 JpsiFilter simply uses muon pairs as input.  Go to Stages.py  and adapt the code of the ```Hlt2ParticleFilter``` to filter on the
