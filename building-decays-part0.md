@@ -27,7 +27,7 @@ As discussed in the [Gaudi introduction](http://lhcb.github.io/first-analysis-st
 However, it does not handle the data dependencies between these algorithms nor does it give easy access to them.
 To solve this problem, the [Selection Framework](https://twiki.cern.ch/twiki/bin/view/LHCb/ParticleSelection) was created, and it is based on two types of objects: `Selection` and `SelectionSequence`:
 
-  - The `Selection` is the basic unit of the framework. It uses other `Selections` to process `LHCb::Particles` and writes them to a TES location easily findable through its `outputLocation` method. Additionally, it knows about other `Selections` that it requires to pass in order to obtain input particles through its `RequiredSelections` argument. A `Selection` requires *all* of its `RequiredSelections` to pass.
+  - The `Selection` is the basic unit of the framework. It uses DaVinci algorithms to process `LHCb::Particles`and writes them to a TES location easily findable through its `outputLocation` method. Additionally, it knows about other `Selections` that it requires to pass in order to obtain input particles through its `RequiredSelections` argument. A `Selection` requires *all* of its `RequiredSelections` to pass.
 
   - The `SelectionSequence` takes a `Selection` object, resolves its `Selection` requirements, and builds a flat, chained and ordered list of `Selections`. It then exports (via the `selection` method) a self-contained `GaudiSequencer` with all the algorithm configurables necessary to run the selection.
  It also makes the output locations of the data written by the selection chain available via the `outputLocations` method.

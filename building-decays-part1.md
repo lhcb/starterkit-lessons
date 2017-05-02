@@ -136,7 +136,7 @@ dstar = CombineParticles(
 dstar_sel = Selection(
     'Sel_Dstar',
     Algorithm=dstar,
-    RequiredSelections=[dstar, Pions]
+    RequiredSelections=[d0_sel, Pions]
 )
 ```
 
