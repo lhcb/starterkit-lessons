@@ -80,20 +80,39 @@ To finalize, it is also very useful to know about the existence of certain selec
 These can be used as inputs for `SimpleSelection` to make sure the latter only run on those events that pass the filter.
 The most interesting are (see the [code](https://gitlab.cern.ch/lhcb/Phys/blob/master/PhysSel/PhysSelPython/python/PhysSelPython/Wrappers.py) for the full list, along with examples on how to use them):
 
-  - `TriggerSelection`, including `L0`/`Hlt1`/`Hlt2` specific versions. These are used to select certain trigger decisions.
+  - `TriggerSelection`, including `L0`/`Hlt1`/`Hlt2` specific versions. These are used to filter on certain trigger decisions (NB: their job is simply to filter, so they cannot be used as particle input for another selection).
   The same interface can be used for filtering on Stripping decisions by using the `StrippingSelection` class.
-  With it, the example from the Starterkit [minimal DaVinci job](https://lhcb.github.io/first-analysis-steps/minimal-dv-job.html), in which the output of a Stripping line was passed to `DecayTreeTuple`, could be written in a much cleaner way:
+  With it, the example from the Starterkit [minimal DaVinci job](https://lhcb.github.io/first-analysis-steps/minimal-dv-job.html), in which the output of a Stripping line was passed to `DecayTreeTuple`, could be written in a more CPU-efficient way:
 
     ```python
+    line = 'D2hhCompleteEventPromptDst2D2RSLine'
     strip_sel = StrippingSelection("Strip_sel",
                                    "HLT_PASS('StrippingD2hhCompleteEventPromptDst2D2RSDecision')")
+    strip_input = AutomaticData('Phys/{0}/Particles'.format(line))
     tuple_sel = TupleSelection('Tuple_sel',
-                               [strip_sel],
+                               [strip_sel, strip_input],
                                Decay='[D*(2010)+ -> (D0 -> K- pi+) pi+]CC')
     ```
+
+  This avoids running `DecayTreeTuple` on empty events, since the `strip_sel` stops processing before.
+  This will only be helpful for rare Stripping lines, since the overhead of running `DecayTreeTuple` on empty events is small, but this has been proven useful in more complex workflows.
+  Additionally, it takes care of `RootInTes` for you.
+
+> ## A small test {.challenge}
+> Try running the [minimal DaVinci job](https://lhcb.github.io/first-analysis-steps/minimal-dv-job.html) with and without the `StrippingSelection`/`DecayTreeTuple` selections, and compare their performance
+> 
+> In this particular case, there is a simple way to achieve a CPU-efficient code with `DecayTreeTuple`, thanks to the use of `DaVinci` pre-event filters;
+> ```python
+> from PhysConf.Filters import LoKi_Filters
+> filter_ = LoKi_Filters(STRIP_Code="HLT_PASS('StrippingD2hhCompleteEventPromptDst2D2RSDecision')")
+>
+> DaVinci().EventPreFilters = filter_.filters("FILTERS")
+>```
 
   - Related to the previous ones, `TisTosSelection` are used to filter according to TIS/TOS.
   A whole range of them is available: `L0TOSSelection`, `L0TISSelection`, `Hlt1TOSSelection`, `Hlt1TISSelection`, `Hlt2TOSSelection` and `Hlt2TISSelection`.
 
   - `ValidBPVSelection`, which is used to check that a valid associated primary vertex is present.
 
+While it's hard to find simple examples in which the utility of these tools is clearly highlighted, it's important to note that they constitute a modular framework that allows to build very complex workflows from very simple pieces.
+In these situations, the Selection Framework is the ideal tool to keep the code bug-free and CPU-efficient.
