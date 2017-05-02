@@ -51,39 +51,31 @@ Let's start with a simple Moore script, we call it runMoore.py:
 from Configurables import Moore
 # Define settings
 Moore().ThresholdSettings = "Physics_pp_2017"
-Moore().DataType = "2017"
-Moore().UseTCK = False
 Moore().RemoveInputHltRawBanks = True
 Moore().Split = ''
 # A bit more output
+from Gaudi.Configuration import INFO
 Moore().EnableTimer = True
-Moore().OutputLevel = 3
+Moore().OutputLevel = INFO
 # Input data
 from PRConfig import TestFileDB
+# The following call configures input data, database tags and data type
 TestFileDB.test_file_db["2016NB_25ns_L0Filt0x1609"].run(configurable=Moore())
-# Set the right L0 TCK
+Moore().DataType = "2017"
+# Override the TCK in the ThresholdSettings to match the input data
 from Configurables import HltConf
 HltConf().setProp("L0TCK", '0x1609')
-Moore().EvtMax = 1000
 # Remove a line which accepts every event when run on this sample
 HltConf().RemoveHlt1Lines = ["Hlt1MBNoBias"]
+
+Moore().EvtMax = 1000
+print Moore()
 ~~~
 
 Try to run it with
 ```
 $ lb-run Moore/latest gaudirun.py runMoore.py | tee log.txt
 ```
-
-There are two ways to run Moore, from ```ThresholdSettings``` and from ```TCK``` (Trigger Configuration Key).
-When you develop a trigger line, it is more convenient to run from ThresholdSettings. The TCK
-is used when running the trigger on the online farm or in MC productions as it uniquely defines the settings.
-
-> ## What is a TCK? {.callout}
-> The Trigger Configuration Key (TCK) stores the configuration of the HLT in a database.
-> All algorithms and their properties are defined in it.
-> The key is usually given as a hexadecimal number. The last 4 digits define the L0 TCK.
-> The first 4 digits define the HLT configuration. HLT1 TCKs start with 1, HLT2 TCKs start
-> with 2.
 
 The property split defines if HLT1, HLT2 or both are run. In the example above both are run.
 Change ```Moore().Split``` to ```'Hlt1'``` and rerun.
@@ -112,6 +104,17 @@ read data which have been created when running Moore from TCK and not from setti
 
 ### Run Moore from TCK
 
+There are two ways to run Moore, from ```ThresholdSettings``` and from ```TCK``` (Trigger Configuration Key).
+When you develop a trigger line, it is more convenient to run from ThresholdSettings. The TCK
+is used when running the trigger on the online farm or in MC productions as it uniquely defines the settings.
+
+> ## What is a TCK? {.callout}
+> The Trigger Configuration Key (TCK) stores the configuration of the HLT in a database.
+> All algorithms and their properties are defined in it.
+> The key is usually given as a hexadecimal number. The last 4 digits define the L0 TCK.
+> The first 4 digits define the HLT configuration. HLT1 TCKs start with 1, HLT2 TCKs start
+> with 2.
+
 Running from TCK has a few restrictions:
  1 The L0TCK defined in the TCK and the one in data have to match.
  2 The HltTCK might be incompatible with a Moore version if the properties of C++ algorithms changed.	
@@ -124,7 +127,6 @@ from Configurables import Moore
 Moore().UseTCK = True
 # You can check in TCKsh which TCKs exist and for which Moore versions they can be used.
 Moore().InitialTCK = "0x11381609"
-Moore().DataType = "2016"
 Moore().Split = 'Hlt1'
 Moore().RemoveInputHltRawBanks = True
 # In the online farm Moore checks if the TCK in data and the configuration are the same.
@@ -132,12 +134,15 @@ Moore().RemoveInputHltRawBanks = True
 Moore().CheckOdin = False
 Moore().outputFile = "TestTCK1.mdf"
 # A bit more output
+from Gaudi.Configuration import INFO
 Moore().EnableTimer = True
-Moore().OutputLevel = 3
+Moore().OutputLevel = INFO
 # Input data
 from PRConfig import TestFileDB
 TestFileDB.test_file_db["2016NB_25ns_L0Filt0x1609"].run(configurable=Moore())
+Moore().DataType = "2016"
 Moore().EvtMax = 1000
+print Moore()
 ~~~
 
 Run with
@@ -159,8 +164,9 @@ Moore().CheckOdin = False
 Moore().EnableOutputStreaming = True
 Moore().outputFile = "TestTCK2.mdf"
 # A bit more output
+from Gaudi.Configuration import INFO
 Moore().EnableTimer = True
-Moore().OutputLevel = 4
+Moore().OutputLevel = INFO
 # Input data
 Moore().DDDBtag = 'dddb-20150724'
 Moore().CondDBtag = 'cond-20170325'
@@ -230,6 +236,10 @@ JpsiFilter simply uses muon pairs as input.  Go to Stages.py  and adapt the code
 pid of the muons, to do that add ```(MINTREE('mu-' == ABSID, PROBNNmu) > %(MinProbNN)s )```
 to the cut string. Run Moore again and see if the rate of this line has now decreased.
 
+For more complicated developments which require changing many files or concurrent development of several people,
+we encourage to use a full checkout of the ```Moore``` and ```Hlt``` projects and to use vanilla git commands.
+A user friendly setup for this is being developed under the name [trigger-dev](https://gitlab.cern.ch/lhcb-HLT/trigger-dev).
+We encourage people to check it out and give feedback.
 
 > ## Convert a stripping line to a Hlt2 line {.challenge}
 > Pick a stripping line and convert it to a HLT2 line.
