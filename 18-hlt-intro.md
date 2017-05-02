@@ -239,7 +239,7 @@ to the cut string. Run Moore again and see if the rate of this line has now decr
 For more complicated developments which require changing many files or concurrent development of several people,
 we encourage to use a full checkout of the ```Moore``` and ```Hlt``` projects and to use vanilla git commands.
 A user friendly setup for this is being developed under the name [trigger-dev](https://gitlab.cern.ch/lhcb-HLT/trigger-dev).
-We encourage people to check it out and give feedback.
+We encourage people to check it out and give feedback on the [issues page](https://gitlab.cern.ch/lhcb-HLT/trigger-dev/issues).
 
 > ## Convert a stripping line to a Hlt2 line {.challenge}
 > Pick a stripping line and convert it to a HLT2 line.
