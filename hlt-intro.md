@@ -43,7 +43,7 @@ The application of the software trigger is called Moore. Moore relies on the sam
 algorithms as are used in Brunel to run the reconstruction and in DaVinci to
 select particle decays.
 
-## Run Moore from settings
+*Run Moore from settings*
 
 Let's start with a simple Moore script, we call it runMoore.py:
 
@@ -102,7 +102,7 @@ read data which have been created when running Moore from TCK and not from setti
 >
 > What is difference in run time of Hlt1 and Hlt2?
 
-## Run Moore from TCK
+*Run Moore from TCK*
 
 There are two ways to run Moore, from ```ThresholdSettings``` and from ```TCK``` (Trigger Configuration Key).
 When you develop a trigger line, it is more convenient to run from ThresholdSettings. The TCK
@@ -174,7 +174,7 @@ Moore().inputFiles = ["TestTCK1.mdf"]
 Moore().EvtMax = 100
 ~~~
 
-## Exploring a TCK
+*Exploring a TCK*
 
 If you are interested in how to create a TCK, you can follow the instructions
 given [here](https://twiki.cern.ch/twiki/bin/view/LHCb/CreateSplitHltTCKs).
@@ -203,7 +203,7 @@ Type for example:
 >
 > What are the names of the topological trigger lines in Run 1 and Run 2?
 
-## Write your own HLT2 trigger line or adapt an existing one
+*Write your own HLT2 trigger line or adapt an existing one*
 HLT2 lines are similar to stripping lines. They combine basic particles to composite objects
 and you apply selections to get a clean sample. The framework in which you write a trigger
 line looks different to a stripping line but the underlying algorithms are the same.
