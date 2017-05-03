@@ -127,7 +127,7 @@ dstar_mother = (
 
 dstar = CombineParticles(
     'Combine_Dstar',
-    DecayDescriptor='[D0 -> pi- K+]cc',
+    DecayDescriptor='[D*(2010)+ -> D0 pi+]cc',
     DaughtersCuts=dstar_daughters,
     CombinationCut=dstar_comb,
     MotherCut=dstar_mother
