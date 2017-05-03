@@ -204,6 +204,7 @@ Type for example:
 > What are the names of the topological trigger lines in Run 1 and Run 2?
 
 *Write your own HLT2 trigger line or adapt an existing one*
+
 HLT2 lines are similar to stripping lines. They combine basic particles to composite objects
 and you apply selections to get a clean sample. The framework in which you write a trigger
 line looks different to a stripping line but the underlying algorithms are the same.
