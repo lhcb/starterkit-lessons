@@ -36,6 +36,7 @@ developed][second-ana-repo], or you can [send an email to
 1. [Run a different stripping line on simulated data](rerun-stripping.html)
 1. [Replace a mass hypothesis](switch-mass-hypo.html)
 1. [Reuse particles from a decay tree](filter-in-trees.html)
+1. [The simulation framework](simulation.html)
 1. [HLT intro](hlt-intro.html)
 1. [TisTos DIY](tistos-diy.html)
 1. [Ganga Scripting](ganga-scripting.html)

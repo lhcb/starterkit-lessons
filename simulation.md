@@ -34,7 +34,7 @@ Imagine you need to know the option files and software versions used for a simul
 /MC/2015/Beam2510GeV-2015-MagDown-Nu1.5-25ns-Pythia8/Sim09b/Trig0x4115014e/Reco15a/Turbo01aEM/Stripping22NoPrescalingFlagged/27163003/ALLSTREAMS.DST
 ```
 First, find the ProductionID:
-![FindingProductionID](img/simulation_1.png)
+![FindingProductionID](img/img/simulation_1.png)
 Search for this ID in the Transformation Monitor, right click the result and select "Show request". Right clicking and selecting "View" in the new window will open an overview about all the individual steps of the production with their application version and option files used.
 
 > ## Important: the order of the option files does matter! {.callout}
