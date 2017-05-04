@@ -23,7 +23,7 @@ farm machines, while HLT2 uses the rest of the available CPU (100% when there is
 no beam) to process the events written by HLT1. The evolution of the disk buffer is
 shown in the figure below. Events accepted by HLT2 are sent to offline storage.
 
-<img src="./img/DiskBuffer2016.png" alt="Disk buffer in 2016" style="width: 500px;" />
+<img src="./img/img//DiskBuffer2016.png" alt="Disk buffer in 2016" style="width: 500px;" />
 
 In Run I, both the reconstructions and selections used by HLT1, HLT2 and offline
 were very different. In Run 2 the reconstructions used in HLT2 and offline are
@@ -43,7 +43,7 @@ The application of the software trigger is called Moore. Moore relies on the sam
 algorithms as are used in Brunel to run the reconstruction and in DaVinci to
 select particle decays.
 
-*Run Moore from settings*
+### Run Moore from settings
 
 Let's start with a simple Moore script, we call it runMoore.py:
 
@@ -174,7 +174,7 @@ Moore().inputFiles = ["TestTCK1.mdf"]
 Moore().EvtMax = 100
 ~~~
 
-*Exploring a TCK*
+### Exploring a TCK
 
 If you are interested in how to create a TCK, you can follow the instructions
 given [here](https://twiki.cern.ch/twiki/bin/view/LHCb/CreateSplitHltTCKs).
@@ -203,7 +203,7 @@ Type for example:
 >
 > What are the names of the topological trigger lines in Run 1 and Run 2?
 
-*Write your own HLT2 trigger line or adapt an existing one*
+### Write your own HLT2 trigger line or adapt an existing one
 
 HLT2 lines are similar to stripping lines. They combine basic particles to composite objects
 and you apply selections to get a clean sample. The framework in which you write a trigger
