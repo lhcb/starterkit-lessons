@@ -2,7 +2,7 @@
   "author": "The Starterkit team and contributors",
   "plugins": [
     "-sharing",
-    "panels@/Users/apearce/Code/Starterkit/gitbook-plugin-panels",
-    "katex-auto-render@/Users/apearce/Code/Starterkit/gitbook-plugin-katex-auto-render"
+    "panels@git+https://github.com/lhcb/gitbook-plugin-panels.git#master",
+    "katex-auto-render@git+https://github.com/lhcb/gitbook-plugin-katex-auto-render.git#master"
   ]
 }
