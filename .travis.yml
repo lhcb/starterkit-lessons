@@ -7,3 +7,9 @@ install:
   - gitbook install
 script:
   - gitbook build
+# With instructions from http://www.steveklabnik.com/automatically_update_github_pages_with_travis_example/
+after_success:
+  - test $TRAVIS_PULL_REQUEST == "false" && test $TRAVIS_BRANCH == "master" && bash deploy.sh
+env:
+  global:
+    - secure: u2cXfS9DzeKaSRqV2X12aNzLtCdk/DIvV6BbEbqwmOFjRcUfDXTty+tU9Huz9gS1QchlNYO6rQDPi/t4XkaMrX2BI+PY0ehKRM9LsUm/KmVNqjXQdeoynu2apPQ9HR0M2HKF9d/a1PHRiEXSV7UeUUbPUrvjsy4Cxz9XZB5FM43XDxW+IAhOYhMqdirknYcPS/NsHb21PRkVED8nwgRZuX7igiB2X/i797ngq9fmxQg2jBGQHQLaSqBgO9LIjIP1EshuoyZA3z1YBsCgRtEv4xds7jJJs84/bO21N0t40wU27yI1tu8P4hR17dDGwo9mJo2z7pOG1Qdt0vxajUw+YHwGWkjtY7AliHIYJ9Xdwqe8b5kUBpzg3yHmoV8gXQV7WMHxv7za44hmlfrpry0GwEtNNUjRvbrymOh/FwfQaONpzi/b0kZnydxehe81KsUhqK1d/HVWcCDbf6iVO5sDRfddeQQPdRhf2xFbBCMdEtrMQqaf/eNmobVKDNB0wnsN1cYxa/8U5IQnNdwry8k7uQ+mQsRJXF1qXtzu4EKoCdFe3HHbWsZyBBwiD7HWVpeatJj9JpvTfIxgpmtW0Ll40A7CVvrdoqz+pI3u8aH8IzOzewq2a/oCNwNL2x6jSL19BeOp31jh8Ow9TwmOcpB6FF7TxqLCAY04Iwz02cTygr0=
