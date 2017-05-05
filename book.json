@@ -1,0 +1,8 @@
+{
+  "author": "The Starterkit team and contributors",
+  "plugins": [
+    "-sharing",
+    "panels@/Users/apearce/Code/Starterkit/gitbook-plugin-panels",
+    "katex-auto-render@/Users/apearce/Code/Starterkit/gitbook-plugin-katex-auto-render"
+  ]
+}
