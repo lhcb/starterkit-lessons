@@ -1,0 +1,9 @@
+language: node_js
+node_js:
+  - "node"
+before_install:
+  - npm install gitbook-cli -g
+install:
+  - gitbook install
+script:
+  - gitbook build
