@@ -1,0 +1,953 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Developing LHCb Software · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.2">
+        <meta name="author" content="The Starterkit team and contributors">
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-panels/panels.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-katex-auto-render/katex.min.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="asking-questions.html" />
+    
+    
+    <link rel="prev" href="split-jobs.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    The LHCb Starterkit
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">First analysis steps</li>
+        
+        
+    
+        <li class="chapter " data-level="2.1" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2" data-path="prerequisites.html">
+            
+                <a href="prerequisites.html">
+            
+                    
+                    Pre-workshop checklist
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3" data-path="install-party.html">
+            
+                <a href="install-party.html">
+            
+                    
+                    Install party
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.4" data-path="introduction-to-course.html">
+            
+                <a href="introduction-to-course.html">
+            
+                    
+                    Goals of the course
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.5" data-path="dataflow.html">
+            
+                <a href="dataflow.html">
+            
+                    
+                    The LHCb data flow
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.6" data-path="run-2-data-flow.html">
+            
+                <a href="run-2-data-flow.html">
+            
+                    
+                    Changes to the data flow in Run 2
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.7" data-path="davinci.html">
+            
+                <a href="davinci.html">
+            
+                    
+                    An introduction to LHCb Software
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.8" data-path="bookkeeping.html">
+            
+                <a href="bookkeeping.html">
+            
+                    
+                    Finding data in the Bookkeeping
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.9" data-path="files-from-grid.html">
+            
+                <a href="files-from-grid.html">
+            
+                    
+                    Downloading a file from the grid
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.10" data-path="interactive-dst.html">
+            
+                <a href="interactive-dst.html">
+            
+                    
+                    Interactively exploring a DST
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.11" data-path="loki-functors.html">
+            
+                <a href="loki-functors.html">
+            
+                    
+                    Fun with LoKi Functors
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.12" data-path="minimal-dv-job.html">
+            
+                <a href="minimal-dv-job.html">
+            
+                    
+                    Running a minimal DaVinci job locally
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.13" data-path="davinci-grid.html">
+            
+                <a href="davinci-grid.html">
+            
+                    
+                    Running DaVinci on the grid
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.14" data-path="add-tupletools.html">
+            
+                <a href="add-tupletools.html">
+            
+                    
+                    TupleTools and branches
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.15" data-path="decay-tree-fitter.html">
+            
+                <a href="decay-tree-fitter.html">
+            
+                    
+                    How do I use DecayTreeFitter?
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.16" data-path="ganga-data.html">
+            
+                <a href="ganga-data.html">
+            
+                    
+                    More Ganga
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.17" data-path="eos-storage.html">
+            
+                <a href="eos-storage.html">
+            
+                    
+                    Storing large files on EOS
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.18" data-path="split-jobs.html">
+            
+                <a href="split-jobs.html">
+            
+                    
+                    Splitting a job into subjobs
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="2.19" data-path="lhcb-dev.html">
+            
+                <a href="lhcb-dev.html">
+            
+                    
+                    Developing LHCb Software
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.20" data-path="asking-questions.html">
+            
+                <a href="asking-questions.html">
+            
+                    
+                    Asking good questions
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.21" data-path="ecgd.html">
+            
+                <a href="ecgd.html">
+            
+                    
+                    Early career, gender and diversity
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.22" data-path="contributing-lesson.html">
+            
+                <a href="contributing-lesson.html">
+            
+                    
+                    Contribute to this lesson
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Second analysis steps</li>
+        
+        
+    
+        <li class="chapter " data-level="3.1" data-path="../second-analysis-steps/">
+            
+                <a href="../second-analysis-steps/">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2" data-path="../second-analysis-steps/lb-git.html">
+            
+                <a href="../second-analysis-steps/lb-git.html">
+            
+                    
+                    Using git to develop LHCb software
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3" data-path="../second-analysis-steps/building-decays-part0.html">
+            
+                <a href="../second-analysis-steps/building-decays-part0.html">
+            
+                    
+                    Building your own decay. The Selection Framework
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.4" data-path="../second-analysis-steps/building-decays-part1.html">
+            
+                <a href="../second-analysis-steps/building-decays-part1.html">
+            
+                    
+                    Building your own decay. A Historical Approach
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.5" data-path="../second-analysis-steps/building-decays-part2.html">
+            
+                <a href="../second-analysis-steps/building-decays-part2.html">
+            
+                    
+                    Building your own decay. Modern Selection Framework
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.6" data-path="../second-analysis-steps/fixing-errors.html">
+            
+                <a href="../second-analysis-steps/fixing-errors.html">
+            
+                    
+                    What to do when something fails
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.7" data-path="../second-analysis-steps/rerun-stripping.html">
+            
+                <a href="../second-analysis-steps/rerun-stripping.html">
+            
+                    
+                    Run a different stripping line on simulated data
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.8" data-path="../second-analysis-steps/switch-mass-hypo.html">
+            
+                <a href="../second-analysis-steps/switch-mass-hypo.html">
+            
+                    
+                    Replace a mass hypothesis
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.9" data-path="../second-analysis-steps/filter-in-trees.html">
+            
+                <a href="../second-analysis-steps/filter-in-trees.html">
+            
+                    
+                    Reuse particles from a decay tree
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.10" data-path="../second-analysis-steps/simulation.html">
+            
+                <a href="../second-analysis-steps/simulation.html">
+            
+                    
+                    The simulation framework
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.11" data-path="../second-analysis-steps/hlt-intro.html">
+            
+                <a href="../second-analysis-steps/hlt-intro.html">
+            
+                    
+                    HLT intro
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.12" data-path="../second-analysis-steps/tistos-diy.html">
+            
+                <a href="../second-analysis-steps/tistos-diy.html">
+            
+                    
+                    TisTos DIY
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.13" data-path="../second-analysis-steps/ganga-scripting.html">
+            
+                <a href="../second-analysis-steps/ganga-scripting.html">
+            
+                    
+                    Ganga Scripting
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.14" data-path="../second-analysis-steps/managing-files-with-ganga.html">
+            
+                <a href="../second-analysis-steps/managing-files-with-ganga.html">
+            
+                    
+                    Managing files in Ganga
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >Developing LHCb Software</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="developing-lhcb-software">Developing LHCb Software</h1>
+<p><div class="panel panel-warning"><div class="panel-heading"><h3 class="panel-title" id="learning-objectives"><i class="fa fa-line-chart"></i> Learning Objectives</h3></div><div class="panel-body"><ul>
+<li>Learn how to work with and modify LHCb software projects and packages</li>
+<li>Learn how to find and search the source code and its documentation</li>
+</ul>
+</div></div> </p>
+<p><div class="panel panel-warning"><div class="panel-heading"><h3 class="panel-title" id="prerequisites"><i class="fa fa-rocket"></i> Prerequisites</h3></div><div class="panel-body"><p>Before starting, you should have a basic understanding of how to use <code>git</code>,
+similar to what has been
+<a href="https://lhcb.github.io/analysis-essentials/git/git.html" target="_blank">taught</a> during the
+Starterkit.</p>
+</div></div> </p>
+<p>In this lesson, we&apos;ll show you a complete workflow for developing the LHCb
+software using the <code>git</code> version control system.  At LHCb, we use Gitlab to
+manage our git repositories.  Among other features, Gitlab allows you to browse
+the source code for each project, and to review new changes (called <em>merge
+requests</em>) in a convenient web interface.  You can find the CERN Gitlab
+instance at <a href="https://gitlab.cern.ch" target="_blank">https://gitlab.cern.ch</a>.</p>
+<p>In principle, there are multiple ways of interacting with the LHCb software
+repositories:</p>
+<ol>
+<li>A vanilla git workflow using only the standard git commands.  This requires
+you to <code>clone</code> and compile an entire LHCb project at a time.</li>
+<li>An LHCb-specific workflow using a set of <code>lb-*</code> subcommands.  This allows
+you to check out individual packages inside a project, and streamlines the
+modification of a few packages at a time.  (This is closer to the previously
+used <code>getpack</code> command.)</li>
+</ol>
+<p>Here, we want to focus on the second workflow. The first workflow will be
+discussed briefly at the <a href="#working-with-a-full-project-checkout">bottom</a> of
+this page. Note that, although the lb-git commands are much easier for small
+changes to existing packages where recompiling an entire project would be
+cumbersome, for any serious development the usage of vanilla git is much more
+stable. Please consider using it if you can spare the compilation time.</p>
+<p><div class="panel panel-primary"><div class="panel-heading"><h3 class="panel-title" id="initial-setup"><i class="fa fa-info-circle"></i> Initial setup</h3></div><div class="panel-body"><p>Before jumping in by creating a project in Gitlab, you should make sure that
+your local git configuration and your settings on Gitlab are sufficiently set
+up.</p>
+<ul>
+<li><p>Your name and email address should be set up in your local <code>git</code>
+configuration.  To ensure that this is the case, run</p>
+<pre><code>git config --global user.name &quot;Your Name&quot;
+git config --global user.email &quot;Your Name &lt;your.name@cern.ch&gt;&quot;
+</code></pre><p>and put in your information.</p>
+</li>
+<li><p>Next, connect to <a href="https://gitlab.cern.ch" target="_blank">https://gitlab.cern.ch</a> and log in with your CERN 
+credentials. Visit <a href="https://gitlab.cern.ch/profile/keys" target="_blank">https://gitlab.cern.ch/profile/keys</a> and add an SSH key.</p>
+</li>
+<li><p>Finally, run this LHCb-specific configuration command:</p>
+<pre><code>git config --global lb-use.protocol ssh
+</code></pre><p>This makes sure the LHCb commands use the ssh protocol instead of https.</p>
+</li>
+</ul>
+</div></div> </p>
+<p>This lesson introduces you the commands:</p>
+<ul>
+<li><code>lb-dev</code> for setting up a new development environment</li>
+<li><code>git lb-use</code> and <code>git lb-checkout</code> for downloading LHCb software packages</li>
+</ul>
+<p>If you want to make changes to a software package, you will need to set up a
+development environment. <code>lb-dev</code> is your friend here:</p>
+<pre><code class="lang-bash">lb-dev --name DaVinciDev DaVinci/v42r2
+</code></pre>
+<p>The output should look similar to this:</p>
+<pre><code>Successfully created the local project DaVinciDev in .
+
+To start working:
+
+  &gt; cd ./DaVinciDev
+  &gt; git lb-use DaVinci
+  &gt; git lb-checkout DaVinci/vXrY MyPackage
+
+then
+
+  &gt; make
+  &gt; make test
+
+and optionally (CMake only)
+
+  &gt; make install
+
+You can customize the configuration by editing the files &apos;build.conf&apos; and
+&apos;CMakeLists.txt&apos; (see http://cern.ch/gaudi/CMake for details).
+</code></pre><p><div class="panel panel-primary"><div class="panel-heading"><h3 class="panel-title" id="lb-dev-created-local-projects-are-git-repositories"><i class="fa fa-info-circle"></i> lb-dev created local projects are Git repositories</h3></div><div class="panel-body"><p>When <code>lb-dev</code> creates the local project directory and create the initial
+files there, it also calls <code>git init</code> and commits to the local Git repository
+the first version of the files (try with <code>git log</code> in there).</p>
+<p>You can then use git to keep track of your development, and share your code
+with others (for example with a <a href="https://gitlab.cern.ch/projects/new" target="_blank">new project in
+gitlab.cern.ch</a>).</p>
+</div></div> </p>
+<p>Follow those instructions to compile the software:</p>
+<pre><code class="lang-bash"><span class="hljs-built_in">cd</span> DaVinciDev
+git lb-use DaVinci
+make
+</code></pre>
+<p>Once that&apos;s done, you can do</p>
+<pre><code class="lang-bash">./run bash <span class="hljs-_">-l</span>
+</code></pre>
+<p>inside the directory. This will (similar to <code>lb-run</code>) give you a new bash
+session with the right environment variables set, from which you can run
+project-specific commands such as <code>gaudirun.py</code>.</p>
+<p>Your new development environment won&apos;t be very useful without any software to
+modify and build.  So let&apos;s check out one of the existing LHCb packages! These
+are stored in the <a href="https://gitlab.cern.ch/lhcb" target="_blank">LHCb Git repositories</a>.</p>
+<p>In order to obtain the source code of the package you want to work on, we&apos;ll
+use the <a href="https://twiki.cern.ch/twiki/bin/view/LHCb/Git4LHCb" target="_blank">Git4LHCb</a> scripts.
+These are a set of aliases, starting with <code>git lb-</code>, that are designed to make
+developing LHCb software easier.  For example, if you want to write a custom
+stripping selection, execute the following in the <code>DaVinciDev</code> directory:</p>
+<pre><code class="lang-bash">git lb-use Stripping
+git lb-checkout Stripping/master Phys/StrippingSelections
+make configure
+</code></pre>
+<p>Under the hood, <code>git lb-use</code> will add the
+<a href="https://gitlab.cern.ch/lhcb/Stripping" target="_blank"><code>Stripping</code></a> repository as a remote in
+git &#x2013; check this with <code>git remote -v</code>!  <code>git lb-checkout</code> will then perform a
+<em>partial</em> checkout of the master branch of the Stripping repository, only
+adding the files under
+<a href="https://gitlab.cern.ch/lhcb/Stripping/tree/master/Phys/StrippingSelections" target="_blank"><code>Phys/StrippingSelections</code></a>.</p>
+<p><div class="panel panel-primary"><div class="panel-heading"><h3 class="panel-title" id="which-project-to-use-in-git-lb-use"><i class="fa fa-info-circle"></i> Which project to use in `git lb-use`?</h3></div><div class="panel-body"><p>The project name to pass to <code>git lb-use</code> depends on the directories you want
+to check out and work on, and not on the project name you passed to <code>lb-dev</code>.
+Moreover you can call <code>git lb-use</code> several times for different remote
+projects in the same local project:</p>
+<pre><code class="lang-bash">lb-dev --name DaVinciDev DaVinci/v42r2
+<span class="hljs-built_in">cd</span> DaVinciDev
+git lb-use Analysis
+git lb-use Stripping
+git lb-use DaVinci
+</code></pre>
+<p>Not that in order for this to work, projects you specify in <code>lb-use</code> may not
+depend on the project you specify in <code>lb-dev</code>. In other words, the top-level
+project should be at the top of the <a href="http://lhcb-comp.web.cern.ch/lhcb-comp/" target="_blank">dependency
+chain</a>.</p>
+</div></div> </p>
+<p>You can now modify the <code>StrippingSelections</code> package and run <code>make purge &amp;&amp;
+make</code> to build it with your changes.  You can test your changes with the
+<code>./run</code> script.  It works similar to <code>lb-run</code>, without the need to specify a
+package and version:</p>
+<pre><code class="lang-bash">./run gaudirun.py options.py
+</code></pre>
+<p><div class="panel panel-primary"><div class="panel-heading"><h3 class="panel-title" id="what-if-git-asks-for-my-password"><i class="fa fa-info-circle"></i> What if `git` asks for my password?</h3></div><div class="panel-body"><p>Make sure you succesfully completed the instructions under <a href="#initial-setup">initial
+setup</a>.</p>
+</div></div> </p>
+<p>If you have made changes that you&apos;d like to be integrated into the official
+LHCb repositories, you can use <code>git lb-push</code> to push it to a new branch in the
+central git repository. But please read the instructions in the <a href="https://twiki.cern.ch/twiki/bin/view/LHCb/Git4LHCb#Using_Git_for_LHCb_development" target="_blank">TWiki
+page</a>
+first.</p>
+<p>Depending on the project, you may be required to document your changes in the
+release notes which are found in <code>doc/release.notes</code>.</p>
+<p>Note that no-one has permission to push directly to the <code>master</code> branch of any
+project. In order to get your changes merged there from the branch to which you
+<code>lb-push</code>ed, you need to create a merge request, so the project maintainer can
+inspect your code. This can be done on the <a href="https://gitlab.cern.ch/lhcb/Stripping/merge_requests/new" target="_blank">project repository web 
+page</a>, for
+example.</p>
+<p><div class="panel panel-primary"><div class="panel-heading"><h3 class="panel-title" id="quick-link-to-create-a-merge-request"><i class="fa fa-info-circle"></i> Quick link to create a merge request</h3></div><div class="panel-body"><p>When pushing to a branch in a project in Gitlab you will see a message like:</p>
+<pre><code>remote:
+remote: Create merge request for my-branch:
+remote:   https://gitlab.cern.ch/lhcb/Stripping/merge_requests/new?merge_request%5Bsource_branch%5D=my-branch
+remote:
+</code></pre><p>You can use the URL in the message to quickly create a merge request for the
+changes you just pushed.</p>
+</div></div> </p>
+<p>When your merge request is approved (which can be after some additional commits
+on your part), your changes are part of the <code>master</code> branch of the respective
+project, and your contributions are officially part of the LHCb software stack.
+Congratulations!</p>
+<p><div class="panel panel-primary"><div class="panel-heading"><h3 class="panel-title" id="nightlies"><i class="fa fa-info-circle"></i> Nightlies</h3></div><div class="panel-body"><p>It is advisable to test new developments on the so-called <a href="https://lhcb-nightlies.cern.ch" target="_blank">nightly
+builds</a>. Each project is built overnight
+(hence the name), and all pending merge requests are applied. You can use a
+nightly build version of a project with:</p>
+<pre><code class="lang-bash">lb-dev --nightly lhcb-head DaVinci/HEAD
+</code></pre>
+<p>A more detailed description of the command is found here:</p>
+<ul>
+<li><a href="https://twiki.cern.ch/twiki/bin/view/LHCb/SoftwareEnvTools" target="_blank">SoftwareEnvTools</a></li>
+</ul>
+<p>Sometimes mistakes happen and the committed code is either not compiling or
+does not do what it is supposed to do.  Therefore the nightly tests are
+performed. They first try to build the full software stack.</p>
+<p>If that is successful, they run some reference jobs and compare the output of
+the new build with a reference file.  The results of the nightly builds can
+be found here.</p>
+<ul>
+<li><a href="https://lhcb-nightlies.cern.ch" target="_blank">Nightly builds summaries</a></li>
+</ul>
+<p>If the aim of the commit was to change the ouput, e.g. because you increased
+the track reconstruction efficiency by a factor of two, mention it in the
+merge request description, such that the manager of the affected project can
+update the reference file.</p>
+</div></div> </p>
+<p>If you want to take a look the source code, without checking it out, you can
+easily access the repository through the <a href="https://gitlab.cern.ch/lhcb" target="_blank">Gitlab web
+interface</a>. This website also provides search
+functionality, but the output is not always easy to read, especially if it
+returns many hits. To search a project much quicker, you can use <code>Lbglimpse</code>.
+It allows you to search for a given string in the source code of a particular
+LHCb project.</p>
+<pre><code class="lang-bash">Lbglimpse <span class="hljs-string">&quot;PVRefitter&quot;</span> DaVinci v42r2
+</code></pre>
+<p>This works with every LHCb project and released version. Since it&apos;s a shell
+command, you can easily process the output using <code>less</code>, <code>grep</code>, and other
+tools.</p>
+<p>To get an idea of how a certain component of the LHCb software works, you can
+also access the doxygen documentation. One set of doxygen web pages is
+generated for several related projects, and is linked in all the projects web
+sites, like <a href="https://cern.ch/LHCb-release-area/DOC/davinci/" target="_blank">for DaVinci</a>.
+See also the <a href="http://cern.ch/lhcb-comp/" target="_blank">LHCb Computing web page</a> for a
+list of projects.</p>
+<p><div class="panel panel-primary"><div class="panel-heading"><h3 class="panel-title" id="working-with-a-full-project-checkout"><i class="fa fa-info-circle"></i> Working with a full project checkout</h3></div><div class="panel-body"><p>The <code>lb-git</code> commands are not strictly necessary, but they&apos;re very convenient
+if you just want to quickly edit one package. Otherwise you&apos;d have to build
+the entire project in which the package is residing, instead of using the
+precompiled version. However, if you develop across multiple packages, or
+want to use more sophisticated <code>git</code> commands, nothing prevents you from
+checking out an entire project &#x2013; just don&apos;t be surprised if it takes O(hours)
+to compile!</p>
+<p>To check out a project, run the following:</p>
+<pre><code class="lang-bash">git <span class="hljs-built_in">clone</span> https://:@gitlab.cern.ch:8443/lhcb/DaVinci.git
+</code></pre>
+<p>replacing <code>DaVinci</code> with the project name of your choice. Next, initialise
+and compile it:</p>
+<pre><code class="lang-bash">lb-project-init make
+</code></pre>
+<p>optionally followed by <code>make test</code> to run the tests and/or <code>make install</code> to
+install it to the <code>InstallArea</code> directory. That&apos;s all! You now have a vanilla
+git repository containing all the source files of the project.</p>
+</div></div> </p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="split-jobs.html" class="navigation navigation-prev " aria-label="Previous page: Splitting a job into subjobs">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="asking-questions.html" class="navigation navigation-next " aria-label="Next page: Asking good questions">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Developing LHCb Software","level":"2.19","depth":1,"next":{"title":"Asking good questions","level":"2.20","depth":1,"path":"first-analysis-steps/asking-questions.md","ref":"first-analysis-steps/asking-questions.md","articles":[]},"previous":{"title":"Splitting a job into subjobs","level":"2.18","depth":1,"path":"first-analysis-steps/split-jobs.md","ref":"first-analysis-steps/split-jobs.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-sharing","panels@git+https://github.com/lhcb/gitbook-plugin-panels.git#master","katex-auto-render@git+https://github.com/lhcb/gitbook-plugin-katex-auto-render.git#master"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"panels":{},"katex-auto-render":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"The Starterkit team and contributors","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"gitbook":"*"},"file":{"path":"first-analysis-steps/lhcb-dev.md","mtime":"2017-05-08T20:19:07.965Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-05-08T20:20:15.514Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-katex-auto-render/katex.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-katex-auto-render/auto-render.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-katex-auto-render/enable-auto-render.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

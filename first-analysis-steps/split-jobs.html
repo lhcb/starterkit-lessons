@@ -1,0 +1,783 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Splitting a job into subjobs · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.2">
+        <meta name="author" content="The Starterkit team and contributors">
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-panels/panels.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-katex-auto-render/katex.min.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="lhcb-dev.html" />
+    
+    
+    <link rel="prev" href="eos-storage.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    The LHCb Starterkit
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">First analysis steps</li>
+        
+        
+    
+        <li class="chapter " data-level="2.1" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2" data-path="prerequisites.html">
+            
+                <a href="prerequisites.html">
+            
+                    
+                    Pre-workshop checklist
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3" data-path="install-party.html">
+            
+                <a href="install-party.html">
+            
+                    
+                    Install party
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.4" data-path="introduction-to-course.html">
+            
+                <a href="introduction-to-course.html">
+            
+                    
+                    Goals of the course
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.5" data-path="dataflow.html">
+            
+                <a href="dataflow.html">
+            
+                    
+                    The LHCb data flow
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.6" data-path="run-2-data-flow.html">
+            
+                <a href="run-2-data-flow.html">
+            
+                    
+                    Changes to the data flow in Run 2
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.7" data-path="davinci.html">
+            
+                <a href="davinci.html">
+            
+                    
+                    An introduction to LHCb Software
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.8" data-path="bookkeeping.html">
+            
+                <a href="bookkeeping.html">
+            
+                    
+                    Finding data in the Bookkeeping
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.9" data-path="files-from-grid.html">
+            
+                <a href="files-from-grid.html">
+            
+                    
+                    Downloading a file from the grid
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.10" data-path="interactive-dst.html">
+            
+                <a href="interactive-dst.html">
+            
+                    
+                    Interactively exploring a DST
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.11" data-path="loki-functors.html">
+            
+                <a href="loki-functors.html">
+            
+                    
+                    Fun with LoKi Functors
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.12" data-path="minimal-dv-job.html">
+            
+                <a href="minimal-dv-job.html">
+            
+                    
+                    Running a minimal DaVinci job locally
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.13" data-path="davinci-grid.html">
+            
+                <a href="davinci-grid.html">
+            
+                    
+                    Running DaVinci on the grid
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.14" data-path="add-tupletools.html">
+            
+                <a href="add-tupletools.html">
+            
+                    
+                    TupleTools and branches
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.15" data-path="decay-tree-fitter.html">
+            
+                <a href="decay-tree-fitter.html">
+            
+                    
+                    How do I use DecayTreeFitter?
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.16" data-path="ganga-data.html">
+            
+                <a href="ganga-data.html">
+            
+                    
+                    More Ganga
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.17" data-path="eos-storage.html">
+            
+                <a href="eos-storage.html">
+            
+                    
+                    Storing large files on EOS
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="2.18" data-path="split-jobs.html">
+            
+                <a href="split-jobs.html">
+            
+                    
+                    Splitting a job into subjobs
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.19" data-path="lhcb-dev.html">
+            
+                <a href="lhcb-dev.html">
+            
+                    
+                    Developing LHCb Software
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.20" data-path="asking-questions.html">
+            
+                <a href="asking-questions.html">
+            
+                    
+                    Asking good questions
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.21" data-path="ecgd.html">
+            
+                <a href="ecgd.html">
+            
+                    
+                    Early career, gender and diversity
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.22" data-path="contributing-lesson.html">
+            
+                <a href="contributing-lesson.html">
+            
+                    
+                    Contribute to this lesson
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Second analysis steps</li>
+        
+        
+    
+        <li class="chapter " data-level="3.1" data-path="../second-analysis-steps/">
+            
+                <a href="../second-analysis-steps/">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2" data-path="../second-analysis-steps/lb-git.html">
+            
+                <a href="../second-analysis-steps/lb-git.html">
+            
+                    
+                    Using git to develop LHCb software
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3" data-path="../second-analysis-steps/building-decays-part0.html">
+            
+                <a href="../second-analysis-steps/building-decays-part0.html">
+            
+                    
+                    Building your own decay. The Selection Framework
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.4" data-path="../second-analysis-steps/building-decays-part1.html">
+            
+                <a href="../second-analysis-steps/building-decays-part1.html">
+            
+                    
+                    Building your own decay. A Historical Approach
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.5" data-path="../second-analysis-steps/building-decays-part2.html">
+            
+                <a href="../second-analysis-steps/building-decays-part2.html">
+            
+                    
+                    Building your own decay. Modern Selection Framework
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.6" data-path="../second-analysis-steps/fixing-errors.html">
+            
+                <a href="../second-analysis-steps/fixing-errors.html">
+            
+                    
+                    What to do when something fails
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.7" data-path="../second-analysis-steps/rerun-stripping.html">
+            
+                <a href="../second-analysis-steps/rerun-stripping.html">
+            
+                    
+                    Run a different stripping line on simulated data
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.8" data-path="../second-analysis-steps/switch-mass-hypo.html">
+            
+                <a href="../second-analysis-steps/switch-mass-hypo.html">
+            
+                    
+                    Replace a mass hypothesis
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.9" data-path="../second-analysis-steps/filter-in-trees.html">
+            
+                <a href="../second-analysis-steps/filter-in-trees.html">
+            
+                    
+                    Reuse particles from a decay tree
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.10" data-path="../second-analysis-steps/simulation.html">
+            
+                <a href="../second-analysis-steps/simulation.html">
+            
+                    
+                    The simulation framework
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.11" data-path="../second-analysis-steps/hlt-intro.html">
+            
+                <a href="../second-analysis-steps/hlt-intro.html">
+            
+                    
+                    HLT intro
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.12" data-path="../second-analysis-steps/tistos-diy.html">
+            
+                <a href="../second-analysis-steps/tistos-diy.html">
+            
+                    
+                    TisTos DIY
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.13" data-path="../second-analysis-steps/ganga-scripting.html">
+            
+                <a href="../second-analysis-steps/ganga-scripting.html">
+            
+                    
+                    Ganga Scripting
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.14" data-path="../second-analysis-steps/managing-files-with-ganga.html">
+            
+                <a href="../second-analysis-steps/managing-files-with-ganga.html">
+            
+                    
+                    Managing files in Ganga
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >Splitting a job into subjobs</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="splitting-a-job-into-subjobs">Splitting a job into subjobs</h1>
+<p><div class="panel panel-warning"><div class="panel-heading"><h3 class="panel-title" id="learning-objectives"><i class="fa fa-line-chart"></i> Learning Objectives</h3></div><div class="panel-body"><ul>
+<li>Learn how to process many files in parallel on the grid
+by splitting a job into many subjobs</li>
+</ul>
+</div></div> </p>
+<p>In the <a href="davinci-grid.html">previous lesson</a>, you&apos;ve submitted a job to the LHC grid.
+You will notice that the job will take a long time to finish.
+This is because it has to process many gigabytes of data.</p>
+<p><code>ganga</code> provides several <em>splitters</em> that implement strategies for processing data in parallel.
+The one we will use now is <code>SplitByFiles</code>, which spawns several subjobs, each of which only processes a certain number of files.</p>
+<p>Apart from processing data faster, this will also allow you to work with datasets that are spread across several sites of the LHC grid.
+This is because a job can only access datasets that are available on the site that it runs on.</p>
+<p>To activate a splitter, assign it to the <code>.splitter</code> attribute of your job:</p>
+<pre><code class="lang-python">j.splitter = SplitByFiles(filesPerJob=<span class="hljs-number">5</span>)
+</code></pre>
+<p>Note that the specified number of files per job is only the allowed maximum.
+You will often get jobs with fewer files.</p>
+<p><div class="panel panel-primary"><div class="panel-heading"><h3 class="panel-title" id="how-do-i-choose-the-number-of-files-per-job"><i class="fa fa-info-circle"></i> How do I choose the number of files per job?</h3></div><div class="panel-body"><p>Choose fewer files per job if possible, as this will allow you to finish sooner 
+and reduces the impact of jobs failing due to grid problems.
+Setting <code>filesPerJob=5</code> should work well for real data, while <code>filesPerJob=1</code> should be good for signal MC.</p>
+</div></div> </p>
+<p>Now, when you run <code>j.submit()</code>, the job will automatically be split into several subjobs.
+These can be displayed by entering</p>
+<pre><code class="lang-python">jobs(<span class="hljs-number">787</span>).subjobs
+</code></pre>
+<p>in <code>ganga</code>, where you have to replace 787 with the <code>id</code> of your main job.</p>
+<p>You can access individual subjobs as in <code>jobs(787).subjobs(2)</code>.
+For example, to resubmit a failed subjob, you would run</p>
+<pre><code class="lang-python">jobs(<span class="hljs-number">787</span>).subjobs(<span class="hljs-number">2</span>).resubmit()
+</code></pre>
+<p>To access several subjobs at once, you can use the <code>.select</code> method:</p>
+<pre><code class="lang-python">jobs(<span class="hljs-number">787</span>).subjobs.select(status=<span class="hljs-string">&apos;failed&apos;</span>).resubmit()
+</code></pre>
+<p>This will resubmit all failed subjobs.</p>
+<p>If you want to do something more complex with each subjob, a regular <code>for</code>-loop can be used as well:</p>
+<pre><code class="lang-python"><span class="hljs-keyword">for</span> j <span class="hljs-keyword">in</span> jobs(<span class="hljs-number">787</span>).subjobs:
+    print(j.id)
+</code></pre>
+<p>It&apos;s possible that some of your subjobs will be stuck in a certain state (submitting/completing/...).
+If that is the case, try to reset the Dirac backend:</p>
+<pre><code class="lang-python">jobs(<span class="hljs-number">787</span>).subjobs(<span class="hljs-number">42</span>).backend.reset()
+</code></pre>
+<p>If that doesn&apos;t help, try failing the job and resubmitting:</p>
+<pre><code class="lang-python">jobs(<span class="hljs-number">787</span>).subjobs(<span class="hljs-number">42</span>).force_status(<span class="hljs-string">&apos;failed&apos;</span>)
+jobs(<span class="hljs-number">787</span>).subjobs(<span class="hljs-number">42</span>).resubmit()
+</code></pre>
+<p>It can take quite a while to submit all of your subjobs.
+If you want to continue working in ganga while submitting jobs, you can use the <code>queues</code> feature to do just that.
+Simply call <code>queues.add</code> with the <code>submit</code> function of a job without adding parentheses, like this:</p>
+<pre><code>queues.add(j.submit)
+</code></pre><p>Ganga will then submit this job (and its subjobs) in the background.
+Make sure not to close <code>ganga</code> before the submission is finished, or you will have to start submitting the rest of the jobs again later on.</p>
+<p><div class="panel panel-success"><div class="panel-heading"><h3 class="panel-title" id="splitting-your-first-job"><i class="fa fa-check-square-o"></i> Splitting your first job</h3></div><div class="panel-body"><p>Try splitting the <code>ganga</code> job from our previous lesson with <code>splitByFiles=1</code> 
+(<a href="code/split-jobs/first-job.py">reference code</a>) and submit it with <code>ganga</code>.</p>
+</div></div> </p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="eos-storage.html" class="navigation navigation-prev " aria-label="Previous page: Storing large files on EOS">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="lhcb-dev.html" class="navigation navigation-next " aria-label="Next page: Developing LHCb Software">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Splitting a job into subjobs","level":"2.18","depth":1,"next":{"title":"Developing LHCb Software","level":"2.19","depth":1,"path":"first-analysis-steps/lhcb-dev.md","ref":"first-analysis-steps/lhcb-dev.md","articles":[]},"previous":{"title":"Storing large files on EOS","level":"2.17","depth":1,"path":"first-analysis-steps/eos-storage.md","ref":"first-analysis-steps/eos-storage.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-sharing","panels@git+https://github.com/lhcb/gitbook-plugin-panels.git#master","katex-auto-render@git+https://github.com/lhcb/gitbook-plugin-katex-auto-render.git#master"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"panels":{},"katex-auto-render":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"The Starterkit team and contributors","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"gitbook":"*"},"file":{"path":"first-analysis-steps/split-jobs.md","mtime":"2017-05-08T20:19:07.965Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-05-08T20:20:15.514Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-katex-auto-render/katex.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-katex-auto-render/auto-render.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-katex-auto-render/enable-auto-render.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

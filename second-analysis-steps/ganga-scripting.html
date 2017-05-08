@@ -1,0 +1,991 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Ganga Scripting · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.2">
+        <meta name="author" content="The Starterkit team and contributors">
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-panels/panels.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-katex-auto-render/katex.min.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="managing-files-with-ganga.html" />
+    
+    
+    <link rel="prev" href="tistos-diy.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    The LHCb Starterkit
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">First analysis steps</li>
+        
+        
+    
+        <li class="chapter " data-level="2.1" data-path="../first-analysis-steps/">
+            
+                <a href="../first-analysis-steps/">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2" data-path="../first-analysis-steps/prerequisites.html">
+            
+                <a href="../first-analysis-steps/prerequisites.html">
+            
+                    
+                    Pre-workshop checklist
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3" data-path="../first-analysis-steps/install-party.html">
+            
+                <a href="../first-analysis-steps/install-party.html">
+            
+                    
+                    Install party
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.4" data-path="../first-analysis-steps/introduction-to-course.html">
+            
+                <a href="../first-analysis-steps/introduction-to-course.html">
+            
+                    
+                    Goals of the course
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.5" data-path="../first-analysis-steps/dataflow.html">
+            
+                <a href="../first-analysis-steps/dataflow.html">
+            
+                    
+                    The LHCb data flow
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.6" data-path="../first-analysis-steps/run-2-data-flow.html">
+            
+                <a href="../first-analysis-steps/run-2-data-flow.html">
+            
+                    
+                    Changes to the data flow in Run 2
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.7" data-path="../first-analysis-steps/davinci.html">
+            
+                <a href="../first-analysis-steps/davinci.html">
+            
+                    
+                    An introduction to LHCb Software
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.8" data-path="../first-analysis-steps/bookkeeping.html">
+            
+                <a href="../first-analysis-steps/bookkeeping.html">
+            
+                    
+                    Finding data in the Bookkeeping
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.9" data-path="../first-analysis-steps/files-from-grid.html">
+            
+                <a href="../first-analysis-steps/files-from-grid.html">
+            
+                    
+                    Downloading a file from the grid
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.10" data-path="../first-analysis-steps/interactive-dst.html">
+            
+                <a href="../first-analysis-steps/interactive-dst.html">
+            
+                    
+                    Interactively exploring a DST
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.11" data-path="../first-analysis-steps/loki-functors.html">
+            
+                <a href="../first-analysis-steps/loki-functors.html">
+            
+                    
+                    Fun with LoKi Functors
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.12" data-path="../first-analysis-steps/minimal-dv-job.html">
+            
+                <a href="../first-analysis-steps/minimal-dv-job.html">
+            
+                    
+                    Running a minimal DaVinci job locally
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.13" data-path="../first-analysis-steps/davinci-grid.html">
+            
+                <a href="../first-analysis-steps/davinci-grid.html">
+            
+                    
+                    Running DaVinci on the grid
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.14" data-path="../first-analysis-steps/add-tupletools.html">
+            
+                <a href="../first-analysis-steps/add-tupletools.html">
+            
+                    
+                    TupleTools and branches
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.15" data-path="../first-analysis-steps/decay-tree-fitter.html">
+            
+                <a href="../first-analysis-steps/decay-tree-fitter.html">
+            
+                    
+                    How do I use DecayTreeFitter?
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.16" data-path="../first-analysis-steps/ganga-data.html">
+            
+                <a href="../first-analysis-steps/ganga-data.html">
+            
+                    
+                    More Ganga
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.17" data-path="../first-analysis-steps/eos-storage.html">
+            
+                <a href="../first-analysis-steps/eos-storage.html">
+            
+                    
+                    Storing large files on EOS
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.18" data-path="../first-analysis-steps/split-jobs.html">
+            
+                <a href="../first-analysis-steps/split-jobs.html">
+            
+                    
+                    Splitting a job into subjobs
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.19" data-path="../first-analysis-steps/lhcb-dev.html">
+            
+                <a href="../first-analysis-steps/lhcb-dev.html">
+            
+                    
+                    Developing LHCb Software
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.20" data-path="../first-analysis-steps/asking-questions.html">
+            
+                <a href="../first-analysis-steps/asking-questions.html">
+            
+                    
+                    Asking good questions
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.21" data-path="../first-analysis-steps/ecgd.html">
+            
+                <a href="../first-analysis-steps/ecgd.html">
+            
+                    
+                    Early career, gender and diversity
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.22" data-path="../first-analysis-steps/contributing-lesson.html">
+            
+                <a href="../first-analysis-steps/contributing-lesson.html">
+            
+                    
+                    Contribute to this lesson
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Second analysis steps</li>
+        
+        
+    
+        <li class="chapter " data-level="3.1" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2" data-path="lb-git.html">
+            
+                <a href="lb-git.html">
+            
+                    
+                    Using git to develop LHCb software
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3" data-path="building-decays-part0.html">
+            
+                <a href="building-decays-part0.html">
+            
+                    
+                    Building your own decay. The Selection Framework
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.4" data-path="building-decays-part1.html">
+            
+                <a href="building-decays-part1.html">
+            
+                    
+                    Building your own decay. A Historical Approach
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.5" data-path="building-decays-part2.html">
+            
+                <a href="building-decays-part2.html">
+            
+                    
+                    Building your own decay. Modern Selection Framework
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.6" data-path="fixing-errors.html">
+            
+                <a href="fixing-errors.html">
+            
+                    
+                    What to do when something fails
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.7" data-path="rerun-stripping.html">
+            
+                <a href="rerun-stripping.html">
+            
+                    
+                    Run a different stripping line on simulated data
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.8" data-path="switch-mass-hypo.html">
+            
+                <a href="switch-mass-hypo.html">
+            
+                    
+                    Replace a mass hypothesis
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.9" data-path="filter-in-trees.html">
+            
+                <a href="filter-in-trees.html">
+            
+                    
+                    Reuse particles from a decay tree
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.10" data-path="simulation.html">
+            
+                <a href="simulation.html">
+            
+                    
+                    The simulation framework
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.11" data-path="hlt-intro.html">
+            
+                <a href="hlt-intro.html">
+            
+                    
+                    HLT intro
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.12" data-path="tistos-diy.html">
+            
+                <a href="tistos-diy.html">
+            
+                    
+                    TisTos DIY
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="3.13" data-path="ganga-scripting.html">
+            
+                <a href="ganga-scripting.html">
+            
+                    
+                    Ganga Scripting
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.14" data-path="managing-files-with-ganga.html">
+            
+                <a href="managing-files-with-ganga.html">
+            
+                    
+                    Managing files in Ganga
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >Ganga Scripting</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="scripting-ganga">Scripting Ganga</h1>
+<p>We have already started using Ganga, such as when <a href="../first-analysis-steps/davinci-grid.html">submitting jobs to the 
+Grid</a> and 
+<a href="../first-analysis-steps/ganga-data.html">using datasets from the 
+bookkeeping</a> when 
+creating jobs, but there&apos;s a lot more you can do with it.</p>
+<p>Part of Ganga&apos;s power come from it being written in Python. When you run 
+<code>ganga</code>, you&apos;re given an IPython prompt where you input Python code that&apos;s executed when you hit <code>&lt;enter&gt;</code>.
+The idea of running Python code extends outside of Ganga, where we can write
+scripts that Ganga will execute when starting up. This lesson will focus on
+writing job definition scripts, and exploring how we can define utility
+functions that will be available across all of our Ganga sessions.</p>
+<h3 id="defining-jobs-with-scripts">Defining jobs with scripts</h3>
+<p>The <code>ganga</code> executable is similar to the <code>python</code> and <code>ipython</code> executables in 
+a couple of ways.
+If you just run <code>ganga</code>, your dropped into a prompt, but you can also supply 
+the path to a Python script that will be executed.
+Let&apos;s start with a small script, saving it in a file called <code>create_job.py</code>:</p>
+<pre><code class="lang-python">greeting = <span class="hljs-string">&apos;Hello!&apos;</span>
+<span class="hljs-keyword">print</span> greeting
+</code></pre>
+<p>Run it:</p>
+<pre><code class="lang-shell">$ ganga create_job.py
+
+*** Welcome to Ganga ***
+Version: 6.5.1
+&#x2026;
+Hello!
+&#x2026;
+</code></pre>
+<p>Sensible enough. Just like <code>python</code> and <code>ipython</code>, we can pass the <code>-i</code> flag 
+before the file path to tell Ganga to give us a prompt after it&apos;s finished 
+executing the script:</p>
+<pre><code class="lang-shell">$ ganga -i create_job.py
+
+*** Welcome to Ganga ***
+Version: 6.5.1
+&#x2026;
+Hello!
+
+Ganga In [1]: greeting
+Ganga Out [1]: &apos;Hello!&apos;
+
+Ganga In [2]:
+</code></pre>
+<p>Notice that the variable we defined in the script, <code>greeting</code>, is available in 
+the interactive session.
+The idea of doing some work in a script and then manipulating the result 
+interactively can be quite powerful.</p>
+<p>One workflow that you might find useful is to create a script that defines a 
+job, because this can often take a few lines to do, and typing them out every 
+time is boring.
+Let&apos;s modify <code>create_job.py</code> to do that.</p>
+<pre><code class="lang-python"><span class="hljs-comment"># Note: Ganga makes objects like `Job` available in your script automagically</span>
+j = Job()
+j.name = <span class="hljs-string">&apos;My job&apos;</span>
+</code></pre>
+<p>This example is quite boring, but it captures the idea. You&apos;ll want to
+extend this, changing the <code>application</code> property to a <code>GaudiExec</code> instance,
+for example, as covered in <a href="../first-analysis-steps/davinci-grid.html">a previous
+lesson</a>.</p>
+<p>Now we can run this and interact with the job as the <code>j</code> variable:</p>
+<pre><code class="lang-shell">$ ganga -i create_job.py
+
+*** Welcome to Ganga ***
+Version: 6.5.1
+&#x2026;
+
+Ganga In [1]: j
+Ganga Out [1]:
+Job (
+  comment = ,
+  parallel_submit = False,
+  &#x2026;
+)
+
+Ganga In [2]:
+</code></pre>
+<p>We often want to construct a set of very similar jobs that differ only by their 
+input data, for example running the same DaVinci application over 2015 and 2016 
+data and for magnet up and magnet down configurations.
+We need to then <em>parameterise</em> our script, and one way of doing this is passing 
+arguments to it by the command line.
+You can inspect arguments from a Python script by using the <code>argv</code> 
+property on the <code>sys</code> module:</p>
+<pre><code class="lang-python"><span class="hljs-keyword">import</span> sys
+<span class="hljs-keyword">print</span> sys.argv
+</code></pre>
+<p>Add that to your <code>create_job.py</code> script, and run <code>ganga</code> again, this time 
+passing some arguments:</p>
+<pre><code class="lang-shell">$ ganga -i create_job.py -v 123 --hello=world
+
+*** Welcome to Ganga ***
+Version: 6.5.1
+&#x2026;
+
+[&apos;create_job.py&apos;, &apos;-v&apos;, &apos;123&apos;, &apos;--hello=world&apos;]
+
+Ganga In [1]: j
+</code></pre>
+<p>Our script sees <code>sys.argv</code> as the list of the arguments that come after <code>ganga 
+-i</code>.
+To parameterise our script for year and magnet polarity, we could check this 
+list to find one of <code>2015</code> or <code>2016</code> and one of <code>Up</code> or <code>Down</code>, for example, 
+but instead we&apos;ll opt to use the excellent <a href="https://docs.python.org/2/library/argparse.html" target="_blank"><code>argparse</code> module</a>, which 
+comes with Python, to parse the command-line arguments for us.</p>
+<pre><code class="lang-python"><span class="hljs-keyword">import</span> argparse
+
+parser = argparse.ArgumentParser(description=<span class="hljs-string">&quot;Make my DaVinci job.&quot;</span>)
+parser.add_argument(<span class="hljs-string">&apos;year&apos;</span>, type=int, choices=[<span class="hljs-number">2015</span>, <span class="hljs-number">2016</span>],
+                    help=<span class="hljs-string">&apos;Year of data-taking to run over&apos;</span>)
+parser.add_argument(<span class="hljs-string">&apos;polarity&apos;</span>, choices=[<span class="hljs-string">&apos;Up&apos;</span>, <span class="hljs-string">&apos;Down&apos;</span>],
+                    help=<span class="hljs-string">&apos;Polarity of data-taking to run over&apos;</span>)
+parser.add_argument(<span class="hljs-string">&apos;--test&apos;</span>, action=<span class="hljs-string">&apos;store_true&apos;</span>,
+                    help=<span class="hljs-string">&apos;Run over one file locally&apos;</span>)
+args = parser.parse_args()
+
+year = args.year
+polarity = args.polarity
+test = args.test
+</code></pre>
+<p>Nicely, <code>argparse</code> gives us a useful <code>--help</code> argument for free:</p>
+<pre><code class="lang-shell">$ ganga -i create_job.py --help
+
+*** Welcome to Ganga ***
+Version: 6.5.1
+&#x2026;
+usage: create_job.py [-h] [--test] {2015,2016} {Up,Down}
+
+Make my DaVinci job.
+
+positional arguments:
+  {2015,2016}  Year of data-taking to run over
+  {Up,Down}    Polarity of data-taking to run over
+
+optional arguments:
+  -h, --help   show this help message and exit
+  --test       Run over one file locally
+
+Ganga In [1]:
+</code></pre>
+<p>This help will also be printed if we don&apos;t supply all of the required arguments 
+(the year and the magnet polarity), along with a message telling us what&apos;s 
+missing.</p>
+<p><div class="panel panel-primary"><div class="panel-heading"><h3 class="panel-title" id="getting-to-grips-with-argparse"><i class="fa fa-info-circle"></i> Getting to grips with `argparse`</h3></div><div class="panel-body"><p>The <code>argparse</code> module can do a lot, being able to parse complex sets of 
+arguments with much difficultly. It&apos;s a useful tool to know in general, so we 
+recommend that you check out the [documentation][argparse] to learn more.</p>
+</div></div></p>
+<p>When we do supply all the necessary arguments, the values are then available in
+the <code>year</code>, <code>polarity</code>, and <code>test</code> variables:</p>
+<pre><code class="lang-shell">$ ganga -i create_job.py 2015 Down
+
+*** Welcome to Ganga ***
+Version: 6.5.1
+&#x2026;
+
+Ganga In [1]: print year, polarity, test
+2015 Down False
+</code></pre>
+<p>Once you&apos;ve reached this level, a whole world of possibilities opens up! Here 
+are a few things you might proceed to do with these parameters in your script:</p>
+<ul>
+<li>Fetch the corresponding dataset using a <code>BKQuery</code>;</li>
+<li>Give your <code>Job</code> object a specific name, e.g. <code>j.name = 
+&apos;Ntuples_{0}_{1}.format(year, polarity)&apos;</code>;</li>
+<li>Give data-specific options files to the <code>application</code> object, e.g. if you 
+have one options file per year defining <code>DaVinci().DataType</code>.</li>
+</ul>
+<p>Of course, you can add as many arguments as you think might be useful.
+Above we added the <code>--test</code> flag as an example: if this is <code>True</code>, you could 
+run the application over only a single data file, and run the job locally 
+rather than on the Grid (setting <code>j.backend</code> appropriately).</p>
+<h3 id="adding-helpers-functions">Adding helpers functions</h3>
+<p>We&apos;ve seen above how giving a script to <code>ganga</code> makes the variables defined in 
+those scripts available interactively.
+But what if you have, or would like to have, some set of your own custom helper 
+methods defined in <em>every</em> session? It would be annoying to have to run <code>ganga 
+my_helpers.py</code> every time! Luckily, the <code>ganga.py</code> file comes to the rescue.</p>
+<p>When Ganga starts, it looks for a file in your home directory (<code>echo $HOME</code>) 
+called <code>.ganga.py</code> (note the starting period in the filename). If it finds such 
+a file, it executes it in the context of the Ganga session, meaning the code in 
+the file has access to Ganga objects like <code>Job</code>, <code>jobs</code>, and so on.
+To demonstrate the behaviour, we can put a <code>print</code> statement on our 
+<code>~/.ganga.py</code> file:</p>
+<pre><code class="lang-python"><span class="hljs-keyword">print</span> <span class="hljs-string">&apos;Yo!&apos;</span>
+</code></pre>
+<p>Then run <code>ganga</code> (no arguments needed):</p>
+<pre><code class="lang-shell">$ ganga
+
+*** Welcome to Ganga ***
+Version: 6.5.1
+&#x2026;
+Yo!
+&#x2026;
+</code></pre>
+<p>Neat. The general idea for this file is two-fold:</p>
+<ol>
+<li>Add commands that you always want executed when Ganga starts, e.g. <code>print 
+jobs.select(status=&apos;running&apos;)</code>; and</li>
+<li>Define functions for commonly-performed tasks.</li>
+</ol>
+<p>The latter is particularly interesting. Do you often find yourself creating a 
+file that contains all the output LFNs of your job? Write a helper!</p>
+<pre><code class="lang-python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">write_lfns</span><span class="hljs-params">(job, filename)</span>:</span>
+    <span class="hljs-string">&quot;&quot;&quot;Write LFNs of all DiracFiles of all completed subjobs to fname.&quot;&quot;&quot;</span>
+    <span class="hljs-comment"># Treat a job with subjobs the same as a job with no subjobs</span>
+    jobs = j.subjobs
+    <span class="hljs-keyword">if</span> len(jobs) == <span class="hljs-number">0</span>:
+        jobs = [job]
+
+    lfns = []
+    <span class="hljs-keyword">for</span> j <span class="hljs-keyword">in</span> jobs:
+        <span class="hljs-keyword">if</span> j.status != <span class="hljs-string">&apos;completed&apos;</span>:
+            <span class="hljs-keyword">print</span> <span class="hljs-string">&apos;Skipping #{0}&apos;</span>.format(j.id)
+            <span class="hljs-keyword">continue</span>
+        <span class="hljs-keyword">for</span> df <span class="hljs-keyword">in</span> j.outputfiles.get(DiracFile):
+            lfns.append(df.lfn)
+
+    <span class="hljs-keyword">with</span> open(filename, <span class="hljs-string">&apos;w&apos;</span>) <span class="hljs-keyword">as</span> f:
+        f.writelfns(<span class="hljs-string">&apos;\n&apos;</span>.join(lfns))
+</code></pre>
+<p>How about downloading and merging the ROOT output of a job&apos;s subjobs? Write a helper!</p>
+<pre><code class="lang-python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">merge_root_output</span><span class="hljs-params">(job, input_tree_name, merged_filepath)</span>:</span>
+    <span class="hljs-comment"># Treat a job with subjobs the same as a job with no subjobs</span>
+    jobs = j.subjobs
+    <span class="hljs-keyword">if</span> len(jobs) == <span class="hljs-number">0</span>:
+        jobs = [job]
+
+    access_urls = []
+    <span class="hljs-keyword">for</span> j <span class="hljs-keyword">in</span> jobs:
+        <span class="hljs-keyword">if</span> j.status != <span class="hljs-string">&apos;completed&apos;</span>:
+            <span class="hljs-keyword">print</span> <span class="hljs-string">&apos;Skipping #{0}&apos;</span>.format(j.id)
+            <span class="hljs-keyword">continue</span>
+        <span class="hljs-keyword">for</span> df <span class="hljs-keyword">in</span> j.outputfiles.get(DiracFile):
+            access_urls.append(df.accessURL())
+
+    tchain = ROOT.TChain(input_tree_name)
+    <span class="hljs-keyword">for</span> url <span class="hljs-keyword">in</span> access_urls:
+        tchain.Add(url)
+    tchain.Merge(merged_filepath)
+</code></pre>
+<p>Because of the way a <a href="https://root.cern.ch/doc/master/classTChain.html" target="_blank">ROOT <code>TChain</code></a> works, the subjobs output won&apos;t be 
+downloaded, so you only need enough disk space for the merged file.</p>
+<p><div class="panel panel-primary"><div class="panel-heading"><h3 class="panel-title" id="using-root-in-ganga"><i class="fa fa-info-circle"></i> Using ROOT in Ganga</h3></div><div class="panel-body"><p>By default, ROOT is not available in a Ganga session:</p>
+<pre><code class="lang-python">Ganga In [<span class="hljs-number">1</span>]: <span class="hljs-keyword">import</span> ROOT
+ERROR    No module named ROOT
+</code></pre>
+<p>To remedy this, you can start Ganga inside an environment where ROOT <em>is</em> 
+available:</p>
+<pre><code class="lang-shell">$ lb-run ROOT ganga
+</code></pre>
+</div></div></p>
+<p>Once you have your helpers defined, use them in Ganga as you would any other Python function.</p>
+<pre><code class="lang-python">Ganga In [<span class="hljs-number">1</span>]: j = jobs(<span class="hljs-number">123</span>)
+
+Ganga In [<span class="hljs-number">2</span>]: write_lfns(j, <span class="hljs-string">&apos;{0}.lfns&apos;</span>.format(j.name))
+</code></pre>
+<p>Here are some other common operations that you might want helpers for:</p>
+<ul>
+<li>Deleting all LFNs created by a job;</li>
+<li>Resetting the <code>backend</code> of all subjobs which are marked as <code>failed</code>;</li>
+<li>Replicating all LFNs to a specific Grid site.</li>
+</ul>
+<p>What other tasks can you think of?</p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="tistos-diy.html" class="navigation navigation-prev " aria-label="Previous page: TisTos DIY">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="managing-files-with-ganga.html" class="navigation navigation-next " aria-label="Next page: Managing files in Ganga">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Ganga Scripting","level":"3.13","depth":1,"next":{"title":"Managing files in Ganga","level":"3.14","depth":1,"path":"second-analysis-steps/managing-files-with-ganga.md","ref":"second-analysis-steps/managing-files-with-ganga.md","articles":[]},"previous":{"title":"TisTos DIY","level":"3.12","depth":1,"path":"second-analysis-steps/tistos-diy.md","ref":"second-analysis-steps/tistos-diy.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-sharing","panels@git+https://github.com/lhcb/gitbook-plugin-panels.git#master","katex-auto-render@git+https://github.com/lhcb/gitbook-plugin-katex-auto-render.git#master"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"panels":{},"katex-auto-render":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"The Starterkit team and contributors","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"gitbook":"*"},"file":{"path":"second-analysis-steps/ganga-scripting.md","mtime":"2017-05-08T20:19:07.969Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-05-08T20:20:15.514Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-katex-auto-render/katex.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-katex-auto-render/auto-render.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-katex-auto-render/enable-auto-render.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

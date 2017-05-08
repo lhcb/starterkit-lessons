@@ -1,0 +1,916 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>What to do when something fails · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.2">
+        <meta name="author" content="The Starterkit team and contributors">
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-panels/panels.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-katex-auto-render/katex.min.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="rerun-stripping.html" />
+    
+    
+    <link rel="prev" href="building-decays-part2.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    The LHCb Starterkit
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">First analysis steps</li>
+        
+        
+    
+        <li class="chapter " data-level="2.1" data-path="../first-analysis-steps/">
+            
+                <a href="../first-analysis-steps/">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2" data-path="../first-analysis-steps/prerequisites.html">
+            
+                <a href="../first-analysis-steps/prerequisites.html">
+            
+                    
+                    Pre-workshop checklist
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3" data-path="../first-analysis-steps/install-party.html">
+            
+                <a href="../first-analysis-steps/install-party.html">
+            
+                    
+                    Install party
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.4" data-path="../first-analysis-steps/introduction-to-course.html">
+            
+                <a href="../first-analysis-steps/introduction-to-course.html">
+            
+                    
+                    Goals of the course
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.5" data-path="../first-analysis-steps/dataflow.html">
+            
+                <a href="../first-analysis-steps/dataflow.html">
+            
+                    
+                    The LHCb data flow
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.6" data-path="../first-analysis-steps/run-2-data-flow.html">
+            
+                <a href="../first-analysis-steps/run-2-data-flow.html">
+            
+                    
+                    Changes to the data flow in Run 2
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.7" data-path="../first-analysis-steps/davinci.html">
+            
+                <a href="../first-analysis-steps/davinci.html">
+            
+                    
+                    An introduction to LHCb Software
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.8" data-path="../first-analysis-steps/bookkeeping.html">
+            
+                <a href="../first-analysis-steps/bookkeeping.html">
+            
+                    
+                    Finding data in the Bookkeeping
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.9" data-path="../first-analysis-steps/files-from-grid.html">
+            
+                <a href="../first-analysis-steps/files-from-grid.html">
+            
+                    
+                    Downloading a file from the grid
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.10" data-path="../first-analysis-steps/interactive-dst.html">
+            
+                <a href="../first-analysis-steps/interactive-dst.html">
+            
+                    
+                    Interactively exploring a DST
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.11" data-path="../first-analysis-steps/loki-functors.html">
+            
+                <a href="../first-analysis-steps/loki-functors.html">
+            
+                    
+                    Fun with LoKi Functors
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.12" data-path="../first-analysis-steps/minimal-dv-job.html">
+            
+                <a href="../first-analysis-steps/minimal-dv-job.html">
+            
+                    
+                    Running a minimal DaVinci job locally
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.13" data-path="../first-analysis-steps/davinci-grid.html">
+            
+                <a href="../first-analysis-steps/davinci-grid.html">
+            
+                    
+                    Running DaVinci on the grid
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.14" data-path="../first-analysis-steps/add-tupletools.html">
+            
+                <a href="../first-analysis-steps/add-tupletools.html">
+            
+                    
+                    TupleTools and branches
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.15" data-path="../first-analysis-steps/decay-tree-fitter.html">
+            
+                <a href="../first-analysis-steps/decay-tree-fitter.html">
+            
+                    
+                    How do I use DecayTreeFitter?
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.16" data-path="../first-analysis-steps/ganga-data.html">
+            
+                <a href="../first-analysis-steps/ganga-data.html">
+            
+                    
+                    More Ganga
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.17" data-path="../first-analysis-steps/eos-storage.html">
+            
+                <a href="../first-analysis-steps/eos-storage.html">
+            
+                    
+                    Storing large files on EOS
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.18" data-path="../first-analysis-steps/split-jobs.html">
+            
+                <a href="../first-analysis-steps/split-jobs.html">
+            
+                    
+                    Splitting a job into subjobs
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.19" data-path="../first-analysis-steps/lhcb-dev.html">
+            
+                <a href="../first-analysis-steps/lhcb-dev.html">
+            
+                    
+                    Developing LHCb Software
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.20" data-path="../first-analysis-steps/asking-questions.html">
+            
+                <a href="../first-analysis-steps/asking-questions.html">
+            
+                    
+                    Asking good questions
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.21" data-path="../first-analysis-steps/ecgd.html">
+            
+                <a href="../first-analysis-steps/ecgd.html">
+            
+                    
+                    Early career, gender and diversity
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.22" data-path="../first-analysis-steps/contributing-lesson.html">
+            
+                <a href="../first-analysis-steps/contributing-lesson.html">
+            
+                    
+                    Contribute to this lesson
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Second analysis steps</li>
+        
+        
+    
+        <li class="chapter " data-level="3.1" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2" data-path="lb-git.html">
+            
+                <a href="lb-git.html">
+            
+                    
+                    Using git to develop LHCb software
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3" data-path="building-decays-part0.html">
+            
+                <a href="building-decays-part0.html">
+            
+                    
+                    Building your own decay. The Selection Framework
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.4" data-path="building-decays-part1.html">
+            
+                <a href="building-decays-part1.html">
+            
+                    
+                    Building your own decay. A Historical Approach
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.5" data-path="building-decays-part2.html">
+            
+                <a href="building-decays-part2.html">
+            
+                    
+                    Building your own decay. Modern Selection Framework
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="3.6" data-path="fixing-errors.html">
+            
+                <a href="fixing-errors.html">
+            
+                    
+                    What to do when something fails
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.7" data-path="rerun-stripping.html">
+            
+                <a href="rerun-stripping.html">
+            
+                    
+                    Run a different stripping line on simulated data
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.8" data-path="switch-mass-hypo.html">
+            
+                <a href="switch-mass-hypo.html">
+            
+                    
+                    Replace a mass hypothesis
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.9" data-path="filter-in-trees.html">
+            
+                <a href="filter-in-trees.html">
+            
+                    
+                    Reuse particles from a decay tree
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.10" data-path="simulation.html">
+            
+                <a href="simulation.html">
+            
+                    
+                    The simulation framework
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.11" data-path="hlt-intro.html">
+            
+                <a href="hlt-intro.html">
+            
+                    
+                    HLT intro
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.12" data-path="tistos-diy.html">
+            
+                <a href="tistos-diy.html">
+            
+                    
+                    TisTos DIY
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.13" data-path="ganga-scripting.html">
+            
+                <a href="ganga-scripting.html">
+            
+                    
+                    Ganga Scripting
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.14" data-path="managing-files-with-ganga.html">
+            
+                <a href="managing-files-with-ganga.html">
+            
+                    
+                    Managing files in Ganga
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >What to do when something fails</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="what-to-do-when-something-fails">What to do when something fails</h1>
+<p><div class="panel panel-warning"><div class="panel-heading"><h3 class="panel-title" id="learning-objectives"><i class="fa fa-line-chart"></i> Learning Objectives</h3></div><div class="panel-body"><ul>
+<li>Learn how to read the logs to know where things are breaking</li>
+<li>Learn how to get a glimpse of where algorithms are writing in the TES</li>
+</ul>
+</div></div> </p>
+<p>When chaining complex workflows (building particles, combining them, etc) we find that our ntuple is not written while we don&apos;t have any errors.
+The first step is to look at the logs.
+Let&apos;s first go back at what we learned <a href="building-decays-part0">when building our own decays</a> and rerun again (saving the output to a log file!).</p>
+<p>We can scroll through the log until we find our selections, where we will see something like this:</p>
+<pre><code>Sel_D0            SUCCESS Number of counters : 13
+ |    Counter                                      |     #     |    sum     | mean/eff^* | rms/err^*  |     min     |     max     |
+ | &quot;# D0 -&gt; pi-  K+ &quot;                              |      1000 |         43 |   0.043000 |    0.20286 |      0.0000 |      1.0000 |
+ | &quot;# D~0 -&gt; pi+  K- &quot;                             |      1000 |         55 |   0.055000 |    0.23233 |      0.0000 |      2.0000 |
+ | &quot;# K+&quot;                                          |      1000 |       1161 |     1.1610 |     1.9155 |      0.0000 |      21.000 |
+ | &quot;# K-&quot;                                          |      1000 |       1135 |     1.1350 |     2.1248 |      0.0000 |      29.000 |
+ | &quot;# Phys/StdAllLooseKaons&quot;                       |      1000 |      24448 |     24.448 |     19.363 |      1.0000 |      136.00 |
+ | &quot;# Phys/StdAllNoPIDsPions&quot;                      |      1000 |      42328 |     42.328 |     26.566 |      3.0000 |      181.00 |
+ | &quot;# input particles&quot;                             |      1000 |      66776 |     66.776 |     45.704 |      4.0000 |      317.00 |
+ | &quot;# pi+&quot;                                         |      1000 |       1962 |     1.9620 |     2.3436 |      0.0000 |      26.000 |
+ | &quot;# pi-&quot;                                         |      1000 |       1912 |     1.9120 |     2.5401 |      0.0000 |      32.000 |
+ | &quot;# selected&quot;                                    |      1000 |         98 |   0.098000 |    0.31368 |      0.0000 |      3.0000 |
+ |*&quot;#accept&quot;                                       |      1000 |         94 |(  9.40000 +- 0.922843 )%|   -------   |   -------   |
+ |*&quot;#pass combcut&quot;                                 |     10403 |        254 |(  2.44160 +- 0.151318 )%|   -------   |   -------   |
+ |*&quot;#pass mother cut&quot;                              |       254 |         98 |(  38.5827 +- 3.05439  )%|   -------   |   -------   |
+Sel_Dstar         SUCCESS Number of counters : 14
+ |    Counter                                      |     #     |    sum     | mean/eff^* | rms/err^*  |     min     |     max     |
+ | &quot;# D*(2010)+ -&gt; D0  pi+ &quot;                       |        94 |          0 |     0.0000 |     0.0000 |      0.0000 |      0.0000 |
+ | &quot;# D*(2010)- -&gt; D~0  pi- &quot;                      |        94 |          1 |   0.010638 |    0.10259 |      0.0000 |      1.0000 |
+ | &quot;# D0&quot;                                          |        94 |         43 |    0.45745 |    0.49819 |      0.0000 |      1.0000 |
+ | &quot;# D~0&quot;                                         |        94 |         55 |    0.58511 |    0.51384 |      0.0000 |      2.0000 |
+ | &quot;# Phys/Sel_D0&quot;                                 |        94 |         98 |     1.0426 |    0.24904 |      1.0000 |      3.0000 |
+ | &quot;# Phys/StdAllNoPIDsPions&quot;                      |        94 |       4481 |     47.670 |     25.661 |      7.0000 |      153.00 |
+ | &quot;# input particles&quot;                             |        94 |       4579 |     48.713 |     25.705 |      8.0000 |      154.00 |
+ | &quot;# pi+&quot;                                         |        94 |       2175 |     23.138 |     11.977 |      4.0000 |      58.000 |
+ | &quot;# pi-&quot;                                         |        94 |       2091 |     22.245 |     12.936 |      1.0000 |      90.000 |
+ | &quot;# selected&quot;                                    |        94 |          1 |   0.010638 |    0.10259 |      0.0000 |      1.0000 |
+ |*&quot;#accept&quot;                                       |        94 |          1 |(  1.06383 +- 1.05816  )%|   -------   |   -------   |
+ |*&quot;#pass combcut&quot;                                 |      2240 |        586 |(  26.1607 +- 0.928634 )%|   -------   |   -------   |
+ |*&quot;#pass mother cut&quot;                              |       586 |          1 |( 0.170648 +- 0.170503 )%|   -------   |   -------   |
+ | &quot;Error from IParticleCombiner, skip the combinat|         6 |          6 |     1.0000 |     0.0000 |      1.0000 |      1.0000 |
+</code></pre><p>Here we have information of the input containers, types of particles, etc, with all the counters corresponding to our run on 1000 events.</p>
+<p><div class="panel panel-success"><div class="panel-heading"><h3 class="panel-title" id="understanding-the-log"><i class="fa fa-check-square-o"></i> Understanding the log</h3></div><div class="panel-body"><p>How many $$D^*$$ do we expect in our ntuple? Can you check it?
+Can you change some cuts and see how he counters change? Try to free the $$D^*$$ mass and see if we get more of those.</p>
+</div></div></p>
+<p>Now, let&apos;s make the particle builder fail silently and see if we can debug this.
+For example, imagine we forgot to add the Kaons as inputs in <code>Sel_D0</code>:</p>
+<pre><code class="lang-python">d0_sel = Selection(<span class="hljs-string">&apos;Sel_D0&apos;</span>,
+                   Algorithm=d0,
+                   RequiredSelections=[Pions])
+</code></pre>
+<p>Then we get</p>
+<pre><code>Sel_D0            SUCCESS Number of counters : 12
+ |    Counter                                      |     #     |    sum     | mean/eff^* | rms/err^*  |     min     |     max     |
+ | &quot;# D0 -&gt; pi-  K+ &quot;                              |      1000 |          0 |     0.0000 |     0.0000 |      0.0000 |      0.0000 |
+ | &quot;# D~0 -&gt; pi+  K- &quot;                             |      1000 |          0 |     0.0000 |     0.0000 |      0.0000 |      0.0000 |
+ | &quot;# K+&quot;                                          |      1000 |          0 |     0.0000 |     0.0000 |      0.0000 |      0.0000 |
+ | &quot;# K-&quot;                                          |      1000 |          0 |     0.0000 |     0.0000 |      0.0000 |      0.0000 |
+ | &quot;# Phys/StdAllNoPIDsPions&quot;                      |      1000 |      42328 |     42.328 |     26.566 |      3.0000 |      181.00 |
+ | &quot;# input particles&quot;                             |      1000 |      42328 |     42.328 |     26.566 |      3.0000 |      181.00 |
+ | &quot;# pi+&quot;                                         |      1000 |       1962 |     1.9620 |     2.3436 |      0.0000 |      26.000 |
+ | &quot;# pi-&quot;                                         |      1000 |       1912 |     1.9120 |     2.5401 |      0.0000 |      32.000 |
+ | &quot;# selected&quot;                                    |      1000 |          0 |     0.0000 |     0.0000 |      0.0000 |      0.0000 |
+ |*&quot;#accept&quot;                                       |      1000 |          0 |(  0.00000 +- 0.100000 )%|   -------   |   -------   |
+ | &quot;#pass combcut&quot;                                 |         0 |          0 |     0.0000 |     0.0000 | 1.7977e+308 |-1.7977e+308 |
+ | &quot;#pass mother cut&quot;                              |         0 |          0 |     0.0000 |     0.0000 | 1.7977e+308 |-1.7977e+308 |
+</code></pre><p>It&apos;s easy to see we have 0 input kaons and we can see we only get input pions!</p>
+<p>Another problem: we messed up with a cut, for example in building the $$D^*$$,</p>
+<pre><code class="lang-python">dstar_mother = (
+    <span class="hljs-string">&quot;(abs(M-MAXTREE(&apos;D0&apos;==ABSID,M)-145.42) &lt; 10*MeV)&quot;</span>
+    <span class="hljs-string">&apos;&amp; (VFASPF(VCHI2/VDOF) &lt; 0)&apos;</span>
+)
+</code></pre>
+<p>Running this, we get</p>
+<pre><code>Sel_Dstar         SUCCESS Number of counters : 14
+ |    Counter                                      |     #     |    sum     | mean/eff^* | rms/err^*  |     min     |     max     |
+ | &quot;# D*(2010)+ -&gt; D0  pi+ &quot;                       |        94 |          0 |     0.0000 |     0.0000 |      0.0000 |      0.0000 |
+ | &quot;# D*(2010)- -&gt; D~0  pi- &quot;                      |        94 |          0 |     0.0000 |     0.0000 |      0.0000 |      0.0000 |
+ | &quot;# D0&quot;                                          |        94 |         43 |    0.45745 |    0.49819 |      0.0000 |      1.0000 |
+ | &quot;# D~0&quot;                                         |        94 |         55 |    0.58511 |    0.51384 |      0.0000 |      2.0000 |
+ | &quot;# Phys/Sel_D0&quot;                                 |        94 |         98 |     1.0426 |    0.24904 |      1.0000 |      3.0000 |
+ | &quot;# Phys/StdAllNoPIDsPions&quot;                      |        94 |       4481 |     47.670 |     25.661 |      7.0000 |      153.00 |
+ | &quot;# input particles&quot;                             |        94 |       4579 |     48.713 |     25.705 |      8.0000 |      154.00 |
+ | &quot;# pi+&quot;                                         |        94 |       2175 |     23.138 |     11.977 |      4.0000 |      58.000 |
+ | &quot;# pi-&quot;                                         |        94 |       2091 |     22.245 |     12.936 |      1.0000 |      90.000 |
+ | &quot;# selected&quot;                                    |        94 |          0 |     0.0000 |     0.0000 |      0.0000 |      0.0000 |
+ |*&quot;#accept&quot;                                       |        94 |          0 |(  0.00000 +- 1.06383  )%|   -------   |   -------   |
+ |*&quot;#pass combcut&quot;                                 |      2240 |        586 |(  26.1607 +- 0.928634 )%|   -------   |   -------   |
+ |*&quot;#pass mother cut&quot;                              |       586 |          0 |(  0.00000 +- 0.170648 )%|   -------   |   -------   |
+ | &quot;Error from IParticleCombiner, skip the combinat|         6 |          6 |     1.0000 |     0.0000 |      1.0000 |      1.0000 |
+</code></pre><p>And we would get suspicious about the <code>MotherCut</code>...</p>
+<p>The final trick is to use the <code>StoreExplorerAlg</code>, which shows us the state of the TES in the middle of execution.
+We can configure it very easily and insert it in the DaVinci sequence to see what is happening.</p>
+<pre><code class="lang-python"><span class="hljs-keyword">from</span> Configurables <span class="hljs-keyword">import</span> StoreExplorerAlg
+
+DaVinci().UserAlgorithms += [StoreExplorerAlg(<span class="hljs-string">&quot;Before&quot;</span>),
+                             dstar_seq.sequence(),
+                             StoreExplorerAlg(<span class="hljs-string">&quot;After&quot;</span>)]
+</code></pre>
+<p>And then run it:</p>
+<pre><code>EventSelector     SUCCESS Reading Event record 1. Record number within stream 1: 1
+Before               INFO ========= /Event[0x224961d0@EventDataSvc]:
+Before               INFO +--&gt; /Event [Address: CLID=0x1 Type=0x2]  DataObject
+Before               INFO | +--&gt; /Gen [Address: CLID=0x1 Type=0x2]  (Unloaded)
+Before               INFO | +--&gt; /MC [Address: CLID=0x1 Type=0x2]  (Unloaded)
+Before               INFO | +--&gt; /Link [Address: CLID=0x1 Type=0x2]  (Unloaded)
+Before               INFO | +--&gt; /pSim [Address: CLID=0x1 Type=0x2]  (Unloaded)
+Before               INFO | +--&gt; /Rec [Address: CLID=0x1 Type=0x2]  (Unloaded)
+Before               INFO | +--&gt; /Trigger [Address: CLID=0x1 Type=0x2]  (Unloaded)
+Before               INFO | +--&gt; /Calo [Address: CLID=0x1 Type=0x2]  (Unloaded)
+Before               INFO | +--&gt; /Muon [Address: CLID=0x1 Type=0x2]  (Unloaded)
+Before               INFO | +--&gt; /Rich [Address: CLID=0x1 Type=0x2]  (Unloaded)
+Before               INFO | +--&gt; /Other [Address: CLID=0x1 Type=0x2]  (Unloaded)
+Before               INFO | +--&gt; /pRec [Address: CLID=0x1 Type=0x2]  (Unloaded)
+Before               INFO | +--&gt; /Prev [Address: CLID=0x1 Type=0x2]  (Unloaded)
+Before               INFO | +--&gt; /PrevPrev [Address: CLID=0x1 Type=0x2]  (Unloaded)
+Before               INFO | +--&gt; /Next [Address: CLID=0x1 Type=0x2]  (Unloaded)
+Before               INFO | +--&gt; /NextNext [Address: CLID=0x1 Type=0x2]  (Unloaded)
+Before               INFO | +--&gt; /DAQ [Address: CLID=0x1 Type=0x2]  (Unloaded)
+Before               INFO | +--&gt; /Strip [Address: CLID=0x1 Type=0x2]  (Unloaded)
+Before               INFO   +--&gt; /AllStreams [Address: CLID=0x1 Type=0x2]  (Unloaded)
+...
+After                INFO ========= /Event[0x224961d0@EventDataSvc]:
+After                INFO +--&gt; /Event [Address: CLID=0x1 Type=0x2]  DataObject
+After                INFO | +--&gt; /Gen [Address: CLID=0x1 Type=0x2]  (Unloaded)
+After                INFO | +--&gt; /MC [Address: CLID=0x1 Type=0x2]  (Unloaded)
+After                INFO | +--&gt; /Link [Address: CLID=0x1 Type=0x2]  (Unloaded)
+After                INFO | +--&gt; /pSim [Address: CLID=0x1 Type=0x2]  (Unloaded)
+After                INFO | +--&gt; /Rec [Address: CLID=0x1 Type=0x2]  DataObject
+After                INFO | | +--&gt; /Header [Address: CLID=0x69 Type=0x2]  LHCb::RecHeader
+After                INFO | | +--&gt; /Status [Address: CLID=0x1389 Type=0x2]  (Unloaded)
+After                INFO | | +--&gt; /Summary [Address: CLID=0x6a Type=0x2]  (Unloaded)
+After                INFO | | +--&gt; /ProtoP [No Address]  DataObject
+After                INFO | | | +--&gt; /Charged [No Address]  KeyedContainer&lt;LHCb::ProtoPartic [38]
+After                INFO | | +--&gt; /Muon [No Address]  DataObject
+After                INFO | | | +--&gt; /MuonPID [No Address]  KeyedContainer&lt;LHCb::MuonPID,Con [27]
+After                INFO | | +--&gt; /Track [No Address]  DataObject
+After                INFO | | | +--&gt; /Best [No Address]  KeyedContainer&lt;LHCb::Track,Conta [70]
+After                INFO | | +--&gt; /Rich [No Address]  DataObject
+After                INFO | | | +--&gt; /PIDs [No Address]  KeyedContainer&lt;LHCb::RichPID,Con [46]
+After                INFO | | +--&gt; /Vertex [No Address]  DataObject
+After                INFO | |   +--&gt; /Primary [No Address]  KeyedContainer&lt;LHCb::RecVertex,C [2]
+After                INFO | +--&gt; /Trigger [Address: CLID=0x1 Type=0x2]  DataObject
+After                INFO | | +--&gt; /RawEvent [Address: CLID=0x3ea Type=0x2]  LHCb::RawEvent
+After                INFO | +--&gt; /Calo [Address: CLID=0x1 Type=0x2]  (Unloaded)
+After                INFO | +--&gt; /Muon [Address: CLID=0x1 Type=0x2]  (Unloaded)
+After                INFO | +--&gt; /Rich [Address: CLID=0x1 Type=0x2]  (Unloaded)
+After                INFO | +--&gt; /Other [Address: CLID=0x1 Type=0x2]  (Unloaded)
+After                INFO | +--&gt; /pRec [Address: CLID=0x1 Type=0x2]  DataObject
+After                INFO | | +--&gt; /Track [Address: CLID=0x1 Type=0x2]  DataObject
+After                INFO | | | +--&gt; /Best [Address: CLID=0x60e Type=0x2]  LHCb::PackedTracks
+After                INFO | | | +--&gt; /Muon [Address: CLID=0x60e Type=0x2]  (Unloaded)
+After                INFO | | +--&gt; /Rich [Address: CLID=0x1 Type=0x2]  DataObject
+After                INFO | | | +--&gt; /PIDs [Address: CLID=0x619 Type=0x2]  LHCb::PackedRichPIDs
+After                INFO | | +--&gt; /Muon [Address: CLID=0x1 Type=0x2]  DataObject
+After                INFO | | | +--&gt; /MuonPID [Address: CLID=0x623 Type=0x2]  LHCb::PackedMuonPIDs
+After                INFO | | +--&gt; /Calo [Address: CLID=0x1 Type=0x2]  (Unloaded)
+After                INFO | | +--&gt; /ProtoP [Address: CLID=0x1 Type=0x2]  DataObject
+After                INFO | | | +--&gt; /Charged [Address: CLID=0x610 Type=0x2]  LHCb::PackedProtoParticles
+After                INFO | | | +--&gt; /Neutrals [Address: CLID=0x610 Type=0x2]  (Unloaded)
+After                INFO | | +--&gt; /Vertex [Address: CLID=0x1 Type=0x2]  DataObject
+After                INFO | | | +--&gt; /Primary [Address: CLID=0x611 Type=0x2]  LHCb::PackedRecVertices
+After                INFO | |   +--&gt; /V0 [Address: CLID=0x612 Type=0x2]  (Unloaded)
+After                INFO | +--&gt; /Prev [Address: CLID=0x1 Type=0x2]  (Unloaded)
+After                INFO | +--&gt; /PrevPrev [Address: CLID=0x1 Type=0x2]  (Unloaded)
+After                INFO | +--&gt; /Next [Address: CLID=0x1 Type=0x2]  (Unloaded)
+After                INFO | +--&gt; /NextNext [Address: CLID=0x1 Type=0x2]  (Unloaded)
+After                INFO | +--&gt; /DAQ [Address: CLID=0x1 Type=0x2]  DataObject
+After                INFO | | +--&gt; /ODIN [No Address]  LHCb::ODIN
+After                INFO | +--&gt; /Strip [Address: CLID=0x1 Type=0x2]  (Unloaded)
+After                INFO | +--&gt; /AllStreams [Address: CLID=0x1 Type=0x2]  (Unloaded)
+After                INFO   +--&gt; /Phys [No Address]  DataObject
+After                INFO   | +--&gt; /StdAllNoPIDsPions [No Address]  DataObject
+After                INFO   | | +--&gt; /Particles [No Address]  KeyedContainer&lt;LHCb::Particle,Co [16]
+After                INFO   | | +--&gt; /decayVertices [No Address]  KeyedContainer&lt;LHCb::Vertex,Cont [0]
+After                INFO   | | +--&gt; /Particle2VertexRelations [No Address]  LHCb::Relation1D&lt;LHCb::Particle,
+After                INFO   | | +--&gt; /_RefitPVs [No Address]  KeyedContainer&lt;LHCb::RecVertex,C [0]
+After                INFO   | +--&gt; /StdAllLooseKaons [No Address]  DataObject
+After                INFO   | | +--&gt; /Particles [No Address]  KeyedContainer&lt;LHCb::Particle,Co [7]
+After                INFO   | | +--&gt; /decayVertices [No Address]  KeyedContainer&lt;LHCb::Vertex,Cont [0]
+After                INFO   | | +--&gt; /Particle2VertexRelations [No Address]  LHCb::Relation1D&lt;LHCb::Particle,
+After                INFO   | | +--&gt; /_RefitPVs [No Address]  KeyedContainer&lt;LHCb::RecVertex,C [0]
+After                INFO     +--&gt; /Sel_D0 [No Address]  DataObject
+After                INFO       +--&gt; /Particles [No Address]  KeyedContainer&lt;LHCb::Particle,Co [0]
+</code></pre><p>Here we can see where our decays are being put and we can debug problems with inputs and outputs.
+It can also be useful to know where things are written for accessing them interactively, if we want to further explore and debug.</p>
+<p><div class="panel panel-primary"><div class="panel-heading"><h3 class="panel-title" id="configuring-the-algorithm"><i class="fa fa-info-circle"></i> Configuring the algorithm</h3></div><div class="panel-body"><p>The <code>StoreExplorerAlg</code> has the same print frequency as <code>DaVinci</code>, but it can be configured by modifying <code>PrintFreq</code> (fraction of events that are printed) or <code>PrintEvt</code>.
+Have a look at the <a href="http://lhcb-release-area.web.cern.ch/LHCb-release-area/DOC/moore/releases/v14r2p5/doxygen/d2/d3b/class_store_explorer_alg.html" target="_blank">class Doxygen</a> to see what they do.</p>
+</div></div></p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="building-decays-part2.html" class="navigation navigation-prev " aria-label="Previous page: Building your own decay. Modern Selection Framework">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="rerun-stripping.html" class="navigation navigation-next " aria-label="Next page: Run a different stripping line on simulated data">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"What to do when something fails","level":"3.6","depth":1,"next":{"title":"Run a different stripping line on simulated data","level":"3.7","depth":1,"path":"second-analysis-steps/rerun-stripping.md","ref":"second-analysis-steps/rerun-stripping.md","articles":[]},"previous":{"title":"Building your own decay. Modern Selection Framework","level":"3.5","depth":1,"path":"second-analysis-steps/building-decays-part2.md","ref":"second-analysis-steps/building-decays-part2.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-sharing","panels@git+https://github.com/lhcb/gitbook-plugin-panels.git#master","katex-auto-render@git+https://github.com/lhcb/gitbook-plugin-katex-auto-render.git#master"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"panels":{},"katex-auto-render":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"The Starterkit team and contributors","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"gitbook":"*"},"file":{"path":"second-analysis-steps/fixing-errors.md","mtime":"2017-05-08T20:19:07.969Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-05-08T20:20:15.514Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-katex-auto-render/katex.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-katex-auto-render/auto-render.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-katex-auto-render/enable-auto-render.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
