@@ -1,4 +1,9 @@
-# Using SVN
+---
+layout: page
+title: First Steps in LHCb
+subtitle: Using SVN
+minutes: 10
+---
 
 > ## Learning Objectives {.objectives}
 > * Understand the differences between Git and SVN
