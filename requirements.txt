@@ -1,4 +1,0 @@
-CommonMark==0.5.4
-pandocfilters
-PyYAML
-pep8
