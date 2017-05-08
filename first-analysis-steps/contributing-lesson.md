@@ -1,14 +1,10 @@
----
-layout: page
-title: First Steps in LHCb
-subtitle: Contribute to this lesson
-minutes: 10
----
-> ## Learning Objectives {.objectives}
->
-> * Reporting a mistake
-> * How to look at the source of these lessons
-> * How to modify a lesson
+# Contribute to this lesson
+
+{% objectives "Learning Objectives" %}
+* Reporting a mistake
+* How to look at the source of these lessons
+* How to modify a lesson
+{% endobjectives %} 
 
 These lessons are not really about software, they are about people. If
 you have followed along until this point you are more than qualified
@@ -23,20 +19,20 @@ We need you! You now know everything you need to in order to
 contribute. Take advantage of this.
 
 The source of this lesson is hosted on GitHub:
-[lhcb/first-analysis-steps](https://github.com/lhcb/first-analysis-steps).
+[lhcb/starterkit-lessons](https://github.com/lhcb/starterkit-lessons).
 
-> ## Submitting a bug report {.callout}
->
-> If you spot something that is wrong, create a bug report on the
-> [issue tracker](https://github.com/lhcb/first-analysis-steps/issues)
-> This is super simple and makes it easy for everyone to keep track of
-> what is broken and needs fixing. It also increases your chances of
-> someone posting a solution.
+{% callout "Submitting a bug report " %}
+If you spot something that is wrong, create a bug report on the
+[issue tracker](https://github.com/lhcb/starterkit-lessons/issues)
+This is super simple and makes it easy for everyone to keep track of
+what is broken and needs fixing. It also increases your chances of
+someone posting a solution.
+{% endcallout %} 
 
 You do not need anyone's permission to start making changes. You can
 start directly. If you want to edit something the first thing to do is
 to create a fork of the repository. Visit
-[lhcb/first-analysis-steps](https://github.com/lhcb/first-analysis-steps)
+[lhcb/first-analysis-steps](https://github.com/lhcb/starterkit-lessons)
 and click the "Fork" button at the top right.
 
 ![Click on the fork button to create a fork of `lhcb/first-analysis-steps`](img/fork-me.png)
@@ -45,13 +41,13 @@ A fork is simply a copy of the original repository. It works just as well
 as the original. Clone the repository to your computer to start making changes:
 
 ```bash
-$ git clone https://YOURUSERNAME@github.com/YOURUSERNAME/first-analysis-steps.git
+$ git clone https://YOURUSERNAME@github.com/YOURUSERNAME/starterkit-lessons.git
 ```
 
 As you can see each lesson has its own `.md` file. The source of this
 lesson is in
-[`27-contributing.md`](https://github.com/lhcb/first-analysis-steps/blob/master/27-contributing.md). It
-is a simple text file with a few clever lines with special meaning.
+[`CONTRIBUTING.md`](https://github.com/lhcb/starterkit-lessons/blob/master/CONTRIBUTING.md).
+It is a simple text file with a few clever lines with special meaning.
 
 The format the files are written in is called
 [Markdown](http://daringfireball.net/projects/markdown/basics). It is
@@ -60,9 +56,9 @@ files. `**Bold text**` leads to **Bold text**, `_Italic_` is _italic_
 and `[the search engine](http://google.com)` makes a link to [the
 search engine](http://google.com).
 
-> ## Trying it out live {.callout}
->
-> Try out Markdown live in your browser with [Dillinger](http://dillinger.io/).
+{% callout "Trying it out live " %}
+Try out Markdown live in your browser with [Dillinger](http://dillinger.io/).
+{% endcallout %} 
 
 If you want to see what your changes look like, simply paste a lesson
 to Dillinger.
@@ -77,7 +73,7 @@ $ git checkout -b fixing-typos
 Once you are done with your changes, commit them. To commit use `git
 add 00-lesson-you-edited.md` and then `git commit`. After `git
 push`'ing it, visit your copy of the repository on github:
-`https://github.com/YOURUSERNAME/first-analysis-steps`.
+`https://github.com/YOURUSERNAME/starterkit-lessons`.
 
 In order to test your changes, you can run the starterkit website locally.
 To do so, first install the required python packages.

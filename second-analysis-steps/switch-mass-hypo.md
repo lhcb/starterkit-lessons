@@ -1,20 +1,17 @@
----
-layout: page
-title: Seconds steps in LHCb
-subtitle: Replace a mass hypothesis
-minutes: 10
----
+# Replace a mass hypothesis
 
-> ## Learning Objectives {.objectives}
->
-> * Create a new selection starting from the stripping line output
-> * Change the particle hypothesis made by the stripping line
+{% objectives "Learning Objectives" %}
+* Create a new selection starting from the stripping line output
+* Change the particle hypothesis made by the stripping line
+{% endobjectives %} 
 
 There are many situations where you want to repurpose a stripping line to look for a new decay that is similar in topology but distinct from what was put into the stripping line. The easiest thing to do is to change some of the hypothesis on particle IDs made in the stripping. This lesson will show you how to do that.
 
-> ## Reinterpreting stripping selections {.callout}
-> Note that with this method you can never find more candidates than the stripping has already found. 
-> However, you can reinterpret parts of the decay to look for new decay modes.
+{% callout "Reinterpreting stripping selections" %}
+Note that with this method you can never find more candidates than the 
+stripping has already found.  However, you can reinterpret parts of the decay 
+to look for new decay modes.
+{% endcallout %}
 
 As an example we will switch the decay of the D0 from (K pi) to (pi pi). 
 
@@ -34,7 +31,7 @@ subs = SubstitutePID(
 )
 ```
 
-The algorithm is configured with a name `MakeD02pipi`. In the `Code` argument we need to specify the initial selection. This is done by using LoKi functors. Since we know we will be using an already prepared selection, we can simply use the `DECTREE` functor to search for candidates fulfilling this decay structure. See the [lesson on LoKi](http://lhcb.github.io/first-analysis-steps/loki-functors.html) for more info on what you can do here. 
+The algorithm is configured with a name `MakeD02pipi`. In the `Code` argument we need to specify the initial selection. This is done by using LoKi functors. Since we know we will be using an already prepared selection, we can simply use the `DECTREE` functor to search for candidates fulfilling this decay structure. See the [lesson on LoKi](../first-analysis-steps/loki-functors.md) for more info on what you can do here. 
 
 Now we ware ready to specify which hypotheses to change. `Substitutions` is a dictionary where the keys are decay descriptors and the values are the names of the replacement particles. The particle that should be replaced is marked with a `^`. So in the example above
 ```python
@@ -87,9 +84,11 @@ dtt.Decay = '[D*(2010)+ -> ^(D0 -> ^pi- ^pi+) ^pi+]CC'
 
 The input to the `DecayTreeTuple` is taken as the `outputLocations` of the `SelectionSequence` we just created. 
 
-> ## Why use DaVinci selections? {.callout}
-> Selections and SelectionSequences are an elegant way to organize the required algorithms that perform the job of selecting data.
-> The [particle selection toolkit](https://twiki.cern.ch/twiki/bin/view/LHCb/ParticleSelection) uses python tricks to make the management of even complicated sequences of selections rather straight forward. In particular the toolkit ensures that all necessary algorithms are run in the correct order to produce the desired selections. It is therfore mainly a tool to manage dependencies. For technical details have a look at the [TWiki page](https://twiki.cern.ch/twiki/bin/view/LHCb/ParticleSelection).
+{% callout "Why use DaVinci selections?" %}
+Selections and SelectionSequences are an elegant way to organize the required 
+algorithms that perform the job of selecting data.
+The [particle selection toolkit](https://twiki.cern.ch/twiki/bin/view/LHCb/ParticleSelection) uses python tricks to make the management of even complicated sequences of selections rather straight forward. In particular the toolkit ensures that all necessary algorithms are run in the correct order to produce the desired selections. It is therfore mainly a tool to manage dependencies. For technical details have a look at the [TWiki page](https://twiki.cern.ch/twiki/bin/view/LHCb/ParticleSelection).
+{% endcallout %}
 
 Finally we add the `SelectionSequence` and the `DecayTreeTuple` to the DaVinci application. Since we are adding more than one algorithm we need a `GaudiSequencer` that takes care of calling everything in the right order:
 ```python
@@ -103,5 +102,6 @@ DaVinci().appendToMainSequence([seq])
 The solution to this exercise `ntuple_switchHypo.py`, is [available 
 here](./code/18-switch-mass-hypo/ntuple_switchHypo.py).
 
-> ## Think about it {.callout}
-> Why can't we use this method to look for D* decaying to D0+photon ? 
+{% callout "Think about it" %}
+Why can't we use this method to look for D* decaying to D0+photon ? 
+{% endcallout %}

@@ -1,25 +1,22 @@
----
-layout: page
-title: First steps in LHCb
-subtitle: TisTos DIY
-minutes: 45
----
+# TisTos DIY
 
-> ## Learning Objectives {.objectives}
->
-> * Learn what TisTos is and why it's useful
-> * Use an interactive python session to look at TisTos on a local DST
+{% objectives "Learning Objectives" %}
+* Learn what TisTos is and why it's useful
+* Use an interactive python session to look at TisTos on a local DST
+{% endobjectives %} 
 
 Once HLT1 or HLT2 has accepted an event, the candidates accepted by all trigger
 lines are saved to the raw event in a stripped-down form. One of the things that
 is saved are all the LHCbIDs of the final state particles of a decay tree.
 
-> ## What is an LHCbID? {.callout}
-> Every single sub-detector element has an LHCbID which is unique across the whole detector.
-> Physics objects, such as tracks, can be defined as sets of LHCbID objects.
-> When a trigger decision is made, the set of LHCbID objects which comprise the triggering
-> object is stored in the SelReports. This allows objects reconstructed later, such as in Brunel,
-> to be compared with the objects reconstructed in the trigger.
+{% callout "What is an LHCbID?" %}
+Every single sub-detector element has an LHCbID which is unique across the 
+whole detector.
+Physics objects, such as tracks, can be defined as sets of LHCbID objects.
+When a trigger decision is made, the set of LHCbID objects which comprise the triggering
+object is stored in the SelReports. This allows objects reconstructed later, such as in Brunel,
+to be compared with the objects reconstructed in the trigger.
+{% endcallout %}
 
 A new feature in Run 2 is the so-called Turbo stream. Since the reconstruction
 available in HLT2 is the same as the offline reconstruction, physics analysis
@@ -32,7 +29,7 @@ available to analysts. The Turbo stream is different because information that
 is not saved is lost forever.
 
 We will now have a look at some of the candidates stored by the HLT. We will use the script we
-[used last time](http://lhcb.github.io/first-analysis-steps/05-interactive-dst.html)
+[used last time](../first-analysis-steps/interactive-dst.md)
 as a starting point, and the file
 `root://eoslhcb.cern.ch//eos/lhcb/user/r/raaij/Impactkit/00051318_00000509_1.turbo.mdst`.
 This file contains some 2016 Turbo events from [run 
@@ -45,10 +42,10 @@ Like the stripping, the decisions of the HLT are saved in so-called
 DecReports. You can find them in `Hlt1/DecReports` and `Hlt2/DecReports`, have a
 look at what they contain.
 
-~~~ {.python}
+```python
 evt['Hlt1/DecReports']
 evt['Hlt2/DecReports']
-~~~
+```
 
 An important difference with the stripping is that for the HLT, all the
 decisions are present, even if they are false. Copy the `advance` function to
@@ -56,11 +53,11 @@ decisions are present, even if they are false. Copy the `advance` function to
 decision. This can be done using the `decision` member function of a
 `DecReport`. Note that all names in the reports end with `Decision`.
 
-~~~ {.python}
+```python
 reports = evt['Hlt1/DecReports']
 report = reports.decReport('Hlt1TrackAllL0Decision')
 print report.decision()
-~~~
+```
 
 The HLT1 selections that are most efficient for hadronic charm and beauty decays
 in Run 2 are called Hlt1TrackMVA and Hlt1TwoTrackMVA. Use the advance function
@@ -78,7 +75,7 @@ least one level of sub-structure. The sub-structure is internally stored in
 SmartRefs, which can be dereferenced using their "data" method. Let's have a look
 at a SelReport for a TrackMVA selection.
 
-~~~ {.python}
+```python
 reports = evt['Hlt1/SelReports']
 report = reports.selReport('Hlt1TrackMVADecision')
 print report
@@ -86,36 +83,36 @@ report.substructure().size()
 report.substructure()[0].substructure().size()
 report.substructure()[0].substructure()[0]
 report.substructure()[0].substructure()[0].data()
-~~~
+```
 
 In addition to the LHCbIDs, some numbers are also stored, such as the momentum
 of the track. These are stored in the numerical info dictionary that can be
 retrieved using:
 
-~~~ {.python}
+```python
 report.substructure()[0].substructure()[0].numericalInfo()
-~~~
+```
 
-> ## Plot the transverse momentum distribution {.challenge}
->
-> Make a plot of the total and transverse moment distributions of all candidates
-> accepted by the Hlt1TrackMVA selection. Then add Hlt1TwoTrackMVA and
-> consider the difference.
+{% challenge "Plot the transverse momentum distribution" %}
+Make a plot of the total and transverse moment distributions of all candidates
+accepted by the Hlt1TrackMVA selection. Then add Hlt1TwoTrackMVA and
+consider the difference.
+{% endchallenge %}
 
 The LHCbIDs of the (in this case) track can be retrieved using:
 
-~~~ {.python}
+```python
 report.substructure()[0].substructure()[0].lhcbIDs()
-~~~
+```
 
-> ## Turbo candidates {.challenge}
->
-> Now let's have a look at the same information that is stored for a candidate
-> created by a Turbo line, for example Hlt2CharmHadDsp2KS0PimPipPip_KS0LLTurbo.
-> Adapt the `advance_hlt` with an additional argument that allows specification
-> of the location of `DecReports` it uses, then advance to an event that was selected by
-> Hlt2CharmHadDsp2KS0PimPipPip_KS0LLTurbo, retrieve its `SelReport` and have a
-> look at what's stored.
+{% challenge "Turbo candidates" %}
+Now let's have a look at the same information that is stored for a candidate
+created by a Turbo line, for example Hlt2CharmHadDsp2KS0PimPipPip_KS0LLTurbo.
+Adapt the `advance_hlt` with an additional argument that allows specification
+of the location of `DecReports` it uses, then advance to an event that was selected by
+Hlt2CharmHadDsp2KS0PimPipPip_KS0LLTurbo, retrieve its `SelReport` and have a
+look at what's stored.
+{% endchallenge %}
 
 
 The LHCbIDs of the final state particles of the candidate that was created
@@ -141,10 +138,10 @@ tracks that are part of the offline candidate.
 To have a look at how this works, we'll use candidates from the
 D2hhPromptDst2D2RS selection, which can be retrieved thusly:
 
-~~~ {.python}
+```python
 candidates = evt['AllStreams/Phys/D2hhPromptDst2D2RSLine/Particles']
 candidates.size()
-~~~
+```
 
 It could be that there are more than one candidates, which are unlikely to all be
 real. MC matching could be used to find the real one when running on
@@ -158,22 +155,22 @@ two TisTos tools will be needed, each configured to pick up information from
 either HLT1 or HLT2. Since the tools we create are public tools, they have to be
 configured in the following way (before the AppMgr is instantiated):
 
-~~~ {.python}
+```python
 from Configurables import ToolSvc, TriggerTisTos
 ToolSvc().addTool(TriggerTisTos, "Hlt1TriggerTisTos")
 ToolSvc().Hlt1TriggerTisTos.HltDecReportsLocation = 'Hlt1/DecReports'
 ToolSvc().Hlt1TriggerTisTos.HltSelReportsLocation = 'Hlt1/SelReports'
-~~~
+```
 
 Create the tools in the same way you created others during the
-[other lesson](http://lhcb.github.io/first-analysis-steps/05-interactive-dst.html), but use instance-specific names that
+[other lesson](../first-analysis-steps/interactive-dst.md), but use instance-specific names that
 correspond to the configuration we just added: `Hlt1TriggerTisTos` and
 `Hlt2TriggerTisTos`. The tools use `ITriggerTisTos` as an interface.
 
 Use the advance function to find an event that has some candidates for the
 chosen selection and set the TisTos tools to use our candidate and trigger selection:
 
-~~~ {.python}
+```python
 hlt1TisTosTool.setOfflineInput()
 candidate = candidates[0]
 hlt1TisTosTool.addToOfflineInput(candidate)
@@ -181,7 +178,7 @@ hlt1TisTosTool.setTriggerInput()
 hlt1TisTosTool.addToTriggerInput("Hlt1TrackAllL0Decision")
 result = hlt1TisTosTool.tisTosTobTrigger()
 result.tos()
-~~~
+```
 
 The `set` calls reset the internal storage of candidate or trigger information,
 and the `addTo` calls then add the things we are interested in.
@@ -194,9 +191,9 @@ all of the final state particles of any of the candidates accepted by the
 trigger selection overlap less than 1% with all of the LHCbIDs of the final
 state particles of the offline candidate.
 
-~~~ {.python}
+```python
 result.tis()
-~~~
+```
 
 Note that a candidate can be both Tis and Tos with respect to a trigger
 selection, or Tos with respect to one selection, and Tis with respect to
@@ -204,16 +201,16 @@ another. To tell the tool to consider more trigger selections, use the following
 (regexes are also supported), and try to find some events that are both Tos and
 Tis:
 
-~~~ {.python}
+```python
 hlt1TisTosTool.setTriggerInput()
 hlt1TisTosTool.addToTriggerInput("Hlt1TrackAllL0Decision")
 hlt1TisTosTool.addToTriggerInput("Hlt1DiMuonHighMassDecision")
 result = hlt1TisTosTool.tisTosTobTrigger()
-~~~
+```
 
 The (Tos) trigger efficiency of a trigger selection can be calculated as:
 
-$\epsilon_{\mathrm{Tos}}=N_{\mathrm{Tis}\&\mathrm{Tos}} / {N_{\mathrm{Tis}}}$
+$$\epsilon_{\mathrm{Tos}}=N_{\mathrm{Tis}\&\mathrm{Tos}} / {N_{\mathrm{Tis}}}$$
 
 Loop over the events in the DST and calculate the efficiency of
 Hlt1TrackAllL0. You can add some more Hlt1 selecitons when checking for Tis,

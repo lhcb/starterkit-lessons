@@ -1,12 +1,9 @@
----
-layout: page
-title: Second analysis steps
-subtitle: Run a different stripping line on simulated data
-minutes: 15
----
-> ## Learning Objectives {.objectives}
->
-> * Modify the minimal DecayTreeTuple example to apply a different stripping version to an MC sample
+# Run a different stripping line on simulated data
+
+{% objectives "Learning Objectives" %}
+* Modify the minimal DecayTreeTuple example to apply a different stripping 
+version to an MC sample
+{% endobjectives %} 
 
 Ideally, our simulated samples should feature the same stripping cuts as the real data we want to work with.
 We can be sure of this if the same stripping version has been used when processing the simulated and real data.
@@ -19,7 +16,7 @@ the decisions of the stripping that ran during the central MC production are pla
 To solve this issue, we need to run an instance of `EventNodeKiller` to remove the decisions from the MC production so that our custom stripping can write there instead.
 This is nice, because most tools expect to read the stripping decisions from the default location, so we won't have to reconfigure anything.
 
-[This example](code/14-rerun-stripping/options.py) is an extended version of the [minimal DaVinci DecayTreeTuple job](http://lhcb.github.io/first-analysis-steps/minimal-dv-job.html) that additionally runs the corresponding stripping line from Stripping 21.
+[This example](code/14-rerun-stripping/options.py) is an extended version of the [minimal DaVinci DecayTreeTuple job](../first-analysis-steps/minimal-dv-job.md) that additionally runs the corresponding stripping line from Stripping 21.
 
 Take a look at the file and try to find out what has changed compared to the [minimal DaVinci example](code/09-minimal-dv/ntuple_options.py).
 

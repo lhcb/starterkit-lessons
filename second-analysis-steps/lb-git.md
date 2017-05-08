@@ -1,19 +1,14 @@
----
-layout: page
-title: First Steps in LHCb
-subtitle: Using git to develop LHCb software
-minutes: 60
----
+# Using git to develop LHCb software
 
-> ## Learning Objectives {.objectives}
->
-> * Learn how to clone specific LHCb packages to a local development directory
-> * Learn how to make changes and upload them to be reviewed by others
+{% objectives "Learning Objectives" %}
+* Learn how to clone specific LHCb packages to a local development directory
+* Learn how to make changes and upload them to be reviewed by others
+{% endobjectives %} 
 
-> ## Prerequisites {.callout}
->
-> Before starting, you should have a basic understanding of how to use `git`,
-> similar to what has been taught during the starterkit.
+{% callout "Prerequisites" %}
+Before starting, you should have a basic understanding of how to use `git`,
+similar to what has been taught during the starterkit.
+{% endcallout %}
 
 In this lesson, we'll show you a complete workflow for developing the LHCb software
 using the `git` version control system.
@@ -122,11 +117,11 @@ git commit
 to store them in a new commit.
 This will open up a text editor that will allow you to type in a commit message.
 
-> ## Committing often {.callout}
->
-> As new commits are only stored in your local repository, there's no cost to
-> committing often. You should try to make a new commit every time you've made
-> modifications that can be considered a single unit of changes.
+{% callout "Committing often" %}
+As new commits are only stored in your local repository, there's no cost to
+committing often. You should try to make a new commit every time you've made
+modifications that can be considered a single unit of changes.
+{% endcallout %}
 
 Once you want to upload your commits for review, run
 ```
@@ -142,10 +137,11 @@ You can now create a merge request by going to
 selecting the `<username>-new-feature` branch as the source and `master` as the target.
 Add a title for your merge request and explain what you've done in the main text.
 
-> ## Merge conflicts {.challenge}
->  - Working with a partner, try to create a merge conflict by making changes to the same file.
->    If you don't have someone else to work with, you can simulate this by creating a second development area.
->  - Now, try to resolve the merge conflict.
->    This is a bit complicated because of the way the local repository is set up.
->    Take a look at [https://twiki.cern.ch/twiki/bin/view/LHCb/Git4LHCb#Replacement_for_svn_update_in_lo](https://twiki.cern.ch/twiki/bin/view/LHCb/Git4LHCb#Replacement_for_svn_update_in_lo) for pointers.
-
+{% challenge "Merge conflicts" %}
+- Working with a partner, try to create a merge conflict by making changes to 
+the same file.
+  If you don't have someone else to work with, you can simulate this by creating a second development area.
+- Now, try to resolve the merge conflict.
+  This is a bit complicated because of the way the local repository is set up.
+  Take a look at [https://twiki.cern.ch/twiki/bin/view/LHCb/Git4LHCb#Replacement_for_svn_update_in_lo](https://twiki.cern.ch/twiki/bin/view/LHCb/Git4LHCb#Replacement_for_svn_update_in_lo) for pointers.
+{% endchallenge %}

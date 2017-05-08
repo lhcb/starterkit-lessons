@@ -1,13 +1,8 @@
----
-layout: page
-title: First Steps in LHCb
-subtitle: Downloading a file from the grid
-minutes: 10
----
+# Downloading a file from the grid
 
-> ## Learning Objectives {.objectives}
->
-> * Obtain a DST file from the grid
+{% objectives "Learning Objectives" %}
+* Obtain a DST file from the grid
+{% endobjectives %} 
 
 In the [previous section](bookkeeping.html), we obtained a file called 
 `MC_2012_27163003_Beam4000GeV2012MagDownNu2.5Pythia8_Sim08e_Digi13_Trig0x409f0045_Reco14a_Stripping20NoPrescalingFlagged_ALLSTREAMS.DST.py` 
@@ -47,32 +42,35 @@ lb-run LHCbDIRAC dirac-dms-get-file LFN:/lhcb/MC/2012/ALLSTREAMS.DST/00035742/00
 
 Again this will take a while but afterwards you should have a file called `00035742_00000002_1.allstreams.dst` in the directory where you called the command.
 
-> ## Downloading the file during a Starterkit lesson {.callout}
-> Lots of people downloading the same file at the same time can be very slow.
-> As a workaround, the file is also available on EOS, and can be downloaded to
-> your current directory with the following command:
-> ```bash
-> $ xrdcp root://eoslhcb.cern.ch//eos/lhcb/user/a/apearce/Starterkit/Nov2015/00035742_00000002_1.allstreams.dst .
-> ```
+{% callout "Downloading the file during a Starterkit lesson" %}
+Lots of people downloading the same file at the same time can be very slow.
+As a workaround, the file is also available on EOS, and can be downloaded to
+your current directory with the following command:
+```bash
+$ xrdcp root://eoslhcb.cern.ch//eos/lhcb/user/a/apearce/Starterkit/Nov2015/00035742_00000002_1.allstreams.dst .
+```
+{% endcallout %} 
 
 Since these files tend to be quite large, you might want to use your AFS work 
 directory instead of your AFS user directory to store files.
 
-> ## Alternative: read files remotely instead of downloading them {.callout}
-> To avoid filling up your AFS quota with DST files, you can also pass Gaudi an XML catalog such that it can access them remotely.
->
-> First generate the XML catalog with
-> ```bash
-> lb-run LHCbDIRAC dirac-bookkeeping-genXMLCatalog --Options=MC_2012_27163003_Beam4000GeV2012MagDownNu2.5Pythia8_Sim08e_Digi13_Trig0x409f0045_Reco14a_Stripping20NoPrescalingFlagged_ALLSTREAMS.DST.py --Catalog=myCatalog.xml
-> ```
-> and add
-> ```python
-> from Gaudi.Configuration import FileCatalog
-> FileCatalog().Catalogs = [ "xmlcatalog_file:/path/to/myCatalog.xml" ]
-> ```
-> to your options file.
->
-> Warning: the replicas of an LFN may change, so first try to regenerate the XML catalog in case you cannot access a file using this recipe.
+{% callout "Alternative: read files remotely instead of downloading them" %}
+To avoid filling up your AFS quota with DST files, you can also pass Gaudi an 
+XML catalog such that it can access them remotely.
+
+First generate the XML catalog with
+```bash
+lb-run LHCbDIRAC dirac-bookkeeping-genXMLCatalog --Options=MC_2012_27163003_Beam4000GeV2012MagDownNu2.5Pythia8_Sim08e_Digi13_Trig0x409f0045_Reco14a_Stripping20NoPrescalingFlagged_ALLSTREAMS.DST.py --Catalog=myCatalog.xml
+```
+and add
+```python
+from Gaudi.Configuration import FileCatalog
+FileCatalog().Catalogs = [ "xmlcatalog_file:/path/to/myCatalog.xml" ]
+```
+to your options file.
+
+Warning: the replicas of an LFN may change, so first try to regenerate the XML catalog in case you cannot access a file using this recipe.
+{% endcallout %} 
 
 If you want to obtain all the files, you can copy and paste the list of file names from the file you got from the bookkeeping and paste them into the following python script for convenience.
 
@@ -97,10 +95,12 @@ if __name__ == '__main__':
 
 Save it as `getEvents.py` and use it via `lb-run LHCbDIRAC python getEvents.py [n]`. If you specify `n`, the script will only get the first n files from the grid.
 
-> ## Such a clever script! {.callout}
-> dirac-dms-get-file (and the other dirac-dms-* scripts) is actually able to extract the LFNs from any file
-> and download them for you. So a simple
-> ```python
->  lb-run LHCbDIRAC dirac-dms-get-file MC_2012_27163003_Beam4000GeV2012MagDownNu2.5Pythia8_Sim08e_Digi13_Trig0x409f0045_Reco14a_Stripping20NoPrescalingFlagged_ALLSTREAMS.DST.py
-> ```
-> would do to download them all!
+{% callout "Such a clever script!" %}
+`dirac-dms-get-file` (and the other `dirac-dms-*` scripts) is actually able to 
+extract the LFNs from any file
+and download them for you. So a simple
+```python
+ lb-run LHCbDIRAC dirac-dms-get-file MC_2012_27163003_Beam4000GeV2012MagDownNu2.5Pythia8_Sim08e_Digi13_Trig0x409f0045_Reco14a_Stripping20NoPrescalingFlagged_ALLSTREAMS.DST.py
+```
+would do to download them all!
+{% endcallout %} 

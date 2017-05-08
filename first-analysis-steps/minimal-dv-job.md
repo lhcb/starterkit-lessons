@@ -1,9 +1,4 @@
----
-layout: page
-title: First steps in LHCb
-subtitle: Running a minimal DaVinci job locally
-minutes: 10
----
+# Running a minimal DaVinci job locally
 
 [Looping event-by-event](interactive-dst.html) over a file and [inspecting
 interesting quantities with LoKi functors](loki-functors.html) is great for
@@ -16,11 +11,11 @@ In these cases we use DaVinci, the application for analysing high-level
 information such as tracks and vertices, which we'll look at in this lesson to
 produce a ROOT ntuple.
 
-> ## Learning Objectives {.objectives}
->
-> * Run a DaVinci job over a local DST
-> * Inspect the ntuple output
-> * Set up the job to run in Ganga
+{% objectives "Learning Objectives" %}
+* Run a DaVinci job over a local DST
+* Inspect the ntuple output
+* Set up the job to run in Ganga
+{% endobjectives %} 
 
 With some stripped data located, it's useful to store the information on the
 selected particles inside an ntuple.
@@ -69,15 +64,15 @@ specifies what decay we would like to have in our ntuple.
 If there are no particles at the `Input` location, or the `Decay` string
 doesn't match any particles at that location, the ntuple will not be filled.
 
-> ## Decay descriptors {.callout}
->
-> There is a special syntax for the `Decay` attribute string, commonly called
-> 'decay descriptors', that allow a lot of flexibility with what you accept.
-> For example, `D0 -> K- X+` will match any D0 decay that contains one
-> negatively charged kaon and one positively charged track of any species.
-> More information the decay descriptor syntax can be found on the [LoKi decay
-> finders TWiki
-> page](https://twiki.cern.ch/twiki/bin/view/LHCb/FAQ/LoKiNewDecayFinders).
+{% callout "Decay descriptors" %}
+There is a special syntax for the `Decay` attribute string, commonly called
+'decay descriptors', that allow a lot of flexibility with what you accept.
+For example, `D0 -> K- X+` will match any D0 decay that contains one
+negatively charged kaon and one positively charged track of any species.
+More information the decay descriptor syntax can be found on the [LoKi decay
+finders TWiki
+page](https://twiki.cern.ch/twiki/bin/view/LHCb/FAQ/LoKiNewDecayFinders).
+{% endcallout %} 
 
 Now we need to tell DaVinci how to behave.
 The `DaVinci` class allows you to tell DaVinci how many events to run over,
@@ -123,15 +118,15 @@ You can find the values for these tags in the [bookkeeping
 file](data/MC_2012_27163003_Beam4000GeV2012MagDownNu2.5Pythia8_Sim08e_Digi13_Trig0x409f0045_Reco14a_Stripping20NoPrescalingFlagged_ALLSTREAMS.DST.py)
 we downloaded earlier.
 
-> ## Database tags {.callout}
->
-> Generally, the `CondDB` and `DDDB` tags are different for each dataset you
-> want to use, but will be the same for all DSTs within a given dataset.
-> When using simulated data, *always* find out what the database tags are for
-> your dataset!
-> For real collision data, you shouldn't specify these tags, as the default
-> tags are the latest and greatest, so just remove those lines from the options
-> file.
+{% callout "Database tags" %}
+Generally, the `CondDB` and `DDDB` tags are different for each dataset you
+want to use, but will be the same for all DSTs within a given dataset.
+When using simulated data, *always* find out what the database tags are for
+your dataset!
+For real collision data, you shouldn't specify these tags, as the default
+tags are the latest and greatest, so just remove those lines from the options
+file.
+{% endcallout %} 
 
 In order to run an algorithm that we have previously created, we need to add it
 to the `UserAlgorithms` list.
@@ -169,22 +164,22 @@ A slightly modified version that uses remote files (using an XML catalog as
 [described here](files-from-grid.html)) is [available
 here](./code/minimal-dv/ntuple_options_xmlcatalog.py)
 
-> ## Using a microDST {.callout}
->
-> A microDST (or µDST) is a smaller version of a DST.
-> Some stripping lines go to µDSTs, and some go to DSTs.
-> There are two things that need changing in our options file in order to have
-> it work when it is used with a stripping line that goes to a µDST:
->
-> 1. The `DecayTreeTuple.Inputs` attribute should start at the word
->    `Phys`; and
-> 2. The `RootInTES` attribute on the `DaVinci` object has to be set to
->    `/Event/$STREAM`
->
-> In context, the changes look like
->
-> ```python
-> dtt.Inputs = ['Phys/{0}/Particles'.format(line)]
-> # ...
-> DaVinci().RootInTES = '/Event/{0}'.format(stream)
-> ```
+{% callout "Using a microDST" %}
+A microDST (or µDST) is a smaller version of a DST.
+Some stripping lines go to µDSTs, and some go to DSTs.
+There are two things that need changing in our options file in order to have
+it work when it is used with a stripping line that goes to a µDST:
+
+1. The `DecayTreeTuple.Inputs` attribute should start at the word
+   `Phys`; and
+2. The `RootInTES` attribute on the `DaVinci` object has to be set to
+   `/Event/$STREAM`
+
+In context, the changes look like
+
+```python
+dtt.Inputs = ['Phys/{0}/Particles'.format(line)]
+# ...
+DaVinci().RootInTES = '/Event/{0}'.format(stream)
+```
+{% endcallout %} 

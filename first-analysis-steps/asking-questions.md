@@ -1,13 +1,9 @@
----
-layout: page
-title: First Steps in LHCb
-subtitle: Asking good questions
-minutes: 10
----
-> ## Learning Objectives {.objectives}
->
-> * How to ask a good question
-> * Where to ask questions
+# Asking good questions
+
+{% objectives "Learning Objectives" %}
+* How to ask a good question
+* Where to ask questions
+{% endobjectives %} 
 
 Eventually you will get stuck when trying to do something.
 This lesson is about how to get help with getting unstuck.
@@ -16,21 +12,22 @@ People love helping others. Below some tips on how to improve
 your chances of getting a good answer. The answers you get
 will depend very much on the way you ask your question.
 
-> ## Mailing lists {.callout}
->
-> For LHCb specific questions your best bet are the LHCb mailing
-> lists like: <[lhcb-distributed-analysis@cern.ch](mailto:lhcb-distributed-analysis@cern.ch)>,
-> <[lhcb-davinci@cern.ch](mailto:lhcb-davinci@cern.ch)>,
-> and <[lhcb-soft-talk@cern.ch](mailto:lhcb-soft-talk@cern.ch)>. For
-> more general questions [Stack overflow](http://stackoverflow.com/) and
-> [google](http://google.com) are good starting places.
+{% callout "Mailing lists" %}
+For LHCb specific questions your best bet are the LHCb mailing
+lists like: 
+[lhcb-distributed-analysis@cern.ch](mailto:lhcb-distributed-analysis@cern.ch),
+[lhcb-davinci@cern.ch](mailto:lhcb-davinci@cern.ch),
+and [lhcb-soft-talk@cern.ch](mailto:lhcb-soft-talk@cern.ch). For
+more general questions [Stack Overflow](http://stackoverflow.com/) and
+[Google](http://google.com) are good starting places.
+{% endcallout %} 
 
-> ## [LHCb Q&A](https://lhcbqa.web.cern.ch/lhcbqa/) {.callout}
->
-> An experimental alternative to the mailing lists is the 
-> [LHCb Questions and Answers website](https://lhcbqa.web.cern.ch/lhcbqa/).
-> It works like [Stack overflow](https://stackoverflow.com/), but focuses on LHCb-specific questions.
-> You can post your question there and you should usually receive an answer within a few hours or days.
+{% callout "LHCb Q&A" %}
+An experimental alternative to the mailing lists is the [LHCb Questions and 
+Answers website](https://lhcbqa.web.cern.ch/lhcbqa/).
+It works like [Stack overflow](https://stackoverflow.com/), but focuses on LHCb-specific questions.
+You can post your question there and you should usually receive an answer within a few hours or days.
+{% endcallout %} 
 
 The title/subject is the first thing people will see of your
 question. If it is not interesting, they will not read the rest.
@@ -38,12 +35,12 @@ If you are struggling with a good title, write it last! Having
 written the rest of your email will give you a better idea of what
 the one sentence summary is.
 
-> ## Grammar and spelling {.callout}
->
-> This is a no brainer. You want to make a good impression:
-> someone who made an effort and values other people's time.
-> If you aren't comfortable with writing in English, ask a friend
-> to proof-read your email for you.
+{% callout "Grammar and spelling" %}
+This is a no brainer. You want to make a good impression:
+someone who made an effort and values other people's time.
+If you aren't comfortable with writing in English, ask a friend
+to proof-read your email for you.
+{% endcallout %} 
 
 Most people like hard problems and thought-provoking questions. So
 give them an interesting question to chew on, and they will love it.
@@ -53,12 +50,12 @@ an air of arrogance. People are hostile towards people who seem unwilling
 to think for themselves or did not do their homework before asking their
 question.
 
-> ## Volunteers {.callout}
->
-> Remember people are volunteering their time to help you. They have busy
-> lives and there are a lot of questions. So they filter ruthlessly. Make
-> sure your question is the most interesting one out there, and people
-> will choose to help you.
+{% callout "Volunteers" %}
+Remember people are volunteering their time to help you. They have busy
+lives and there are a lot of questions. So they filter ruthlessly. Make
+sure your question is the most interesting one out there, and people
+will choose to help you.
+{% endcallout %} 
 
 It is OK that you are not technically competent, what you need to show is
 that you have the skills to become competent: alert, thoughtful, observant,
@@ -97,13 +94,13 @@ the process of refining your bug report, you may develop a fix or workaround you
 When people post replies or questions about your problem, follow them up. If
 you manage to solve your problem, tell the mailing list.
 
-> ## Love letters also known as private replies {.callout}
->
-> Please do not reply to questions privately. We are trying to solve a technical
-> issue, not writing lover letters. If you take the discussion
-> off the mailing list future generations will just see the question and no
-> solution. You will also miss out on help from others that did not chime
-> in to your first question but might be able to help later on.
+{% callout "Love letters also known as private replies" %}
+Please do not reply to questions privately. We are trying to solve a technical
+issue, not writing lover letters. If you take the discussion
+off the mailing list future generations will just see the question and no
+solution. You will also miss out on help from others that did not chime
+in to your first question but might be able to help later on.
+{% endcallout %} 
 
 Once the problem is solved post a final message saying that the problem is
 solved and what the solution is.
@@ -115,4 +112,4 @@ guides to asking good questions:
    Eric Raymond
  * [Writing the perfect question](http://codeblog.jonskeet.uk/2010/08/29/writing-the-perfect-question/)
    by Jon Skeet
- * [How do I ask a good question?](http://stackoverflow.com/help/how-to-ask) on stack overflow
+ * [How do I ask a good question?](http://stackoverflow.com/help/how-to-ask) on Stack Overflow

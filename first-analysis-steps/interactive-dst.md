@@ -1,16 +1,12 @@
----
-layout: page
-title: First Steps in LHCb
-subtitle: Interactively exploring a DST
-minutes: 10
----
-> ## Learning Objectives {.objectives}
->
-> * Open a DST in an interactive python session
-> * Print all nodes in a DST
-> * Explore the contents of the TES
-> * Inspect a track
-> * Inspect a stripping location
+# Interactively exploring a DST
+
+{% objectives "Learning Objectives" %}
+* Open a DST in an interactive python session
+* Print all nodes in a DST
+* Explore the contents of the TES
+* Inspect a track
+* Inspect a stripping location
+{% endobjectives %} 
 
 Data is stored in files called DSTs, which are processed
 by DaVinci to make nTuples. However you can also explore
@@ -134,13 +130,13 @@ def advance(decision):
 
 Add this to your script and restart `ipython` as before.
 
-> ## Detecting file ends {.callout}
->
-> It is not easy to detect that the input file has ended. Especially
-> if you want to get it right for data and simulation. Checking that
-> `/Event/Rec/Header` exists is a safe bet in simulation and data if
-> your file has been processed by `Brunel` (the event reconstruction
-> software). It might not work in other cases.
+{% callout "Detecting file ends" %}
+It is not easy to detect that the input file has ended. Especially
+if you want to get it right for data and simulation. Checking that
+`/Event/Rec/Header` exists is a safe bet in simulation and data if
+your file has been processed by `Brunel` (the event reconstruction
+software). It might not work in other cases.
+{% endcallout %} 
 
 Using the name of our stripping line we can now advance through the
 DST until we reach an event which contains a candidate:
@@ -182,32 +178,32 @@ With our candidates in hand, it would be nice to be able to retrieve and
 compute the variables we need for an analysis. On to [LoKi
 functors](loki-functors.html)!
 
-> ## Fast DST browsing {.callout}
->
-> While here we have discussed for pedagogical reasons all the configuration
-> options needed in order to browse a `DST` file, in your daily life as a
-> physicist it is often useful to use the `bender` application that belongs to
-> the `Bender` project.
->
-> For example, to explore the `DST` we could have simply done:
->
-> ```
-> lb-run Bender/latest bender 00035742_00000002_1.allstreams.dst
-> ```
->
-> This leaves us in a prompt in which we can proceed as discussed in this
-> lesson, with the advantage that some functions are already provided
-> for us, such as `seekStripDecision` (which replaces our `advance`) or
-> `ls` and `get`, which allow to list and get TES locations.
-> Other examples of useful functions are listed in the `bender` starting
-> banner.
->
-> `Bender` also provides a useful command `dst-dump`, which is a quick way of
-> figuring out what objects are present on a `DST` and where. Try out:
-> ```
-> lb-run Bender/latest dst-dump -f -n 100 00035742_00000002_1.allstreams.dst
-> ```
-> The `-f` option tells `Bender` to try and "unpack" the locations such as
-> `/Event/AllStreams/pPhys/Particles` that we mentioned above, while `-n 100`
-> tells it to only process the first 100 events on the `DST`.
-> Give this a try if you're ever stuck figuring out where your candidates are hiding!
+{% callout "Fast DST browsing" %}
+While here we have discussed for pedagogical reasons all the configuration
+options needed in order to browse a `DST` file, in your daily life as a
+physicist it is often useful to use the `bender` application that belongs to
+the `Bender` project.
+
+For example, to explore the `DST` we could have simply done:
+
+```
+lb-run Bender/latest bender 00035742_00000002_1.allstreams.dst
+```
+
+This leaves us in a prompt in which we can proceed as discussed in this
+lesson, with the advantage that some functions are already provided
+for us, such as `seekStripDecision` (which replaces our `advance`) or
+`ls` and `get`, which allow to list and get TES locations.
+Other examples of useful functions are listed in the `bender` starting
+banner.
+
+`Bender` also provides a useful command `dst-dump`, which is a quick way of
+figuring out what objects are present on a `DST` and where. Try out:
+```
+lb-run Bender/latest dst-dump -f -n 100 00035742_00000002_1.allstreams.dst
+```
+The `-f` option tells `Bender` to try and "unpack" the locations such as
+`/Event/AllStreams/pPhys/Particles` that we mentioned above, while `-n 100`
+tells it to only process the first 100 events on the `DST`.
+Give this a try if you're ever stuck figuring out where your candidates are hiding!
+{% endcallout %} 

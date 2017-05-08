@@ -1,18 +1,13 @@
----
-layout: page
-title: Second steps in LHCb
-subtitle: What to do when something fails
-minutes: 10
----
+# What to do when something fails
 
-> ## Learning Objectives {.objectives}
->
-> * Learn how to read the logs to know where things are breaking
-> * Learn how to get a glimpse of where algorithms are writing in the TES
+{% objectives "Learning Objectives" %}
+* Learn how to read the logs to know where things are breaking
+* Learn how to get a glimpse of where algorithms are writing in the TES
+{% endobjectives %} 
 
 When chaining complex workflows (building particles, combining them, etc) we find that our ntuple is not written while we don't have any errors.
 The first step is to look at the logs.
-Let's first go back at what we learned [when building our own decays](https://lhcb.github.io/second-analysis-steps/01-building-decays.html) and rerun again (saving the output to a log file!).
+Let's first go back at what we learned [when building our own decays](/second-analysis-steps/building-decays-part0) and rerun again (saving the output to a log file!).
 
 We can scroll through the log until we find our selections, where we will see something like this:
 
@@ -52,9 +47,10 @@ Sel_Dstar         SUCCESS Number of counters : 14
 
 Here we have information of the input containers, types of particles, etc, with all the counters corresponding to our run on 1000 events.
 
-> ## Understanding the log {.challenge}
-> How many $D^*$ do we expect in our ntuple? Can you check it?
-> Can you change some cuts and see how he counters change? Try to free the $D^*$ mass and see if we get more of those.
+{% challenge "Understanding the log" %}
+How many $$D^*$$ do we expect in our ntuple? Can you check it?
+Can you change some cuts and see how he counters change? Try to free the $$D^*$$ mass and see if we get more of those.
+{% endchallenge %}
 
 Now, let's make the particle builder fail silently and see if we can debug this.
 For example, imagine we forgot to add the Kaons as inputs in `Sel_D0`:
@@ -86,7 +82,7 @@ Sel_D0            SUCCESS Number of counters : 12
 
 It's easy to see we have 0 input kaons and we can see we only get input pions!
 
-Another problem: we messed up with a cut, for example in building the $D^*$,
+Another problem: we messed up with a cut, for example in building the $$D^*$$,
 
 ```python
 dstar_mother = (
@@ -221,7 +217,7 @@ After                INFO       +--> /Particles [No Address]  KeyedContainer<LHC
 Here we can see where our decays are being put and we can debug problems with inputs and outputs.
 It can also be useful to know where things are written for accessing them interactively, if we want to further explore and debug.
 
-> ## Configuring the algorithm {.callout}
->
-> The `StoreExplorerAlg` has the same print frequency as `DaVinci`, but it can be configured by modifying `PrintFreq` (fraction of events that are printed) or `PrintEvt`.
-> Have a look at the [class Doxygen](http://lhcb-release-area.web.cern.ch/LHCb-release-area/DOC/moore/releases/v14r2p5/doxygen/d2/d3b/class_store_explorer_alg.html) to see what they do.
+{% callout "Configuring the algorithm" %}
+The `StoreExplorerAlg` has the same print frequency as `DaVinci`, but it can be configured by modifying `PrintFreq` (fraction of events that are printed) or `PrintEvt`.
+Have a look at the [class Doxygen](http://lhcb-release-area.web.cern.ch/LHCb-release-area/DOC/moore/releases/v14r2p5/doxygen/d2/d3b/class_store_explorer_alg.html) to see what they do.
+{% endcallout %}

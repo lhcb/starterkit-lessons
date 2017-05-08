@@ -1,14 +1,9 @@
----
-layout: page
-title: Second analysis steps
-subtitle: Scripting Ganga
-minutes: 10
----
+# Scripting Ganga
 
 We have already started using Ganga, such as when [submitting jobs to the 
-Grid](https://lhcb.github.io/first-analysis-steps/davinci-grid.html) and 
+Grid](../first-analysis-steps/davinci-grid.md) and 
 [using datasets from the 
-bookkeeping](https://lhcb.github.io/first-analysis-steps/ganga-data.html) when 
+bookkeeping](../first-analysis-steps/ganga-data.md) when 
 creating jobs, but there's a lot more you can do with it.
 
 Part of Ganga's power come from it being written in Python. When you run 
@@ -81,7 +76,7 @@ j.name = 'My job'
 This example is quite boring, but it captures the idea. You'll want to
 extend this, changing the `application` property to a `GaudiExec` instance,
 for example, as covered in [a previous
-lesson](https://lhcb.github.io/first-analysis-steps/davinci-grid.html).
+lesson](../first-analysis-steps/davinci-grid.md).
 
 Now we can run this and interact with the job as the `j` variable:
 
@@ -182,11 +177,11 @@ This help will also be printed if we don't supply all of the required arguments
 (the year and the magnet polarity), along with a message telling us what's 
 missing.
 
-> ## Getting to grips with `argparse` {.callout}
->
-> The `argparse` module can do a lot, being able to parse complex sets of 
-> arguments with much difficultly. It's a useful tool to know in general, so we 
-> recommend that you check out the [documentation][argparse] to learn more.
+{% callout "Getting to grips with `argparse`" %}
+The `argparse` module can do a lot, being able to parse complex sets of 
+arguments with much difficultly. It's a useful tool to know in general, so we 
+recommend that you check out the [documentation][argparse] to learn more.
+{% endcallout %}
 
 When we do supply all the necessary arguments, the values are then available in
 the `year`, `polarity`, and `test` variables:
@@ -304,21 +299,21 @@ def merge_root_output(job, input_tree_name, merged_filepath):
 Because of the way a [ROOT `TChain`][tchain] works, the subjobs output won't be 
 downloaded, so you only need enough disk space for the merged file.
 
-> ## Using ROOT in Ganga {.callout}
->
-> By default, ROOT is not available in a Ganga session:
->
-> ```python
-> Ganga In [1]: import ROOT
-> ERROR    No module named ROOT
-> ```
-> 
-> To remedy this, you can start Ganga inside an environment where ROOT _is_ 
-> available:
->
-> ```shell
-> $ lb-run ROOT ganga
-> ```
+{% callout "Using ROOT in Ganga" %}
+By default, ROOT is not available in a Ganga session:
+
+```python
+Ganga In [1]: import ROOT
+ERROR    No module named ROOT
+```
+
+To remedy this, you can start Ganga inside an environment where ROOT _is_ 
+available:
+
+```shell
+$ lb-run ROOT ganga
+```
+{% endcallout %}
 
 Once you have your helpers defined, use them in Ganga as you would any other Python function.
 

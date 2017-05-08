@@ -1,29 +1,24 @@
----
-layout: page
-title: Second analysis steps
-subtitle: Building your own decay. The Selection Framework
-minutes: 10
----
+# Building your own decay. The Selection Framework
 
-> ## Learning Objectives {.objectives}
->
-> * Learn the concepts behind the LHCb selection framework
-> * Learn the advantages of the LHCb selection framework
+{% objectives "Learning Objectives" %}
+* Learn the concepts behind the LHCb selection framework
+* Learn the advantages of the LHCb selection framework
+{% endobjectives %} 
 
 In order to perform most physics analyses we need to build a *decay chain* with reconstructed particles that represents the physics process we want to study.
 In LHCb, this decay chain can be built through `LHCb::Particle` and `LHCb::MCParticle` objects that represent individual particles and contain links to their children, also represented by the same type of object.
 
-We'll learn all the concepts involved by running through our usual full example of the $D^\ast\rightarrow D^0(\rightarrow K^{-} \pi^{+}) \pi$ decay chain.
+We'll learn all the concepts involved by running through our usual full example of the $$D^\ast\rightarrow D^0(\rightarrow K^{-} \pi^{+}) \pi$$ decay chain.
 
-The LHCb approach to building decays is from the bottom up. Therefore, to build $D^\ast\rightarrow D^0(\rightarrow K^{-} \pi^{+}) \pi$ we need to
+The LHCb approach to building decays is from the bottom up. Therefore, to build $$D^\ast\rightarrow D^0(\rightarrow K^{-} \pi^{+}) \pi$$ we need to
 
   1. Get input pions and kaons and filter them according to our physics needs.
-  2. Combine a pion and a kaon to build a $D^0$, and apply selection cuts to it.
-  3. Combine this $D^0$ with a pion to build the $D^\ast$, again filtering when necessary.
+  2. Combine a pion and a kaon to build a $$D^0$$, and apply selection cuts to it.
+  3. Combine this $$D^0$$ with a pion to build the $$D^\ast$$, again filtering when necessary.
 
 To do that, we need to know a little bit more about how the LHCb analysis framework works.
 
-As discussed in the [Gaudi introduction](http://lhcb.github.io/first-analysis-steps/01-davinci.html), `Gaudi` is based on the event-by-event sequential (chained) execution of algorithms wrapped in a `GaudiSequencer`, which takes care of handling the execution order such that processing stops when an algorithm is *not passed*.
+As discussed in the [Gaudi introduction](../first-analysis-steps/davinci.md), `Gaudi` is based on the event-by-event sequential (chained) execution of algorithms wrapped in a `GaudiSequencer`, which takes care of handling the execution order such that processing stops when an algorithm is *not passed*.
 However, it does not handle the data dependencies between these algorithms nor does it give easy access to them.
 To solve this problem, the [Selection Framework](https://twiki.cern.ch/twiki/bin/view/LHCb/ParticleSelection) was created, and it is based on two types of objects: `Selection` and `SelectionSequence`:
 
@@ -43,16 +38,18 @@ The advantages of using this framework are several:
   - *Easiness of debugging*: one can visualize the selection chain, for example using the `PrintSelection` algorithm for debugging of the data flow.
   - Some (advanced) tasks are *virtually impossible* to do without it, such as accessing some features for MC µDST (MCTruth for inclusive lines, for example) or applying the momentum scaling in Turbo.
 
-> ## The LHCb singletons and usability {.callout}
-> A big part of the reusability of the Selection objects is thanks to how the LHCb framework is designed:
-> all LHCb algorithms need an explicit and unique name because they are *singletons* (a [singleton](http://en.wikipedia.org/wiki/Singleton_pattern) is a software design pattern that restricts the instantiation of a class to one object).
-> As a consequence of this, only one algorithm with a given name can be instantiated.
->
-> This allows to reuse and reload algorithms that have already been created in a configuration sequence. For example:
->
->- We could create a generic selection for building $D^0$ with a known name, put it in a `build_d0.py` file and use (and even modify) it in another file loaded in the same `gaudirun.py` call.
->- We could write the data-only parts of our selection in one file and the MC-only separately (typically inputs are different), but setting the same names for the algorithms. Then, our `DecayTreeTuple` code could be common, as the selection would be loaded "by-name".
->
-> This is very useful to build complicated configuration chains, but it's *very easy* to have problems if our selection/algorithm names are not unique.
-> Therefore, it's very important to pay attention to the algorithm names (we will see how to minimize this problem in the [final Selection Framework lesson](building-decays-part2.html)).
->
+{% callout "The LHCb singletons and usability" %}
+A big part of the reusability of the Selection objects is thanks to how the 
+LHCb framework is designed:
+all LHCb algorithms need an explicit and unique name because they are *singletons* (a [singleton](http://en.wikipedia.org/wiki/Singleton_pattern) is a software design pattern that restricts the instantiation of a class to one object).
+As a consequence of this, only one algorithm with a given name can be instantiated.
+
+This allows to reuse and reload algorithms that have already been created in a configuration sequence. For example:
+
+ We could create a generic selection for building $$D^0$$ with a known name, put it in a `build_d0.py` file and use (and even modify) it in another file loaded in the same `gaudirun.py` call.
+ We could write the data-only parts of our selection in one file and the MC-only separately (typically inputs are different), but setting the same names for the algorithms. Then, our `DecayTreeTuple` code could be common, as the selection would be loaded "by-name".
+
+This is very useful to build complicated configuration chains, but it's *very easy* to have problems if our selection/algorithm names are not unique.
+Therefore, it's very important to pay attention to the algorithm names (we will see how to minimize this problem in the [final Selection Framework lesson](building-decays-part2.html)).
+
+{% endcallout %}

@@ -1,14 +1,9 @@
----
-layout: page
-title: First Steps in LHCb
-subtitle: Splitting a job into subjobs
-minutes: 10
----
-> ## Learning Objectives {.objectives}
->
-> * Learn how to process many files in parallel on the grid
->   by splitting a job into many subjobs
->
+# Splitting a job into subjobs
+
+{% objectives "Learning Objectives" %}
+* Learn how to process many files in parallel on the grid
+  by splitting a job into many subjobs
+{% endobjectives %} 
 
 In the [previous lesson](davinci-grid.html), you've submitted a job to the LHC grid.
 You will notice that the job will take a long time to finish.
@@ -27,9 +22,11 @@ j.splitter = SplitByFiles(filesPerJob=5)
 Note that the specified number of files per job is only the allowed maximum.
 You will often get jobs with fewer files.
 
-> ## How do I choose the number of files per job? {.callout}
-> Choose fewer files per job if possible, as this will allow you to finish sooner and reduces the impact of jobs failing due to grid problems.
-> Setting `filesPerJob=5` should work well for real data, while `filesPerJob=1` should be good for signal MC.
+{% callout "How do I choose the number of files per job?" %}
+Choose fewer files per job if possible, as this will allow you to finish sooner 
+and reduces the impact of jobs failing due to grid problems.
+Setting `filesPerJob=5` should work well for real data, while `filesPerJob=1` should be good for signal MC.
+{% endcallout %} 
 
 Now, when you run `j.submit()`, the job will automatically be split into several subjobs.
 These can be displayed by entering
@@ -77,7 +74,9 @@ queues.add(j.submit)
 Ganga will then submit this job (and its subjobs) in the background.
 Make sure not to close `ganga` before the submission is finished, or you will have to start submitting the rest of the jobs again later on.
 
-> ## Splitting your first job {.challenge}
-> Try splitting the `ganga` job from our previous lesson with `splitByFiles=1` ([reference code](code/split-jobs/first-job.py)) and submit it with `ganga`.
+{% challenge "Splitting your first job" %}
+Try splitting the `ganga` job from our previous lesson with `splitByFiles=1` 
+([reference code](code/split-jobs/first-job.py)) and submit it with `ganga`.
+{% endchallenge %} 
 
 

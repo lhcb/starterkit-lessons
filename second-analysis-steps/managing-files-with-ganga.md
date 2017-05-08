@@ -1,15 +1,10 @@
----
-layout: page
-title: Second analysis steps
-subtitle: Managing files in Ganga
-minutes: 15
----
+# Managing files in Ganga
 
-> ## Learning Objectives {.objectives}
->
-> * Choose whether job output is saved locally or on the Grid
-> * Choose where to look for job input files
-> * Move files from any grid site to CERN, for analysis using EOS
+{% objectives "Learning Objectives" %}
+* Choose whether job output is saved locally or on the Grid
+* Choose where to look for job input files
+* Move files from any grid site to CERN, for analysis using EOS
+{% endobjectives %} 
 
 <!--
 Ganga - Tasks, DiracFile and LocalFile, alternative to MassStorageFile with 
@@ -32,36 +27,38 @@ In this lesson, we'll see how you can efficiently manage input and output files
 using Ganga.
 
 
-> ## Ganga problems {.callout}
-> Ganga is currently in a state of flux. It is changing regularly, and some
-> things may begin or stop work between releases. The developers of Ganga are
-> working to stabilise the application and its interface. This takes some time,
-> and it helps to have users report the problems they see.
->
-> It's generally advised to use the latest available version of Ganga. If you
-> encounter problems, you should first search [the archives of the
-> `lhcb-distributed-analysis` mailing list][da-archive]. If you don't find an
-> answer, you can talk to the Ganga developers directly on the [GitHub issues
-> page for Ganga][ganga-issues], or by sending an email to
-> `lhcb-distributed-analysis`.
+{% callout "Ganga problems" %}
+Ganga is currently in a state of flux. It is changing regularly, and some
+things may begin or stop work between releases. The developers of Ganga are
+working to stabilise the application and its interface. This takes some time,
+and it helps to have users report the problems they see.
 
-> ## Making a fresh start {.callout}
-> Throughout this lesson, we'll be using the most up-to-date version of Ganga 
-> that's available, v602r2.
-> To make sure there will be no files from older versions of Ganga to interfere, 
-> we will move them to a backup location.
->
-> ```shell
-> $ cd ~
-> $ mkdir ganga-backup
-> # See what's in your home directory that's related to Ganga
-> $ ls -la | grep -i ganga
-> # Then move everything
-> $ mv gangadir .gangarc* .ganga.log .ganga.py .ipython-ganga ganga-backup
-> ```
->
-> You can move this back after the lesson if you want to restore your old 
-> settings and data.
+It's generally advised to use the latest available version of Ganga. If you
+encounter problems, you should first search [the archives of the
+`lhcb-distributed-analysis` mailing list][da-archive]. If you don't find an
+answer, you can talk to the Ganga developers directly on the [GitHub issues
+page for Ganga][ganga-issues], or by sending an email to
+`lhcb-distributed-analysis`.
+{% endcallout %}
+
+{% callout "Making a fresh start" %}
+Throughout this lesson, we'll be using the most up-to-date version of Ganga 
+that's available, v602r2.
+To make sure there will be no files from older versions of Ganga to interfere, 
+we will move them to a backup location.
+
+```shell
+$ cd ~
+$ mkdir ganga-backup
+# See what's in your home directory that's related to Ganga
+$ ls -la | grep -i ganga
+# Then move everything
+$ mv gangadir .gangarc* .ganga.log .ganga.py .ipython-ganga ganga-backup
+```
+
+You can move this back after the lesson if you want to restore your old 
+settings and data.
+{% endcallout %}
 
 We'll be doing everything in Ganga, so let's start it up.
 
@@ -178,14 +175,15 @@ add the prefix `/eos/lhcb/grid/user` to the LFN.
 eos ls /eos/lhcb/grid/user//lhcb/user/a/apearce/GangaFiles_22.24_Wednesday_18_May_2016
 ```
 
-> ## Using MassStorageFile {.callout}
-> The `MassStorageFile` object uploads job output directly to EOS. However, 
-> using `MassStorageFile` for this purpose is actively discouraged by the Ganga 
-> developers as it is highly inefficient: a file made on the Grid will first be 
-> downloaded to the machine running Ganga, and then uploaded to EOS.
->
-> Instead, always use `DiracFile` for large outputs, and then replicate them to 
-> `CERN-USER` if you want to be able to access them on EOS.
+{% callout "Using MassStorageFile" %}
+The `MassStorageFile` object uploads job output directly to EOS. However, 
+using `MassStorageFile` for this purpose is actively discouraged by the Ganga 
+developers as it is highly inefficient: a file made on the Grid will first be 
+downloaded to the machine running Ganga, and then uploaded to EOS.
+
+Instead, always use `DiracFile` for large outputs, and then replicate them to 
+`CERN-USER` if you want to be able to access them on EOS.
+{% endcallout %}
 
 If you have any `DiracFile`, you can ask for it to be replicated to a grid site 
 it's not currently available at.
@@ -194,23 +192,24 @@ it's not currently available at.
 df.replicate('CERN-USER')
 ```
 
-> ## Automating replication to CERN {.callout}
-> If you have a job with subjobs, you can automate this to replicate all output 
-> files to CERN, so that you can run your analysis directly on the files on 
-> EOS.
-> 
-> ```python
-> j = jobs(...)
-> for sj in j.subjobs:
->   # Get all output files which are DiracFile objects
->   for df in sj.outputfiles.get(DiracFile):
->     # No need to replicate if it's already at CERN
->     if 'CERN-USER' not in df.locations:
->       df.replicate('CERN-USER')
-> ```
-> 
-> You could make a function from this and put it in your `.ganga.py` file, whose 
-> contents is available in any Ganga session.
+{% callout "Automating replication to CERN" %}
+If you have a job with subjobs, you can automate this to replicate all output 
+files to CERN, so that you can run your analysis directly on the files on 
+EOS.
+
+```python
+j = jobs(...)
+for sj in j.subjobs:
+  # Get all output files which are DiracFile objects
+  for df in sj.outputfiles.get(DiracFile):
+    # No need to replicate if it's already at CERN
+    if 'CERN-USER' not in df.locations:
+      df.replicate('CERN-USER')
+```
+
+You could make a function from this and put it in your `.ganga.py` file, whose 
+contents is available in any Ganga session.
+{% endcallout %}
 
 You can download a `DiracFile` locally using the `get` method. If you already 
 know an LFN, you can use this to quickly download it locally to play around 
@@ -255,15 +254,16 @@ Gaudi-based jobs where:
 3. We want to job output to be download locally automatically when the job 
    completes.
 
-> ## Defining inputfiles {.callout}
-> The `inputfiles` attribute of a `Job` object works in a similar way to 
-> `outputfile`. In our example, the reverser script that the `Executable` 
-> application uses doesn't know how to handle things specified as `inputdata`, 
-> so we had to use `File` when defining the arguments.
->
-> For LHCb applications, you will almost always define the `inputdata` list 
-> using either `LocalFile` or `DiracFile` objects. Which one you will use just 
-> depends on where the input files are.
+{% callout "Defining inputfiles" %}
+The `inputfiles` attribute of a `Job` object works in a similar way to 
+`outputfile`. In our example, the reverser script that the `Executable` 
+application uses doesn't know how to handle things specified as `inputdata`, 
+so we had to use `File` when defining the arguments.
+
+For LHCb applications, you will almost always define the `inputdata` list 
+using either `LocalFile` or `DiracFile` objects. Which one you will use just 
+depends on where the input files are.
+{% endcallout %}
 
 [batch]: http://information-technology.web.cern.ch/services/batch
 [da-archive]: https://groups.cern.ch/group/lhcb-distributed-analysis/default.aspx

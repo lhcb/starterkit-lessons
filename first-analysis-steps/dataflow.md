@@ -1,13 +1,9 @@
----
-layout: page
-title: First Steps in LHCb
-subtitle: The LHCb data flow
-minutes: 20
----
+# The LHCb data flow
 
-> ## Learning Objectives {.objectives}
-> * Understand the LHCb data flow
-> * Learn the key concepts on the stripping
+{% objectives "Learning Objectives" %}
+* Understand the LHCb data flow
+* Learn the key concepts on the stripping
+{% endobjectives %} 
 
 The Large Hadron Collider provides proton-proton collisions to LHCb 40 million 
 times a second.
@@ -58,14 +54,15 @@ These steps are as follows:
     example, analysts interested in that type of physics don't waste time running 
     over the output of the dimuon selections.
 
-    > ## The output format {.callout}
-    > A DST file is a ROOT file which contains the full event information, such 
-    > as reconstructed objects and raw data. Each event typically takes around 
-    > 150kB of disk space in the DST format.
-    > The µDST format was designed to save space by storing only the 
-    > information concerning the build _candidates_ (that is, the objects used 
-    > to construct particle decays like tracks); the raw event, which takes 
-    > around 50kB per event, is discarded.
+    {% callout "The output format" %}
+A DST file is a ROOT file which contains the full event information, such as 
+reconstructed objects and raw data. Each event typically takes around 150kB of 
+disk space in the DST format.
+The µDST format was designed to save space by storing only the 
+information concerning the build _candidates_ (that is, the objects used 
+to construct particle decays like tracks); the raw event, which takes 
+around 50kB per event, is discarded.
+    {% endcallout %} 
 
  4. Users can run their own analysis tools to extract variables for their 
     analysis with the DaVinci application. The processing is slightly different 
@@ -100,11 +97,12 @@ Knowing this flow is essential in selecting your data! Different application
 versions can produce very different physics, so it's very useful to know how 
 each application has manipulated the data you want to use.
 
-> ## Why are there multiple applications? {.challenge}
-> It's often simpler to create and visualise a single, monolithic program that 
-> does _everything_, but that's not how the data flow is set up in LHCb. Why 
-> not? What are the advantages of splitting up the software per task? What are 
-> the disadvantages?
+{% challenge "Why are there multiple applications?" %}
+It's often simpler to create and visualise a single, monolithic program that 
+does _everything_, but that's not how the data flow is set up in LHCb. Why not? 
+What are the advantages of splitting up the software per task? What are the 
+disadvantages?
+{% endchallenge %} 
 
 With the exception of a few specific studies, it is only the DaVinci 
 application that is run by users, everything else is run ‘centrally’ either on 

@@ -1,16 +1,12 @@
----
-layout: page
-title: First Steps in LHCb
-subtitle: More Ganga
-minutes: 10
----
-> ## Learning Objectives {.objectives}
->
-> * Set the input data with BKQuery
-> * Use LHCbDatasets
-> * Set the location of the output of our jobs
-> * Set the location of your .gangadir
-> * Access output stored on the grid
+# More Ganga
+
+{% objectives "Learning Objectives" %}
+* Set the input data with BKQuery
+* Use LHCbDatasets
+* Set the location of the output of our jobs
+* Set the location of your .gangadir
+* Access output stored on the grid
+{% endobjectives %} 
 
 The input data can be specified for your job with the BKQuery tool. The path for the data can be found using the online Dirac portal and passed to the `BKQuery` to get the dataset. For example, to run over the Stripping 21 MagUp, Semileptonic stream
 
@@ -39,9 +35,11 @@ The returned path can be used by Bender to explore the contents of the DST, as i
 
 In the previous lesson we looked at the location of the ouput with `job(782).outputdir`. This location points us to the `gangadir` where ganga stores information about the jobs and the output. If we have lots of jobs with large files the file system where the gangadir is located will quickly fill up.
 
-> ## Setting the gangadir location {.callout}
->
-> The location of the `gangadir` can be changed in the configuration file '~/.gangarc'. Just search for the `gangadir` attribute and change it to where you like (on the CERN AFS the `work` area is a popular choice).
+{% callout "Setting the gangadir location" %}
+The location of the `gangadir` can be changed in the configuration file 
+'~/.gangarc'. Just search for the `gangadir` attribute and change it to where 
+you like (on the CERN AFS the `work` area is a popular choice).
+{% endcallout %} 
 
 To avoid filling up the filespace it is wise to put the large files produced by your job somewhere with lots of storage - the grid. You can do so by setting the `outputfiles` attribute:
 
@@ -53,6 +51,7 @@ The `DiracFile` will be stored in your user area on the grid (with up to 2TB per
 Small files are downloaded as standard: `.root`, logfiles etc. Files that are expected to be large which have extensions .dst etc are by default kept on the grid as Dirac files. In general you are encouraged to keep your large files on the grid to avoid moving large amounts of data around through your work area.
 
 
-> ## Getting help with ganga {.callout}
->
-> To find out more take a look at the [Ganga FAQ](https://twiki.cern.ch/twiki/bin/view/LHCb/FAQ/GangaLHCbFAQ)
+{% callout "Getting help with ganga" %}
+To find out more take a look at the [Ganga 
+FAQ](https://twiki.cern.ch/twiki/bin/view/LHCb/FAQ/GangaLHCbFAQ)
+{% endcallout %} 

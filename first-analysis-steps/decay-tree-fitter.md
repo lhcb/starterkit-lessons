@@ -1,15 +1,10 @@
----
-layout: page
-title: HowTo DecayTreeFitter
-subtitle: How do I use DecayTreeFitter?
-minutes: 10
----
+# How do I use DecayTreeFitter?
 
-> ## Learning Objectives {.objectives}
->
-> * Add a kinematic fitter to a branch in the decay tree
-> * Apply a mass constraint
-> * Inspect the refitted decay tree
+{% objectives "Learning Objectives" %}
+* Add a kinematic fitter to a branch in the decay tree
+* Apply a mass constraint
+* Inspect the refitted decay tree
+{% endobjectives %} 
 
 Once you have made a hypothesis on the chain of decays that lead to your final state, you then can incorporate the additional knowledge that comes with this hypothesis to get a new best estimate for the particle parameters -- in particular their momenta. The additional knowledge is represented as constraints, which your decay tree has to fulfill.
 
@@ -21,8 +16,10 @@ you can make the assumption that the (K- pi+) combine to form a D0 with a specif
 
 Applying such kinematic constraints leads to new best estimates for the track parameters of the final state particles. The process of calculating those is called a *kinematic refit* and the `TupleToolDecayTreeFitter` is the algorithm that performs this task for us.
 
-> ## The physics and mathematics behind DecayTreeFitter {.callout}
-> For details of the method see the paper on [Decay chain fitting with a Kalman filter](http://arxiv.org/abs/physics/0503191).
+{% callout "The physics and mathematics behind DecayTreeFitter" %}
+For details of the method see the paper on [Decay chain fitting with a Kalman 
+filter](http://arxiv.org/abs/physics/0503191).
+{% endcallout %} 
 
 So how do we use a `TupleToolDecayTreeFitter` to our DaVinci script? Let's create a branch to add the tool to. We'll just name it `'Dstar'`:
 ```python
@@ -50,12 +47,21 @@ Since in many cases this information might be useful, there is an option to stor
 dtt.Dstar.ConsD.UpdateDaughters = True
 ```
 
-> ## DecayTreeFitter and LoKi functors {.callout}
-> Alternatively, many of the operations described above can done by using the `DecayTreeFitter` via LoKi functors, see the [DaVinci tutorial](https://twiki.cern.ch/twiki/bin/view/LHCb/DaVinciTutorial9b) for details.
+{% callout "DecayTreeFitter and LoKi functors" %}
+Alternatively, many of the operations described above can done by using the 
+`DecayTreeFitter` via LoKi functors, see the [DaVinci 
+tutorial](https://twiki.cern.ch/twiki/bin/view/LHCb/DaVinciTutorial9b) for 
+details.
+{% endcallout %} 
 
-> ## Which constraints to apply {.callout}
-> It is important to be aware what assumptions you bake into your ntuple. For example, after you require the vertex constraint you must be careful if using the `IPCHI2_OWNPV`, since the particle you are looking at is *forced* to point to the PV. Which constraints make most sense for you depends on the questions you want to ask in your analysis, so ask your supervisor/working group in case of doubt.
-
+{% callout "Which constraints to apply" %}
+It is important to be aware what assumptions you bake into your ntuple. For 
+example, after you require the vertex constraint you must be careful if using 
+the `IPCHI2_OWNPV`, since the particle you are looking at is *forced* to point 
+to the PV. Which constraints make most sense for you depends on the questions 
+you want to ask in your analysis, so ask your supervisor/working group in case 
+of doubt.
+{% endcallout %} 
 
 Once you have produced your ntuple you can have a look at the refitted variables.
 ```shell
@@ -67,8 +73,12 @@ Plotting the raw mass of the D* (without the fit) `Dstar_M` you should see a bro
 
 <img src="./img/DstarRaw.png" alt="Dstar raw" style="width: 500px;"/>
 
-> ## Which mass variable to use {.callout}
-> In many ntuples you also find a mass variable called `_MM`. This confusingly refers to measured mass. However, it is usually better to use `_M`. `_MM` is the sum of the 4-momenta of the final state particles extrapolated back to the fitted vertex position, but not the result of the actual vertex fit.
+{% callout "Which mass variable to use" %}
+In many ntuples you also find a mass variable called `_MM`. This confusingly 
+refers to measured mass. However, it is usually better to use `_M`. `_MM` is 
+the sum of the 4-momenta of the final state particles extrapolated back to the 
+fitted vertex position, but not the result of the actual vertex fit.
+{% endcallout %} 
 
 
 Now let us look at the refitted mass of the D*, with the D0 constrained to its nominal mass. It is stored in the variable `Dstar_ConsD_M`. If you plot this you will note that some values are unphysical. So, let's restrict the range we look at to something that makes sense.
@@ -99,9 +109,10 @@ tv__tree->Draw("Dstar_ConsD_D0_M[0]>>h(100,1800,1900)","","", 128, 0);
 As expected, the D0 candidates are forced onto their PDG mass value.
 
 
-> ## Explore {.challenge}
-> * Look at the `status` variable to check if the fits converged.
-> * Look at the chi2 distribution of the fit
+{% challenge "Explore" %}
+* Look at the `status` variable to check if the fits converged.
+* Look at the chi2 distribution of the fit
+{% endchallenge %} 
 
 `DecayTreeFitter` can be told to change some of the hypotheses in the decay tree. This is very useful if you want to slightly change which decays you want to look at. As an example let's say we want to examine the Cabibbo-suppressed decay of the D0 into pi- pi+ instead of K- pi+. For this we add a second fitter, giving it a new name `ConsDpipi`:
 ```python
@@ -123,9 +134,10 @@ Note that the substitution mechanism does not understand the `CC` symbol. Both c
 
 Running the ntuple script again with these additions gives you fit results for the re-interpreted decay.
 
-> ## Challenge {.challenge}
-> * Compare the outcome of the two fits with the different mass hypothesis
-> * Compare the fit quality between the correct and the the wrong hypothesis
+{% challenge "Challenge" %}
+* Compare the outcome of the two fits with the different mass hypothesis
+* Compare the fit quality between the correct and the the wrong hypothesis
+{% endchallenge %} 
 
 
 The solution to this exercise `ntuple_DTF1.py`, is [available

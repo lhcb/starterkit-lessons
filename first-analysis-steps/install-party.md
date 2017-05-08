@@ -1,13 +1,9 @@
----
-layout: page
-title: First Steps in LHCb
-subtitle: Install party
-minutes: 10
----
-> ## Learning Objectives {.objectives}
->
-> * Install git from source
-> * Install Anaconda
+# Install party
+
+{% objectives "Learning Objectives" %}
+* Install git from source
+* Install Anaconda
+{% endobjectives %} 
 
 In order to follow the Basics part of the workshop (first two days) you will
 need to have recent versions of Python and Git installed either on your laptop
@@ -18,11 +14,12 @@ After that, they explain how you can compile a recent version of git, because
 the default version on lxplus is very old and doesn't support all the features
 we'll need.
 
-> ## Health warning {.callout}
-> Once you install things yourself you have an environment that is different
-> from the "standard" LHCb setup. It means you have to keep software up-to-date
-> yourself and when things start going wrong everyone will blame it on your
-> custom setup. Keep that in mind. With great tools comes great responsibility.
+{% callout "Health warning" %}
+Once you install things yourself you have an environment that is different
+from the "standard" LHCb setup. It means you have to keep software up-to-date
+yourself and when things start going wrong everyone will blame it on your
+custom setup. Keep that in mind. With great tools comes great responsibility.
+{% endcallout %} 
 
 `Anaconda` is a complete set of `python` interpreter and useful libraries. For example
 it comes with `ipython` pre-installed as well as `matplotlib` and `scikit-learn`.
@@ -51,15 +48,16 @@ that the installer added these two lines to your `.bashrc`:
 ```bash
 # added by Anaconda2 4.2.0 installer
 export PATH="~/anaconda2/bin:$PATH"
-````
+```
 
 Log out of `lxplus` and back in. Now you should be able to start `python` as well as
 `ipython`, etc.
 
-> ## Removing Anaconda {.callout}
-> To remove `Anaconda` temporarily, simply comment out the two lines that were
-> added to your `.bashrc` file. To permanently remove it simply delete the `anaconda`
-> directory in your home directory.
+{% callout "Removing Anaconda" %}
+To remove `Anaconda` temporarily, simply comment out the two lines that were
+added to your `.bashrc` file. To permanently remove it simply delete the `anaconda`
+directory in your home directory.
+{% endcallout %} 
 
 To install `git` "from source" on `lxplus` follow these instructions.
 
@@ -85,6 +83,7 @@ $ make prefix=$HOME/git-install-2.10.2 install
 export PATH="$HOME/git-install-2.10.2/bin:$PATH"
 ```
 
-> ## Removing git {.callout}
-> To temporarily remove `git` remove the line you added to your `.bashrc`, and delete
-> the `git-install-2.10.2` directory in your home directory to remove it permanently.
+{% callout "Removing git" %}
+To temporarily remove `git` remove the line you added to your `.bashrc`, and delete
+the `git-install-2.10.2` directory in your home directory to remove it permanently.
+{% endcallout %} 

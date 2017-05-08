@@ -1,14 +1,9 @@
----
-layout: page
-title: First steps in LHCb
-subtitle: Storing large files on EOS
-minutes: 10
----
+# Storing large files on EOS
 
-> ## Learning Objectives {.objectives}
->
-> * Run a ganga job which puts output onto EOS
-> * Open and view the files on EOS
+{% objectives "Learning Objectives" %}
+* Run a ganga job which puts output onto EOS
+* Open and view the files on EOS
+{% endobjectives %} 
 
 During a real analysis the output of your jobs will quickly grow
 beyond what fits onto your AFS space. CERN provides you with 2TB of
@@ -26,8 +21,7 @@ In this lesson, we will focus on the use of `DiracFile` in `ganga` to manage big
 output files.
 
 We can reuse what has been done to run [a DaVinci job on the
-grid](https://lhcb.github.io/first-analysis-steps/davinci-grid.html) and adapt
-the `j.outputfiles` part.
+grid](davinci-grid.md) and adapt the `j.outputfiles` part.
 
 To add the DiracFile in the configuration of the job we just need:
 ```python
@@ -72,12 +66,15 @@ protocol as follows:
 TFile::Open("root://eoslhcb.cern.ch//eos/lhcb/grid/user/lhcb/user/a/another/2016_11/146255/146255492/DVntuple.root")  
 ```  
 
-> ## Use of the XRootD protocol  {.callout}
-> In order to access files on every grid site with the XRootD protocol, be sure
-> to have a valid proxy using `lhcb-proxy-init`.
+{% callout "Use of the XRootD protocol " %}
+In order to access files on every grid site with the XRootD protocol, be sure
+to have a valid proxy using `lhcb-proxy-init`.
+{% endcallout %} 
 
-> ## Deprecation of the use of MassStorageFile {.callout}
-> The use of `MassStorageFile` is deprecated as it is quite sensitive to network problems when ganga is downloading the output of the job to EOS. 
+{% callout "Deprecation of the use of MassStorageFile" %}
+The use of `MassStorageFile` is deprecated as it is quite sensitive to network 
+problems when ganga is downloading the output of the job to EOS.  {% endcallout 
+%} 
 
 `ganga` needs configuring in order to know which files to store on
 EOS, as well as where on EOS to store them. Open `~/.gangarc` in your
@@ -104,11 +101,11 @@ The line should look very similar to this already, the only thing that
 needs changing is the `path` entry. You should change it to your EOS home directory
 which is `/eos/lhcb/user/a/another` if your username is `another`.
 
-> ## Automatically transfer files {.callout}
->
-> You can use the `fileExtensions` entry to specify a list of file
-> extensions that should be transfered to EOS by default. For the
-> moment leave this set to `['']`.
+{% callout "Automatically transfer files" %}
+You can use the `fileExtensions` entry to specify a list of file
+extensions that should be transfered to EOS by default. For the
+moment leave this set to `['']`.
+{% endcallout %} 
 
 Related to this there is an entry for `DiracFiles`, which represent
 files stored on the Grid. By default any file ending in `.dst` will
@@ -153,18 +150,18 @@ file will be:
 /eos/lhcb/user/a/another/starterkit/{jid}_{fname}
 ```
 
-> ## Special outputfileformat patterns {.callout}
->
-> Your `outputfilenameformat` string can contain several special
-> strings which will be replaced on a file by file basis. The special
-> strings are: `{jid}`, `{sjid}` and `{fname}`. They stand for job ID,
-> subjob ID, and the filename of the matched file respectively.
+{% callout "Special outputfileformat patterns" %}
+Your `outputfilenameformat` string can contain several special
+strings which will be replaced on a file by file basis. The special
+strings are: `{jid}`, `{sjid}` and `{fname}`. They stand for job ID,
+subjob ID, and the filename of the matched file respectively.
+{% endcallout %} 
 
-> ## Subjobs and outputfileformat {.callout}
->
-> When using subjobs it is important to make sure you include the
-> `{sjid}` pattern in your `outputfilenameformat` string, otherwise
-> all the subjobs will overwrite each others output.
+{% callout "Subjobs and outputfileformat" %}
+When using subjobs it is important to make sure you include the
+`{sjid}` pattern in your `outputfilenameformat` string, otherwise
+all the subjobs will overwrite each others output.
+{% endcallout %} 
 
 The final line tells your `ganga` job that the `outputfiles` of this
 job that need special treatment.
@@ -179,9 +176,10 @@ Once your job has completed and the files have been copied to
 EOS by `ganga` you can access them from your terminal by mounting
 your EOS area.
 
-> ## Important! {.callout}
-> Important: mounting eos is discouraged by the LHCb data management team,
-> and no support will be provided by them for problems/questions related to it.
+{% callout "Important!" %}
+Important: mounting eos is discouraged by the LHCb data management team,
+and no support will be provided by them for problems/questions related to it.
+{% endcallout %} 
 
 On `lxplus` EOS is mount under /eos like this:
 
@@ -226,10 +224,10 @@ Once you have found your file you can open it in `ROOT` like this:
 $ root /eos/lhcb/user/a/another/starterkit/myfavouritefile.root
 ```
 
-> ## Direct access in ROOT {.callout}
->
-> You can also open ROOT files on EOS directly from your ROOT
-> script with:
-> ```python
-> TFile::Open('root://eoslhcb.cern.ch//eos/lhcb/user/a/another/starterkit/myfavouritefile.root')
-> ```
+{% callout "Direct access in ROOT" %}
+You can also open ROOT files on EOS directly from your ROOT
+script with:
+```python
+TFile::Open('root://eoslhcb.cern.ch//eos/lhcb/user/a/another/starterkit/myfavouritefile.root')
+```
+{% endcallout %} 

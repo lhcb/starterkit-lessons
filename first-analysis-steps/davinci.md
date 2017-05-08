@@ -1,13 +1,9 @@
----
-layout: page
-title: First Steps in LHCb
-subtitle: An introduction to LHCb Software
-minutes: 10
----
+# An introduction to LHCb Software
 
-> ## Learning Objectives {.objectives}
-> * Learn the key concepts needed to work with the LHCb software
-> * Learn how to launch the LHCb software with `lb-run`
+{% objectives "Learning Objectives" %}
+* Learn the key concepts needed to work with the LHCb software
+* Learn how to launch the LHCb software with `lb-run`
+{% endobjectives %} 
 
 Imagine you want to design and run a new particle detector.
 Apart from organizing a collaboration, creating the design and specification, and several other tasks, you will also have to find solutions to many computational challenges.
@@ -113,11 +109,12 @@ lb-run DaVinci/v41r2 $SHELL
 A simple `gaudirun.py` should work as well now.
 Typing `exit` will close the shell and leave the LHCb environment behind.
 
-> ## Using SetupProject instead of lb-run {.callout}
-> When reading through other tutorials, you will come across `SetupProject`.
-> This is an older way of setting up a shell that is configured to run LHCb software.
-> `lb-run` is the new way of doing things and has some nice benefits over `SetupProject`.
-> For most purposes, `SetupProject DaVinci v41r2` is equivalent to
-> ```bash
-> lb-run DaVinci/v41r2 $SHELL
-> ```
+{% callout "Using SetupProject instead of lb-run" %}
+When reading through other tutorials, you will come across `SetupProject`.
+This is an older way of setting up a shell that is configured to run LHCb software.
+`lb-run` is the new way of doing things and has some nice benefits over `SetupProject`.
+For most purposes, `SetupProject DaVinci v41r2` is equivalent to
+```bash
+lb-run DaVinci/v41r2 $SHELL
+```
+{% endcallout %} 

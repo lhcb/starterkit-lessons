@@ -1,14 +1,9 @@
----
-layout: page
-title: Second analysis steps
-subtitle: Building your own decay. Modern Selection Framework
-minutes: 15
----
+# Building your own decay. Modern Selection Framework
 
-> ## Learning Objectives {.objectives}
->
-> * Build a decay chain with the most optimized tools
-> * Learn the advantages of these specialized tools
+{% objectives "Learning Objectives" %}
+* Build a decay chain with the most optimized tools
+* Learn the advantages of these specialized tools
+{% endobjectives %} 
 
 As discussed previously, the Selection Framework can become a bit cumbersome in terms of the naming and construction of the `Selection`-`CombineParticles` repetitions.
 For this reason, the Selection Framework offers a more streamlined set of `Selection`s to deal with these issues.
@@ -34,15 +29,17 @@ d0_sel = SimpleSelection(
 Note how we needed to use the `CombineParticles` from `GaudiConfUtils.ConfigurableGenerators` instead of the `PhysConf.Selections` one to make this work.
 This is because the LHCb algorithms are configured as singletons and it is mandatory to give them a name, which we don't want to in `SimpleSelection` (we want to skip steps!).
 
-> ## Why `ConfigurableGenerators`? {.callout}
-> If we had tried to simply use `CombineParticles` inside our `SimpleSelection`, we would have seen it fail with the following error
-> 
-> ```output
-> NameError: Could not instantiate Selection because input Configurable CombineParticles has default name. This is too unsafe to be allowed.
-> ```
->
-> The reason for this is that all LHCb algorithms need an explicit and unique name.
-> The solution for our problem, in which we actually don't care about the `CombineParticles` name, is the `GaudiConfUtils.ConfigurableGenerators` package: it contains wrappers around algorithms such as `CombineParticles` or `FilterDesktop` allowing them to be instantiated without an explicit name argument.
+{% callout "Why `ConfigurableGenerators`?" %}
+If we had tried to simply use `CombineParticles` inside our 
+`SimpleSelection`, we would have seen it fail with the following error
+
+```output
+NameError: Could not instantiate Selection because input Configurable CombineParticles has default name. This is too unsafe to be allowed.
+```
+
+The reason for this is that all LHCb algorithms need an explicit and unique name.
+The solution for our problem, in which we actually don't care about the `CombineParticles` name, is the `GaudiConfUtils.ConfigurableGenerators` package: it contains wrappers around algorithms such as `CombineParticles` or `FilterDesktop` allowing them to be instantiated without an explicit name argument.
+{% endcallout %}
 
 In this case, we could also wonder about the need for the `CombineParticles` generator.
 While `SimpleSelection` will allow us to do anything we would do with `Selection`, there exist a few specialized versions of it that allow us to address its most common usages:
@@ -71,10 +68,12 @@ While `SimpleSelection` will allow us to do anything we would do with `Selection
   It's used in a similar way as `CombineSelection`.
 
 
-> ## Work to do {.challenge}
->  - Rewrite the previous script to select our signal in terms of `SimpleSelections` and the other algorithms we just learned.
->  - Introduce `FilterSelection` by performing the soft pion selection outside the `CombineParticles` as discussed in the *Building shared selections* callout in the [previous lesson](building-decays-part1.html).
-> The solution can be found [here](code/building-decays/02.optimized.py).
+{% challenge "Work to do" %}
+- Rewrite the previous script to select our signal in terms of 
+`SimpleSelections` and the other algorithms we just learned.
+- Introduce `FilterSelection` by performing the soft pion selection outside the `CombineParticles` as discussed in the *Building shared selections* callout in the [previous lesson](building-decays-part1.html).
+The solution can be found [here](code/building-decays/02.optimized.py).
+{% endchallenge %}
 
 To finalize, it is also very useful to know about the existence of certain selection algorithms specialized in filtering according to very commonly used criteria.
 These can be used as inputs for `SimpleSelection` to make sure the latter only run on those events that pass the filter.
@@ -82,7 +81,7 @@ The most interesting are (see the [code](https://gitlab.cern.ch/lhcb/Phys/blob/m
 
   - `TriggerSelection`, including `L0`/`Hlt1`/`Hlt2` specific versions. These are used to filter on certain trigger decisions (NB: their job is simply to filter, so they cannot be used as particle input for another selection).
   The same interface can be used for filtering on Stripping decisions by using the `StrippingSelection` class.
-  With it, the example from the Starterkit [minimal DaVinci job](https://lhcb.github.io/first-analysis-steps/minimal-dv-job.html), in which the output of a Stripping line was passed to `DecayTreeTuple`, could be written in a more CPU-efficient way:
+  With it, the example from the Starterkit [minimal DaVinci job](../first-analysis-steps/minimal-dv-job.md), in which the output of a Stripping line was passed to `DecayTreeTuple`, could be written in a more CPU-efficient way:
 
     ```python
     line = 'D2hhCompleteEventPromptDst2D2RSLine'
@@ -98,16 +97,17 @@ The most interesting are (see the [code](https://gitlab.cern.ch/lhcb/Phys/blob/m
   This will only be helpful for rare Stripping lines, since the overhead of running `DecayTreeTuple` on empty events is small, but this has been proven useful in more complex workflows.
   Additionally, it takes care of `RootInTes` for you.
 
-> ## A small test {.challenge}
-> Try running the [minimal DaVinci job](https://lhcb.github.io/first-analysis-steps/minimal-dv-job.html) with and without the `StrippingSelection`/`DecayTreeTuple` selections, and compare their performance
-> 
-> In this particular case, there is a simple way to achieve a CPU-efficient code with `DecayTreeTuple`, thanks to the use of `DaVinci` pre-event filters;
-> ```python
-> from PhysConf.Filters import LoKi_Filters
-> filter_ = LoKi_Filters(STRIP_Code="HLT_PASS('StrippingD2hhCompleteEventPromptDst2D2RSDecision')")
->
-> DaVinci().EventPreFilters = filter_.filters("FILTERS")
->```
+{% challenge "A small test" %}
+Try running the [minimal DaVinci job](../first-analysis-steps/minimal-dv-job.md) with and without the `StrippingSelection`/`DecayTreeTuple` selections, and compare their performance
+
+In this particular case, there is a simple way to achieve a CPU-efficient code with `DecayTreeTuple`, thanks to the use of `DaVinci` pre-event filters;
+ ```python
+ from PhysConf.Filters import LoKi_Filters
+ filter_ = LoKi_Filters(STRIP_Code="HLT_PASS('StrippingD2hhCompleteEventPromptDst2D2RSDecision')")
+
+ DaVinci().EventPreFilters = filter_.filters("FILTERS")
+```
+{% endchallenge %}
 
   - Related to the previous ones, `TisTosSelection` are used to filter according to TIS/TOS.
   A whole range of them is available: `L0TOSSelection`, `L0TISSelection`, `Hlt1TOSSelection`, `Hlt1TISSelection`, `Hlt2TOSSelection` and `Hlt2TISSelection`.

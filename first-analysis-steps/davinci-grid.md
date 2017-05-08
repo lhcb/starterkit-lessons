@@ -1,15 +1,11 @@
----
-layout: page
-title: First Steps in LHCb
-subtitle: Running DaVinci on the grid
-minutes: 10
----
-> ## Learning Objectives {.objectives}
->
-> * Create a ganga job
-> * Submit a ganga job
-> * Waiting for ganga
-> * Find the job output
+# Running DaVinci on the grid
+
+{% objectives "Learning Objectives" %}
+* Create a ganga job
+* Submit a ganga job
+* Waiting for ganga
+* Find the job output
+{% endobjectives %} 
 
 This lesson will teach you how to take our [minimal DaVinci
 job](minimal-dv-job.html) and run it on the grid.
@@ -46,18 +42,18 @@ files to process as part of the options file you have now to tell the
 `Job` about it. This allows `ganga` to split your job up,
 processing different files simultaneously.
 
-> ## DaVinciDev folder {.callout}
->
-> When you create a job using `prepareGaudiExec('DaVinci','v41r2', myPath='.')`
-> you get the following message:
-> ```
-> INFO     Set up App Env at: ./DaVinciDev_v41r2
-> ```
-> `ganga` has created a folder with a local copy of the DaVinci v41r2 release.
-> The content of it will be sent to the grid to ensure your jobs runs with 
-> exactly this configuration.
-> We will use this folder for the following jobs and you will learn more about
-> this in the [Developing LHCb Software](lhcb-dev.html) lesson.
+{% callout "DaVinciDev folder" %}
+When you create a job using `prepareGaudiExec('DaVinci','v41r2', myPath='.')`
+you get the following message:
+```
+INFO     Set up App Env at: ./DaVinciDev_v41r2
+```
+`ganga` has created a folder with a local copy of the DaVinci v41r2 release.
+The content of it will be sent to the grid to ensure your jobs runs with 
+exactly this configuration.
+We will use this folder for the following jobs and you will learn more about
+this in the [Developing LHCb Software](lhcb-dev.html) lesson.
+{% endcallout %} 
 
 Now you have created your first job, however it has not started
 running yet. To submit it type `j.submit()`. Now `ganga` will do the
@@ -128,13 +124,13 @@ print 'Job output stored in:', output
 
 Take a look at the contents of this directory.
 
-> ## Using the Shell from IPython {.callout}
->
-> IPython lets you execute shell commands from within the `ganga` session.
-> This means you can list the contents of a directory without leaving ganga
-> by typing `!ls /tmp/`. This will list the contents of the `/tmp` directory.
-> In our case we can use this to list the contents of the job output directory
-> with `!ls $output` as we stored the path in the variable `output`.
+{% callout "Using the Shell from IPython" %}
+IPython lets you execute shell commands from within the `ganga` session.
+This means you can list the contents of a directory without leaving ganga
+by typing `!ls /tmp/`. This will list the contents of the `/tmp` directory.
+In our case we can use this to list the contents of the job output directory
+with `!ls $output` as we stored the path in the variable `output`.
+{% endcallout %} 
 
 To look at the `root` file produced by the job start a new terminal, and
 type:
@@ -146,6 +142,7 @@ $ root -l path/to/the/job/output
 
 You need to setup `DaVinci` as we need ROOT version 6 to read the nTuple.
 
-> ## Getting help with ganga {.callout}
->
-> To find out more take a look at the [Ganga FAQ](https://twiki.cern.ch/twiki/bin/view/LHCb/FAQ/GangaLHCbFAQ)
+{% callout "Getting help with ganga" %}
+To find out more take a look at the [Ganga 
+FAQ](https://twiki.cern.ch/twiki/bin/view/LHCb/FAQ/GangaLHCbFAQ)
+{% endcallout %} 

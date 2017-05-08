@@ -1,11 +1,18 @@
-# First Analysis Steps [![Build Status](https://travis-ci.org/lhcb/first-analysis-steps.svg?branch=master)](https://travis-ci.org/lhcb/first-analysis-steps)
+# First Analysis Steps
 
-This repository contains lessons that will get you started
-with the basic analysis steps needed for LHCb.
+This is the LHCb Starterkit, a series of lessons for getting analysts working
+confidently with LHCb data and software.
+The lessons are best approached one after the other, as most lessons build on
+the knowledge gained from the previous ones.
 
-> Please see [CONTRIBUTING.md](CONTRIBUTING.md)
-> for instructions on how to contribute.
+If you have any problems or questions, you can [send an email to
+`lhcb-starterkit@cern.ch`](mailto:lhcb-starterkit@cern.ch).
 
-> Please see [swc-lesson-example](https://github.com/swcarpentry/lesson-example)
-> for instructions on formatting, building, and submitting lessons,
-> or run `make` in this directory for a list of helpful commands.
+{% prereq "Prerequisites" %}
+Before starting, you should be familiar with using a shell, like `bash`, and
+with programming in Python.
+
+The [Software Carpentry
+workshop](http://twitwi.github.io/2015-06-02-cern-lhcb/) gives a great
+introduction to these, as well as to many other useful computing tools.
+{% endprereq %} 

@@ -1,15 +1,10 @@
----
-layout: page
-title: First steps in LHCb
-subtitle: Fun with LoKi Functors
-minutes: 15
----
+# Fun with LoKi Functors
 
-> ## Learning Objectives {.objectives}
->
-> * Understand what LoKi functors are
-> * Use LoKi functors interactively
-> * Be able to find functors that do what we want
+{% objectives "Learning Objectives" %}
+* Understand what LoKi functors are
+* Use LoKi functors interactively
+* Be able to find functors that do what we want
+{% endobjectives %} 
 
 LoKi functors are designed to flexibly compute and compare properties of the 
 current decay, from simple quantities such as the transverse momentum of a 
@@ -34,10 +29,11 @@ According to `TYPE1`, there are many types of functors, the most important of wh
  - *Array particle functors*, which take a `LoKi::Range_` (an array of particles) as input.
  - *Track functors*, which take `LHCb::Track` as input.
 
-> ## C++ classes {.callout}
-> Things like `LHCb::Particle` are C++ classes that usually represent some 
-> physical object. You will interact with the C++ objects directly very rarely, 
-> if ever.
+{% callout "C++ classes" %}
+Things like `LHCb::Particle` are C++ classes that usually represent some 
+physical object. You will interact with the C++ objects directly very rarely, 
+if ever.
+{% endcallout %} 
 
 To understand what we can do with LoKi functors, we will pick up from where we 
 left off [exploring a DST interactively](interactive-dst.html).
@@ -48,8 +44,8 @@ cands = evt['/Event/AllStreams/Phys/D2hhCompleteEventPromptDst2D2RSLine/Particle
 cand = cands[0]
 ```
 
-We can now try to get very simple properties of the $D^{*+}$ candidate, such as 
-its transverse momentum and measured mass.
+We can now try to get very simple properties of the $$D^{*+}$$ candidate, such 
+as its transverse momentum and measured mass.
 
 ```python
 from LoKiPhys.decorators import PT, M
@@ -75,14 +71,15 @@ p_components_sum = PX + PY + PZ
 p_components_sum(cand)
 ```
 
-> ## Does it make sense? {.challenge}
-> Retrieve the momentum magnitude $p$ and see if you can get the same answer 
-> with the `PX`, `PY`, `PZ` functors.
-> Also compute the invariant mass $m$ and see if it matches what the `M` 
-> functor returned.
+{% challenge "Does it make sense?" %}
+Retrieve the momentum magnitude $$p$$ and see if you can get the same answer 
+with the `PX`, `PY`, `PZ` functors.
+Also compute the invariant mass $$m$$ and see if it matches what the `M` 
+functor returned.
+{% endchallenge %} 
 
 
-If we want to get the properties of the $D^{*+}$ vertex, for example its fit 
+If we want to get the properties of the $$D^{*+}$$ vertex, for example its fit 
 quality ($\chi^2$), we need to pass an object to the functor.
 
 ```python
@@ -102,18 +99,19 @@ from LoKiPhys.decorators import VFASPF
 VCHI2(cand.endVertex()) == VFASPF(VCHI2)(cand)
 ```
 
-> ## Functions of functions of functions of… {.challenge}
-> Make sure you understand what `VFASPF(VCHI2)(cand)` means. It may help to 
-> play around in Python, creating a function that takes another function as an 
-> argument, for example:
-> ```python
-> def create_greeting(salutation):
->     def greet(name):
->         print '{0}, {1}!'.format(salutation, name)
->     return greet
-> ```
-> What would `create_greeting('Hello')` return? What about 
-> `create_greeting('Howdy')('partner')`? Why is doing this useful?
+{% challenge "Functions of functions of functions of…" %}
+Make sure you understand what `VFASPF(VCHI2)(cand)` means. It may help to play 
+around in Python, creating a function that takes another function as an 
+argument, for example:
+```python
+def create_greeting(salutation):
+    def greet(name):
+        print '{0}, {1}!'.format(salutation, name)
+    return greet
+```
+What would `create_greeting('Hello')` return? What about 
+`create_greeting('Howdy')('partner')`? Why is doing this useful?
+{% endchallenge %} 
 
 The calculation of some of the properties, such as the impact parameter (IP) or 
 direction angle (DIRA), require the knowledge of the primary vertex (PV) 
@@ -134,13 +132,20 @@ print DIRA(best_pv)(cand)
 Given that this is a very common operation, we have the possibility of using, in the context of a `DaVinci` application (Stripping, for example), a special set of functors, starting with the `BPV` prefix (for Best PV), which will get the PV for us.
 Some functors also end with the suffix `DV`, which means they can only be used in the `DaVinci` context.
 
-> ## Finding LoKi functors {.callout}
-> The full list of defined LoKi functors can be found in the `LoKi::Cuts` namespace in the [doxygen](http://lhcb-release-area.web.cern.ch/LHCb-release-area/DOC/davinci/latest_doxygen/d7/dae/namespace_lo_ki_1_1_cuts.html).
-> They are quite well documented with examples on how to use them.
-> The list can be overwhelming, so it's also worth checking a more curated selection of functors in the TWiki, [here](https://twiki.cern.ch/twiki/bin/view/LHCb/LoKiHybridFilters) and [here](https://twiki.cern.ch/twiki/bin/view/LHCb/LoKiParticleFunctions).
+{% callout "Finding LoKi functors" %}
+The full list of defined LoKi functors can be found in the `LoKi::Cuts` 
+namespace in the 
+[doxygen](http://lhcb-release-area.web.cern.ch/LHCb-release-area/DOC/davinci/latest_doxygen/d7/dae/namespace_lo_ki_1_1_cuts.html).
+They are quite well documented with examples on how to use them.
+The list can be overwhelming, so it's also worth checking a more curated selection of functors in the TWiki, [here](https://twiki.cern.ch/twiki/bin/view/LHCb/LoKiHybridFilters) and [here](https://twiki.cern.ch/twiki/bin/view/LHCb/LoKiParticleFunctions).
+{% endcallout %} 
 
-So far we've only looked at the properties of the head of the decay (that is, the $D^{*+}$), but what if we want to get information about its daughters? As an example, let's get the largest transverse momentum of the final state particles.
-A simple solution would be to navigate the tree and calculate the maximum $p_{\text{T}}$.
+So far we've only looked at the properties of the head of the decay (that is, 
+the $$D^{*+}$$), but what if we want to get information about its daughters? As 
+an example, let's get the largest transverse momentum of the final state 
+particles.
+A simple solution would be to navigate the tree and calculate the maximum 
+$$p_{\text{T}}$$.
 
 ```python
 def find_tracks(particle):
@@ -161,9 +166,11 @@ def find_tracks(particle):
 
 max_pt = max([PT(child) for child in find_tracks(cand)])
 ```
-> ## A note about the try/except {.callout}
->
-> If you import LoKi before running this example, it magically removes the `.data()` function and allows the particle to be used directly. The code above is made general using the `try`/`except` block and will work in either case.
+{% callout "A note about the try/except" %}
+If you import LoKi before running this example, it magically removes the 
+`.data()` function and allows the particle to be used directly. The code above 
+is made general using the `try`/`except` block and will work in either case.
+{% endcallout %} 
 
 
 However, LoKi offers functions for performing such operations, namely `MAXTREE` and `MINTREE`, which get as parameters the selection criteria, the functor to calculate and a default value.
@@ -177,21 +184,23 @@ MAXTREE(ISBASIC & HASTRACK, PT, -1)(cand) == max_pt
 In this example, we have used two selection functors, `ISBASIC` and `HASTRACK`, which return true if the particle doesn't have children and is made up by a track, respectively.
 We can see that they do the same thing as `particle.isBasicParticle()` and `particle.proto().track()` in a more compact way.
 
-> ## Combining LoKi cuts {.callout}
-> You might have noticed above we used the `&` operator ("bitwise AND") to combine the `ISBASIC` and `HASTRACK` cuts above.
-> This is because Python doesn't allow LoKi to override the behaviour of `and` and `or` ("logical AND/OR"), so if we use them
-> the Python interpreter tries to combine the two cuts straight away, before we have even passed in our candidate:
-> ```python
-> In [1]: ((M>1200) or (PT > 500))
-> Out[1]:  (M>1200)
-> ```
-> the result is that our `PT` cut vanishes!
-> If we use the `|` operator ("bitwise OR") then LoKi correctly builds a functor representing the `OR` of our cuts:
-> ```python
-> In [2]: ((M>1200) | (PT > 500))
-> Out[2]:  ( (M>1200) || (PT>500) )
-> ```
-> This is why you should **always** use `&` and `|` when combining LoKi functors, and **never** use `and` and `or`.
+{% callout "Combining LoKi cuts" %}
+You might have noticed above we used the `&` operator ("bitwise AND") to 
+combine the `ISBASIC` and `HASTRACK` cuts above.
+This is because Python doesn't allow LoKi to override the behaviour of `and` and `or` ("logical AND/OR"), so if we use them
+the Python interpreter tries to combine the two cuts straight away, before we have even passed in our candidate:
+```python
+In [1]: ((M>1200) or (PT > 500))
+Out[1]:  (M>1200)
+```
+the result is that our `PT` cut vanishes!
+If we use the `|` operator ("bitwise OR") then LoKi correctly builds a functor representing the `OR` of our cuts:
+```python
+In [2]: ((M>1200) | (PT > 500))
+Out[2]:  ( (M>1200) || (PT>500) )
+```
+This is why you should **always** use `&` and `|` when combining LoKi functors, and **never** use `and` and `or`.
+{% endcallout %} 
 
 Similarly, the `SUMTREE` functor allows us to accumulate quantities for those children that pass a certain selection:
 ```python
@@ -219,7 +228,7 @@ Out[10]:
  0 |->pi+                          M/PT/E/PX/PY/PZ: 0.1396/ 0.3701/ 2.678/-0.2873/-0.2333/ 2.649 [GeV]  # 10
 ```
 we know that `D0` is the first child and `pi+` is the second.
-Therefore, to access the $p_{\text{T}}$ of the $D^{0}$ we have 2 options.
+Therefore, to access the $$p_{\text{T}}$$ of the $$D^{0}$$ we have 2 options.
 ```python
 from LoKiPhys.decorators import CHILD
 # Option 1
@@ -235,9 +244,9 @@ The usage of LoKi functors extends much further than in the interactive
 
 They constitute the basis of particle filtering in the *selection framework*, 
 discussed in the [Building your own decay 
-chain](https://lhcb.github.io/second-analysis-steps/06-building-decays.html) 
+chain](/second-analysis-steps/building-decays-part0.md) 
 lesson in 
-[second-analysis-steps](https://lhcb.github.io/second-analysis-steps/).
+[second-analysis-steps](/second-analysis-steps).
 Selecting particles means using LoKi *predicates*, functors that give a `bool` 
 output, like `ISBASIC` and `HASTRACK`.
 Amongst these, a key functor is `in_range`, which returns `True` if the value 
@@ -254,20 +263,22 @@ in_range(1860, CHILD(M, 1), 1870)(cand)
 Additionally, LoKi functors can be used directly inside our `DaVinci` jobs to store specific bits of information in our ntuples without the need for a complicated C++-based algorithms.
 This second option will be discussed in the [TupleTools and branches lesson](add-tupletools.html).
 
-> ## Debugging LoKi functors {.callout}
-> If you write complicated LoKi functors, typically in the context of selections, you need functions for debugging when things go wrong.
-> LoKi provides wrapper functors that evaluate a functor (or functor expression), print debugging information and return the result;
-> the most important of these are:
->
->  - `dump1`, which prints the input object and returns the calculated functor value,
-    ```python
-    from LoKiCore.functions import dump1
-    debug_p_components_sum = dump1(p_components_sum)
-    debug_p_components_sum(cand)
-    ```
->  - `monitor` which prints the input the functor string and returns the calculated functor value,
-    ```python
-    from LoKiCore.functions import monitor
-    monitor_p_components_sum = monitor(p_components_sum)
-    monitor_p_components_sum(cand)
-    ```
+{% callout "Debugging LoKi functors" %}
+If you write complicated LoKi functors, typically in the context of selections, 
+you need functions for debugging when things go wrong.
+LoKi provides wrapper functors that evaluate a functor (or functor expression), print debugging information and return the result;
+the most important of these are:
+
+ - `dump1`, which prints the input object and returns the calculated functor value,
+  ```python
+  from LoKiCore.functions import dump1
+  debug_p_components_sum = dump1(p_components_sum)
+  debug_p_components_sum(cand)
+  ```
+ - `monitor` which prints the input the functor string and returns the calculated functor value,
+  ```python
+  from LoKiCore.functions import monitor
+  monitor_p_components_sum = monitor(p_components_sum)
+  monitor_p_components_sum(cand)
+  ```
+{% endcallout %} 

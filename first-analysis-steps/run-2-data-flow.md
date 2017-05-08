@@ -1,12 +1,8 @@
----
-layout: page
-title: First Steps in LHCb
-subtitle: Changes to the data flow in Run 2
-minutes: 10
----
+# Changes to the data flow in Run 2
 
-> ## Learning Objectives {.objectives}
-> * Understand how the LHCb data flow differs between Run 1 and Run 2
+{% objectives "Learning Objectives" %}
+* Understand how the LHCb data flow differs between Run 1 and Run 2
+{% endobjectives %} 
 
 Run 1 of the LHC ran from 2010 to the end of 2012. Run 2 began in the middle of 
 2015 and is scheduled to continue until 2019.
