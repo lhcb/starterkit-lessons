@@ -1,4 +1,5 @@
-# Building your own decay. The Selection Framework
+# Building your own decay
+## The Selection Framework
 
 {% objectives "Learning Objectives" %}
 * Learn the concepts behind the LHCb selection framework
