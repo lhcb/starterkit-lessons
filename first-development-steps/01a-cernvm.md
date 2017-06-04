@@ -1,17 +1,8 @@
----
-title: "Setting up a local LHCb environment - CernVM"
-teaching: 30
-exercises: 90
-questions:
-- "Do you want a portable, local install?"
-objectives:
-- "Get and configure CernVM."
-keypoints:
-- "Use CernVM Online."
-- "Use a VM."
----
-
 # Setting up a CernVM
+
+{% objectives "Using CernVM" %}
+* Download and prepare a CernVM
+{% endobjectives %}
 
 To get a virtual machine setup, follow the instructions at the [CernVM website](https://cernvm-online.cern.ch). Since there are quite a few choices listed, here is a recommended method for setting up a CernVM.
 
