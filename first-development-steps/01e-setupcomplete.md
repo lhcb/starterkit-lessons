@@ -1,14 +1,8 @@
----
-title: "Setup Complete"
-teaching: 20
-exercises: 60
-questions:
-- "Can you run LHCb software from scratch?"
-objectives:
-- "Set up a development environment."
-keypoints:
-- "Usage of raw git commands."
----
+# Setup Complete
+
+{% objectives %}
+- Set up a development environment.
+{% endobjectives %}
 
 
 > ## Prerequisites for building LHCb software

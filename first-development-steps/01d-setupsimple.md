@@ -1,21 +1,15 @@
----
-title: "Setup Simple"
-teaching: 10
-exercises: 10
-questions:
-- "Can you set up an incremental build?"
-objectives:
-- "Prepare a package and check out a portion of it."
-keypoints:
-- "Usage of lb-git commands."
----
+# Setup Simple
+
+{% objectives %}
+- Prepare a package and check out a portion of it.
+{% endobjectives %}
 
 
-> ## Prerequisites for building LHCb software
-> 
-> You should have a valid LHCb environment, using one of the ways previously mentioned, or by working on `lxplus`.
-> You may need to run `source /cvmfs/lhcb.cern.ch/group_login.sh` to set up your environment variables.
-{: .prereq}
+{% callout "Prerequisites for building LHCb software" %}
+You should have a valid LHCb environment, using one of the ways previously mentioned, or by working on `lxplus`.
+You may need to run `source /cvmfs/lhcb.cern.ch/group_login.sh` to set up your environment variables.
+{% endcallout %}
+
 
 ## Git
 
@@ -28,7 +22,6 @@ Before using git, you should go to your [gitlab.cern.ch](https://gitlab.cern.ch)
 ~~~
 ssh-keygen
 ~~~
-{: .input}
 
 and use the default location. If you don't put in a passphrase, you can directly push and pull without a password; if you do put a passphrase, you can run
 
@@ -36,17 +29,15 @@ and use the default location. If you don't put in a passphrase, you can directly
 test -z "$SSH_AGENT_PID" && eval $(ssh-agent)
 ssh-add
 ~~~
-{: .input}
 
 when you start a terminal to enter your passphrase once per session. Your computer keychain (Mac, Ubuntu, etc) can also store your password once per login.
 
-> ## If you encounter problems
-> 
-> If you get an error about your ssh agent not running, you can execute the output of the ssh-agent command with `eval $(ssh-agent)` and try again.
-{: .discussion}
+{% callout "If you encounter problems" %}
+
+If you get an error about your ssh agent not running, you can execute the output of the ssh-agent command with `eval $(ssh-agent)` and try again.
 
 Once you verify you have an ssh key pair, you need to go to the gitlab website, go to your profile (possibly hidden behind the hamburger button), then edit, then SSH Keys [(or just go here)](https://gitlab.cern.ch/profile/keys), and paste the contents of the `id_rsa.pub` file into the key edit box. You can give it a title that allows you to identify the computer or VM associated with the key.
-{: .prereq}
+{% endcallout %}
 
 ### Defaults
 
@@ -55,14 +46,12 @@ You can set the lb-commands to default to ssh by running the following line to s
 ~~~
 git config --global lb-use.protocol ssh
 ~~~
-{: .input}
 
 You can also set the git default push policy for git if you have a version between 1.7.11 and 2.0:
 
 ~~~
 git config --global push.default simple
 ~~~
-{: .input}
 
 This is not mandatory, but is a more reasonable default (and is the default in git 2.0. Note that SLC6 systems, like lxplus, have a version less than 1.7.11. On these systems, you can still set the default to `current`, which is better than the original default of `matching`.
 
@@ -109,7 +98,6 @@ git lb-checkout Project/Branch Some/Package
 ```
 
 The branch can be `master`, or a specific version `vXrY`, or any other valid branch. See the [GitLab](https://gitlab.cern.ch) page to browse projects and branches. 
-
 
 
 > ## Future reading
