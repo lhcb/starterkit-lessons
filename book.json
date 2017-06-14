@@ -4,6 +4,7 @@
     "-sharing",
     "panels@git+https://github.com/lhcb/gitbook-plugin-panels.git#master",
     "katex-auto-render@git+https://github.com/lhcb/gitbook-plugin-katex-auto-render.git#master",
-    "collapsible-menu"
+    "collapsible-menu",
+    "terminal@https://github.com/henryiii/gitbook-plugin-terminal.git"
   ]
 }
