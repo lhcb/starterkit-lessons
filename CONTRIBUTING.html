@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>The LHCb Starterkit · GitBook</title>
+        <title>Contributing · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.2">
@@ -65,8 +65,10 @@
     <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="CONTRIBUTING.html" />
+    <link rel="next" href="first-analysis-steps/" />
     
+    
+    <link rel="prev" href="./" />
     
 
     </head>
@@ -95,7 +97,7 @@
         
         
     
-        <li class="chapter active" data-level="1.1" data-path="./">
+        <li class="chapter " data-level="1.1" data-path="./">
             
                 <a href="./">
             
@@ -109,7 +111,7 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.1.1" data-path="CONTRIBUTING.html">
+        <li class="chapter active" data-level="1.1.1" data-path="CONTRIBUTING.html">
             
                 <a href="CONTRIBUTING.html">
             
@@ -670,7 +672,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href="." >The LHCb Starterkit</a>
+        <a href="." >Contributing</a>
     </h1>
 </div>
 
@@ -685,12 +687,48 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="the-lhcb-starterkit-lessons-">The LHCb Starterkit lessons <a href="https://travis-ci.org/lhcb/starterkit-lessons" target="_blank"><img src="https://travis-ci.org/lhcb/starterkit-lessons.svg?branch=master" alt="Build Status"></a></h1>
-<p>These are the lessons taught during by the <a href="https://lhcb.github.io/starterkit" target="_blank">LHCb Starterkit</a>. If 
-you&apos;d like to join the next workshop, visit <a href="https://lhcb.github.io/starterkit" target="_blank">the website</a> to find 
-out when that will how and how to sign up.</p>
-<p>If you&apos;d just like to learn about how to use the LHCb software, <a href="first-analysis-steps">read 
-on</a>!</p>
+                                <h1 id="contributing">Contributing</h1>
+<p><a href="https://github.com/lhcb/starterkit-lessons/issues" target="_blank">starterkit-lessons</a> is an open source project,
+and we welcome contributions of all kinds:</p>
+<ul>
+<li>New lessons;</li>
+<li>Fixes to existing material;</li>
+<li>Bug reports; and</li>
+<li>Reviews of proposed changes.</li>
+</ul>
+<p>By contributing,
+you are agreeing that we may redistribute your work under
+<a href="LICENSE.md">these licenses</a>.
+You also agree to abide by our
+<a href="CONDUCT.md">contributor code of conduct</a>.</p>
+<h2 id="getting-started">Getting Started</h2>
+<ol>
+<li><p>We use the <a href="https://help.github.com/articles/using-pull-requests/#fork--pull" target="_blank">fork and pull</a> model to manage changes. More information
+about <a href="https://help.github.com/articles/fork-a-repo/" target="_blank">forking a repository</a> and <a href="https://help.github.com/articles/using-pull-requests/" target="_blank">making a Pull Request</a>.</p>
+</li>
+<li><p>To build the lessons please install the <a href="#DEPENDENCIES">dependencies</a>.</p>
+</li>
+<li><p>For our lessons,
+you should branch from and submit pull requests against the <code>master</code> branch.</p>
+</li>
+<li><p>When editing lesson pages, you need only commit changes to the Markdown source files.</p>
+</li>
+<li><p>If you&apos;re looking for things to work on,
+please see <a href="https://github.com/lhcb/starterkit-lessons/issues" target="_blank">the list of issues for this repository</a>.
+Comments on issues and reviews of pull requests are equally welcome.</p>
+</li>
+</ol>
+<h2 id="dependencies">Dependencies</h2>
+<p>To build the lessons locally, install the following:</p>
+<ol>
+<li><a href="https://github.com/GitbookIO/gitbook/blob/master/docs/setup.md" target="_blank">Gitbook</a></li>
+</ol>
+<p>Install the Gitbook plugins:</p>
+<pre><code class="lang-shell">$ gitbook install
+</code></pre>
+<p>Then build the pages and start a web server to host them:</p>
+<pre><code class="lang-shell">$ gitbook serve
+</code></pre>
 
                                 
                                 </section>
@@ -718,8 +756,12 @@ on</a>!</p>
 
             
                 
+                <a href="./" class="navigation navigation-prev " aria-label="Previous page: The LHCb Starterkit">
+                    <i class="fa fa-angle-left"></i>
+                </a>
                 
-                <a href="CONTRIBUTING.html" class="navigation navigation-next navigation-unique" aria-label="Next page: Contributing">
+                
+                <a href="first-analysis-steps/" class="navigation navigation-next " aria-label="Next page: First analysis steps">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -730,7 +772,7 @@ on</a>!</p>
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"The LHCb Starterkit","level":"1.1","depth":1,"next":{"title":"Contributing","level":"1.1.1","depth":2,"path":"CONTRIBUTING.md","ref":"CONTRIBUTING.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-sharing","panels@git+https://github.com/lhcb/gitbook-plugin-panels.git#master","katex-auto-render@git+https://github.com/lhcb/gitbook-plugin-katex-auto-render.git#master","collapsible-menu"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"panels":{},"katex-auto-render":{},"collapsible-menu":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"The Starterkit team and contributors","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"gitbook":"*"},"file":{"path":"README.md","mtime":"2017-06-20T15:31:40.133Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-06-20T15:33:19.507Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Contributing","level":"1.1.1","depth":2,"next":{"title":"First analysis steps","level":"2.1","depth":1,"path":"first-analysis-steps/README.md","ref":"first-analysis-steps/README.md","articles":[{"title":"Pre-workshop checklist","level":"2.1.1","depth":2,"path":"first-analysis-steps/prerequisites.md","ref":"first-analysis-steps/prerequisites.md","articles":[]},{"title":"Install party","level":"2.1.2","depth":2,"path":"first-analysis-steps/install-party.md","ref":"first-analysis-steps/install-party.md","articles":[]},{"title":"Goals of the course","level":"2.1.3","depth":2,"path":"first-analysis-steps/introduction-to-course.md","ref":"first-analysis-steps/introduction-to-course.md","articles":[]},{"title":"The LHCb data flow","level":"2.1.4","depth":2,"path":"first-analysis-steps/dataflow.md","ref":"first-analysis-steps/dataflow.md","articles":[]},{"title":"Changes to the data flow in Run 2","level":"2.1.5","depth":2,"path":"first-analysis-steps/run-2-data-flow.md","ref":"first-analysis-steps/run-2-data-flow.md","articles":[]},{"title":"An introduction to LHCb Software","level":"2.1.6","depth":2,"path":"first-analysis-steps/davinci.md","ref":"first-analysis-steps/davinci.md","articles":[]},{"title":"Finding data in the Bookkeeping","level":"2.1.7","depth":2,"path":"first-analysis-steps/bookkeeping.md","ref":"first-analysis-steps/bookkeeping.md","articles":[]},{"title":"Downloading a file from the grid","level":"2.1.8","depth":2,"path":"first-analysis-steps/files-from-grid.md","ref":"first-analysis-steps/files-from-grid.md","articles":[]},{"title":"Interactively exploring a DST","level":"2.1.9","depth":2,"path":"first-analysis-steps/interactive-dst.md","ref":"first-analysis-steps/interactive-dst.md","articles":[]},{"title":"Fun with LoKi Functors","level":"2.1.10","depth":2,"path":"first-analysis-steps/loki-functors.md","ref":"first-analysis-steps/loki-functors.md","articles":[]},{"title":"Running a minimal DaVinci job locally","level":"2.1.11","depth":2,"path":"first-analysis-steps/minimal-dv-job.md","ref":"first-analysis-steps/minimal-dv-job.md","articles":[]},{"title":"Running DaVinci on the grid","level":"2.1.12","depth":2,"path":"first-analysis-steps/davinci-grid.md","ref":"first-analysis-steps/davinci-grid.md","articles":[]},{"title":"TupleTools and branches","level":"2.1.13","depth":2,"path":"first-analysis-steps/add-tupletools.md","ref":"first-analysis-steps/add-tupletools.md","articles":[]},{"title":"How do I use DecayTreeFitter?","level":"2.1.14","depth":2,"path":"first-analysis-steps/decay-tree-fitter.md","ref":"first-analysis-steps/decay-tree-fitter.md","articles":[]},{"title":"More Ganga","level":"2.1.15","depth":2,"path":"first-analysis-steps/ganga-data.md","ref":"first-analysis-steps/ganga-data.md","articles":[]},{"title":"Storing large files on EOS","level":"2.1.16","depth":2,"path":"first-analysis-steps/eos-storage.md","ref":"first-analysis-steps/eos-storage.md","articles":[]},{"title":"Splitting a job into subjobs","level":"2.1.17","depth":2,"path":"first-analysis-steps/split-jobs.md","ref":"first-analysis-steps/split-jobs.md","articles":[]},{"title":"Developing LHCb Software","level":"2.1.18","depth":2,"path":"first-analysis-steps/lhcb-dev.md","ref":"first-analysis-steps/lhcb-dev.md","articles":[]},{"title":"Asking good questions","level":"2.1.19","depth":2,"path":"first-analysis-steps/asking-questions.md","ref":"first-analysis-steps/asking-questions.md","articles":[]},{"title":"Early career, gender and diversity","level":"2.1.20","depth":2,"path":"first-analysis-steps/ecgd.md","ref":"first-analysis-steps/ecgd.md","articles":[]},{"title":"Contribute to this lesson","level":"2.1.21","depth":2,"path":"first-analysis-steps/contributing-lesson.md","ref":"first-analysis-steps/contributing-lesson.md","articles":[]}]},"previous":{"title":"The LHCb Starterkit","level":"1.1","depth":1,"path":"README.md","ref":"README.md","articles":[{"title":"Contributing","level":"1.1.1","depth":2,"path":"CONTRIBUTING.md","ref":"CONTRIBUTING.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["-sharing","panels@git+https://github.com/lhcb/gitbook-plugin-panels.git#master","katex-auto-render@git+https://github.com/lhcb/gitbook-plugin-katex-auto-render.git#master","collapsible-menu"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"panels":{},"katex-auto-render":{},"collapsible-menu":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"The Starterkit team and contributors","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"gitbook":"*"},"file":{"path":"CONTRIBUTING.md","mtime":"2017-06-20T15:31:40.133Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-06-20T15:33:19.507Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>
