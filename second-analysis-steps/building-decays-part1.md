@@ -1,4 +1,5 @@
-# Building your own decay. A Historical Approach
+# Building your own decay
+## A Historical Approach
 
 {% objectives "Learning Objectives" %}
 * Build a decay chain using the most basic tools

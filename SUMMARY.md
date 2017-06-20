@@ -32,9 +32,10 @@
 
 * [Second analysis steps](second-analysis-steps/README.md)
     * [Using git to develop LHCb software](second-analysis-steps/lb-git.md)
-    * [Building your own decay. The Selection Framework](second-analysis-steps/building-decays-part0.md)
-    * [Building your own decay. A Historical Approach](second-analysis-steps/building-decays-part1.md)
-    * [Building your own decay. Modern Selection Framework](second-analysis-steps/building-decays-part2.md)
+    * [Building your own decay](second-analysis-steps/building-decays.md)
+      * [The Selection Framework](second-analysis-steps/building-decays-part0.md)
+      * [A Historical Approach](second-analysis-steps/building-decays-part1.md)
+      * [Modern Selection Framework](second-analysis-steps/building-decays-part2.md)
     * [What to do when something fails](second-analysis-steps/fixing-errors.md)
     * [Run a different stripping line on simulated data](second-analysis-steps/rerun-stripping.md)
     * [Replace a mass hypothesis](second-analysis-steps/switch-mass-hypo.md)

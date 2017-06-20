@@ -1,4 +1,5 @@
-# Building your own decay. Modern Selection Framework
+# Building your own decay
+## Modern Selection Framework
 
 {% objectives "Learning Objectives" %}
 * Build a decay chain with the most optimized tools
