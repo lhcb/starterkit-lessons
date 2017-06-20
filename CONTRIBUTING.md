@@ -1,4 +1,6 @@
-starterkit-lessons is an open source project,
+# Contributing
+
+[starterkit-lessons][repo] is an open source project,
 and we welcome contributions of all kinds:
 
 * New lessons;
@@ -47,6 +49,7 @@ $ gitbook serve
 ```
 
 [conduct]: CONDUCT.md
+[repo]: https://github.com/lhcb/starterkit-lessons/issues
 [issues]: https://github.com/lhcb/starterkit-lessons/issues
 [license]: LICENSE.md
 [pro-git-chapter]: http://git-scm.com/book/en/v2/GitHub-Contributing-to-a-Project

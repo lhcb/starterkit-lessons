@@ -1,6 +1,7 @@
 # Summary
 
 * [The LHCb Starterkit](README.md)
+  * [Contributing](CONTRIBUTING.md)
 
 ----
 
