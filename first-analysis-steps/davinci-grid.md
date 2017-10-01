@@ -14,7 +14,6 @@ job](minimal-dv-job.html) and run it on the grid.
 jobs. Start it with:
 
 ```bash
-$ SetupProject Ganga
 $ ganga
 ```
 
