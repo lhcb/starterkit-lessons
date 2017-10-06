@@ -8,3 +8,4 @@ If you'd just like to learn about how to use the LHCb software, [read
 on](first-analysis-steps)!
 
 [starterkit]: https://lhcb.github.io/starterkit
+[first-analysis-steps]: https://lhcb.github.io/starterkit-lessons/first-analysis-steps/

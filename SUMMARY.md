@@ -45,6 +45,11 @@
     * [Ganga Scripting](second-analysis-steps/ganga-scripting.md)
     * [Managing files in Ganga](second-analysis-steps/managing-files-with-ganga.md)
 
+---
+
+* [Using the grid](using-the-grid/README.md)
+    * [Grid proxies without LbScripts](using-the-grid/local-grid-proxy.md)
+
 ----
 
  * [Download PDF](ref://starterkit-lessons.pdf)
