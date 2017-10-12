@@ -42,11 +42,12 @@ Install the Gitbook plugins:
 $ gitbook install
 ```
 
-Then build the pages and start a web server to host them:
+Then (from the starterkit-lessons directory) build the pages and start a web server to host them:
 
 ```shell
 $ gitbook serve
 ```
+You can see your local version by using a web-browser to navigate to `http://localhost:4000` or wherever it says it's serving the book.
 
 [conduct]: CONDUCT.md
 [repo]: https://github.com/lhcb/starterkit-lessons/issues

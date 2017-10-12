@@ -2,7 +2,7 @@
 
 {% objectives "Learning Objectives" %}
 * You will be ready for the workshop!
-{% endobjectives %} 
+{% endobjectives %}
 
 Please read and try the following steps **before** arriving. For
 some of the steps the solution requires waiting for a day or so.
@@ -21,7 +21,7 @@ a computer. There will be no machines for you to use in the room.
 
 If this is the first time you are bringing your laptop to CERN, you
 will have to [register it](https://network.cern.ch) before it can
-access the internet. Both the WiFi and the ethernet connection need to be 
+access the internet. Both the WiFi and the ethernet connection need to be
 registered.
 
 Please bring an ethernet/network cable (even if you have WiFi) and
@@ -31,7 +31,7 @@ your power supply, as well as a plug adaptor to Swiss and European plugs.
 In the following we assume you use Mac OS X or Linux. If you are running
 Windows, step 2 is replaced by a list of instructions given at the bottom
 of this page.
-{% endcallout %} 
+{% endcallout %}
 
 Try the following steps with the computer you will use at the workshop:
 
@@ -39,10 +39,15 @@ Try the following steps with the computer you will use at the workshop:
     If you need help with your grid certificate there is the
     [Grid certificate FAQ](https://twiki.cern.ch/twiki/bin/view/LHCb/FAQ/Certificate)
     and you can ask questions on `lhcb-distributed-analysis@cern.ch`.
- 2. From a terminal (`xterm` on Linux or `Terminal` on Mac OS X) connect to 
+ 2. From a terminal (`xterm` on Linux or `Terminal` on Mac OS X) connect to
     lxplus with `ssh -X lxplus.cern.ch`.
     If your local username is different from your `lxplus` one use `ssh -X mylxplusname@lxplus.cern.ch`.
     Please try exactly this command even if you usually use an alias or other shortcut.
+    >If, just below the `Password:` line, you get a message `Warning: untrusted X11 forwarding setup failed: xauth key data not generated`:
+    >* Logout (using `logout` or `ctrl-d`)
+    >* Login using `-Y` instead of `-X`
+    >* This will switch to trusted X11 forwarding and you may see a message like `Warning: No xauth data; using fake authentication data for X11 forwarding.`
+
  3. Once connected, check your grid certificate works by typing
     `lhcb-proxy-init`. If you need help with your grid certificate there is the
     [Grid certificate FAQ](https://twiki.cern.ch/twiki/bin/view/LHCb/FAQ/Certificate)
@@ -76,27 +81,28 @@ Try the following steps with the computer you will use at the workshop:
  4. Check that X11 forwarding works by typing `xeyes` on lxplus. A set
     of eyes following your mouse should appear on your screen. Press
     `Ctrl-C` to exit.
+    >If you're not connected to the CERN network at CERN, do not worry if the X11 forwarding is slow--this is normal.
 
-If you can successfully execute all of the above steps, you are ready to go for 
+If you can successfully execute all of the above steps, you are ready to go for
 the workshop!
 
 {% callout "Using Bash" %}
-The [Bash shell](http://en.wikipedia.org/wiki/Bash_(Unix_shell)) will be used 
+The [Bash shell](http://en.wikipedia.org/wiki/Bash_(Unix_shell)) will be used
 throughout the workshop.
 The default for new LHCb computing accounts is now Bash. If you have an older
-account, the default used to be a shell called `tcsh` 
-(“tee-cee-shell”), which has subtly different ways of doing things 
+account, the default used to be a shell called `tcsh`
+(“tee-cee-shell”), which has subtly different ways of doing things
 in comparison with Bash.
 
-It is recommended to change your default shell to Bash if this is the case, which is much more 
-widely used than `tcsh` and also supported by LHCb, by visiting the your 
-[CERN account page](https://account.cern.ch), then clicking “Resources and 
-services”, then “List services”, “LXPLUS and Linux”, “Settings”, then change 
+It is recommended to change your default shell to Bash if this is the case, which is much more
+widely used than `tcsh` and also supported by LHCb, by visiting the your
+[CERN account page](https://account.cern.ch), then clicking “Resources and
+services”, then “List services”, “LXPLUS and Linux”, “Settings”, then change
 “Unix shell” to `/bin/bash`, and click “Save Selection”.
 
-If you don't want to change your default shell, just execute the `bash` 
+If you don't want to change your default shell, just execute the `bash`
 command when you login to lxplus.
-{% endcallout %} 
+{% endcallout %}
 
 
 {% callout "Windows-specific Instructions" %}
@@ -120,4 +126,4 @@ The following steps have to be executed each time you want to connect:
 8. A window appears with the text `login as:`. Type your CERN username, followed by Enter.
 9. The window should say `Using keyboard-interactive authentication. Password:`. Type your password, again followed by Enter.
 10. You now have a remote SSH session at an lxplus server node!
-{% endcallout %} 
+{% endcallout %}
