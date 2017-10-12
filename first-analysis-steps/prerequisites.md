@@ -43,7 +43,11 @@ Try the following steps with the computer you will use at the workshop:
     lxplus with `ssh -X lxplus.cern.ch`.
     If your local username is different from your `lxplus` one use `ssh -X mylxplusname@lxplus.cern.ch`.
     Please try exactly this command even if you usually use an alias or other shortcut.
-    If you get a message `Warning: untrusted X11 forwarding setup failed: xauth key data not generated` just below the `Password:` line, logout (using `logout` or `ctrl-d`) and use `-Y` instead of `-X`--this will switch to trusted X11 forwarding and you may see a message like `Warning: No xauth data; using fake authentication data for X11 forwarding.`
+    >If, just below the `Password:` line, you get a message `Warning: untrusted X11 forwarding setup failed: xauth key data not generated`:
+    >* Logout (using `logout` or `ctrl-d`)
+    >* Login using `-Y` instead of `-X`
+    >* This will switch to trusted X11 forwarding and you may see a message like `Warning: No xauth data; using fake authentication data for X11 forwarding.`
+
  3. Once connected, check your grid certificate works by typing
     `lhcb-proxy-init`. If you need help with your grid certificate there is the
     [Grid certificate FAQ](https://twiki.cern.ch/twiki/bin/view/LHCb/FAQ/Certificate)
@@ -77,6 +81,7 @@ Try the following steps with the computer you will use at the workshop:
  4. Check that X11 forwarding works by typing `xeyes` on lxplus. A set
     of eyes following your mouse should appear on your screen. Press
     `Ctrl-C` to exit.
+    >If you're not connected to the CERN network at CERN, do not worry if the X11 forwarding is slow--this is normal.
 
 If you can successfully execute all of the above steps, you are ready to go for
 the workshop!
