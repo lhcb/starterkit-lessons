@@ -10,8 +10,8 @@ After this, a tree of various application and processing versions will
 eventually lead to the data you need.
 
 So, before we can run our first DaVinci job we need to locate some events. In 
-this tutorial we will use the decay $$D^{*+} \to D^{0}\pi^{+}$$ as an example, 
-where the $$D^{0}$$ decays to $$K^{-}\pi^{+}$$.
+this tutorial we will use the decay $$D^{* +} \to D^{0}\pi^{+}$$ as an example, 
+where the $$D^{0}$$ decays to $$K^{-} K^{+}$$.
 
 {% objectives "Learning Objectives" %}
 * Find MC in the bookkeeping
@@ -19,7 +19,7 @@ where the $$D^{0}$$ decays to $$K^{-}\pi^{+}$$.
 * Find the decay you want
 * check reco
 * ignore what (flagged) stripping is used
-* run over those files with the strip21 module you want
+* run over those files with the strip28 module you want
 * nTuples!
 {% endobjectives %}
 
@@ -30,29 +30,29 @@ and real data.
 
 At the bottom of the "Bookkeeping tree" tab there is a drop-down menu
 labelled `Simulation Condition`, open it and change it to `Event
-type`.
+type`. This changes the way the bookkeeping tree is sorted, making it easier for us to locate files by event.
 
-We will analyse 2012 data, and correspondingly use simulation for 2012
+We will analyse 2016 data, and correspondingly use simulation for 2016
 data. To navigate to the simulation, expand the folder icon in the
-"Bookkeeping tree" window. Navigate to the `MC/2012` folder. This will
+"Bookkeeping tree" window. Navigate to the `MC/2016` folder. This will
 give you a very long list of all possible decay types for which there
 is simulated data. We are looking for a folder which is named
-`27163003 (Dst_D0pi,Kpi=DecProdCut)`. The number is a numerical
+`27163002 (Dst_D0pi,KK=DecProdCut)`. The number is a numerical
 representation of the [event
 type](https://cds.cern.ch/record/855452?ln=en).  The text is the human
 readable version of that.
 
-This sample of simulated events will only contain events where a $$D^{*+} \to 
-D^{0}(\to K^{-}\pi^{+})\pi^{+}$$ was generated within the LHCb acceptance, 
+This sample of simulated events will only contain events where a $$D^{* +} \to 
+D^{0}(\to K^{-}K^{+})\pi^{+}$$ was generated within the LHCb acceptance, 
 although the decay might not have been fully reconstructed. (Not all simulated 
 samples have the same requirements made on the signal decay.)
 
-If you expand the `27163003 (Dst_D0pi,Kpi=DecProdCut)` folder you
-will find several different subfolders to choose from. The names of these 
+If you expand the `27163002 (Dst_D0pi,KK=DecProdCut)` folder you
+will find a couple different subfolders to choose from. The names of these 
 subfolders correspond to different data-taking conditions, such as magnet 
 polarity (`MagDown` and `MagUp`), as well as different software versions used 
-to create the different samples that are available. We will use 
-`Beam4000GeV-2012-MagDown-Nu2.5-Pythia8`.
+to create the samples that are available. We will use 
+`Beam6500GeV-2016-MagDown-Nu1.6-25ns-Pythia8`.
 
 {% callout "So much choice!" %}
 Often there are only one or two combinations of data-taking conditions and 
@@ -63,9 +63,9 @@ not sure.
 {% endcallout %}
 
 Next we need to choose what version of the simulation you want to
-use. Usually the latest available version is best, which is `Sim08e` in
-this case. We also have to choose the version of the
-digitisation and what configuration of the trigger and reconstruction
+use. There is only one available in our case, `Sim09b`, but usually the latest available version is best when there are more than one.
+We also have to choose the version of the
+digitisation and what configuration of the trigger (`Trig0x6138160F` in our case) and reconstruction
 we want to have in the simulated sample. Usually
 there is only one choice for these, which makes choosing easier.
 
@@ -86,12 +86,12 @@ After all this, you will be presented with a `ALLSTREAMS.DST` entry. By
 clicking on it we finally see a list of files that we can
 process. At the bottom right of the page there is a “Save” button
 which will let us download a file specifying the inputs that we'll use for 
-running our DaVinci job. Click it and select “Save as a
-python file”. Clicking “Save” once again in the pop-up menu will start the
+running our DaVinci job. Click it, select “Save as a
+python file”, and add `.py` to the end of the text in “Save As...”. Clicking “Save” once again in the pop-up menu will start the
 download. Save this file somewhere you can find it again.
 
 A copy of the file we just downloaded is [available
-here](data/MC_2012_27163003_Beam4000GeV2012MagDownNu2.5Pythia8_Sim08e_Digi13_Trig0x409f0045_Reco14a_Stripping20NoPrescalingFlagged_ALLSTREAMS.DST.py).
+here](data/MC_2016_27163002_Beam6500GeV2016MagDownNu1.625nsPythia8_Sim09b_Trig0x6138160F_Reco16_Turbo03_Stripping28NoPrescalingFlagged_ALLSTREAMS.DST.py).
 
 {% callout "Shortcut" %}
 Once you get a bit of experience with navigating the bookkeeping you 

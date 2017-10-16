@@ -3,10 +3,10 @@ j.backend = Dirac()
 j.name = 'First ganga job'
 j.inputdata = j.application.readInputData((
     'data/'
-    'MC_2012_27163003_Beam4000GeV2012MagDownNu2.5'
-    'Pythia8_Sim08e_Digi13_'
-    'Trig0x409f0045_Reco14a_Stripping20NoPrescalingFlagged_'
-    'ALLSTREAMS.DST.py'
+    "MC_2016_27163002_"
+    "Beam6500GeV2016MagDownNu1.625nsPythia8_Sim09b_"
+    "Trig0x6138160F_Reco16_Turbo03_"
+    "Stripping28NoPrescalingFlagged_ALLSTREAMS.DST.py"
 ))
-j.application.optsfile = 'code/11-davinci-grid/ntuple_options_grid.py'
+j.application.optsfile = 'code/davinci-grid/ntuple_options_grid.py'
 j.submit()

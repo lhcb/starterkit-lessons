@@ -10,9 +10,9 @@ Once you have made a hypothesis on the chain of decays that lead to your final s
 
 For example, for the decay
 ```python
-'[D*(2010)+ -> (D0 -> K- pi+) pi+]CC'
+'[D*(2010)+ -> (D0 -> K- K+) pi+]CC'
 ```
-you can make the assumption that the (K- pi+) combine to form a D0 with a specific invariant mass. This results in a so called *mass-constraint*. In addition the kaon and the pion should originate from exactly the same point in space. If you know that your data only contains prompt D* candidates, you can constrain them to do come from the primary vertex. Boundary conditions like those are called *vertex-constraints*.
+you can make the assumption that the (K- K+) combine to form a D0 with a specific invariant mass. This results in a so called *mass-constraint*. In addition the kaon and the pion should originate from exactly the same point in space. If you know that your data only contains prompt D* candidates, you can constrain them to do come from the primary vertex. Boundary conditions like those are called *vertex-constraints*.
 
 Applying such kinematic constraints leads to new best estimates for the track parameters of the final state particles. The process of calculating those is called a *kinematic refit* and the `TupleToolDecayTreeFitter` is the algorithm that performs this task for us.
 
@@ -24,7 +24,7 @@ filter](http://arxiv.org/abs/physics/0503191).
 So how do we use a `TupleToolDecayTreeFitter` to our DaVinci script? Let's create a branch to add the tool to. We'll just name it `'Dstar'`:
 ```python
 dtt.addBranches({
-    'Dstar': '[D*(2010)+ -> (D0 -> K- pi+) pi+]CC',
+    'Dstar': '[D*(2010)+ -> (D0 -> K- K+) pi+]CC',
 })
 ```
 To this branch we can now apply the `TupleToolDecayTreeFitter`.
@@ -66,7 +66,7 @@ of doubt.
 Once you have produced your ntuple you can have a look at the refitted variables.
 ```shell
 root -l DVntuple.root
-TupleDstToD0pi_D0ToKpi->cd()
+TupleDstToD0pi_D0ToKK->cd()
 DecayTree->StartViewer()
 ```
 Plotting the raw mass of the D* (without the fit) `Dstar_M` you should see a broad signal around 2 GeV:
@@ -121,12 +121,13 @@ dtt.Dstar.ConsDpipi.constrainToOriginVertex = True
 dtt.Dstar.ConsDpipi.Verbose = True
 dtt.Dstar.ConsDpipi.daughtersToConstrain = ['D0']
 ```
-We now can tell the fitter to substitute the kaon in the D0 decay by a pion.
+We now can tell the fitter to substitute one of the kaons in the D0 decay by a pion.
 ```python
 dtt.Dstar.ConsDpipi.Substitutions = {
-    'Charm -> (D0 -> ^K- pi+) Meson': 'pi-',
-    'Charm -> (D~0 -> ^K+ pi-) Meson': 'pi+'
-}
+    'Charm -> (D0 -> ^K- K+) Meson': 'pi-',
+    'Charm -> (D~0 -> ^K+ K-) Meson': 'pi+',
+    'Charm -> (D0 -> K- ^K+) Meson': 'pi+',
+    'Charm -> (D~0 -> K+ ^K-) Meson': 'pi-'}
 ```
 In the dictionary that is passed to the `Substitutions` property of the fitter, the keys are decay descriptors, where the respective particle to be substituted is marked with a `^`. The values are the respective new particle hypotheses. The substitution will only work if you start from a decay descriptor that actually matches your candidates. However, you are allowed to generalise parts of the decay. Here we replaced `D*(2010)` with the more general `Charm` and the bachelor `pi-` is just represented by a `Meson`.
 
