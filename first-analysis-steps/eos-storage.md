@@ -27,10 +27,10 @@ To add the DiracFile in the configuration of the job we just need:
 ```python
 j = Job(name='First ganga job')
 myApp = GaudiExec()
-myApp.directory = "./DaVinciDev_v41r2"
+myApp.directory = "./DaVinciDev_v42r6p1"
 j.application = myApp
 j.application.options = ['code/davinci-grid/ntuple_options_grid.py']
-j.application.readInputData('data/MC_2012_27163003_Beam4000GeV2012MagDownNu2.5Pythia8_Sim08e_Digi13_Trig0x409f0045_Reco14a_Stripping20NoPrescalingFlagged_ALLSTREAMS.DST.py')
+j.application.readInputData('data/MC_2016_27163002_Beam6500GeV2016MagDownNu1.625nsPythia8_Sim09b_Trig0x6138160F_Reco16_Turbo03_Stripping28NoPrescalingFlagged_ALLSTREAMS.DST.py')
 j.backend = Dirac()
 j.outputfiles = [
     DiracFile('DVntuple.root')

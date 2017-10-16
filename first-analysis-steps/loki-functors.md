@@ -37,14 +37,14 @@ if ever.
 
 To understand what we can do with LoKi functors, we will pick up from where we 
 left off [exploring a DST interactively](interactive-dst.html).
-Open the DST and get the first candidate in the `D2hhCompleteEventPromptDst2D2RS` line:
+Open the DST and get the first candidate in the `D2hhPromptDst2D2KKLine` line:
 
 ```python
-cands = evt['/Event/AllStreams/Phys/D2hhCompleteEventPromptDst2D2RSLine/Particles']
+cands = evt['/Event/AllStreams/Phys/D2hhPromptDst2D2KKLine/Particles']
 cand = cands[0]
 ```
 
-We can now try to get very simple properties of the $$D^{*+}$$ candidate, such 
+We can now try to get very simple properties of the $$D^{* -}$$ candidate, such 
 as its transverse momentum and measured mass.
 
 ```python
@@ -79,8 +79,8 @@ functor returned.
 {% endchallenge %} 
 
 
-If we want to get the properties of the $$D^{*+}$$ vertex, for example its fit 
-quality ($\chi^2$), we need to pass an object to the functor.
+If we want to get the properties of the $$D^{* -}$$ vertex, for example its fit 
+quality ($$\chi^2$$), we need to pass an object to the functor.
 
 ```python
 from LoKiPhys.decorators import VCHI2
@@ -123,7 +123,7 @@ pv_finder_tool = appMgr.toolsvc().create(
     'GenericParticle2PVRelator<_p2PVWithIPChi2, OfflineDistanceCalculatorName>/P2PVWithIPChi2',
     interface='IRelatedPVFinder'
 )
-pvs = evt['/Event/AllStreams/Rec/Vertex/Primary']
+pvs = evt['/Event/Rec/Vertex/Primary']
 best_pv = pv_finder_tool.relatedPV(cand, pvs)
 from LoKiPhys.decorators import DIRA
 print DIRA(best_pv)(cand)
@@ -141,7 +141,7 @@ The list can be overwhelming, so it's also worth checking a more curated selecti
 {% endcallout %} 
 
 So far we've only looked at the properties of the head of the decay (that is, 
-the $$D^{*+}$$), but what if we want to get information about its daughters? As 
+the $$D^{* -}$$), but what if we want to get information about its daughters? As 
 an example, let's get the largest transverse momentum of the final state 
 particles.
 A simple solution would be to navigate the tree and calculate the maximum 
@@ -205,10 +205,10 @@ This is why you should **always** use `&` and `|` when combining LoKi functors, 
 Similarly, the `SUMTREE` functor allows us to accumulate quantities for those children that pass a certain selection:
 ```python
 from LoKiPhys.decorators import SUMTREE, ABSID
-print SUMTREE(211 == ABSID, PT)(cand)
-print SUMTREE('pi+' == ABSID, PT)(cand)
+print SUMTREE(321 == ABSID, PT)(cand)
+print SUMTREE('K+' == ABSID, PT)(cand)
 ```
-In this case, we have summed the transverse momentum of the charged pions in the tree.
+In this case, we have summed the transverse momentum of the charged kaons in the tree.
 Note the usage of the `ABSID` functor, which selects particles from the decay 
 tree using either their [PDG Monte Carlo 
 ID](http://pdg.lbl.gov/2015/mcdata/mc_particle_id_contents.html) or their name.
@@ -221,13 +221,13 @@ For example, from
 In [10]: cand.daughtersVector()
 Out[10]:
 
- 0 |->D0                           M/PT/E/PX/PY/PZ: 1.8624/ 6.4521/ 47.44/-4.939/-4.152/ 46.96 [GeV]  #  0
-                                       EndVertex  X/Y/Z:0.2911/-0.2378/-14.38 [mm]  Chi2/nDoF 0.4039/1 #  0
- 1    |->K-                        M/PT/E/PX/PY/PZ: 0.4937/ 2.8013/ 25.45/-1.799/-2.147/ 25.29 [GeV]  # 19
- 1    |->pi+                       M/PT/E/PX/PY/PZ: 0.1396/ 3.7258/ 21.99/-3.141/-2.004/ 21.67 [GeV]  # 22
- 0 |->pi+                          M/PT/E/PX/PY/PZ: 0.1396/ 0.3701/ 2.678/-0.2873/-0.2333/ 2.649 [GeV]  # 10
+0 |->D~0                          M/PT/E/PX/PY/PZ: 1.8643/ 2.841 / 34.29/ 1.288/ 2.532/ 34.12 [GeV]  #  1 
+                                     EndVertex  X/Y/Z: 1.042/0.2034/-112.2 [mm]  Chi2/nDoF 0.007451/1 #  1 
+1    |->K-                        M/PT/E/PX/PY/PZ: 0.4937/ 2.2054/ 19.37/ 1.481/ 1.634/ 19.23 [GeV]  #  8 
+1    |->K+                        M/PT/E/PX/PY/PZ: 0.4937/ 0.9181/ 14.92/-0.1928/0.8977/ 14.89 [GeV]  #  7 
+0 |->pi-                          M/PT/E/PX/PY/PZ: 0.1396/ 0.1808/ 2.544/0.1047/0.1474/ 2.534 [GeV]  #  1 
 ```
-we know that `D0` is the first child and `pi+` is the second.
+we know that `D~0` is the first child and `pi-` is the second.
 Therefore, to access the $$p_{\text{T}}$$ of the $$D^{0}$$ we have 2 options.
 ```python
 from LoKiPhys.decorators import CHILD

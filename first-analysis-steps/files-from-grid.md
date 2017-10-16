@@ -5,23 +5,18 @@
 {% endobjectives %} 
 
 In the [previous section](bookkeeping.html), we obtained a file called 
-`MC_2012_27163003_Beam4000GeV2012MagDownNu2.5Pythia8_Sim08e_Digi13_Trig0x409f0045_Reco14a_Stripping20NoPrescalingFlagged_ALLSTREAMS.DST.py` 
+`MC_2016_27163002_Beam6500GeV2016MagDownNu1.625nsPythia8_Sim09b_Trig0x6138160F_Reco16_Turbo03_Stripping28NoPrescalingFlagged_ALLSTREAMS.DST` 
 which contains the following section:
 
 ```python
-IOHelper('ROOT').inputFiles(['LFN:/lhcb/MC/2012/ALLSTREAMS.DST/00035742/0000/00035742_00000001_1.allstreams.dst',
-'LFN:/lhcb/MC/2012/ALLSTREAMS.DST/00035742/0000/00035742_00000002_1.allstreams.dst',
-'LFN:/lhcb/MC/2012/ALLSTREAMS.DST/00035742/0000/00035742_00000003_1.allstreams.dst',
-'LFN:/lhcb/MC/2012/ALLSTREAMS.DST/00035742/0000/00035742_00000004_1.allstreams.dst',
-'LFN:/lhcb/MC/2012/ALLSTREAMS.DST/00035742/0000/00035742_00000005_1.allstreams.dst',
-'LFN:/lhcb/MC/2012/ALLSTREAMS.DST/00035742/0000/00035742_00000006_1.allstreams.dst',
-'LFN:/lhcb/MC/2012/ALLSTREAMS.DST/00035742/0000/00035742_00000007_1.allstreams.dst',
-'LFN:/lhcb/MC/2012/ALLSTREAMS.DST/00035742/0000/00035742_00000008_1.allstreams.dst',
-'LFN:/lhcb/MC/2012/ALLSTREAMS.DST/00035742/0000/00035742_00000009_1.allstreams.dst',
-'LFN:/lhcb/MC/2012/ALLSTREAMS.DST/00035742/0000/00035742_00000010_1.allstreams.dst'
+IOHelper('ROOT').inputFiles(['LFN:/lhcb/MC/2016/ALLSTREAMS.DST/00062514/0000/00062514_00000001_7.AllStreams.dst',
+'LFN:/lhcb/MC/2016/ALLSTREAMS.DST/00062514/0000/00062514_00000002_7.AllStreams.dst',
+'LFN:/lhcb/MC/2016/ALLSTREAMS.DST/00062514/0000/00062514_00000003_7.AllStreams.dst',
+'LFN:/lhcb/MC/2016/ALLSTREAMS.DST/00062514/0000/00062514_00000004_7.AllStreams.dst',
+...
 ], clear=True)
 ```
-which is just a collection of **L**ogical **F**ile **N**ames on the grid.
+which is just a collection of **L**ogical **F**ile **N**ames on the grid. ****
 
 This is a list of files that make up the dataset we are interested in. Each of 
 the files contains a number of individual events, so if we just want to take a 
@@ -29,7 +24,7 @@ quick look at the dataset, it is sufficient to just obtain one of those files.
 
 Before we can download the file, we need to set up our connection with the grid and load the Dirac software:
 ```bash
-lb-run LHCbDIRAC lhcb-proxy-init
+lhcb-proxy-init
 ```
 
 Initialisation of the proxy might take a while and should ask you for your certificate password.
@@ -37,17 +32,17 @@ Initialisation of the proxy might take a while and should ask you for your certi
 Once we have a working Dirac installation, getting the file is as easy as
 
 ```bash
-lb-run LHCbDIRAC dirac-dms-get-file LFN:/lhcb/MC/2012/ALLSTREAMS.DST/00035742/0000/00035742_00000002_1.allstreams.dst
+lb-run LHCbDIRAC dirac-dms-get-file LFN:/lhcb/MC/2016/ALLSTREAMS.DST/00062514/0000/00062514_00000001_7.AllStreams.dst
 ```
 
-Again this will take a while but afterwards you should have a file called `00035742_00000002_1.allstreams.dst` in the directory where you called the command.
+Again this will take a while but afterwards you should have a file called `00062514_00000001_7.AllStreams.dst` in the directory where you called the command.
 
 {% callout "Downloading the file during a Starterkit lesson" %}
 Lots of people downloading the same file at the same time can be very slow.
 As a workaround, the file is also available on EOS, and can be downloaded to
 your current directory with the following command:
 ```bash
-$ xrdcp root://eoslhcb.cern.ch//eos/lhcb/user/a/apearce/Starterkit/Nov2015/00035742_00000002_1.allstreams.dst .
+$ xrdcp root://eoslhcb.cern.ch//eos/lhcb/user/m/mwilkins/StarterKit/00062514_00000001_7.AllStreams.dst .
 ```
 {% endcallout %} 
 
@@ -60,14 +55,14 @@ XML catalog such that it can access them remotely.
 
 First generate the XML catalog with
 ```bash
-lb-run LHCbDIRAC dirac-bookkeeping-genXMLCatalog --Options=MC_2012_27163003_Beam4000GeV2012MagDownNu2.5Pythia8_Sim08e_Digi13_Trig0x409f0045_Reco14a_Stripping20NoPrescalingFlagged_ALLSTREAMS.DST.py --Catalog=myCatalog.xml
+lb-run LHCbDIRAC dirac-bookkeeping-genXMLCatalog --Options=MC_2016_27163002_Beam6500GeV2016MagDownNu1.625nsPythia8_Sim09b_Trig0x6138160F_Reco16_Turbo03_Stripping28NoPrescalingFlagged_ALLSTREAMS.DST.py --Catalog=myCatalog.xml
 ```
 and add
 ```python
 from Gaudi.Configuration import FileCatalog
 FileCatalog().Catalogs = [ "xmlcatalog_file:/path/to/myCatalog.xml" ]
 ```
-to your options file.
+to your options file. See the [bookkeeping twiki](https://twiki.cern.ch/twiki/bin/view/LHCb/LHCbDiracBKCLI).
 
 Warning: the replicas of an LFN may change, so first try to regenerate the XML catalog in case you cannot access a file using this recipe.
 {% endcallout %} 
