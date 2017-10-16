@@ -7,13 +7,7 @@
 
 The Large Hadron Collider provides proton-proton collisions to LHCb 40 million 
 times a second.
-This results in a _huge_ amount of data.
-
-Let's say we could somehow store the response of every subdetector in LHCb for 
-every event, a proton-proton bunch crossing, in only one kilobyte, that is to 
-say as 8000 ones and zeroes.
-This would mean you'd need 40 gigabytes of disk space to store one second of 
-data!
+This results in a _huge_ amount of data. In fact, if we were to store all the data coming in to LHCb, we would be recording ~ 1 TB _every second_.
 
 That's too much data for us to be able to keep all of it, the price of storage 
 is just too high, so instead we need to _filter_ the data and try to keep only 
@@ -151,6 +145,6 @@ project
 website](http://lhcb-release-area.web.cern.ch/LHCb-release-area/DOC/stripping/), 
 where you can see all the algorithms run and cuts applied in each _line_.
 For example, if we wanted to understand the 
-`StrippingD2hhCompleteEventPromptDst2D2RSLine` line, which we used in the 
-[exploring a DST](interactive-dst.html) lesson from now on, we would go 
+`StrippingD2hhCompleteEventPromptDst2D2RSLine` line, which we will use in the 
+[exploring a DST](interactive-dst.html) lesson later on, we would go 
 [here](http://lhcb-release-area.web.cern.ch/LHCb-release-area/DOC/stripping/config/stripping21/charmcompleteevent/strippingd2hhcompleteeventpromptdst2d2rsline.html).
