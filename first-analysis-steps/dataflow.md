@@ -136,9 +136,9 @@ TWiki](https://twiki.cern.ch/twiki/bin/view/LHCb/LHCbStripping).
 In it we can find:
 
   - The status of the current stripping, e.g. for [Stripping 
-    `S21r1`](http://lhcbproject.web.cern.ch/lhcbproject/Reprocessing/stats-re-stripping-fall14.html).
+    `S28`](http://lhcbproject.web.cern.ch/lhcbproject/Reprocessing/stats-re-stripping28.html).
   - The configuration of all past stripping campaign, e.g. for [Stripping 
-    `S20`](https://twiki.cern.ch/twiki/bin/view/LHCb/Stripping20Configuration).
+    `S21r1`](http://lhcbproject.web.cern.ch/lhcbproject/Reprocessing/stats-re-stripping-fall14.html).
 
 Additionally, the information on all strippings can be found in the [stripping 
 project 
