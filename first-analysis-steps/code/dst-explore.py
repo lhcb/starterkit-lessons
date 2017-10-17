@@ -12,6 +12,7 @@ MCHit = GP.gbl.LHCb.MCHit
 
 
 def nodes(evt, node=None):
+    """List all nodes in `evt`"""
     nodenames = []
 
     if node is None:
@@ -52,7 +53,7 @@ def advance(decision):
     return n
 
 dv = DaVinci()
-dv.DataType = '2012'
+dv.DataType = '2016'
 
 # Pass file to open as first command line argument
 inputFiles = [sys.argv[-1]]

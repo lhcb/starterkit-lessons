@@ -1,5 +1,6 @@
 from Configurables import DecayTreeTuple
 from DecayTreeTuple.Configuration import *
+from Configurables import DaVinci
 
 # Stream and stripping line we want to use
 stream = 'AllStreams'
@@ -9,8 +10,6 @@ line = 'D2hhPromptDst2D2KKLine'
 dtt = DecayTreeTuple('TupleDstToD0pi_D0ToKK')
 dtt.Inputs = ['/Event/{0}/Phys/{1}/Particles'.format(stream, line)]
 dtt.Decay = '[D*(2010)+ -> (D0 -> K- K+) pi+]CC'
-
-from Configurables import DaVinci
 
 # Configure DaVinci
 DaVinci().UserAlgorithms += [dtt]

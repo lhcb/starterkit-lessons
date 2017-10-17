@@ -42,7 +42,7 @@ Lots of people downloading the same file at the same time can be very slow.
 As a workaround, the file is also available on EOS, and can be downloaded to
 your current directory with the following command:
 ```bash
-$ xrdcp root://eoslhcb.cern.ch//eos/lhcb/user/m/mwilkins/StarterKit/00062514_00000001_7.AllStreams.dst .
+$ xrdcp root://eoslhcb.cern.ch//eos/lhcb/user/m/mwilkins/Starterkit/00062514_00000001_7.AllStreams.dst .
 ```
 {% endcallout %} 
 
