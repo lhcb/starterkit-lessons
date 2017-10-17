@@ -16,7 +16,7 @@ IOHelper('ROOT').inputFiles(['LFN:/lhcb/MC/2016/ALLSTREAMS.DST/00062514/0000/000
 ...
 ], clear=True)
 ```
-which is just a collection of **L**ogical **F**ile **N**ames on the grid. ****
+which is just a collection of **L**ogical **F**ile **N**ames on the grid.
 
 This is a list of files that make up the dataset we are interested in. Each of 
 the files contains a number of individual events, so if we just want to take a 
