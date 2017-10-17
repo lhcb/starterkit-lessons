@@ -25,12 +25,12 @@ enormous effort improving the reconstruction software both online and offline
 in between Run 1 and Run 2, the two reconstructions now perform identically.
 This means if HLT2 performs all the reconstruction you need in your analysis, 
 there's no need to wait for the offline reconstruction to run!
-This saves a lot of time (it's Turbo, after all), and hence money).
+This saves a lot of time (it's Turbo, after all), and hence money.
 
 This saves time and money, but you still have many more events to save. To 
 overcome this, events saved to the Turbo stream contain _only_ the candidates 
 that were reconstructed in the trigger. That is to say, any tracks or detector 
-responses that don't form part of the decay that the trigger lines uses to 
+responses that don't form part of the decay that the trigger line uses to 
 evaluate its selection is thrown away.
 This is quite pragmatic, because a lot of analyses don't use this information 
 anyway.
@@ -45,7 +45,7 @@ the trigger.
 This stream cannot be re-reconstructed because the information needed to do 
 that is thrown away to save disk space.
 
-From our point of view, though, this doesn't change things much because we can run 
+For the topics covered in this course, though, this doesn't change things much because we can run 
 DaVinci over the Turbo stream in exactly the same manner as for the stripping 
 output. We will just need to look in a different place to find the selection 
 definitions, this time for _trigger lines_ rather than stripping lines.

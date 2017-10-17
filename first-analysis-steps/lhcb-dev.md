@@ -68,7 +68,7 @@ If you want to make changes to a software package, you will need to set up a
 development environment. `lb-dev` is your friend here:
 
 ```bash
-lb-dev --name DaVinciDev DaVinci/v42r2
+lb-dev --name DaVinciDev DaVinci/v42r6p1
 ```
 
 The output should look similar to this:
@@ -153,7 +153,7 @@ Moreover you can call `git lb-use` several times for different remote
 projects in the same local project:
 
 ```bash
-lb-dev --name DaVinciDev DaVinci/v42r2
+lb-dev --name DaVinciDev DaVinci/v42r6p1
 cd DaVinciDev
 git lb-use Analysis
 git lb-use Stripping
@@ -253,7 +253,7 @@ It allows you to search for a given string in the source code of a particular
 LHCb project.
 
 ```bash
-Lbglimpse "PVRefitter" DaVinci v42r2
+Lbglimpse "PVRefitter" DaVinci v42r6p1
 ```
 This works with every LHCb project and released version. Since it's a shell
 command, you can easily process the output using `less`, `grep`, and other

@@ -44,8 +44,8 @@ Try the following steps with the computer you will use at the workshop:
     If your local username is different from your `lxplus` one use `ssh -X mylxplusname@lxplus.cern.ch`.
     Please try exactly this command even if you usually use an alias or other shortcut.
     >If, just below the `Password:` line, you get a message `Warning: untrusted X11 forwarding setup failed: xauth key data not generated`:
-    >* Logout (using `logout` or `ctrl-d`)
-    >* Login using `-Y` instead of `-X`
+    >* Logout (using `logout` or `Ctrl-d`)
+    >* Login using [`-Y`](https://man.openbsd.org/ssh#Y) instead of [`-X`](https://man.openbsd.org/ssh#X)
     >* This will switch to trusted X11 forwarding and you may see a message like `Warning: No xauth data; using fake authentication data for X11 forwarding.`
 
  3. Once connected, check your grid certificate works by typing
@@ -80,14 +80,14 @@ Try the following steps with the computer you will use at the workshop:
 
  4. Check that X11 forwarding works by typing `xeyes` on lxplus. A set
     of eyes following your mouse should appear on your screen. Press
-    `Ctrl-C` to exit.
+    `Ctrl-C` from the terminal to exit.
     >If you're not connected to the CERN network at CERN, do not worry if the X11 forwarding is slow--this is normal.
 
 If you can successfully execute all of the above steps, you are ready to go for
 the workshop!
 
 {% callout "Using Bash" %}
-The [Bash shell](http://en.wikipedia.org/wiki/Bash_(Unix_shell)) will be used
+The [Bash shell](http://en.wikipedia.org/wiki/Bash_(Unix_shell%29) will be used
 throughout the workshop.
 The default for new LHCb computing accounts is now Bash. If you have an older
 account, the default used to be a shell called `tcsh`
