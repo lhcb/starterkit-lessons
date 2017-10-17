@@ -87,7 +87,7 @@ If you can successfully execute all of the above steps, you are ready to go for
 the workshop!
 
 {% callout "Using Bash" %}
-The [Bash shell](http://en.wikipedia.org/wiki/Bash_(Unix_shell)) will be used
+The [Bash shell](http://en.wikipedia.org/wiki/Bash_(Unix_shell%29) will be used
 throughout the workshop.
 The default for new LHCb computing accounts is now Bash. If you have an older
 account, the default used to be a shell called `tcsh`
