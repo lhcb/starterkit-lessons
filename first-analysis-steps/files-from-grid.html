@@ -680,18 +680,13 @@
 </ul>
 </div></div> </p>
 <p>In the <a href="bookkeeping.html">previous section</a>, we obtained a file called 
-<code>MC_2012_27163003_Beam4000GeV2012MagDownNu2.5Pythia8_Sim08e_Digi13_Trig0x409f0045_Reco14a_Stripping20NoPrescalingFlagged_ALLSTREAMS.DST.py</code> 
+<code>MC_2016_27163002_Beam6500GeV2016MagDownNu1.625nsPythia8_Sim09b_Trig0x6138160F_Reco16_Turbo03_Stripping28NoPrescalingFlagged_ALLSTREAMS.DST</code> 
 which contains the following section:</p>
-<pre><code class="lang-python">IOHelper(<span class="hljs-string">&apos;ROOT&apos;</span>).inputFiles([<span class="hljs-string">&apos;LFN:/lhcb/MC/2012/ALLSTREAMS.DST/00035742/0000/00035742_00000001_1.allstreams.dst&apos;</span>,
-<span class="hljs-string">&apos;LFN:/lhcb/MC/2012/ALLSTREAMS.DST/00035742/0000/00035742_00000002_1.allstreams.dst&apos;</span>,
-<span class="hljs-string">&apos;LFN:/lhcb/MC/2012/ALLSTREAMS.DST/00035742/0000/00035742_00000003_1.allstreams.dst&apos;</span>,
-<span class="hljs-string">&apos;LFN:/lhcb/MC/2012/ALLSTREAMS.DST/00035742/0000/00035742_00000004_1.allstreams.dst&apos;</span>,
-<span class="hljs-string">&apos;LFN:/lhcb/MC/2012/ALLSTREAMS.DST/00035742/0000/00035742_00000005_1.allstreams.dst&apos;</span>,
-<span class="hljs-string">&apos;LFN:/lhcb/MC/2012/ALLSTREAMS.DST/00035742/0000/00035742_00000006_1.allstreams.dst&apos;</span>,
-<span class="hljs-string">&apos;LFN:/lhcb/MC/2012/ALLSTREAMS.DST/00035742/0000/00035742_00000007_1.allstreams.dst&apos;</span>,
-<span class="hljs-string">&apos;LFN:/lhcb/MC/2012/ALLSTREAMS.DST/00035742/0000/00035742_00000008_1.allstreams.dst&apos;</span>,
-<span class="hljs-string">&apos;LFN:/lhcb/MC/2012/ALLSTREAMS.DST/00035742/0000/00035742_00000009_1.allstreams.dst&apos;</span>,
-<span class="hljs-string">&apos;LFN:/lhcb/MC/2012/ALLSTREAMS.DST/00035742/0000/00035742_00000010_1.allstreams.dst&apos;</span>
+<pre><code class="lang-python">IOHelper(<span class="hljs-string">&apos;ROOT&apos;</span>).inputFiles([<span class="hljs-string">&apos;LFN:/lhcb/MC/2016/ALLSTREAMS.DST/00062514/0000/00062514_00000001_7.AllStreams.dst&apos;</span>,
+<span class="hljs-string">&apos;LFN:/lhcb/MC/2016/ALLSTREAMS.DST/00062514/0000/00062514_00000002_7.AllStreams.dst&apos;</span>,
+<span class="hljs-string">&apos;LFN:/lhcb/MC/2016/ALLSTREAMS.DST/00062514/0000/00062514_00000003_7.AllStreams.dst&apos;</span>,
+<span class="hljs-string">&apos;LFN:/lhcb/MC/2016/ALLSTREAMS.DST/00062514/0000/00062514_00000004_7.AllStreams.dst&apos;</span>,
+...
 ], clear=<span class="hljs-keyword">True</span>)
 </code></pre>
 <p>which is just a collection of <strong>L</strong>ogical <strong>F</strong>ile <strong>N</strong>ames on the grid.</p>
@@ -699,17 +694,17 @@ which contains the following section:</p>
 the files contains a number of individual events, so if we just want to take a 
 quick look at the dataset, it is sufficient to just obtain one of those files.</p>
 <p>Before we can download the file, we need to set up our connection with the grid and load the Dirac software:</p>
-<pre><code class="lang-bash">lb-run LHCbDIRAC lhcb-proxy-init
+<pre><code class="lang-bash">lhcb-proxy-init
 </code></pre>
 <p>Initialisation of the proxy might take a while and should ask you for your certificate password.</p>
 <p>Once we have a working Dirac installation, getting the file is as easy as</p>
-<pre><code class="lang-bash">lb-run LHCbDIRAC dirac-dms-get-file LFN:/lhcb/MC/2012/ALLSTREAMS.DST/00035742/0000/00035742_00000002_1.allstreams.dst
+<pre><code class="lang-bash">lb-run LHCbDIRAC dirac-dms-get-file LFN:/lhcb/MC/2016/ALLSTREAMS.DST/00062514/0000/00062514_00000001_7.AllStreams.dst
 </code></pre>
-<p>Again this will take a while but afterwards you should have a file called <code>00035742_00000002_1.allstreams.dst</code> in the directory where you called the command.</p>
+<p>Again this will take a while but afterwards you should have a file called <code>00062514_00000001_7.AllStreams.dst</code> in the directory where you called the command.</p>
 <p><div class="panel panel-primary"><div class="panel-heading"><h3 class="panel-title" id="downloading-the-file-during-a-starterkit-lesson"><i class="fa fa-info-circle"></i> Downloading the file during a Starterkit lesson</h3></div><div class="panel-body"><p>Lots of people downloading the same file at the same time can be very slow.
 As a workaround, the file is also available on EOS, and can be downloaded to
 your current directory with the following command:</p>
-<pre><code class="lang-bash">$ xrdcp root://eoslhcb.cern.ch//eos/lhcb/user/a/apearce/Starterkit/Nov2015/00035742_00000002_1.allstreams.dst .
+<pre><code class="lang-bash">$ xrdcp root://eoslhcb.cern.ch//eos/lhcb/user/m/mwilkins/Starterkit/00062514_00000001_7.AllStreams.dst .
 </code></pre>
 </div></div> </p>
 <p>Since these files tend to be quite large, you might want to use your AFS work 
@@ -717,13 +712,13 @@ directory instead of your AFS user directory to store files.</p>
 <p><div class="panel panel-primary"><div class="panel-heading"><h3 class="panel-title" id="alternative-read-files-remotely-instead-of-downloading-them"><i class="fa fa-info-circle"></i> Alternative: read files remotely instead of downloading them</h3></div><div class="panel-body"><p>To avoid filling up your AFS quota with DST files, you can also pass Gaudi an 
 XML catalog such that it can access them remotely.</p>
 <p>First generate the XML catalog with</p>
-<pre><code class="lang-bash">lb-run LHCbDIRAC dirac-bookkeeping-genXMLCatalog --Options=MC_2012_27163003_Beam4000GeV2012MagDownNu2.5Pythia8_Sim08e_Digi13_Trig0x409f0045_Reco14a_Stripping20NoPrescalingFlagged_ALLSTREAMS.DST.py --Catalog=myCatalog.xml
+<pre><code class="lang-bash">lb-run LHCbDIRAC dirac-bookkeeping-genXMLCatalog --Options=MC_2016_27163002_Beam6500GeV2016MagDownNu1.625nsPythia8_Sim09b_Trig0x6138160F_Reco16_Turbo03_Stripping28NoPrescalingFlagged_ALLSTREAMS.DST.py --Catalog=myCatalog.xml
 </code></pre>
 <p>and add</p>
 <pre><code class="lang-python"><span class="hljs-keyword">from</span> Gaudi.Configuration <span class="hljs-keyword">import</span> FileCatalog
 FileCatalog().Catalogs = [ <span class="hljs-string">&quot;xmlcatalog_file:/path/to/myCatalog.xml&quot;</span> ]
 </code></pre>
-<p>to your options file.</p>
+<p>to your options file. See the <a href="https://twiki.cern.ch/twiki/bin/view/LHCb/LHCbDiracBKCLI" target="_blank">bookkeeping twiki</a>.</p>
 <p>Warning: the replicas of an LFN may change, so first try to regenerate the XML catalog in case you cannot access a file using this recipe.</p>
 </div></div> </p>
 <p>If you want to obtain all the files, you can copy and paste the list of file names from the file you got from the bookkeeping and paste them into the following python script for convenience.</p>
@@ -795,7 +790,7 @@ and download them for you. So a simple</p>
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Downloading a file from the grid","level":"2.1.7","depth":2,"next":{"title":"Interactively exploring a DST","level":"2.1.8","depth":2,"path":"first-analysis-steps/interactive-dst.md","ref":"first-analysis-steps/interactive-dst.md","articles":[]},"previous":{"title":"Finding data in the Bookkeeping","level":"2.1.6","depth":2,"path":"first-analysis-steps/bookkeeping.md","ref":"first-analysis-steps/bookkeeping.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-sharing","panels@git+https://github.com/lhcb/gitbook-plugin-panels.git#master","katex-auto-render@git+https://github.com/lhcb/gitbook-plugin-katex-auto-render.git#master","collapsible-menu"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"panels":{},"katex-auto-render":{},"collapsible-menu":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"The Starterkit team and contributors","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"gitbook":"*"},"file":{"path":"first-analysis-steps/files-from-grid.md","mtime":"2017-10-12T14:44:06.974Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2017-10-12T14:45:34.095Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Downloading a file from the grid","level":"2.1.7","depth":2,"next":{"title":"Interactively exploring a DST","level":"2.1.8","depth":2,"path":"first-analysis-steps/interactive-dst.md","ref":"first-analysis-steps/interactive-dst.md","articles":[]},"previous":{"title":"Finding data in the Bookkeeping","level":"2.1.6","depth":2,"path":"first-analysis-steps/bookkeeping.md","ref":"first-analysis-steps/bookkeeping.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-sharing","panels@git+https://github.com/lhcb/gitbook-plugin-panels.git#master","katex-auto-render@git+https://github.com/lhcb/gitbook-plugin-katex-auto-render.git#master","collapsible-menu"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"panels":{},"katex-auto-render":{},"collapsible-menu":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"The Starterkit team and contributors","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"gitbook":"*"},"file":{"path":"first-analysis-steps/files-from-grid.md","mtime":"2017-10-17T11:55:42.790Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2017-10-17T11:58:45.773Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

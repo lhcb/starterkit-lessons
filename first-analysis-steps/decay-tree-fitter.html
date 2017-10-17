@@ -683,16 +683,16 @@
 </div></div> </p>
 <p>Once you have made a hypothesis on the chain of decays that lead to your final state, you then can incorporate the additional knowledge that comes with this hypothesis to get a new best estimate for the particle parameters -- in particular their momenta. The additional knowledge is represented as constraints, which your decay tree has to fulfill.</p>
 <p>For example, for the decay</p>
-<pre><code class="lang-python"><span class="hljs-string">&apos;[D*(2010)+ -&gt; (D0 -&gt; K- pi+) pi+]CC&apos;</span>
+<pre><code class="lang-python"><span class="hljs-string">&apos;[D*(2010)+ -&gt; (D0 -&gt; K- K+) pi+]CC&apos;</span>
 </code></pre>
-<p>you can make the assumption that the (K- pi+) combine to form a D0 with a specific invariant mass. This results in a so called <em>mass-constraint</em>. In addition the kaon and the pion should originate from exactly the same point in space. If you know that your data only contains prompt D<em> candidates, you can constrain them to do come from the primary vertex. Boundary conditions like those are called </em>vertex-constraints*.</p>
+<p>you can make the assumption that the (K- K+) combine to form a D0 with a specific invariant mass. This results in a so called <em>mass-constraint</em>. In addition the kaon and the pion should originate from exactly the same point in space. If you know that your data only contains prompt D<em> candidates, you can constrain them to do come from the primary vertex. Boundary conditions like those are called </em>vertex-constraints*.</p>
 <p>Applying such kinematic constraints leads to new best estimates for the track parameters of the final state particles. The process of calculating those is called a <em>kinematic refit</em> and the <code>TupleToolDecayTreeFitter</code> is the algorithm that performs this task for us.</p>
 <p><div class="panel panel-primary"><div class="panel-heading"><h3 class="panel-title" id="the-physics-and-mathematics-behind-decaytreefitter"><i class="fa fa-info-circle"></i> The physics and mathematics behind DecayTreeFitter</h3></div><div class="panel-body"><p>For details of the method see the paper on <a href="http://arxiv.org/abs/physics/0503191" target="_blank">Decay chain fitting with a Kalman 
 filter</a>.</p>
 </div></div> </p>
 <p>So how do we use a <code>TupleToolDecayTreeFitter</code> to our DaVinci script? Let&apos;s create a branch to add the tool to. We&apos;ll just name it <code>&apos;Dstar&apos;</code>:</p>
 <pre><code class="lang-python">dtt.addBranches({
-    <span class="hljs-string">&apos;Dstar&apos;</span>: <span class="hljs-string">&apos;[D*(2010)+ -&gt; (D0 -&gt; K- pi+) pi+]CC&apos;</span>,
+    <span class="hljs-string">&apos;Dstar&apos;</span>: <span class="hljs-string">&apos;[D*(2010)+ -&gt; (D0 -&gt; K- K+) pi+]CC&apos;</span>,
 })
 </code></pre>
 <p>To this branch we can now apply the <code>TupleToolDecayTreeFitter</code>.</p>
@@ -723,7 +723,7 @@ of doubt.</p>
 </div></div> </p>
 <p>Once you have produced your ntuple you can have a look at the refitted variables.</p>
 <pre><code class="lang-shell">root -l DVntuple.root
-TupleDstToD0pi_D0ToKpi-&gt;cd()
+TupleDstToD0pi_D0ToKK-&gt;cd()
 DecayTree-&gt;StartViewer()
 </code></pre>
 <p>Plotting the raw mass of the D* (without the fit) <code>Dstar_M</code> you should see a broad signal around 2 GeV:</p>
@@ -759,11 +759,12 @@ dtt.Dstar.ConsDpipi.constrainToOriginVertex = <span class="hljs-keyword">True</s
 dtt.Dstar.ConsDpipi.Verbose = <span class="hljs-keyword">True</span>
 dtt.Dstar.ConsDpipi.daughtersToConstrain = [<span class="hljs-string">&apos;D0&apos;</span>]
 </code></pre>
-<p>We now can tell the fitter to substitute the kaon in the D0 decay by a pion.</p>
+<p>We now can tell the fitter to substitute one of the kaons in the D0 decay by a pion.</p>
 <pre><code class="lang-python">dtt.Dstar.ConsDpipi.Substitutions = {
-    <span class="hljs-string">&apos;Charm -&gt; (D0 -&gt; ^K- pi+) Meson&apos;</span>: <span class="hljs-string">&apos;pi-&apos;</span>,
-    <span class="hljs-string">&apos;Charm -&gt; (D~0 -&gt; ^K+ pi-) Meson&apos;</span>: <span class="hljs-string">&apos;pi+&apos;</span>
-}
+    <span class="hljs-string">&apos;Charm -&gt; (D0 -&gt; ^K- K+) Meson&apos;</span>: <span class="hljs-string">&apos;pi-&apos;</span>,
+    <span class="hljs-string">&apos;Charm -&gt; (D~0 -&gt; ^K+ K-) Meson&apos;</span>: <span class="hljs-string">&apos;pi+&apos;</span>,
+    <span class="hljs-string">&apos;Charm -&gt; (D0 -&gt; K- ^K+) Meson&apos;</span>: <span class="hljs-string">&apos;pi+&apos;</span>,
+    <span class="hljs-string">&apos;Charm -&gt; (D~0 -&gt; K+ ^K-) Meson&apos;</span>: <span class="hljs-string">&apos;pi-&apos;</span>}
 </code></pre>
 <p>In the dictionary that is passed to the <code>Substitutions</code> property of the fitter, the keys are decay descriptors, where the respective particle to be substituted is marked with a <code>^</code>. The values are the respective new particle hypotheses. The substitution will only work if you start from a decay descriptor that actually matches your candidates. However, you are allowed to generalise parts of the decay. Here we replaced <code>D*(2010)</code> with the more general <code>Charm</code> and the bachelor <code>pi-</code> is just represented by a <code>Meson</code>.</p>
 <p>Note that the substitution mechanism does not understand the <code>CC</code> symbol. Both charge states have to be specified explicitely.</p>
@@ -818,7 +819,7 @@ here</a>.</p>
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"How do I use DecayTreeFitter?","level":"2.1.13","depth":2,"next":{"title":"More Ganga","level":"2.1.14","depth":2,"path":"first-analysis-steps/ganga-data.md","ref":"first-analysis-steps/ganga-data.md","articles":[]},"previous":{"title":"TupleTools and branches","level":"2.1.12","depth":2,"path":"first-analysis-steps/add-tupletools.md","ref":"first-analysis-steps/add-tupletools.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-sharing","panels@git+https://github.com/lhcb/gitbook-plugin-panels.git#master","katex-auto-render@git+https://github.com/lhcb/gitbook-plugin-katex-auto-render.git#master","collapsible-menu"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"panels":{},"katex-auto-render":{},"collapsible-menu":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"The Starterkit team and contributors","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"gitbook":"*"},"file":{"path":"first-analysis-steps/decay-tree-fitter.md","mtime":"2017-10-12T14:44:06.970Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2017-10-12T14:45:34.095Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"How do I use DecayTreeFitter?","level":"2.1.13","depth":2,"next":{"title":"More Ganga","level":"2.1.14","depth":2,"path":"first-analysis-steps/ganga-data.md","ref":"first-analysis-steps/ganga-data.md","articles":[]},"previous":{"title":"TupleTools and branches","level":"2.1.12","depth":2,"path":"first-analysis-steps/add-tupletools.md","ref":"first-analysis-steps/add-tupletools.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-sharing","panels@git+https://github.com/lhcb/gitbook-plugin-panels.git#master","katex-auto-render@git+https://github.com/lhcb/gitbook-plugin-katex-auto-render.git#master","collapsible-menu"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"panels":{},"katex-auto-render":{},"collapsible-menu":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"The Starterkit team and contributors","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"gitbook":"*"},"file":{"path":"first-analysis-steps/decay-tree-fitter.md","mtime":"2017-10-17T11:55:42.786Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2017-10-17T11:58:45.773Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

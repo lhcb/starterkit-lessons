@@ -708,11 +708,11 @@ if ever.</p>
 </div></div> </p>
 <p>To understand what we can do with LoKi functors, we will pick up from where we 
 left off <a href="interactive-dst.html">exploring a DST interactively</a>.
-Open the DST and get the first candidate in the <code>D2hhCompleteEventPromptDst2D2RS</code> line:</p>
-<pre><code class="lang-python">cands = evt[<span class="hljs-string">&apos;/Event/AllStreams/Phys/D2hhCompleteEventPromptDst2D2RSLine/Particles&apos;</span>]
+Open the DST and get the first candidate in the <code>D2hhPromptDst2D2KKLine</code> line:</p>
+<pre><code class="lang-python">cands = evt[<span class="hljs-string">&apos;/Event/AllStreams/Phys/D2hhPromptDst2D2KKLine/Particles&apos;</span>]
 cand = cands[<span class="hljs-number">0</span>]
 </code></pre>
-<p>We can now try to get very simple properties of the $$D^{*+}$$ candidate, such 
+<p>We can now try to get very simple properties of the $$D^{* -}$$ candidate, such 
 as its transverse momentum and measured mass.</p>
 <pre><code class="lang-python"><span class="hljs-keyword">from</span> LoKiPhys.decorators <span class="hljs-keyword">import</span> PT, M
 <span class="hljs-keyword">print</span> PT(cand)
@@ -733,8 +733,8 @@ p_components_sum(cand)
 </code></pre>
 <p><div class="panel panel-success"><div class="panel-heading"><h3 class="panel-title" id="does-it-make-sense"><i class="fa fa-check-square-o"></i> Does it make sense?</h3></div><div class="panel-body"><p>Retrieve the momentum magnitude </p>
 </div></div> </p>
-<p>If we want to get the properties of the $$D^{*+}$$ vertex, for example its fit 
-quality ($\chi^2$), we need to pass an object to the functor.</p>
+<p>If we want to get the properties of the $$D^{* -}$$ vertex, for example its fit 
+quality ($$\chi^2$$), we need to pass an object to the functor.</p>
 <pre><code class="lang-python"><span class="hljs-keyword">from</span> LoKiPhys.decorators <span class="hljs-keyword">import</span> VCHI2
 <span class="hljs-keyword">print</span> VCHI2(cand.endVertex())
 </code></pre>
@@ -766,7 +766,7 @@ In <code>GaudiPython</code>, we can get the PVs ourselves.</p>
     <span class="hljs-string">&apos;GenericParticle2PVRelator&lt;_p2PVWithIPChi2, OfflineDistanceCalculatorName&gt;/P2PVWithIPChi2&apos;</span>,
     interface=<span class="hljs-string">&apos;IRelatedPVFinder&apos;</span>
 )
-pvs = evt[<span class="hljs-string">&apos;/Event/AllStreams/Rec/Vertex/Primary&apos;</span>]
+pvs = evt[<span class="hljs-string">&apos;/Event/Rec/Vertex/Primary&apos;</span>]
 best_pv = pv_finder_tool.relatedPV(cand, pvs)
 <span class="hljs-keyword">from</span> LoKiPhys.decorators <span class="hljs-keyword">import</span> DIRA
 <span class="hljs-keyword">print</span> DIRA(best_pv)(cand)
@@ -780,7 +780,7 @@ They are quite well documented with examples on how to use them.
 The list can be overwhelming, so it&apos;s also worth checking a more curated selection of functors in the TWiki, <a href="https://twiki.cern.ch/twiki/bin/view/LHCb/LoKiHybridFilters" target="_blank">here</a> and <a href="https://twiki.cern.ch/twiki/bin/view/LHCb/LoKiParticleFunctions" target="_blank">here</a>.</p>
 </div></div> </p>
 <p>So far we&apos;ve only looked at the properties of the head of the decay (that is, 
-the $$D^{*+}$$), but what if we want to get information about its daughters? As 
+the $$D^{* -}$$), but what if we want to get information about its daughters? As 
 an example, let&apos;s get the largest transverse momentum of the final state 
 particles.
 A simple solution would be to navigate the tree and calculate the maximum 
@@ -830,10 +830,10 @@ Out[<span class="hljs-number">2</span>]:  ( (M&gt;<span class="hljs-number">1200
 </div></div> </p>
 <p>Similarly, the <code>SUMTREE</code> functor allows us to accumulate quantities for those children that pass a certain selection:</p>
 <pre><code class="lang-python"><span class="hljs-keyword">from</span> LoKiPhys.decorators <span class="hljs-keyword">import</span> SUMTREE, ABSID
-<span class="hljs-keyword">print</span> SUMTREE(<span class="hljs-number">211</span> == ABSID, PT)(cand)
-<span class="hljs-keyword">print</span> SUMTREE(<span class="hljs-string">&apos;pi+&apos;</span> == ABSID, PT)(cand)
+<span class="hljs-keyword">print</span> SUMTREE(<span class="hljs-number">321</span> == ABSID, PT)(cand)
+<span class="hljs-keyword">print</span> SUMTREE(<span class="hljs-string">&apos;K+&apos;</span> == ABSID, PT)(cand)
 </code></pre>
-<p>In this case, we have summed the transverse momentum of the charged pions in the tree.
+<p>In this case, we have summed the transverse momentum of the charged kaons in the tree.
 Note the usage of the <code>ABSID</code> functor, which selects particles from the decay 
 tree using either their <a href="http://pdg.lbl.gov/2015/mcdata/mc_particle_id_contents.html" target="_blank">PDG Monte Carlo 
 ID</a> or their name.</p>
@@ -844,13 +844,13 @@ For example, from</p>
 <pre><code class="lang-output">In [10]: cand.daughtersVector()
 Out[10]:
 
- 0 |-&gt;D0                           M/PT/E/PX/PY/PZ: 1.8624/ 6.4521/ 47.44/-4.939/-4.152/ 46.96 [GeV]  #  0
-                                       EndVertex  X/Y/Z:0.2911/-0.2378/-14.38 [mm]  Chi2/nDoF 0.4039/1 #  0
- 1    |-&gt;K-                        M/PT/E/PX/PY/PZ: 0.4937/ 2.8013/ 25.45/-1.799/-2.147/ 25.29 [GeV]  # 19
- 1    |-&gt;pi+                       M/PT/E/PX/PY/PZ: 0.1396/ 3.7258/ 21.99/-3.141/-2.004/ 21.67 [GeV]  # 22
- 0 |-&gt;pi+                          M/PT/E/PX/PY/PZ: 0.1396/ 0.3701/ 2.678/-0.2873/-0.2333/ 2.649 [GeV]  # 10
+0 |-&gt;D~0                          M/PT/E/PX/PY/PZ: 1.8643/ 2.841 / 34.29/ 1.288/ 2.532/ 34.12 [GeV]  #  1 
+                                     EndVertex  X/Y/Z: 1.042/0.2034/-112.2 [mm]  Chi2/nDoF 0.007451/1 #  1 
+1    |-&gt;K-                        M/PT/E/PX/PY/PZ: 0.4937/ 2.2054/ 19.37/ 1.481/ 1.634/ 19.23 [GeV]  #  8 
+1    |-&gt;K+                        M/PT/E/PX/PY/PZ: 0.4937/ 0.9181/ 14.92/-0.1928/0.8977/ 14.89 [GeV]  #  7 
+0 |-&gt;pi-                          M/PT/E/PX/PY/PZ: 0.1396/ 0.1808/ 2.544/0.1047/0.1474/ 2.534 [GeV]  #  1
 </code></pre>
-<p>we know that <code>D0</code> is the first child and <code>pi+</code> is the second.
+<p>we know that <code>D~0</code> is the first child and <code>pi-</code> is the second.
 Therefore, to access the $$p_{\text{T}}$$ of the $$D^{0}$$ we have 2 options.</p>
 <pre><code class="lang-python"><span class="hljs-keyword">from</span> LoKiPhys.decorators <span class="hljs-keyword">import</span> CHILD
 <span class="hljs-comment"># Option 1</span>
@@ -939,7 +939,7 @@ monitor_p_components_sum(cand)
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Fun with LoKi Functors","level":"2.1.9","depth":2,"next":{"title":"Running a minimal DaVinci job locally","level":"2.1.10","depth":2,"path":"first-analysis-steps/minimal-dv-job.md","ref":"first-analysis-steps/minimal-dv-job.md","articles":[]},"previous":{"title":"Interactively exploring a DST","level":"2.1.8","depth":2,"path":"first-analysis-steps/interactive-dst.md","ref":"first-analysis-steps/interactive-dst.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-sharing","panels@git+https://github.com/lhcb/gitbook-plugin-panels.git#master","katex-auto-render@git+https://github.com/lhcb/gitbook-plugin-katex-auto-render.git#master","collapsible-menu"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"panels":{},"katex-auto-render":{},"collapsible-menu":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"The Starterkit team and contributors","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"gitbook":"*"},"file":{"path":"first-analysis-steps/loki-functors.md","mtime":"2017-10-12T14:44:07.006Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2017-10-12T14:45:34.095Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Fun with LoKi Functors","level":"2.1.9","depth":2,"next":{"title":"Running a minimal DaVinci job locally","level":"2.1.10","depth":2,"path":"first-analysis-steps/minimal-dv-job.md","ref":"first-analysis-steps/minimal-dv-job.md","articles":[]},"previous":{"title":"Interactively exploring a DST","level":"2.1.8","depth":2,"path":"first-analysis-steps/interactive-dst.md","ref":"first-analysis-steps/interactive-dst.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-sharing","panels@git+https://github.com/lhcb/gitbook-plugin-panels.git#master","katex-auto-render@git+https://github.com/lhcb/gitbook-plugin-katex-auto-render.git#master","collapsible-menu"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"panels":{},"katex-auto-render":{},"collapsible-menu":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"The Starterkit team and contributors","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"gitbook":"*"},"file":{"path":"first-analysis-steps/loki-functors.md","mtime":"2017-10-17T11:55:42.870Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2017-10-17T11:58:45.773Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

@@ -708,22 +708,22 @@ For example, if we wanted the information of the PV associated to our particle, 
 <pre><code class="lang-python">dtt.addTupleTool(<span class="hljs-string">&apos;TupleToolPrimaries&apos;</span>)
 </code></pre>
 <p>The way the <code>DecayTreeTuple.Decay</code> is written in in our <a href="minimal-dv-job.html">minimal DaVinci job</a>,</p>
-<pre><code class="lang-python">dtt.Decay = <span class="hljs-string">&apos;[D*(2010)+ -&gt; (D0 -&gt; K- pi+) pi+]CC&apos;</span>
+<pre><code class="lang-python">dtt.Decay = <span class="hljs-string">&apos;[D*(2010)+ -&gt; (D0 -&gt; K- K+) pi+]CC&apos;</span>
 </code></pre>
 <p>means that the configured <code>TupleTools</code> will only run on the head of the decay chain, that is, the <code>D*(2010)+</code>.
 In order to select the particles for which we want the information stored, we need to mark them with a <code>^</code> symbol in the decay descriptor.
 For example, if we want to fill the information of the <code>D0</code> and its children, as well as the soft <code>pi+</code>, we would modify the above line to look like this:</p>
-<pre><code class="lang-python">dtt.Decay = <span class="hljs-string">&apos;[D*(2010)+ -&gt; ^(D0 -&gt; ^K- ^pi+) ^pi+]CC&apos;</span>
+<pre><code class="lang-python">dtt.Decay = <span class="hljs-string">&apos;[D*(2010)+ -&gt; ^(D0 -&gt; ^K- ^K+) ^pi+]CC&apos;</span>
 </code></pre>
 <p>This will run all the configured <code>TupleTools</code> on the marked particles, with the caveat that some tools are only run on certain types of particles (eg, tracking tools on particles that have an associated track).
 This configuration is not optimal, since there may be tools which we only want to run on the D&apos;s and some only on the children. Enter <code>Branches</code>, which allow us to specify which tools get applied to which particle in the decay (in addition to the <code>TupleTools</code> configured at the top level).</p>
 <p><em>Branches</em> let you define custom namespaces in your ntuple by means of a <code>dict</code>.
 Its keys define the name of each branch (and, as a consequence, the prefix of the corresponding leaves in the ntuple), while the corresponding values are decay descriptors that specify which particles you want to include in the branch.</p>
-<pre><code class="lang-python">dtt.addBranches({<span class="hljs-string">&apos;Dstar&apos;</span> : <span class="hljs-string">&apos;[D*(2010)+ -&gt; (D0 -&gt; K- pi+) pi+]CC&apos;</span>,
-                 <span class="hljs-string">&apos;D0&apos;</span>    : <span class="hljs-string">&apos;[D*(2010)+ -&gt; ^(D0 -&gt; K- pi+) pi+]CC&apos;</span>,
-                 <span class="hljs-string">&apos;Kminus&apos;</span>: <span class="hljs-string">&apos;[D*(2010)+ -&gt; (D0 -&gt; ^K- pi+) pi+]CC&apos;</span>,
-                 <span class="hljs-string">&apos;piplus&apos;</span>: <span class="hljs-string">&apos;[D*(2010)+ -&gt; (D0 -&gt; K- ^pi+) pi+]CC&apos;</span>,
-                 <span class="hljs-string">&apos;pisoft&apos;</span>: <span class="hljs-string">&apos;[D*(2010)+ -&gt; (D0 -&gt; K- pi+) ^pi+]CC&apos;</span>})
+<pre><code class="lang-python">dtt.addBranches({<span class="hljs-string">&apos;Dstar&apos;</span> : <span class="hljs-string">&apos;[D*(2010)+ -&gt; (D0 -&gt; K- K+) pi+]CC&apos;</span>,
+                 <span class="hljs-string">&apos;D0&apos;</span>    : <span class="hljs-string">&apos;[D*(2010)+ -&gt; ^(D0 -&gt; K- K+) pi+]CC&apos;</span>,
+                 <span class="hljs-string">&apos;Kminus&apos;</span>: <span class="hljs-string">&apos;[D*(2010)+ -&gt; (D0 -&gt; ^K- K+) pi+]CC&apos;</span>,
+                 <span class="hljs-string">&apos;Kplus&apos;</span> : <span class="hljs-string">&apos;[D*(2010)+ -&gt; (D0 -&gt; K- ^K+) pi+]CC&apos;</span>,
+                 <span class="hljs-string">&apos;pisoft&apos;</span>: <span class="hljs-string">&apos;[D*(2010)+ -&gt; (D0 -&gt; K- K+) ^pi+]CC&apos;</span>})
 </code></pre>
 <p>Note that in order to use branches, we have to make sure that all particles we want to use are marked in the main decay descriptor (<code>dtt.Decay</code>).
 DaVinci will ignore branches for particles that have not been marked in <code>dtt.Decay</code>!</p>
@@ -735,7 +735,7 @@ For example, if we want to store the proper time information of the D0, we would
 decay descriptor and branches in just one line!
 Well, nearly: because this is a new feature it is not available in most released versions of <code>DaVinci</code>, but <a href="https://gitlab.cern.ch/snippets/147" target="_blank">this snippet</a> will add it to an older version.
 With that out of the way, you can simply use</p>
-<pre><code class="lang-python">dtt.setDescriptorTemplate(<span class="hljs-string">&apos;${Dstar}[D*(2010)+ -&gt; ${D0}(D0 -&gt; ${Kminus}K- ${piplus}pi+) ${pisoft}pi+]CC&apos;</span>)
+<pre><code class="lang-python">dtt.setDescriptorTemplate(<span class="hljs-string">&apos;${Dstar}[D*(2010)+ -&gt; ${D0}(D0 -&gt; ${Kminus}K- ${Kplus}K+) ${pisoft}pi+]CC&apos;</span>)
 </code></pre>
 <p>This will set up both <code>dtt.Decay</code> and <code>Branches</code> for you.</p>
 </div></div> </p>
@@ -871,7 +871,7 @@ To check <code>SUMTREE</code> and <code>CHILD</code>, run the code above and che
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"TupleTools and branches","level":"2.1.12","depth":2,"next":{"title":"How do I use DecayTreeFitter?","level":"2.1.13","depth":2,"path":"first-analysis-steps/decay-tree-fitter.md","ref":"first-analysis-steps/decay-tree-fitter.md","articles":[]},"previous":{"title":"Running DaVinci on the grid","level":"2.1.11","depth":2,"path":"first-analysis-steps/davinci-grid.md","ref":"first-analysis-steps/davinci-grid.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-sharing","panels@git+https://github.com/lhcb/gitbook-plugin-panels.git#master","katex-auto-render@git+https://github.com/lhcb/gitbook-plugin-katex-auto-render.git#master","collapsible-menu"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"panels":{},"katex-auto-render":{},"collapsible-menu":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"The Starterkit team and contributors","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"gitbook":"*"},"file":{"path":"first-analysis-steps/add-tupletools.md","mtime":"2017-10-12T14:44:06.966Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2017-10-12T14:45:34.095Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"TupleTools and branches","level":"2.1.12","depth":2,"next":{"title":"How do I use DecayTreeFitter?","level":"2.1.13","depth":2,"path":"first-analysis-steps/decay-tree-fitter.md","ref":"first-analysis-steps/decay-tree-fitter.md","articles":[]},"previous":{"title":"Running DaVinci on the grid","level":"2.1.11","depth":2,"path":"first-analysis-steps/davinci-grid.md","ref":"first-analysis-steps/davinci-grid.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-sharing","panels@git+https://github.com/lhcb/gitbook-plugin-panels.git#master","katex-auto-render@git+https://github.com/lhcb/gitbook-plugin-katex-auto-render.git#master","collapsible-menu"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"panels":{},"katex-auto-render":{},"collapsible-menu":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"The Starterkit team and contributors","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"gitbook":"*"},"file":{"path":"first-analysis-steps/add-tupletools.md","mtime":"2017-10-17T11:55:42.774Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2017-10-17T11:58:45.773Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

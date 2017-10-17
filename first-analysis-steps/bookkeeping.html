@@ -683,15 +683,15 @@ for validation studies&#x2019;.
 After this, a tree of various application and processing versions will 
 eventually lead to the data you need.</p>
 <p>So, before we can run our first DaVinci job we need to locate some events. In 
-this tutorial we will use the decay $$D^{*+} \to D^{0}\pi^{+}$$ as an example, 
-where the $$D^{0}$$ decays to $$K^{-}\pi^{+}$$.</p>
+this tutorial we will use the decay $$D^{* +} \to D^{0}\pi^{+}$$ as an example, 
+where the $$D^{0}$$ decays to $$K^{-} K^{+}$$.</p>
 <p><div class="panel panel-warning"><div class="panel-heading"><h3 class="panel-title" id="learning-objectives"><i class="fa fa-line-chart"></i> Learning Objectives</h3></div><div class="panel-body"><ul>
 <li>Find MC in the bookkeeping</li>
 <li>Find data in the bookkeeping</li>
 <li>Find the decay you want</li>
 <li>check reco</li>
 <li>ignore what (flagged) stripping is used</li>
-<li>run over those files with the strip21 module you want</li>
+<li>run over those files with the strip28 module you want</li>
 <li>nTuples!</li>
 </ul>
 </div></div></p>
@@ -701,26 +701,26 @@ which lets you find both simulated
 and real data.</p>
 <p>At the bottom of the &quot;Bookkeeping tree&quot; tab there is a drop-down menu
 labelled <code>Simulation Condition</code>, open it and change it to <code>Event
-type</code>.</p>
-<p>We will analyse 2012 data, and correspondingly use simulation for 2012
+type</code>. This changes the way the bookkeeping tree is sorted, making it easier for us to locate files by event.</p>
+<p>We will analyse 2016 data, and correspondingly use simulation for 2016
 data. To navigate to the simulation, expand the folder icon in the
-&quot;Bookkeeping tree&quot; window. Navigate to the <code>MC/2012</code> folder. This will
+&quot;Bookkeeping tree&quot; window. Navigate to the <code>MC/2016</code> folder. This will
 give you a very long list of all possible decay types for which there
 is simulated data. We are looking for a folder which is named
-<code>27163003 (Dst_D0pi,Kpi=DecProdCut)</code>. The number is a numerical
+<code>27163002 (Dst_D0pi,KK=DecProdCut)</code>. The number is a numerical
 representation of the <a href="https://cds.cern.ch/record/855452?ln=en" target="_blank">event
 type</a>.  The text is the human
 readable version of that.</p>
-<p>This sample of simulated events will only contain events where a $$D^{*+} \to 
-D^{0}(\to K^{-}\pi^{+})\pi^{+}$$ was generated within the LHCb acceptance, 
+<p>This sample of simulated events will only contain events where a $$D^{* +} \to 
+D^{0}(\to K^{-}K^{+})\pi^{+}$$ was generated within the LHCb acceptance, 
 although the decay might not have been fully reconstructed. (Not all simulated 
 samples have the same requirements made on the signal decay.)</p>
-<p>If you expand the <code>27163003 (Dst_D0pi,Kpi=DecProdCut)</code> folder you
-will find several different subfolders to choose from. The names of these 
+<p>If you expand the <code>27163002 (Dst_D0pi,KK=DecProdCut)</code> folder you
+will find a couple different subfolders to choose from. The names of these 
 subfolders correspond to different data-taking conditions, such as magnet 
 polarity (<code>MagDown</code> and <code>MagUp</code>), as well as different software versions used 
-to create the different samples that are available. We will use 
-<code>Beam4000GeV-2012-MagDown-Nu2.5-Pythia8</code>.</p>
+to create the samples that are available. We will use 
+<code>Beam6500GeV-2016-MagDown-Nu1.6-25ns-Pythia8</code>.</p>
 <p><div class="panel panel-primary"><div class="panel-heading"><h3 class="panel-title" id="so-much-choice"><i class="fa fa-info-circle"></i> So much choice!</h3></div><div class="panel-body"><p>Often there are only one or two combinations of data-taking conditions and 
 software versions to choose from, but sometimes there can be very many.
 Generally newer versions are the best bet, but you should always ask the 
@@ -728,9 +728,9 @@ Monte Carlo liason of your working group for advice on what to use if you&apos;r
 not sure.</p>
 </div></div></p>
 <p>Next we need to choose what version of the simulation you want to
-use. Usually the latest available version is best, which is <code>Sim08e</code> in
-this case. We also have to choose the version of the
-digitisation and what configuration of the trigger and reconstruction
+use. There is only one available in our case, <code>Sim09b</code>, but usually the latest available version is best when there are more than one.
+We also have to choose the version of the
+digitisation and what configuration of the trigger (<code>Trig0x6138160F</code> in our case) and reconstruction
 we want to have in the simulated sample. Usually
 there is only one choice for these, which makes choosing easier.</p>
 <p>We also have to select a version of the stripping. Choose any as long as it 
@@ -747,10 +747,10 @@ Filtered Monte Carlo can be produced for analyses that need lots of events.</p>
 clicking on it we finally see a list of files that we can
 process. At the bottom right of the page there is a &#x201C;Save&#x201D; button
 which will let us download a file specifying the inputs that we&apos;ll use for 
-running our DaVinci job. Click it and select &#x201C;Save as a
-python file&#x201D;. Clicking &#x201C;Save&#x201D; once again in the pop-up menu will start the
+running our DaVinci job. Click it, select &#x201C;Save as a
+python file&#x201D;, and add <code>.py</code> to the end of the text in &#x201C;Save As...&#x201D;. Clicking &#x201C;Save&#x201D; once again in the pop-up menu will start the
 download. Save this file somewhere you can find it again.</p>
-<p>A copy of the file we just downloaded is <a href="data/MC_2012_27163003_Beam4000GeV2012MagDownNu2.5Pythia8_Sim08e_Digi13_Trig0x409f0045_Reco14a_Stripping20NoPrescalingFlagged_ALLSTREAMS.DST.py">available
+<p>A copy of the file we just downloaded is <a href="data/MC_2016_27163002_Beam6500GeV2016MagDownNu1.625nsPythia8_Sim09b_Trig0x6138160F_Reco16_Turbo03_Stripping28NoPrescalingFlagged_ALLSTREAMS.DST.py">available
 here</a>.</p>
 <p><div class="panel panel-primary"><div class="panel-heading"><h3 class="panel-title" id="shortcut"><i class="fa fa-info-circle"></i> Shortcut</h3></div><div class="panel-body"><p>Once you get a bit of experience with navigating the bookkeeping you 
 can take a shortcut! At the bottom of your browser window there is a 
@@ -807,7 +807,7 @@ could look for the semileptonic decay </p>
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Finding data in the Bookkeeping","level":"2.1.6","depth":2,"next":{"title":"Downloading a file from the grid","level":"2.1.7","depth":2,"path":"first-analysis-steps/files-from-grid.md","ref":"first-analysis-steps/files-from-grid.md","articles":[]},"previous":{"title":"An introduction to LHCb Software","level":"2.1.5","depth":2,"path":"first-analysis-steps/davinci.md","ref":"first-analysis-steps/davinci.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-sharing","panels@git+https://github.com/lhcb/gitbook-plugin-panels.git#master","katex-auto-render@git+https://github.com/lhcb/gitbook-plugin-katex-auto-render.git#master","collapsible-menu"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"panels":{},"katex-auto-render":{},"collapsible-menu":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"The Starterkit team and contributors","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"gitbook":"*"},"file":{"path":"first-analysis-steps/bookkeeping.md","mtime":"2017-10-12T14:44:06.966Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2017-10-12T14:45:34.095Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Finding data in the Bookkeeping","level":"2.1.6","depth":2,"next":{"title":"Downloading a file from the grid","level":"2.1.7","depth":2,"path":"first-analysis-steps/files-from-grid.md","ref":"first-analysis-steps/files-from-grid.md","articles":[]},"previous":{"title":"An introduction to LHCb Software","level":"2.1.5","depth":2,"path":"first-analysis-steps/davinci.md","ref":"first-analysis-steps/davinci.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-sharing","panels@git+https://github.com/lhcb/gitbook-plugin-panels.git#master","katex-auto-render@git+https://github.com/lhcb/gitbook-plugin-katex-auto-render.git#master","collapsible-menu"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"panels":{},"katex-auto-render":{},"collapsible-menu":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"The Starterkit team and contributors","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"gitbook":"*"},"file":{"path":"first-analysis-steps/bookkeeping.md","mtime":"2017-10-17T11:55:42.774Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2017-10-17T11:58:45.773Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

@@ -718,17 +718,17 @@ You can then start the Gaudi EventLoop using this option file, and it will set u
 <p>You can find comprehensive documentation in the <a href="https://proj-gaudi.web.cern.ch/proj-gaudi/releases/latest/doxygen/" target="_blank">Gaudi Doxygen</a> or the <a href="http://lhcb-comp.web.cern.ch/lhcb-comp/Frameworks/Gaudi/Gaudi_v9/GUG/GUG.pdf" target="_blank">Gaudi Manual</a>.</p>
 <p>Usually, you will work with one of the LHCb software projects that are based on Gaudi.
 One of the most important ones is <em>DaVinci</em>, which provides lots of <em>Algorithms</em> and <em>Tools</em> for physics analysis.</p>
-<p>You can run DaVinci using the following command:</p>
-<pre><code class="lang-bash">lb-run DaVinci/v41r2 gaudirun.py
+<p>You can run DaVinci using the following command <a href="prerequisites.html#Pre-workshop%20checklist">on lxplus</a>:</p>
+<pre><code class="lang-bash">lb-run DaVinci/v42r6p1 gaudirun.py
 </code></pre>
-<p>This will run the <code>gaudirun.py</code> command using version v41r2 of DaVinci.
+<p>This will run the <code>gaudirun.py</code> command using version v42r6p1 of DaVinci. (<code>lb-run</code> sets the specified environment for <code>gaudirun.py</code> to run in.)
 <code>gaudirun.py</code> is a script that sets up the EventLoop.
 You should get the following output:</p>
 <pre><code># setting LC_ALL to &quot;C&quot;
 ApplicationMgr    SUCCESS
 ====================================================================================================================================
-                                                   Welcome to DaVinci version v41r2
-                                          running on lxplus0107.cern.ch on Tue Oct 25 17:26:01 2016
+                                                   Welcome to DaVinci version v42r6p1
+                                          running on lxplus055.cern.ch on Mon Oct 16 10:47:29 2017
 ====================================================================================================================================
 ApplicationMgr       INFO Application Manager Configured successfully
 HistogramPersis...WARNING Histograms saving not required.
@@ -743,7 +743,7 @@ ApplicationMgr       INFO Application Manager Finalized successfully
 ApplicationMgr       INFO Application Manager Terminated successfully
 </code></pre><p>During this run, DaVinci didn&apos;t do anything: We didn&apos;t specify any algorithms to run or any data to run over.
 Usually, you will write an option file (e.g. <code>options.py</code>) and specify it as an argument to <code>gaudirun.py</code>:</p>
-<pre><code class="lang-bash">lb-run DaVinci/v41r2 gaudirun.py options.py
+<pre><code class="lang-bash">lb-run DaVinci/v42r6p1 gaudirun.py options.py
 </code></pre>
 <p>An <code>option.py</code> is just a regular Python script that specifies how to set things up in the software.
 Many of the following lessons will teach you how to do something with DaVinci by showing you how to write or extend an <code>options.py</code>.
@@ -757,16 +757,23 @@ You can also specify several option files like this:</p>
 </code></pre>
 <p>Do you want to start a shell that already contains the LHCb environment, so you don&apos;t have to use <code>lb-run</code>?
 Execute</p>
-<pre><code class="lang-bash">lb-run DaVinci/v41r2 <span class="hljs-variable">$SHELL</span>
+<pre><code class="lang-bash">lb-run DaVinci/v42r6p1 <span class="hljs-variable">$SHELL</span>
 </code></pre>
+<blockquote>
+<p>Note that sometimes this environment can result in failing scripts due to struggles with your shell&apos;s rc file (e.g., <code>~/.bashrc</code>). Using, e.g.,</p>
+<pre><code class="lang-bash">lb-run DaVinci/v42r6p1 bash --norc
+</code></pre>
+<p>avoids this, but means you won&apos;t be able to use any aliases, etc, included in the ignored rc file.</p>
+</blockquote>
 <p>A simple <code>gaudirun.py</code> should work as well now.
-Typing <code>exit</code> will close the shell and leave the LHCb environment behind.</p>
+Typing <code>exit</code> or using <code>Ctrl-d</code> will close the shell and leave the LHCb environment behind.</p>
 <p><div class="panel panel-primary"><div class="panel-heading"><h3 class="panel-title" id="using-setupproject-instead-of-lb-run"><i class="fa fa-info-circle"></i> Using SetupProject instead of lb-run</h3></div><div class="panel-body"><p>When reading through other tutorials, you will come across <code>SetupProject</code>.
 This is an older way of setting up a shell that is configured to run LHCb software.
 <code>lb-run</code> is the new way of doing things and has some nice benefits over <code>SetupProject</code>.
 For most purposes, <code>SetupProject DaVinci v41r2</code> is equivalent to</p>
 <pre><code class="lang-bash">lb-run DaVinci/v41r2 <span class="hljs-variable">$SHELL</span>
 </code></pre>
+<p>but you should really avoid doing things this way as this method is no longer supported for the latest project releases. (The environment for DaVinci v42r6p1, for example, cannot be started this way.)</p>
 </div></div> </p>
 
                                 
@@ -811,7 +818,7 @@ For most purposes, <code>SetupProject DaVinci v41r2</code> is equivalent to</p>
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"An introduction to LHCb Software","level":"2.1.5","depth":2,"next":{"title":"Finding data in the Bookkeeping","level":"2.1.6","depth":2,"path":"first-analysis-steps/bookkeeping.md","ref":"first-analysis-steps/bookkeeping.md","articles":[]},"previous":{"title":"Changes to the data flow in Run 2","level":"2.1.4","depth":2,"path":"first-analysis-steps/run-2-data-flow.md","ref":"first-analysis-steps/run-2-data-flow.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-sharing","panels@git+https://github.com/lhcb/gitbook-plugin-panels.git#master","katex-auto-render@git+https://github.com/lhcb/gitbook-plugin-katex-auto-render.git#master","collapsible-menu"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"panels":{},"katex-auto-render":{},"collapsible-menu":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"The Starterkit team and contributors","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"gitbook":"*"},"file":{"path":"first-analysis-steps/davinci.md","mtime":"2017-10-12T14:44:06.970Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2017-10-12T14:45:34.095Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"An introduction to LHCb Software","level":"2.1.5","depth":2,"next":{"title":"Finding data in the Bookkeeping","level":"2.1.6","depth":2,"path":"first-analysis-steps/bookkeeping.md","ref":"first-analysis-steps/bookkeeping.md","articles":[]},"previous":{"title":"Changes to the data flow in Run 2","level":"2.1.4","depth":2,"path":"first-analysis-steps/run-2-data-flow.md","ref":"first-analysis-steps/run-2-data-flow.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-sharing","panels@git+https://github.com/lhcb/gitbook-plugin-panels.git#master","katex-auto-render@git+https://github.com/lhcb/gitbook-plugin-katex-auto-render.git#master","collapsible-menu"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"panels":{},"katex-auto-render":{},"collapsible-menu":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"The Starterkit team and contributors","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"gitbook":"*"},"file":{"path":"first-analysis-steps/davinci.md","mtime":"2017-10-17T11:55:42.786Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2017-10-17T11:58:45.773Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
