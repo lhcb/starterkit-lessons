@@ -1,13 +1,16 @@
 # Creating a grid proxy without LbScripts
 
-Sometimes it is useful to create a grid proxy when LbScripts (and therefore `lhcb-proxy-init`) is unavailable.
-The most commonly use for this is to be able to access data at grid sites using XRootD.
+On the grid VOMS (Virtual Organization Membership Service) is used to provide authentication when accessing grid resources.
+This works by using your certificate to create a local proxy credential which can then be used by applications for a limited time.
 
-Fortunately a grid proxy can be easily created using [voms](https://italiangrid.github.io/voms/index.html) as follows.
+LbScripts provides a useful command `lhcb-proxy-init` which is used to create a proxy.
+It is sometimes useful however, to create a grid proxy when LbScripts is unavailable.
+The most commonly use for this is to be able to access data at grid sites using XRootD.
+Fortunately VOMS can be easily installed and used without requiring the full LHCb environment.
 
 ## Installation
 
-The voms client can be installed in the following ways, if your operating system isn't listed see [here](https://github.com/italiangrid/voms-clients) (and consider [making a pull request](../CONTRIBUTING.html) to update this guide).
+The VOMS client can be installed in the following ways, if your operating system isn't listed see [here](https://github.com/italiangrid/voms-clients) (and consider [making a pull request](../CONTRIBUTING.html) to update this guide).
 
 #### macOS with [homebrew](https://brew.sh)
 
@@ -39,9 +42,7 @@ Install [voms from the AUR](https://aur.archlinux.org/packages/voms/).
 In order to create a proxy you must have a copy of your personal grid certificate, assuming this is already set up on lxplus this can be copied using:
 
 ```bash
-rsync -a --no-owner --no-group -H -x -v --progress --recursive --delete \
-    $USERNAME@lxplus.cern.ch:.globus/ \
-    "$HOME/.globus"
+scp -r lxplus.cern.ch:.globus/ ~/.globus
 ```
 
 Additionally, you will need a copy of the central LHCb grid certificates.
@@ -49,9 +50,7 @@ If you have cvmfs installed this is already available at `/cvmfs/lhcb.cern.ch/et
 If not, they can be copied from lxplus to `~/grid-security/` using:
 
 ```bash
-rsync -a -H -x -v --progress --recursive --delete \
-    $USERNAME@lxplus.cern.ch:/cvmfs/lhcb.cern.ch/etc/grid-security/ \
-    "$HOME/grid-security"
+scp -r lxplus.cern.ch:/cvmfs/lhcb.cern.ch/etc/grid-security/ ~/grid-security
 ```
 
 Note these will need updating occasionally by rerunning the above commands.
@@ -63,7 +62,7 @@ Once the voms have been installed and the files have been copied a grid certific
 ```bash
 export X509_CERT_DIR="$HOME/grid-security/certificates"
 export X509_VOMS_DIR="$HOME/grid-security/vomsdir"
-voms-proxy-init -voms "lhcb:/lhcb/Role=user" -vomses "$HOME/grid-security/vomses" -r --valid 168:00 -cert $HOME/.globus/usercert.pem -key $HOME/.globus/userkey.pem
+voms-proxy-init -voms "lhcb:/lhcb/Role=user" -vomses "$HOME/grid-security/vomses" -r --valid 168:00 -cert "$HOME/.globus/usercert.pem" -key "$HOME/.globus/userkey.pem"
 ```
 
 Alternatively, an alias can be created to allow proxies to be created using an `lhcb-proxy-init`.
@@ -72,7 +71,7 @@ This can be setup by appending the following to `~/.bashrc` and then opening a n
 ```bash
 export X509_CERT_DIR="$HOME/grid-security/certificates"
 export X509_VOMS_DIR="$HOME/grid-security/vomsdir"
-alias lhcb-proxy-init='voms-proxy-init -voms "lhcb:/lhcb/Role=user" -vomses "$HOME/grid-security/vomses" -r --valid 168:00 -cert $HOME/.globus/usercert.pem -key $HOME/.globus/userkey.pem'
+alias lhcb-proxy-init='voms-proxy-init -voms "lhcb:/lhcb/Role=user" -vomses "$HOME/grid-security/vomses" -r --valid 168:00 -cert "$HOME/.globus/usercert.pem" -key "$HOME/.globus/userkey.pem"'
 ```
 
 ## Managing the proxy
