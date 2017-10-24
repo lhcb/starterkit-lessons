@@ -45,13 +45,23 @@ cands = evt['/Event/AllStreams/Phys/D2hhPromptDst2D2KKLine/Particles']
 cand = cands[0]
 ```
 
-We can now try to get very simple properties of the $$D^{* -}$$ candidate, such 
-as its transverse momentum and mass using the corresponding particle functors:
+We can now try to get very simple properties of the $$D^{* -}$$ candidate. Let's start from the components of its momentum.
+This can be done calling the function `momentum()` for our candidate in the following way:
+```python
+p_x = cand.momentum().X()
+p_y = cand.momentum().Y()
+p_z = cand.momentum().Z()
+print p_x, p_y, p_z
+```
+
+This is inconvenient when [running DaVinci with Python options files](minimal-dv-job.html): there's no way of calling the `momentum()` method.
+Instead, we can use the corresponding LoKi particle functors:
 
 ```python
-from LoKiPhys.decorators import PT, M
-print PT(cand)
-print M(cand)
+from LoKiPhys.decorators import PX, PY, PZ
+print PX(cand)
+print PY(cand)
+print PZ(cand)
 ```
 
 You will see an error when loading the functors:
@@ -65,31 +75,37 @@ harmless in the examples we will use.
 If the import is made *before* the instantiation of the `ApplicationMgr`, there 
 will be no warnings.
 
+{% challenge "Does it make sense?" %}
+Compare the output of `PX` functor with the result of calling the function `cand.momentum().X()`. 
+{% endchallenge %} 
+
+Math operations are also allowed:
+```python
+p_components_sum = PX + PY + PZ
+p_components_sum(cand)
+```
+
+There exist specific LoKi functors for all the most important properties of the particle. For example, the transverse momentum and mass:
+
+```python
+from LoKiPhys.decorators import PT, M
+print PT(cand)
+print M(cand)
+```
+
+{% challenge "Some practice" %}
+Retrieve the momentum magnitude using functors `PX`, `PY` and `PZ`. There is also a specific functor `P` which does the job. Compare the results. 
+
+Now, retrieve the transverse momentum and invariant mass (you will probably need the energy functor `E`), and see if it matches what the `PT` and `M` functors return.
+{% endchallenge %} 
+
 {% callout "A note about units" %}
-By convention, the LHCb default units are MeV, centimeters and picoseconds. It is easy to print the values of interest in other units:
+By the [convention](http://lhcb-comp.web.cern.ch/lhcb-comp/Support/Conventions/units.pdf), the LHCb default units are MeV, millimeters and nanoseconds. It is easy to print the values of interest in other units:
 ```python
 from LoKiPhys.decorators import GeV
 print PT(cand)/GeV
 ```
 {% endcallout %} 
-
-
-Math operations are also allowed:
-```python
-from LoKiPhys.decorators import PX, PY, PZ
-p_components_sum = PX + PY + PZ
-p_components_sum(cand)
-```
-
-{% challenge "Does it make sense?" %}
-Retrieve the momentum magnitude using functors `PX`, `PY` and `PZ`. 
-
-There is also a specific functor `P` which does the job. Compare the results. 
-
-Now, retrieve the transverse momentum and invariant mass (you will probably need the energy functor `E`), and see if it matches what the `PT` and `M` 
-functors return.
-{% endchallenge %} 
-
 
 If we want to get the properties of the $$D^{* -}$$ vertex, for example its fit 
 quality ($$\chi^2$$), we need to pass a vertex object to the vertex functor.
@@ -99,7 +115,7 @@ from LoKiPhys.decorators import VCHI2
 print VCHI2(cand.endVertex())
 ```
 
-This is inconvenient when [running DaVinci with Python options 
+Again, this is inconvenient when [running DaVinci with Python options 
 files](minimal-dv-job.html), since in that case we don't have any way of 
 calling the `endVertex` method.
 Instead, we can use the `VFASPF` *adaptor* functor, which allows us to use 
@@ -151,7 +167,7 @@ To get the quality of impact parameter of the candidate, one needs as well to ca
 ```python
 from GaudiPython.Bindings import AppMgr, gbl 
 gaudi = AppMgr() 
-distCal = gaudi.toolSvc().create("LoKi::DistanceCalculator", interface = gbl.IDistanceCalculator) 
+distCal = gaudi.toolSvc().create("LoKi::DistanceCalculator", interface=gbl.IDistanceCalculator) 
 ipTool = gbl.LoKi.Vertices.ImpactParamTool(distCal) 
 ```
 Now, we evaluate the quality of impact parameter of the candidate, given the primary vertex, and using the provided calculator:
@@ -211,7 +227,7 @@ from LoKiPhys.decorators import MAXTREE, ISBASIC, HASTRACK
 MAXTREE(ISBASIC & HASTRACK, PT, -1)(cand) == max_pt
 ```
 
-In this example, we have used two selection functors, `ISBASIC` and `HASTRACK`, which return true if the particle doesn't have children and is made up by a track, respectively. 
+In this example, we have used two selection functors, `ISBASIC` and `HASTRACK`, which return true if the particle doesn't have children and is made up by a track, respectively.
 We can see that they do the same thing as `particle.isBasicParticle()` and `particle.proto().track()` in a more compact way.
 
 {% callout "Combining LoKi cuts" %}
