@@ -676,6 +676,7 @@
                                 
                                 <h1 id="fun-with-loki-functors">Fun with LoKi Functors</h1>
 <p><div class="panel panel-warning"><div class="panel-heading"><h3 class="panel-title" id="learning-objectives"><i class="fa fa-line-chart"></i> Learning Objectives</h3></div><div class="panel-body"><ul>
+<li>Find out how the physics information can be obtained from the DST</li>
 <li>Understand what LoKi functors are</li>
 <li>Use LoKi functors interactively</li>
 <li>Be able to find functors that do what we want</li>
@@ -712,11 +713,19 @@ Open the DST and get the first candidate in the <code>D2hhPromptDst2D2KKLine</co
 <pre><code class="lang-python">cands = evt[<span class="hljs-string">&apos;/Event/AllStreams/Phys/D2hhPromptDst2D2KKLine/Particles&apos;</span>]
 cand = cands[<span class="hljs-number">0</span>]
 </code></pre>
-<p>We can now try to get very simple properties of the $$D^{* -}$$ candidate, such 
-as its transverse momentum and measured mass.</p>
-<pre><code class="lang-python"><span class="hljs-keyword">from</span> LoKiPhys.decorators <span class="hljs-keyword">import</span> PT, M
-<span class="hljs-keyword">print</span> PT(cand)
-<span class="hljs-keyword">print</span> M(cand)
+<p>We can now try to get very simple properties of the $$D^{* -}$$ candidate. Let&apos;s start from the components of its momentum.
+This can be done calling the function <code>momentum()</code> for our candidate in the following way:</p>
+<pre><code class="lang-python">p_x = cand.momentum().X()
+p_y = cand.momentum().Y()
+p_z = cand.momentum().Z()
+<span class="hljs-keyword">print</span> p_x, p_y, p_z
+</code></pre>
+<p>This is inconvenient when <a href="minimal-dv-job.html">running DaVinci with Python options files</a>: there&apos;s no way of calling the <code>momentum()</code> method.
+Instead, we can use the corresponding LoKi particle functors:</p>
+<pre><code class="lang-python"><span class="hljs-keyword">from</span> LoKiPhys.decorators <span class="hljs-keyword">import</span> PX, PY, PZ
+<span class="hljs-keyword">print</span> PX(cand)
+<span class="hljs-keyword">print</span> PY(cand)
+<span class="hljs-keyword">print</span> PZ(cand)
 </code></pre>
 <p>You will see an error when loading the functors:</p>
 <pre><code>LoKiSvc.REPORT      ERROR LoKi::AuxDesktopBase:     loadDesktop(): unable to load IPhysDesktop! StatusCode=FAILURE
@@ -726,19 +735,31 @@ LoKiSvc.REPORT      ERROR The   ERROR message is suppressed : &apos;LoKi::AuxDes
 harmless in the examples we will use.
 If the import is made <em>before</em> the instantiation of the <code>ApplicationMgr</code>, there 
 will be no warnings.</p>
+<p><div class="panel panel-success"><div class="panel-heading"><h3 class="panel-title" id="does-it-make-sense"><i class="fa fa-check-square-o"></i> Does it make sense?</h3></div><div class="panel-body"><p>Compare the output of <code>PX</code> functor with the result of calling the function <code>cand.momentum().X()</code>. </p>
+</div></div> </p>
 <p>Math operations are also allowed:</p>
-<pre><code class="lang-python"><span class="hljs-keyword">from</span> LoKiPhys.decorators <span class="hljs-keyword">import</span> PX, PY, PZ
-p_components_sum = PX + PY + PZ
+<pre><code class="lang-python">p_components_sum = PX + PY + PZ
 p_components_sum(cand)
 </code></pre>
-<p><div class="panel panel-success"><div class="panel-heading"><h3 class="panel-title" id="does-it-make-sense"><i class="fa fa-check-square-o"></i> Does it make sense?</h3></div><div class="panel-body"><p>Retrieve the momentum magnitude </p>
+<p>There exist specific LoKi functors for all the most important properties of the particle. For example, the transverse momentum and mass:</p>
+<pre><code class="lang-python"><span class="hljs-keyword">from</span> LoKiPhys.decorators <span class="hljs-keyword">import</span> PT, M
+<span class="hljs-keyword">print</span> PT(cand)
+<span class="hljs-keyword">print</span> M(cand)
+</code></pre>
+<p><div class="panel panel-success"><div class="panel-heading"><h3 class="panel-title" id="some-practice"><i class="fa fa-check-square-o"></i> Some practice</h3></div><div class="panel-body"><p>Retrieve the momentum magnitude using functors <code>PX</code>, <code>PY</code> and <code>PZ</code>. There is also a specific functor <code>P</code> which does the job. Compare the results. </p>
+<p>Now, retrieve the transverse momentum and invariant mass (you will probably need the energy functor <code>E</code>), and see if it matches what the <code>PT</code> and <code>M</code> functors return.</p>
+</div></div> </p>
+<p><div class="panel panel-primary"><div class="panel-heading"><h3 class="panel-title" id="a-note-about-units"><i class="fa fa-info-circle"></i> A note about units</h3></div><div class="panel-body"><p>By the <a href="http://lhcb-comp.web.cern.ch/lhcb-comp/Support/Conventions/units.pdf" target="_blank">convention</a>, the LHCb default units are MeV, millimeters and nanoseconds. It is easy to print the values of interest in other units:</p>
+<pre><code class="lang-python"><span class="hljs-keyword">from</span> LoKiPhys.decorators <span class="hljs-keyword">import</span> GeV
+<span class="hljs-keyword">print</span> PT(cand)/GeV
+</code></pre>
 </div></div> </p>
 <p>If we want to get the properties of the $$D^{* -}$$ vertex, for example its fit 
-quality ($$\chi^2$$), we need to pass an object to the functor.</p>
+quality ($$\chi^2$$), we need to pass a vertex object to the vertex functor.</p>
 <pre><code class="lang-python"><span class="hljs-keyword">from</span> LoKiPhys.decorators <span class="hljs-keyword">import</span> VCHI2
 <span class="hljs-keyword">print</span> VCHI2(cand.endVertex())
 </code></pre>
-<p>This is inconvenient when <a href="minimal-dv-job.html">running DaVinci with Python options 
+<p>Again, this is inconvenient when <a href="minimal-dv-job.html">running DaVinci with Python options 
 files</a>, since in that case we don&apos;t have any way of 
 calling the <code>endVertex</code> method.
 Instead, we can use the <code>VFASPF</code> <em>adaptor</em> functor, which allows us to use 
@@ -758,8 +779,8 @@ argument, for example:</p>
 <p>What would <code>create_greeting(&apos;Hello&apos;)</code> return? What about 
 <code>create_greeting(&apos;Howdy&apos;)(&apos;partner&apos;)</code>? Why is doing this useful?</p>
 </div></div> </p>
-<p>The calculation of some of the properties, such as the impact parameter (IP) or 
-direction angle (DIRA), require the knowledge of the primary vertex (PV) 
+<p>Calculation of some of the properties, such as the impact parameter (IP) or cosine of the 
+direction angle (DIRA), requires the knowledge of the primary vertex (PV) 
 associated to the candidate.
 In <code>GaudiPython</code>, we can get the PVs ourselves.</p>
 <pre><code class="lang-python">pv_finder_tool = appMgr.toolsvc().create(
@@ -768,11 +789,24 @@ In <code>GaudiPython</code>, we can get the PVs ourselves.</p>
 )
 pvs = evt[<span class="hljs-string">&apos;/Event/Rec/Vertex/Primary&apos;</span>]
 best_pv = pv_finder_tool.relatedPV(cand, pvs)
-<span class="hljs-keyword">from</span> LoKiPhys.decorators <span class="hljs-keyword">import</span> DIRA
+</code></pre>
+<p>Now, we can get the cosine of the direction angle for the candidate given the primary vertex: </p>
+<pre><code class="lang-python"><span class="hljs-keyword">from</span> LoKiPhys.decorators <span class="hljs-keyword">import</span> DIRA
 <span class="hljs-keyword">print</span> DIRA(best_pv)(cand)
 </code></pre>
 <p>Given that this is a very common operation, we have the possibility of using, in the context of a <code>DaVinci</code> application (Stripping, for example), a special set of functors, starting with the <code>BPV</code> prefix (for Best PV), which will get the PV for us.
 Some functors also end with the suffix <code>DV</code>, which means they can only be used in the <code>DaVinci</code> context.</p>
+<p>To get the quality of impact parameter of the candidate, one needs as well to call a distance calculator:</p>
+<pre><code class="lang-python"><span class="hljs-keyword">from</span> GaudiPython.Bindings <span class="hljs-keyword">import</span> AppMgr, gbl 
+gaudi = AppMgr() 
+distCal = gaudi.toolSvc().create(<span class="hljs-string">&quot;LoKi::DistanceCalculator&quot;</span>, interface=gbl.IDistanceCalculator) 
+ipTool = gbl.LoKi.Vertices.ImpactParamTool(distCal)
+</code></pre>
+<p>Now, we evaluate the quality of impact parameter of the candidate, given the primary vertex, and using the provided calculator:</p>
+<pre><code class="lang-python"><span class="hljs-keyword">from</span> LoKiPhys.decorators <span class="hljs-keyword">import</span> IPCHI2
+<span class="hljs-keyword">print</span> IPCHI2(best_pv, ipTool)(cand)
+</code></pre>
+<p>In the context of <code>DaVinci</code> application, e.g. the Stripping, the things become much simplier since the calculator instances are loaded automatically, and the syntax for calling the <code>IPCHI2</code> functor becomes <code>IPCHI2(best_pv,geo())(cand)</code>, where <code>geo()</code> is the geometry calculator tool.</p>
 <p><div class="panel panel-primary"><div class="panel-heading"><h3 class="panel-title" id="finding-loki-functors"><i class="fa fa-info-circle"></i> Finding LoKi functors</h3></div><div class="panel-body"><p>The full list of defined LoKi functors can be found in the <code>LoKi::Cuts</code> 
 namespace in the 
 <a href="http://lhcb-release-area.web.cern.ch/LHCb-release-area/DOC/davinci/latest_doxygen/d7/dae/namespace_lo_ki_1_1_cuts.html" target="_blank">doxygen</a>.
@@ -836,9 +870,10 @@ Out[<span class="hljs-number">2</span>]:  ( (M&gt;<span class="hljs-number">1200
 <p>In this case, we have summed the transverse momentum of the charged kaons in the tree.
 Note the usage of the <code>ABSID</code> functor, which selects particles from the decay 
 tree using either their <a href="http://pdg.lbl.gov/2015/mcdata/mc_particle_id_contents.html" target="_blank">PDG Monte Carlo 
-ID</a> or their name.</p>
+ID</a> or their name.
+If you would like to consider only the kaons of one specific charge in the selection requirement, consider the <code>ID</code> functor which does exactly the same thing, however has a sign which is positive for particles and negative for antiparticles. </p>
 <p>Another very useful LoKi functor is <code>CHILD</code>, which allows us to access a 
-property of a single children of the particle.
+property of a single child of the particle.
 To specify which child we want, its order is used, so we need to know how the candidate was built.
 For example, from</p>
 <pre><code class="lang-output">In [10]: cand.daughtersVector()
@@ -851,7 +886,7 @@ Out[10]:
 0 |-&gt;pi-                          M/PT/E/PX/PY/PZ: 0.1396/ 0.1808/ 2.544/0.1047/0.1474/ 2.534 [GeV]  #  1
 </code></pre>
 <p>we know that <code>D~0</code> is the first child and <code>pi-</code> is the second.
-Therefore, to access the $$p_{\text{T}}$$ of the $$D^{0}$$ we have 2 options.</p>
+Therefore, to access the mass of the $$D^{0}$$ we have 2 options:</p>
 <pre><code class="lang-python"><span class="hljs-keyword">from</span> LoKiPhys.decorators <span class="hljs-keyword">import</span> CHILD
 <span class="hljs-comment"># Option 1</span>
 mass = M(cand.daughtersVector()[<span class="hljs-number">0</span>])
@@ -860,6 +895,17 @@ mass_child = CHILD(M, <span class="hljs-number">1</span>)(cand)
 <span class="hljs-comment"># Do they agree?</span>
 mass == mass_child
 </code></pre>
+<p><div class="panel panel-success"><div class="panel-heading"><h3 class="panel-title" id="child-vertex"><i class="fa fa-check-square-o"></i> Child vertex?</h3></div><div class="panel-body"><p>Evaluate the quality of the </p>
+</div></div> </p>
+<p>In the similar way, we may access properties of child of the child: for example, a kaon from the $$D^{0}$$ decay:</p>
+<pre><code class="lang-python"><span class="hljs-keyword">from</span> LoKiPhys.decorators <span class="hljs-keyword">import</span> CHILD
+mass_kaon = CHILD(CHILD(M, <span class="hljs-number">1</span>),<span class="hljs-number">1</span>)(cand)
+</code></pre>
+<p><div class="panel panel-success"><div class="panel-heading"><h3 class="panel-title" id="tracks-and-pid"><i class="fa fa-check-square-o"></i> Tracks and PID</h3></div><div class="panel-body"><p>For the particles having tracks, we may exploit track functors to get the corresponding track properties. For instance, the track quality is given by functor <code>TRCHI2</code>.</p>
+<p>What happens if we call <code>TRCHI2(cand)</code>? Explain the result.</p>
+<p>Evaluate the track quality for the first and second kaon, also independently of that retrieve (in a single line) the worst of two.</p>
+<p>Then, evaluate the probability that each kaon is really a kaon (<code>PROBNNk</code>) or rather a misidentified pion (<code>PROBNNpi</code>).</p>
+</div></div> </p>
 <p>The usage of LoKi functors extends much further than in the interactive 
 <code>GaudiPython</code> world we&apos;ve been exploring here.</p>
 <p>They constitute the basis of particle filtering in the <em>selection framework</em>, 
@@ -877,6 +923,10 @@ It helps writing CPU-efficient functors and thus is very important when building
 in_range(<span class="hljs-number">2000</span>, M, <span class="hljs-number">2014</span>)(cand)
 in_range(<span class="hljs-number">1860</span>, CHILD(M, <span class="hljs-number">1</span>), <span class="hljs-number">1870</span>)(cand)
 </code></pre>
+<p><div class="panel panel-primary"><div class="panel-heading"><h3 class="panel-title" id="understanding-the-cuts-in-the-stripping-lines"><i class="fa fa-info-circle"></i> Understanding the cuts in the stripping lines</h3></div><div class="panel-body"><p>Have a look at the stripping line 
+<a href="http://lhcb-release-area.web.cern.ch/LHCb-release-area/DOC/stripping/config/stripping28/charm/strippingd2hhpromptdst2d2kkline.html" target="_blank">D2hhPromptDst2D2KKLine</a> which is used in our example. Open a <code>CombineParticles/D2hhPromptDst2D2KKLine</code> section, and explain which requirements are coded in the &apos;MotherCut&apos;, &apos;DaughterCuts&apos; and &apos;CombinationCut&apos; sections. 
+(More details about <code>CombineParticles</code> algorithm are explained in the <a href="../second-analysis-steps/building-decays-part1.html">lesson of second analysis steps</a>.)</p>
+</div></div> </p>
 <p>Additionally, LoKi functors can be used directly inside our <code>DaVinci</code> jobs to store specific bits of information in our ntuples without the need for a complicated C++-based algorithms.
 This second option will be discussed in the <a href="add-tupletools.html">TupleTools and branches lesson</a>.</p>
 <p><div class="panel panel-primary"><div class="panel-heading"><h3 class="panel-title" id="debugging-loki-functors"><i class="fa fa-info-circle"></i> Debugging LoKi functors</h3></div><div class="panel-body"><p>If you write complicated LoKi functors, typically in the context of selections, 
@@ -939,7 +989,7 @@ monitor_p_components_sum(cand)
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Fun with LoKi Functors","level":"2.1.9","depth":2,"next":{"title":"Running a minimal DaVinci job locally","level":"2.1.10","depth":2,"path":"first-analysis-steps/minimal-dv-job.md","ref":"first-analysis-steps/minimal-dv-job.md","articles":[]},"previous":{"title":"Interactively exploring a DST","level":"2.1.8","depth":2,"path":"first-analysis-steps/interactive-dst.md","ref":"first-analysis-steps/interactive-dst.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-sharing","panels@git+https://github.com/lhcb/gitbook-plugin-panels.git#master","katex-auto-render@git+https://github.com/lhcb/gitbook-plugin-katex-auto-render.git#master","collapsible-menu"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"panels":{},"katex-auto-render":{},"collapsible-menu":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"The Starterkit team and contributors","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"gitbook":"*"},"file":{"path":"first-analysis-steps/loki-functors.md","mtime":"2017-10-17T11:55:42.870Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2017-10-17T11:58:45.773Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Fun with LoKi Functors","level":"2.1.9","depth":2,"next":{"title":"Running a minimal DaVinci job locally","level":"2.1.10","depth":2,"path":"first-analysis-steps/minimal-dv-job.md","ref":"first-analysis-steps/minimal-dv-job.md","articles":[]},"previous":{"title":"Interactively exploring a DST","level":"2.1.8","depth":2,"path":"first-analysis-steps/interactive-dst.md","ref":"first-analysis-steps/interactive-dst.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-sharing","panels@git+https://github.com/lhcb/gitbook-plugin-panels.git#master","katex-auto-render@git+https://github.com/lhcb/gitbook-plugin-katex-auto-render.git#master","collapsible-menu"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"panels":{},"katex-auto-render":{},"collapsible-menu":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"The Starterkit team and contributors","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"gitbook":"*"},"file":{"path":"first-analysis-steps/loki-functors.md","mtime":"2017-10-25T08:52:39.849Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2017-10-25T08:54:52.368Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
