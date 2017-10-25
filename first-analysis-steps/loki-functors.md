@@ -1,6 +1,7 @@
 # Fun with LoKi Functors
 
 {% objectives "Learning Objectives" %}
+* Find out how the physics information can be obtained from the DST
 * Understand what LoKi functors are
 * Use LoKi functors interactively
 * Be able to find functors that do what we want
@@ -44,13 +45,23 @@ cands = evt['/Event/AllStreams/Phys/D2hhPromptDst2D2KKLine/Particles']
 cand = cands[0]
 ```
 
-We can now try to get very simple properties of the $$D^{* -}$$ candidate, such 
-as its transverse momentum and measured mass.
+We can now try to get very simple properties of the $$D^{* -}$$ candidate. Let's start from the components of its momentum.
+This can be done calling the function `momentum()` for our candidate in the following way:
+```python
+p_x = cand.momentum().X()
+p_y = cand.momentum().Y()
+p_z = cand.momentum().Z()
+print p_x, p_y, p_z
+```
+
+This is inconvenient when [running DaVinci with Python options files](minimal-dv-job.html): there's no way of calling the `momentum()` method.
+Instead, we can use the corresponding LoKi particle functors:
 
 ```python
-from LoKiPhys.decorators import PT, M
-print PT(cand)
-print M(cand)
+from LoKiPhys.decorators import PX, PY, PZ
+print PX(cand)
+print PY(cand)
+print PZ(cand)
 ```
 
 You will see an error when loading the functors:
@@ -64,30 +75,47 @@ harmless in the examples we will use.
 If the import is made *before* the instantiation of the `ApplicationMgr`, there 
 will be no warnings.
 
+{% challenge "Does it make sense?" %}
+Compare the output of `PX` functor with the result of calling the function `cand.momentum().X()`. 
+{% endchallenge %} 
+
 Math operations are also allowed:
 ```python
-from LoKiPhys.decorators import PX, PY, PZ
 p_components_sum = PX + PY + PZ
 p_components_sum(cand)
 ```
 
-{% challenge "Does it make sense?" %}
-Retrieve the momentum magnitude $$p$$ and see if you can get the same answer 
-with the `PX`, `PY`, `PZ` functors.
-Also compute the invariant mass $$m$$ and see if it matches what the `M` 
-functor returned.
+There exist specific LoKi functors for all the most important properties of the particle. For example, the transverse momentum and mass:
+
+```python
+from LoKiPhys.decorators import PT, M
+print PT(cand)
+print M(cand)
+```
+
+{% challenge "Some practice" %}
+Retrieve the momentum magnitude using functors `PX`, `PY` and `PZ`. There is also a specific functor `P` which does the job. Compare the results. 
+
+Now, retrieve the transverse momentum and invariant mass (you will probably need the energy functor `E`), and see if it matches what the `PT` and `M` functors return.
 {% endchallenge %} 
 
+{% callout "A note about units" %}
+By the [convention](http://lhcb-comp.web.cern.ch/lhcb-comp/Support/Conventions/units.pdf), the LHCb default units are MeV, millimeters and nanoseconds. It is easy to print the values of interest in other units:
+```python
+from LoKiPhys.decorators import GeV
+print PT(cand)/GeV
+```
+{% endcallout %} 
 
 If we want to get the properties of the $$D^{* -}$$ vertex, for example its fit 
-quality ($$\chi^2$$), we need to pass an object to the functor.
+quality ($$\chi^2$$), we need to pass a vertex object to the vertex functor.
 
 ```python
 from LoKiPhys.decorators import VCHI2
 print VCHI2(cand.endVertex())
 ```
 
-This is inconvenient when [running DaVinci with Python options 
+Again, this is inconvenient when [running DaVinci with Python options 
 files](minimal-dv-job.html), since in that case we don't have any way of 
 calling the `endVertex` method.
 Instead, we can use the `VFASPF` *adaptor* functor, which allows us to use 
@@ -113,8 +141,8 @@ What would `create_greeting('Hello')` return? What about
 `create_greeting('Howdy')('partner')`? Why is doing this useful?
 {% endchallenge %} 
 
-The calculation of some of the properties, such as the impact parameter (IP) or 
-direction angle (DIRA), require the knowledge of the primary vertex (PV) 
+Calculation of some of the properties, such as the impact parameter (IP) or cosine of the 
+direction angle (DIRA), requires the knowledge of the primary vertex (PV) 
 associated to the candidate.
 In `GaudiPython`, we can get the PVs ourselves.
 
@@ -125,12 +153,30 @@ pv_finder_tool = appMgr.toolsvc().create(
 )
 pvs = evt['/Event/Rec/Vertex/Primary']
 best_pv = pv_finder_tool.relatedPV(cand, pvs)
+```
+Now, we can get the cosine of the direction angle for the candidate given the primary vertex: 
+```python
 from LoKiPhys.decorators import DIRA
 print DIRA(best_pv)(cand)
 ```
 
 Given that this is a very common operation, we have the possibility of using, in the context of a `DaVinci` application (Stripping, for example), a special set of functors, starting with the `BPV` prefix (for Best PV), which will get the PV for us.
 Some functors also end with the suffix `DV`, which means they can only be used in the `DaVinci` context.
+
+To get the quality of impact parameter of the candidate, one needs as well to call a distance calculator:
+```python
+from GaudiPython.Bindings import AppMgr, gbl 
+gaudi = AppMgr() 
+distCal = gaudi.toolSvc().create("LoKi::DistanceCalculator", interface=gbl.IDistanceCalculator) 
+ipTool = gbl.LoKi.Vertices.ImpactParamTool(distCal) 
+```
+Now, we evaluate the quality of impact parameter of the candidate, given the primary vertex, and using the provided calculator:
+```python
+from LoKiPhys.decorators import IPCHI2
+print IPCHI2(best_pv, ipTool)(cand)
+```
+
+In the context of `DaVinci` application, e.g. the Stripping, the things become much simplier since the calculator instances are loaded automatically, and the syntax for calling the `IPCHI2` functor becomes `IPCHI2(best_pv,geo())(cand)`, where `geo()` is the geometry calculator tool.
 
 {% callout "Finding LoKi functors" %}
 The full list of defined LoKi functors can be found in the `LoKi::Cuts` 
@@ -212,9 +258,10 @@ In this case, we have summed the transverse momentum of the charged kaons in the
 Note the usage of the `ABSID` functor, which selects particles from the decay 
 tree using either their [PDG Monte Carlo 
 ID](http://pdg.lbl.gov/2015/mcdata/mc_particle_id_contents.html) or their name.
+If you would like to consider only the kaons of one specific charge in the selection requirement, consider the `ID` functor which does exactly the same thing, however has a sign which is positive for particles and negative for antiparticles. 
 
 Another very useful LoKi functor is `CHILD`, which allows us to access a 
-property of a single children of the particle.
+property of a single child of the particle.
 To specify which child we want, its order is used, so we need to know how the candidate was built.
 For example, from
 ```output
@@ -228,7 +275,7 @@ Out[10]:
 0 |->pi-                          M/PT/E/PX/PY/PZ: 0.1396/ 0.1808/ 2.544/0.1047/0.1474/ 2.534 [GeV]  #  1 
 ```
 we know that `D~0` is the first child and `pi-` is the second.
-Therefore, to access the $$p_{\text{T}}$$ of the $$D^{0}$$ we have 2 options.
+Therefore, to access the mass of the $$D^{0}$$ we have 2 options:
 ```python
 from LoKiPhys.decorators import CHILD
 # Option 1
@@ -238,6 +285,26 @@ mass_child = CHILD(M, 1)(cand)
 # Do they agree?
 mass == mass_child
 ```
+
+{% challenge "Child vertex?" %}
+Evaluate the quality of the $$D^{0}$$ decay vertex.
+{% endchallenge %} 
+
+In the similar way, we may access properties of child of the child: for example, a kaon from the $$D^{0}$$ decay:
+```python
+from LoKiPhys.decorators import CHILD
+mass_kaon = CHILD(CHILD(M, 1),1)(cand)
+```
+
+{% challenge "Tracks and PID" %}
+For the particles having tracks, we may exploit track functors to get the corresponding track properties. For instance, the track quality is given by functor `TRCHI2`.
+
+What happens if we call `TRCHI2(cand)`? Explain the result.
+
+Evaluate the track quality for the first and second kaon, also independently of that retrieve (in a single line) the worst of two.
+
+Then, evaluate the probability that each kaon is really a kaon (`PROBNNk`) or rather a misidentified pion (`PROBNNpi`).
+{% endchallenge %} 
 
 The usage of LoKi functors extends much further than in the interactive 
 `GaudiPython` world we've been exploring here.
@@ -259,6 +326,12 @@ from LoKiCore.functions import in_range
 in_range(2000, M, 2014)(cand)
 in_range(1860, CHILD(M, 1), 1870)(cand)
 ```
+{% callout "Understanding the cuts in the stripping lines" %}
+Have a look at the stripping line 
+[D2hhPromptDst2D2KKLine](http://lhcb-release-area.web.cern.ch/LHCb-release-area/DOC/stripping/config/stripping28/charm/strippingd2hhpromptdst2d2kkline.html) which is used in our example. Open a `CombineParticles/D2hhPromptDst2D2KKLine` section, and explain which requirements are coded in the 'MotherCut', 'DaughterCuts' and 'CombinationCut' sections. 
+(More details about `CombineParticles` algorithm are explained in the [lesson of second analysis steps](/second-analysis-steps/building-decays-part1.md).)
+{% endcallout %} 
+
 
 Additionally, LoKi functors can be used directly inside our `DaVinci` jobs to store specific bits of information in our ntuples without the need for a complicated C++-based algorithms.
 This second option will be discussed in the [TupleTools and branches lesson](add-tupletools.html).
