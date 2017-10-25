@@ -34,7 +34,8 @@ These steps are as follows:
  1. Data from the detector are filtered through the _trigger_, which consists 
     of the L0, implemented in hardware, and the high level trigger (HLT), 
     implemented in software. The application responsible for the software trigger 
-    is Moore, discussed in the [trigger lesson](../second-analysis-steps/hlt-intro.md) in the second-analysis-steps.
+    is Moore, discussed in the [trigger lesson](../second-analysis-steps/hlt-intro.md) 
+    in second-analysis-steps.
  2. Triggered, raw data are reconstructed to transform the detector hits into 
     objects such as tracks and clusters. This is done by the Brunel 
     application. The objects are stored into an output file in a ‘DST’ format.
