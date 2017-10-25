@@ -34,7 +34,8 @@ These steps are as follows:
  1. Data from the detector are filtered through the _trigger_, which consists 
     of the L0, implemented in hardware, and the high level trigger (HLT), 
     implemented in software. The application responsible for the software trigger 
-    is Moore, which will be discussed in further detail in the trigger lesson.
+    is Moore, discussed in the [trigger lesson](../second-analysis-steps/hlt-intro.md) 
+    in second-analysis-steps.
  2. Triggered, raw data are reconstructed to transform the detector hits into 
     objects such as tracks and clusters. This is done by the Brunel 
     application. The objects are stored into an output file in a ‘DST’ format.
@@ -145,6 +146,6 @@ project
 website](http://lhcb-release-area.web.cern.ch/LHCb-release-area/DOC/stripping/), 
 where you can see all the algorithms run and cuts applied in each _line_.
 For example, if we wanted to understand the 
-`StrippingD2hhCompleteEventPromptDst2D2RSLine` line, which we will use in the 
+`D2hhPromptDst2D2KKLine` line, which we will use in the 
 [exploring a DST](interactive-dst.html) lesson later on, we would go 
 [here](http://lhcb-release-area.web.cern.ch/LHCb-release-area/DOC/stripping/config/stripping21/charmcompleteevent/strippingd2hhcompleteeventpromptdst2d2rsline.html).
