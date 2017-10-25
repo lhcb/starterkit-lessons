@@ -20,7 +20,7 @@ reconstruction by Brunel.
 
 Omitting the offline reconstruction is usually a Bad Idea because it's usually 
 of a much better quality than the reconstruction performed in the HLT (the 
-‘online reconstruction’) as there's more time to run it. But, thanks an 
+‘online reconstruction’) as there's more time to run it. But, thanks to an 
 enormous effort improving the reconstruction software both online and offline 
 in between Run 1 and Run 2, the two reconstructions now perform identically.
 This means if HLT2 performs all the reconstruction you need in your analysis, 
