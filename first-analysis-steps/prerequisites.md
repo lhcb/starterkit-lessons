@@ -9,7 +9,7 @@ some of the steps the solution requires waiting for a day or so.
 So please try them before arriving and try to fix what ever does
 not work.
 
-> Follow this guide before arriving, we will not have time to help
+> Follow this guide before arriving; we will not have time to help
 > you with problems on these issues during the workshop. This means
 > you will end up watching instead of participating.
 
