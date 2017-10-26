@@ -17,13 +17,15 @@ For LHCb specific questions your best bet are the LHCb mailing
 lists like: 
 [lhcb-distributed-analysis@cern.ch](mailto:lhcb-distributed-analysis@cern.ch),
 [lhcb-davinci@cern.ch](mailto:lhcb-davinci@cern.ch),
-and [lhcb-soft-talk@cern.ch](mailto:lhcb-soft-talk@cern.ch). For
-more general questions [Stack Overflow](http://stackoverflow.com/) and
+and [lhcb-soft-talk@cern.ch](mailto:lhcb-soft-talk@cern.ch). 
+A recent alternative to the mailing lists is the [Mattermost chat](https://mattermost.web.cern.ch/lhcb) having dedicated channels ('davinci', 'Distributed Analysis' etc). It is a great place to ask your question if you feel not confident enough to write a formal email into the mailing list. 
+
+For more general questions [Stack Overflow](http://stackoverflow.com/) and
 [Google](http://google.com) are good starting places.
 {% endcallout %} 
 
 {% callout "LHCb Q&A" %}
-An experimental alternative to the mailing lists is the [LHCb Questions and 
+Another experimental alternative to the mailing lists is the [LHCb Questions and 
 Answers website](https://lhcbqa.web.cern.ch/lhcbqa/).
 It works like [Stack overflow](https://stackoverflow.com/), but focuses on LHCb-specific questions.
 You can post your question there and you should usually receive an answer within a few hours or days.
