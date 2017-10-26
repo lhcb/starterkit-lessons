@@ -18,7 +18,7 @@ lists like:
 [lhcb-distributed-analysis@cern.ch](mailto:lhcb-distributed-analysis@cern.ch),
 [lhcb-davinci@cern.ch](mailto:lhcb-davinci@cern.ch),
 and [lhcb-soft-talk@cern.ch](mailto:lhcb-soft-talk@cern.ch). 
-A recent alternative to the mailing lists is the [Mattermost chat](https://mattermost.web.cern.ch/lhcb) having dedicated channels ('davinci', 'Distributed Analysis' etc). It is a great place to ask your question if you feel not confident enough to write a formal email into the mailing list. 
+A recent alternative to the mailing lists is the [Mattermost chat](https://mattermost.web.cern.ch/lhcb) having dedicated channels ('davinci', 'Distributed Analysis' etc). It is a great place to ask your question if you're not confident enough to write an email to the mailing list, or you'd just prefer a more informal setting. 
 
 For more general questions [Stack Overflow](http://stackoverflow.com/) and
 [Google](http://google.com) are good starting places.
