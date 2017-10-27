@@ -13,6 +13,6 @@ Before starting, you should be familiar with using a shell, like `bash`, and
 with programming in Python.
 
 The [Software Carpentry
-workshop](http://twitwi.github.io/2015-06-02-cern-lhcb/) gives a great
+workshop](https://software-carpentry.org/lessons/) gives a great
 introduction to these, as well as to many other useful computing tools. The [Starterkit](https://lhcb.github.io/analysis-essentials/index.html) has some supplementary material as well.
 {% endprereq %} 
