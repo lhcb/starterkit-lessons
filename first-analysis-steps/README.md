@@ -12,7 +12,9 @@ If you have any problems or questions, you can [send an email to
 Before starting, you should be familiar with using a shell, like `bash`, and
 with programming in Python.
 
-The [Software Carpentry
-workshop](https://software-carpentry.org/lessons/) gives a great
-introduction to these, as well as to many other useful computing tools. The [Starterkit](https://lhcb.github.io/analysis-essentials/index.html) has some supplementary material as well.
+The [analysis essentials 
+course](https://lhcb.github.io/analysis-essentials/index.html) has an 
+introduction to these topics, as does the [Software Carpentry
+workshop](https://software-carpentry.org/lessons/), which includes many other 
+useful computing tools.
 {% endprereq %} 
