@@ -17,10 +17,6 @@ where the $$D^{0}$$ decays to $$K^{-} K^{+}$$.
 * Find MC in the bookkeeping
 * Find data in the bookkeeping
 * Find the decay you want
-* check reco
-* ignore what (flagged) stripping is used
-* run over those files with the strip28 module you want
-* nTuples!
 {% endobjectives %}
 
 Navigate to the 
