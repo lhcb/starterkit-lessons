@@ -134,18 +134,16 @@ The `TupleFile` attribute defines the name of the ROOT output file that DaVinci
 will store any algorithm output in, which should be our ntuple.
 
 {% callout "Being smart and efficient" %}
-`DaVinci` offers a possibility to loop only over events passing a certain requirement, rather than all events in the DST. This feature can save a lot of processing time and computing resources when running over millions of events.
-For example, one may require events passing a specific stripping or trigger line requirement:
+Typical stripping lines take only a small part of the stripped stream (so, of the DST). Consequently, they can be processed much faster if one applies a prefilter allowing to loop only over events passing a stripping (or an additional, e.g. trigger) requirement, rather than all events in the DST. Thus, it is *strongly* recommended to exploit the `EventPreFilters` method offered by `DaVinci`. This feature can save a lot of processing time and collaboration's computing resources when running over millions of events.
+To require events to pass a specific stripping line requirement before running the event loop, one should add these lines to the options file:
 ```python
 from PhysConf.Filters import LoKi_Filters
 fltrs = LoKi_Filters (
-    STRIP_Code = """
-    HLT_PASS_RE('StrippingD2hhPromptDst2D2KKLineDecision')
-    """
-    )
+    STRIP_Code = "HLT_PASS_RE('StrippingD2hhPromptDst2D2KKLineDecision')"
+)
 DaVinci().EventPreFilters = fltrs.filters('Filters')
 ```
-Here we use the [LoKi functor `HLT_PASS_RE`](http://lhcb-doxygen.web.cern.ch/lhcb-doxygen/davinci/latest/d7/dae/namespace_lo_ki_1_1_cuts.html#aee4bba9ae8443acd970dd52e20e5b8c1) which is a simple predicate to check the positive decision on (in this case) the stripping line. 
+Here we use the [LoKi functor `HLT_PASS_RE`](http://lhcb-doxygen.web.cern.ch/lhcb-doxygen/davinci/latest/d7/dae/namespace_lo_ki_1_1_cuts.html#aee4bba9ae8443acd970dd52e20e5b8c1) which checks for a positive decision on (in this case) the stripping line. 
 You may investigate some of more advanced examples of `EventPreFilters` usage [here](https://twiki.cern.ch/twiki/bin/view/LHCb/FAQ/DaVinciFAQ#How_to_process_the_stripped_DSTs) and [here](https://gitlab.cern.ch/lhcb/Phys/blob/master/Phys/PhysConf/python/PhysConf/Filters.py).
 {% endcallout %} 
 
