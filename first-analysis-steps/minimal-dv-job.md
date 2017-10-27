@@ -134,8 +134,11 @@ The `TupleFile` attribute defines the name of the ROOT output file that DaVinci
 will store any algorithm output in, which should be our ntuple.
 
 {% callout "Being smart and efficient" %}
-Typical stripping lines take only a small part of the stripped stream (so, of the DST). Consequently, they can be processed much faster if one applies a prefilter allowing to loop only over events passing a stripping (or an additional, e.g. trigger) requirement, rather than all events in the DST. Thus, it is *strongly* recommended to exploit the `EventPreFilters` method offered by `DaVinci`. This feature can save a lot of processing time and collaboration's computing resources when running over millions of events.
-To require events to pass a specific stripping line requirement before running the event loop, one should add these lines to the options file:
+Typical stripping lines take only a small part of the stripped stream - so, a small fraction of events in the DST: actually, usually you care about a single TES location!
+At the same time, event unpacking and running the DecayTreeTuple machinery for each event is time-consuming. 
+Consequently, DSTs can be processed much faster if before unpacking we select *only* events which are likely to accomodate the desired TES location. This can be achieved, for example, by requiring a prefilter checking whether event passes a stripping requirement. You may also filter on trigger decisions - this is an idea behind the Turbo stream.
+As a conclusion, it is *strongly* recommended to exploit the `EventPreFilters` method offered by `DaVinci`: this feature can save a lot of processing time and collaboration's computing resources when running over millions of events.
+To require events to pass a specific stripping line requirement, one should add these lines to the options file:
 ```python
 from PhysConf.Filters import LoKi_Filters
 fltrs = LoKi_Filters (
@@ -174,7 +177,7 @@ $ lb-run DaVinci/v42r6p1 gaudirun.py ntuple_options.py
 
 The full options file we've created, `ntuple_options.py`, is [available
 here](./code/minimal-dv/ntuple_options.py).
-A slightly modified version that uses remote files (using an XML catalog as
+A slightly modified version that uses remote files (using an XML catalog 
 [described here](files-from-grid.html)) is [available
 here](./code/minimal-dv/ntuple_options_xmlcatalog.py)
 
