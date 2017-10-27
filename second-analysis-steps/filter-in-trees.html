@@ -675,11 +675,11 @@
                                 <section class="normal markdown-section">
                                 
                                 <h1 id="reuse-particles-from-a-decay-tree">Reuse particles from a decay tree</h1>
-<p><div class="panel panel-warning"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(6916242231);" id="learning-objectives"><i class="fa fa-line-chart"></i> Learning Objectives<span id="heading-6916242231"></span></h3></div><div class="panel-body" id="panel-6916242231"><ul>
+<p><div class="panel panel-warning"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(1619927042);" id="learning-objectives"><i class="fa fa-line-chart"></i> Learning Objectives<span id="heading-1619927042"></span></h3></div><div class="panel-body" id="panel-1619927042"><ul>
 <li>Learn how to extract particles from a decay tree</li>
 <li>Build a new particle from the extracted particles</li>
 </ul>
-</div></div> </p>
+</div></div></p>
 <p>Sometimes we want to extract a portion of the decay tree in order to build a different decay.
 To do that, we need to put the particles we&apos;re interested in in a new container so they can afterwards be used as inputs to a <code>CombineParticles</code> instance (as we saw in <a href="building-decays-part-0.md">the selection framework lesson</a>).
 To achieve this we can use the <code>FilterInTrees</code> algorithm, a simple variation of <code>FilterDesktop</code> (<a href="https://lhcb-release-area.web.cern.ch/LHCb-release-area/DOC/hlt/latest_doxygen/de/d8e/class_filter_in_trees.html" target="_blank">doxygen</a>).</p>
@@ -689,7 +689,7 @@ To do that, we have to extract the $$\pi^-$$ from <code>([D0 -&gt; pi+ K-]CC)</c
 <pre><code class="lang-python"><span class="hljs-keyword">from</span> Configurables <span class="hljs-keyword">import</span> FilterInTrees
 <span class="hljs-keyword">from</span> PhysSelPython.Wrappers <span class="hljs-keyword">import</span> Selection, DataOnDemand
 
-decay_tree_location = <span class="hljs-string">&apos;/Event/AllStreams/Phys/D2hhCompleteEventPromptDst2D2RSLine/Particles&apos;</span>
+decay_tree_location = <span class="hljs-string">&apos;Phys/D2hhCompleteEventPromptDst2D2RSLine/Particles&apos;</span>
 d0_from_dst = FilterInTrees(<span class="hljs-string">&apos;d0_from_dst_filter&apos;</span>, Code=<span class="hljs-string">&quot;DECTREE(&apos;[Charm -&gt; pi+ K-]CC&apos;)&quot;</span>)
 d0_from_dst_sel = Selection(<span class="hljs-string">&quot;d0_from_dst_sel&quot;</span>,
                             Algorithm=d0_from_dst,
@@ -700,13 +700,13 @@ pions_from_d0_sel = Selection(<span class="hljs-string">&quot;pions_from_d0_sel&
                               RequiredSelections=[d0_from_dst_sel])
 </code></pre>
 <p>The output of <code>pions_from_d0_sel</code> is a container with all the pions coming from the $$D^0$$.</p>
-<p><div class="panel panel-primary"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(1525729792);" id="question"><i class="fa fa-info-circle"></i> Question<span id="heading-1525729792"></span></h3></div><div class="panel-body" id="panel-1525729792"><p>Do you see why we couldn&apos;t use something simple like this?</p>
+<p><div class="panel panel-primary"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(8835578849);" id="question"><i class="fa fa-info-circle"></i> Question<span id="heading-8835578849"></span></h3></div><div class="panel-body" id="panel-8835578849"><p>Do you see why we couldn&apos;t use something simple like this?</p>
 <pre><code class="lang-python">pions_from_d0 = FilterInTrees(<span class="hljs-string">&apos;pions_from_d0_filter&apos;</span>, Code=<span class="hljs-string">&quot;&apos;pi+&apos; == ABSID&quot;</span>)
 </code></pre>
 </div></div></p>
 <p>Note how we had to do the process in two steps in order to avoid getting the soft pion from the $$D^*$$.
 Sometimes this makes things quite difficult, but almost all problems can be solved with a smart use of the <code>DECTREE</code> container in an intermediate step.</p>
-<p><div class="panel panel-success"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(5239807314);" id="selecting-the-soft-pion"><i class="fa fa-square-o"></i> Selecting the soft pion<span id="heading-5239807314"></span></h3></div><div class="panel-body" id="panel-5239807314"><p>Can you find of a way of selecting the soft pion?
+<p><div class="panel panel-success"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(3099852374);" id="selecting-the-soft-pion"><i class="fa fa-square-o"></i> Selecting the soft pion<span id="heading-3099852374"></span></h3></div><div class="panel-body" id="panel-3099852374"><p>Can you find of a way of selecting the soft pion?
 Hint: use the <code>FilterDecays</code> algorithm, in which you specify a decay descriptor as <code>Code</code>, marking the desired particle(s).</p>
 </div></div></p>
 <p>The final step is easy, very similar to <a href="building-decays-part0.html">building your own decay</a>:</p>
@@ -727,7 +727,7 @@ How to solve this?
 We have to get creative and use the tools at hand:
 for example, we could use <code>SubstitutePID</code> from the previous lesson to change the PID of the pions in the <code>pions_from_d0</code> selection to kaon and build <code>[rho(770)0 -&gt; K+ pi-]CC</code> and then change again the PID of the kaon to a pion.
 Of course, if we were reconstructing $$K^{*}(892)^{0} \to K^{-}\pi^{+}$$ with <code>Phys/StdAllLooseKaons/Particles</code> instead, for example, we would already have everything we need since the ambiguity wouldn&apos;t exist.</p>
-<p><div class="panel panel-primary"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(973191674);" id="an-interesting-detail"><i class="fa fa-info-circle"></i> An interesting detail<span id="heading-973191674"></span></h3></div><div class="panel-body" id="panel-973191674"><p>One can use <code>FilterInTrees</code> and <code>FilterDecays</code> to select several particles at 
+<p><div class="panel panel-primary"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(7516552567);" id="an-interesting-detail"><i class="fa fa-info-circle"></i> An interesting detail<span id="heading-7516552567"></span></h3></div><div class="panel-body" id="panel-7516552567"><p>One can use <code>FilterInTrees</code> and <code>FilterDecays</code> to select several particles at
 once and obtain a flattened list.
 For example, if we had a Stripping line that builds <code>[B-  -&gt; (^D0 -&gt; ^K- ^pi+) ^pi-]cc</code> and we wanted to combine the </p>
 </div></div></p>
@@ -774,7 +774,7 @@ For example, if we had a Stripping line that builds <code>[B-  -&gt; (^D0 -&gt; 
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Reuse particles from a decay tree","level":"3.1.6","depth":2,"next":{"title":"The simulation framework","level":"3.1.7","depth":2,"path":"second-analysis-steps/simulation.md","ref":"second-analysis-steps/simulation.md","articles":[]},"previous":{"title":"Replace a mass hypothesis","level":"3.1.5","depth":2,"path":"second-analysis-steps/switch-mass-hypo.md","ref":"second-analysis-steps/switch-mass-hypo.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-sharing","panels@git+https://github.com/lhcb/gitbook-plugin-panels.git#master","katex-auto-render@git+https://github.com/lhcb/gitbook-plugin-katex-auto-render.git#master","collapsible-menu"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"panels":{},"katex-auto-render":{},"collapsible-menu":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"The Starterkit team and contributors","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"gitbook":"*"},"file":{"path":"second-analysis-steps/filter-in-trees.md","mtime":"2017-10-26T11:29:06.503Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2017-10-26T11:30:16.231Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Reuse particles from a decay tree","level":"3.1.6","depth":2,"next":{"title":"The simulation framework","level":"3.1.7","depth":2,"path":"second-analysis-steps/simulation.md","ref":"second-analysis-steps/simulation.md","articles":[]},"previous":{"title":"Replace a mass hypothesis","level":"3.1.5","depth":2,"path":"second-analysis-steps/switch-mass-hypo.md","ref":"second-analysis-steps/switch-mass-hypo.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-sharing","panels@git+https://github.com/lhcb/gitbook-plugin-panels.git#master","katex-auto-render@git+https://github.com/lhcb/gitbook-plugin-katex-auto-render.git#master","collapsible-menu"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"panels":{},"katex-auto-render":{},"collapsible-menu":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"The Starterkit team and contributors","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"gitbook":"*"},"file":{"path":"second-analysis-steps/filter-in-trees.md","mtime":"2017-10-27T09:20:31.268Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2017-10-27T09:21:43.375Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
