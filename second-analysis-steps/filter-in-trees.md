@@ -3,7 +3,7 @@
 {% objectives "Learning Objectives" %}
 * Learn how to extract particles from a decay tree
 * Build a new particle from the extracted particles
-{% endobjectives %} 
+{% endobjectives %}
 
 Sometimes we want to extract a portion of the decay tree in order to build a different decay.
 To do that, we need to put the particles we're interested in in a new container so they can afterwards be used as inputs to a `CombineParticles` instance (as we saw in [the selection framework lesson](/second-analysis-steps/building-decays-part-0.md)).
@@ -18,7 +18,7 @@ Using `FilterInTrees` is done in the same way we would use `FilterDesktop`:
 from Configurables import FilterInTrees
 from PhysSelPython.Wrappers import Selection, DataOnDemand
 
-decay_tree_location = '/Event/AllStreams/Phys/D2hhCompleteEventPromptDst2D2RSLine/Particles'
+decay_tree_location = 'Phys/D2hhCompleteEventPromptDst2D2RSLine/Particles'
 d0_from_dst = FilterInTrees('d0_from_dst_filter', Code="DECTREE('[Charm -> pi+ K-]CC')")
 d0_from_dst_sel = Selection("d0_from_dst_sel",
                             Algorithm=d0_from_dst,
@@ -69,7 +69,7 @@ for example, we could use `SubstitutePID` from the previous lesson to change the
 Of course, if we were reconstructing $$K^{*}(892)^{0} \to K^{-}\pi^{+}$$ with `Phys/StdAllLooseKaons/Particles` instead, for example, we would already have everything we need since the ambiguity wouldn't exist.
 
 {% callout "An interesting detail" %}
-One can use `FilterInTrees` and `FilterDecays` to select several particles at 
+One can use `FilterInTrees` and `FilterDecays` to select several particles at
 once and obtain a flattened list.
 For example, if we had a Stripping line that builds `[B-  -> (^D0 -> ^K- ^pi+) ^pi-]cc` and we wanted to combine the $$D^0$$ and $$\pi^-$$ with an external $$\pi^0$$ to build `[B- -> D0 pi- pi0]cc`, we could do
 ```python
