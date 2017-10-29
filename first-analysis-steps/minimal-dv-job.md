@@ -177,9 +177,9 @@ $ lb-run DaVinci/v42r6p1 gaudirun.py ntuple_options.py
 
 The full options file we've created, `ntuple_options.py`, is [available
 here](./code/minimal-dv/ntuple_options.py).
-A slightly modified version that uses remote files (using an XML catalog 
+A slightly modified version that uses remote files (using an XML catalog as
 [described here](files-from-grid.html)) is [available
-here](./code/minimal-dv/ntuple_options_xmlcatalog.py)
+here](./code/minimal-dv/ntuple_options_xmlcatalog.py).
 
 {% callout "Using a microDST" %}
 A microDST (or µDST) is a smaller version of a DST.
