@@ -133,6 +133,23 @@ to the `UserAlgorithms` list.
 The `TupleFile` attribute defines the name of the ROOT output file that DaVinci
 will store any algorithm output in, which should be our ntuple.
 
+{% callout "Being smart and efficient" %}
+Typical stripping lines take only a small part of the stripped stream - so, a small fraction of events in the DST: actually, usually you care about a single TES location!
+At the same time, event unpacking and running the DecayTreeTuple machinery for each event is time-consuming. 
+Consequently, DSTs can be processed much faster if before unpacking we select *only* events which are likely to accomodate the desired TES location. This can be achieved, for example, by requiring a prefilter checking whether event passes a stripping requirement. You may also filter on trigger decisions - this is an idea behind the Turbo stream.
+As a conclusion, it is *strongly* recommended to exploit the `EventPreFilters` method offered by `DaVinci`: this feature can save a lot of processing time and collaboration's computing resources when running over millions of events.
+To require events to pass a specific stripping line requirement, one should add these lines to the options file:
+```python
+from PhysConf.Filters import LoKi_Filters
+fltrs = LoKi_Filters (
+    STRIP_Code = "HLT_PASS_RE('StrippingD2hhPromptDst2D2KKLineDecision')"
+)
+DaVinci().EventPreFilters = fltrs.filters('Filters')
+```
+Here we use the [LoKi functor `HLT_PASS_RE`](http://lhcb-doxygen.web.cern.ch/lhcb-doxygen/davinci/latest/d7/dae/namespace_lo_ki_1_1_cuts.html#aee4bba9ae8443acd970dd52e20e5b8c1) which checks for a positive decision on (in this case) the stripping line. 
+You may investigate some of more advanced examples of `EventPreFilters` usage [here](https://twiki.cern.ch/twiki/bin/view/LHCb/FAQ/DaVinciFAQ#How_to_process_the_stripped_DSTs) and [here](https://gitlab.cern.ch/lhcb/Phys/blob/master/Phys/PhysConf/python/PhysConf/Filters.py).
+{% endcallout %} 
+
 All that's left to do is to say what data we would like to run over.
 As we already have a data file [downloaded locally](files-from-grid.html), we
 define that as our input data.
@@ -162,7 +179,7 @@ The full options file we've created, `ntuple_options.py`, is [available
 here](./code/minimal-dv/ntuple_options.py).
 A slightly modified version that uses remote files (using an XML catalog as
 [described here](files-from-grid.html)) is [available
-here](./code/minimal-dv/ntuple_options_xmlcatalog.py)
+here](./code/minimal-dv/ntuple_options_xmlcatalog.py).
 
 {% callout "Using a microDST" %}
 A microDST (or µDST) is a smaller version of a DST.
