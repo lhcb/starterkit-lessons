@@ -675,12 +675,12 @@
                                 <section class="normal markdown-section">
                                 
                                 <h1 id="developing-lhcb-software">Developing LHCb Software</h1>
-<p><div class="panel panel-warning"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(7643451591);" id="learning-objectives"><i class="fa fa-line-chart"></i> Learning Objectives<span id="heading-7643451591"></span></h3></div><div class="panel-body" id="panel-7643451591"><ul>
+<p><div class="panel panel-warning"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(5700072723);" id="learning-objectives"><i class="fa fa-line-chart"></i> Learning Objectives<span id="heading-5700072723"></span></h3></div><div class="panel-body" id="panel-5700072723"><ul>
 <li>Learn how to work with and modify LHCb software projects and packages</li>
 <li>Learn how to find and search the source code and its documentation</li>
 </ul>
 </div></div> </p>
-<p><div class="panel panel-warning"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(4688241394);" id="prerequisites"><i class="fa fa-rocket"></i> Prerequisites<span id="heading-4688241394"></span></h3></div><div class="panel-body" id="panel-4688241394"><p>Before starting, you should have a basic understanding of how to use <code>git</code>,
+<p><div class="panel panel-warning"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(8130485982);" id="prerequisites"><i class="fa fa-rocket"></i> Prerequisites<span id="heading-8130485982"></span></h3></div><div class="panel-body" id="panel-8130485982"><p>Before starting, you should have a basic understanding of how to use <code>git</code>,
 similar to what has been
 <a href="https://lhcb.github.io/analysis-essentials/git/git.html" target="_blank">taught</a> during the
 Starterkit.</p>
@@ -707,7 +707,7 @@ this page. Note that, although the lb-git commands are much easier for small
 changes to existing packages where recompiling an entire project would be
 cumbersome, for any serious development the usage of vanilla git is much more
 stable. Please consider using it if you can spare the compilation time.</p>
-<p><div class="panel panel-primary"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(6010248716);" id="initial-setup"><i class="fa fa-info-circle"></i> Initial setup<span id="heading-6010248716"></span></h3></div><div class="panel-body" id="panel-6010248716"><p>Before jumping in by creating a project in Gitlab, you should make sure that
+<p><div class="panel panel-primary"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(178708734);" id="initial-setup"><i class="fa fa-info-circle"></i> Initial setup<span id="heading-178708734"></span></h3></div><div class="panel-body" id="panel-178708734"><p>Before jumping in by creating a project in Gitlab, you should make sure that
 your local git configuration and your settings on Gitlab are sufficiently set
 up.</p>
 <ul>
@@ -755,7 +755,7 @@ and optionally (CMake only)
 
 You can customize the configuration by editing the files &apos;build.conf&apos; and
 &apos;CMakeLists.txt&apos; (see http://cern.ch/gaudi/CMake for details).
-</code></pre><p><div class="panel panel-primary"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(9026961205);" id="lb-dev-created-local-projects-are-git-repositories"><i class="fa fa-info-circle"></i> lb-dev created local projects are Git repositories<span id="heading-9026961205"></span></h3></div><div class="panel-body" id="panel-9026961205"><p>When <code>lb-dev</code> creates the local project directory and create the initial
+</code></pre><p><div class="panel panel-primary"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(2512744610);" id="lb-dev-created-local-projects-are-git-repositories"><i class="fa fa-info-circle"></i> lb-dev created local projects are Git repositories<span id="heading-2512744610"></span></h3></div><div class="panel-body" id="panel-2512744610"><p>When <code>lb-dev</code> creates the local project directory and create the initial
 files there, it also calls <code>git init</code> and commits to the local Git repository
 the first version of the files (try with <code>git log</code> in there).</p>
 <p>You can then use git to keep track of your development, and share your code
@@ -791,7 +791,7 @@ git &#x2013; check this with <code>git remote -v</code>!  <code>git lb-checkout<
 <em>partial</em> checkout of the master branch of the Stripping repository, only
 adding the files under
 <a href="https://gitlab.cern.ch/lhcb/Stripping/tree/master/Phys/StrippingSelections" target="_blank"><code>Phys/StrippingSelections</code></a>.</p>
-<p><div class="panel panel-primary"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(2932455494);" id="which-project-to-use-in-git-lb-use"><i class="fa fa-info-circle"></i> Which project to use in `git lb-use`?<span id="heading-2932455494"></span></h3></div><div class="panel-body" id="panel-2932455494"><p>The project name to pass to <code>git lb-use</code> depends on the directories you want
+<p><div class="panel panel-primary"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(19532134);" id="which-project-to-use-in-git-lb-use"><i class="fa fa-info-circle"></i> Which project to use in `git lb-use`?<span id="heading-19532134"></span></h3></div><div class="panel-body" id="panel-19532134"><p>The project name to pass to <code>git lb-use</code> depends on the directories you want
 to check out and work on, and not on the project name you passed to <code>lb-dev</code>.
 Moreover you can call <code>git lb-use</code> several times for different remote
 projects in the same local project:</p>
@@ -812,7 +812,7 @@ make</code> to build it with your changes.  You can test your changes with the
 package and version:</p>
 <pre><code class="lang-bash">./run gaudirun.py options.py
 </code></pre>
-<p><div class="panel panel-primary"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(9140217960);" id="what-if-git-asks-for-my-password"><i class="fa fa-info-circle"></i> What if `git` asks for my password?<span id="heading-9140217960"></span></h3></div><div class="panel-body" id="panel-9140217960"><p>Make sure you succesfully completed the instructions under <a href="#initial-setup">initial
+<p><div class="panel panel-primary"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(9240922725);" id="what-if-git-asks-for-my-password"><i class="fa fa-info-circle"></i> What if `git` asks for my password?<span id="heading-9240922725"></span></h3></div><div class="panel-body" id="panel-9240922725"><p>Make sure you succesfully completed the instructions under <a href="#initial-setup">initial
 setup</a>.</p>
 </div></div> </p>
 <p>If you have made changes that you&apos;d like to be integrated into the official
@@ -828,7 +828,7 @@ project. In order to get your changes merged there from the branch to which you
 inspect your code. This can be done on the <a href="https://gitlab.cern.ch/lhcb/Stripping/merge_requests/new" target="_blank">project repository web 
 page</a>, for
 example.</p>
-<p><div class="panel panel-primary"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(5223488711);" id="quick-link-to-create-a-merge-request"><i class="fa fa-info-circle"></i> Quick link to create a merge request<span id="heading-5223488711"></span></h3></div><div class="panel-body" id="panel-5223488711"><p>When pushing to a branch in a project in Gitlab you will see a message like:</p>
+<p><div class="panel panel-primary"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(1459779425);" id="quick-link-to-create-a-merge-request"><i class="fa fa-info-circle"></i> Quick link to create a merge request<span id="heading-1459779425"></span></h3></div><div class="panel-body" id="panel-1459779425"><p>When pushing to a branch in a project in Gitlab you will see a message like:</p>
 <pre><code>remote:
 remote: Create merge request for my-branch:
 remote:   https://gitlab.cern.ch/lhcb/Stripping/merge_requests/new?merge_request%5Bsource_branch%5D=my-branch
@@ -840,7 +840,7 @@ changes you just pushed.</p>
 on your part), your changes are part of the <code>master</code> branch of the respective
 project, and your contributions are officially part of the LHCb software stack.
 Congratulations!</p>
-<p><div class="panel panel-primary"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(2028557173);" id="nightlies"><i class="fa fa-info-circle"></i> Nightlies<span id="heading-2028557173"></span></h3></div><div class="panel-body" id="panel-2028557173"><p>It is advisable to test new developments on the so-called <a href="https://lhcb-nightlies.cern.ch" target="_blank">nightly
+<p><div class="panel panel-primary"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(7711457340);" id="nightlies"><i class="fa fa-info-circle"></i> Nightlies<span id="heading-7711457340"></span></h3></div><div class="panel-body" id="panel-7711457340"><p>It is advisable to test new developments on the so-called <a href="https://lhcb-nightlies.cern.ch" target="_blank">nightly
 builds</a>. Each project is built overnight
 (hence the name), and all pending merge requests are applied. You can use a
 nightly build version of a project with:</p>
@@ -882,7 +882,7 @@ generated for several related projects, and is linked in all the projects web
 sites, like <a href="https://cern.ch/LHCb-release-area/DOC/davinci/" target="_blank">for DaVinci</a>.
 See also the <a href="http://cern.ch/lhcb-comp/" target="_blank">LHCb Computing web page</a> for a
 list of projects.</p>
-<p><div class="panel panel-primary"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(9725018941);" id="working-with-a-full-project-checkout"><i class="fa fa-info-circle"></i> Working with a full project checkout<span id="heading-9725018941"></span></h3></div><div class="panel-body" id="panel-9725018941"><p>The <code>lb-git</code> commands are not strictly necessary, but they&apos;re very convenient
+<p><div class="panel panel-primary"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(8571427137);" id="working-with-a-full-project-checkout"><i class="fa fa-info-circle"></i> Working with a full project checkout<span id="heading-8571427137"></span></h3></div><div class="panel-body" id="panel-8571427137"><p>The <code>lb-git</code> commands are not strictly necessary, but they&apos;re very convenient
 if you just want to quickly edit one package. Otherwise you&apos;d have to build
 the entire project in which the package is residing, instead of using the
 precompiled version. However, if you develop across multiple packages, or
@@ -943,7 +943,7 @@ git repository containing all the source files of the project.</p>
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Developing LHCb Software","level":"2.1.17","depth":2,"next":{"title":"Asking good questions","level":"2.1.18","depth":2,"path":"first-analysis-steps/asking-questions.md","ref":"first-analysis-steps/asking-questions.md","articles":[]},"previous":{"title":"Splitting a job into subjobs","level":"2.1.16","depth":2,"path":"first-analysis-steps/split-jobs.md","ref":"first-analysis-steps/split-jobs.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-sharing","panels@git+https://github.com/lhcb/gitbook-plugin-panels.git#master","katex-auto-render@git+https://github.com/lhcb/gitbook-plugin-katex-auto-render.git#master","collapsible-menu"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"panels":{},"katex-auto-render":{},"collapsible-menu":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"The Starterkit team and contributors","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"gitbook":"*"},"file":{"path":"first-analysis-steps/lhcb-dev.md","mtime":"2017-10-30T08:41:02.994Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2017-10-30T08:41:59.393Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Developing LHCb Software","level":"2.1.17","depth":2,"next":{"title":"Asking good questions","level":"2.1.18","depth":2,"path":"first-analysis-steps/asking-questions.md","ref":"first-analysis-steps/asking-questions.md","articles":[]},"previous":{"title":"Splitting a job into subjobs","level":"2.1.16","depth":2,"path":"first-analysis-steps/split-jobs.md","ref":"first-analysis-steps/split-jobs.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-sharing","panels@git+https://github.com/lhcb/gitbook-plugin-panels.git#master","katex-auto-render@git+https://github.com/lhcb/gitbook-plugin-katex-auto-render.git#master","collapsible-menu"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"panels":{},"katex-auto-render":{},"collapsible-menu":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"The Starterkit team and contributors","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"gitbook":"*"},"file":{"path":"first-analysis-steps/lhcb-dev.md","mtime":"2017-10-30T14:19:04.981Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2017-10-30T14:20:16.543Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
