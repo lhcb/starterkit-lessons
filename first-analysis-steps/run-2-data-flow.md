@@ -53,3 +53,28 @@ definitions, this time for _trigger lines_ rather than stripping lines.
 It's best to ask the trigger coordinator in your working group if your analysis 
 has a trigger line that outputs to the Turbo stream, and if so where to find 
 the selection definitions.
+
+{% callout "The different types of Turbo" %}
+As the Turbo data flow model has evolved throughout Run 2, the capabilities of 
+Turbo have changed. Each capability has a different name, which can be useful 
+to know.
+
+1. **Turbo**: Saving of the candidate that fired the trigger line. The entire 
+   decay tree of the object is saved (i.e. including descendants).
+2. **Turbo++**, or **PersistReco**: In addition to Turbo, the rest of the 
+   reconstruction performed in HLT2 is also saved when the trigger line fires.
+   This includes all long and downstream tracks, all tracks associated to the 
+   primary vertex reconstruction (VELO tracks), and all particle identification 
+   objects. This allows you to perform arbitrary combinatorics offline.
+3. **TurboSP**: For ‘Turbo with selective persistence’, in addition to Turbo 
+   you can specify additional objects to save. These additional objects are 
+   usually the subset of the reconstruction that’s relevant for your physics 
+   analysis, such as the set of particles that combine with the trigger 
+   candidate and form a good-quality vertex. TurboSP is a compromise between 
+   Turbo, where you can only do analysis on what you used in the trigger but 
+   use little space, and Turbo++, where you can do many things offline but use 
+   a lot of space.
+
+TurboSP is considered as the primary data flow model for the planned LHCb 
+upgrade in Run 3.
+{% endcallout %}
