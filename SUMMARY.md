@@ -44,3 +44,7 @@
     * [TisTos DIY](second-analysis-steps/tistos-diy.md)
     * [Ganga Scripting](second-analysis-steps/ganga-scripting.md)
     * [Managing files in Ganga](second-analysis-steps/managing-files-with-ganga.md)
+
+----
+
+ * [Download PDF](ref://starterkit-lessons.pdf)
