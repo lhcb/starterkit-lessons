@@ -18,9 +18,9 @@ before_script:
   - "sh -e /etc/init.d/xvfb start"
   - sleep 3 # give xvfb some time to start
 script:
-  - gitbook build
   - gitbook pdf
   - cp book.pdf starterkit-lessons.pdf
+  - gitbook build
 # With instructions from http://www.steveklabnik.com/automatically_update_github_pages_with_travis_example/
 after_success:
   - test $TRAVIS_PULL_REQUEST == "false" && test $TRAVIS_BRANCH == "master" && bash deploy.sh
