@@ -631,6 +631,26 @@
     
 
     
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="4.1" >
+            
+                <a target="_blank" href="ref://starterkit-lessons.pdf">
+            
+                    
+                    Download PDF
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
 
     <li class="divider"></li>
 
@@ -676,7 +696,7 @@
                                 
                                 <h1 id="building-your-own-decay">Building your own decay</h1>
 <h2 id="modern-selection-framework">Modern Selection Framework</h2>
-<p><div class="panel panel-warning"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(8954599125);" id="learning-objectives"><i class="fa fa-line-chart"></i> Learning Objectives<span id="heading-8954599125"></span></h3></div><div class="panel-body" id="panel-8954599125"><ul>
+<p><div class="panel panel-warning"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(8290043911);" id="learning-objectives"><i class="fa fa-line-chart"></i> Learning Objectives<span id="heading-8290043911"></span></h3></div><div class="panel-body" id="panel-8290043911"><ul>
 <li>Build a decay chain with the most optimized tools</li>
 <li>Learn the advantages of these specialized tools</li>
 </ul>
@@ -700,7 +720,7 @@ d0_sel = SimpleSelection(
 </code></pre>
 <p>Note how we needed to use the <code>CombineParticles</code> from <code>GaudiConfUtils.ConfigurableGenerators</code> instead of the <code>PhysConf.Selections</code> one to make this work.
 This is because the LHCb algorithms are configured as singletons and it is mandatory to give them a name, which we don&apos;t want to in <code>SimpleSelection</code> (we want to skip steps!).</p>
-<p><div class="panel panel-primary"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(6032451403);" id="why-configurablegenerators"><i class="fa fa-info-circle"></i> Why `ConfigurableGenerators`?<span id="heading-6032451403"></span></h3></div><div class="panel-body" id="panel-6032451403"><p>If we had tried to simply use <code>CombineParticles</code> inside our 
+<p><div class="panel panel-primary"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(5601317726);" id="why-configurablegenerators"><i class="fa fa-info-circle"></i> Why `ConfigurableGenerators`?<span id="heading-5601317726"></span></h3></div><div class="panel-body" id="panel-5601317726"><p>If we had tried to simply use <code>CombineParticles</code> inside our 
 <code>SimpleSelection</code>, we would have seen it fail with the following error</p>
 <pre><code class="lang-output">NameError: Could not instantiate Selection because input Configurable CombineParticles has default name. This is too unsafe to be allowed.
 </code></pre>
@@ -732,7 +752,7 @@ These are very useful in timing-critical environments, such as the Stripping.</p
 It&apos;s used in a similar way as <code>CombineSelection</code>.</p>
 </li>
 </ul>
-<p><div class="panel panel-success"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(7123429779);" id="work-to-do"><i class="fa fa-square-o"></i> Work to do<span id="heading-7123429779"></span></h3></div><div class="panel-body" id="panel-7123429779"><ul>
+<p><div class="panel panel-success"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(9781769208);" id="work-to-do"><i class="fa fa-square-o"></i> Work to do<span id="heading-9781769208"></span></h3></div><div class="panel-body" id="panel-9781769208"><ul>
 <li>Rewrite the previous script to select our signal in terms of 
 <code>SimpleSelections</code> and the other algorithms we just learned.</li>
 <li>Introduce <code>FilterSelection</code> by performing the soft pion selection outside the <code>CombineParticles</code> as discussed in the <em>Building shared selections</em> callout in the <a href="building-decays-part1.html">previous lesson</a>.
@@ -759,7 +779,7 @@ This will only be helpful for rare Stripping lines, since the overhead of runnin
 Additionally, it takes care of <code>RootInTes</code> for you.</p>
 </li>
 </ul>
-<p><div class="panel panel-success"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(2521585332);" id="a-small-test"><i class="fa fa-square-o"></i> A small test<span id="heading-2521585332"></span></h3></div><div class="panel-body" id="panel-2521585332"><p>Try running the <a href="../first-analysis-steps/minimal-dv-job.html">minimal DaVinci job</a> with and without the <code>StrippingSelection</code>/<code>DecayTreeTuple</code> selections, and compare their performance</p>
+<p><div class="panel panel-success"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(4925584902);" id="a-small-test"><i class="fa fa-square-o"></i> A small test<span id="heading-4925584902"></span></h3></div><div class="panel-body" id="panel-4925584902"><p>Try running the <a href="../first-analysis-steps/minimal-dv-job.html">minimal DaVinci job</a> with and without the <code>StrippingSelection</code>/<code>DecayTreeTuple</code> selections, and compare their performance</p>
 <p>In this particular case, there is a simple way to achieve a CPU-efficient code with <code>DecayTreeTuple</code>, thanks to the use of <code>DaVinci</code> pre-event filters;</p>
 <pre><code class="lang-python"> <span class="hljs-keyword">from</span> PhysConf.Filters <span class="hljs-keyword">import</span> LoKi_Filters
  filter_ = LoKi_Filters(STRIP_Code=<span class="hljs-string">&quot;HLT_PASS(&apos;StrippingD2hhCompleteEventPromptDst2D2RSDecision&apos;)&quot;</span>)
@@ -819,7 +839,7 @@ In these situations, the Selection Framework is the ideal tool to keep the code 
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Modern Selection Framework","level":"3.1.2.3","depth":3,"next":{"title":"What to do when something fails","level":"3.1.3","depth":2,"path":"second-analysis-steps/fixing-errors.md","ref":"second-analysis-steps/fixing-errors.md","articles":[]},"previous":{"title":"A Historical Approach","level":"3.1.2.2","depth":3,"path":"second-analysis-steps/building-decays-part1.md","ref":"second-analysis-steps/building-decays-part1.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-sharing","panels@git+https://github.com/lhcb/gitbook-plugin-panels.git#master","katex-auto-render@git+https://github.com/lhcb/gitbook-plugin-katex-auto-render.git#master","collapsible-menu"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"panels":{},"katex-auto-render":{},"collapsible-menu":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"The Starterkit team and contributors","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"gitbook":"*"},"file":{"path":"second-analysis-steps/building-decays-part2.md","mtime":"2017-10-30T14:19:04.981Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2017-10-30T14:20:16.543Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Modern Selection Framework","level":"3.1.2.3","depth":3,"next":{"title":"What to do when something fails","level":"3.1.3","depth":2,"path":"second-analysis-steps/fixing-errors.md","ref":"second-analysis-steps/fixing-errors.md","articles":[]},"previous":{"title":"A Historical Approach","level":"3.1.2.2","depth":3,"path":"second-analysis-steps/building-decays-part1.md","ref":"second-analysis-steps/building-decays-part1.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-sharing","panels@git+https://github.com/lhcb/gitbook-plugin-panels.git#master","katex-auto-render@git+https://github.com/lhcb/gitbook-plugin-katex-auto-render.git#master","collapsible-menu","otherlink"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"collapsible-menu":{},"search":{},"otherlink":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"panels":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"katex-auto-render":{},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"The Starterkit team and contributors","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"gitbook":"*"},"file":{"path":"second-analysis-steps/building-decays-part2.md","mtime":"2017-10-31T13:27:59.358Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2017-10-31T13:29:37.664Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
@@ -846,6 +866,10 @@ In these situations, the Selection Framework is the ideal tool to keep the code 
     
         
         <script src="../gitbook/gitbook-plugin-collapsible-menu/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-otherlink/js/otherlink.js"></script>
         
     
         
