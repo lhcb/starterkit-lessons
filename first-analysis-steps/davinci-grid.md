@@ -28,8 +28,8 @@ To create your first `ganga` job type the following:
 j = Job(name='First ganga job')
 myApp = prepareGaudiExec('DaVinci','v42r6p1', myPath='.')
 j.application = myApp
-j.application.options = ['code/davinci-grid/ntuple_options_grid.py']
-j.application.readInputData('data/MC_2016_27163002_Beam6500GeV2016MagDownNu1.625nsPythia8_Sim09b_Trig0x6138160F_Reco16_Turbo03_Stripping28NoPrescalingFlagged_ALLSTREAMS.DST.py')
+j.application.options = ['ntuple_options.py']
+j.application.readInputData('MC_2016_27163002_Beam6500GeV2016MagDownNu1.625nsPythia8_Sim09b_Trig0x6138160F_Reco16_Turbo03_Stripping28NoPrescalingFlagged_ALLSTREAMS.DST.py')
 j.backend = Dirac()
 j.outputfiles = [LocalFile('DVntuple.root')]
 ```
@@ -71,8 +71,8 @@ j = Job(name='First ganga job')
 myApp = GaudiExec()
 myApp.directory = "./DaVinciDev_v42r6p1"
 j.application = myApp
-j.application.options = ['code/davinci-grid/ntuple_options_grid.py']
-j.application.readInputData('data/MC_2016_27163002_Beam6500GeV2016MagDownNu1.625nsPythia8_Sim09b_Trig0x6138160F_Reco16_Turbo03_Stripping28NoPrescalingFlagged_ALLSTREAMS.DST.py')
+j.application.options = ['ntuple_options.py']
+j.application.readInputData('MC_2016_27163002_Beam6500GeV2016MagDownNu1.625nsPythia8_Sim09b_Trig0x6138160F_Reco16_Turbo03_Stripping28NoPrescalingFlagged_ALLSTREAMS.DST.py')
 j.backend = Dirac()
 j.outputfiles = [LocalFile('DVntuple.root')]
 j.submit()
