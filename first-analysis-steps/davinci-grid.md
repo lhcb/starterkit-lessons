@@ -15,7 +15,7 @@ jobs.
 
 Before creating your first `ganga` job, open the script `ntuple_options.py`, obtained in the [previous lesson](minimal-dv-job.html), and comment out the lines taking the local input data: we will now use the data stored on grid.
 
-Then, open the file `MC_2016_27163002_Beam6500GeV2016MagDownNu1.625nsPythia8_Sim09b_Trig0x6138160F_Reco16_Turbo03_Stripping28NoPrescalingFlagged_ALLSTREAMS.DST.py`, scroll to the very end, and comment out two lines defining the `FileCatalog`: they will mislead `ganga` since it only needs to know about the list of LFNs.
+Then, open the file `MC_2016_27163002_Beam6500GeV2016MagDownNu1.625nsPythia8_Sim09b_Trig0x6138160F_Reco16_Turbo03_Stripping28NoPrescalingFlagged_ALLSTREAMS.DST.py`, scroll to the very end, and check if two last lines have information about the `FileCatalog`: if yes, comment them out. They will mislead `ganga` since it only needs to know about the list of LFNs.
 
 Finally, launch your grid proxy typing `lhcb-proxy-init` and enter your *grid certidicate* password. 
 
