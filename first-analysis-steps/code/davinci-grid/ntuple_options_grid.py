@@ -21,5 +21,5 @@ DaVinci().Simulation = True
 # Only ask for luminosity information when not using simulated data
 DaVinci().Lumi = not DaVinci().Simulation
 DaVinci().EvtMax = -1
-DaVinci().CondDBtag = 'sim-20170721-1-vc-mu100'
-DaVinci().DDDBtag = 'dddb-20171005-3'
+DaVinci().CondDBtag = 'sim-20161124-2-vc-md100'
+DaVinci().DDDBtag = 'dddb-20150724'
