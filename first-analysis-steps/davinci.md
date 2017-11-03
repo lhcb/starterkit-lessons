@@ -93,7 +93,7 @@ Many of the following lessons will teach you how to do something with DaVinci by
 You can use the above command to test it.
 You can also specify several option files like this:
 ```bash
-lb-run DaVinci/v41r2 gaudirun.py options1.py options2.py
+lb-run DaVinci/v42r6p1 gaudirun.py options1.py options2.py
 ```
 They will then both be used to set up DaVinci.
 
@@ -119,9 +119,9 @@ Typing `exit` or using `Ctrl-d` will close the shell and leave the LHCb environm
 When reading through other tutorials, you will come across `SetupProject`.
 This is an older way of setting up a shell that is configured to run LHCb software.
 `lb-run` is the new way of doing things and has some nice benefits over `SetupProject`.
-For most purposes, `SetupProject DaVinci v41r2` is equivalent to
+For most purposes, `SetupProject DaVinci v42r6p1` is equivalent to
 ```bash
-lb-run DaVinci/v41r2 $SHELL
+lb-run DaVinci/v42r6p1 $SHELL
 ```
 but you should really avoid doing things this way as this method is no longer supported for the latest project releases. (The environment for DaVinci v42r6p1, for example, cannot be started this way.)
 {% endcallout %} 
