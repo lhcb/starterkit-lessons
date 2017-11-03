@@ -31,6 +31,7 @@ from Configurables import DaVinci
 
 dv = DaVinci()
 dv.DataType = '2016'
+dv.Simulation = True
 
 # Pass file to open as first command line argument
 inputFiles = [sys.argv[-1]]
