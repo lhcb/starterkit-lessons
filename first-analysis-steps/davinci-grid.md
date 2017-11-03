@@ -5,6 +5,7 @@
 * Submit a ganga job
 * Waiting for ganga
 * Find the job output
+* Being smart and efficient
 {% endobjectives %} 
 
 This lesson will teach you how to take our [minimal DaVinci
