@@ -1,11 +1,25 @@
 language: node_js
 node_js:
   - "node"
+addons:
+  apt:
+    packages:
+    - calibre
+    - calibre-bin
 before_install:
   - npm install gitbook-cli -g
 install:
   - gitbook install
+  - npm install svgexport -g
+# Using xvfb to Run Tests That Require a GUI
+# https://docs.travis-ci.com/user/gui-and-headless-browsers/#Using-xvfb-to-Run-Tests-That-Require-a-GUI
+before_script:
+  - "export DISPLAY=:99.0"
+  - "sh -e /etc/init.d/xvfb start"
+  - sleep 3 # give xvfb some time to start
 script:
+  - gitbook pdf
+  - cp book.pdf starterkit-lessons.pdf
   - gitbook build
 # With instructions from http://www.steveklabnik.com/automatically_update_github_pages_with_travis_example/
 after_success:

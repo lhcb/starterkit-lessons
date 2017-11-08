@@ -1,12 +1,12 @@
 # Summary
 
 * [The LHCb Starterkit](README.md)
+  * [Contributing](CONTRIBUTING.md)
 
 ----
 
 * [First analysis steps](first-analysis-steps/README.md)
     * [Pre-workshop checklist](first-analysis-steps/prerequisites.md)
-    * [Install party](first-analysis-steps/install-party.md)
     * [Goals of the course](first-analysis-steps/introduction-to-course.md)
     * [The LHCb data flow](first-analysis-steps/dataflow.md)
     * [Changes to the data flow in Run 2](first-analysis-steps/run-2-data-flow.md)
@@ -68,3 +68,8 @@
       * [Prospects in C++'s future](first-development-steps/05d-cppfuture.md)
     * [C++ performance](first-development-steps/06a-perf.md)
     * [Python in the upgrade era](first-development-steps/06b-python.md)
+
+----
+
+ * [Download PDF](ref://starterkit-lessons.pdf)
+

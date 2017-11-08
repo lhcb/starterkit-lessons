@@ -42,12 +42,12 @@ from DecayTreeTuple.Configuration import *
 
 # Stream and stripping line we want to use
 stream = 'AllStreams'
-line = 'D2hhCompleteEventPromptDst2D2RSLine'
+line = 'D2hhPromptDst2D2KKLine'
 
 # Create an ntuple to capture D*+ decays from the StrippingLine line
-dtt = DecayTreeTuple('TupleDstToD0pi_D0ToKpi')
+dtt = DecayTreeTuple('TupleDstToD0pi_D0ToKK')
 dtt.Inputs = ['/Event/{0}/Phys/{1}/Particles'.format(stream, line)]
-dtt.Decay = '[D*(2010)+ -> (D0 -> K- pi+) pi+]CC'
+dtt.Decay = '[D*(2010)+ -> (D0 -> K- K+) pi+]CC'
 ```
 
 This imports the `DecayTreeTuple` class, and then creates an object called
@@ -92,13 +92,13 @@ DaVinci().UserAlgorithms += [dtt]
 DaVinci().InputType = 'DST'
 DaVinci().TupleFile = 'DVntuple.root'
 DaVinci().PrintFreq = 1000
-DaVinci().DataType = '2012'
+DaVinci().DataType = '2016'
 DaVinci().Simulation = True
 # Only ask for luminosity information when not using simulated data
 DaVinci().Lumi = not DaVinci().Simulation
 DaVinci().EvtMax = -1
-DaVinci().CondDBtag = 'sim-20130522-1-vc-md100'
-DaVinci().DDDBtag = 'dddb-20130929-1'
+DaVinci().CondDBtag = 'sim-20161124-2-vc-md100'
+DaVinci().DDDBtag = 'dddb-20150724'
 ```
 
 Nicely, a lot of the attributes of the `DaVinci` object are self-explanatory:
@@ -133,6 +133,23 @@ to the `UserAlgorithms` list.
 The `TupleFile` attribute defines the name of the ROOT output file that DaVinci
 will store any algorithm output in, which should be our ntuple.
 
+{% callout "Being smart and efficient" %}
+Typical stripping lines take only a small part of the stripped stream - so, a small fraction of events in the DST: actually, usually you care about a single TES location!
+At the same time, event unpacking and running the DecayTreeTuple machinery for each event is time-consuming. 
+Consequently, DSTs can be processed much faster if before unpacking we select *only* events which are likely to accomodate the desired TES location. This can be achieved, for example, by requiring a prefilter checking whether event passes a stripping requirement. You may also filter on trigger decisions - this is an idea behind the Turbo stream.
+As a conclusion, it is *strongly* recommended to exploit the `EventPreFilters` method offered by `DaVinci`: this feature can save a lot of processing time and collaboration's computing resources when running over millions of events.
+To require events to pass a specific stripping line requirement, one should add these lines to the options file:
+```python
+from PhysConf.Filters import LoKi_Filters
+fltrs = LoKi_Filters (
+    STRIP_Code = "HLT_PASS_RE('StrippingD2hhPromptDst2D2KKLineDecision')"
+)
+DaVinci().EventPreFilters = fltrs.filters('Filters')
+```
+Here we use the [LoKi functor `HLT_PASS_RE`](http://lhcb-doxygen.web.cern.ch/lhcb-doxygen/davinci/latest/d7/dae/namespace_lo_ki_1_1_cuts.html#aee4bba9ae8443acd970dd52e20e5b8c1) which checks for a positive decision on (in this case) the stripping line. 
+You may investigate some of more advanced examples of `EventPreFilters` usage [here](https://twiki.cern.ch/twiki/bin/view/LHCb/FAQ/DaVinciFAQ#How_to_process_the_stripped_DSTs) and [here](https://gitlab.cern.ch/lhcb/Phys/blob/master/Phys/PhysConf/python/PhysConf/Filters.py).
+{% endcallout %} 
+
 All that's left to do is to say what data we would like to run over.
 As we already have a data file [downloaded locally](files-from-grid.html), we
 define that as our input data.
@@ -142,7 +159,7 @@ from GaudiConf import IOHelper
 
 # Use the local input data
 IOHelper().inputFiles([
-    './00035742_00000002_1.allstreams.dst'
+    './00062514_00000001_7.AllStreams.dst'
 ], clear=True)
 ```
 
@@ -155,14 +172,14 @@ In the same folder as your options file `ntuple_options.py` and your DST file
 ending in `.dst`, there's just a single command you need run on `lxplus`.
 
 ```shell
-$ lb-run DaVinci/v41r2 gaudirun.py ntuple_options.py
+$ lb-run DaVinci/v42r6p1 gaudirun.py ntuple_options.py
 ```
 
 The full options file we've created, `ntuple_options.py`, is [available
 here](./code/minimal-dv/ntuple_options.py).
 A slightly modified version that uses remote files (using an XML catalog as
 [described here](files-from-grid.html)) is [available
-here](./code/minimal-dv/ntuple_options_xmlcatalog.py)
+here](./code/minimal-dv/ntuple_options_xmlcatalog.py).
 
 {% callout "Using a microDST" %}
 A microDST (or µDST) is a smaller version of a DST.

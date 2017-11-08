@@ -52,12 +52,12 @@ You can find comprehensive documentation in the [Gaudi Doxygen](https://proj-gau
 Usually, you will work with one of the LHCb software projects that are based on Gaudi.
 One of the most important ones is *DaVinci*, which provides lots of *Algorithms* and *Tools* for physics analysis.
 
-You can run DaVinci using the following command:
+You can run DaVinci using the following command [on lxplus](../first-analysis-steps/prerequisites.md#Pre-workshop checklist):
 ```bash
-lb-run DaVinci/v41r2 gaudirun.py
+lb-run DaVinci/v42r6p1 gaudirun.py
 ```
 
-This will run the `gaudirun.py` command using version v41r2 of DaVinci.
+This will run the `gaudirun.py` command using version v42r6p1 of DaVinci. (`lb-run` sets the specified environment for `gaudirun.py` to run in.)
 `gaudirun.py` is a script that sets up the EventLoop.
 You should get the following output:
 
@@ -65,8 +65,8 @@ You should get the following output:
 # setting LC_ALL to "C"
 ApplicationMgr    SUCCESS
 ====================================================================================================================================
-                                                   Welcome to DaVinci version v41r2
-                                          running on lxplus0107.cern.ch on Tue Oct 25 17:26:01 2016
+                                                   Welcome to DaVinci version v42r6p1
+                                          running on lxplus055.cern.ch on Mon Oct 16 10:47:29 2017
 ====================================================================================================================================
 ApplicationMgr       INFO Application Manager Configured successfully
 HistogramPersis...WARNING Histograms saving not required.
@@ -85,7 +85,7 @@ During this run, DaVinci didn't do anything: We didn't specify any algorithms to
 Usually, you will write an option file (e.g. `options.py`) and specify it as an argument to `gaudirun.py`:
 
 ```bash
-lb-run DaVinci/v41r2 gaudirun.py options.py
+lb-run DaVinci/v42r6p1 gaudirun.py options.py
 ```
 
 An `option.py` is just a regular Python script that specifies how to set things up in the software.
@@ -104,10 +104,16 @@ lb-run --list DaVinci
 Do you want to start a shell that already contains the LHCb environment, so you don't have to use `lb-run`?
 Execute
 ```bash
-lb-run DaVinci/v41r2 $SHELL
+lb-run DaVinci/v42r6p1 $SHELL
 ```
+>Note that sometimes this environment can result in failing scripts due to struggles with your shell's rc file (e.g., `~/.bashrc`). Using, e.g.,
+```bash
+lb-run DaVinci/v42r6p1 bash --norc
+```
+avoids this, but means you won't be able to use any aliases, etc, included in the ignored rc file.
+
 A simple `gaudirun.py` should work as well now.
-Typing `exit` will close the shell and leave the LHCb environment behind.
+Typing `exit` or using `Ctrl-d` will close the shell and leave the LHCb environment behind.
 
 {% callout "Using SetupProject instead of lb-run" %}
 When reading through other tutorials, you will come across `SetupProject`.
@@ -117,4 +123,5 @@ For most purposes, `SetupProject DaVinci v41r2` is equivalent to
 ```bash
 lb-run DaVinci/v41r2 $SHELL
 ```
+but you should really avoid doing things this way as this method is no longer supported for the latest project releases. (The environment for DaVinci v42r6p1, for example, cannot be started this way.)
 {% endcallout %} 

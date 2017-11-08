@@ -18,7 +18,7 @@ is not working as expected.
 
 The file we [downloaded from the grid](files-from-grid.html)
 contains simulated data, with stripping and trigger decisions
-and so on. Here we assumed the file you downloaded is called `00035742_00000002_1.allstreams.dst`.
+and so on. Here we assumed the file you downloaded is called `00062514_00000001_7.AllStreams.dst`.
 To take a look at the contents of the TES, we need to write a small
 Python file:
 
@@ -30,7 +30,8 @@ from GaudiConf import IOHelper
 from Configurables import DaVinci
 
 dv = DaVinci()
-dv.DataType = '2012'
+dv.DataType = '2016'
+dv.Simulation = True
 
 # Pass file to open as first command line argument
 inputFiles = [sys.argv[-1]]
@@ -47,7 +48,7 @@ Place this into a file called `first.py` and run the following
 command in a new terminal:
 
 ```bash
-$ lb-run DaVinci/v41r2 ipython -i first.py 00035742_00000002_1.allstreams.dst
+$ lb-run DaVinci/v42r6p1 ipython -i first.py 00062514_00000001_7.AllStreams.dst
 ```
 
 This will open the DST and print out some of the TES locations
@@ -94,7 +95,7 @@ def nodes(evt, node=None):
 ```
 
 The easiest way to use it is to add it to your `first.py` script
-and re-run it with `ipython -i first.py 00035742_00000002_1.allstreams.dst`.
+and re-run it as before. Then, in your iPython session, enter `nodes(evt)`.
 This will list a large number of TES locations, but even so there
 are some which you have to know about. Another oddity is that some
 locations are "packed", for example: `/Event/AllStreams/pPhys/Particles`.
@@ -142,14 +143,14 @@ Using the name of our stripping line we can now advance through the
 DST until we reach an event which contains a candidate:
 
 ```python
-line = 'D2hhCompleteEventPromptDst2D2RSLine'
+line = 'D2hhPromptDst2D2KKLine'
 advance(line)
 ```
 
-The candidates built for you can now be found at `/Event/AllStreams/Phys/D2hhCompleteEventPromptDst2D2RSLine/Particles`:
+The candidates built for you can now be found at `/Event/AllStreams/Phys/D2hhPromptDst2D2KKLine/Particles`:
 
 ```python
-cands = evt['/Event/AllStreams/Phys/D2hhCompleteEventPromptDst2D2RSLine/Particles']
+cands = evt['/Event/AllStreams/Phys/{0}/Particles'.format(line)]
 print cands.size()
 ```
 
@@ -160,9 +161,9 @@ one with:
 print cands[0]
 ```
 
-Which will print out some information about the [Particle](http://lhcb-release-area.web.cern.ch/LHCb-release-area/DOC/davinci/releases/v41r2/doxygen/d0/d13/class_l_h_cb_1_1_particle.html#details). In our case a D*. You can access its daughters with
+Which will print out some information about the [Particle](http://lhcb-release-area.web.cern.ch/LHCb-release-area/DOC/davinci/releases/v41r2/doxygen/d0/d13/class_l_h_cb_1_1_particle.html#details). In our case a $$D^{* -}$$ ([particle ID number](http://pdg.lbl.gov/2017/reviews/rpp2016-rev-monte-carlo-numbering.pdf) -413). You can access its daughters with
 `cands[0].daughtersVector()[0]` and `cands[0].daughtersVector()[1]`,
-which will be a D0 and a pion.
+which will be a $$\overline{D^{0}}$$ and a $$\pi^{-}$$.
 
 There is a useful tool for printing out decay trees, which you can
 pass the top level particle to and it will print out the daughters etc:
@@ -187,7 +188,7 @@ the `Bender` project.
 For example, to explore the `DST` we could have simply done:
 
 ```
-lb-run Bender/latest bender 00035742_00000002_1.allstreams.dst
+lb-run Bender/latest bender 00062514_00000001_7.AllStreams.dst
 ```
 
 This leaves us in a prompt in which we can proceed as discussed in this
@@ -200,7 +201,7 @@ banner.
 `Bender` also provides a useful command `dst-dump`, which is a quick way of
 figuring out what objects are present on a `DST` and where. Try out:
 ```
-lb-run Bender/latest dst-dump -f -n 100 00035742_00000002_1.allstreams.dst
+lb-run Bender/latest dst-dump -f -n 100 00062514_00000001_7.AllStreams.dst
 ```
 The `-f` option tells `Bender` to try and "unpack" the locations such as
 `/Event/AllStreams/pPhys/Particles` that we mentioned above, while `-n 100`

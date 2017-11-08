@@ -84,7 +84,7 @@ appConf = ApplicationMgr()
 appConf.ExtSvc += ['ToolSvc', 'DataOnDemandSvc', LoKiSvc()]
 
 dv = DaVinci()
-dv.DataType = "2012"
+dv.DataType = "2016"
 
 # disable for older versions of DV
 # generally it seems in older versions of DV
@@ -130,7 +130,7 @@ n_tistos = 0
 
 while advance():
     # Get our candidates
-    candidates = evt['AllStreams/Phys/D2hhPromptDst2D2RSLine/Particles']
+    candidates = evt['AllStreams/Phys/D2hhPromptDst2D2KKLine/Particles']
     candidate = candidates[0]
 
     # Set the things we want to compare for TOS
