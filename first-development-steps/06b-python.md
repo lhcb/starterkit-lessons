@@ -1,14 +1,9 @@
----
-title: "Python in the upgrade era"
-teaching: 20
-exercises: 0
-questions:
-- "What are some good resources for transitioning to Python 3?"
-objectives:
+# Python in the upgrade era
+
+{% objectives "Learning Objectives" %}
 - "Learn about the new Python."
-keypoints:
-- "Work with Python."
----
+{% endobjectives %}
+
 
 # A new Python
 
@@ -34,10 +29,10 @@ About ten years ago, Guido Van Rossum, the Python author and Benevolent Dictator
 
 Unfortunately, this list was comprehensive enough to break virtually every python script ever written. So, to ease the transition, 3.0 and 2.6 were released simultaneously, with the other, backward compatible new features of 3.0 being also included in 2.6. This happened again with the releases of 3.1 and 2.7. Not wanting to maintain two Pythons, the BDFL declared that 2.7 was the last Python 2 series release.
 
-> ## Side note about speed
-> 
-> These changes (mostly the unicode one) also made Python much slower in version 3.0. Since then, however, there have been many speed and memory improvements. Combined with new C extensions for some modules, Python 3 is now usually as fast or faster than Python 2.
-{: .callout}
+{% callout "Side note about speed" %}
+These changes (mostly the unicode one) also made Python much slower in version 3.0. Since then, however, there have been many speed and memory improvements. Combined with new C extensions for some modules, Python 3 is now usually as fast or faster than Python 2.
+{% endcallout %}
+
 
 The original, officially sanctioned upgrade path was one of the biggest issues with moving to Python 3. A script, `2to3`, was supposed to convert code to Python 3, and then the old version could be eventually dropped. This script required a lot of manual intervention (things like the unicode strings require knowledge of the programmer's intent), and required library authors to maintain two separate versions of the code. This hindered initial adoption with many major libraries unwilling to support two versions for
 Python 3 support.
@@ -95,11 +90,7 @@ These are features that have been released in a version of Python after 3.0 that
 * Delegation to a subgenerator, `yield from`, finally allows safe factorisation of generators (3.3)
 
 
-# Upcoming
-
-The Python 3 series is still evolving, with more features planned for the upcoming 3.6 release. A few of them are:
-
-### Formatted string literals.
+### Formatted string literals (3.6)
 
 Finally! You can write code such as the following now:
 
@@ -111,7 +102,7 @@ print(f"The value of x is {x}")
 This is indicated by the `f` prefix, and can take almost any valid python expression. It does not have the scope issues that the old workaround, `.format(**locals())` encounters. 
 
 
-### Syntax for variable annotations
+### Syntax for variable annotations (3.6)
 
 This will be great for type hints, IDE's, and Cython, but the syntax is a little odd for Python. It's based on function annotations.
 A quick example:
@@ -123,15 +114,15 @@ will_be_a_str_later: str
 
 This stores the variable name and the annotation in an `__annotations__` dictionary for the module or the class that they are in.
 
-## Simi-ordered dictionaries
+## Simi-ordered dictionaries (3.6)
 
 Python dictionaries are now partially ordered; due to huge speedups in the C definition of ordered dicts, the `dict` class is now guarantied to iterate in order as long as nothing has been changed since the `dict` creation. This may sound restrictive, but it enables many features; you can now discover the order keyword arguments were passed, the order class members were added, and the order of `{}` dicts. If you want to continue to  keep or control the order, you should move the `dict` to an
 `OrderedDict`, as before. This makes ordered dictionaries much easier to create, too.
 
-> ## Warning
-> 
-> Only class member order and keyword argument order are ensured by the language; the ordering of `{}` is an implementation detail. This detail works in both CPython 3.6 and all versions PyPy, however. This may become language mandated in the future.
-{: .callout}
+{% callout "Warning" %}
+Only class member order and keyword argument order are ensured by the language; the ordering of `{}` is an implementation detail. This detail works in both CPython 3.6 and all versions PyPy, however. This may become language mandated in the future.
+{% endcallout %}
+
 
 ### Other smaller features:
 
@@ -154,12 +145,13 @@ The current status of the python releases is as follows:
     * Python 3.3: Better backwards compatibility makes this the first generally used Python 3, with Windows downloads [outpacing](http://ianozsvald.com/2013/04/15/more-python-3-3-downloads-than-python-2-7-for-past-3-months/) Python 2.7 for the first time. `u""` was added back in as a no-op. Note that PyPy3 is currently based on Python 3.3.5.
 * Python 3.4: Addition of asyncio features and pathlib provided even more interest.
 * Python 3.5: New features, such as matrix multiplication, are accelerating the transition from Python 2.
+* Python 3.6: The addition of format strings make simple scripts much easier and cleaner.
 
-> ## Further reading:
-> 
-> * [The old Python wiki page](https://wiki.python.org/moin/Python2orPython3)
-> * [What's new in Python](https://docs.python.org/3.7/whatsnew/3.6.html)
-> * [10 awesome features of Python that you can't use](https://asmeurer.github.io/python3-presentation/slides.html#1)
-{: .callout}
+{% keypoints "Further reading" %}
+* [The old Python wiki page](https://wiki.python.org/moin/Python2orPython3)
+* [What's new in Python](https://docs.python.org/3.7/whatsnew/3.6.html)
+* [10 awesome features of Python that you can't use](https://asmeurer.github.io/python3-presentation/slides.html#1)
+{% endkeypoints %}
+
 
 

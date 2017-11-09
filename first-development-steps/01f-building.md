@@ -1,20 +1,11 @@
----
-title: "Building LHCb software"
-teaching: 10
-exercises: 10
-questions:
-- "How are LHCb builds structured?"
-objectives:
+# Building LHCb software
+{% objectives "Understand how to modify builds." %}
 - "Learn the basics of building software in LHCb."
-keypoints:
-- "Understand how to modify builds."
----
+{% endobjectives %}
 
 ## Building in CMake
 
 Modern LHCb software builds is stored in git and built with CMake. The procedure to build is given in the example below:
-
-
 
 ## Customizing the build
 
@@ -25,19 +16,19 @@ The build mechanism requires two files in the main directory:
 
 In your CMakeLists.txt, instead of manually configuring CMake, you generally have the following lines:
 
-```
+```cmake
 cmake_minimum_required(VERSION 2.8.5)
 ```
 
 This tells CMake to set policies to the version listed; even if you are in a newer CMake, you will be fully backwards compatible (and will not receive many of the improvements of using a newer CMake, either).
 
-```
+```cmake
 find_package(GaudiProject)
 ```
 
 This is a custom package that contains the very powerful `gaudi_project` command used below. This is CMake's "import" statement. Other common packages are ROOT and Boost. You can add components, using the COMPONENTS keyword. (ROOT's components are not very well defined, but this is useful for BOOST).
 
-```
+```cmake
 gaudi_project(MyProject v12r3
               USE BaseProject v45r6
                   AnotherProject v7r8
@@ -52,6 +43,7 @@ Internally, this tells CMake to find and load other projects in a specific direc
 
 Gaudi supplies a few other commands, as well.
 
+{% solution "WIP" %}
 Later, explain:
 
 * `gaudi_add_library`
@@ -66,8 +58,8 @@ Later, explain:
 * `gaudi_add_dictionary`
 * `gaudi_add_executable`
 * `gaudi_env`
+{% endsolution %}
 
-> ## Further reading
-> 
-> * [CMake LHCb builds TWiki](https://twiki.cern.ch/twiki/bin/view/LHCb/GaudiCMakeConfiguration)
-{: .callout}
+{% keypoints "Further reading" %}
+* [CMake LHCb builds TWiki](https://twiki.cern.ch/twiki/bin/view/LHCb/GaudiCMakeConfiguration)
+{% endkeypoints %}

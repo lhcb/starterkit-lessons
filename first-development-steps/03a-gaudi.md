@@ -1,14 +1,9 @@
----
-title: "The Gaudi framework"
-teaching: 60
-exercises: 60
-questions:
-- "Why is Gaudi used?"
-objectives:
+# The Gaudi framework
+
+{% objectives "Learning Objectives" %}
 - "Learn about the Gaudi framework."
-keypoints:
-- "Work with Gaudi."
----
+{% endobjectives %}
+
 
 ## Goals of the design
 
@@ -37,11 +32,12 @@ Gaudi::Property<int> m_some_int{this, "SomeInt", 0, "Description of some int"};
 
 This defines a member variable of type `Gaudi::Property<int>`, and calls the constructor on initialization with several parameters. The first is `this`, a pointer to the current class. The second is the property name. The third is the default value. You can also optionally give a description.
 
-> ## Notes on the new syntax
-> 
-> The usage of `this` is a common feature of the new interfaces, giving Gaudi components access to the algorithms that contain them. The location of `this` is not consistent across the components, however, as you will see with `AnyDataHandle`.
-> 
-{: .callout}
+
+{% callout "Notes on the new syntax" %}
+The usage of `this` is a common feature of the new interfaces, giving Gaudi components access to the algorithms that contain them. The location of `this` is not consistent across the components, however, as you will see with `AnyDataHandle`.
+{% endcallout %}
+
+
 
 
 ## AnyDataHandle
@@ -71,11 +67,9 @@ AnyDataHandle<Anything> m_anything{"/Event/Anything", Gaudi::DataHandle::Reader,
 const Anything* p_anything = m_anything.get();
 ```
 
-
-> ## Notes on the new syntax
->
-> Adding AnyDataHandle as a member variable breaks compatibility with the `using` statement, so you will need to explicitly define the constructor.
-{: .callout}
+{% callout "Notes on the new syntax" %}
+Adding AnyDataHandle as a member variable breaks compatibility with the `using` statement, so you will need to explicitly define the constructor.
+{% endcallout %}
 
 This works by replacing inheritance with *type erasure*.
 
@@ -131,17 +125,15 @@ The functionals available in the framework are named by the data they work on (w
     - `Calo/CaloReco`: `CaloElectronAlg`, `CaloSinglePhotonAlg`
     - This is used for vector to vector transformations where the same algorithm is applied on each vector element with 1 to 1 mapping.
 
-> ## A note on stateless algorithms
-> 
-> A stateless algorithm (one that does not store state between events) provides several important benefits:
->
-> * Thread safety
-> * Better scalability
-> * Leaner code
->
-> The downside is that a lot of code needs to be migrated.
-{: .callout}
+{% callout "A note on stateless algorithms" %}
+A stateless algorithm (one that does not store state between events) provides several important benefits:
 
+* Thread safety
+* Better scalability
+* Leaner code
+
+The downside is that a lot of code needs to be migrated.
+{% endcallout %}
 
 ## Producer
 
@@ -204,17 +196,15 @@ Split or merge containers. These take one or more inputs, and produce one or mor
 * Please add as many tests as possible!
 
 
-> ## An example
->
-> An example with some of these features can be found by running:
->
-> ~~~
-svn export https://github.com/lhcb/DevelopKit/trunk/code/GaudiNewAPI GaudiNewAPI
-cd GaudiNewAPI/GaudiFunctional
-source build_and_run.sh
-~~~
-> {: .input}
-> 
-> This package has two examples, `GaudiFunctional` and `GaudiDataTrans`, which use the new system to transfer data in and out of the TES using DataHandles and the functional approach. Feel free to explore and modify these examples. If you come up with a new useful example, please submit it as a PR.
-> 
-{: .callout}
+## An example
+
+An example with some of these features can be found by running:
+
+```term
+local:~ $ svn export https://github.com/lhcb/DevelopKit/trunk/code/GaudiNewAPI GaudiNewAPI
+local:~ $ cd GaudiNewAPI/GaudiFunctional
+local:GaudiFunctional $ source build_and_run.sh
+```
+
+This package has two examples, `GaudiFunctional` and `GaudiDataTrans`, which use the new system to transfer data in and out of the TES using DataHandles and the functional approach. Feel free to explore and modify these examples. If you come up with a new useful example, please submit it as a PR.
+

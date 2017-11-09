@@ -1,14 +1,9 @@
----
-title: "C++ Performance"
-teaching: 20
-exercises: 10
-questions:
-- "How do I write fast code?"
-objectives:
+# "C++ Performance"
+
+{% objectives "Learning Objectives" %}
 - "Learn about fast coding."
-keypoints:
-- "Learn about writing performant code."
----
+{% endobjectives %}
+
 
 # Optimizing code
 
@@ -29,39 +24,37 @@ These modify the execution of the program, such as `callgrind`. This causes your
 can affect the proportion of time spent in calls. Small calls or IO tend to be heavily impacted by using these tools.
 
 
-> ## Example of callgrind
->
-> The following example shows the procedure for obtaining a graphical result of the time spent in each portion of your program:
->
-> ```bash
-$ g++ -g -O2 -std=c++11 -pedantic -Wall -Wextra my_program.cpp -o my_program
-$ valgrind -tool=callgrind -dump-instr=yes -collect -jumps=yes -cache -sim=yes -branch-sim=yes ./my_program
-$ kcachegrind
+{% discussion "Example of callgrind" %}
+The following example shows the procedure for obtaining a graphical result of the time spent in each portion of your program:
+
+```term
+local:build $ g++ -g -O2 -std=c++11 -pedantic -Wall -Wextra my_program.cpp -o my_program
+local:build $ valgrind -tool=callgrind -dump-instr=yes -collect -jumps=yes -cache -sim=yes -branch-sim=yes ./my_program
+local:build $ kcachegrind
 ```
->
-{: .discussion}
+{% enddiscussion %}
 
 ### Stack sampling profilers
 
 These sample the program stack during execution (`gprof`, `google-perftools`, `igprof`), providing minimal changes to the runtime of the program. These trade knoledge of every call for a representation of a normal run.
 
-> ## Examples of sample profiling
-> 
-> To use, you'll want the compiler to add profile info (`-pg`) and optionally debug info (`-g`). You also may want the compiler to avoid inline functions (`-fno-inline`). The binary can now be run through gprof:
-> ```bash
-$ gprof ./my_program
+## Examples of sample profiling
+
+{% discussion "Examples of sample profiling" %}
+To use, you'll want the compiler to add profile info (`-pg`) and optionally debug info (`-g`). You also may want the compiler to avoid inline functions (`-fno-inline`). The binary can now be run through gprof:
+```term
+local:build $ gprof ./my_program
 ```
-> 
-> Google also has a profiling tool:
->
-> ```bash
+{% enddiscussion %}
+
+Google also has a profiling tool:
+
+```bash
 $ CPUPROFILE=prof.out LD_PRELOAD=/usr/lib/libprofiler.so.0 ./my_program
 $ google-pprof -text ./my_program prof.out
 ```
->
-{: .discussion}
 
-Another option is igprof, which is available on the CERN stack. In comparison with the other sampling profilers, it provides several unique advantages. The following are benifits and drawbacks compared to gprof:
+Another option is igprof, which is available on the CERN stack. In comparison with the other sampling profilers, it provides several unique advantages. The following are benefits and drawbacks compared to gprof:
 
 * Does not require special compilation flags.
 * More robust when monitoring programs that do nontrivial stuff such as calling libraries or spawning new processes and threads.
@@ -75,22 +68,24 @@ Compared to valgrind/callgrind:
 * Does not run your code in a virtual machine -> enormously faster, however output is less precise (e.g. no cache info).
 * Does not bias your performance profile by inflating the relative cost of CPU w.r.t. IO by a factor of 100.
  
-> ## Example of igperf
-> 
-> You can profile a program as follows:
-> ```bash
-$ igprof -d -pp -z -o my_program.pp.gz my_program
-$ igprof-analyse -d -v -g my_program.pp.gz >& my_program.pp.out
+ 
+{% discussion "Example of igperf" %}
+You can profile a program as follows:
+
+```term
+local:build $ igprof -d -pp -z -o my_program.pp.gz my_program
+local:build $ igprof-analyse -d -v -g my_program.pp.gz >& my_program.pp.out
 ```
-> 
-> The first line produces a profile, the second line converts it to a readable text report.
-{: .discussion}
+
+The first line produces a profile, the second line converts it to a readable text report.
+{% enddiscussion %}
+ 
 
 ### Kernel sampling profilers
 
-These are similar to the other sampling profilers, but they use extra information from the Linux kernel when sampling, such as CPU performance counters. This leads them to the following benifits and drawbacks: 
+These are similar to the other sampling profilers, but they use extra information from the Linux kernel when sampling, such as CPU performance counters. This leads them to the following benefits and drawbacks: 
 
-* They are hopelessely unportable to non-linux OSs. Compare them with XCode Instruments on OSX and the Windows Performance Toolkit.
+* They are hopelessly unportable to non-Linux OS's. Compare them with Xcode Instruments on macOS and the Windows Performance Toolkit.
 * The information that they provide is hardware and kernel-specific, and in particular they won't run at all if your Linux kernel is too old.
 * They tend to make the system protection features of modern Linux distros (e.g. SELinux) go crazy, making it a pain to get them to run.
 * As a compensation for all these drawbacks, they promise much more detailed information, comparable to what one can usually only get through callgrind, thanks to the use of hardware performance counters.
@@ -98,16 +93,15 @@ These are similar to the other sampling profilers, but they use extra informatio
 
 Some examples are `linux-perf` and `oprofile`.
 
-> ## Example of Kernel profiling
->
-> You can also use the kernel and CPU to help (may require root privileges):
->
-> ```bash
-$ perf record ./my_program
-$ perf report ./my_program
+
+{% discussion "Example of Kernel profiling" %}
+You can also use the kernel and CPU to help (may require root privileges):
+
+```term
+local:build $ perf record ./my_program
+local:build $ perf report ./my_program
 ```
->
-{: .discussion}
+{% enddiscussion %}
 
 ## Keep clarity a focus
 
@@ -129,7 +123,7 @@ Some common issues with writing C++ are:
 * Custom memory management inside a framework (like Gaudi) that does that for you. This can be made into a more general rule: if a framework provides something, use it. Then the framework can be upgraded, and your code will receive the benefits.
 * Try to support and use pass by reference and move semantics. This allows you to avoid copying large data structures many times.
 * Using `iterator++` instead of `++iterator`, the first is often making a copy wastefully.
-* Forgetting to use noexcept if you can't throw an exception; this can allow the compiler to do more optimization for you.
+* Forgetting to use `noexcept` if you can't throw an exception; this can allow the compiler to do more optimization for you.
 
 # Common speedups
 
@@ -256,10 +250,10 @@ And the code always gives a result of `x.load() == 0`.
 The final method that can be used to communicate between threads is condition variables. This behaves a bit like an atomic, but can be waited on until a thread "notifies" that the variable is ready.
 
 
-> ## Future reading
-> 
-> * [Performance in C++ for LHCb](https://gitlab.cern.ch/mschille/fellow-meeting-performance-talk/blob/master/talk.pdf)
-> * [LHCb Code Analysis Tools](https://twiki.cern.ch/twiki/bin/view/LHCb/CodeAnalysisTools)
-> 
-{: .callout}
+{% keypoints "Further reading" %}
+* [Performance in C++ for LHCb](https://gitlab.cern.ch/mschille/fellow-meeting-performance-talk/blob/master/talk.pdf)
+* [LHCb Code Analysis Tools](https://twiki.cern.ch/twiki/bin/view/LHCb/CodeAnalysisTools)
+{% endkeypoints %}
+
+
 

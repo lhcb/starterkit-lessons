@@ -1,14 +1,9 @@
----
-title: "New features in the distant future for LHCb Physicists"
-teaching: 15
-exercises: 0
-questions:
-- "What can I use from the improvements C++ in 2020+?"
-objectives:
+# New features in the distant future for LHCb Physicists
+
+{% objectives "Learning Objectives" %}
 - "Learn a few of the plans for C++"
-keypoints:
-- "Learn about C++ plans"
----
+{% endobjectives %}
+
 
 C++ is on a 3 year cycle, with groups working on Technical Specifications (TS's). Many TS's were proposed for C++17, but failed to make the cut. They may make it into a later version, however, and may need support from users like you. So here are the most interesting plans:
 
@@ -44,12 +39,32 @@ Of course, the point would be to do something like this:
 ```cpp
 std::for_each(vect[{2,5}], do_something);
 ```
-which would take the second up to the fifth elements of vect and only operate on those. I'm assuming vectors will support view's iterating and slicing here, otherwise you might need to wrap a vector in a view from Ranges.
+which would take the second up to the fifth elements of `vect` and only operate on those. I'm assuming vectors will support view's iterating and slicing here, otherwise you might need to wrap a vector in a view from Ranges.
 
 ## Reflection
 
 This is not really even a TS yet, just a Study Group (SG). However, it is a huge topic, and it being pushed forward by the ROOT team among others. It would allow a C++ class to know what it is, just like a Python class does, and would eliminate/fix/simplify most of what ROOT does, like the saving of arbitrary classes. ROOT's dictionary generator is just a hack for the missing Reflection feature. Read more [here](https://root.cern.ch/blog/status-reflection-c). Like
 several of the newest proposals, it uses Concepts.
+
+## Compile-time code
+
+This would allow a programmer to execute arbitrary code blocks at compile time; due to similarity with constexpr, this is proposed to look like this:
+
+```cpp
+constexpr {
+    // The code in the block executes during compilation
+}
+```
+
+This would be useful for reflection (since you can process the members of a reflection enabled class), and with a third new feature, **injection**, you could even inject new methods at compile time. That brings us to our next new feature...
+
+## Metaclasses
+
+This is a radical proposal that is exciting everyone, but requires a series of features to be added (reflection, compile-time code, and injection) that are still being worked on. If this was added, however, it could replace the custom dictionary generators of ROOT and Gaudi Object Description (or just about any other system), it could provide simple ways to add things like Python bindings, and much more. All of this inside a framework that would be easier to debug than templates. It could
+also unify many of the other concepts in C++, like classes vs. structs, into a single conceptual framework. See [Herb Sutter's site](https://herbsutter.com/2017/07/26/metaclasses-thoughts-on-generative-c/) for more on the proposal.
+
+This proposal would allow new versions of the "class" keyword to be added that add new functionality and set new defaults; even generate several classes from one definition. For example, you could remake the existing `struct` just using a metaclass definition that sets the defaults to public and adds default constructors.
+
 
 ## Smaller changes
 

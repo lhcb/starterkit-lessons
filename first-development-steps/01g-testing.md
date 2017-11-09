@@ -1,15 +1,10 @@
----
-title: "Running and testing"
-teaching: 10
-exercises: 20
-questions:
-- "How to I work with testing?"
-objectives:
+# Running and testing
+
+{% objectives "Run examples and tests" %}
 - "Learn about running examples."
 - "Learn about running tests."
-keypoints:
-- "Work with tests."
----
+{% endobjectives %}
+
 
 One of the most important components of writing code is testing. The following section will show you how to run examples in tests in Gaudi; this is also mostly compatible with the packages that are built on top of Gaudi, such as DaVinci and Gauss.
 
@@ -17,42 +12,39 @@ One of the most important components of writing code is testing. The following s
 
 The Gaudi examples are available in `Gaudi/GaudiExamples`. On lxplus, you can grab them and build with a partial checkout:
 
-~~~
-lb-dev Gaudi v28r1
-cd GaudiDev_v28r1
-git lb-use Gaudi
-git lb-checkout Gaudi/v28r1 GaudiExamples
-make
-~~~
-{: .input}
+```term
+local:~ $ lb-dev Gaudi v28r1
+local:~ $ cd GaudiDev_v28r1
+local:GaudiDev_v28r1 $ git lb-use Gaudi
+local:GaudiDev_v28r1 $ git lb-checkout Gaudi/v28r1 GaudiExamples
+local:GaudiDev_v28r1 $ make
+```
 
 Now, you have Gaudi and just the GaudiExamples subdirectory (project). This is a good place to start looking around to see how Gaudi works; for now we'll try running an example.
 
-~~~
-./run gaudirun.py GaudiExamples/options/AlgSequencer.py
-~~~
-{: .input}
+```term
+local:GaudiDev_v28r1 $ ./run gaudirun.py GaudiExamples/options/AlgSequencer.py
+```
 
 This will run a a few algorithms in sequence, and will output info messages for ten "events" (no data).
 
 ## Testing
 
-> ## Searching the source
-> 
-> In this case, you can search the source in the current directory and below by:
-> 
-> ~~~
-git grep AlgSequencer
-~~~
-> {: .input}
->
-> To search the online source, you can do:
->
-> ~~~
-Lbglimpse AlgSequencer Ganga v28r1
-~~~
-> {: .input}
-{: .discussion}
+
+{% discussion "Searching the source" %}
+
+In this case, you can search the source in the current directory and below by:
+
+```term
+local:~ $ git grep AlgSequencer
+```
+
+To search the online source, you can do:
+
+```term
+local:~ $ Lbglimpse AlgSequencer Ganga v28r1
+```
+{% enddiscussion %}
 
 There are two methods to write tests:
 
@@ -91,12 +83,11 @@ class Test(BaseTest):
 
 ## Running a test
 
-You can run all the tests with `make test`. This interally runs the ctest command in the build directory. You can pass on arguments to the ctest file through the make command though the `ARGS` variable. For example, to run a single named test:
+You can run all the tests with `make test`. This internally runs the ctest command in the build directory. You can pass on arguments to the ctest file through the make command though the `ARGS` variable. For example, to run a single named test:
 
-~~~
-make test ARGS="-R algsequencer_pyopts"
-~~~
-{: .input}
+```term
+local:GaudiDev_v28r1 $ make test ARGS="-R algsequencer_pyopts"
+```
 
 
 The arguments that can be passed to `ctest` can be found with `ctest --help`.
@@ -109,7 +100,7 @@ Some examples:
 Note that `gaudirun.py` can take read and run a `.qmt` file directly. This allows you to see the output of the run, as `ctest` hides the output. 
 
 
-> ## See also
-> 
-> [Hackathon introduction](https://gitlab.cern.ch/lhcb/upgrade-hackathon-setup)
-{: .callout}
+{% keypoints "See also" %} 
+* [Hackathon introduction](https://gitlab.cern.ch/lhcb/upgrade-hackathon-setup)
+{% endkeypoints %}
+
