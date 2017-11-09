@@ -1,0 +1,7 @@
+/InstallArea/
+/build.*/
+*.pyc
+*~
+.*.swp
+/Makefile
+/toolchain.cmake
