@@ -51,7 +51,7 @@
 
 ----
 
-* [First development steps](http://lhcb.github.io/development-lessons/)
+* [First development steps](http://lhcb.github.io/developkit-lessons/)
 
 ----
 
