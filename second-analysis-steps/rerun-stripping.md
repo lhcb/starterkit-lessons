@@ -24,7 +24,7 @@ The key changes are
 
  - Removing the old stripping reports with a node killer
 
-``` {.python}
+```python
 from Configurables import EventNodeKiller
 event_node_killer = EventNodeKiller('StripKiller')
 event_node_killer.Nodes = ['/Event/AllStreams', '/Event/Strip']
@@ -33,7 +33,7 @@ event_node_killer.Nodes = ['/Event/AllStreams', '/Event/Strip']
  - Picking the right stripping line from Stripping 21 (which we prepare with `buildStreams`):
  - Building a custom stream that only contains the desired stripping line
 
-``` {.python}
+```python
 strip = 'stripping21'
 streams = buildStreams(stripping=strippingConfiguration(strip),
                        archive=strippingArchive(strip))
@@ -49,7 +49,7 @@ for stream in streams:
 
  - Instantiating a `StrippingConf` for running the stripping
 
-``` {.python}
+```python
 sc = StrippingConf(Streams=[custom_stream],
                    MaxCandidates=2000,
                    AcceptBadEvents=False,
@@ -58,7 +58,7 @@ sc = StrippingConf(Streams=[custom_stream],
 
  - Inserting the node killer and the stripping selection sequence into the Gaudi sequence
 
-``` {.python}
+```python
 DaVinci().appendToMainSequence([event_node_killer, sc.sequence()])
 ```
 
