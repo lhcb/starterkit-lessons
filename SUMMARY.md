@@ -47,11 +47,11 @@
 
 ----
 
-* [First computing steps](http://lhcb.github.io/analysis-essentials/)
+* [First computing steps](https://lhcb.github.io/analysis-essentials/)
 
 ----
 
-* [First development steps](http://lhcb.github.io/developkit-lessons/)
+* [First development steps](https://lhcb.github.io/developkit-lessons/first-development-steps/)
 
 ----
 
