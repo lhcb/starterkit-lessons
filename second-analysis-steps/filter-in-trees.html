@@ -1,0 +1,853 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Reuse particles from a decay tree · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="The Starterkit team and contributors">
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-panels/panels.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-katex-auto-render/katex.min.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="simulation.html" />
+    
+    
+    <link rel="prev" href="switch-mass-hypo.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    The LHCb Starterkit
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.1.1" data-path="../CONTRIBUTING.html">
+            
+                <a href="../CONTRIBUTING.html">
+            
+                    
+                    Contributing
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="2.1" data-path="../first-analysis-steps/">
+            
+                <a href="../first-analysis-steps/">
+            
+                    
+                    First analysis steps
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.1.1" data-path="../first-analysis-steps/prerequisites.html">
+            
+                <a href="../first-analysis-steps/prerequisites.html">
+            
+                    
+                    Pre-workshop checklist
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.2" data-path="../first-analysis-steps/introduction-to-course.html">
+            
+                <a href="../first-analysis-steps/introduction-to-course.html">
+            
+                    
+                    Goals of the course
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.3" data-path="../first-analysis-steps/dataflow.html">
+            
+                <a href="../first-analysis-steps/dataflow.html">
+            
+                    
+                    The LHCb data flow
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.4" data-path="../first-analysis-steps/run-2-data-flow.html">
+            
+                <a href="../first-analysis-steps/run-2-data-flow.html">
+            
+                    
+                    Changes to the data flow in Run 2
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.5" data-path="../first-analysis-steps/davinci.html">
+            
+                <a href="../first-analysis-steps/davinci.html">
+            
+                    
+                    An introduction to LHCb Software
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.6" data-path="../first-analysis-steps/bookkeeping.html">
+            
+                <a href="../first-analysis-steps/bookkeeping.html">
+            
+                    
+                    Finding data in the Bookkeeping
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.7" data-path="../first-analysis-steps/files-from-grid.html">
+            
+                <a href="../first-analysis-steps/files-from-grid.html">
+            
+                    
+                    Downloading a file from the grid
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.8" data-path="../first-analysis-steps/interactive-dst.html">
+            
+                <a href="../first-analysis-steps/interactive-dst.html">
+            
+                    
+                    Interactively exploring a DST
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.9" data-path="../first-analysis-steps/loki-functors.html">
+            
+                <a href="../first-analysis-steps/loki-functors.html">
+            
+                    
+                    Fun with LoKi Functors
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.10" data-path="../first-analysis-steps/minimal-dv-job.html">
+            
+                <a href="../first-analysis-steps/minimal-dv-job.html">
+            
+                    
+                    Running a minimal DaVinci job locally
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.11" data-path="../first-analysis-steps/davinci-grid.html">
+            
+                <a href="../first-analysis-steps/davinci-grid.html">
+            
+                    
+                    Running DaVinci on the grid
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.12" data-path="../first-analysis-steps/add-tupletools.html">
+            
+                <a href="../first-analysis-steps/add-tupletools.html">
+            
+                    
+                    TupleTools and branches
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.13" data-path="../first-analysis-steps/decay-tree-fitter.html">
+            
+                <a href="../first-analysis-steps/decay-tree-fitter.html">
+            
+                    
+                    How do I use DecayTreeFitter?
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.14" data-path="../first-analysis-steps/ganga-data.html">
+            
+                <a href="../first-analysis-steps/ganga-data.html">
+            
+                    
+                    More Ganga
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.15" data-path="../first-analysis-steps/eos-storage.html">
+            
+                <a href="../first-analysis-steps/eos-storage.html">
+            
+                    
+                    Storing large files on EOS
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.16" data-path="../first-analysis-steps/split-jobs.html">
+            
+                <a href="../first-analysis-steps/split-jobs.html">
+            
+                    
+                    Splitting a job into subjobs
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.17" data-path="../first-analysis-steps/lhcb-dev.html">
+            
+                <a href="../first-analysis-steps/lhcb-dev.html">
+            
+                    
+                    Developing LHCb Software
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.18" data-path="../first-analysis-steps/asking-questions.html">
+            
+                <a href="../first-analysis-steps/asking-questions.html">
+            
+                    
+                    Asking good questions
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.19" data-path="../first-analysis-steps/ecgd.html">
+            
+                <a href="../first-analysis-steps/ecgd.html">
+            
+                    
+                    Early career, gender and diversity
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.20" data-path="../first-analysis-steps/contributing-lesson.html">
+            
+                <a href="../first-analysis-steps/contributing-lesson.html">
+            
+                    
+                    Contribute to this lesson
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="3.1" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    Second analysis steps
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.1.1" data-path="lb-git.html">
+            
+                <a href="lb-git.html">
+            
+                    
+                    Using git to develop LHCb software
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.2" data-path="building-decays.html">
+            
+                <a href="building-decays.html">
+            
+                    
+                    Building your own decay
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.1.2.1" data-path="building-decays-part0.html">
+            
+                <a href="building-decays-part0.html">
+            
+                    
+                    The Selection Framework
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.2.2" data-path="building-decays-part1.html">
+            
+                <a href="building-decays-part1.html">
+            
+                    
+                    A Historical Approach
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.2.3" data-path="building-decays-part2.html">
+            
+                <a href="building-decays-part2.html">
+            
+                    
+                    Modern Selection Framework
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.3" data-path="fixing-errors.html">
+            
+                <a href="fixing-errors.html">
+            
+                    
+                    What to do when something fails
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.4" data-path="rerun-stripping.html">
+            
+                <a href="rerun-stripping.html">
+            
+                    
+                    Run a different stripping line on simulated data
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.5" data-path="switch-mass-hypo.html">
+            
+                <a href="switch-mass-hypo.html">
+            
+                    
+                    Replace a mass hypothesis
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="3.1.6" data-path="filter-in-trees.html">
+            
+                <a href="filter-in-trees.html">
+            
+                    
+                    Reuse particles from a decay tree
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.7" data-path="simulation.html">
+            
+                <a href="simulation.html">
+            
+                    
+                    The simulation framework
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.8" data-path="hlt-intro.html">
+            
+                <a href="hlt-intro.html">
+            
+                    
+                    HLT intro
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.9" data-path="tistos-diy.html">
+            
+                <a href="tistos-diy.html">
+            
+                    
+                    TisTos DIY
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.10" data-path="ganga-scripting.html">
+            
+                <a href="ganga-scripting.html">
+            
+                    
+                    Ganga Scripting
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.11" data-path="managing-files-with-ganga.html">
+            
+                <a href="managing-files-with-ganga.html">
+            
+                    
+                    Managing files in Ganga
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="4.1" >
+            
+                <a target="_blank" href="ref://starterkit-lessons.pdf">
+            
+                    
+                    Download PDF
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >Reuse particles from a decay tree</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="reuse-particles-from-a-decay-tree">Reuse particles from a decay tree</h1>
+<p><div class="panel panel-warning"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(2921176728);" id="learning-objectives"><i class="fa fa-line-chart"></i> Learning Objectives<span id="heading-2921176728"></span></h3></div><div class="panel-body" id="panel-2921176728"><ul>
+<li>Learn how to extract particles from a decay tree</li>
+<li>Build a new particle from the extracted particles</li>
+</ul>
+</div></div></p>
+<p>Sometimes we want to extract a portion of the decay tree in order to build a different decay.
+To do that, we need to put the particles we&apos;re interested in in a new container so they can afterwards be used as inputs to a <code>CombineParticles</code> instance (as we saw in <a href="building-decays-part-0.md">the selection framework lesson</a>).
+To achieve this we can use the <code>FilterInTrees</code> algorithm, a simple variation of <code>FilterDesktop</code> (<a href="https://lhcb-release-area.web.cern.ch/LHCb-release-area/DOC/hlt/latest_doxygen/de/d8e/class_filter_in_trees.html" target="_blank">doxygen</a>).</p>
+<p>Let&apos;s start from the example in <a href="building-decays-part0.html">the selection framework lesson</a> and let&apos;s check that the $$\pi^-$$ child of the $$D^0$$ does not come from a $$\rho\to\pi^+\pi^-$$.
+To do that, we have to extract the $$\pi^-$$ from <code>([D0 -&gt; pi+ K-]CC)</code> and combine it with all pions in <code>Phys/StdAllNoPIDsPions/Particles</code>.</p>
+<p>Using <code>FilterInTrees</code> is done in the same way we would use <code>FilterDesktop</code>:</p>
+<pre><code class="lang-python"><span class="hljs-keyword">from</span> Configurables <span class="hljs-keyword">import</span> FilterInTrees
+<span class="hljs-keyword">from</span> PhysSelPython.Wrappers <span class="hljs-keyword">import</span> Selection, DataOnDemand
+
+decay_tree_location = <span class="hljs-string">&apos;Phys/D2hhCompleteEventPromptDst2D2RSLine/Particles&apos;</span>
+d0_from_dst = FilterInTrees(<span class="hljs-string">&apos;d0_from_dst_filter&apos;</span>, Code=<span class="hljs-string">&quot;DECTREE(&apos;[Charm -&gt; pi+ K-]CC&apos;)&quot;</span>)
+d0_from_dst_sel = Selection(<span class="hljs-string">&quot;d0_from_dst_sel&quot;</span>,
+                            Algorithm=d0_from_dst,
+                            RequiredSelections=[AutomaticData(Location=decay_tree_location)])
+pions_from_d0 = FilterInTrees(<span class="hljs-string">&apos;pions_from_d0_filter&apos;</span>,Code=<span class="hljs-string">&quot;(&apos;pi+&apos; == ABSID)&quot;</span>)
+pions_from_d0_sel = Selection(<span class="hljs-string">&quot;pions_from_d0_sel&quot;</span>,
+                              Algorithm=pions_from_d0,
+                              RequiredSelections=[d0_from_dst_sel])
+</code></pre>
+<p>The output of <code>pions_from_d0_sel</code> is a container with all the pions coming from the $$D^0$$.</p>
+<p><div class="panel panel-primary"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(5264062419);" id="question"><i class="fa fa-info-circle"></i> Question<span id="heading-5264062419"></span></h3></div><div class="panel-body" id="panel-5264062419"><p>Do you see why we couldn&apos;t use something simple like this?</p>
+<pre><code class="lang-python">pions_from_d0 = FilterInTrees(<span class="hljs-string">&apos;pions_from_d0_filter&apos;</span>, Code=<span class="hljs-string">&quot;&apos;pi+&apos; == ABSID&quot;</span>)
+</code></pre>
+</div></div></p>
+<p>Note how we had to do the process in two steps in order to avoid getting the soft pion from the $$D^*$$.
+Sometimes this makes things quite difficult, but almost all problems can be solved with a smart use of the <code>DECTREE</code> container in an intermediate step.</p>
+<p><div class="panel panel-success"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(6481387117);" id="selecting-the-soft-pion"><i class="fa fa-square-o"></i> Selecting the soft pion<span id="heading-6481387117"></span></h3></div><div class="panel-body" id="panel-6481387117"><p>Can you find of a way of selecting the soft pion?
+Hint: use the <code>FilterDecays</code> algorithm, in which you specify a decay descriptor as <code>Code</code>, marking the desired particle(s).</p>
+</div></div></p>
+<p>The final step is easy, very similar to <a href="building-decays-part0.html">building your own decay</a>:</p>
+<pre><code class="lang-python"><span class="hljs-keyword">from</span> Configurables <span class="hljs-keyword">import</span> CombineParticles
+<span class="hljs-keyword">from</span> PhysSelPython.Wrappers <span class="hljs-keyword">import</span> Selection, DataOnDemand
+
+Pions = DataOnDemand(<span class="hljs-string">&apos;Phys/StdAllNoPIDsPions/Particles&apos;</span>)
+rho = CombineParticles(<span class="hljs-string">&apos;rho_particles&apos;</span>,
+                       DecayDescriptor=[<span class="hljs-string">&apos;rho(770)0 -&gt; pi+ pi-&apos;</span>],
+                       CombinationCut=<span class="hljs-string">&quot;ADAMASS(&apos;rho(770)0&apos;) &lt; 300*MeV&quot;</span>,
+                       MotherCut=<span class="hljs-string">&apos;(VFASPF(VCHI2/VDOF)&lt; 9)&apos;</span>)
+rho_sel = Selection(<span class="hljs-string">&apos;rho_sel&apos;</span>,
+                    Algorithm=rho,
+                    RequiredSelections=[pions_from_d0_sel, Pions])
+</code></pre>
+<p>Unfortunately, the <code>CombineParticles</code> example we just wrote is not exactly what we meant, since it will actually build $$\rho$$ from all pions it gets as input, not using one from our <code>pions_from_d0</code> selection and one from <code>&apos;Phys/StdAllNoPIDsPions/Particles&apos;</code>.
+How to solve this?
+We have to get creative and use the tools at hand:
+for example, we could use <code>SubstitutePID</code> from the previous lesson to change the PID of the pions in the <code>pions_from_d0</code> selection to kaon and build <code>[rho(770)0 -&gt; K+ pi-]CC</code> and then change again the PID of the kaon to a pion.
+Of course, if we were reconstructing $$K^{*}(892)^{0} \to K^{-}\pi^{+}$$ with <code>Phys/StdAllLooseKaons/Particles</code> instead, for example, we would already have everything we need since the ambiguity wouldn&apos;t exist.</p>
+<p><div class="panel panel-primary"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(4756751513);" id="an-interesting-detail"><i class="fa fa-info-circle"></i> An interesting detail<span id="heading-4756751513"></span></h3></div><div class="panel-body" id="panel-4756751513"><p>One can use <code>FilterInTrees</code> and <code>FilterDecays</code> to select several particles at
+once and obtain a flattened list.
+For example, if we had a Stripping line that builds <code>[B-  -&gt; (^D0 -&gt; ^K- ^pi+) ^pi-]cc</code> and we wanted to combine the </p>
+</div></div></p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="switch-mass-hypo.html" class="navigation navigation-prev " aria-label="Previous page: Replace a mass hypothesis">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="simulation.html" class="navigation navigation-next " aria-label="Next page: The simulation framework">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Reuse particles from a decay tree","level":"3.1.6","depth":2,"next":{"title":"The simulation framework","level":"3.1.7","depth":2,"path":"second-analysis-steps/simulation.md","ref":"second-analysis-steps/simulation.md","articles":[]},"previous":{"title":"Replace a mass hypothesis","level":"3.1.5","depth":2,"path":"second-analysis-steps/switch-mass-hypo.md","ref":"second-analysis-steps/switch-mass-hypo.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-sharing","panels@git+https://github.com/lhcb/gitbook-plugin-panels.git#master","katex-auto-render@git+https://github.com/lhcb/gitbook-plugin-katex-auto-render.git#master","collapsible-menu","otherlink"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"collapsible-menu":{},"search":{},"otherlink":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"panels":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"katex-auto-render":{},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"The Starterkit team and contributors","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"gitbook":"*"},"file":{"path":"second-analysis-steps/filter-in-trees.md","mtime":"2018-03-01T10:42:48.726Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-03-01T10:45:28.476Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-panels/panels.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-katex-auto-render/katex.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-katex-auto-render/auto-render.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-katex-auto-render/enable-auto-render.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-collapsible-menu/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-otherlink/js/otherlink.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

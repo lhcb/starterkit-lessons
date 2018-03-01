@@ -1,0 +1,935 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>The LHCb data flow · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="The Starterkit team and contributors">
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-panels/panels.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-katex-auto-render/katex.min.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="run-2-data-flow.html" />
+    
+    
+    <link rel="prev" href="introduction-to-course.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    The LHCb Starterkit
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.1.1" data-path="../CONTRIBUTING.html">
+            
+                <a href="../CONTRIBUTING.html">
+            
+                    
+                    Contributing
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="2.1" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    First analysis steps
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.1.1" data-path="prerequisites.html">
+            
+                <a href="prerequisites.html">
+            
+                    
+                    Pre-workshop checklist
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.2" data-path="introduction-to-course.html">
+            
+                <a href="introduction-to-course.html">
+            
+                    
+                    Goals of the course
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="2.1.3" data-path="dataflow.html">
+            
+                <a href="dataflow.html">
+            
+                    
+                    The LHCb data flow
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.4" data-path="run-2-data-flow.html">
+            
+                <a href="run-2-data-flow.html">
+            
+                    
+                    Changes to the data flow in Run 2
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.5" data-path="davinci.html">
+            
+                <a href="davinci.html">
+            
+                    
+                    An introduction to LHCb Software
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.6" data-path="bookkeeping.html">
+            
+                <a href="bookkeeping.html">
+            
+                    
+                    Finding data in the Bookkeeping
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.7" data-path="files-from-grid.html">
+            
+                <a href="files-from-grid.html">
+            
+                    
+                    Downloading a file from the grid
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.8" data-path="interactive-dst.html">
+            
+                <a href="interactive-dst.html">
+            
+                    
+                    Interactively exploring a DST
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.9" data-path="loki-functors.html">
+            
+                <a href="loki-functors.html">
+            
+                    
+                    Fun with LoKi Functors
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.10" data-path="minimal-dv-job.html">
+            
+                <a href="minimal-dv-job.html">
+            
+                    
+                    Running a minimal DaVinci job locally
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.11" data-path="davinci-grid.html">
+            
+                <a href="davinci-grid.html">
+            
+                    
+                    Running DaVinci on the grid
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.12" data-path="add-tupletools.html">
+            
+                <a href="add-tupletools.html">
+            
+                    
+                    TupleTools and branches
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.13" data-path="decay-tree-fitter.html">
+            
+                <a href="decay-tree-fitter.html">
+            
+                    
+                    How do I use DecayTreeFitter?
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.14" data-path="ganga-data.html">
+            
+                <a href="ganga-data.html">
+            
+                    
+                    More Ganga
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.15" data-path="eos-storage.html">
+            
+                <a href="eos-storage.html">
+            
+                    
+                    Storing large files on EOS
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.16" data-path="split-jobs.html">
+            
+                <a href="split-jobs.html">
+            
+                    
+                    Splitting a job into subjobs
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.17" data-path="lhcb-dev.html">
+            
+                <a href="lhcb-dev.html">
+            
+                    
+                    Developing LHCb Software
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.18" data-path="asking-questions.html">
+            
+                <a href="asking-questions.html">
+            
+                    
+                    Asking good questions
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.19" data-path="ecgd.html">
+            
+                <a href="ecgd.html">
+            
+                    
+                    Early career, gender and diversity
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.20" data-path="contributing-lesson.html">
+            
+                <a href="contributing-lesson.html">
+            
+                    
+                    Contribute to this lesson
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="3.1" data-path="../second-analysis-steps/">
+            
+                <a href="../second-analysis-steps/">
+            
+                    
+                    Second analysis steps
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.1.1" data-path="../second-analysis-steps/lb-git.html">
+            
+                <a href="../second-analysis-steps/lb-git.html">
+            
+                    
+                    Using git to develop LHCb software
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.2" data-path="../second-analysis-steps/building-decays.html">
+            
+                <a href="../second-analysis-steps/building-decays.html">
+            
+                    
+                    Building your own decay
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.1.2.1" data-path="../second-analysis-steps/building-decays-part0.html">
+            
+                <a href="../second-analysis-steps/building-decays-part0.html">
+            
+                    
+                    The Selection Framework
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.2.2" data-path="../second-analysis-steps/building-decays-part1.html">
+            
+                <a href="../second-analysis-steps/building-decays-part1.html">
+            
+                    
+                    A Historical Approach
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.2.3" data-path="../second-analysis-steps/building-decays-part2.html">
+            
+                <a href="../second-analysis-steps/building-decays-part2.html">
+            
+                    
+                    Modern Selection Framework
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.3" data-path="../second-analysis-steps/fixing-errors.html">
+            
+                <a href="../second-analysis-steps/fixing-errors.html">
+            
+                    
+                    What to do when something fails
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.4" data-path="../second-analysis-steps/rerun-stripping.html">
+            
+                <a href="../second-analysis-steps/rerun-stripping.html">
+            
+                    
+                    Run a different stripping line on simulated data
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.5" data-path="../second-analysis-steps/switch-mass-hypo.html">
+            
+                <a href="../second-analysis-steps/switch-mass-hypo.html">
+            
+                    
+                    Replace a mass hypothesis
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.6" data-path="../second-analysis-steps/filter-in-trees.html">
+            
+                <a href="../second-analysis-steps/filter-in-trees.html">
+            
+                    
+                    Reuse particles from a decay tree
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.7" data-path="../second-analysis-steps/simulation.html">
+            
+                <a href="../second-analysis-steps/simulation.html">
+            
+                    
+                    The simulation framework
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.8" data-path="../second-analysis-steps/hlt-intro.html">
+            
+                <a href="../second-analysis-steps/hlt-intro.html">
+            
+                    
+                    HLT intro
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.9" data-path="../second-analysis-steps/tistos-diy.html">
+            
+                <a href="../second-analysis-steps/tistos-diy.html">
+            
+                    
+                    TisTos DIY
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.10" data-path="../second-analysis-steps/ganga-scripting.html">
+            
+                <a href="../second-analysis-steps/ganga-scripting.html">
+            
+                    
+                    Ganga Scripting
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.11" data-path="../second-analysis-steps/managing-files-with-ganga.html">
+            
+                <a href="../second-analysis-steps/managing-files-with-ganga.html">
+            
+                    
+                    Managing files in Ganga
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="4.1" >
+            
+                <a target="_blank" href="ref://starterkit-lessons.pdf">
+            
+                    
+                    Download PDF
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >The LHCb data flow</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="the-lhcb-data-flow">The LHCb data flow</h1>
+<p><div class="panel panel-warning"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(1529420848);" id="learning-objectives"><i class="fa fa-line-chart"></i> Learning Objectives<span id="heading-1529420848"></span></h3></div><div class="panel-body" id="panel-1529420848"><ul>
+<li>Understand the LHCb data flow</li>
+<li>Learn the key concepts on the stripping</li>
+</ul>
+</div></div> </p>
+<p>The Large Hadron Collider provides proton-proton collisions to LHCb 40 million 
+times a second.
+This results in a <em>huge</em> amount of data. In fact, if we were to store all the data coming in to LHCb, we would be recording ~ 1 TB <em>every second</em>.</p>
+<p>That&apos;s too much data for us to be able to keep all of it, the price of storage 
+is just too high, so instead we need to <em>filter</em> the data and try to keep only 
+the events which contain something interesting.
+This raises its own problems:</p>
+<ul>
+<li>How do we filter and process the recorded data quickly and accurately?</li>
+<li>How do we manage all the complex tasks required to work with collision data?</li>
+<li>How do we organize all the data of a single bunch crossing in a flexible way?</li>
+<li>How do we configure our software flexibly without having to recompile it?</li>
+<li>Can you think of more?</li>
+</ul>
+<p>These questions arise mostly due to two key points: the data must be processed 
+very quickly because it&apos;s arriving very quickly, and the data is complex so 
+there&apos;s a lot that can be done with it.</p>
+<p>Collisions recorded by the LHCb detector go through a specific data flow 
+designed to maximise the data-taking efficiency and data quality.
+This consists of several steps, each one being controlled by an &#x2018;application&#x2019; 
+that processes the data event-by-event, using the data from the previous step 
+and creating the results ready for the next.
+These steps are as follows:</p>
+<ol>
+<li>Data from the detector are filtered through the <em>trigger</em>, which consists 
+of the L0, implemented in hardware, and the high level trigger (HLT), 
+implemented in software. The application responsible for the software trigger 
+is Moore, discussed in the <a href="../second-analysis-steps/hlt-intro.html">trigger lesson</a> 
+in second-analysis-steps.</li>
+<li>Triggered, raw data are reconstructed to transform the detector hits into 
+objects such as tracks and clusters. This is done by the Brunel 
+application. The objects are stored into an output file in a &#x2018;DST&#x2019; format.</li>
+<li><p>The reconstructed DST files are suitable for analysis, but they are not 
+accessible to users due to computing restrictions. Data are filtered 
+further through a set of selections called the <em>stripping</em>, controlled by 
+the DaVinci application which write out data either in the DST or &#x2018;&#xB5;DST&#x2019; 
+(micro-DST) format. To save disk space and to speed up access for analysts, the 
+output files are grouped into <em>streams</em> which contain similar selections.
+By grouping all of the fully hadronic charm selections together, for 
+example, analysts interested in that type of physics don&apos;t waste time running 
+over the output of the dimuon selections.</p>
+<p><div class="panel panel-primary"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(7568443459);" id="the-output-format"><i class="fa fa-info-circle"></i> The output format<span id="heading-7568443459"></span></h3></div><div class="panel-body" id="panel-7568443459"><p>A DST file is a ROOT file which contains the full event information, such as 
+reconstructed objects and raw data. Each event typically takes around 150kB of 
+disk space in the DST format.
+The &#xB5;DST format was designed to save space by storing only the 
+information concerning the build <em>candidates</em> (that is, the objects used 
+to construct particle decays like tracks); the raw event, which takes 
+around 50kB per event, is discarded.</p>
+</div></div> </p>
+</li>
+<li><p>Users can run their own analysis tools to extract variables for their 
+analysis with the DaVinci application. The processing is slightly different 
+between DST and &#xB5;DST, since some calculations need the other tracks in the 
+event (not only the signal), which are not available in the latter format.</p>
+</li>
+</ol>
+<p>We also produced lots of simulated events, often called Monte Carlo data, and 
+this is processed in a very similar way to real data.
+This similarity is very beneficial, as the simulated data is subject to the 
+same deficiencies as in the processing of real data.
+There are two simulation steps which replace the proton-proton collisions and 
+the detector response:</p>
+<ol>
+<li>The simulation of proton-proton collisions, and the hadronisation and decay 
+of the resulting particles, are ultimately controlled by the Gauss 
+application. Gauss is responsible for calling the various Monte Carlo 
+generators that are supported such as Pythia (the default in LHCb) and POWHEG, 
+and for controlling EvtGen and Geant4. EvtGen is used to describe the decays of 
+simulated particles, whilst Geant4 is used to simulate the propagation and 
+interaction of particles through and with the detector.</li>
+<li>The simulated hits made in the virtual detector are converted to signals 
+that mimic the real detector by the Boole application. The output of Boole 
+is designed to closely match the output of the real detector, and so the 
+simulated data can then be passed through the usual data processing chain 
+described above, beginning with the trigger.</li>
+</ol>
+<p>So, the data flow and the associated applications look like this:</p>
+<p><a href="img/lhcb_data_flow.png"><img src="img/lhcb_data_flow.png" alt="&quot;The flow of real and simulated data during Run 1 of the LHC&quot;"></a></p>
+<p>Knowing this flow is essential in selecting your data! Different application 
+versions can produce very different physics, so it&apos;s very useful to know how 
+each application has manipulated the data you want to use.</p>
+<p><div class="panel panel-success"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(5162158705);" id="why-are-there-multiple-applications"><i class="fa fa-square-o"></i> Why are there multiple applications?<span id="heading-5162158705"></span></h3></div><div class="panel-body" id="panel-5162158705"><p>It&apos;s often simpler to create and visualise a single, monolithic program that 
+does <em>everything</em>, but that&apos;s not how the data flow is set up in LHCb. Why not? 
+What are the advantages of splitting up the software per task? What are the 
+disadvantages?</p>
+</div></div> </p>
+<p>With the exception of a few specific studies, it is only the DaVinci 
+application that is run by users, everything else is run &#x2018;centrally&#x2019; either on 
+the computing farm next to the detector or on the Grid.</p>
+<p>The reconstruction, Brunel, is rarely performed as it is very computationally 
+intensive.
+It is only done when the data are taken and when a new reconstruction 
+configuration is available.
+The stripping can be performed more often, since it runs on reconstructed data.  </p>
+<p>Stripping &#x2018;campaigns&#x2019;, when the stripping selections are centrally run, are 
+identified by a version as <code>SXrYpZ</code>:</p>
+<ul>
+<li>The digit <code>X</code> marks the <em>major</em> stripping version. This marks all major 
+<em>restrippings</em>, in which the full list of selections are processed.</li>
+<li>The digit <code>Y</code> is the release version, which was used during Run 1 to mark 
+the <em>data type</em>, which corresponds to the year the data were taken: <code>0</code> was 
+used for 2012 and <code>1</code> for 2011. The latest stripping for Run 1 data is called 
+<code>S21</code> for 2012 and <code>S21r1</code> for 2011.</li>
+<li>The digit <code>Z</code> marks the <em>patch</em> version, which correspond to <em>incremental 
+strippings</em>; campaigns in which only a handful of selections are run, either 
+to fix bugs or to add a small number of new ones.</li>
+</ul>
+<p>Knowing the reconstruction and stripping versions is often the most important 
+part in choosing your data, because the selections generally always change 
+between major stripping versions, and variables can look very different between 
+reconstruction versions.</p>
+<p>The list of stripping selection largely defines the reconstructed decays that 
+are available to you, but the list is very long as there&apos;s a lot we can do with 
+our data. If you don&apos;t know the stripping line you need, it&apos;s usually best to 
+ask the stripping coordinators of the working group you&apos;ll be presenting your 
+work to. To learn more about the stripping, the best resource is the <a href="https://twiki.cern.ch/twiki/bin/view/LHCb/LHCbStripping" target="_blank">stripping 
+page on the LHCb
+TWiki</a>.
+In it we can find:</p>
+<ul>
+<li>The status of the current stripping, e.g. for <a href="http://lhcbproject.web.cern.ch/lhcbproject/Reprocessing/stats-re-stripping28.html" target="_blank">Stripping 
+<code>S28</code></a>.</li>
+<li>The configuration of all past stripping campaign, e.g. for <a href="http://lhcbproject.web.cern.ch/lhcbproject/Reprocessing/stats-re-stripping-fall14.html" target="_blank">Stripping 
+<code>S21r1</code></a>.</li>
+</ul>
+<p>Additionally, the information on all strippings can be found in the <a href="http://lhcb-release-area.web.cern.ch/LHCb-release-area/DOC/stripping/" target="_blank">stripping 
+project 
+website</a>, 
+where you can see all the algorithms run and cuts applied in each <em>line</em>.
+For example, if we wanted to understand the 
+<code>D2hhPromptDst2D2KKLine</code> line, which we will use in the 
+<a href="interactive-dst.html">exploring a DST</a> lesson later on, we would go 
+<a href="http://lhcb-release-area.web.cern.ch/LHCb-release-area/DOC/stripping/config/stripping21/charmcompleteevent/strippingd2hhcompleteeventpromptdst2d2rsline.html" target="_blank">here</a>.</p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="introduction-to-course.html" class="navigation navigation-prev " aria-label="Previous page: Goals of the course">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="run-2-data-flow.html" class="navigation navigation-next " aria-label="Next page: Changes to the data flow in Run 2">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"The LHCb data flow","level":"2.1.3","depth":2,"next":{"title":"Changes to the data flow in Run 2","level":"2.1.4","depth":2,"path":"first-analysis-steps/run-2-data-flow.md","ref":"first-analysis-steps/run-2-data-flow.md","articles":[]},"previous":{"title":"Goals of the course","level":"2.1.2","depth":2,"path":"first-analysis-steps/introduction-to-course.md","ref":"first-analysis-steps/introduction-to-course.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-sharing","panels@git+https://github.com/lhcb/gitbook-plugin-panels.git#master","katex-auto-render@git+https://github.com/lhcb/gitbook-plugin-katex-auto-render.git#master","collapsible-menu","otherlink"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"collapsible-menu":{},"search":{},"otherlink":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"panels":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"katex-auto-render":{},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"The Starterkit team and contributors","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"gitbook":"*"},"file":{"path":"first-analysis-steps/dataflow.md","mtime":"2018-03-01T10:42:48.686Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-03-01T10:45:28.476Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-panels/panels.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-katex-auto-render/katex.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-katex-auto-render/auto-render.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-katex-auto-render/enable-auto-render.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-collapsible-menu/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-otherlink/js/otherlink.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

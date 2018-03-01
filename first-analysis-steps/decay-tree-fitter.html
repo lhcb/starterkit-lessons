@@ -1,0 +1,898 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>How do I use DecayTreeFitter? · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="The Starterkit team and contributors">
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-panels/panels.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-katex-auto-render/katex.min.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="ganga-data.html" />
+    
+    
+    <link rel="prev" href="add-tupletools.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    The LHCb Starterkit
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.1.1" data-path="../CONTRIBUTING.html">
+            
+                <a href="../CONTRIBUTING.html">
+            
+                    
+                    Contributing
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="2.1" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    First analysis steps
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.1.1" data-path="prerequisites.html">
+            
+                <a href="prerequisites.html">
+            
+                    
+                    Pre-workshop checklist
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.2" data-path="introduction-to-course.html">
+            
+                <a href="introduction-to-course.html">
+            
+                    
+                    Goals of the course
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.3" data-path="dataflow.html">
+            
+                <a href="dataflow.html">
+            
+                    
+                    The LHCb data flow
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.4" data-path="run-2-data-flow.html">
+            
+                <a href="run-2-data-flow.html">
+            
+                    
+                    Changes to the data flow in Run 2
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.5" data-path="davinci.html">
+            
+                <a href="davinci.html">
+            
+                    
+                    An introduction to LHCb Software
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.6" data-path="bookkeeping.html">
+            
+                <a href="bookkeeping.html">
+            
+                    
+                    Finding data in the Bookkeeping
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.7" data-path="files-from-grid.html">
+            
+                <a href="files-from-grid.html">
+            
+                    
+                    Downloading a file from the grid
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.8" data-path="interactive-dst.html">
+            
+                <a href="interactive-dst.html">
+            
+                    
+                    Interactively exploring a DST
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.9" data-path="loki-functors.html">
+            
+                <a href="loki-functors.html">
+            
+                    
+                    Fun with LoKi Functors
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.10" data-path="minimal-dv-job.html">
+            
+                <a href="minimal-dv-job.html">
+            
+                    
+                    Running a minimal DaVinci job locally
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.11" data-path="davinci-grid.html">
+            
+                <a href="davinci-grid.html">
+            
+                    
+                    Running DaVinci on the grid
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.12" data-path="add-tupletools.html">
+            
+                <a href="add-tupletools.html">
+            
+                    
+                    TupleTools and branches
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="2.1.13" data-path="decay-tree-fitter.html">
+            
+                <a href="decay-tree-fitter.html">
+            
+                    
+                    How do I use DecayTreeFitter?
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.14" data-path="ganga-data.html">
+            
+                <a href="ganga-data.html">
+            
+                    
+                    More Ganga
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.15" data-path="eos-storage.html">
+            
+                <a href="eos-storage.html">
+            
+                    
+                    Storing large files on EOS
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.16" data-path="split-jobs.html">
+            
+                <a href="split-jobs.html">
+            
+                    
+                    Splitting a job into subjobs
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.17" data-path="lhcb-dev.html">
+            
+                <a href="lhcb-dev.html">
+            
+                    
+                    Developing LHCb Software
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.18" data-path="asking-questions.html">
+            
+                <a href="asking-questions.html">
+            
+                    
+                    Asking good questions
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.19" data-path="ecgd.html">
+            
+                <a href="ecgd.html">
+            
+                    
+                    Early career, gender and diversity
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.20" data-path="contributing-lesson.html">
+            
+                <a href="contributing-lesson.html">
+            
+                    
+                    Contribute to this lesson
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="3.1" data-path="../second-analysis-steps/">
+            
+                <a href="../second-analysis-steps/">
+            
+                    
+                    Second analysis steps
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.1.1" data-path="../second-analysis-steps/lb-git.html">
+            
+                <a href="../second-analysis-steps/lb-git.html">
+            
+                    
+                    Using git to develop LHCb software
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.2" data-path="../second-analysis-steps/building-decays.html">
+            
+                <a href="../second-analysis-steps/building-decays.html">
+            
+                    
+                    Building your own decay
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.1.2.1" data-path="../second-analysis-steps/building-decays-part0.html">
+            
+                <a href="../second-analysis-steps/building-decays-part0.html">
+            
+                    
+                    The Selection Framework
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.2.2" data-path="../second-analysis-steps/building-decays-part1.html">
+            
+                <a href="../second-analysis-steps/building-decays-part1.html">
+            
+                    
+                    A Historical Approach
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.2.3" data-path="../second-analysis-steps/building-decays-part2.html">
+            
+                <a href="../second-analysis-steps/building-decays-part2.html">
+            
+                    
+                    Modern Selection Framework
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.3" data-path="../second-analysis-steps/fixing-errors.html">
+            
+                <a href="../second-analysis-steps/fixing-errors.html">
+            
+                    
+                    What to do when something fails
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.4" data-path="../second-analysis-steps/rerun-stripping.html">
+            
+                <a href="../second-analysis-steps/rerun-stripping.html">
+            
+                    
+                    Run a different stripping line on simulated data
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.5" data-path="../second-analysis-steps/switch-mass-hypo.html">
+            
+                <a href="../second-analysis-steps/switch-mass-hypo.html">
+            
+                    
+                    Replace a mass hypothesis
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.6" data-path="../second-analysis-steps/filter-in-trees.html">
+            
+                <a href="../second-analysis-steps/filter-in-trees.html">
+            
+                    
+                    Reuse particles from a decay tree
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.7" data-path="../second-analysis-steps/simulation.html">
+            
+                <a href="../second-analysis-steps/simulation.html">
+            
+                    
+                    The simulation framework
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.8" data-path="../second-analysis-steps/hlt-intro.html">
+            
+                <a href="../second-analysis-steps/hlt-intro.html">
+            
+                    
+                    HLT intro
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.9" data-path="../second-analysis-steps/tistos-diy.html">
+            
+                <a href="../second-analysis-steps/tistos-diy.html">
+            
+                    
+                    TisTos DIY
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.10" data-path="../second-analysis-steps/ganga-scripting.html">
+            
+                <a href="../second-analysis-steps/ganga-scripting.html">
+            
+                    
+                    Ganga Scripting
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.11" data-path="../second-analysis-steps/managing-files-with-ganga.html">
+            
+                <a href="../second-analysis-steps/managing-files-with-ganga.html">
+            
+                    
+                    Managing files in Ganga
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="4.1" >
+            
+                <a target="_blank" href="ref://starterkit-lessons.pdf">
+            
+                    
+                    Download PDF
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >How do I use DecayTreeFitter?</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="how-do-i-use-decaytreefitter">How do I use DecayTreeFitter?</h1>
+<p><div class="panel panel-warning"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(3216796593);" id="learning-objectives"><i class="fa fa-line-chart"></i> Learning Objectives<span id="heading-3216796593"></span></h3></div><div class="panel-body" id="panel-3216796593"><ul>
+<li>Add a kinematic fitter to a branch in the decay tree</li>
+<li>Apply a mass constraint</li>
+<li>Inspect the refitted decay tree</li>
+</ul>
+</div></div> </p>
+<p>Once you have made a hypothesis on the chain of decays that lead to your final state, you then can incorporate the additional knowledge that comes with this hypothesis to get a new best estimate for the particle parameters -- in particular their momenta. The additional knowledge is represented as constraints, which your decay tree has to fulfill.</p>
+<p>For example, for the decay</p>
+<pre><code class="lang-python"><span class="hljs-string">&apos;[D*(2010)+ -&gt; (D0 -&gt; K- K+) pi+]CC&apos;</span>
+</code></pre>
+<p>you can make the assumption that the (K- K+) combine to form a D0 with a specific invariant mass. This results in a so called <em>mass-constraint</em>. In addition the kaon and the pion should originate from exactly the same point in space. If you know that your data only contains prompt D<em> candidates, you can constrain them to do come from the primary vertex. Boundary conditions like those are called </em>vertex-constraints*.</p>
+<p>Applying such kinematic constraints leads to new best estimates for the track parameters of the final state particles. The process of calculating those is called a <em>kinematic refit</em> and the <code>TupleToolDecayTreeFitter</code> is the algorithm that performs this task for us.</p>
+<p><div class="panel panel-primary"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(2861803567);" id="the-physics-and-mathematics-behind-decaytreefitter"><i class="fa fa-info-circle"></i> The physics and mathematics behind DecayTreeFitter<span id="heading-2861803567"></span></h3></div><div class="panel-body" id="panel-2861803567"><p>For details of the method see the paper on <a href="http://arxiv.org/abs/physics/0503191" target="_blank">Decay chain fitting with a Kalman 
+filter</a>.</p>
+</div></div> </p>
+<p>So how do we use a <code>TupleToolDecayTreeFitter</code> to our DaVinci script? Let&apos;s create a branch to add the tool to. We&apos;ll just name it <code>&apos;Dstar&apos;</code>:</p>
+<pre><code class="lang-python">dtt.addBranches({
+    <span class="hljs-string">&apos;Dstar&apos;</span>: <span class="hljs-string">&apos;[D*(2010)+ -&gt; (D0 -&gt; K- K+) pi+]CC&apos;</span>,
+})
+</code></pre>
+<p>To this branch we can now apply the <code>TupleToolDecayTreeFitter</code>.</p>
+<pre><code class="lang-python">dtt.Dstar.addTupleTool(<span class="hljs-string">&apos;TupleToolDecayTreeFitter/ConsD&apos;</span>)
+</code></pre>
+<p>Now we can proceed with the configuration of the fitter. We are going to constrain the decay tree to the primary vertex of origin. We want all the output available, so we set the <code>verbose</code> option. Finally we want to apply the mass constraint on the D0:</p>
+<pre><code class="lang-python">dtt.Dstar.ConsD.constrainToOriginVertex = <span class="hljs-keyword">True</span>
+dtt.Dstar.ConsD.Verbose = <span class="hljs-keyword">True</span>
+dtt.Dstar.ConsD.daughtersToConstrain = [<span class="hljs-string">&apos;D0&apos;</span>]
+</code></pre>
+<p>Note that you can constrain more than one intermediate state at once if that fits your decay.</p>
+<p>When using the <code>DecayTreeFitter</code> in a <code>DecayTreeTuple</code>, all the variables created by the other TupleTools are not affected by the change, but some new variables are created, one set per <code>DecayTreeFitter</code> instance. Depending on whether the <code>Verbose</code> option is specified, the new variables are created for the head particle only or for the head particle and its daughters too.</p>
+<p>If the daughters are not stable particles and decay further, the daughters of the daughters have no new variables associated to them by default.
+Since in many cases this information might be useful, there is an option to store the information from those tracks</p>
+<pre><code class="lang-python">dtt.Dstar.ConsD.UpdateDaughters = <span class="hljs-keyword">True</span>
+</code></pre>
+<p><div class="panel panel-primary"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(685848979);" id="decaytreefitter-and-loki-functors"><i class="fa fa-info-circle"></i> DecayTreeFitter and LoKi functors<span id="heading-685848979"></span></h3></div><div class="panel-body" id="panel-685848979"><p>Alternatively, many of the operations described above can done by using the 
+<code>DecayTreeFitter</code> via LoKi functors, see the <a href="https://twiki.cern.ch/twiki/bin/view/LHCb/DaVinciTutorial9b" target="_blank">DaVinci 
+tutorial</a> for 
+details.</p>
+</div></div> </p>
+<p><div class="panel panel-primary"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(5457244177);" id="which-constraints-to-apply"><i class="fa fa-info-circle"></i> Which constraints to apply<span id="heading-5457244177"></span></h3></div><div class="panel-body" id="panel-5457244177"><p>It is important to be aware what assumptions you bake into your ntuple. For 
+example, after you require the vertex constraint you must be careful if using 
+the <code>IPCHI2_OWNPV</code>, since the particle you are looking at is <em>forced</em> to point 
+to the PV. Which constraints make most sense for you depends on the questions 
+you want to ask in your analysis, so ask your supervisor/working group in case 
+of doubt.</p>
+</div></div> </p>
+<p>Once you have produced your ntuple you can have a look at the refitted variables.</p>
+<pre><code class="lang-shell">root -l DVntuple.root
+TupleDstToD0pi_D0ToKK-&gt;cd()
+DecayTree-&gt;StartViewer()
+</code></pre>
+<p>Plotting the raw mass of the D* (without the fit) <code>Dstar_M</code> you should see a broad signal around 2 GeV:</p>
+<p><img src="img/DstarRaw.png" alt="Dstar raw" style="width: 500px;"></p>
+<p><div class="panel panel-primary"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(6958838612);" id="which-mass-variable-to-use"><i class="fa fa-info-circle"></i> Which mass variable to use<span id="heading-6958838612"></span></h3></div><div class="panel-body" id="panel-6958838612"><p>In many ntuples you also find a mass variable called <code>_MM</code>. This confusingly 
+refers to measured mass. However, it is usually better to use <code>_M</code>. <code>_MM</code> is 
+the sum of the 4-momenta of the final state particles extrapolated back to the 
+fitted vertex position, but not the result of the actual vertex fit.</p>
+</div></div> </p>
+<p>Now let us look at the refitted mass of the D*, with the D0 constrained to its nominal mass. It is stored in the variable <code>Dstar_ConsD_M</code>. If you plot this you will note that some values are unphysical. So, let&apos;s restrict the range we look at to something that makes sense.</p>
+<p>On the root prompt use the <code>arrow-up</code> key to get the last draw command and modify it to pipe the output into a histogram:  </p>
+<pre><code class="lang-shell">tv__tree-&gt;Draw(&quot;Dstar_ConsD_M&gt;&gt;h(200,2000,2030)&quot;,&quot;&quot;,&quot;&quot;);
+</code></pre>
+<p><img src="img/DstarRefit.png" alt="Dstar refitted" style="width: 500px;"></p>
+<p>Note that this plot has 356 entries, although we only have 128 candidates in the raw mass spectrum. The reason for this is, that we typically have several primary vertices per event. When you use the vertex contraint, the fitter is run for each of the possible vertex hypothesis available in the event. So all the <code>Dstar_ConsD-xxx</code> variables are in fact arrays, where the first value corresponds to the <em>best PV</em> hypothesis. We can plot only those by doing</p>
+<pre><code class="lang-shell">tv__tree-&gt;Draw(&quot;Dstar_ConsD_M[0]&gt;&gt;h(200,2000,2030)&quot;,&quot;&quot;,&quot;&quot;);
+</code></pre>
+<p>and we get the final kinematically refitted Dstar mass:</p>
+<p><img src="img/DstarRefitBest.png" alt="Dstar refitted best PV" style="width: 500px;"></p>
+<p>Finally, let&apos;s check how the D0 mass constraint has played out.</p>
+<pre><code class="lang-shell">tv__tree-&gt;Draw(&quot;Dstar_ConsD_D0_M[0]&gt;&gt;h(100,1800,1900)&quot;,&quot;&quot;,&quot;&quot;, 128, 0);
+</code></pre>
+<p><img src="img/D0Refit.png" alt="constrained D0" style="width: 500px;"></p>
+<p>As expected, the D0 candidates are forced onto their PDG mass value.</p>
+<p><div class="panel panel-success"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(6336384425);" id="explore"><i class="fa fa-square-o"></i> Explore<span id="heading-6336384425"></span></h3></div><div class="panel-body" id="panel-6336384425"><ul>
+<li>Look at the <code>status</code> variable to check if the fits converged.</li>
+<li>Look at the chi2 distribution of the fit</li>
+</ul>
+</div></div> </p>
+<p><code>DecayTreeFitter</code> can be told to change some of the hypotheses in the decay tree. This is very useful if you want to slightly change which decays you want to look at. As an example let&apos;s say we want to examine the Cabibbo-suppressed decay of the D0 into pi- pi+ instead of K- pi+. For this we add a second fitter, giving it a new name <code>ConsDpipi</code>:</p>
+<pre><code class="lang-python">dtt.Dstar.addTupleTool(<span class="hljs-string">&apos;TupleToolDecayTreeFitter/ConsDpipi&apos;</span>)
+dtt.Dstar.ConsDpipi.constrainToOriginVertex = <span class="hljs-keyword">True</span>
+dtt.Dstar.ConsDpipi.Verbose = <span class="hljs-keyword">True</span>
+dtt.Dstar.ConsDpipi.daughtersToConstrain = [<span class="hljs-string">&apos;D0&apos;</span>]
+</code></pre>
+<p>We now can tell the fitter to substitute one of the kaons in the D0 decay by a pion.</p>
+<pre><code class="lang-python">dtt.Dstar.ConsDpipi.Substitutions = {
+    <span class="hljs-string">&apos;Charm -&gt; (D0 -&gt; ^K- K+) Meson&apos;</span>: <span class="hljs-string">&apos;pi-&apos;</span>,
+    <span class="hljs-string">&apos;Charm -&gt; (D~0 -&gt; ^K+ K-) Meson&apos;</span>: <span class="hljs-string">&apos;pi+&apos;</span>,
+    <span class="hljs-string">&apos;Charm -&gt; (D0 -&gt; K- ^K+) Meson&apos;</span>: <span class="hljs-string">&apos;pi+&apos;</span>,
+    <span class="hljs-string">&apos;Charm -&gt; (D~0 -&gt; K+ ^K-) Meson&apos;</span>: <span class="hljs-string">&apos;pi-&apos;</span>}
+</code></pre>
+<p>In the dictionary that is passed to the <code>Substitutions</code> property of the fitter, the keys are decay descriptors, where the respective particle to be substituted is marked with a <code>^</code>. The values are the respective new particle hypotheses. The substitution will only work if you start from a decay descriptor that actually matches your candidates. However, you are allowed to generalise parts of the decay. Here we replaced <code>D*(2010)</code> with the more general <code>Charm</code> and the bachelor <code>pi-</code> is just represented by a <code>Meson</code>.</p>
+<p>Note that the substitution mechanism does not understand the <code>CC</code> symbol. Both charge states have to be specified explicitely.</p>
+<p>Running the ntuple script again with these additions gives you fit results for the re-interpreted decay.</p>
+<p><div class="panel panel-success"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(1921381090);" id="challenge"><i class="fa fa-square-o"></i> Challenge<span id="heading-1921381090"></span></h3></div><div class="panel-body" id="panel-1921381090"><ul>
+<li>Compare the outcome of the two fits with the different mass hypothesis</li>
+<li>Compare the fit quality between the correct and the the wrong hypothesis</li>
+</ul>
+</div></div> </p>
+<p>The solution to this exercise <code>ntuple_DTF1.py</code>, is <a href="code/decay-tree-fitter/ntuple_DTF1.py">available
+here</a>.</p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="add-tupletools.html" class="navigation navigation-prev " aria-label="Previous page: TupleTools and branches">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="ganga-data.html" class="navigation navigation-next " aria-label="Next page: More Ganga">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"How do I use DecayTreeFitter?","level":"2.1.13","depth":2,"next":{"title":"More Ganga","level":"2.1.14","depth":2,"path":"first-analysis-steps/ganga-data.md","ref":"first-analysis-steps/ganga-data.md","articles":[]},"previous":{"title":"TupleTools and branches","level":"2.1.12","depth":2,"path":"first-analysis-steps/add-tupletools.md","ref":"first-analysis-steps/add-tupletools.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-sharing","panels@git+https://github.com/lhcb/gitbook-plugin-panels.git#master","katex-auto-render@git+https://github.com/lhcb/gitbook-plugin-katex-auto-render.git#master","collapsible-menu","otherlink"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"collapsible-menu":{},"search":{},"otherlink":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"panels":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"katex-auto-render":{},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"The Starterkit team and contributors","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"gitbook":"*"},"file":{"path":"first-analysis-steps/decay-tree-fitter.md","mtime":"2018-03-01T10:42:48.686Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-03-01T10:45:28.476Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-panels/panels.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-katex-auto-render/katex.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-katex-auto-render/auto-render.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-katex-auto-render/enable-auto-render.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-collapsible-menu/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-otherlink/js/otherlink.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

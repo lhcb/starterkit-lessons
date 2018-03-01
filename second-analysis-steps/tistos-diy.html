@@ -1,0 +1,968 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>TisTos DIY · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="The Starterkit team and contributors">
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-panels/panels.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-katex-auto-render/katex.min.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="ganga-scripting.html" />
+    
+    
+    <link rel="prev" href="hlt-intro.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    The LHCb Starterkit
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.1.1" data-path="../CONTRIBUTING.html">
+            
+                <a href="../CONTRIBUTING.html">
+            
+                    
+                    Contributing
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="2.1" data-path="../first-analysis-steps/">
+            
+                <a href="../first-analysis-steps/">
+            
+                    
+                    First analysis steps
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.1.1" data-path="../first-analysis-steps/prerequisites.html">
+            
+                <a href="../first-analysis-steps/prerequisites.html">
+            
+                    
+                    Pre-workshop checklist
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.2" data-path="../first-analysis-steps/introduction-to-course.html">
+            
+                <a href="../first-analysis-steps/introduction-to-course.html">
+            
+                    
+                    Goals of the course
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.3" data-path="../first-analysis-steps/dataflow.html">
+            
+                <a href="../first-analysis-steps/dataflow.html">
+            
+                    
+                    The LHCb data flow
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.4" data-path="../first-analysis-steps/run-2-data-flow.html">
+            
+                <a href="../first-analysis-steps/run-2-data-flow.html">
+            
+                    
+                    Changes to the data flow in Run 2
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.5" data-path="../first-analysis-steps/davinci.html">
+            
+                <a href="../first-analysis-steps/davinci.html">
+            
+                    
+                    An introduction to LHCb Software
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.6" data-path="../first-analysis-steps/bookkeeping.html">
+            
+                <a href="../first-analysis-steps/bookkeeping.html">
+            
+                    
+                    Finding data in the Bookkeeping
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.7" data-path="../first-analysis-steps/files-from-grid.html">
+            
+                <a href="../first-analysis-steps/files-from-grid.html">
+            
+                    
+                    Downloading a file from the grid
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.8" data-path="../first-analysis-steps/interactive-dst.html">
+            
+                <a href="../first-analysis-steps/interactive-dst.html">
+            
+                    
+                    Interactively exploring a DST
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.9" data-path="../first-analysis-steps/loki-functors.html">
+            
+                <a href="../first-analysis-steps/loki-functors.html">
+            
+                    
+                    Fun with LoKi Functors
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.10" data-path="../first-analysis-steps/minimal-dv-job.html">
+            
+                <a href="../first-analysis-steps/minimal-dv-job.html">
+            
+                    
+                    Running a minimal DaVinci job locally
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.11" data-path="../first-analysis-steps/davinci-grid.html">
+            
+                <a href="../first-analysis-steps/davinci-grid.html">
+            
+                    
+                    Running DaVinci on the grid
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.12" data-path="../first-analysis-steps/add-tupletools.html">
+            
+                <a href="../first-analysis-steps/add-tupletools.html">
+            
+                    
+                    TupleTools and branches
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.13" data-path="../first-analysis-steps/decay-tree-fitter.html">
+            
+                <a href="../first-analysis-steps/decay-tree-fitter.html">
+            
+                    
+                    How do I use DecayTreeFitter?
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.14" data-path="../first-analysis-steps/ganga-data.html">
+            
+                <a href="../first-analysis-steps/ganga-data.html">
+            
+                    
+                    More Ganga
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.15" data-path="../first-analysis-steps/eos-storage.html">
+            
+                <a href="../first-analysis-steps/eos-storage.html">
+            
+                    
+                    Storing large files on EOS
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.16" data-path="../first-analysis-steps/split-jobs.html">
+            
+                <a href="../first-analysis-steps/split-jobs.html">
+            
+                    
+                    Splitting a job into subjobs
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.17" data-path="../first-analysis-steps/lhcb-dev.html">
+            
+                <a href="../first-analysis-steps/lhcb-dev.html">
+            
+                    
+                    Developing LHCb Software
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.18" data-path="../first-analysis-steps/asking-questions.html">
+            
+                <a href="../first-analysis-steps/asking-questions.html">
+            
+                    
+                    Asking good questions
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.19" data-path="../first-analysis-steps/ecgd.html">
+            
+                <a href="../first-analysis-steps/ecgd.html">
+            
+                    
+                    Early career, gender and diversity
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.20" data-path="../first-analysis-steps/contributing-lesson.html">
+            
+                <a href="../first-analysis-steps/contributing-lesson.html">
+            
+                    
+                    Contribute to this lesson
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="3.1" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    Second analysis steps
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.1.1" data-path="lb-git.html">
+            
+                <a href="lb-git.html">
+            
+                    
+                    Using git to develop LHCb software
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.2" data-path="building-decays.html">
+            
+                <a href="building-decays.html">
+            
+                    
+                    Building your own decay
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.1.2.1" data-path="building-decays-part0.html">
+            
+                <a href="building-decays-part0.html">
+            
+                    
+                    The Selection Framework
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.2.2" data-path="building-decays-part1.html">
+            
+                <a href="building-decays-part1.html">
+            
+                    
+                    A Historical Approach
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.2.3" data-path="building-decays-part2.html">
+            
+                <a href="building-decays-part2.html">
+            
+                    
+                    Modern Selection Framework
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.3" data-path="fixing-errors.html">
+            
+                <a href="fixing-errors.html">
+            
+                    
+                    What to do when something fails
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.4" data-path="rerun-stripping.html">
+            
+                <a href="rerun-stripping.html">
+            
+                    
+                    Run a different stripping line on simulated data
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.5" data-path="switch-mass-hypo.html">
+            
+                <a href="switch-mass-hypo.html">
+            
+                    
+                    Replace a mass hypothesis
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.6" data-path="filter-in-trees.html">
+            
+                <a href="filter-in-trees.html">
+            
+                    
+                    Reuse particles from a decay tree
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.7" data-path="simulation.html">
+            
+                <a href="simulation.html">
+            
+                    
+                    The simulation framework
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.8" data-path="hlt-intro.html">
+            
+                <a href="hlt-intro.html">
+            
+                    
+                    HLT intro
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="3.1.9" data-path="tistos-diy.html">
+            
+                <a href="tistos-diy.html">
+            
+                    
+                    TisTos DIY
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.10" data-path="ganga-scripting.html">
+            
+                <a href="ganga-scripting.html">
+            
+                    
+                    Ganga Scripting
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.11" data-path="managing-files-with-ganga.html">
+            
+                <a href="managing-files-with-ganga.html">
+            
+                    
+                    Managing files in Ganga
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="4.1" >
+            
+                <a target="_blank" href="ref://starterkit-lessons.pdf">
+            
+                    
+                    Download PDF
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >TisTos DIY</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="tistos-diy">TisTos DIY</h1>
+<p><div class="panel panel-warning"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(5263926288);" id="learning-objectives"><i class="fa fa-line-chart"></i> Learning Objectives<span id="heading-5263926288"></span></h3></div><div class="panel-body" id="panel-5263926288"><ul>
+<li>Learn what TisTos is and why it&apos;s useful</li>
+<li>Use an interactive python session to look at TisTos on a local DST</li>
+</ul>
+</div></div> </p>
+<p>Once HLT1 or HLT2 has accepted an event, the candidates accepted by all trigger
+lines are saved to the raw event in a stripped-down form. One of the things that
+is saved are all the LHCbIDs of the final state particles of a decay tree.</p>
+<p><div class="panel panel-primary"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(4995282645);" id="what-is-an-lhcbid"><i class="fa fa-info-circle"></i> What is an LHCbID?<span id="heading-4995282645"></span></h3></div><div class="panel-body" id="panel-4995282645"><p>Every single sub-detector element has an LHCbID which is unique across the 
+whole detector.
+Physics objects, such as tracks, can be defined as sets of LHCbID objects.
+When a trigger decision is made, the set of LHCbID objects which comprise the triggering
+object is stored in the SelReports. This allows objects reconstructed later, such as in Brunel,
+to be compared with the objects reconstructed in the trigger.</p>
+</div></div></p>
+<p>A new feature in Run 2 is the so-called Turbo stream. Since the reconstruction
+available in HLT2 is the same as the offline reconstruction, physics analysis
+can be done with the candidates created in HLT2. If a line is configured to be a
+Turbo line, all information on the candidates that it selects is stored in the
+raw event. These candidates can be resurrected later by the Tesla application and
+written to a microDST. This is similar to stripping streams that go to 
+microDST, where only candidates that are used in passing selections are 
+available to analysts. The Turbo stream is different because information that 
+is not saved is lost forever.</p>
+<p>We will now have a look at some of the candidates stored by the HLT. We will use the script we
+<a href="../first-analysis-steps/interactive-dst.html">used last time</a>
+as a starting point, and the file
+<code>root://eoslhcb.cern.ch//eos/lhcb/user/r/raaij/Impactkit/00051318_00000509_1.turbo.mdst</code>.
+This file contains some 2016 Turbo events from <a href="http://lbrundb.cern.ch/rundb/run/174252/" target="_blank">run 
+174252</a>.  Fire up your
+favourite editor, open the script and save a copy to work on as
+<code>hlt_info.py</code>. There are a few things in the script that we don&apos;t need and can
+be removed, such as the <code>print_decay</code> method and the decay finder tools.</p>
+<p>Like the stripping, the decisions of the HLT are saved in so-called
+DecReports. You can find them in <code>Hlt1/DecReports</code> and <code>Hlt2/DecReports</code>, have a
+look at what they contain.</p>
+<pre><code class="lang-python">evt[<span class="hljs-string">&apos;Hlt1/DecReports&apos;</span>]
+evt[<span class="hljs-string">&apos;Hlt2/DecReports&apos;</span>]
+</code></pre>
+<p>An important difference with the stripping is that for the HLT, all the
+decisions are present, even if they are false. Copy the <code>advance</code> function to
+<code>advance_hlt</code>, make it work on HLT decisions and make sure it really checks the
+decision. This can be done using the <code>decision</code> member function of a
+<code>DecReport</code>. Note that all names in the reports end with <code>Decision</code>.</p>
+<pre><code class="lang-python">reports = evt[<span class="hljs-string">&apos;Hlt1/DecReports&apos;</span>]
+report = reports.decReport(<span class="hljs-string">&apos;Hlt1TrackAllL0Decision&apos;</span>)
+<span class="hljs-keyword">print</span> report.decision()
+</code></pre>
+<p>The HLT1 selections that are most efficient for hadronic charm and beauty decays
+in Run 2 are called Hlt1TrackMVA and Hlt1TwoTrackMVA. Use the advance function
+to find an event that was accepted by either of these trigger selections.</p>
+<p>The DecReports only contains the decisions for each line, 1 or 0. The 
+candidates themselves are stored in the
+SelReports (&quot;Hlt{1,2}/SelReports&quot;). Get the HLT1 SelReports from the event store
+and retrieve the one for one of the TrackMVA selections using the selReport function,
+analogously to how the DecReport was retrieved above.</p>
+<p>The SelReports store candidates in a tree of sub-structures, which can be
+accessed using the <code>substructure</code> member funtion of a report. Any SelReport has at
+least one level of sub-structure. The sub-structure is internally stored in
+SmartRefs, which can be dereferenced using their &quot;data&quot; method. Let&apos;s have a look
+at a SelReport for a TrackMVA selection.</p>
+<pre><code class="lang-python">reports = evt[<span class="hljs-string">&apos;Hlt1/SelReports&apos;</span>]
+report = reports.selReport(<span class="hljs-string">&apos;Hlt1TrackMVADecision&apos;</span>)
+<span class="hljs-keyword">print</span> report
+report.substructure().size()
+report.substructure()[<span class="hljs-number">0</span>].substructure().size()
+report.substructure()[<span class="hljs-number">0</span>].substructure()[<span class="hljs-number">0</span>]
+report.substructure()[<span class="hljs-number">0</span>].substructure()[<span class="hljs-number">0</span>].data()
+</code></pre>
+<p>In addition to the LHCbIDs, some numbers are also stored, such as the momentum
+of the track. These are stored in the numerical info dictionary that can be
+retrieved using:</p>
+<pre><code class="lang-python">report.substructure()[<span class="hljs-number">0</span>].substructure()[<span class="hljs-number">0</span>].numericalInfo()
+</code></pre>
+<p><div class="panel panel-success"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(1680305950);" id="plot-the-transverse-momentum-distribution"><i class="fa fa-square-o"></i> Plot the transverse momentum distribution<span id="heading-1680305950"></span></h3></div><div class="panel-body" id="panel-1680305950"><p>Make a plot of the total and transverse moment distributions of all candidates
+accepted by the Hlt1TrackMVA selection. Then add Hlt1TwoTrackMVA and
+consider the difference.</p>
+</div></div></p>
+<p>The LHCbIDs of the (in this case) track can be retrieved using:</p>
+<pre><code class="lang-python">report.substructure()[<span class="hljs-number">0</span>].substructure()[<span class="hljs-number">0</span>].lhcbIDs()
+</code></pre>
+<p><div class="panel panel-success"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(5449969598);" id="turbo-candidates"><i class="fa fa-square-o"></i> Turbo candidates<span id="heading-5449969598"></span></h3></div><div class="panel-body" id="panel-5449969598"><p>Now let&apos;s have a look at the same information that is stored for a candidate
+created by a Turbo line, for example Hlt2CharmHadDsp2KS0PimPipPip_KS0LLTurbo.
+Adapt the <code>advance_hlt</code> with an additional argument that allows specification
+of the location of <code>DecReports</code> it uses, then advance to an event that was selected by
+Hlt2CharmHadDsp2KS0PimPipPip_KS0LLTurbo, retrieve its <code>SelReport</code> and have a
+look at what&apos;s stored.</p>
+</div></div></p>
+<p>The LHCbIDs of the final state particles of the candidate that was created
+offline (in the stripping or by your script) can be compared to those saved by
+the HLT to find out if the offline candidate was accepted by the trigger. The
+classification that results from this comparison is called TisTos (Trigger
+independent of Signal/Trigger on Signal).</p>
+<p>An offline candidate is considered to be Tos with respect to a trigger selection
+if it was accepted by that trigger selection. In more formal terms, if the
+LHCbIDs of each of the final state particles of the candidate accepted by the
+trigger selection overlap for more than 70% with the LHCbIDs of final state
+particles of the offline candidate.</p>
+<p>For example, the Hlt1TrackAllL0 line accepts an event if there is at least one
+track with a lot of PT and a large IPCHI2. If any of the tracks accepted by the
+Hlt1TrackAllL0 line overlap for more than 70% with one of the tracks of the
+offline candidate, it is Tos with respect to Hlt1TrackAllL0. If
+Hlt1DiMuonHighMass is considered instead, then the LHCbIDs of both tracks that
+make-up the Hlt1DiMuonHighMass candidates must overlap with the LHCbIDs of two
+tracks that are part of the offline candidate.</p>
+<p>To have a look at how this works, we&apos;ll use candidates from the
+D2hhPromptDst2D2RS selection, which can be retrieved thusly:</p>
+<pre><code class="lang-python">candidates = evt[<span class="hljs-string">&apos;AllStreams/Phys/D2hhPromptDst2D2RSLine/Particles&apos;</span>]
+candidates.size()
+</code></pre>
+<p>It could be that there are more than one candidates, which are unlikely to all be
+real. MC matching could be used to find the real one when running on
+simulation and on data a single candidate can be selected, either randomly or
+using some criterium. Dealing with multiple candidates correctly is beyond the
+scope of this tutorial, so just always take the first one in the container.</p>
+<p>Let&apos;s use the TriggerTisTos tool now. In preparation for Run-II, the Hlt1 and
+Hlt2 DecReports and SelReports are now stored in different locations. That means
+two TisTos tools will be needed, each configured to pick up information from
+either HLT1 or HLT2. Since the tools we create are public tools, they have to be
+configured in the following way (before the AppMgr is instantiated):</p>
+<pre><code class="lang-python"><span class="hljs-keyword">from</span> Configurables <span class="hljs-keyword">import</span> ToolSvc, TriggerTisTos
+ToolSvc().addTool(TriggerTisTos, <span class="hljs-string">&quot;Hlt1TriggerTisTos&quot;</span>)
+ToolSvc().Hlt1TriggerTisTos.HltDecReportsLocation = <span class="hljs-string">&apos;Hlt1/DecReports&apos;</span>
+ToolSvc().Hlt1TriggerTisTos.HltSelReportsLocation = <span class="hljs-string">&apos;Hlt1/SelReports&apos;</span>
+</code></pre>
+<p>Create the tools in the same way you created others during the
+<a href="../first-analysis-steps/interactive-dst.html">other lesson</a>, but use instance-specific names that
+correspond to the configuration we just added: <code>Hlt1TriggerTisTos</code> and
+<code>Hlt2TriggerTisTos</code>. The tools use <code>ITriggerTisTos</code> as an interface.</p>
+<p>Use the advance function to find an event that has some candidates for the
+chosen selection and set the TisTos tools to use our candidate and trigger selection:</p>
+<pre><code class="lang-python">hlt1TisTosTool.setOfflineInput()
+candidate = candidates[<span class="hljs-number">0</span>]
+hlt1TisTosTool.addToOfflineInput(candidate)
+hlt1TisTosTool.setTriggerInput()
+hlt1TisTosTool.addToTriggerInput(<span class="hljs-string">&quot;Hlt1TrackAllL0Decision&quot;</span>)
+result = hlt1TisTosTool.tisTosTobTrigger()
+result.tos()
+</code></pre>
+<p>The <code>set</code> calls reset the internal storage of candidate or trigger information,
+and the <code>addTo</code> calls then add the things we are interested in.</p>
+<p>An offline candidate is considered to be Tis with respect to a trigger selection
+if removing it from the event would still cause the trigger selection to accept
+the event, i.e. if there is another particle in the event that was also
+accepted by the trigger selection. In more formal terms, if the LHCbIDs of the
+all of the final state particles of any of the candidates accepted by the
+trigger selection overlap less than 1% with all of the LHCbIDs of the final
+state particles of the offline candidate.</p>
+<pre><code class="lang-python">result.tis()
+</code></pre>
+<p>Note that a candidate can be both Tis and Tos with respect to a trigger
+selection, or Tos with respect to one selection, and Tis with respect to
+another. To tell the tool to consider more trigger selections, use the following
+(regexes are also supported), and try to find some events that are both Tos and
+Tis:</p>
+<pre><code class="lang-python">hlt1TisTosTool.setTriggerInput()
+hlt1TisTosTool.addToTriggerInput(<span class="hljs-string">&quot;Hlt1TrackAllL0Decision&quot;</span>)
+hlt1TisTosTool.addToTriggerInput(<span class="hljs-string">&quot;Hlt1DiMuonHighMassDecision&quot;</span>)
+result = hlt1TisTosTool.tisTosTobTrigger()
+</code></pre>
+<p>The (Tos) trigger efficiency of a trigger selection can be calculated as:</p>
+<p>$$\epsilon_{\mathrm{Tos}}=N_{\mathrm{Tis}\&amp;\mathrm{Tos}} / {N_{\mathrm{Tis}}}$$</p>
+<p>Loop over the events in the DST and calculate the efficiency of
+Hlt1TrackAllL0. You can add some more Hlt1 selecitons when checking for Tis,
+which ones would make sense?</p>
+<p>There is a third classification, which is called Tob. This is the case if the
+overlap &#x2014; as defined for Tis and Tos &#x2014; is between 1% and 70%.</p>
+<p>To determine if a candidate is a combination of Tis, Tos and Tob or none of
+these, an LHCb software tool has been created that calculates the overlaps and
+classifies candidates with respect to trigger selection. This tool is called
+TriggerTisTos and it implements the ITriggerTisTos interface.</p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="hlt-intro.html" class="navigation navigation-prev " aria-label="Previous page: HLT intro">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="ganga-scripting.html" class="navigation navigation-next " aria-label="Next page: Ganga Scripting">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"TisTos DIY","level":"3.1.9","depth":2,"next":{"title":"Ganga Scripting","level":"3.1.10","depth":2,"path":"second-analysis-steps/ganga-scripting.md","ref":"second-analysis-steps/ganga-scripting.md","articles":[]},"previous":{"title":"HLT intro","level":"3.1.8","depth":2,"path":"second-analysis-steps/hlt-intro.md","ref":"second-analysis-steps/hlt-intro.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-sharing","panels@git+https://github.com/lhcb/gitbook-plugin-panels.git#master","katex-auto-render@git+https://github.com/lhcb/gitbook-plugin-katex-auto-render.git#master","collapsible-menu","otherlink"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"collapsible-menu":{},"search":{},"otherlink":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"panels":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"katex-auto-render":{},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"The Starterkit team and contributors","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"gitbook":"*"},"file":{"path":"second-analysis-steps/tistos-diy.md","mtime":"2018-03-01T10:42:48.730Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-03-01T10:45:28.476Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-panels/panels.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-katex-auto-render/katex.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-katex-auto-render/auto-render.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-katex-auto-render/enable-auto-render.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-collapsible-menu/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-otherlink/js/otherlink.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
