@@ -61,14 +61,14 @@ ship it off to the grid.
 
 {% callout "Picking up a right platform" %}
 Early 2018, the default platform on most of lxplus machines was changed to `x86_64-slc6-gcc62-opt` (instead of `x86_64-slc6-gcc49-opt`), changing the version of the gcc compiler from 4.9 to 6.2. 
-However, most of ancient DaVinci versions, anterior to v42r0, are not compiled for `x86_64-slc6-gcc62-opt`. 
-In case you have a strong reason to use one of these DaVinci versions, few additional actions are needed to set up jour ganga job properly.
+However, most of older DaVinci versions, anterior to v42r0, are not compiled for `x86_64-slc6-gcc62-opt`. 
+In case you have a strong reason to use one of these DaVinci versions, few additional actions are needed to set up your ganga job properly.
 
-First, outside ganga pick up the necessary platform:
+First, outside ganga set up the necessary platform:
 ```bash
 $ LbLogin -c x86_64-slc6-gcc49-opt
 ```
-Then, when setting up a ganga job, the following line should be added after declaring the `j.application`:
+Then, when setting up your ganga job, add the following line after declaring the `j.application`:
 ```python
 j.application.platform = 'x86_64-slc6-gcc49-opt'
 ```
