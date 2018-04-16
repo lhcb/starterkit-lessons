@@ -59,6 +59,27 @@ running yet. To submit it type `j.submit()`. Now `ganga` will do the
 equivalent of `lb-run DaVinci/v42r6p1`, prepare your job and then
 ship it off to the grid.
 
+{% callout "Picking up a right platform" %}
+Early 2018, the default platform on most of lxplus machines was changed to `x86_64-slc6-gcc62-opt` (instead of `x86_64-slc6-gcc49-opt`), changing the version of the gcc compiler from 4.9 to 6.2. 
+However, most of older DaVinci versions, anterior to v42r0, are not compiled for `x86_64-slc6-gcc62-opt`. 
+
+The list of platforms available for a certain DaVinci version (let's say `v38r0`), can be viewed by
+```bash
+$ lb-sdb-query listPlatforms DaVinci v38r0
+```
+
+In case you have a strong reason to use one of these DaVinci versions, few additional actions are needed to set up your ganga job properly.
+
+First, outside ganga set up the necessary platform:
+```bash
+$ LbLogin -c x86_64-slc6-gcc49-opt
+```
+Then, when setting up your ganga job, add the following line after declaring the `j.application`:
+```python
+j.application.platform = 'x86_64-slc6-gcc49-opt'
+```
+{% endcallout %} 
+
 While it runs, let's submit an identical job via slightly different
 method. Having to type in the details of each job every time you want
 to run it is error prone and tedious. Instead you can place all the
