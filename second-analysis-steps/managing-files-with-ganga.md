@@ -63,7 +63,7 @@ settings and data.
 We'll be doing everything in Ganga, so let's start it up.
 
 ```shell
-$ lb-run Ganga v602r2 ganga
+$ ganga
 ```
 
 If it's your first time starting Ganga, you'll be asked if you want to create a 
