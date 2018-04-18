@@ -130,7 +130,7 @@ You will obtain a `DVntuple.root` file, which we can open and inspect with `ROOT
 $ root DVntuple.root
 root [0]
 Attaching file DVntuple.root as _file0...
-root [1] TBrowser *b = new TBrowser()
+root [1] TBrowser b
 root [2]
 ```
 

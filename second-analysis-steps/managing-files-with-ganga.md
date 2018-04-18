@@ -63,7 +63,7 @@ settings and data.
 We'll be doing everything in Ganga, so let's start it up.
 
 ```shell
-$ lb-run Ganga v602r2 ganga
+$ ganga
 ```
 
 If it's your first time starting Ganga, you'll be asked if you want to create a 
@@ -207,6 +207,8 @@ for sj in j.subjobs:
       df.replicate('CERN-USER')
 ```
 
+After you did this your files will go into "/eos/lhcb/grid/lhcb/{u}/{user}/"+LFN.
+
 You could make a function from this and put it in your `.ganga.py` file, whose 
 contents is available in any Ganga session.
 {% endcallout %}
@@ -221,7 +223,8 @@ assumed the file was local).
 df2 = DiracFile('LFN:' + df.lfn)
 # The directory used for the download must exist first
 !mkdir foo
-dfr2.get(localPath='foo')
+dfr2.localDir = "foo"
+dfr2.get()
 !cat foo/input.txt
 ```
 
@@ -241,7 +244,7 @@ these patterns.
 To download the output, we use `.get` as usual.
 
 ```python
-j2.outputfiles.get(DiracFile)[0].get(localPath='.')
+j2.outputfiles.get(DiracFile)[0].get()
 ```
 
 Being able to manipulate files with Ganga can be very useful. Particularly for 
