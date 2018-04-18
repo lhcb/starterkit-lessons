@@ -70,14 +70,12 @@ $ lb-sdb-query listPlatforms DaVinci v38r0
 
 In case you have a strong reason to use one of these DaVinci versions, few additional actions are needed to set up your ganga job properly.
 
-First, outside ganga set up the necessary platform:
-```bash
-$ LbLogin -c x86_64-slc6-gcc49-opt
-```
-Then, when setting up your ganga job, add the following line after declaring the `j.application`:
+When setting up your ganga job, add the following line after declaring the `j.application`:
 ```python
 j.application.platform = 'x86_64-slc6-gcc49-opt'
 ```
+The default compiler platform for GaudiExec applications is `x86_64-slc6-gcc62-opt`.
+
 {% endcallout %} 
 
 While it runs, let's submit an identical job via slightly different
