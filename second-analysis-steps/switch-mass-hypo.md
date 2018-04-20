@@ -103,5 +103,5 @@ The solution to this exercise `ntuple_switchHypo.py`, is [available
 here](./code/18-switch-mass-hypo/ntuple_switchHypo.py).
 
 {% callout "Think about it" %}
-Why can't we use this method to look for D* decaying to D0 gamma ? 
+Why can't we use this method to look for D* decaying to D0 gamma? 
 {% endcallout %}
