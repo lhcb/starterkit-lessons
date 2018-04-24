@@ -22,7 +22,7 @@
 
 You can find full documentation on Snakemake [at this link](http://snakemake.readthedocs.io/en/stable/index.html).
 
-You can find lines to install snakemake on linux in the file URL.
+You can find lines to install snakemake on linux in the file [at this link](https://github.com/lhcb/starterkit-lessons/blob/snakemake/second-analysis-steps/code/snakemake/install_snake.sh).
 
 On lxplus it should be sufficient to exectue it as `source install_snake.sh`.
 
@@ -47,17 +47,21 @@ rule myname :
 
 An example. If you want to copy some text from a file called input.txt to output.txt you can do:
 
-```rule copy :
+```
+rule copy :
     input : ['input.txt']
     output: ['output.txt']
-    shell : 'cat input.txt > output.txt```
+    shell : 'cat input.txt > output.txt
+```
 
 Note that intput and output can be parameterised! E.g. :
 
-```rule copy :
+```
+rule copy :
     input : ['input.txt']
     output: ['output.txt']
-    shell : 'cat {input} > {output}```
+    shell : 'cat {input} > {output}
+```
 
 N.B.: Notice that:
 
@@ -88,8 +92,8 @@ Comments, which rules are run:
 
     * If you just type "snakemake" without any rule name than it will run the first rule in the snakefile. It is normal practice to put as a first rule a dummy rule that only takes as inuts all the "final" outputs you want to be created by any other rule. In this way when you run just "snakemake" it will run all rules (in correct order). 
 
-Exercise: Try to make a snakefile with at least 3 rules conected to each other and run them all in one go.
-Just as an example at [this link]() wou fill find to files containing names, addresses, and phone numbers.
+**Exercise:** Try to make a snakefile with at least 3 rules conected to each other and run them all in one go.
+Just as an example at [this link](https://github.com/lhcb/starterkit-lessons/tree/snakemake/second-analysis-steps/code/snakemake/tutorial) wou fill find to files containing names, addresses, and phone numbers.
 You can make one rule to "grep" the address and name out of the phone and addrees files and then one other rule to merge them into your final output file. But it does not have to be this, any other task is fine, be creative!
 
 Comments, partial running:
@@ -100,7 +104,7 @@ Comments, partial running:
 
     * If you want to force running all rules even if part of the output is present use "snakemake -f"
 
-Exercise: In the previous example try deleting one of the intermediate files, rerun snakemake and see what happens.
+**Exercise:** In the previous example try deleting one of the intermediate files, rerun snakemake and see what happens.
 
 
 ### Run and shell
@@ -110,39 +114,45 @@ The other is `run` that instead directly takes pathon code (N.B.: python3).
 
 For example the copy of the file as in the provious example can be done in the following way. 
 
-```rule dosomething_py :
+```
+rule dosomething_py :
      input  : 'myfile.txt'
      output : 'myoutput.txt'
      run    :
          inpt = open(input[0]).read()
          fo = open(output[0],'w')
          fo.write(inpt)
-         fo.close()```
+         fo.close()
+```
 
 And finally you can mix! Namely you can send shell commands from python code.
 This is useful, in particular if you have to launch the same shell command on more inputs.
 
-```rule dosomething_pysh :
+```
+rule dosomething_pysh :
      input  : ['data1.root'.'data2.root'],
      output : ['plot1.pdf','plot2.pdf']    
      run    :
         for f in input :
-            shell('./{input.code} %s' % f)```
+            shell('./{input.code} %s' % f)
+```
 
-Exercise: Rewrite your previous file using a python script to run the search and use "run" to run on both phones and addresses in the same rule.
+**Exercise:** Rewrite your previous file using a python script to run the search and use "run" to run on both phones and addresses in the same rule.
 
 
 ### Sub-labels
 
 Inside the prefedined tags you can add custom subtags as in this example.
 
-```rule run_some_py_script :
+```
+rule run_some_py_script :
     input : 
         exe   = 'myscript.py',
         data  = 'mydata.root'
         extra = 'some_extra_info.txt'
     output: ['output.txt']
-    shell : 'python {input.exe} {input.data} --extra {input.extra} > {output}```
+    shell : 'python {input.exe} {input.data} --extra {input.extra} > {output}
+```
 
 So this will effectively launch the command:
 
@@ -150,7 +160,7 @@ So this will effectively launch the command:
 
 N.B.: The "--extra" is not necessary. It's just to illustrate how python scripts options can be used.
 
-Exercise: Add your python script to the inputs than make some modifications to it, rerun snakemake and see what happens.
+**Exercise:** Add your python script to the inputs than make some modifications to it, rerun snakemake and see what happens.
 
 ### Config files
 
@@ -159,24 +169,28 @@ This can be done in snakemake using config files written in [yaml](https://learn
 
 For example let's put the datafiles in a cfg.yaml file
 
-```data : 
+```
+data : 
     - 'data1.root'
-    - 'data2.root'```
+    - 'data2.root'
+```
 
 Now in your Snakefile you can load this config file and then it's content will be available into the rules as a dictionary called "config". Yes, it seems black magic, but it works! Your Snakefile will look like this
 
 confifile : /path/to/cfg.yaml
 
-```rule dosomething_pysh :
+```
+rule dosomething_pysh :
      input  : config['data'],
      output : ['plot1.pdf','plot2.pdf']    
      run    :
         for f in input :
-            shell('./{input.code} %s' % f)```
+            shell('./{input.code} %s' % f)
+```
 
 The config dictionary can be used anywere, also inside the shell command or even outside a rule.
 
-Exercise: Put the inputs of your scrupt into a config file.
+**Exercise:** Put the inputs of your scrupt into a config file.
 
 ### Includes
 
@@ -188,5 +202,5 @@ include: /path/to/efficiency_rules.snake
 
 The order of the includes is irrelevant.
 
-Exercise: Move your rules to other files and include them.
+**Exercise:** Move your rules to other files and include them.
 
