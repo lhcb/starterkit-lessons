@@ -23,24 +23,27 @@
 You can find full documentation on Snakemake [at this link](http://snakemake.readthedocs.io/en/stable/index.html).
 
 You can find lines to install snakemake on linux in the file URL.
+
 On lxplus it should be sufficient to exectue it as `source install_snake.sh`.
 
 ## Tutorial
 
-Snakemake allows you to create rules each one defining a "step" of your analysis.
-The rules need to be written in a file called `Snakefile`
+Snakemake allows you to create a set of rules, each one defining a "step" of your analysis.
+The rules need to be written in a file called `Snakefile`.
 For each step you need to provide:
 
-  * The inputs: this can be input files but also code (e.g. an executable)
-  * The expected output. It's not important to list all possible outputs. Just those that you want to keep monitored or that can be then used by a successive step.
-  * A command to go from inpput to output. (More details later)
+  * The _inputs_: this can be input files but also code (e.g. an executable)
+  * The expected _output_. It's not important to list all possible outputs. Just those that you want to keep monitored or that can be then used by a successive step.
+  * _A command_ to go from inpput to output. (More details later)
 
 So the basic rule is:
 
-```rule myname :
+```
+rule myname :
     input : ['myinput1', 'myinput2']
     output: ['myoutput']
-    shell : 'Some command to go from in to out'```
+    shell : 'Some command to go from in to out'
+```
 
 An example. If you want to copy some text from a file called input.txt to output.txt you can do:
 
