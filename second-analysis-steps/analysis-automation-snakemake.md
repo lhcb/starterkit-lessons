@@ -60,14 +60,13 @@ Note that intput and output can be parameterised! E.g. :
 rule copy :
     input : ['input.txt']
     output: ['output.txt']
-    shell : 'cat {input} > {output}
+    shell : 'cat {input} > {output}'
 ```
 
 N.B.: Notice that:
 
-  * The inputs and outputs can be on any type
-  * You can provide python code after the tags.
-        e.g. `input: glob("*.root")`
+  * The inputs and outputs can be of any type
+  * You can provide python code after the tags. e.g. `input: glob("*.root")`
   * If a single file is input or output you are allowed to omit the brakets.
 
 ### Usage and basic behaviour 
@@ -78,23 +77,21 @@ And now that your `Snakefile` is done it's time to run! Just type
 
 This will :
 
-  * Check that the inputs exist
-  * Run the command you defined in rule "rulename"
-  * Check that the output was actually produced.
+  1. Check that the inputs exist
+  2. Run the command you defined in rule "rulename"
+  3. Check that the output was actually produced.
 
-If the inuputs do not exist snakemake will check if there is an other rule that produces them and, if yes, it will runs all the needed rules in order. So in practice the input and output are how the rules are linked to each other.
+If the inuputs do not exist snakemake will check if there is an other rule that produces them and, if yes, it will run all the needed rules in order. So in practice the input and output are how the rules are linked to each other.
 
 Comments, which rules are run: 
     
-    * If you build a chain or rules and want to run it only up to a certain point just put the name of the rule up to which you want to run on the snakemake command.
-
-    * If you want a rule to be "standalone" just do not give its input/outputs as outputs/inputs of any other rule
-
-    * If you just type "snakemake" without any rule name than it will run the first rule in the snakefile. It is normal practice to put as a first rule a dummy rule that only takes as inuts all the "final" outputs you want to be created by any other rule. In this way when you run just "snakemake" it will run all rules (in correct order). 
+  * If you build a chain of rules and want to run it only up to a certain point just put the name of the rule up to which you want to run on the snakemake command.
+  * If you want a rule to be "standalone" just do not give its input/outputs as outputs/inputs of any other rule
+  * If you just type "snakemake" without any rule name then it will run the first rule in the `Snakefile`. It is normal practice to put as a first rule a dummy rule that only takes as inuts all the "final" outputs you want to be created by any other rule. In this way when you run just `snakemake` it will run all rules (in the correct order). 
 
 **Exercise:** Try to make a snakefile with at least 3 rules conected to each other and run them all in one go.
-Just as an example at [this link](https://github.com/lhcb/starterkit-lessons/tree/snakemake/second-analysis-steps/code/snakemake/tutorial) wou fill find to files containing names, addresses, and phone numbers.
-You can make one rule to "grep" the address and name out of the phone and addrees files and then one other rule to merge them into your final output file. But it does not have to be this, any other task is fine, be creative!
+Just as an example at [this link](https://github.com/lhcb/starterkit-lessons/tree/snakemake/second-analysis-steps/code/snakemake/tutorial/inputs) you will find two files containing names, addresses, and phone numbers.
+You can make one rule that, given a name, "grep" the address and phone out of the phones.txt and addresses.txt files and then one other rule to merge them into your final output file. _But it does not have to be this, any other task is fine, be creative!_
 
 Comments, partial running:
 
