@@ -96,9 +96,7 @@ You can make one rule that, given a name, "grep" the address and phone out of th
 Comments, partial running:
 
     * If part of the input is already present the corresponding rule will not run only the rules after the modified files
-
     N.B.: Note that if you put your code into the inputs snakemake will detect when your code changes and automatically rerun the corresponging rule!
-
     * If you want to force running all rules even if part of the output is present use "snakemake -f"
 
 **Exercise:** In the previous example try deleting one of the intermediate files, rerun snakemake and see what happens.
@@ -106,8 +104,8 @@ Comments, partial running:
 
 ### Run and shell
 
-You have two ways to specify commands. One is `shell` that assumed shell commands as shown before.
-The other is `run` that instead directly takes pathon code (N.B.: python3).
+You have two ways to specify commands. One is `shell` that assumes shell commands as shown before.
+The other is `run` that instead directly takes pathon code (N.B.: Careful it's python3!).
 
 For example the copy of the file as in the provious example can be done in the following way. 
 
@@ -172,9 +170,9 @@ data :
     - 'data2.root'
 ```
 
-Now in your Snakefile you can load this config file and then it's content will be available into the rules as a dictionary called "config". Yes, it seems black magic, but it works! Your Snakefile will look like this
+Now in your Snakefile you can load this config file and then its content will be available into the rules as a dictionary called "config". Yes, it seems black magic, but it works! Your Snakefile will look like this
 
-confifile : /path/to/cfg.yaml
+configfile : '/path/to/cfg.yaml'
 
 ```
 rule dosomething_pysh :
@@ -194,8 +192,10 @@ The config dictionary can be used anywere, also inside the shell command or even
 The Snakefile can quickly grow to a monster with tens of rules. For this reason it's possible to split them into more files and then include them into the Snakefile. For example you might have a "fit_rules.snake" and "efficiency_rules.snake"
 and then your Snakefile will look like this:
 
+```
 include: /path/to/fit_rules.snake
 include: /path/to/efficiency_rules.snake
+```
 
 The order of the includes is irrelevant.
 
