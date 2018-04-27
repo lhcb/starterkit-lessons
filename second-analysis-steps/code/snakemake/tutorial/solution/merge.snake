@@ -11,7 +11,11 @@ rule merge_data :
         files = ['myaddress.txt','myphone.txt'],
         exe = "merge.py"
     output : ['data.txt']
-    shell : "python {input.exe} -i {' '.join(input.files)} -o {output}"
+    run : 
+        files = ' '.join(input["files"])
+        shell("python {input.exe} -i %s -o {output}" % files)
 
+# Note that here I need to use run because I need to manipulate the input file names 
+# before giving them to the shell command. 
 
-
+# N.B.: This is for illustation. The pure shell command method is simpler in this case and therefore better.

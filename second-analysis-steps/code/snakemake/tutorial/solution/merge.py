@@ -8,6 +8,6 @@ args = parser.parse_args()
 outf = open(args.outtxt,"w")
 for f in args.intxt :
     with open(f) as txt :
-        outf.write(txt.read())
+        outf.write(txt.read()+"\n")
 
 outf.close() 
