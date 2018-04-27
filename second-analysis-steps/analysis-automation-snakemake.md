@@ -23,6 +23,7 @@
 You can find full documentation on Snakemake [at this link](http://snakemake.readthedocs.io/en/stable/index.html).
 
 You can find lines to install snakemake on linux in the file [at this link](https://github.com/lhcb/starterkit-lessons/blob/snakemake/second-analysis-steps/code/snakemake/install_snake.sh).
+To download `wget https://raw.githubusercontent.com/lhcb/starterkit-lessons/snakemake/second-analysis-steps/code/snakemake/install_snake.sh`.
 
 On lxplus it should be sufficient to exectue it as `source install_snake.sh`.
 
@@ -81,17 +82,23 @@ This will :
   2. Run the command you defined in rule "rulename"
   3. Check that the output was actually produced.
 
-If the inuputs do not exist snakemake will check if there is an other rule that produces them and, if yes, it will run all the needed rules in order. So in practice the input and output are how the rules are linked to each other.
+If the inputs do not exist or have changed snakemake will check if there is an other rule that produces them and, if yes, it will run all the needed rules in order.
 
 Comments, which rules are run: 
     
   * If you build a chain of rules and want to run it only up to a certain point just put the name of the rule up to which you want to run on the snakemake command.
   * If you want a rule to be "standalone" just do not give its input/outputs as outputs/inputs of any other rule
-  * If you just type "snakemake" without any rule name then it will run the first rule in the `Snakefile`. It is normal practice to put as a first rule a dummy rule that only takes as inuts all the "final" outputs you want to be created by any other rule. In this way when you run just `snakemake` it will run all rules (in the correct order). 
+  * It is normal practice to put as a first rule a dummy rule that only takes as inputs all the "final" outputs you want to be created by any other rule. In this way when you run just `snakemake` with no label it will run all rules (in the correct order). 
 
 **Exercise:** Try to make a snakefile with at least 3 rules conected to each other and run them all in one go.
-Just as an example at [this link](https://github.com/lhcb/starterkit-lessons/tree/snakemake/second-analysis-steps/code/snakemake/tutorial/inputs) you will find two files containing names, addresses, and phone numbers.
-You can make one rule that, given a name, "grep" the address and phone out of the phones.txt and addresses.txt files and then one other rule to merge them into your final output file. _But it does not have to be this, any other task is fine, be creative!_
+To try out download:
+
+`wget https://github.com/lhcb/starterkit-lessons/raw/snakemake/second-analysis-steps/code/snakemake/tutorial.tar`
+
+You will find two files containing names, addresses, and phone numbers.
+You can make one rule that, given a name, "grep" the address and phone out of the phones.txt and addresses.txt files and then one other rule to merge them into your final output file. 
+
+_But it does not have to be this, any other task is fine, be creative!_
 
 Comments, partial running:
 
