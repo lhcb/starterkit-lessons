@@ -86,7 +86,7 @@ You can execute these commands inside Ganga, if you like, by prefixing them
 with a `!`.
 
 ```shell
-$ wget https://lhcb.github.io/second-analysis-steps/code/01-managing-files-with-ganga/reverse.py
+$ wget https://github.com/lhcb/starterkit-lessons/blob/master/second-analysis-steps/code/01-managing-files-with-ganga/reverse.py
 $ chmod +x reverse.py
 $ ./reverse.py
 Usage: reverse.py <file>
