@@ -1,0 +1,17 @@
+
+## Merge done with a pure shell command
+#rule merge_data :
+#     input : ['myaddress.txt','myphone.txt']
+#     output : ['data.txt']
+#     shell : "cat {input[0]} > {output} && cat {input[1]} >> {output}"
+
+## Merge done with a python script
+rule merge_data :
+    input : 
+        files = ['myaddress.txt','myphone.txt'],
+        exe = "merge.py"
+    output : ['data.txt']
+    shell : "python {input.exe} -i {' '.join(input.files)} -o {output}"
+
+
+

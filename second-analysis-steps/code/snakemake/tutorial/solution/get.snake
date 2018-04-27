@@ -1,0 +1,46 @@
+
+rule get_phone :
+     input : ['phones.txt']
+     output : ['myphone.txt']
+     shell : "grep "+config['name']+" {input} > {output}"
+
+rule get_address :
+     input : ['addresses.txt']
+     output : ['myaddress.txt']
+     shell : "grep "+config['name']+" {input} > {output}"
+
+## Do both in one go with using "run"
+#rule get_data :
+#    input : ['addresses.txt','phones.txt']
+#    output : ['myaddress.txt','myphone.txt']
+#    run :
+#        for i,o in zip(input,output) :
+#            outf = open(o,"w")
+#            with open(i) as inf : 
+#               for l in inf.readline() :
+#                    if config['name'] in l :
+#                        outf.write(l)
+#             outf.close()
+
+
+## Same as before but I get input from config using glob 
+## and I use the fact that I can write python anywhere
+#
+#from glob import glob
+#
+#def findline(f) :
+#    for l in inf.readline() :
+#        if config['name'] in l :
+#            return l
+#
+#rule get_data :
+#    input : glob(config["inpath"]+"/*")
+#    output : ['myaddress.txt','myphone.txt']
+#    run :
+#        for i,o in zip(input,output) :
+#            outf = open(o,"w")
+#            with open(i) as inf : outf.write(findline(inf))
+#            outf.close()
+
+
+
