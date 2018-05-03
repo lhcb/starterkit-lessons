@@ -1,13 +1,13 @@
 # Analysis automation with snakemake
 
 {% objectives "Learning Objectives" %}
-* Objective one
-* Objective two
+* Learning about analysis automation and analysis preservation
+* Learning snakemake syntax
 {% endobjectives %}
 
-> “The Snakemake workflow management system is a tool to create reproducible and scalable data analyses”
-
 ## Motivation
+
+> “The Snakemake workflow management system is a tool to create reproducible and scalable data analyses”
 
 * A workflow management system allows you to:
   * Keep a memory of how your scripts are used
@@ -86,8 +86,8 @@ You will find one containing names and phone numbers. You can make one rule that
 
 To do this in a shell you can use `grep`, which is a command that lists all lines in a file containing a certain text. 
 
-`$ grep ciao test.txt
-ciao a tutti`
+```$ grep ciao test.txt
+ciao a tutti```
 
 
 ### Usage and basic behaviour
