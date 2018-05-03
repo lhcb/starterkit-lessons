@@ -31,6 +31,8 @@ To download
 
 On lxplus it should be sufficient to execute it as `source install_snake.sh`.
 
+Now you can activate the environment typing `source activate snake`
+
 ## Tutorial
 
 Snakemake allows you to create a set of rules, each one defining a "step" of your analysis.
@@ -75,8 +77,7 @@ N.B.: Notice that:
   * You can provide python code after the tags. e.g. `input: glob("*.root")`
   * If a single file is input or output you are allowed to omit the brackets.
 
-{% challenge "Try to make a snakefile with at one single rule" %}
-{% endchallenge %}
+{% challenge "Make a snakefile with one single rule" %}
 
 To try out download:
 
@@ -90,7 +91,7 @@ To do this in a shell you can use `grep`, which is a command that lists all line
 $ grep ciao test.txt
 ciao a tutti
 ```
-
+{% endchallenge %}
 
 ### Usage and basic behaviour
 
@@ -113,13 +114,14 @@ Comments, which rules are run:
   * If you want a rule to be "standalone" just do not give its input/outputs as outputs/inputs of any other rule
   * It is normal practice to put as a first rule a dummy rule that only takes as inputs all the "final" outputs you want to be created by any other rule. In this way when you run just `snakemake` with no label it will run all rules (in the correct order).
 
-{% challenge "Try to make a snakefile with at least 3 rules connected to each other and run them all in one go" %}
-{% endchallenge %}
+{% challenge "Make a snakefile with at least 3 rules connected to each other and run them in one go" %}
 
 In the tutorial folder you find two files containing addresses, and phone numbers.
 You can make rules that, given a name, `grep` the address and phone and then one other rule to merge them into your final output file.
 
 _But it does not have to be this, any other task is fine, be creative!_
+
+{% endchallenge %}
 
 Comments, partial running:
 
@@ -127,7 +129,8 @@ Comments, partial running:
 N.B.: Note that if you put your code into the inputs snakemake will detect when your code changes and automatically rerun the corresponding rule!
 * If you want to force running all rules even if part of the output is present use `snakemake --forceall`
 
-{% challenge "In the previous example try deleting one of the intermediate files, rerun snakemake and see what happens" %}
+{% challenge "Explore the snakemake behaviour" %}
+In the previous example try deleting one of the intermediate files, rerun snakemake and see what happens
 {% endchallenge %}
 
 ### Run and shell
@@ -162,7 +165,8 @@ rule dosomething_pysh:
             shell('./{input.code} %s' % f)
 ```
 
-{% challenge "Rewrite your previous file using a python script to run the search and use `run` to run on both phones and addresses in the same rule" %}
+{% challenge "Use run instead of shell" %}
+Rewrite your previous file using a python script to run the search and use `run` to run on both phones and addresses in the same rule
 {% endchallenge %}
 
 ### Sub-labels
@@ -187,7 +191,7 @@ python myscript.py mydata.roo --extra some_extra_info.txt > output.txt
 
 N.B.: The `--extra` is not necessary. It's just to illustrate how python scripts options can be used.
 
-{% challenge "Making changes" %}
+{% challenge "Code as input" %}
 Add your python script to the inputs than make some modifications to it, rerun snakemake and see what happens.
 {% endchallenge %}
 
@@ -219,7 +223,8 @@ rule dosomething_pysh:
 
 The config dictionary can be used anywhere, also inside the shell command or even outside a rule.
 
-{% challenge "Put the inputs of your script into a config file" %}
+{% challenge "Make a config file" %}
+Put the inputs of your script into a config file
 {% endchallenge %}
 
 ### Includes
@@ -233,5 +238,6 @@ include: /path/to/efficiency_rules.snake
 
 The order of the includes is irrelevant.
 
-{% challenge "Move your rules to other files and include them" %}
+{% challenge "Use includes" %}
+Move your rules to other files and include them
 {% endchallenge %}
