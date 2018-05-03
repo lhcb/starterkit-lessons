@@ -18,14 +18,16 @@
   * Keep your code and your locations in order
   * Structure your code so that it is user-independent
   * Standardise your scripts
-  * Bonus: Standardised scripts can sometimes be used across analyses
+  * Bonus: Standardised scripts can sometimes be used across analyses!
 
 ## Snakemake: Documentation and installation
 
 You can find full documentation on Snakemake [at this link](http://snakemake.readthedocs.io/en/stable/index.html).
 
 You can find lines to install snakemake on linux in the file [at this link](https://github.com/lhcb/starterkit-lessons/blob/snakemake/second-analysis-steps/code/snakemake/install_snake.sh).
-To download `wget https://raw.githubusercontent.com/lhcb/starterkit-lessons/snakemake/second-analysis-steps/code/snakemake/install_snake.sh`.
+To download 
+
+`wget https://raw.githubusercontent.com/lhcb/starterkit-lessons/snakemake/second-analysis-steps/code/snakemake/install_snake.sh`.
 
 On lxplus it should be sufficient to execute it as `source install_snake.sh`.
 
@@ -35,11 +37,12 @@ Snakemake allows you to create a set of rules, each one defining a "step" of you
 The rules need to be written in a file called `Snakefile`.
 For each step you need to provide:
 
-  * The _inputs_: this can be input files but also code (e.g. an executable)
-  * The expected _output_. It's not important to list all possible outputs. Just those that you want to keep monitored or that can be then used by a successive step.
+  * The _inputs_: input files but also code (e.g. an executable)
+  * The expected _output_. It's not important to list all possible outputs. 
+  Just those that you want to keep monitored or that are used by a subsequent step as inputs.
   * _A command_ to go from input to output. (More details later)
 
-So the basic rule is:
+The basic rule is:
 
 ```python
 rule myname:
@@ -68,9 +71,24 @@ rule copy:
 
 N.B.: Notice that:
 
-  * The inputs and outputs can be of any type
+  * Inputs and outputs can be of any type
   * You can provide python code after the tags. e.g. `input: glob("*.root")`
   * If a single file is input or output you are allowed to omit the brackets.
+
+{% challenge "Try to make a snakefile with at one single rule" %}
+{% endchallenge %}
+
+To try out download:
+
+`wget https://github.com/lhcb/starterkit-lessons/raw/snakemake/second-analysis-steps/code/snakemake/tutorial.tar`
+
+You will find one containing names and phone numbers. You can make one rule that, given a name extracts the line with the phone of that person.
+
+To do this in a shell you can use `grep`, which is a command that lists all lines in a file containing a certain text. 
+
+`$ grep ciao test.txt
+ciao a tutti`
+
 
 ### Usage and basic behaviour
 
@@ -82,32 +100,28 @@ snakemake rulename
 
 This will:
   1. Check that the inputs exist
+      * If inputs exists 2)
+      * If inputs do not exist or have changed snakemake will check if there is an other rule that produces them go back to 1)
   2. Run the command you defined in rule "rulename"
   3. Check that the output was actually produced.
 
-If the inputs do not exist or have changed snakemake will check if there is an other rule that produces them and, if yes, it will run all the needed rules in order.
-
 Comments, which rules are run:
 
-  * If you build a chain of rules and want to run it only up to a certain point just put the name of the rule up to which you want to run on the snakemake command.
+  * If want to run a chain of rules only up to a certain point just put the name of the rule up to which you want to run on the snakemake command.
   * If you want a rule to be "standalone" just do not give its input/outputs as outputs/inputs of any other rule
   * It is normal practice to put as a first rule a dummy rule that only takes as inputs all the "final" outputs you want to be created by any other rule. In this way when you run just `snakemake` with no label it will run all rules (in the correct order).
 
 {% challenge "Try to make a snakefile with at least 3 rules connected to each other and run them all in one go" %}
 {% endchallenge %}
 
-To try out download:
-
-`wget https://github.com/lhcb/starterkit-lessons/raw/snakemake/second-analysis-steps/code/snakemake/tutorial.tar`
-
-You will find two files containing names, addresses, and phone numbers.
-You can make one rule that, given a name, `grep` the address and phone out of the `phones.txt` and `addresses.txt`files and then one other rule to merge them into your final output file.
+In the tutorial folder you find two files containing addresses, and phone numbers.
+You can make rules that, given a name, `grep` the address and phone and then one other rule to merge them into your final output file.
 
 _But it does not have to be this, any other task is fine, be creative!_
 
 Comments, partial running:
 
-* If part of the input is already present the corresponding rule will not run only the rules after the modified files
+* If part of the input is already present and not modified present the corresponding rule will not run
 N.B.: Note that if you put your code into the inputs snakemake will detect when your code changes and automatically rerun the corresponding rule!
 * If you want to force running all rules even if part of the output is present use `snakemake --forceall`
 
