@@ -86,8 +86,10 @@ You will find one containing names and phone numbers. You can make one rule that
 
 To do this in a shell you can use `grep`, which is a command that lists all lines in a file containing a certain text. 
 
-```$ grep ciao test.txt
-ciao a tutti```
+```
+$ grep ciao test.txt
+ciao a tutti
+```
 
 
 ### Usage and basic behaviour
