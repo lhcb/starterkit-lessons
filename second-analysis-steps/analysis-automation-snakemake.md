@@ -1,8 +1,8 @@
 # Analysis automation with snakemake
 
 {% objectives "Learning Objectives" %}
-* Learning about analysis automation and analysis preservation
-* Learning snakemake syntax
+* Learn what analysis automation is and how it helps with analysis preservation
+* Learn how to create a pipeline with Snakemake
 {% endobjectives %}
 
 ## Motivation
@@ -10,28 +10,37 @@
 > “The Snakemake workflow management system is a tool to create reproducible and scalable data analyses”
 
 * A workflow management system allows you to:
-  * Keep a memory of how your scripts are used
-  * Keep a memory of where your inputs are stored
-  * Run multiple steps in sequence
-  * Automatically detect if something changed
-* A workflow management forces you to:
+  * Keep a record of how your scripts are used what their input dependencies are
+  * Run multiple steps in sequence, parallelising where possible
+  * Automatically detect if something changes and then reprocess data if needed
+* Using a workflow management forces you to:
   * Keep your code and your locations in order
   * Structure your code so that it is user-independent
   * Standardise your scripts
-  * Bonus: Standardised scripts can sometimes be used across analyses!
+    * Bonus: Standardised scripts can sometimes be used across analyses!
 
 ## Snakemake: Documentation and installation
 
-You can find full documentation on Snakemake [at this link](http://snakemake.readthedocs.io/en/stable/index.html).
+You can find full documentation for Snakemake [at this link](http://snakemake.readthedocs.io/en/stable/index.html).
 
-You can find lines to install snakemake on linux in the file [at this link](https://github.com/lhcb/starterkit-lessons/blob/snakemake/second-analysis-steps/code/snakemake/install_snake.sh).
-To download 
+Snakemake requires Python 3, if you already have this available it can be easily installed using pip:
 
-`wget https://raw.githubusercontent.com/lhcb/starterkit-lessons/snakemake/second-analysis-steps/code/snakemake/install_snake.sh`.
+```bash
+python3 -m pip install --user snakemake
+```
 
-On lxplus it should be sufficient to execute it as `source install_snake.sh`.
+{% callout "Installing on lxplus" %}
+Unfortunately most LHCb software only supports Python 2 and doesn't provide a Python 3 installation.
+When running on lxplus we recommend using the LCG Python 3 distribution and creating a function in your `.bashrc` to launch Snakemake so that it doesn't affect other LHCb applications.
+This can be done using [this script](https://github.com/lhcb/starterkit-lessons/blob/snakemake/second-analysis-steps/code/snakemake/install_snake.sh) by running:
 
-Now you can activate the environment typing `source activate snake`
+```bash
+curl -L http://cern.ch/go/l8fT | bash
+source ~/.bashrc
+```
+{% endcallout %}
+
+You can now check if Snakemake is working by using `snakemake --help`.
 
 ## Tutorial
 
@@ -39,10 +48,10 @@ Snakemake allows you to create a set of rules, each one defining a "step" of you
 The rules need to be written in a file called `Snakefile`.
 For each step you need to provide:
 
-  * The _inputs_: input files but also code (e.g. an executable)
-  * The expected _output_. It's not important to list all possible outputs. 
-  Just those that you want to keep monitored or that are used by a subsequent step as inputs.
-  * _A command_ to go from input to output. (More details later)
+  * The _input_: Data files, scripts, executables or any other files.
+  * The expected _output_. It's not required to list all possible outputs.
+  Just those that you want to monitor or that are used by a subsequent step as inputs.
+  * A _command_ to run to process the input and create the output.
 
 The basic rule is:
 
@@ -77,17 +86,19 @@ N.B.: Notice that:
   * You can provide python code after the tags. e.g. `input: glob("*.root")`
   * If a single file is input or output you are allowed to omit the brackets.
 
-{% challenge "Make a snakefile with one single rule" %}
+{% challenge "Write a snakefile with a single rule" %}
 
 To try out download:
 
-`wget https://github.com/lhcb/starterkit-lessons/raw/snakemake/second-analysis-steps/code/snakemake/tutorial.tar`
+```bash
+wget https://github.com/lhcb/starterkit-lessons/raw/snakemake/second-analysis-steps/code/snakemake/tutorial.tar
+```
 
 You will find one containing names and phone numbers. You can make one rule that, given a name extracts the line with the phone of that person.
 
-To do this in a shell you can use `grep`, which is a command that lists all lines in a file containing a certain text. 
+To do this in a shell you can use `grep`, which is a command that lists all lines in a file containing a certain text.
 
-```
+```bash
 $ grep ciao test.txt
 ciao a tutti
 ```
