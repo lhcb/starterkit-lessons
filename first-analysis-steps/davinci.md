@@ -106,7 +106,7 @@ Execute
 ```bash
 lb-run DaVinci/v42r6p1 $SHELL
 ```
->Note that sometimes this environment can result in failing scripts due to struggles with your shell's rc file (e.g., `~/.bashrc`). Using, e.g.,
+Note that sometimes this environment can result in failing scripts due to struggles with your shell's rc file (e.g., `~/.bashrc`). Using
 ```bash
 lb-run DaVinci/v42r6p1 bash --norc
 ```
