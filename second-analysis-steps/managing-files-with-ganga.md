@@ -27,13 +27,8 @@ In this lesson, we'll see how you can efficiently manage input and output files
 using Ganga.
 
 
-{% callout "Ganga problems" %}
-Ganga is currently in a state of flux. It is changing regularly, and some
-things may begin or stop work between releases. The developers of Ganga are
-working to stabilise the application and its interface. This takes some time,
-and it helps to have users report the problems they see.
-
-It's generally advised to use the latest available version of Ganga. If you
+{% callout "Ganga versions" %}
+It is generally advised to use the latest available version of Ganga. Functionality is not removed and there are no compatibility issues between versions (it is just python!). If you
 encounter problems, you should first search [the archives of the
 `lhcb-distributed-analysis` mailing list][da-archive]. If you don't find an
 answer, you can talk to the Ganga developers directly on the [GitHub issues
@@ -43,7 +38,7 @@ page for Ganga][ganga-issues], or by sending an email to
 
 {% callout "Making a fresh start" %}
 Throughout this lesson, we'll be using the most up-to-date version of Ganga 
-that's available, v602r2.
+that's available, 7.0.1 .
 To make sure there will be no files from older versions of Ganga to interfere, 
 we will move them to a backup location.
 
