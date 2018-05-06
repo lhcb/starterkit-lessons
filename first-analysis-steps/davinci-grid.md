@@ -11,7 +11,15 @@ This lesson will teach you how to take our [minimal DaVinci
 job](minimal-dv-job.html) and run it on the grid.
 
 `ganga` is a program which you can use to interact with your grid
-jobs. Start it with:
+jobs. 
+
+Before creating your first `ganga` job, open the script `ntuple_options.py`, obtained in the [previous lesson](minimal-dv-job.html), and comment out the lines taking the local input data: we will now use the data stored on grid.
+
+Then, open the file `MC_2016_27163002_Beam6500GeV2016MagDownNu1.625nsPythia8_Sim09b_Trig0x6138160F_Reco16_Turbo03_Stripping28NoPrescalingFlagged_ALLSTREAMS.DST.py`, scroll to the very end, and check if two last lines have information about the `FileCatalog`: if yes, comment them out. They will mislead `ganga` since it only needs to know about the list of LFNs.
+
+Finally, launch your grid proxy typing `lhcb-proxy-init` and enter your *grid certidicate* password. 
+
+Great! Now you are ready to start ganga! Do it with:
 
 ```bash
 $ ganga
@@ -22,7 +30,7 @@ looks very much like an `ipython` session. `ganga` is built on top of
 `ipython` so you can type anything that is legal `python` in addition
 to some special commands provided by `ganga`.
 
-To create your first `ganga` job type the following:
+To create your first `ganga` job, type the following:
 
 ```python
 j = Job(name='First ganga job')
@@ -141,6 +149,7 @@ print 'Job output stored in:', output
 ```
 
 Take a look at the contents of this directory.
+Tip: this can be done from ganga using command `jobs(787).peek()`.
 
 {% callout "Using the Shell from IPython" %}
 IPython lets you execute shell commands from within the `ganga` session.
