@@ -1,8 +1,10 @@
 # Using SVN
 
-> ## Learning Objectives {.objectives}
-> * Understand the differences between Git and SVN
-> * Learn how to interact with the LHCb SVN repositories
+{% objectives "Learning Objectives" %}
+* Understand the differences between Git and SVN
+* Learn how to interact with the LHCb SVN repositories
+{% endobjectives %}
+
 
 All of the code used within LHCb is stored in a single place, and all of the 
 analysis documentation is stored in another repository.
@@ -148,21 +150,25 @@ svn co svn+ssh://svn.cern.ch/reps/lhcbdocs/Users/$USERNAME/TestFolder
 ```
 
 
-> ## Using SVN outside the lxplus cluster {.callout}
-> When you work on lxplus, SVN automatically fetches your identity through your Kerberos token.
->
-> If you want to `getpack` and/or `commit` from other places, e.g. your local machine or the [online cluster](https://lbtwiki.cern.ch/bin/view/Online/WebHome), you will have to either setup SVN access via public SSH keys, or input your password several times for every action.
->
-> You can follow [this link](http://information-technology.web.cern.ch/book/how-start-working-svn/accessing-svn-repository#accessing-sshlinux) for more information. However, here are the steps to take to setup SSH access:
-> ```bash
-> # Create an SSH key pair if you do not have one:
-> ssh-keygen -t rsa
-> # Copy your key to lxplus and run set_ssh:
-> scp ~/.ssh/id_rsa.pub USERNAME@lxplus.cern.ch:~/.ssh/
-> ssh USERNAME@lxplus
-> /afs/cern.ch/project/svn/public/bin/set_ssh
-> exit
-> # Now try to login to the SVN server:
-> ssh USERNAME@svn.cern.ch 
-> ```
-> If this does not prompt you for a password, and you see a login message, you're done. Otherwise, make sure you are using the same key pair on which you ran `set_ssh`.
+{% callout "Using SVN outside the lxplus cluster" %}
+When you work on lxplus, SVN automatically fetches your identity through your Kerberos token.
+
+If you want to `getpack` and/or `commit` from other places, e.g. your local machine or the [online cluster](https://lbtwiki.cern.ch/bin/view/Online/WebHome), you will have to either setup SVN access via public SSH keys, or input your password several times for every action.
+
+You can follow [this link](http://information-technology.web.cern.ch/book/how-start-working-svn/accessing-svn-repository#accessing-sshlinux) for more information. However, here are the steps to take to setup SSH access:
+
+```bash
+# Create an SSH key pair if you do not have one:
+ssh-keygen -t rsa
+# Copy your key to lxplus and run set_ssh:
+scp ~/.ssh/id_rsa.pub USERNAME@lxplus.cern.ch:~/.ssh/
+ssh USERNAME@lxplus
+/afs/cern.ch/project/svn/public/bin/set_ssh
+exit
+# Now try to login to the SVN server:
+ssh USERNAME@svn.cern.ch 
+```
+
+If this does not prompt you for a password, and you see a login message, you're done. Otherwise, make sure you are using the same key pair on which you ran `set_ssh`.
+{% endcallout %}
+
