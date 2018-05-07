@@ -143,7 +143,7 @@ Comments, which rules are run:
 In the tutorial folder you find two files containing addresses, and phone numbers.
 You can make rules that, given a name, `grep` the address and phone and then one other rule to merge them into your final output file.
 
-If we do this for Luca, it can be represented by the following graph:
+If we do this for “Luca”, it can be represented by the following graph:
 
 [![DAG](img/snakemake-dag-single-wide.png)](img/snakemake-dag-single.png)
 
@@ -161,7 +161,7 @@ _But it does not have to be this, any other task is fine, be creative!_
 
 {% challenge "Use wildcards" %}
 
-Following on from the previous challenge use wildcards to make it so that any name can be used, such as Fred
+Following on from the previous challenge use wildcards to make it so that any name can be used, such as “Fred”
 
 ```bash
 snakemake output/Fred/data.txt
