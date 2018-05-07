@@ -122,14 +122,14 @@ ciao a tutti
 And now that your `Snakefile` is done it's time to run! Just type
 
 ```bash
-snakemake rulename
+snakemake rulename_or_filename
 ```
 
 This will:
   1. Check that the inputs exist
       * If inputs exists 2)
       * If inputs do not exist or have changed snakemake will check if there is an other rule that produces them go back to 1)
-  2. Run the command you defined in rule "rulename"
+  2. Run the command you defined in `rulename_or_filename` (or the rule that generates the filename that is given)
   3. Check that the output was actually produced.
 
 Comments, which rules are run:
@@ -143,7 +143,29 @@ Comments, which rules are run:
 In the tutorial folder you find two files containing addresses, and phone numbers.
 You can make rules that, given a name, `grep` the address and phone and then one other rule to merge them into your final output file.
 
+If we do this for Luca, it can be represented by the following graph:
+
+[![DAG](img/snakemake-dag-single-wide.png)](img/snakemake-dag-single.png)
+
+Which could be achieved using this shell script:
+
+```bash
+grep Luca inputs/addresses.txt > output/Luca/myaddress.txt
+grep Luca inputs/phones.txt > output/Luca/myphone.txt
+cat output/Luca/myaddress.txt > output/Luca/data.txt && cat output/Luca/myphone.txt >> output/Luca/data.txt
+```
+
 _But it does not have to be this, any other task is fine, be creative!_
+
+{% endchallenge %}
+
+{% challenge "Use wildcards" %}
+
+Following on from the previous challenge use wildcards to make it so that any name can be used, such as Fred
+
+```bash
+snakemake output/Fred/data.txt
+```
 
 {% endchallenge %}
 
