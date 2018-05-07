@@ -12,7 +12,7 @@ For example, for the decay
 ```python
 '[D*(2010)+ -> (D0 -> K- K+) pi+]CC'
 ```
-you can make the assumption that the (K- K+) combine to form a D0 with a specific invariant mass. This results in a so called *mass-constraint*. In addition the kaon and the pion should originate from exactly the same point in space. If you know that your data only contains prompt D* candidates, you can constrain them to do come from the primary vertex. Boundary conditions like those are called *vertex-constraints*.
+you can make the assumption that the (K- K+) combine to form a D0 with a specific invariant mass. This results in a so called *mass-constraint*. In addition the two kaons should originate from exactly the same point in space. If you know that your data only contains prompt D* candidates, you can constrain them to do come from the primary vertex. Boundary conditions like those are called *vertex-constraints*.
 
 Applying such kinematic constraints leads to new best estimates for the track parameters of the final state particles. The process of calculating those is called a *kinematic refit* and the `TupleToolDecayTreeFitter` is the algorithm that performs this task for us.
 
@@ -27,7 +27,7 @@ dtt.addBranches({
     'Dstar': '[D*(2010)+ -> (D0 -> K- K+) pi+]CC',
 })
 ```
-To this branch we can now apply the `TupleToolDecayTreeFitter`.
+To this branch we can now apply the `TupleToolDecayTreeFitter` with arbitrarily chosen name `consD`.
 ```python
 dtt.Dstar.addTupleTool('TupleToolDecayTreeFitter/ConsD')
 ```
@@ -123,7 +123,7 @@ dtt.Dstar.ConsDKpi.daughtersToConstrain = ['D0']
 ```
 We now can tell the fitter to substitute one of the kaons in the D0 decay by a pion.
 ```python
-dtt.Dstar.ConsDpipi.Substitutions = {
+dtt.Dstar.ConsDKpi.Substitutions = {
     'Charm -> (D0 -> ^K- K+) Meson': 'pi-',
     'Charm -> (D~0 -> ^K+ K-) Meson': 'pi+',
     'Charm -> (D0 -> K- ^K+) Meson': 'pi+',
