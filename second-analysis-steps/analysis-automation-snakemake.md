@@ -127,8 +127,8 @@ snakemake rulename_or_filename
 
 This will:
   1. Check that the inputs exist
-      * If inputs exists 2)
-      * If inputs do not exist or have changed snakemake will check if there is an other rule that produces them go back to 1)
+      * If inputs exists &rarr; 2)
+      * If inputs do not exist or have changed snakemake will check if there is an other rule that produces them &rarr; Go back to 1)
   2. Run the command you defined in `rulename_or_filename` (or the rule that generates the filename that is given)
   3. Check that the output was actually produced.
 
@@ -169,7 +169,7 @@ snakemake output/Fred/data.txt
 
 {% solution "Solution" %}
 
-See [here](code/snakemake/tutorial/solution/Snakefile), or `solution/Snakefile`.
+See [here](code/snakemake/tutorial/simple_solution/Snakefile), or `simple_solution/Snakefile`.
 
 {% endchallenge %}
 
@@ -181,42 +181,6 @@ Note that if you put your code into the inputs snakemake will detect when your c
 
 {% challenge "Explore the snakemake behaviour" %}
 In the previous example try deleting one of the intermediate files, rerun snakemake and see what happens
-{% endchallenge %}
-
-### Run and shell
-
-You have two ways to specify commands. One is `shell` that assumes shell commands as shown before.
-The other is `run` that instead directly takes python code (Careful it's python3!).
-
-For example the copy of the file as in the previous example can be done in the following way.
-
-```python
-rule dosomething_py:
-    input: 'myfile.txt'
-    output: 'myoutput.txt'
-    run:
-        with open(input, 'rt') as fp:
-            file_contents = fp.read()
-        with open(output, 'wt') as fp:
-            fp.write(file_contents)
-```
-
-And finally you can mix! Namely you can send shell commands from python code.
-This is useful, in particular if you have to launch the same shell command on more inputs.
-
-```python
-rule dosomething_pysh:
-    input:
-        script = 'data1.root',
-        data = 'data2.root']
-    output: ['plot1.pdf', 'plot2.pdf']
-    run:
-        for f in input:
-            shell('./{input.code} %s' % f)
-```
-
-{% challenge "Use run instead of shell" %}
-Rewrite your previous file using a python script to run the search and use `run` to run on both phones and addresses in the same rule
 {% endchallenge %}
 
 ### Sub-labels
@@ -245,6 +209,43 @@ The `--extra` is not necessary. It's just to illustrate how python scripts optio
 Add your python script to the inputs than make some modifications to it, rerun snakemake and see what happens.
 {% endchallenge %}
 
+
+
+### Run and shell
+
+You have two ways to specify commands. One is `shell` that assumes shell commands as shown before.
+The other is `run` that instead directly takes python code (Careful it's python3!).
+
+For example the copy of the file as in the previous example can be done in the following way.
+
+```python
+rule dosomething_py:
+    input: 'myfile.txt'
+    output: 'myoutput.txt'
+    run:
+        with open(input, 'rt') as fi:
+            with open(output, 'wt') as fo:
+                fo.write(fi.read())
+```
+
+And finally you can mix! Namely you can send shell commands from python code.
+This is useful, in particular if you have to launch the same shell command on more inputs.
+
+```python
+rule dosomething_pysh:
+    input:
+        code = 'mycode.exe',
+        data = [ 'data1.root', 'data2.root' ]
+    output: ['plot1.pdf', 'plot2.pdf']
+    run:
+        for f in input.data:
+            shell('./{input.code} %s' % f)
+```
+
+{% challenge "Use run instead of shell" %}
+Rewrite your previous file using a python script to run the search and use `run` to run on both phones and addresses in the same rule
+{% endchallenge %}
+
 ### Config files
 
 Often you want to run the same rule on different sample or with different options for your scripts.
@@ -264,7 +265,9 @@ Now in your Snakefile you can load this config file and then its content will be
 configfile: '/path/to/cfg.yaml'
 
 rule dosomething_pysh:
-    input: config['data'],
+    input: 
+        code = 'mycode.exe',
+        data = config['data'],
     output: ['plot1.pdf', 'plot2.pdf']
     run:
         for f in input:
@@ -290,4 +293,11 @@ The order of the includes is irrelevant.
 
 {% challenge "Use includes" %}
 Move your rules to other files and include them
+
+{% solution "Solution" %}
+
+You can find a solution in the `complete_solution` folder, which you can find [here](https://github.com/lhcb/starterkit-lessons/raw/snakemake/second-analysis-steps/code/snakemake/tutorial.tar).
+
 {% endchallenge %}
+
+
