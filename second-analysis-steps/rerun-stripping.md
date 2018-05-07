@@ -67,4 +67,5 @@ sc = StrippingConf(Streams=[custom_stream],
 DaVinci().appendToMainSequence([event_node_killer, sc.sequence()])
 ```
 
-It is strongly recommended to run restripping with the same version of DaVinci as the one used for the corresponding stripping production: this ensures all the settings are configured the same exact way as for your data. For the Stripping 28r1, DaVinci v41r4p4 was used. Notice that this version is not available for the default platform `x86_64-slc6-gcc62-opt`, and you have to change the platform before launching DaVinci: `LbLogin -c x86_64-slc6-gcc49-opt`.
+It is strongly recommended to run restripping with the same version of DaVinci as the one used for the corresponding stripping production: this ensures all the settings are configured the same exact way as for your data. For the Stripping 28r1, DaVinci v41r4p4 was used. Notice that this version is not available for the default platform `x86_64-slc6-gcc62-opt`.
+To work around this you can pick up the best suitable platform using `lb-run -c best DaVinci/v41r4p4 ...` or by [setting the `application.platform` attribute in ganga](https://lhcb.github.io/starterkit-lessons/first-analysis-steps/davinci-grid.html#picking-up-a-right-platform).
