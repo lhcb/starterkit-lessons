@@ -167,6 +167,10 @@ Following on from the previous challenge use wildcards to make it so that any na
 snakemake output/Fred/data.txt
 ```
 
+{% solution "Solution" %}
+
+See [here](code/snakemake/tutorial/solution/Snakefile), or `solution/Snakefile`.
+
 {% endchallenge %}
 
 Comments, partial running:
