@@ -708,7 +708,7 @@
                                 <section class="normal markdown-section">
                                 
                                 <h1 id="managing-files-in-ganga">Managing files in Ganga</h1>
-<p><div class="panel panel-warning"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(5699199936);" id="learning-objectives"><i class="fa fa-line-chart"></i> Learning Objectives<span id="heading-5699199936"></span></h3></div><div class="panel-body" id="panel-5699199936"><ul>
+<p><div class="panel panel-warning"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(1935543101);" id="learning-objectives"><i class="fa fa-line-chart"></i> Learning Objectives<span id="heading-1935543101"></span></h3></div><div class="panel-body" id="panel-1935543101"><ul>
 <li>Choose whether job output is saved locally or on the Grid</li>
 <li>Choose where to look for job input files</li>
 <li>Move files from any grid site to CERN, for analysis using EOS</li>
@@ -731,14 +731,14 @@ the object you&apos;re using to tell Ganga to use local files, files on the Grid
 files on EOS.
 In this lesson, we&apos;ll see how you can efficiently manage input and output files
 using Ganga.</p>
-<p><div class="panel panel-primary"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(1726902918);" id="ganga-versions"><i class="fa fa-info-circle"></i> Ganga versions<span id="heading-1726902918"></span></h3></div><div class="panel-body" id="panel-1726902918"><p>It is generally advised to use the latest available version of Ganga. Functionality is not removed and there are no compatibility issues between versions (it is just python!). If you
+<p><div class="panel panel-primary"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(9989096487);" id="ganga-versions"><i class="fa fa-info-circle"></i> Ganga versions<span id="heading-9989096487"></span></h3></div><div class="panel-body" id="panel-9989096487"><p>It is generally advised to use the latest available version of Ganga. Functionality is not removed and there are no compatibility issues between versions (it is just python!). If you
 encounter problems, you should first search [the archives of the
 <code>lhcb-distributed-analysis</code> mailing list][da-archive]. If you don&apos;t find an
 answer, you can talk to the Ganga developers directly on the [GitHub issues
 page for Ganga][ganga-issues], or by sending an email to
 <code>lhcb-distributed-analysis</code>.</p>
 </div></div></p>
-<p><div class="panel panel-primary"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(9880172435);" id="making-a-fresh-start"><i class="fa fa-info-circle"></i> Making a fresh start<span id="heading-9880172435"></span></h3></div><div class="panel-body" id="panel-9880172435"><p>Throughout this lesson, we&apos;ll be using the most up-to-date version of Ganga 
+<p><div class="panel panel-primary"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(2117428309);" id="making-a-fresh-start"><i class="fa fa-info-circle"></i> Making a fresh start<span id="heading-2117428309"></span></h3></div><div class="panel-body" id="panel-2117428309"><p>Throughout this lesson, we&apos;ll be using the most up-to-date version of Ganga 
 that&apos;s available, 7.0.1 .
 To make sure there will be no files from older versions of Ganga to interfere, 
 we will move them to a backup location.</p>
@@ -832,7 +832,7 @@ see that our file&apos;s on EOS by looking at the LFN Ganga gave us. We just nee
 add the prefix <code>/eos/lhcb/grid/user</code> to the LFN.</p>
 <pre><code class="lang-shell">eos ls /eos/lhcb/grid/user//lhcb/user/a/apearce/GangaFiles_22.24_Wednesday_18_May_2016
 </code></pre>
-<p><div class="panel panel-primary"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(9716953962);" id="using-massstoragefile"><i class="fa fa-info-circle"></i> Using MassStorageFile<span id="heading-9716953962"></span></h3></div><div class="panel-body" id="panel-9716953962"><p>The <code>MassStorageFile</code> object uploads job output directly to EOS. However, 
+<p><div class="panel panel-primary"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(278438111);" id="using-massstoragefile"><i class="fa fa-info-circle"></i> Using MassStorageFile<span id="heading-278438111"></span></h3></div><div class="panel-body" id="panel-278438111"><p>The <code>MassStorageFile</code> object uploads job output directly to EOS. However, 
 using <code>MassStorageFile</code> for this purpose is actively discouraged by the Ganga 
 developers as it is highly inefficient: a file made on the Grid will first be 
 downloaded to the machine running Ganga, and then uploaded to EOS.</p>
@@ -843,7 +843,7 @@ downloaded to the machine running Ganga, and then uploaded to EOS.</p>
 it&apos;s not currently available at.</p>
 <pre><code class="lang-python">df.replicate(<span class="hljs-string">&apos;CERN-USER&apos;</span>)
 </code></pre>
-<p><div class="panel panel-primary"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(6964579015);" id="automating-replication-to-cern"><i class="fa fa-info-circle"></i> Automating replication to CERN<span id="heading-6964579015"></span></h3></div><div class="panel-body" id="panel-6964579015"><p>If you have a job with subjobs, you can automate this to replicate all output 
+<p><div class="panel panel-primary"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(752800394);" id="automating-replication-to-cern"><i class="fa fa-info-circle"></i> Automating replication to CERN<span id="heading-752800394"></span></h3></div><div class="panel-body" id="panel-752800394"><p>If you have a job with subjobs, you can automate this to replicate all output 
 files to CERN, so that you can run your analysis directly on the files on 
 EOS.</p>
 <pre><code class="lang-python">j = jobs(...)
@@ -892,7 +892,7 @@ can use them directly with EOS and XRootD commands;</li>
 <li>We want to job output to be download locally automatically when the job 
 completes.</li>
 </ol>
-<p><div class="panel panel-primary"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(1951659366);" id="defining-inputfiles"><i class="fa fa-info-circle"></i> Defining inputfiles<span id="heading-1951659366"></span></h3></div><div class="panel-body" id="panel-1951659366"><p>The <code>inputfiles</code> attribute of a <code>Job</code> object works in a similar way to 
+<p><div class="panel panel-primary"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(9292423872);" id="defining-inputfiles"><i class="fa fa-info-circle"></i> Defining inputfiles<span id="heading-9292423872"></span></h3></div><div class="panel-body" id="panel-9292423872"><p>The <code>inputfiles</code> attribute of a <code>Job</code> object works in a similar way to 
 <code>outputfile</code>. In our example, the reverser script that the <code>Executable</code> 
 application uses doesn&apos;t know how to handle things specified as <code>inputdata</code>, 
 so we had to use <code>File</code> when defining the arguments.</p>
@@ -943,7 +943,7 @@ depends on where the input files are.</p>
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Managing files in Ganga","level":"3.1.11","depth":2,"next":{"title":"Analysis automation: snakemake","level":"3.1.12","depth":2,"path":"second-analysis-steps/analysis-automation-snakemake.md","ref":"second-analysis-steps/analysis-automation-snakemake.md","articles":[]},"previous":{"title":"Ganga Scripting","level":"3.1.10","depth":2,"path":"second-analysis-steps/ganga-scripting.md","ref":"second-analysis-steps/ganga-scripting.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-sharing","panels@git+https://github.com/lhcb/gitbook-plugin-panels.git#master","katex-auto-render@git+https://github.com/lhcb/gitbook-plugin-katex-auto-render.git#master","collapsible-menu","otherlink"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"collapsible-menu":{},"search":{},"otherlink":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"panels":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"katex-auto-render":{},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"The Starterkit team and contributors","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"gitbook":"*"},"file":{"path":"second-analysis-steps/managing-files-with-ganga.md","mtime":"2018-05-07T13:54:00.869Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-05-07T13:56:23.679Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Managing files in Ganga","level":"3.1.11","depth":2,"next":{"title":"Analysis automation: snakemake","level":"3.1.12","depth":2,"path":"second-analysis-steps/analysis-automation-snakemake.md","ref":"second-analysis-steps/analysis-automation-snakemake.md","articles":[]},"previous":{"title":"Ganga Scripting","level":"3.1.10","depth":2,"path":"second-analysis-steps/ganga-scripting.md","ref":"second-analysis-steps/ganga-scripting.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-sharing","panels@git+https://github.com/lhcb/gitbook-plugin-panels.git#master","katex-auto-render@git+https://github.com/lhcb/gitbook-plugin-katex-auto-render.git#master","collapsible-menu","otherlink"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"collapsible-menu":{},"search":{},"otherlink":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"panels":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"katex-auto-render":{},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"The Starterkit team and contributors","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"gitbook":"*"},"file":{"path":"second-analysis-steps/managing-files-with-ganga.md","mtime":"2018-05-07T19:59:05.498Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-05-07T20:01:30.648Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
