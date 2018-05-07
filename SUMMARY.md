@@ -30,7 +30,6 @@
 ----
 
 * [Second analysis steps](second-analysis-steps/README.md)
-    * [Using git to develop LHCb software](second-analysis-steps/lb-git.md)
     * [Building your own decay](second-analysis-steps/building-decays.md)
       * [The Selection Framework](second-analysis-steps/building-decays-part0.md)
       * [A Historical Approach](second-analysis-steps/building-decays-part1.md)
@@ -39,11 +38,12 @@
     * [Run a different stripping line on simulated data](second-analysis-steps/rerun-stripping.md)
     * [Replace a mass hypothesis](second-analysis-steps/switch-mass-hypo.md)
     * [Reuse particles from a decay tree](second-analysis-steps/filter-in-trees.md)
-    * [The simulation framework](second-analysis-steps/simulation.md)
+    * [Using git to develop LHCb software](second-analysis-steps/lb-git.md)
     * [HLT intro](second-analysis-steps/hlt-intro.md)
     * [TisTos DIY](second-analysis-steps/tistos-diy.md)
     * [Ganga Scripting](second-analysis-steps/ganga-scripting.md)
     * [Managing files in Ganga](second-analysis-steps/managing-files-with-ganga.md)
+    * [The simulation framework](second-analysis-steps/simulation.md)
 
 ----
 
