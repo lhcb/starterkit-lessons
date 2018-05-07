@@ -16,7 +16,7 @@ from PhysConf.Selections import SelectionSequence
 
 # Build the D0 from the pions and kaons
 d0_daughters = {
-    'pi-': '(PT > 750*MeV) & (P > 4000*MeV) & (MIPCHI2DV(PRIMARY) > 4)',
+    'K-': '(PT > 750*MeV) & (P > 4000*MeV) & (MIPCHI2DV(PRIMARY) > 4)',
     'K+': '(PT > 750*MeV) & (P > 4000*MeV) & (MIPCHI2DV(PRIMARY) > 4)'
 }
 d0_comb = "(AMAXDOCA('') < 0.2*mm) & (ADAMASS('D0') < 100*MeV)"
@@ -29,8 +29,8 @@ d0_mother = (
 
 d0_sel = CombineSelection(
     'Sel_D0',
-    [Pions, Kaons],
-    DecayDescriptor='[D0 -> pi- K+]cc',
+    [Kaons],
+    DecayDescriptor='[D0 -> K- K+]cc',
     DaughtersCuts=d0_daughters,
     CombinationCut=d0_comb,
     MotherCut=d0_mother,
@@ -70,15 +70,12 @@ DaVinci().UserAlgorithms += [dstar_seq.sequence(), dtt]
 DaVinci().InputType = 'DST'
 DaVinci().TupleFile = 'DVntuple.root'
 DaVinci().PrintFreq = 1000
-DaVinci().DataType = '2012'
+DaVinci().DataType = '2016'
 DaVinci().Simulation = True
 # Only ask for luminosity information when not using simulated data
 DaVinci().Lumi = not DaVinci().Simulation
 DaVinci().EvtMax = 10000
 
 # Use the local input data
-IOHelper().inputFiles([('root://eoslhcb.cern.ch/'
-                        '/eos/lhcb/grid/prod/lhcb/'
-                        'MC/2012/ALLSTREAMS.DST/00035742/0000/'
-                        '00035742_00000001_1.allstreams.dst')],
+IOHelper().inputFiles([('./00062514_00000001_7.AllStreams.dst')],
                       clear=True)
