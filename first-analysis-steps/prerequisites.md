@@ -23,7 +23,7 @@ If this is the first time you are bringing your laptop to CERN, you
 will have to [register it](https://network.cern.ch) before it can
 access the internet.
 
-Please your power supply, as well as a plug adaptor to Swiss and European plugs.
+Please bring your power supply, as well as a plug adaptor to Swiss and European plugs.
 
 {% callout "Windows" %}
 In the following we assume you use Mac OS X or Linux. If you are running
