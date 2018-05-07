@@ -181,6 +181,8 @@ missing.
 The `argparse` module can do a lot, being able to parse complex sets of 
 arguments with much difficultly. It's a useful tool to know in general, so we 
 recommend that you check out the [documentation][argparse] to learn more.
+
+[argparse]: https://docs.python.org/2/library/argparse.html
 {% endcallout %}
 
 When we do supply all the necessary arguments, the values are then available in
@@ -210,8 +212,6 @@ Of course, you can add as many arguments as you think might be useful.
 Above we added the `--test` flag as an example: if this is `True`, you could 
 run the application over only a single data file, and run the job locally 
 rather than on the Grid (setting `j.backend` appropriately).
-
-[argparse]: https://docs.python.org/2/library/argparse.html
 
 ### Adding helpers functions
 
@@ -332,3 +332,4 @@ Here are some other common operations that you might want helpers for:
 What other tasks can you think of?
 
 [tchain]: https://root.cern.ch/doc/master/classTChain.html
+[argparse]: https://docs.python.org/2/library/argparse.html
