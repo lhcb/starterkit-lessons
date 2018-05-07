@@ -47,7 +47,7 @@ As a consequence of this, only one algorithm with a given name can be instantiat
 
 This allows to reuse and reload algorithms that have already been created in a configuration sequence. For example:
 
- We could create a generic selection for building $$D^0$$ with a known name, put it in a `build_d0.py` file and use (and even modify) it in another file loaded in the same `gaudirun.py` call.
+ We could create a generic selection for building D0 with a known name, put it in a `build_d0.py` file and use (and even modify) it in another file loaded in the same `gaudirun.py` call.
  We could write the data-only parts of our selection in one file and the MC-only separately (typically inputs are different), but setting the same names for the algorithms. Then, our `DecayTreeTuple` code could be common, as the selection would be loaded "by-name".
 
 This is very useful to build complicated configuration chains, but it's *very easy* to have problems if our selection/algorithm names are not unique.
