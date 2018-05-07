@@ -624,6 +624,19 @@
             
         </li>
     
+        <li class="chapter " data-level="3.1.12" data-path="analysis-automation-snakemake.html">
+            
+                <a href="analysis-automation-snakemake.html">
+            
+                    
+                    Analysis automation: snakemake
+            
+                </a>
+            
+
+            
+        </li>
+    
 
             </ul>
             
@@ -696,12 +709,12 @@
                                 
                                 <h1 id="building-your-own-decay">Building your own decay</h1>
 <h2 id="a-historical-approach">A Historical Approach</h2>
-<p><div class="panel panel-warning"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(5300385008);" id="learning-objectives"><i class="fa fa-line-chart"></i> Learning Objectives<span id="heading-5300385008"></span></h3></div><div class="panel-body" id="panel-5300385008"><ul>
+<p><div class="panel panel-warning"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(1232245135);" id="learning-objectives"><i class="fa fa-line-chart"></i> Learning Objectives<span id="heading-1232245135"></span></h3></div><div class="panel-body" id="panel-1232245135"><ul>
 <li>Build a decay chain using the most basic tools</li>
 <li>Understand the limitations and problems of these tools</li>
 </ul>
 </div></div> </p>
-<p><div class="panel panel-primary"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(6500475142);" id="lesson-caveat"><i class="fa fa-info-circle"></i> Lesson caveat<span id="heading-6500475142"></span></h3></div><div class="panel-body" id="panel-6500475142"><p>In this lesson we will explain how to work with the most basic building 
+<p><div class="panel panel-primary"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(3013162812);" id="lesson-caveat"><i class="fa fa-info-circle"></i> Lesson caveat<span id="heading-3013162812"></span></h3></div><div class="panel-body" id="panel-3013162812"><p>In this lesson we will explain how to work with the most basic building 
 blocks of the Selection Framework.
 This is not the most optimal way to use it, but it is included here because their use is very generalized, for example in the Stripping, and understanding them is very useful for understanding most of our current code.
 At the end of this lesson its shortcomings will be highlighted and a better way to approach the problem will be presented in the <a href="building-decays-part2.html">following lesson</a>.</p>
@@ -709,7 +722,7 @@ At the end of this lesson its shortcomings will be highlighted and a better way 
 <p>Now we&apos;ll learn to apply the concepts of the Selection Framework by running through a full example:
 using the DST files from the <a href="../first-analysis-steps/files-from-grid.html">Downloading a file from the Grid</a> lesson, we will build our own $$D^\ast\rightarrow D^0(\rightarrow K^{-} \pi^{+}) \pi$$ decay chain from scratch.
 Get your <a href="../first-analysis-steps/loki-functors.html">LoKi skills</a> ready and let&apos;s start.</p>
-<p><div class="panel panel-primary"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(4504072346);" id="getting-started"><i class="fa fa-info-circle"></i> Getting started<span id="heading-4504072346"></span></h3></div><div class="panel-body" id="panel-4504072346"><p>There&apos;s no need to download the files from the Grid for this lesson.
+<p><div class="panel panel-primary"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(6006378618);" id="getting-started"><i class="fa fa-info-circle"></i> Getting started<span id="heading-6006378618"></span></h3></div><div class="panel-body" id="panel-6006378618"><p>There&apos;s no need to download the files from the Grid for this lesson.
 We can simply open them using the <code>root</code> protocol thanks to the fact that they are replicated at CERN:</p>
 <pre><code class="lang-python"><span class="hljs-keyword">from</span> GaudiConf <span class="hljs-keyword">import</span> IOHelper
 IOHelper().inputFiles([(<span class="hljs-string">&apos;root://eoslhcb.cern.ch//eos/lhcb/grid/prod/lhcb/MC/2012/ALLSTREAMS.DST/00035742/0000/00035742_00000001_1.allstreams.dst&apos;</span>)],
@@ -722,7 +735,7 @@ IOHelper().inputFiles([(<span class="hljs-string">&apos;root://eoslhcb.cern.ch//
 <span class="hljs-keyword">from</span> StandardParticles <span class="hljs-keyword">import</span> StdAllLooseKaons <span class="hljs-keyword">as</span> Kaons
 </code></pre>
 <p>This is an ideal way to get pre-made particles with the standard LHCb configuration.</p>
-<p><div class="panel panel-primary"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(8061056147);" id="where-do-standardparticles-come-from"><i class="fa fa-info-circle"></i> Where do `StandardParticles` come from?<span id="heading-8061056147"></span></h3></div><div class="panel-body" id="panel-8061056147"><p>One important type of <code>Selection</code> is the <code>AutomaticData</code>, which builds objects from their TES location using a centrally predefined algorithm.
+<p><div class="panel panel-primary"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(1897050014);" id="where-do-standardparticles-come-from"><i class="fa fa-info-circle"></i> Where do `StandardParticles` come from?<span id="heading-1897050014"></span></h3></div><div class="panel-body" id="panel-1897050014"><p>One important type of <code>Selection</code> is the <code>AutomaticData</code>, which builds objects from their TES location using a centrally predefined algorithm.
 The <code>StandardParticles</code>/<code>CommonParticles</code> packages (one imports the other), which you can find <a href="https://gitlab.cern.ch/lhcb/Phys/tree/master/Phys/CommonParticles" target="_blank">here</a>, allow to access premade particles with reasonable reconstruction/selections for us to use with <code>AutomaticData</code>.</p>
 <p>For example, in our specific case, we use the <code>AutomaticData</code> class with the <code>Phys/StdAllNoPIDsPions/Particles</code> and <code>Phys/StdAllLooseKaons/Particles</code> locations to access the output of the <code>StdAllNoPIDsPions</code> and <code>StdAllLooseKaons</code> algorithms, respectively (see <a href="https://gitlab.cern.ch/lhcb/Phys/blob/master/Phys/CommonParticles/python/CommonParticles/StdAllNoPIDsPions.py" target="_blank">here</a> and <a href="https://gitlab.cern.ch/lhcb/Phys/tree/master/Phys/CommonParticles" target="_blank">here</a>).
 Therefore, the following code would be equivalent to what we have used:</p>
@@ -770,7 +783,7 @@ d0 = CombineParticles(
     MotherCut=d0_mother
 )
 </code></pre>
-<p><div class="panel panel-success"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(4057589845);" id="a-small-question"><i class="fa fa-square-o"></i> A small question<span id="heading-4057589845"></span></h3></div><div class="panel-body" id="panel-4057589845"><ul>
+<p><div class="panel panel-success"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(8675660179);" id="a-small-question"><i class="fa fa-square-o"></i> A small question<span id="heading-8675660179"></span></h3></div><div class="panel-body" id="panel-8675660179"><ul>
 <li>Do you understand this selection?</li>
 <li>Do you know what each of these LoKi functors does?</li>
 </ul>
@@ -808,7 +821,7 @@ dstar_sel = Selection(
     RequiredSelections=[d0_sel, Pions]
 )
 </code></pre>
-<p><div class="panel panel-primary"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(2225409281);" id="building-shared-selections"><i class="fa fa-info-circle"></i> Building shared selections<span id="heading-2225409281"></span></h3></div><div class="panel-body" id="panel-2225409281"><p>In some cases we may want to build several decays in the same script with 
+<p><div class="panel panel-primary"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(5816498202);" id="building-shared-selections"><i class="fa fa-info-circle"></i> Building shared selections<span id="heading-5816498202"></span></h3></div><div class="panel-body" id="panel-5816498202"><p>In some cases we may want to build several decays in the same script with 
 some common particles/selection;
 for example, in our case we could have been building </p>
 </div></div></p>
@@ -818,7 +831,7 @@ dstar_seq = SelectionSequence(<span class="hljs-string">&apos;Dstar_Seq&apos;</s
 <span class="hljs-keyword">from</span> Configurables <span class="hljs-keyword">import</span> DaVinci
 DaVinci().UserAlgorithms += [dstar_seq.sequence()]
 </code></pre>
-<p><div class="panel panel-success"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(7117905623);" id="work-to-do"><i class="fa fa-square-o"></i> Work to do<span id="heading-7117905623"></span></h3></div><div class="panel-body" id="panel-7117905623"><ul>
+<p><div class="panel panel-success"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(5891493698);" id="work-to-do"><i class="fa fa-square-o"></i> Work to do<span id="heading-5891493698"></span></h3></div><div class="panel-body" id="panel-5891493698"><ul>
 <li>Finish the script by adapting the basic <code>DaVinci</code> configuration from its 
 corresponding 
 <a href="../first-analysis-steps/minimal-dv-job.html">lesson</a> and 
@@ -879,7 +892,7 @@ To help with these name clashes and to allow a much more streamlined <code>Selec
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"A Historical Approach","level":"3.1.2.2","depth":3,"next":{"title":"Modern Selection Framework","level":"3.1.2.3","depth":3,"path":"second-analysis-steps/building-decays-part2.md","ref":"second-analysis-steps/building-decays-part2.md","articles":[]},"previous":{"title":"The Selection Framework","level":"3.1.2.1","depth":3,"path":"second-analysis-steps/building-decays-part0.md","ref":"second-analysis-steps/building-decays-part0.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-sharing","panels@git+https://github.com/lhcb/gitbook-plugin-panels.git#master","katex-auto-render@git+https://github.com/lhcb/gitbook-plugin-katex-auto-render.git#master","collapsible-menu","otherlink"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"collapsible-menu":{},"search":{},"otherlink":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"panels":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"katex-auto-render":{},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"The Starterkit team and contributors","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"gitbook":"*"},"file":{"path":"second-analysis-steps/building-decays-part1.md","mtime":"2018-05-07T12:50:08.629Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-05-07T12:52:33.779Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"A Historical Approach","level":"3.1.2.2","depth":3,"next":{"title":"Modern Selection Framework","level":"3.1.2.3","depth":3,"path":"second-analysis-steps/building-decays-part2.md","ref":"second-analysis-steps/building-decays-part2.md","articles":[]},"previous":{"title":"The Selection Framework","level":"3.1.2.1","depth":3,"path":"second-analysis-steps/building-decays-part0.md","ref":"second-analysis-steps/building-decays-part0.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-sharing","panels@git+https://github.com/lhcb/gitbook-plugin-panels.git#master","katex-auto-render@git+https://github.com/lhcb/gitbook-plugin-katex-auto-render.git#master","collapsible-menu","otherlink"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"collapsible-menu":{},"search":{},"otherlink":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"panels":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"katex-auto-render":{},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"The Starterkit team and contributors","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"gitbook":"*"},"file":{"path":"second-analysis-steps/building-decays-part1.md","mtime":"2018-05-07T13:54:00.857Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-05-07T13:56:23.679Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
