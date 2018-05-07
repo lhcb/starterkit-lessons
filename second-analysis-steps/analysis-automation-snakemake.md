@@ -19,9 +19,9 @@
   * Standardise your scripts
     * Bonus: Standardised scripts can sometimes be used across analyses!
 
-## Snakemake: Documentation and installation
+## Documentation and installation
 
-You can find full documentation for Snakemake [at this link](http://snakemake.readthedocs.io/en/stable/index.html).
+You can find full documentation for Snakemake [at this link](http://snakemake.readthedocs.io/en/stable/index.html), you can also ask any questions you have on the [~reproducible](https://mattermost.web.cern.ch/lhcb/channels/reproducible) channel on mattermost.
 
 Snakemake requires Python 3, if you already have this available it can be easily installed using pip:
 
