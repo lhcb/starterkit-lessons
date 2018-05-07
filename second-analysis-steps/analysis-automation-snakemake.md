@@ -71,20 +71,33 @@ rule copy:
     shell: 'cp input.txt output.txt'
 ```
 
-Note that input and output can be parametrised! E.g.:
+You can even avoid typos by substituting variables instead of typing the filenames twice:
 
 ```python
-rule copy:
-    input: 'input.txt'
+rule merge_files:
+    input: ['input_1.txt', 'input_1.txt']
     output: 'output.txt'
-    shell: 'cat {input} > {output}'
+    shell: 'cat {input[0]} > {output} && cat {input[1]} >> {output}'
 ```
 
-N.B.: Notice that:
+Input and output can also be parametrised using wildcards:
+
+```python
+rule copy_and_echo:
+    input: 'input/{filename}.txt'
+    output: 'output/{filename}.txt'
+    shell: 'echo {wildcards.filename} && cp {input} {output}'
+```
+
+If you then make another rule with `output/a_file.txt` and `output/another_file.txt` as inputs they will be automatically created by the `copy_and_echo` rule.
+This allows for rules to be reusable, for example to make a rule that can be used to process data with from different years or polarities.
+
+Notice that:
 
   * Inputs and outputs can be of any type
   * You can provide python code after the tags. e.g. `input: glob("*.root")`
-  * If a single file is input or output you are allowed to omit the brackets.
+  * If a single file is input or output you are allowed to omit the brackets
+  * Wildcards must always be present in the output of a rule (else it wouldn't be possible to know what they should be)
 
 {% challenge "Write a snakefile with a single rule" %}
 
@@ -137,7 +150,7 @@ _But it does not have to be this, any other task is fine, be creative!_
 Comments, partial running:
 
 * If part of the input is already present and not modified present the corresponding rule will not run
-N.B.: Note that if you put your code into the inputs snakemake will detect when your code changes and automatically rerun the corresponding rule!
+Note that if you put your code into the inputs snakemake will detect when your code changes and automatically rerun the corresponding rule!
 * If you want to force running all rules even if part of the output is present use `snakemake --forceall`
 
 {% challenge "Explore the snakemake behaviour" %}
@@ -147,7 +160,7 @@ In the previous example try deleting one of the intermediate files, rerun snakem
 ### Run and shell
 
 You have two ways to specify commands. One is `shell` that assumes shell commands as shown before.
-The other is `run` that instead directly takes python code (N.B.: Careful it's python3!).
+The other is `run` that instead directly takes python code (Careful it's python3!).
 
 For example the copy of the file as in the previous example can be done in the following way.
 
@@ -200,7 +213,7 @@ So this will effectively launch the command:
 python myscript.py mydata.roo --extra some_extra_info.txt > output.txt
 ```
 
-N.B.: The `--extra` is not necessary. It's just to illustrate how python scripts options can be used.
+The `--extra` is not necessary. It's just to illustrate how python scripts options can be used.
 
 {% challenge "Code as input" %}
 Add your python script to the inputs than make some modifications to it, rerun snakemake and see what happens.
