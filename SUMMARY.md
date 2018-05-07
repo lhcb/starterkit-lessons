@@ -44,6 +44,7 @@
     * [TisTos DIY](second-analysis-steps/tistos-diy.md)
     * [Ganga Scripting](second-analysis-steps/ganga-scripting.md)
     * [Managing files in Ganga](second-analysis-steps/managing-files-with-ganga.md)
+    * [Analysis automation: snakemake](second-analysis-steps/analysis-automation-snakemake.md)
 
 ----
 
