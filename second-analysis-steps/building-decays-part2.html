@@ -709,7 +709,7 @@
                                 
                                 <h1 id="building-your-own-decay">Building your own decay</h1>
 <h2 id="modern-selection-framework">Modern Selection Framework</h2>
-<p><div class="panel panel-warning"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(242706929);" id="learning-objectives"><i class="fa fa-line-chart"></i> Learning Objectives<span id="heading-242706929"></span></h3></div><div class="panel-body" id="panel-242706929"><ul>
+<p><div class="panel panel-warning"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(7689066683);" id="learning-objectives"><i class="fa fa-line-chart"></i> Learning Objectives<span id="heading-7689066683"></span></h3></div><div class="panel-body" id="panel-7689066683"><ul>
 <li>Build a decay chain with the most optimized tools</li>
 <li>Learn the advantages of these specialized tools</li>
 </ul>
@@ -724,8 +724,8 @@ With that in mind, we can rewrite the previous two pieces of code as</p>
 d0_sel = SimpleSelection(
     <span class="hljs-string">&apos;Sel_D0&apos;</span>,
     ConfigurableGenerators.CombineParticles,
-    [Pions, Kaons],
-    DecayDescriptor=<span class="hljs-string">&apos;([D0 -&gt; pi- K+]CC)&apos;</span>,
+    [Kaons],
+    DecayDescriptor=<span class="hljs-string">&apos;([D0 -&gt; K- K+]CC)&apos;</span>,
     DaughtersCuts=d0_daughters,
     CombinationCut=d0_comb,
     MotherCut=d0_mother
@@ -733,7 +733,7 @@ d0_sel = SimpleSelection(
 </code></pre>
 <p>Note how we needed to use the <code>CombineParticles</code> from <code>GaudiConfUtils.ConfigurableGenerators</code> instead of the <code>PhysConf.Selections</code> one to make this work.
 This is because the LHCb algorithms are configured as singletons and it is mandatory to give them a name, which we don&apos;t want to in <code>SimpleSelection</code> (we want to skip steps!).</p>
-<p><div class="panel panel-primary"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(9890486150);" id="why-configurablegenerators"><i class="fa fa-info-circle"></i> Why `ConfigurableGenerators`?<span id="heading-9890486150"></span></h3></div><div class="panel-body" id="panel-9890486150"><p>If we had tried to simply use <code>CombineParticles</code> inside our 
+<p><div class="panel panel-primary"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(5012842941);" id="why-configurablegenerators"><i class="fa fa-info-circle"></i> Why `ConfigurableGenerators`?<span id="heading-5012842941"></span></h3></div><div class="panel-body" id="panel-5012842941"><p>If we had tried to simply use <code>CombineParticles</code> inside our 
 <code>SimpleSelection</code>, we would have seen it fail with the following error</p>
 <pre><code class="lang-output">NameError: Could not instantiate Selection because input Configurable CombineParticles has default name. This is too unsafe to be allowed.
 </code></pre>
@@ -748,8 +748,8 @@ The previous example would be written then:</p>
 <pre><code class="lang-python"><span class="hljs-keyword">from</span> PhysConf.Selections <span class="hljs-keyword">import</span> CombineSelection
 d0_sel = CombineSelection(
     <span class="hljs-string">&apos;Sel_D0&apos;</span>,
-    [Pions, Kaons],
-    DecayDescriptor=<span class="hljs-string">&apos;([D0 -&gt; pi- K+]CC)&apos;</span>,
+    [Kaons],
+    DecayDescriptor=<span class="hljs-string">&apos;([D0 -&gt; K- K+]CC)&apos;</span>,
     DaughtersCuts=d0_daughters,
     CombinationCut=d0_comb,
     MotherCut=d0_mother
@@ -765,7 +765,7 @@ These are very useful in timing-critical environments, such as the Stripping.</p
 It&apos;s used in a similar way as <code>CombineSelection</code>.</p>
 </li>
 </ul>
-<p><div class="panel panel-success"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(5727193874);" id="work-to-do"><i class="fa fa-square-o"></i> Work to do<span id="heading-5727193874"></span></h3></div><div class="panel-body" id="panel-5727193874"><ul>
+<p><div class="panel panel-success"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(522734720);" id="work-to-do"><i class="fa fa-square-o"></i> Work to do<span id="heading-522734720"></span></h3></div><div class="panel-body" id="panel-522734720"><ul>
 <li>Rewrite the previous script to select our signal in terms of 
 <code>SimpleSelections</code> and the other algorithms we just learned.</li>
 <li>Introduce <code>FilterSelection</code> by performing the soft pion selection outside the <code>CombineParticles</code> as discussed in the <em>Building shared selections</em> callout in the <a href="building-decays-part1.html">previous lesson</a>.
@@ -781,21 +781,21 @@ The same interface can be used for filtering on Stripping decisions by using the
 With it, the example from the Starterkit <a href="../first-analysis-steps/minimal-dv-job.html">minimal DaVinci job</a>, in which the output of a Stripping line was passed to <code>DecayTreeTuple</code>, could be written in a more CPU-efficient way:</p>
 <pre><code class="lang-python">line = <span class="hljs-string">&apos;D2hhCompleteEventPromptDst2D2RSLine&apos;</span>
 strip_sel = StrippingSelection(<span class="hljs-string">&quot;Strip_sel&quot;</span>,
-                               <span class="hljs-string">&quot;HLT_PASS(&apos;StrippingD2hhCompleteEventPromptDst2D2RSDecision&apos;)&quot;</span>)
+                               <span class="hljs-string">&quot;HLT_PASS(&apos;StrippingD2hhPromptDst2D2KKLineDecision&apos;)&quot;</span>)
 strip_input = AutomaticData(<span class="hljs-string">&apos;Phys/{0}/Particles&apos;</span>.format(line))
 tuple_sel = TupleSelection(<span class="hljs-string">&apos;Tuple_sel&apos;</span>,
                            [strip_sel, strip_input],
-                           Decay=<span class="hljs-string">&apos;[D*(2010)+ -&gt; (D0 -&gt; K- pi+) pi+]CC&apos;</span>)
+                           Decay=<span class="hljs-string">&apos;[D*(2010)+ -&gt; (D0 -&gt; K- K+) pi+]CC&apos;</span>)
 </code></pre>
 <p>This avoids running <code>DecayTreeTuple</code> on empty events, since the <code>strip_sel</code> stops processing before.
 This will only be helpful for rare Stripping lines, since the overhead of running <code>DecayTreeTuple</code> on empty events is small, but this has been proven useful in more complex workflows.
 Additionally, it takes care of <code>RootInTes</code> for you.</p>
 </li>
 </ul>
-<p><div class="panel panel-success"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(3491937068);" id="a-small-test"><i class="fa fa-square-o"></i> A small test<span id="heading-3491937068"></span></h3></div><div class="panel-body" id="panel-3491937068"><p>Try running the <a href="../first-analysis-steps/minimal-dv-job.html">minimal DaVinci job</a> with and without the <code>StrippingSelection</code>/<code>DecayTreeTuple</code> selections, and compare their performance</p>
+<p><div class="panel panel-success"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(1959368426);" id="a-small-test"><i class="fa fa-square-o"></i> A small test<span id="heading-1959368426"></span></h3></div><div class="panel-body" id="panel-1959368426"><p>Try running the <a href="../first-analysis-steps/minimal-dv-job.html">minimal DaVinci job</a> with and without the <code>StrippingSelection</code>/<code>DecayTreeTuple</code> selections, and compare their performance</p>
 <p>In this particular case, there is a simple way to achieve a CPU-efficient code with <code>DecayTreeTuple</code>, thanks to the use of <code>DaVinci</code> pre-event filters;</p>
 <pre><code class="lang-python"> <span class="hljs-keyword">from</span> PhysConf.Filters <span class="hljs-keyword">import</span> LoKi_Filters
- filter_ = LoKi_Filters(STRIP_Code=<span class="hljs-string">&quot;HLT_PASS(&apos;StrippingD2hhCompleteEventPromptDst2D2RSDecision&apos;)&quot;</span>)
+ filter_ = LoKi_Filters(STRIP_Code=<span class="hljs-string">&quot;HLT_PASS(&apos;StrippingD2hhPromptDst2D2KKLineDecision&apos;)&quot;</span>)
 
  DaVinci().EventPreFilters = filter_.filters(<span class="hljs-string">&quot;FILTERS&quot;</span>)
 </code></pre>
@@ -852,7 +852,7 @@ In these situations, the Selection Framework is the ideal tool to keep the code 
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Modern Selection Framework","level":"3.1.2.3","depth":3,"next":{"title":"What to do when something fails","level":"3.1.3","depth":2,"path":"second-analysis-steps/fixing-errors.md","ref":"second-analysis-steps/fixing-errors.md","articles":[]},"previous":{"title":"A Historical Approach","level":"3.1.2.2","depth":3,"path":"second-analysis-steps/building-decays-part1.md","ref":"second-analysis-steps/building-decays-part1.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-sharing","panels@git+https://github.com/lhcb/gitbook-plugin-panels.git#master","katex-auto-render@git+https://github.com/lhcb/gitbook-plugin-katex-auto-render.git#master","collapsible-menu","otherlink"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"collapsible-menu":{},"search":{},"otherlink":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"panels":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"katex-auto-render":{},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"The Starterkit team and contributors","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"gitbook":"*"},"file":{"path":"second-analysis-steps/building-decays-part2.md","mtime":"2018-05-08T10:52:14.081Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-05-08T10:54:15.718Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Modern Selection Framework","level":"3.1.2.3","depth":3,"next":{"title":"What to do when something fails","level":"3.1.3","depth":2,"path":"second-analysis-steps/fixing-errors.md","ref":"second-analysis-steps/fixing-errors.md","articles":[]},"previous":{"title":"A Historical Approach","level":"3.1.2.2","depth":3,"path":"second-analysis-steps/building-decays-part1.md","ref":"second-analysis-steps/building-decays-part1.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-sharing","panels@git+https://github.com/lhcb/gitbook-plugin-panels.git#master","katex-auto-render@git+https://github.com/lhcb/gitbook-plugin-katex-auto-render.git#master","collapsible-menu","otherlink"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"collapsible-menu":{},"search":{},"otherlink":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"panels":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"katex-auto-render":{},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"The Starterkit team and contributors","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"gitbook":"*"},"file":{"path":"second-analysis-steps/building-decays-part2.md","mtime":"2018-05-08T11:26:28.321Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-05-08T11:29:08.207Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
