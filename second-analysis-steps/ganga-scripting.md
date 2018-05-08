@@ -2,8 +2,7 @@
 
 We have already started using Ganga, such as when [submitting jobs to the 
 Grid](../first-analysis-steps/davinci-grid.md) and 
-[using datasets from the 
-bookkeeping](../first-analysis-steps/ganga-data.md) when 
+[using datasets from the bookkeeping](../first-analysis-steps/ganga-data.md) when 
 creating jobs, but there's a lot more you can do with it.
 
 Part of Ganga's power come from it being written in Python. When you run 
@@ -33,7 +32,7 @@ Run it:
 $ ganga create_job.py
 
 *** Welcome to Ganga ***
-Version: 6.5.1
+Version: X.Y.Z
 …
 Hello!
 …
@@ -47,7 +46,7 @@ executing the script:
 $ ganga -i create_job.py
 
 *** Welcome to Ganga ***
-Version: 6.5.1
+Version: X.Y.Z
 …
 Hello!
 
@@ -84,7 +83,7 @@ Now we can run this and interact with the job as the `j` variable:
 $ ganga -i create_job.py
 
 *** Welcome to Ganga ***
-Version: 6.5.1
+Version: X.Y.Z
 …
 
 Ganga In [1]: j
@@ -118,7 +117,7 @@ passing some arguments:
 $ ganga -i create_job.py -v 123 --hello=world
 
 *** Welcome to Ganga ***
-Version: 6.5.1
+Version: X.Y.Z
 …
 
 ['create_job.py', '-v', '123', '--hello=world']
@@ -156,7 +155,7 @@ Nicely, `argparse` gives us a useful `--help` argument for free:
 $ ganga -i create_job.py --help
 
 *** Welcome to Ganga ***
-Version: 6.5.1
+Version: X.Y.Z
 …
 usage: create_job.py [-h] [--test] {2015,2016} {Up,Down}
 
@@ -192,7 +191,7 @@ the `year`, `polarity`, and `test` variables:
 $ ganga -i create_job.py 2015 Down
 
 *** Welcome to Ganga ***
-Version: 6.5.1
+Version: X.Y.Z
 …
 
 Ganga In [1]: print year, polarity, test
@@ -238,7 +237,7 @@ Then run `ganga` (no arguments needed):
 $ ganga
 
 *** Welcome to Ganga ***
-Version: 6.5.1
+Version: X.Y.Z
 …
 Yo!
 …
