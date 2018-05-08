@@ -193,7 +193,7 @@ Before               INFO   | | +--> /Particle2VertexRelations [No Address]  LHC
 Before               INFO   | | +--> /_RefitPVs [No Address]  KeyedContainer<LHCb::RecVertex,C [0]
 Before               INFO   | +--> /Sel_D0 [No Address]  DataObject
 Before               INFO   | | +--> /Particles [No Address]  KeyedContainer<LHCb::Particle,Co [0]
-Before               INFO     +--> /TupleDstToD0pi_D0ToKpi [No Address]  DataObject
+Before               INFO     +--> /TupleDstToD0pi_D0ToKK [No Address]  DataObject
 Before               INFO       +--> /Particles [No Address]  KeyedContainer<LHCb::Particle,Co [0]
 After                INFO ========= /Event[0x2f009e70@EventDataSvc]:
 After                INFO +--> /Event [Address: CLID=0x1 Type=0x2]  DataObject
@@ -258,7 +258,7 @@ After                INFO   | | +--> /Particle2VertexRelations [No Address]  LHC
 After                INFO   | | +--> /_RefitPVs [No Address]  KeyedContainer<LHCb::RecVertex,C [0]
 After                INFO   | +--> /Sel_D0 [No Address]  DataObject
 After                INFO   | | +--> /Particles [No Address]  KeyedContainer<LHCb::Particle,Co [0]
-After                INFO     +--> /TupleDstToD0pi_D0ToKpi [No Address]  DataObject
+After                INFO     +--> /TupleDstToD0pi_D0ToKK [No Address]  DataObject
 After                INFO       +--> /Particles [No Address]  KeyedContainer<LHCb::Particle,Co [0]
 
 ```
