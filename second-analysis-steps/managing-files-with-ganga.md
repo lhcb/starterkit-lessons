@@ -32,11 +32,13 @@ It is generally advised to use the latest available version of Ganga. Functional
 encounter problems, you should first search [the archives of the
 `lhcb-distributed-analysis` mailing list][da-archive]. If you don't find an
 answer, you can talk to the Ganga developers directly on the [GitHub issues
-page for Ganga][ganga-issues], or by sending an email to
-`lhcb-distributed-analysis`.
+page for Ganga][ganga-issues], on the [~distributed-analysis][da-mattermost] mattermost channel, or by sending an email to
+[`lhcb-distributed-analysis`][da-mailing-list].
 
 [da-archive]: https://groups.cern.ch/group/lhcb-distributed-analysis/default.aspx
 [ganga-issues]: https://github.com/ganga-devs/ganga
+[da-mattermost]: https://mattermost.web.cern.ch/lhcb/channels/distributed-analysis
+[da-mailing-list]: mailto:lhcb-distributed-analysis@cern.ch
 {% endcallout %}
 
 {% callout "Making a fresh start" %}
@@ -111,7 +113,7 @@ We haven't made `input.txt`, so let's make it by executing a couple of shell
 commands inside Ganga.
 
 ```python
-!echo -e 'Hello world!\nThis is the second line.' > input.txt
+!echo -e "$(date)\nHello world!\nI am $USER!" > input.txt
 !cat input.txt
 ```
 
@@ -163,6 +165,15 @@ df.put(uploadSE='CERN-USER')
 print df.lfn
 ```
 
+{% callout "Couldn't upload file - This file GUID already exists" %}
+
+All files on the grid are required to have a unique identifier (GUID) which is normally generated from the file's content and is independent of its filename.
+As a result, if you try to upload a file which already exists you receive an error.
+
+If this happens, and you have a reason to not use the pre-existing file, the simplest solution is to make the file unique in some way, in this case we add the date and time to the top line of the text file.
+
+{% endcallout %}
+
 Grid files that are replicated at CERN are directly accessible via EOS. We can 
 see that our file's on EOS by looking at the LFN Ganga gave us. We just need to 
 add the prefix `/eos/lhcb/grid/user` to the LFN.
@@ -185,7 +196,7 @@ If you have any `DiracFile`, you can ask for it to be replicated to a grid site
 it's not currently available at.
 
 ```python
-df.replicate('CERN-USER')
+df.replicate('RAL-USER')
 ```
 
 {% callout "Automating replication to CERN" %}
