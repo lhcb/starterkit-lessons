@@ -19,8 +19,8 @@ from PhysConf.Selections import SimpleSelection
 d0_sel = SimpleSelection(
     'Sel_D0',
     ConfigurableGenerators.CombineParticles,
-    [Pions, Kaons],
-    DecayDescriptor='([D0 -> pi- K+]CC)',
+    [Kaons],
+    DecayDescriptor='([D0 -> K- K+]CC)',
     DaughtersCuts=d0_daughters,
     CombinationCut=d0_comb,
     MotherCut=d0_mother
@@ -52,8 +52,8 @@ While `SimpleSelection` will allow us to do anything we would do with `Selection
     from PhysConf.Selections import CombineSelection
     d0_sel = CombineSelection(
         'Sel_D0',
-        [Pions, Kaons],
-        DecayDescriptor='([D0 -> pi- K+]CC)',
+        [Kaons],
+        DecayDescriptor='([D0 -> K- K+]CC)',
         DaughtersCuts=d0_daughters,
         CombinationCut=d0_comb,
         MotherCut=d0_mother
@@ -87,11 +87,11 @@ The most interesting are (see the [code](https://gitlab.cern.ch/lhcb/Phys/blob/m
     ```python
     line = 'D2hhCompleteEventPromptDst2D2RSLine'
     strip_sel = StrippingSelection("Strip_sel",
-                                   "HLT_PASS('StrippingD2hhCompleteEventPromptDst2D2RSDecision')")
+                                   "HLT_PASS('StrippingD2hhPromptDst2D2KKLineDecision')")
     strip_input = AutomaticData('Phys/{0}/Particles'.format(line))
     tuple_sel = TupleSelection('Tuple_sel',
                                [strip_sel, strip_input],
-                               Decay='[D*(2010)+ -> (D0 -> K- pi+) pi+]CC')
+                               Decay='[D*(2010)+ -> (D0 -> K- K+) pi+]CC')
     ```
 
   This avoids running `DecayTreeTuple` on empty events, since the `strip_sel` stops processing before.
@@ -104,7 +104,7 @@ Try running the [minimal DaVinci job](../first-analysis-steps/minimal-dv-job.md)
 In this particular case, there is a simple way to achieve a CPU-efficient code with `DecayTreeTuple`, thanks to the use of `DaVinci` pre-event filters;
  ```python
  from PhysConf.Filters import LoKi_Filters
- filter_ = LoKi_Filters(STRIP_Code="HLT_PASS('StrippingD2hhCompleteEventPromptDst2D2RSDecision')")
+ filter_ = LoKi_Filters(STRIP_Code="HLT_PASS('StrippingD2hhPromptDst2D2KKLineDecision')")
 
  DaVinci().EventPreFilters = filter_.filters("FILTERS")
 ```
