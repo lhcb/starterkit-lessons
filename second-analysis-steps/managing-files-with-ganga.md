@@ -34,12 +34,13 @@ encounter problems, you should first search [the archives of the
 answer, you can talk to the Ganga developers directly on the [GitHub issues
 page for Ganga][ganga-issues], or by sending an email to
 `lhcb-distributed-analysis`.
+
+[da-archive]: https://groups.cern.ch/group/lhcb-distributed-analysis/default.aspx
+[ganga-issues]: https://github.com/ganga-devs/ganga
 {% endcallout %}
 
 {% callout "Making a fresh start" %}
-Throughout this lesson, we'll be using the most up-to-date version of Ganga 
-that's available, 7.0.1 .
-To make sure there will be no files from older versions of Ganga to interfere, 
+To make sure there will be no pre-existing files from of Ganga to interfere,
 we will move them to a backup location.
 
 ```shell
@@ -264,7 +265,5 @@ depends on where the input files are.
 {% endcallout %}
 
 [batch]: http://information-technology.web.cern.ch/services/batch
-[da-archive]: https://groups.cern.ch/group/lhcb-distributed-analysis/default.aspx
-[ganga-issues]: https://github.com/ganga-devs/ganga
 [ipython-shell]: https://ipython.org/ipython-doc/3/interactive/tutorial.html
 [reverse-script]: code/01-managing-files-with-ganga/reverse.py
