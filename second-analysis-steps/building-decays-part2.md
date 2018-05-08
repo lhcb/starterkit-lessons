@@ -19,7 +19,7 @@ from PhysConf.Selections import SimpleSelection
 d0_sel = SimpleSelection(
     'Sel_D0',
     ConfigurableGenerators.CombineParticles,
-    [Pions, Kaons],
+    [Kaons],
     DecayDescriptor='([D0 -> K- K+]CC)',
     DaughtersCuts=d0_daughters,
     CombinationCut=d0_comb,
