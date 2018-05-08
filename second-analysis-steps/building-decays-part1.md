@@ -43,7 +43,7 @@ This is an ideal way to get pre-made particles with the standard LHCb configurat
 One important type of `Selection` is the `AutomaticData`, which builds objects from their TES location using a centrally predefined algorithm.
 The `StandardParticles`/`CommonParticles` packages (one imports the other), which you can find [here](https://gitlab.cern.ch/lhcb/Phys/tree/master/Phys/CommonParticles), allow to access premade particles with reasonable reconstruction/selections for us to use with `AutomaticData`.
 
-For example, in our specific case, we use the `AutomaticData` class with the `Phys/StdAllNoPIDsPions/Particles` and `Phys/StdAllLooseKaons/Particles` locations to access the output of the `StdAllNoPIDsPions` and `StdAllLooseKaons` algorithms, respectively (see [here](https://gitlab.cern.ch/lhcb/Phys/blob/master/Phys/CommonParticles/python/CommonParticles/StdAllNoPIDsPions.py) and [here](https://gitlab.cern.ch/lhcb/Phys/tree/master/Phys/CommonParticles)).
+For example, in our specific case, we use the `AutomaticData` class with the `Phys/StdAllNoPIDsPions/Particles` and `Phys/StdAllLooseKaons/Particles` locations to access the output of the `StdAllNoPIDsPions` and `StdAllLooseKaons` algorithms, respectively (see [here](https://gitlab.cern.ch/lhcb/Phys/blob/master/Phys/CommonParticles/python/CommonParticles/StdAllNoPIDsPions.py) and [here](https://gitlab.cern.ch/lhcb/Phys/blob/master/Phys/CommonParticles/python/CommonParticles/StdAllLooseKaons.py)).
 Therefore, the following code would be equivalent to what we have used:
 ```python
 from PhysConf.Selections import AutomaticData
