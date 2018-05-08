@@ -24,15 +24,15 @@ dtt.Dstar.ConsD.Verbose = True
 dtt.Dstar.ConsD.daughtersToConstrain = ['D0']
 
 # add another fitter, this time we will change a mass hypothesis
-dtt.Dstar.addTupleTool('TupleToolDecayTreeFitter/ConsDpipi')
-dtt.Dstar.ConsDpipi.constrainToOriginVertex = True
-dtt.Dstar.ConsDpipi.Verbose = True
-dtt.Dstar.ConsDpipi.daughtersToConstrain = ['D0']
+dtt.Dstar.addTupleTool('TupleToolDecayTreeFitter/ConsDKpi')
+dtt.Dstar.ConsDKpi.constrainToOriginVertex = True
+dtt.Dstar.ConsDKpi.Verbose = True
+dtt.Dstar.ConsDKpi.daughtersToConstrain = ['D0']
 
 # make the hypothesis that actually we had the decay D0->pi+pi-
 # note that you have to explicitely give both charges
 # CC does not work here!
-dtt.Dstar.ConsDpipi.Substitutions = {
+dtt.Dstar.ConsDKpi.Substitutions = {
     'Charm -> (D0 -> ^K- K+) Meson': 'pi-',
     'Charm -> (D~0 -> ^K+ K-) Meson': 'pi+',
     'Charm -> (D0 -> K- ^K+) Meson': 'pi+',
