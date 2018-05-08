@@ -14,7 +14,7 @@ from StandardParticles import StdAllLooseKaons as Kaons
 from PhysConf.Selections import CombineSelection, FilterSelection
 from PhysConf.Selections import SelectionSequence
 
-# Build the D0 from the pions and kaons
+# Build the D0 from the kaons
 d0_daughters = {
     'K-': '(PT > 750*MeV) & (P > 4000*MeV) & (MIPCHI2DV(PRIMARY) > 4)',
     'K+': '(PT > 750*MeV) & (P > 4000*MeV) & (MIPCHI2DV(PRIMARY) > 4)'
@@ -36,7 +36,7 @@ d0_sel = CombineSelection(
     MotherCut=d0_mother,
 )
 
-
+#Select pions for the Dstar
 soft_pion_sel = FilterSelection(
     'Sel_SoftPi',
     [Pions],
@@ -49,6 +49,7 @@ dstar_mother = (
     '& (VFASPF(VCHI2/VDOF)< 9)'
 )
 
+#Combine D and pions into Dstar
 dstar_sel = CombineSelection(
     'Sel_Dstar',
     [d0_sel, soft_pion_sel],
