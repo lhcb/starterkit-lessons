@@ -11,5 +11,5 @@ DaVinci().Lumi = not DaVinci().Simulation
 DaVinci().EvtMax = 1000
 
 # Use the local input data
-IOHelper().inputFiles([('./00062514_00000001_7.AllStreams.dst')],
+IOHelper().inputFiles([('root://eoslhcb.cern.ch//eos/lhcb/grid/prod/lhcb/MC/2016/ALLSTREAMS.DST/00062514/0000/00062514_00000008_7.AllStreams.dst')],
                       clear=True)
