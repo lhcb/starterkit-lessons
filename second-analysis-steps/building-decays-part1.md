@@ -27,7 +27,7 @@ IOHelper().inputFiles([('root://eoslhcb.cern.ch//eos/lhcb/grid/prod/lhcb/MC/2016
                       clear=True)
 ```
 
-The starting code for this exercise can be found in [code/building-decays/00.start.py](code/building-decays/00.start.py).
+The starting code for this exercise can be found [here](code/building-decays/00.start.py).
 {% endcallout %}
 
 Our input pions and kaons can be imported from the `StandardParticles` package:
