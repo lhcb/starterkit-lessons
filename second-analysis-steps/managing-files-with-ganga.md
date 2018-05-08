@@ -111,7 +111,7 @@ We haven't made `input.txt`, so let's make it by executing a couple of shell
 commands inside Ganga.
 
 ```python
-!echo -e 'Hello world!\nThis is the second line.' > input.txt
+!echo -e "$(date)\nHello world!\nI am $USER!" > input.txt
 !cat input.txt
 ```
 
@@ -163,6 +163,15 @@ df.put(uploadSE='CERN-USER')
 print df.lfn
 ```
 
+{% callout "Couldn't upload file - This file GUID already exists" %}
+
+All files on the grid are required to have a unique identifier (GUID) which is
+normally generated from the file's content and independent of it's filename.
+If this happens the simplest solution is to make the file unique in some way,
+in this case we add the date and time to the top line of the text file.
+
+{% endcallout %}
+
 Grid files that are replicated at CERN are directly accessible via EOS. We can 
 see that our file's on EOS by looking at the LFN Ganga gave us. We just need to 
 add the prefix `/eos/lhcb/grid/user` to the LFN.
@@ -185,7 +194,7 @@ If you have any `DiracFile`, you can ask for it to be replicated to a grid site
 it's not currently available at.
 
 ```python
-df.replicate('CERN-USER')
+df.replicate('RAL-USER')
 ```
 
 {% callout "Automating replication to CERN" %}
