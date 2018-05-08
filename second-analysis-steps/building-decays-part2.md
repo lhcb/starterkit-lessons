@@ -20,7 +20,7 @@ d0_sel = SimpleSelection(
     'Sel_D0',
     ConfigurableGenerators.CombineParticles,
     [Kaons],
-    DecayDescriptor='([D0 -> K- K+]CC)',
+    DecayDescriptor='[D0 -> K- K+]cc',
     DaughtersCuts=d0_daughters,
     CombinationCut=d0_comb,
     MotherCut=d0_mother
@@ -53,7 +53,7 @@ While `SimpleSelection` will allow us to do anything we would do with `Selection
     d0_sel = CombineSelection(
         'Sel_D0',
         [Kaons],
-        DecayDescriptor='([D0 -> K- K+]CC)',
+        DecayDescriptor='[D0 -> K- K+]cc',
         DaughtersCuts=d0_daughters,
         CombinationCut=d0_comb,
         MotherCut=d0_mother
@@ -85,7 +85,7 @@ The most interesting are (see the [code](https://gitlab.cern.ch/lhcb/Phys/blob/m
   With it, the example from the Starterkit [minimal DaVinci job](../first-analysis-steps/minimal-dv-job.md), in which the output of a Stripping line was passed to `DecayTreeTuple`, could be written in a more CPU-efficient way:
 
     ```python
-    line = 'D2hhCompleteEventPromptDst2D2RSLine'
+    line = 'D2hhPromptDst2D2KKLine'
     strip_sel = StrippingSelection("Strip_sel",
                                    "HLT_PASS('StrippingD2hhPromptDst2D2KKLineDecision')")
     strip_input = AutomaticData('Phys/{0}/Particles'.format(line))
