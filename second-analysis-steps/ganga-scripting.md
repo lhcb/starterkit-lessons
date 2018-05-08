@@ -2,10 +2,10 @@
 
 We have already started using Ganga, such as when [submitting jobs to the 
 Grid](../first-analysis-steps/davinci-grid.md) and 
-[using datasets from the bookkeeping](../first-analysis-steps/ganga-data.md) when 
-creating jobs, but there's a lot more you can do with it.
+[using datasets from the bookkeeping](../first-analysis-steps/ganga-data.md), for
+creating jobs; but there's a lot more you can do with it.
 
-Part of Ganga's power come from it being written in Python. When you run 
+Part of Ganga's power comes from it being written in Python. When you run
 `ganga`, you're given an IPython prompt where you input Python code that's executed when you hit `<enter>`.
 The idea of running Python code extends outside of Ganga, where we can write
 scripts that Ganga will execute when starting up. This lesson will focus on
@@ -17,7 +17,7 @@ functions that will be available across all of our Ganga sessions.
 
 The `ganga` executable is similar to the `python` and `ipython` executables in 
 a couple of ways.
-If you just run `ganga`, your dropped into a prompt, but you can also supply 
+If you just run `ganga`, you are dropped into a prompt, but you can also supply
 the path to a Python script that will be executed.
 Let's start with a small script, saving it in a file called `create_job.py`:
 
