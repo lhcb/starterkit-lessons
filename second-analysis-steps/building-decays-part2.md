@@ -52,7 +52,7 @@ While `SimpleSelection` will allow us to do anything we would do with `Selection
     from PhysConf.Selections import CombineSelection
     d0_sel = CombineSelection(
         'Sel_D0',
-        [Pions, Kaons],
+        [Kaons],
         DecayDescriptor='([D0 -> K- K+]CC)',
         DaughtersCuts=d0_daughters,
         CombinationCut=d0_comb,
