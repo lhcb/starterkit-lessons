@@ -708,7 +708,7 @@
                                 <section class="normal markdown-section">
                                 
                                 <h1 id="how-do-i-use-decaytreefitter">How do I use DecayTreeFitter?</h1>
-<p><div class="panel panel-warning"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(3492025342);" id="learning-objectives"><i class="fa fa-line-chart"></i> Learning Objectives<span id="heading-3492025342"></span></h3></div><div class="panel-body" id="panel-3492025342"><ul>
+<p><div class="panel panel-warning"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(4607823753);" id="learning-objectives"><i class="fa fa-line-chart"></i> Learning Objectives<span id="heading-4607823753"></span></h3></div><div class="panel-body" id="panel-4607823753"><ul>
 <li>Add a kinematic fitter to a branch in the decay tree</li>
 <li>Apply a mass constraint</li>
 <li>Inspect the refitted decay tree</li>
@@ -718,20 +718,20 @@
 <p>For example, for the decay</p>
 <pre><code class="lang-python"><span class="hljs-string">&apos;[D*(2010)+ -&gt; (D0 -&gt; K- K+) pi+]CC&apos;</span>
 </code></pre>
-<p>you can make the assumption that the (K- K+) combine to form a D0 with a specific invariant mass. This results in a so called <em>mass-constraint</em>. In addition the kaon and the pion should originate from exactly the same point in space. If you know that your data only contains prompt D<em> candidates, you can constrain them to do come from the primary vertex. Boundary conditions like those are called </em>vertex-constraints*.</p>
+<p>you can make the assumption that the (K- K+) combine to form a D0 with a specific invariant mass. This results in a so called <em>mass-constraint</em>. In addition the two kaons should originate from exactly the same point in space. If you know that your data only contains prompt D<em> candidates, you can constrain them to do come from the primary vertex. Boundary conditions like those are called </em>vertex-constraints*.</p>
 <p>Applying such kinematic constraints leads to new best estimates for the track parameters of the final state particles. The process of calculating those is called a <em>kinematic refit</em> and the <code>TupleToolDecayTreeFitter</code> is the algorithm that performs this task for us.</p>
-<p><div class="panel panel-primary"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(1598693926);" id="the-physics-and-mathematics-behind-decaytreefitter"><i class="fa fa-info-circle"></i> The physics and mathematics behind DecayTreeFitter<span id="heading-1598693926"></span></h3></div><div class="panel-body" id="panel-1598693926"><p>For details of the method see the paper on <a href="http://arxiv.org/abs/physics/0503191" target="_blank">Decay chain fitting with a Kalman 
+<p><div class="panel panel-primary"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(3655254794);" id="the-physics-and-mathematics-behind-decaytreefitter"><i class="fa fa-info-circle"></i> The physics and mathematics behind DecayTreeFitter<span id="heading-3655254794"></span></h3></div><div class="panel-body" id="panel-3655254794"><p>For details of the method see the paper on <a href="http://arxiv.org/abs/physics/0503191" target="_blank">Decay chain fitting with a Kalman 
 filter</a>.</p>
 </div></div> </p>
-<p>So how do we use a <code>TupleToolDecayTreeFitter</code> to our DaVinci script? Let&apos;s create a branch to add the tool to. We&apos;ll just name it <code>&apos;Dstar&apos;</code>:</p>
+<p>So how do we use a <code>TupleToolDecayTreeFitter</code> in our DaVinci script? Let&apos;s create a branch to add the tool to. We&apos;ll just name it <code>&apos;Dstar&apos;</code>:</p>
 <pre><code class="lang-python">dtt.addBranches({
     <span class="hljs-string">&apos;Dstar&apos;</span>: <span class="hljs-string">&apos;[D*(2010)+ -&gt; (D0 -&gt; K- K+) pi+]CC&apos;</span>,
 })
 </code></pre>
-<p>To this branch we can now apply the <code>TupleToolDecayTreeFitter</code>.</p>
+<p>To this branch we can now apply the <code>TupleToolDecayTreeFitter</code> with arbitrarily chosen name <code>consD</code>.</p>
 <pre><code class="lang-python">dtt.Dstar.addTupleTool(<span class="hljs-string">&apos;TupleToolDecayTreeFitter/ConsD&apos;</span>)
 </code></pre>
-<p>Now we can proceed with the configuration of the fitter. We are going to constrain the decay tree to the primary vertex of origin. We want all the output available, so we set the <code>verbose</code> option. Finally we want to apply the mass constraint on the D0:</p>
+<p>Now we can proceed with the configuration of the fitter. We are going to constrain the decay tree to the primary vertex of origin. We want all the output available, so we set the <code>verbose</code> option. Finally we want to apply the mass constraint to the D0:</p>
 <pre><code class="lang-python">dtt.Dstar.ConsD.constrainToOriginVertex = <span class="hljs-keyword">True</span>
 dtt.Dstar.ConsD.Verbose = <span class="hljs-keyword">True</span>
 dtt.Dstar.ConsD.daughtersToConstrain = [<span class="hljs-string">&apos;D0&apos;</span>]
@@ -742,12 +742,12 @@ dtt.Dstar.ConsD.daughtersToConstrain = [<span class="hljs-string">&apos;D0&apos;
 Since in many cases this information might be useful, there is an option to store the information from those tracks</p>
 <pre><code class="lang-python">dtt.Dstar.ConsD.UpdateDaughters = <span class="hljs-keyword">True</span>
 </code></pre>
-<p><div class="panel panel-primary"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(9499457961);" id="decaytreefitter-and-loki-functors"><i class="fa fa-info-circle"></i> DecayTreeFitter and LoKi functors<span id="heading-9499457961"></span></h3></div><div class="panel-body" id="panel-9499457961"><p>Alternatively, many of the operations described above can done by using the 
+<p><div class="panel panel-primary"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(299071536);" id="decaytreefitter-and-loki-functors"><i class="fa fa-info-circle"></i> DecayTreeFitter and LoKi functors<span id="heading-299071536"></span></h3></div><div class="panel-body" id="panel-299071536"><p>Alternatively, many of the operations described above can be done by using the 
 <code>DecayTreeFitter</code> via LoKi functors, see the <a href="https://twiki.cern.ch/twiki/bin/view/LHCb/DaVinciTutorial9b" target="_blank">DaVinci 
 tutorial</a> for 
 details.</p>
 </div></div> </p>
-<p><div class="panel panel-primary"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(9119331682);" id="which-constraints-to-apply"><i class="fa fa-info-circle"></i> Which constraints to apply<span id="heading-9119331682"></span></h3></div><div class="panel-body" id="panel-9119331682"><p>It is important to be aware what assumptions you bake into your ntuple. For 
+<p><div class="panel panel-primary"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(3920989446);" id="which-constraints-to-apply"><i class="fa fa-info-circle"></i> Which constraints to apply<span id="heading-3920989446"></span></h3></div><div class="panel-body" id="panel-3920989446"><p>It is important to be aware of the assumptions you make to build your ntuple. For 
 example, after you require the vertex constraint you must be careful if using 
 the <code>IPCHI2_OWNPV</code>, since the particle you are looking at is <em>forced</em> to point 
 to the PV. Which constraints make most sense for you depends on the questions 
@@ -759,9 +759,9 @@ of doubt.</p>
 TupleDstToD0pi_D0ToKK-&gt;cd()
 DecayTree-&gt;StartViewer()
 </code></pre>
-<p>Plotting the raw mass of the D* (without the fit) <code>Dstar_M</code> you should see a broad signal around 2 GeV:</p>
+<p>Plotting the raw mass of the D* (without the fit) <code>Dstar_M</code>, you should see a broad signal around 2 GeV:</p>
 <p><img src="img/DstarRaw.png" alt="Dstar raw" style="width: 500px;"></p>
-<p><div class="panel panel-primary"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(3235829316);" id="which-mass-variable-to-use"><i class="fa fa-info-circle"></i> Which mass variable to use<span id="heading-3235829316"></span></h3></div><div class="panel-body" id="panel-3235829316"><p>In many ntuples you also find a mass variable called <code>_MM</code>. This confusingly 
+<p><div class="panel panel-primary"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(6001131627);" id="which-mass-variable-to-use"><i class="fa fa-info-circle"></i> Which mass variable to use<span id="heading-6001131627"></span></h3></div><div class="panel-body" id="panel-6001131627"><p>In many ntuples you also find a mass variable called <code>_MM</code>. This confusingly 
 refers to measured mass. However, it is usually better to use <code>_M</code>. <code>_MM</code> is 
 the sum of the 4-momenta of the final state particles extrapolated back to the 
 fitted vertex position, but not the result of the actual vertex fit.</p>
@@ -771,7 +771,7 @@ fitted vertex position, but not the result of the actual vertex fit.</p>
 <pre><code class="lang-shell">tv__tree-&gt;Draw(&quot;Dstar_ConsD_M&gt;&gt;h(200,2000,2030)&quot;,&quot;&quot;,&quot;&quot;);
 </code></pre>
 <p><img src="img/DstarRefit.png" alt="Dstar refitted" style="width: 500px;"></p>
-<p>Note that this plot has 356 entries, although we only have 128 candidates in the raw mass spectrum. The reason for this is, that we typically have several primary vertices per event. When you use the vertex contraint, the fitter is run for each of the possible vertex hypothesis available in the event. So all the <code>Dstar_ConsD-xxx</code> variables are in fact arrays, where the first value corresponds to the <em>best PV</em> hypothesis. We can plot only those by doing</p>
+<p>Note that this plot has 356 entries, although we only have 128 candidates in the raw mass spectrum. The reason for this is that we typically have several primary vertices per event. When you use the vertex contraint, the fitter is run for each of the possible vertex hypotheses available in the event. So all the <code>Dstar_ConsD-xxx</code> variables are in fact arrays, where the first value corresponds to the <em>best PV</em> hypothesis. We can plot only those by doing</p>
 <pre><code class="lang-shell">tv__tree-&gt;Draw(&quot;Dstar_ConsD_M[0]&gt;&gt;h(200,2000,2030)&quot;,&quot;&quot;,&quot;&quot;);
 </code></pre>
 <p>and we get the final kinematically refitted Dstar mass:</p>
@@ -781,19 +781,19 @@ fitted vertex position, but not the result of the actual vertex fit.</p>
 </code></pre>
 <p><img src="img/D0Refit.png" alt="constrained D0" style="width: 500px;"></p>
 <p>As expected, the D0 candidates are forced onto their PDG mass value.</p>
-<p><div class="panel panel-success"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(2366411197);" id="explore"><i class="fa fa-square-o"></i> Explore<span id="heading-2366411197"></span></h3></div><div class="panel-body" id="panel-2366411197"><ul>
+<p><div class="panel panel-success"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(638580465);" id="explore"><i class="fa fa-square-o"></i> Explore<span id="heading-638580465"></span></h3></div><div class="panel-body" id="panel-638580465"><ul>
 <li>Look at the <code>status</code> variable to check if the fits converged.</li>
 <li>Look at the chi2 distribution of the fit</li>
 </ul>
 </div></div> </p>
-<p><code>DecayTreeFitter</code> can be told to change some of the hypotheses in the decay tree. This is very useful if you want to slightly change which decays you want to look at. As an example let&apos;s say we want to examine the Cabibbo-suppressed decay of the D0 into pi- pi+ instead of K- pi+. For this we add a second fitter, giving it a new name <code>ConsDpipi</code>:</p>
-<pre><code class="lang-python">dtt.Dstar.addTupleTool(<span class="hljs-string">&apos;TupleToolDecayTreeFitter/ConsDpipi&apos;</span>)
-dtt.Dstar.ConsDpipi.constrainToOriginVertex = <span class="hljs-keyword">True</span>
-dtt.Dstar.ConsDpipi.Verbose = <span class="hljs-keyword">True</span>
-dtt.Dstar.ConsDpipi.daughtersToConstrain = [<span class="hljs-string">&apos;D0&apos;</span>]
+<p><code>DecayTreeFitter</code> can be told to change some of the hypotheses in the decay tree. This is very useful if you want to slightly change which decays you want to look at. As an example let&apos;s say we want to examine the decay of the D0 into K- pi+ instead of K- K+. For this we add a second fitter, giving it a new name <code>ConsDKpi</code>:</p>
+<pre><code class="lang-python">dtt.Dstar.addTupleTool(<span class="hljs-string">&apos;TupleToolDecayTreeFitter/ConsDKpi&apos;</span>)
+dtt.Dstar.ConsDKpi.constrainToOriginVertex = <span class="hljs-keyword">True</span>
+dtt.Dstar.ConsDKpi.Verbose = <span class="hljs-keyword">True</span>
+dtt.Dstar.ConsDKpi.daughtersToConstrain = [<span class="hljs-string">&apos;D0&apos;</span>]
 </code></pre>
 <p>We now can tell the fitter to substitute one of the kaons in the D0 decay by a pion.</p>
-<pre><code class="lang-python">dtt.Dstar.ConsDpipi.Substitutions = {
+<pre><code class="lang-python">dtt.Dstar.ConsDKpi.Substitutions = {
     <span class="hljs-string">&apos;Charm -&gt; (D0 -&gt; ^K- K+) Meson&apos;</span>: <span class="hljs-string">&apos;pi-&apos;</span>,
     <span class="hljs-string">&apos;Charm -&gt; (D~0 -&gt; ^K+ K-) Meson&apos;</span>: <span class="hljs-string">&apos;pi+&apos;</span>,
     <span class="hljs-string">&apos;Charm -&gt; (D0 -&gt; K- ^K+) Meson&apos;</span>: <span class="hljs-string">&apos;pi+&apos;</span>,
@@ -802,7 +802,7 @@ dtt.Dstar.ConsDpipi.daughtersToConstrain = [<span class="hljs-string">&apos;D0&a
 <p>In the dictionary that is passed to the <code>Substitutions</code> property of the fitter, the keys are decay descriptors, where the respective particle to be substituted is marked with a <code>^</code>. The values are the respective new particle hypotheses. The substitution will only work if you start from a decay descriptor that actually matches your candidates. However, you are allowed to generalise parts of the decay. Here we replaced <code>D*(2010)</code> with the more general <code>Charm</code> and the bachelor <code>pi-</code> is just represented by a <code>Meson</code>.</p>
 <p>Note that the substitution mechanism does not understand the <code>CC</code> symbol. Both charge states have to be specified explicitely.</p>
 <p>Running the ntuple script again with these additions gives you fit results for the re-interpreted decay.</p>
-<p><div class="panel panel-success"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(1688378141);" id="challenge"><i class="fa fa-square-o"></i> Challenge<span id="heading-1688378141"></span></h3></div><div class="panel-body" id="panel-1688378141"><ul>
+<p><div class="panel panel-success"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(9192764329);" id="challenge"><i class="fa fa-square-o"></i> Challenge<span id="heading-9192764329"></span></h3></div><div class="panel-body" id="panel-9192764329"><ul>
 <li>Compare the outcome of the two fits with the different mass hypothesis</li>
 <li>Compare the fit quality between the correct and the the wrong hypothesis</li>
 </ul>
@@ -852,7 +852,7 @@ here</a>.</p>
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"How do I use DecayTreeFitter?","level":"2.1.13","depth":2,"next":{"title":"More Ganga","level":"2.1.14","depth":2,"path":"first-analysis-steps/ganga-data.md","ref":"first-analysis-steps/ganga-data.md","articles":[]},"previous":{"title":"TupleTools and branches","level":"2.1.12","depth":2,"path":"first-analysis-steps/add-tupletools.md","ref":"first-analysis-steps/add-tupletools.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-sharing","panels@git+https://github.com/lhcb/gitbook-plugin-panels.git#master","katex-auto-render@git+https://github.com/lhcb/gitbook-plugin-katex-auto-render.git#master","collapsible-menu","otherlink"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"collapsible-menu":{},"search":{},"otherlink":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"panels":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"katex-auto-render":{},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"The Starterkit team and contributors","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"gitbook":"*"},"file":{"path":"first-analysis-steps/decay-tree-fitter.md","mtime":"2018-05-08T11:38:19.807Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-05-08T11:40:22.680Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"How do I use DecayTreeFitter?","level":"2.1.13","depth":2,"next":{"title":"More Ganga","level":"2.1.14","depth":2,"path":"first-analysis-steps/ganga-data.md","ref":"first-analysis-steps/ganga-data.md","articles":[]},"previous":{"title":"TupleTools and branches","level":"2.1.12","depth":2,"path":"first-analysis-steps/add-tupletools.md","ref":"first-analysis-steps/add-tupletools.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-sharing","panels@git+https://github.com/lhcb/gitbook-plugin-panels.git#master","katex-auto-render@git+https://github.com/lhcb/gitbook-plugin-katex-auto-render.git#master","collapsible-menu","otherlink"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"collapsible-menu":{},"search":{},"otherlink":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"panels":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"katex-auto-render":{},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"The Starterkit team and contributors","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"gitbook":"*"},"file":{"path":"first-analysis-steps/decay-tree-fitter.md","mtime":"2018-05-08T14:52:19.320Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-05-08T14:54:42.775Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
