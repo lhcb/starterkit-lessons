@@ -197,7 +197,7 @@ enough entries). The solution can be found
   the decay tree everytime making use of the `PrintDecayTree` algorithm which 
   was discussed in the [Exploring a 
   DST](../first-analysis-steps/interactive-dst.md) lesson.
-- Compare your selection with what is done in the actual Stripping, which can be found [here](https://gitlab.cern.ch/lhcb/Stripping/blob/master/Phys/StrippingArchive/python/StrippingArchive/Stripping20/StrippingD2hh.py). You can appreciate the power of the Selection Framework in the modularity of that Stripping.
+- Compare your selection with what is done in the actual Stripping, which can be found [here](https://gitlab.cern.ch/lhcb/Stripping/blob/master/Phys/StrippingArchive/python/StrippingArchive/Stripping28/StrippingCharm/StrippingD2hh.py). You can appreciate the power of the Selection Framework in the modularity of that Stripping.
 {% endchallenge %}
 
 By looking at the final script, there is one striking thing:
