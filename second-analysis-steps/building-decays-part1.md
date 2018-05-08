@@ -14,7 +14,7 @@ At the end of this lesson its shortcomings will be highlighted and a better way 
 {% endcallout %}
 
 Now we'll learn to apply the concepts of the Selection Framework by running through a full example:
-using the DST files from the [Downloading a file from the Grid](../first-analysis-steps/files-from-grid.md) lesson, we will build our own $$D^\ast\rightarrow D^0(\rightarrow K^{-} \pi^{+}) \pi$$ decay chain from scratch.
+using the DST files from the [Downloading a file from the Grid](../first-analysis-steps/files-from-grid.md) lesson, we will build our own $$D^\ast\rightarrow D^0(\rightarrow K^{-} K^{+}) \pi$$ decay chain from scratch.
 Get your [LoKi skills](../first-analysis-steps/loki-functors.md) ready and let's start.
 
 {% callout "Getting started" %}
@@ -23,11 +23,11 @@ We can simply open them using the `root` protocol thanks to the fact that they a
 
 ```python
 from GaudiConf import IOHelper
-IOHelper().inputFiles([('root://eoslhcb.cern.ch//eos/lhcb/grid/prod/lhcb/MC/2012/ALLSTREAMS.DST/00035742/0000/00035742_00000001_1.allstreams.dst')],
+IOHelper().inputFiles([('root://eoslhcb.cern.ch//eos/lhcb/grid/prod/lhcb/MC/2016/ALLSTREAMS.DST/00062514/0000/00062514_00000008_7.AllStreams.dst')],
                       clear=True)
 ```
 
-The starting code for this exercise can be found in [code/building-decays/00.start.py](code/building-decays/00.start.py).
+The starting code for this exercise can be found [here](code/building-decays/00.start.py).
 {% endcallout %}
 
 Our input pions and kaons can be imported from the `StandardParticles` package:
@@ -43,7 +43,7 @@ This is an ideal way to get pre-made particles with the standard LHCb configurat
 One important type of `Selection` is the `AutomaticData`, which builds objects from their TES location using a centrally predefined algorithm.
 The `StandardParticles`/`CommonParticles` packages (one imports the other), which you can find [here](https://gitlab.cern.ch/lhcb/Phys/tree/master/Phys/CommonParticles), allow to access premade particles with reasonable reconstruction/selections for us to use with `AutomaticData`.
 
-For example, in our specific case, we use the `AutomaticData` class with the `Phys/StdAllNoPIDsPions/Particles` and `Phys/StdAllLooseKaons/Particles` locations to access the output of the `StdAllNoPIDsPions` and `StdAllLooseKaons` algorithms, respectively (see [here](https://gitlab.cern.ch/lhcb/Phys/blob/master/Phys/CommonParticles/python/CommonParticles/StdAllNoPIDsPions.py) and [here](https://gitlab.cern.ch/lhcb/Phys/tree/master/Phys/CommonParticles)).
+For example, in our specific case, we use the `AutomaticData` class with the `Phys/StdAllNoPIDsPions/Particles` and `Phys/StdAllLooseKaons/Particles` locations to access the output of the `StdAllNoPIDsPions` and `StdAllLooseKaons` algorithms, respectively (see [here](https://gitlab.cern.ch/lhcb/Phys/blob/master/Phys/CommonParticles/python/CommonParticles/StdAllNoPIDsPions.py) and [here](https://gitlab.cern.ch/lhcb/Phys/blob/master/Phys/CommonParticles/python/CommonParticles/StdAllLooseKaons.py)).
 Therefore, the following code would be equivalent to what we have used:
 ```python
 from PhysConf.Selections import AutomaticData
@@ -52,7 +52,7 @@ Kaons = AutomaticData('Phys/StdAllLooseKaons/Particles')
 ```
 {% endcallout %}
 
-Once we have the input pions and kaons, we can combine them to build a $$D^0$$ by means of the `CombineParticles` algorithm.
+Once we have the input kaons, we can combine them to build a $$D^0$$ by means of the `CombineParticles` algorithm.
 This algorithm performs the combinatorics for us according to a given decay descriptor and puts the resulting particle in the TES, allowing also to apply some cuts on them:
 
  - `DaughtersCuts` is a dictionary that maps each child particle type to a LoKi 
@@ -64,12 +64,12 @@ This algorithm performs the combinatorics for us according to a given decay desc
 
     ```python
     d0_daughters = {
-      'pi-': '(PT > 750*MeV) & (P > 4000*MeV) & (MIPCHI2DV(PRIMARY) > 4)',
+      'K-': '(PT > 750*MeV) & (P > 4000*MeV) & (MIPCHI2DV(PRIMARY) > 4)',
       'K+': '(PT > 750*MeV) & (P > 4000*MeV) & (MIPCHI2DV(PRIMARY) > 4)'
     }
     ```
 
- - `CombinationCut` is a particle array LoKi functor (note the `A` prefix, see more [here](https://twiki.cern.ch/twiki/bin/view/LHCb/LoKiHybridFilters#Particle_Array_Functors)) that is given the array of particles in a single combination (the *children*) as input (in our case a kaon and a pion). This cut is applied before the vertex fit so it is typically used to save CPU time by performing some sanity cuts such as `AMAXDOCA` or `ADAMASS` before the CPU-consuming fit:
+ - `CombinationCut` is a particle array LoKi functor (note the `A` prefix, see more [here](https://twiki.cern.ch/twiki/bin/view/LHCb/LoKiHybridFilters#Particle_Array_Functors)) that is given the array of particles in a single combination (the *children*) as input (in our case two kaons). This cut is applied before the vertex fit so it is typically used to save CPU time by performing some sanity cuts such as `AMAXDOCA` or `ADAMASS` before the CPU-consuming fit:
  
     ```python
     d0_comb = "(AMAXDOCA('') < 0.2*mm) & (ADAMASS('D0') < 100*MeV)"
@@ -91,7 +91,7 @@ With all the selections ready, we can build a combiner as
 from Configurables import CombineParticles
 d0 = CombineParticles(
     'Combine_D0',
-    DecayDescriptor='[D0 -> pi- K+]cc',
+    DecayDescriptor='[D0 -> K- K+]cc',
     DaughtersCuts=d0_daughters,
     CombinationCut=d0_comb,
     MotherCut=d0_mother
@@ -110,7 +110,7 @@ from PhysConf.Selections import Selection
 d0_sel = Selection(
     'Sel_D0',
     Algorithm=d0,
-    RequiredSelections=[Pions, Kaons]
+    RequiredSelections=[Kaons]
 )
 ```
 
@@ -146,7 +146,7 @@ dstar_sel = Selection(
 {% callout "Building shared selections" %}
 In some cases we may want to build several decays in the same script with 
 some common particles/selection;
-for example, in our case we could have been building $$D^0\rightarrow KK$$ in the same script, and then we would have wanted to select the soft pion in the same way when building the $$D^\ast$$.
+for example, in our case we could have been building D0->K pi in the same script, and then we would have wanted to select the soft pion in the same way when building the Dstar.
 In this situation, we can make use of the `FilterDesktop` algorithm, which takes a TES location and filters the particles inside according to a given LoKi functor in the `Code` property, which then can be given as input to a `Selection`:
 
 ```python
@@ -197,7 +197,7 @@ enough entries). The solution can be found
   the decay tree everytime making use of the `PrintDecayTree` algorithm which 
   was discussed in the [Exploring a 
   DST](../first-analysis-steps/interactive-dst.md) lesson.
-- Compare your selection with what is done in the actual Stripping, which can be found [here](https://gitlab.cern.ch/lhcb/Stripping/blob/master/Phys/StrippingArchive/python/StrippingArchive/Stripping20/StrippingD2hh.py). You can appreciate the power of the Selection Framework in the modularity of that Stripping.
+- Compare your selection with what is done in the actual Stripping, which can be found [here](https://gitlab.cern.ch/lhcb/Stripping/blob/master/Phys/StrippingArchive/python/StrippingArchive/Stripping28/StrippingCharm/StrippingD2hh.py). You can appreciate the power of the Selection Framework in the modularity of that Stripping.
 {% endchallenge %}
 
 By looking at the final script, there is one striking thing:
