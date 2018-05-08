@@ -13,20 +13,18 @@ stripping has already found.  However, you can reinterpret parts of the decay
 to look for new decay modes.
 {% endcallout %}
 
-As an example we will switch the decays of the D0 and D~0 from (K K) to (K pi). 
+As an example we will switch the decays of the D0 from (K- K+) to (K- pi+). 
 
 There is an algorithm that allows us to replace parts of the decay descriptor called `SubstitutePID`:
 
 ```python
-# configure an algorithm to substitute one of the kaons in the D0 (resp D~0) decay by a pion 
+# configure an algorithm to substitute the K+ in the D0 (resp the K- in the D~0) decay by a pion 
 from Configurables import SubstitutePID
 subs = SubstitutePID(
     'MakeD02Kpi',
     Code = "DECTREE('[D*(2010)+ -> (D0 -> K- K+) pi+]CC')",
     # note that SubstitutePID can't handle automatic CC
     Substitutions = {
-    'Charm -> (D0 -> ^K- K+) Meson': 'pi-',
-    'Charm -> (D~0 -> ^K+ K-) Meson': 'pi+',
     'Charm -> (D0 -> K- ^K+) Meson': 'pi+',
     'Charm -> (D~0 -> K+ ^K-) Meson': 'pi-'}
 )
@@ -36,9 +34,9 @@ The algorithm is configured with a name `MakeD02Kpi`. In the `Code` argument we 
 
 Now we ware ready to specify which hypotheses to change. `Substitutions` is a dictionary where the keys are decay descriptors and the values are the names of the replacement particles. The particle that should be replaced is marked with a `^`. So in the example above
 ```python
-'Charm -> (D0 -> ^K- K+) Meson': 'pi-'
+'Charm -> (D0 -> K- ^K+) Meson': 'pi+'
 ```
-means: Look for a decay of a Charm-particle into D0 plus any meson, where the D0 decays to (K- K+) and replace the K- with a pi-.
+means: Look for a decay of a Charm-particle into D0 plus any meson, where the D0 decays to (K- K+) and replace the K+ with a pi+.
 
 Note that `SubstitutePID` does not automatically handle complex conjugation via the `CC` operator. Therefore you have to specify all substitutions explicitely. 
 

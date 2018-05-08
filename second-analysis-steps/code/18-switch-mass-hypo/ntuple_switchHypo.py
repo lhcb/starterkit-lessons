@@ -19,10 +19,8 @@ subs = SubstitutePID(
     Code="DECTREE('[D*(2010)+ -> (D0 -> K- K+) pi+]CC')",
     # note that SubstitutePID can't handle automatic CC
     Substitutions={
-        'Charm -> (D0 -> ^K- K+) Meson': 'pi-',
         'Charm -> (D0 -> K- ^K+) Meson': 'pi+',
-        'Charm -> (D~0 -> ^K- K+) Meson': 'pi-',
-        'Charm -> (D~0 -> K- ^K+) Meson': 'pi+'}
+        'Charm -> (D~0 -> ^K- K+) Meson': 'pi-'}
 )
 
 # create a selection using the substitution algorithm
