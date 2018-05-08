@@ -18,7 +18,8 @@ As an example we will switch the decays of the D0 from (K- K+) to (K- pi+).
 There is an algorithm that allows us to replace parts of the decay descriptor called `SubstitutePID`:
 
 ```python
-# configure an algorithm to substitute the K+ in the D0 (resp the K- in the D~0) decay by a pion 
+# configure an algorithm to substitute the K+ (resp. the K-)
+# in the D0 (resp the D~0) decay by a pion 
 from Configurables import SubstitutePID
 subs = SubstitutePID(
     'MakeD02Kpi',
@@ -32,7 +33,7 @@ subs = SubstitutePID(
 
 The algorithm is configured with a name `MakeD02Kpi`. In the `Code` argument we need to specify the initial selection. This is done by using LoKi functors. Since we know we will be using an already prepared selection, we can simply use the `DECTREE` functor to search for candidates fulfilling this decay structure. See the [lesson on LoKi](../first-analysis-steps/loki-functors.md) for more info on what you can do here. 
 
-Now we ware ready to specify which hypotheses to change. `Substitutions` is a dictionary where the keys are decay descriptors and the values are the names of the replacement particles. The particle that should be replaced is marked with a `^`. So in the example above
+Now we are ready to specify which hypotheses to change. `Substitutions` is a dictionary where the keys are decay descriptors and the values are the names of the replacement particles. The particle that should be replaced is marked with a `^`. So in the example above
 ```python
 'Charm -> (D0 -> K- ^K+) Meson': 'pi+'
 ```
@@ -66,7 +67,7 @@ selSub = Selection(
 )
 ```
 
-Note how the input stripping selection is daisy-chained to the output selection through the `RequiredSelections` (it has to be a list of selections) argument. The new selection is added into a `SelectionSequnce` for further use by DaVinci:
+Note how the input stripping selection is daisy-chained to the output selection through the `RequiredSelections` (it has to be a list of selections) argument. The new selection is added into a `SelectionSequence` for further use by DaVinci:
 
 ```python
 selSeq = SelectionSequence('SelSeq', TopSelection=selSub)
@@ -86,7 +87,7 @@ The input to the `DecayTreeTuple` is taken as the `outputLocations` of the `Sele
 {% callout "Why use DaVinci selections?" %}
 Selections and SelectionSequences are an elegant way to organize the required 
 algorithms that perform the job of selecting data.
-The [particle selection toolkit](https://twiki.cern.ch/twiki/bin/view/LHCb/ParticleSelection) uses python tricks to make the management of even complicated sequences of selections rather straight forward. In particular the toolkit ensures that all necessary algorithms are run in the correct order to produce the desired selections. It is therfore mainly a tool to manage dependencies. For technical details have a look at the [TWiki page](https://twiki.cern.ch/twiki/bin/view/LHCb/ParticleSelection).
+The [particle selection toolkit](https://twiki.cern.ch/twiki/bin/view/LHCb/ParticleSelection) uses python tricks to make the management of even complicated sequences of selections rather straight forward. In particular the toolkit ensures that all necessary algorithms are run in the correct order to produce the desired selections. It is therefore mainly a tool to manage dependencies. For technical details, have a look at the [TWiki page](https://twiki.cern.ch/twiki/bin/view/LHCb/ParticleSelection).
 {% endcallout %}
 
 Finally we add the `SelectionSequence` and the `DecayTreeTuple` to the DaVinci application. Since we are adding more than one algorithm we need a `GaudiSequencer` that takes care of calling everything in the right order:
