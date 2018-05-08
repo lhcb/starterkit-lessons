@@ -49,8 +49,8 @@ Sel_Dstar         SUCCESS Number of counters : 14
 Here we have information of the input containers, types of particles, etc, with all the counters corresponding to our run on 1000 events.
 
 {% challenge "Understanding the log" %}
-How many D* do we expect in our ntuple? Can you check it?
-Can you change some cuts and see how the counters change? Try to free the D* mass and see if you get more of those.
+How many excited D\* mesons do we expect in our ntuple? Can you check it?
+Can you change some cuts and see how the counters change? Try to free the D\* mass window requirement and see if you get more of those.
 {% endchallenge %}
 
 Now, let's make the particle builder fail silently and see if we can debug this.
