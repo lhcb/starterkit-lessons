@@ -14,7 +14,7 @@ At the end of this lesson its shortcomings will be highlighted and a better way 
 {% endcallout %}
 
 Now we'll learn to apply the concepts of the Selection Framework by running through a full example:
-using the DST files from the [Downloading a file from the Grid](../first-analysis-steps/files-from-grid.md) lesson, we will build our own $$D^\ast\rightarrow D^0(\rightarrow K^{-} \pi^{+}) \pi$$ decay chain from scratch.
+using the DST files from the [Downloading a file from the Grid](../first-analysis-steps/files-from-grid.md) lesson, we will build our own $$D^\ast\rightarrow D^0(\rightarrow K^{-} K^{+}) \pi$$ decay chain from scratch.
 Get your [LoKi skills](../first-analysis-steps/loki-functors.md) ready and let's start.
 
 {% callout "Getting started" %}
@@ -23,7 +23,7 @@ We can simply open them using the `root` protocol thanks to the fact that they a
 
 ```python
 from GaudiConf import IOHelper
-IOHelper().inputFiles([('root://eoslhcb.cern.ch//eos/lhcb/grid/prod/lhcb/MC/2012/ALLSTREAMS.DST/00035742/0000/00035742_00000001_1.allstreams.dst')],
+IOHelper().inputFiles([('root://eoslhcb.cern.ch//eos/lhcb/grid/prod/lhcb/MC/2016/ALLSTREAMS.DST/00062514/0000/00062514_00000008_7.AllStreams.dst')],
                       clear=True)
 ```
 
@@ -52,7 +52,7 @@ Kaons = AutomaticData('Phys/StdAllLooseKaons/Particles')
 ```
 {% endcallout %}
 
-Once we have the input pions and kaons, we can combine them to build a $$D^0$$ by means of the `CombineParticles` algorithm.
+Once we have the input kaons, we can combine them to build a $$D^0$$ by means of the `CombineParticles` algorithm.
 This algorithm performs the combinatorics for us according to a given decay descriptor and puts the resulting particle in the TES, allowing also to apply some cuts on them:
 
  - `DaughtersCuts` is a dictionary that maps each child particle type to a LoKi 
@@ -64,12 +64,12 @@ This algorithm performs the combinatorics for us according to a given decay desc
 
     ```python
     d0_daughters = {
-      'pi-': '(PT > 750*MeV) & (P > 4000*MeV) & (MIPCHI2DV(PRIMARY) > 4)',
+      'K-': '(PT > 750*MeV) & (P > 4000*MeV) & (MIPCHI2DV(PRIMARY) > 4)',
       'K+': '(PT > 750*MeV) & (P > 4000*MeV) & (MIPCHI2DV(PRIMARY) > 4)'
     }
     ```
 
- - `CombinationCut` is a particle array LoKi functor (note the `A` prefix, see more [here](https://twiki.cern.ch/twiki/bin/view/LHCb/LoKiHybridFilters#Particle_Array_Functors)) that is given the array of particles in a single combination (the *children*) as input (in our case a kaon and a pion). This cut is applied before the vertex fit so it is typically used to save CPU time by performing some sanity cuts such as `AMAXDOCA` or `ADAMASS` before the CPU-consuming fit:
+ - `CombinationCut` is a particle array LoKi functor (note the `A` prefix, see more [here](https://twiki.cern.ch/twiki/bin/view/LHCb/LoKiHybridFilters#Particle_Array_Functors)) that is given the array of particles in a single combination (the *children*) as input (in our case two kaons). This cut is applied before the vertex fit so it is typically used to save CPU time by performing some sanity cuts such as `AMAXDOCA` or `ADAMASS` before the CPU-consuming fit:
  
     ```python
     d0_comb = "(AMAXDOCA('') < 0.2*mm) & (ADAMASS('D0') < 100*MeV)"
@@ -91,7 +91,7 @@ With all the selections ready, we can build a combiner as
 from Configurables import CombineParticles
 d0 = CombineParticles(
     'Combine_D0',
-    DecayDescriptor='[D0 -> pi- K+]cc',
+    DecayDescriptor='[D0 -> K- K+]cc',
     DaughtersCuts=d0_daughters,
     CombinationCut=d0_comb,
     MotherCut=d0_mother
@@ -110,7 +110,7 @@ from PhysConf.Selections import Selection
 d0_sel = Selection(
     'Sel_D0',
     Algorithm=d0,
-    RequiredSelections=[Pions, Kaons]
+    RequiredSelections=[Kaons]
 )
 ```
 
@@ -146,7 +146,7 @@ dstar_sel = Selection(
 {% callout "Building shared selections" %}
 In some cases we may want to build several decays in the same script with 
 some common particles/selection;
-for example, in our case we could have been building $$D^0\rightarrow KK$$ in the same script, and then we would have wanted to select the soft pion in the same way when building the $$D^\ast$$.
+for example, in our case we could have been building D0->K pi in the same script, and then we would have wanted to select the soft pion in the same way when building the Dstar.
 In this situation, we can make use of the `FilterDesktop` algorithm, which takes a TES location and filters the particles inside according to a given LoKi functor in the `Code` property, which then can be given as input to a `Selection`:
 
 ```python
