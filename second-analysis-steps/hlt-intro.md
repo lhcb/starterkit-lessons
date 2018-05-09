@@ -33,6 +33,8 @@ Turbo line, all information on the candidates that it selects is stored in the
 raw event. The rest of the raw event, like sub-detector raw banks, is discarded,
 and cannot be recovered offline. The advantage of the Turbo stream is that
 less data are written to tape and no CPU intensive offline processing is needed.
+The output of the Turbo stream is almost identical to the output of a Stripping 
+line which goes to mdst.
 
 The application of the software trigger is called Moore. Moore relies on the same
 algorithms as are used in Brunel to run the reconstruction and in DaVinci to
@@ -45,31 +47,35 @@ Let's start with a simple Moore script, we call it runMoore.py:
 ```python
 from Configurables import Moore
 # Define settings
-Moore().ThresholdSettings = "Physics_pp_2017"
+Moore().ThresholdSettings = "Physics_pp_2018"
 Moore().RemoveInputHltRawBanks = True
 Moore().Split = ''
 # A bit more output
 from Gaudi.Configuration import INFO
 Moore().EnableTimer = True
-Moore().OutputLevel = INFO
+#Moore().OutputLevel = INFO
 # Input data
 from PRConfig import TestFileDB
 # The following call configures input data, database tags and data type
-TestFileDB.test_file_db["2016NB_25ns_L0Filt0x1609"].run(configurable=Moore())
-Moore().DataType = "2017"
+TestFileDB.test_file_db["2016NB_25ns_L0Filt0x1707"].run(configurable=Moore())
+Moore().DataType = "2018"
 # Override the TCK in the ThresholdSettings to match the input data
 from Configurables import HltConf
-HltConf().setProp("L0TCK", '0x1609')
+HltConf().setProp("L0TCK", '0x1707')
 # Remove a line which accepts every event when run on this sample
 HltConf().RemoveHlt1Lines = ["Hlt1MBNoBias"]
 
 Moore().EvtMax = 1000
+
+from Configurables import HltMonitoringConf
+HltMonitoringConf().OutputFile = "histos.root"
+
 print Moore()
 ```
 
 Try to run it with
 ```
-$ lb-run Moore/latest gaudirun.py runMoore.py | tee log.txt
+$ lb-run Moore/prod gaudirun.py runMoore.py | tee log.txt
 ```
 
 The property split defines if HLT1, HLT2 or both are run. In the example above both are run.
@@ -82,7 +88,8 @@ HLT1 has run on:
 Moore().RemoveInputHltRawBanks = False # Why?
 Moore().Split = 'Hlt2'
 ...
-TestFileDB.test_file_db["2016_Hlt1_0x11361609"].run(configurable=Moore())
+TestFileDB.test_file_db["2017_Hlt1_0x11611709"].run(configurable=Moore())
+HltConf().setProp("L0TCK", '0x1709')
 ...
 ```
 
@@ -124,7 +131,7 @@ from Configurables import Moore
 # Define settings
 Moore().UseTCK = True
 # You can check in TCKsh which TCKs exist and for which Moore versions they can be used.
-Moore().InitialTCK = "0x11381609"
+Moore().InitialTCK = "0x117318A1"
 Moore().Split = 'Hlt1'
 Moore().RemoveInputHltRawBanks = True
 # In the online farm Moore checks if the TCK in data and the configuration are the same.
@@ -134,18 +141,18 @@ Moore().outputFile = "TestTCK1.mdf"
 # A bit more output
 from Gaudi.Configuration import INFO
 Moore().EnableTimer = True
-Moore().OutputLevel = INFO
+#Moore().OutputLevel = INFO
 # Input data
 from PRConfig import TestFileDB
-TestFileDB.test_file_db["2016NB_25ns_L0Filt0x1609"].run(configurable=Moore())
-Moore().DataType = "2016"
+TestFileDB.test_file_db["22017NB_L0Filt0x18A1"].run(configurable=Moore())
+Moore().DataType = "2018"
 Moore().EvtMax = 1000
 print Moore()
 ```
 
 Run with
 ```
-$ lb-run Moore/v25r4 gaudirun.py runMoore_hlt1_tck.py | tee log_hlt1_tck.txt
+$ lb-run Moore/v28r2 gaudirun.py runMoore_hlt1_tck.py | tee log_hlt1_tck.txt
 ```
 
 To run HLT2 on the output data of the first stage, use the following script:
@@ -154,8 +161,8 @@ To run HLT2 on the output data of the first stage, use the following script:
 from Configurables import Moore
 # Define settings
 Moore().UseTCK = True
-Moore().InitialTCK = "0x21381609"
-Moore().DataType = "2016"
+Moore().InitialTCK = "0x217318A1"
+Moore().DataType = "2018"
 Moore().Split = 'Hlt2'
 Moore().RemoveInputHltRawBanks = False
 Moore().CheckOdin = False
@@ -167,7 +174,7 @@ Moore().EnableTimer = True
 Moore().OutputLevel = INFO
 # Input data
 Moore().DDDBtag = 'dddb-20150724'
-Moore().CondDBtag = 'cond-20170325'
+Moore().CondDBtag = 'cond-20170724'
 Moore().inputFiles = ["TestTCK1.mdf"]
 Moore().EvtMax = 100
 ```
@@ -181,7 +188,7 @@ To get a list of all available TCKs one can use TCKsh which is a python shell wi
 functions to explore TCKs, do
 
 ```
-$ lb-run Moore/latest TCKsh  
+$ lb-run Moore/latest TCKsh
 > listConfigurations()
 ```
 
@@ -210,23 +217,23 @@ line looks different to a stripping line but the underlying algorithms are the s
 Documentation is found [here](https://twiki.cern.ch/twiki/bin/view/LHCb/LHCbTrigger#Developing_Hlt2_lines).
 There you also find information how to measure the efficiency or the output rate of a trigger line.
 
-HLT2 lines are found in the Hlt gitlab project in the package Hlt2Lines, see [here](https://gitlab.cern.ch/lhcb/Hlt/tree/master/Hlt/Hlt2Lines/python/Hlt2Lines).
+HLT2 lines are found in the Hlt gitlab project in the package Hlt2Lines, see [here](https://gitlab.cern.ch/lhcb/Hlt/tree/2018-patches/Hlt/Hlt2Lines/python/Hlt2Lines).
 
 Their settings, i.e. the cut definitions, have to be defined in HltSettings package as well,
-see [here](https://gitlab.cern.ch/lhcb/Hlt/tree/master/Hlt/HltSettings/python/HltSettings).
+see [here](https://gitlab.cern.ch/lhcb/Hlt/tree/2018-patches/Hlt/HltSettings/python/HltSettings).
 
 As a hands on, we will change the prescale of a line with a high rate and then reduce its rate with extra cuts.
 First setup a Moore lb-dev project from the nightlies.
 
 ```
-$ lb-dev --nightly-cvmfs --nightly lhcb-head Moore/HEAD
-$ cd MooreDev_HEAD
+$ lb-dev Moore/prod
+$ cd MooreDev_prod
 $ git lb-use Hlt
-$ git lb-checkout Hlt/master Hlt/HltSettings
-$ git lb-checkout Hlt/master Hlt/Hlt2Lines
+$ git lb-checkout Hlt/2018-patches Hlt/HltSettings
+$ git lb-checkout Hlt/2018-patches Hlt/Hlt2Lines
 $ make
 ```
-Go to `Hlt/HltSettings/python/HltSettings/DiMuon/DiMuon_pp_2017.py`, search for prescale and change the prescale of `Hlt2DiMuonJPsi` to 1.0.
+Go to `Hlt/HltSettings/python/HltSettings/DiMuon/DiMuon_pp_2018.py`, search for prescale and change the prescale of `Hlt2DiMuonJPsi` to 1.0.
 Run Moore again and see if the rate of this line has increased.
 
 The line is defined in `Hlt/Hlt2Lines/python/Hlt2Lines/DiMuon/Lines.py`. The cut properties appear in the dictionary under `JPsi`.
@@ -243,6 +250,6 @@ We encourage people to check it out and give feedback on the [issues page](https
 
 {% challenge "Convert a stripping line to a Hlt2 line" %}
 1. Pick a stripping line and convert it to a HLT2 line.
-2. Make it a Turbo line.
-3. Run a rate test to determine the rate of the line.
+2. Make it a Turbo line (You have to set the property Turbo to true and the name of the line has to end with Turbo).
+3. Run a rate test to determine the rate of the line, [instructions](https://twiki.cern.ch/twiki/bin/view/LHCb/MooreRateTestExamples) are found here.
 {% endchallenge %}
