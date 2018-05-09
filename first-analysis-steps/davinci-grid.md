@@ -11,7 +11,15 @@ This lesson will teach you how to take our [minimal DaVinci
 job](minimal-dv-job.html) and run it on the grid.
 
 `ganga` is a program which you can use to interact with your grid
-jobs. Start it with:
+jobs. 
+
+Before creating your first `ganga` job, open the script `ntuple_options.py`, obtained in the [previous lesson](minimal-dv-job.html), and comment out the lines taking the local input data: we will now use the data stored on grid.
+
+Then, open the file `MC_2016_27163002_Beam6500GeV2016MagDownNu1.625nsPythia8_Sim09b_Trig0x6138160F_Reco16_Turbo03_Stripping28NoPrescalingFlagged_ALLSTREAMS.DST.py`, scroll to the very end, and check if two last lines have information about the `FileCatalog`: if yes, comment them out. They will mislead `ganga` since it only needs to know about the list of LFNs.
+
+Finally, launch your grid proxy typing `lhcb-proxy-init` and enter your *grid certidicate* password. 
+
+Great! Now you are ready to start ganga! Do it with:
 
 ```bash
 $ ganga
@@ -22,7 +30,7 @@ looks very much like an `ipython` session. `ganga` is built on top of
 `ipython` so you can type anything that is legal `python` in addition
 to some special commands provided by `ganga`.
 
-To create your first `ganga` job type the following:
+To create your first `ganga` job, type the following:
 
 ```python
 j = Job(name='First ganga job')
@@ -58,6 +66,25 @@ Now you have created your first job, however it has not started
 running yet. To submit it type `j.submit()`. Now `ganga` will do the
 equivalent of `lb-run DaVinci/v42r6p1`, prepare your job and then
 ship it off to the grid.
+
+{% callout "Picking up a right platform" %}
+Early 2018, the default platform on most of lxplus machines was changed to `x86_64-slc6-gcc62-opt` (instead of `x86_64-slc6-gcc49-opt`), changing the version of the gcc compiler from 4.9 to 6.2. 
+However, most of older DaVinci versions, anterior to v42r0, are not compiled for `x86_64-slc6-gcc62-opt`. 
+
+The list of platforms available for a certain DaVinci version (let's say `v38r0`), can be viewed by
+```bash
+$ lb-sdb-query listPlatforms DaVinci v38r0
+```
+
+In case you have a strong reason to use one of these DaVinci versions, few additional actions are needed to set up your ganga job properly.
+
+When setting up your ganga job, add the following line after declaring the `j.application`:
+```python
+j.application.platform = 'x86_64-slc6-gcc49-opt'
+```
+The default compiler platform for GaudiExec applications is `x86_64-slc6-gcc62-opt`.
+
+{% endcallout %} 
 
 While it runs, let's submit an identical job via slightly different
 method. Having to type in the details of each job every time you want
@@ -122,6 +149,7 @@ print 'Job output stored in:', output
 ```
 
 Take a look at the contents of this directory.
+Tip: this can be done from ganga using command `jobs(787).peek()`.
 
 {% callout "Using the Shell from IPython" %}
 IPython lets you execute shell commands from within the `ganga` session.

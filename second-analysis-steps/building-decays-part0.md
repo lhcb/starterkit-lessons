@@ -9,12 +9,12 @@
 In order to perform most physics analyses we need to build a *decay chain* with reconstructed particles that represents the physics process we want to study.
 In LHCb, this decay chain can be built through `LHCb::Particle` and `LHCb::MCParticle` objects that represent individual particles and contain links to their children, also represented by the same type of object.
 
-We'll learn all the concepts involved by running through our usual full example of the $$D^\ast\rightarrow D^0(\rightarrow K^{-} \pi^{+}) \pi$$ decay chain.
+We'll learn all the concepts involved by running through our usual full example of the $$D^\ast\rightarrow D^0(\rightarrow K^{-} K^{+}) \pi$$ decay chain.
 
-The LHCb approach to building decays is from the bottom up. Therefore, to build $$D^\ast\rightarrow D^0(\rightarrow K^{-} \pi^{+}) \pi$$ we need to
+The LHCb approach to building decays is from the bottom up. Therefore, to build $$D^\ast\rightarrow D^0(\rightarrow K^{-} K^{+}) \pi$$ we need to
 
   1. Get input pions and kaons and filter them according to our physics needs.
-  2. Combine a pion and a kaon to build a $$D^0$$, and apply selection cuts to it.
+  2. Combine two kaons to build a $$D^0$$, and apply selection cuts to it.
   3. Combine this $$D^0$$ with a pion to build the $$D^\ast$$, again filtering when necessary.
 
 To do that, we need to know a little bit more about how the LHCb analysis framework works.
@@ -47,7 +47,7 @@ As a consequence of this, only one algorithm with a given name can be instantiat
 
 This allows to reuse and reload algorithms that have already been created in a configuration sequence. For example:
 
- We could create a generic selection for building $$D^0$$ with a known name, put it in a `build_d0.py` file and use (and even modify) it in another file loaded in the same `gaudirun.py` call.
+ We could create a generic selection for building D0 with a known name, put it in a `build_d0.py` file and use (and even modify) it in another file loaded in the same `gaudirun.py` call.
  We could write the data-only parts of our selection in one file and the MC-only separately (typically inputs are different), but setting the same names for the algorithms. Then, our `DecayTreeTuple` code could be common, as the selection would be loaded "by-name".
 
 This is very useful to build complicated configuration chains, but it's *very easy* to have problems if our selection/algorithm names are not unique.

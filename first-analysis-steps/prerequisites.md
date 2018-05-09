@@ -21,11 +21,9 @@ a computer. There will be no machines for you to use in the room.
 
 If this is the first time you are bringing your laptop to CERN, you
 will have to [register it](https://network.cern.ch) before it can
-access the internet. Both the WiFi and the ethernet connection need to be
-registered.
+access the internet.
 
-Please bring an ethernet/network cable (even if you have WiFi) and
-your power supply, as well as a plug adaptor to Swiss and European plugs.
+Please bring your power supply, as well as a plug adaptor to Swiss and European plugs.
 
 {% callout "Windows" %}
 In the following we assume you use Mac OS X or Linux. If you are running
