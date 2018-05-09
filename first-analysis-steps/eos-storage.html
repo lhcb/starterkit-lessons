@@ -792,7 +792,7 @@
                                 <section class="normal markdown-section">
                                 
                                 <h1 id="storing-large-files-on-eos">Storing large files on EOS</h1>
-<p><div class="panel panel-warning"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(8626957807);" id="learning-objectives"><i class="fa fa-line-chart"></i> Learning Objectives<span id="heading-8626957807"></span></h3></div><div class="panel-body" id="panel-8626957807"><ul>
+<p><div class="panel panel-warning"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(6397887323);" id="learning-objectives"><i class="fa fa-line-chart"></i> Learning Objectives<span id="heading-6397887323"></span></h3></div><div class="panel-body" id="panel-6397887323"><ul>
 <li>Run a ganga job which puts output onto EOS</li>
 <li>Open and view the files on EOS</li>
 </ul>
@@ -845,10 +845,10 @@ file by typing <code>j.outputfiles[0].accessURL()</code>:</p>
 protocol as follows:  </p>
 <pre><code class="lang-python">TFile::Open(<span class="hljs-string">&quot;root://eoslhcb.cern.ch//eos/lhcb/grid/user/lhcb/user/a/another/2016_11/146255/146255492/DVntuple.root&quot;</span>)
 </code></pre>
-<p><div class="panel panel-primary"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(6246173607);" id="use-of-the-xrootd-protocol-"><i class="fa fa-info-circle"></i> Use of the XRootD protocol <span id="heading-6246173607"></span></h3></div><div class="panel-body" id="panel-6246173607"><p>In order to access files on every grid site with the XRootD protocol, be sure
+<p><div class="panel panel-primary"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(6603883194);" id="use-of-the-xrootd-protocol-"><i class="fa fa-info-circle"></i> Use of the XRootD protocol <span id="heading-6603883194"></span></h3></div><div class="panel-body" id="panel-6603883194"><p>In order to access files on every grid site with the XRootD protocol, be sure
 to have a valid proxy using <code>lhcb-proxy-init</code>.</p>
 </div></div> </p>
-<p><div class="panel panel-primary"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(5735298625);" id="deprecation-of-the-use-of-massstoragefile"><i class="fa fa-info-circle"></i> Deprecation of the use of MassStorageFile<span id="heading-5735298625"></span></h3></div><div class="panel-body" id="panel-5735298625"><p>The use of <code>MassStorageFile</code> is deprecated as it is quite sensitive to network 
+<p><div class="panel panel-primary"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(3679352809);" id="deprecation-of-the-use-of-massstoragefile"><i class="fa fa-info-circle"></i> Deprecation of the use of MassStorageFile<span id="heading-3679352809"></span></h3></div><div class="panel-body" id="panel-3679352809"><p>The use of <code>MassStorageFile</code> is deprecated as it is quite sensitive to network 
 problems when ganga is downloading the output of the job to EOS.  </p>
 </div></div> </p>
 <p><code>ganga</code> needs configuring in order to know which files to store on
@@ -872,7 +872,7 @@ following:</p>
 <p>The line should look very similar to this already, the only thing that
 needs changing is the <code>path</code> entry. You should change it to your EOS home directory
 which is <code>/eos/lhcb/user/a/another</code> if your username is <code>another</code>.</p>
-<p><div class="panel panel-primary"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(1856012471);" id="automatically-transfer-files"><i class="fa fa-info-circle"></i> Automatically transfer files<span id="heading-1856012471"></span></h3></div><div class="panel-body" id="panel-1856012471"><p>You can use the <code>fileExtensions</code> entry to specify a list of file
+<p><div class="panel panel-primary"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(3900297354);" id="automatically-transfer-files"><i class="fa fa-info-circle"></i> Automatically transfer files<span id="heading-3900297354"></span></h3></div><div class="panel-body" id="panel-3900297354"><p>You can use the <code>fileExtensions</code> entry to specify a list of file
 extensions that should be transfered to EOS by default. For the
 moment leave this set to <code>[&apos;&apos;]</code>.</p>
 </div></div> </p>
@@ -907,12 +907,12 @@ store the file and how to name it. The full path to this particular
 file will be:</p>
 <pre><code class="lang-bash">/eos/lhcb/user/a/another/starterkit/{jid}_{fname}
 </code></pre>
-<p><div class="panel panel-primary"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(7478776823);" id="special-outputfileformat-patterns"><i class="fa fa-info-circle"></i> Special outputfileformat patterns<span id="heading-7478776823"></span></h3></div><div class="panel-body" id="panel-7478776823"><p>Your <code>outputfilenameformat</code> string can contain several special
+<p><div class="panel panel-primary"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(7982836683);" id="special-outputfileformat-patterns"><i class="fa fa-info-circle"></i> Special outputfileformat patterns<span id="heading-7982836683"></span></h3></div><div class="panel-body" id="panel-7982836683"><p>Your <code>outputfilenameformat</code> string can contain several special
 strings which will be replaced on a file by file basis. The special
 strings are: <code>{jid}</code>, <code>{sjid}</code> and <code>{fname}</code>. They stand for job ID,
 subjob ID, and the filename of the matched file respectively.</p>
 </div></div> </p>
-<p><div class="panel panel-primary"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(7357305040);" id="subjobs-and-outputfileformat"><i class="fa fa-info-circle"></i> Subjobs and outputfileformat<span id="heading-7357305040"></span></h3></div><div class="panel-body" id="panel-7357305040"><p>When using subjobs it is important to make sure you include the
+<p><div class="panel panel-primary"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(2410829888);" id="subjobs-and-outputfileformat"><i class="fa fa-info-circle"></i> Subjobs and outputfileformat<span id="heading-2410829888"></span></h3></div><div class="panel-body" id="panel-2410829888"><p>When using subjobs it is important to make sure you include the
 <code>{sjid}</code> pattern in your <code>outputfilenameformat</code> string, otherwise
 all the subjobs will overwrite each others output.</p>
 </div></div> </p>
@@ -926,7 +926,7 @@ become available.</p>
 <p>Once your job has completed and the files have been copied to
 EOS by <code>ganga</code> you can access them from your terminal by mounting
 your EOS area.</p>
-<p><div class="panel panel-primary"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(4318814330);" id="important"><i class="fa fa-info-circle"></i> Important!<span id="heading-4318814330"></span></h3></div><div class="panel-body" id="panel-4318814330"><p>Important: mounting eos is discouraged by the LHCb data management team,
+<p><div class="panel panel-primary"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(201645568);" id="important"><i class="fa fa-info-circle"></i> Important!<span id="heading-201645568"></span></h3></div><div class="panel-body" id="panel-201645568"><p>Important: mounting eos is discouraged by the LHCb data management team,
 and no support will be provided by them for problems/questions related to it.</p>
 </div></div> </p>
 <p>On <code>lxplus</code> EOS is mount under /eos like this:</p>
@@ -958,7 +958,7 @@ visible here:</p>
 <p>Once you have found your file you can open it in <code>ROOT</code> like this:</p>
 <pre><code class="lang-bash">$ root /eos/lhcb/user/a/another/starterkit/myfavouritefile.root
 </code></pre>
-<p><div class="panel panel-primary"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(5035147418);" id="direct-access-in-root"><i class="fa fa-info-circle"></i> Direct access in ROOT<span id="heading-5035147418"></span></h3></div><div class="panel-body" id="panel-5035147418"><p>You can also open ROOT files on EOS directly from your ROOT
+<p><div class="panel panel-primary"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(8894939310);" id="direct-access-in-root"><i class="fa fa-info-circle"></i> Direct access in ROOT<span id="heading-8894939310"></span></h3></div><div class="panel-body" id="panel-8894939310"><p>You can also open ROOT files on EOS directly from your ROOT
 script with:</p>
 <pre><code class="lang-python">TFile::Open(<span class="hljs-string">&apos;root://eoslhcb.cern.ch//eos/lhcb/user/a/another/starterkit/myfavouritefile.root&apos;</span>)
 </code></pre>
@@ -1006,7 +1006,7 @@ script with:</p>
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Storing large files on EOS","level":"2.1.15","depth":2,"next":{"title":"Splitting a job into subjobs","level":"2.1.16","depth":2,"path":"first-analysis-steps/split-jobs.md","ref":"first-analysis-steps/split-jobs.md","articles":[]},"previous":{"title":"More Ganga","level":"2.1.14","depth":2,"path":"first-analysis-steps/ganga-data.md","ref":"first-analysis-steps/ganga-data.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-sharing","panels@git+https://github.com/lhcb/gitbook-plugin-panels.git#master","katex-auto-render@git+https://github.com/lhcb/gitbook-plugin-katex-auto-render.git#master","collapsible-menu","otherlink"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"collapsible-menu":{},"search":{},"otherlink":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"panels":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"katex-auto-render":{},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"The Starterkit team and contributors","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"gitbook":"*"},"file":{"path":"first-analysis-steps/eos-storage.md","mtime":"2018-05-09T14:23:52.128Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-05-09T14:29:45.357Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Storing large files on EOS","level":"2.1.15","depth":2,"next":{"title":"Splitting a job into subjobs","level":"2.1.16","depth":2,"path":"first-analysis-steps/split-jobs.md","ref":"first-analysis-steps/split-jobs.md","articles":[]},"previous":{"title":"More Ganga","level":"2.1.14","depth":2,"path":"first-analysis-steps/ganga-data.md","ref":"first-analysis-steps/ganga-data.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-sharing","panels@git+https://github.com/lhcb/gitbook-plugin-panels.git#master","katex-auto-render@git+https://github.com/lhcb/gitbook-plugin-katex-auto-render.git#master","collapsible-menu","otherlink"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"collapsible-menu":{},"search":{},"otherlink":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"panels":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"katex-auto-render":{},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"The Starterkit team and contributors","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"gitbook":"*"},"file":{"path":"first-analysis-steps/eos-storage.md","mtime":"2018-05-09T14:35:47.272Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-05-09T14:42:02.368Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
