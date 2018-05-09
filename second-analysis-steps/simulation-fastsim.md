@@ -4,7 +4,7 @@
 
 # Why fast simulation is crucial
 
-Our production queues are beyond full and nominal simulation if not sustainable for the future.
+Our production queues are beyond full and nominal simulation for all requests is unsustainable for the future.
 Using fast simulation or being smart about how you use simulated samples is unavoidable. Fortunately,
 some fast simulation options already exist which are ready to be used and a very brief overview is given
 below (excluding options still in development).

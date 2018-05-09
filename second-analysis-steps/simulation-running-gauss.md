@@ -21,7 +21,7 @@ produces the sample using Pythia 8 while `'$LBPYTHIA8ROOT/options/Pythia8.py'
 '$DECFILESROOT/options/27163003.py'` uses Pythia 6.
 {% endcallout %}
 
-## Running Gauss and create generator-only sample
+## Running Gauss and create a generator-only sample
 
 The production system handles the necessary settings for initial event- and runnumber and the used database tags. In a private production, you need to set these yourself in an additional options file, containing, for example:
 ```python
