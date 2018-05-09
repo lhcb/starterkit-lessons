@@ -29,7 +29,8 @@ The second option is usually easier and in the example used so far only requires
 Generation().SignalPlain.CutTool = ""
 ```
 which must be included after `27163003.py` is sourced (e.g. in `Gauss-Job.py`). You can convince yourself that this alters the observed
-distributions and leads to a generator level cut efficiency of 100%. A large sample can be found on EOS: HEEERRREEEE
+distributions and leads to a generator level cut efficiency of 100%. A large sample can be found on EOS: `root://eosuser.cern.ch//eos/user/l/lhcbsk/sim-lesson/GaussNoGenCut-27163003-10000ev.xgen`
+Have a look at the pseudorapidity distribution of the head particle. This illustrates another default behavior of the generation of signal decays in Gauss: The generated events' z-axis if inverted if the selected signal particle's momentum along that axis is negative.
 
 
 ## Modifying the cut tool
@@ -60,9 +61,10 @@ tightCut.Cuts = {
     '[pi+]cc': 'inAcc'
     }
 ```
-You can again check that this works and a larger sample of 10,000 events can be found HHHEEERRREEEE.
-You might also notice a slight slow-down in the rate at which events are produced: by default, whenever
-an event fails the generator cut (which is applied after Pythia and EvtGen are done) triggers a reset of
+You can again check that this works and a larger sample of 10,000 events can be found `root://eosuser.cern.ch//eos/user/l/lhcbsk/sim-lesson/GaussTightCut-27163003-10000ev.xgen`
+.
+You might also notice a slight slow-down in the rate at which events are produced: by default, 
+an event failing the generator cut (which is applied after Pythia and EvtGen are done) triggers a reset of
 the entire generation phase of the simulation. Therefore, very tight generator level cuts in combination
 with a signal particle that only rarely occurs in minimum bias events can results in the generation phase
 taking manifold longer than the simulation of the detector response (and you might want to rethink your

@@ -64,7 +64,7 @@ importOptions("$APPCONFIGOPTS/Gauss/Beam6500GeV-md100-2016-nu1.6.py")
 ## Make an nTuple
 
 The `.xgen` file can be processed into something more usable (copied together from [here](https://gitlab.cern.ch/lhcb-datapkg/Gen/DecFiles/blob/master/CONTRIBUTING.md)).
-A larger input file containing 10,000 generated events for event-type can be found on EOS: HHHEEEERRREEE.
+A larger input file containing 10,000 generated events for event-type can be found on EOS: `root://eosuser.cern.ch//eos/user/l/lhcbsk/sim-lesson/Gauss-27163003-10000ev.xgen`.
 ```python
 """Configure the variables below with:
 decay: Decay you want to inspect, using 'newer' LoKi decay descriptor syntax,

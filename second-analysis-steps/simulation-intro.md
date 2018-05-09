@@ -1,5 +1,3 @@
-u Generating signal decays
-
 {% objectives "Learning Objectives" %}
 * Understand how a signal decay sample is produced in the LHCb framework
 {% endobjectives %} 
