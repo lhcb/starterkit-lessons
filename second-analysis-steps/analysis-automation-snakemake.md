@@ -104,7 +104,7 @@ Notice that:
 To try out download:
 
 ```bash
-wget https://github.com/lhcb/starterkit-lessons/raw/snakemake/second-analysis-steps/code/snakemake/tutorial.tar
+wget https://github.com/lhcb/starterkit-lessons/blob/master/second-analysis-steps/code/snakemake/tutorial.tar?raw=true
 ```
 
 You will find one containing names and phone numbers. You can make one rule that, given a name extracts the line with the phone of that person.
@@ -296,7 +296,7 @@ Move your rules to other files and include them
 
 {% solution "Solution" %}
 
-You can find a solution in the `complete_solution` folder, which you can find [here](https://github.com/lhcb/starterkit-lessons/raw/snakemake/second-analysis-steps/code/snakemake/tutorial.tar).
+You can find a solution in the `complete_solution` folder, which you can find [here](https://github.com/lhcb/starterkit-lessons/blob/master/second-analysis-steps/code/snakemake/tutorial.tar?raw=true).
 
 {% endchallenge %}
 
