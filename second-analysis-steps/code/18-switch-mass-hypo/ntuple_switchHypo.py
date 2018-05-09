@@ -57,5 +57,5 @@ DaVinci().EvtMax = -1
 
 # Use the local input data
 IOHelper().inputFiles([
-    './00062514_00000001_7.AllStreams.dst'
-], clear=True)
+    'root://eoslhcb.cern.ch//eos/lhcb/grid/prod/lhcb/MC/2016/ALLSTREAMS.DST/00062514/0000/00062514\
+_00000008_7.AllStreams.dst'], clear=True)

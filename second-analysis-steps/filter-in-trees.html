@@ -708,7 +708,7 @@
                                 <section class="normal markdown-section">
                                 
                                 <h1 id="reuse-particles-from-a-decay-tree">Reuse particles from a decay tree</h1>
-<p><div class="panel panel-warning"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(7057957898);" id="learning-objectives"><i class="fa fa-line-chart"></i> Learning Objectives<span id="heading-7057957898"></span></h3></div><div class="panel-body" id="panel-7057957898"><ul>
+<p><div class="panel panel-warning"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(6549265088);" id="learning-objectives"><i class="fa fa-line-chart"></i> Learning Objectives<span id="heading-6549265088"></span></h3></div><div class="panel-body" id="panel-6549265088"><ul>
 <li>Learn how to extract particles from a decay tree</li>
 <li>Build a new particle from the extracted particles</li>
 </ul>
@@ -722,11 +722,14 @@ To do that, we have to extract the $$K^+$$ from <code>([D0 -&gt; K+ K-]CC)</code
 <pre><code class="lang-python"><span class="hljs-keyword">from</span> Configurables <span class="hljs-keyword">import</span> FilterInTrees
 <span class="hljs-keyword">from</span> PhysSelPython.Wrappers <span class="hljs-keyword">import</span> Selection, DataOnDemand
 
-decay_tree_location = <span class="hljs-string">&apos;Phys/D2hhPromptDst2D2KKLine/Particles&apos;</span>
+stream = <span class="hljs-string">&apos;AllStreams&apos;</span>
+line = <span class="hljs-string">&apos;D2hhPromptDst2D2KKLine&apos;</span>
+tesLoc = <span class="hljs-string">&apos;/Event/{0}/Phys/{1}/Particles&apos;</span>.format(stream, line)
+
 kaons_from_d0 = FilterInTrees(<span class="hljs-string">&apos;kaons_from_d0_filter&apos;</span>, Code=<span class="hljs-string">&quot;(&apos;K+&apos; == ABSID)&quot;</span>)
 kaons_from_d0_sel = Selection(<span class="hljs-string">&quot;kaons_from_d0_sel&quot;</span>,
                             Algorithm=kaons_from_d0,
-                            RequiredSelections=[AutomaticData(Location=decay_tree_location)])
+                            RequiredSelections=[DataOnDemand(Location=tesLoc)])
 </code></pre>
 <p>The output of <code>kaons_from_d0_sel</code> is a container with all the kaons coming from the $$D^0$$.</p>
 <p>The final step is easy, very similar to <a href="building-decays-part0.html">building your own decay</a>:</p>
@@ -742,7 +745,7 @@ kst_sel = Selection(<span class="hljs-string">&apos;kst_sel&apos;</span>,
                     Algorithm=kst,
                     RequiredSelections=[kaons_from_d0_sel, Pions])
 </code></pre>
-<p><div class="panel panel-primary"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(5071487083);" id="an-interesting-detail"><i class="fa fa-info-circle"></i> An interesting detail<span id="heading-5071487083"></span></h3></div><div class="panel-body" id="panel-5071487083"><p>One can use <code>FilterInTrees</code> and <code>FilterDecays</code> to select several particles at
+<p><div class="panel panel-primary"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(7169181481);" id="an-interesting-detail"><i class="fa fa-info-circle"></i> An interesting detail<span id="heading-7169181481"></span></h3></div><div class="panel-body" id="panel-7169181481"><p>One can use <code>FilterInTrees</code> and <code>FilterDecays</code> to select several particles at
 once and obtain a flattened list.
 For example, if we had a Stripping line that builds <code>[B-  -&gt; (^D0 -&gt; ^K- ^pi+) ^pi-]cc</code> and we wanted to combine the <code>D0</code> and <code>pi-</code> with an external <code>pi0</code> to build <code>[B- -&gt; D0 pi- pi0]cc</code>, we could do</p>
 <pre><code class="lang-python">flatlist = FilterInTrees (<span class="hljs-string">&quot;FlatList&quot;</span>, Code=<span class="hljs-string">&quot;(&apos;D0&apos; == ABSID) | (&apos;pi-&apos; == ABSID)&quot;</span>)
@@ -797,7 +800,7 @@ add_pi0 = CombineParticles(<span class="hljs-string">&quot;MakeB&quot;</span>,
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Reuse particles from a decay tree","level":"3.1.6","depth":2,"next":{"title":"The simulation framework","level":"3.1.7","depth":2,"path":"second-analysis-steps/simulation.md","ref":"second-analysis-steps/simulation.md","articles":[]},"previous":{"title":"Replace a mass hypothesis","level":"3.1.5","depth":2,"path":"second-analysis-steps/switch-mass-hypo.md","ref":"second-analysis-steps/switch-mass-hypo.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-sharing","panels@git+https://github.com/lhcb/gitbook-plugin-panels.git#master","katex-auto-render@git+https://github.com/lhcb/gitbook-plugin-katex-auto-render.git#master","collapsible-menu","otherlink"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"collapsible-menu":{},"search":{},"otherlink":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"panels":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"katex-auto-render":{},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"The Starterkit team and contributors","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"gitbook":"*"},"file":{"path":"second-analysis-steps/filter-in-trees.md","mtime":"2018-05-09T05:41:43.623Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-05-09T05:43:43.178Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Reuse particles from a decay tree","level":"3.1.6","depth":2,"next":{"title":"The simulation framework","level":"3.1.7","depth":2,"path":"second-analysis-steps/simulation.md","ref":"second-analysis-steps/simulation.md","articles":[]},"previous":{"title":"Replace a mass hypothesis","level":"3.1.5","depth":2,"path":"second-analysis-steps/switch-mass-hypo.md","ref":"second-analysis-steps/switch-mass-hypo.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-sharing","panels@git+https://github.com/lhcb/gitbook-plugin-panels.git#master","katex-auto-render@git+https://github.com/lhcb/gitbook-plugin-katex-auto-render.git#master","collapsible-menu","otherlink"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"collapsible-menu":{},"search":{},"otherlink":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"panels":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"katex-auto-render":{},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"The Starterkit team and contributors","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"gitbook":"*"},"file":{"path":"second-analysis-steps/filter-in-trees.md","mtime":"2018-05-09T10:41:15.364Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-05-09T10:43:39.070Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
