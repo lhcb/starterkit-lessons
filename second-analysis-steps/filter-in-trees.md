@@ -35,7 +35,7 @@ from PhysSelPython.Wrappers import Selection, DataOnDemand
 
 Pions = DataOnDemand('Phys/StdAllNoPIDsPions/Particles')
 kst = CombineParticles('kst_particles',
-                       DecayDescriptor=['[K*(892)0 -> K+ pi-]cc'],
+                       DecayDescriptor=['[K*(892)0 -> K+ pi-]CC'],
                        CombinationCut="ADAMASS('K*(892)0') < 300*MeV",
                        MotherCut='(VFASPF(VCHI2/VDOF)< 9)')
 kst_sel = Selection('kst_sel',
