@@ -82,24 +82,30 @@ The most interesting are (see the [code](https://gitlab.cern.ch/lhcb/Phys/blob/m
 
   - `TriggerSelection`, including `L0`/`Hlt1`/`Hlt2` specific versions. These are used to filter on certain trigger decisions (NB: their job is simply to filter, so they cannot be used as particle input for another selection).
   The same interface can be used for filtering on Stripping decisions by using the `StrippingSelection` class.
-  With it, the example from the Starterkit [minimal DaVinci job](../first-analysis-steps/minimal-dv-job.md), in which the output of a Stripping line was passed to `DecayTreeTuple`, could be written in a more CPU-efficient way:
+  The example from the Starterkit [minimal DaVinci job](../first-analysis-steps/minimal-dv-job.md), in which the output of a Stripping line was passed to `DecayTreeTuple`, could be written in a more CPU-efficient way:
 
     ```python
     line = 'D2hhPromptDst2D2KKLine'
-    strip_sel = StrippingSelection("Strip_sel",
-                                   "HLT_PASS('StrippingD2hhPromptDst2D2KKLineDecision')")
-    strip_input = AutomaticData('Phys/{0}/Particles'.format(line))
+    strip_sel = TriggerSelection(
+                             name     = 'Strip_sel',
+                             trigger  = 'Strip',
+                             Code     = "HLT_PASS_RE('StrippingD2hhPromptDst2D2KKLineDecision')",
+                             Location = '/Event/Strip/Phys/DecReports'
+                            )
+    strip_input = AutomaticData('/Event/AllStreams/Phys/{0}/Particles'.format(line))
     tuple_sel = TupleSelection('Tuple_sel',
                                [strip_sel, strip_input],
-                               Decay='[D*(2010)+ -> (D0 -> K- K+) pi+]CC')
+                               Decay='[D*(2010)+ -> ^(D0 -> ^K- ^K+) ^pi+]CC')
     ```
-
+  Then add both selections to `DaVinci().UserAlgorithms`: 
+    ```python
+    DaVinci().UserAlgorithms = [strip_sel, tuple_sel]
+    ```
   This avoids running `DecayTreeTuple` on empty events, since the `strip_sel` stops processing before.
   This will only be helpful for rare Stripping lines, since the overhead of running `DecayTreeTuple` on empty events is small, but this has been proven useful in more complex workflows.
-  Additionally, it takes care of `RootInTes` for you.
 
 {% challenge "A small test" %}
-Try running the [minimal DaVinci job](../first-analysis-steps/minimal-dv-job.md) with and without the `StrippingSelection`/`DecayTreeTuple` selections, and compare their performance
+Try running the [minimal DaVinci job](../first-analysis-steps/minimal-dv-job.md) with and without the `TriggerSelection`/`DecayTreeTuple` selections, and compare their performance
 
 In this particular case, there is a simple way to achieve a CPU-efficient code with `DecayTreeTuple`, thanks to the use of `DaVinci` pre-event filters;
  ```python
