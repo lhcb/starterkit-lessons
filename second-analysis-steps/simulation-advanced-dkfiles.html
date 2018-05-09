@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>Using git to develop LHCb software · GitBook</title>
+        <title>Advanced: Controlling the decay · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -65,10 +65,10 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="building-decays.html" />
+    <link rel="next" href="simulation-gencuts.html" />
     
     
-    <link rel="prev" href="./" />
+    <link rel="prev" href="simulation-dkfiles.html" />
     
 
     </head>
@@ -436,7 +436,7 @@
             <ul class="articles">
                 
     
-        <li class="chapter active" data-level="3.1.1" data-path="lb-git.html">
+        <li class="chapter " data-level="3.1.1" data-path="lb-git.html">
             
                 <a href="lb-git.html">
             
@@ -612,7 +612,7 @@
             
         </li>
     
-        <li class="chapter " data-level="3.1.7.4" data-path="simulation-advanced-dkfiles.html">
+        <li class="chapter active" data-level="3.1.7.4" data-path="simulation-advanced-dkfiles.html">
             
                 <a href="simulation-advanced-dkfiles.html">
             
@@ -776,7 +776,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >Using git to develop LHCb software</a>
+        <a href=".." >Advanced: Controlling the decay</a>
     </h1>
 </div>
 
@@ -791,134 +791,92 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="using-git-to-develop-lhcb-software">Using git to develop LHCb software</h1>
-<p><div class="panel panel-warning"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(6907265342);" id="learning-objectives"><i class="fa fa-line-chart"></i> Learning Objectives<span id="heading-6907265342"></span></h3></div><div class="panel-body" id="panel-6907265342"><ul>
-<li>Learn how to clone specific LHCb packages to a local development directory</li>
-<li>Learn how to make changes and upload them to be reviewed by others</li>
+                                <p><div class="panel panel-warning"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(7794483879);" id="learning-objectives"><i class="fa fa-line-chart"></i> Learning Objectives<span id="heading-7794483879"></span></h3></div><div class="panel-body" id="panel-7794483879"><ul>
+<li>Learn advanced configuration options to configure <code>EvtGen</code></li>
 </ul>
-</div></div></p>
-<p><div class="panel panel-primary"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(7407652893);" id="prerequisites"><i class="fa fa-info-circle"></i> Prerequisites<span id="heading-7407652893"></span></h3></div><div class="panel-body" id="panel-7407652893"><p>Before starting, you should have a basic understanding of how to use <code>git</code>,
-similar to what has been taught during the starterkit.</p>
-</div></div></p>
-<p>In this lesson, we&apos;ll show you a complete workflow for developing the LHCb software
-using the <code>git</code> version control system.
-At LHCb, we use GitLab to manage our git repositories.
-Among other features, GitLab allows you to browse the source code for each project,
-and to review new changes (called <em>merge requests</em>) in a convenient web interface.
-You can find the CERN GitLab instance at <a href="https://gitlab.cern.ch" target="_blank">https://gitlab.cern.ch</a>.</p>
-<p>In principle, there are multiple ways of interacting with the LHCb software repositories:</p>
-<ol>
-<li>A vanilla git workflow using only the standard git commands.
-This requires you to <code>clone</code> and compile an entire LHCb project at a time.
-This approach is recommended when your development is expected to last
-multiple days or more or if you collaborate with others.</li>
-<li>An LHCb-specific workflow using a set of <code>lb-*</code> subcommands.
-This allows you to check out individual packages inside a project, and
-streamlines the modification of a few packages at a time.
-This approach is mostly appropriate for quick and isolated changes.
-(This is closer to the previously used <code>getpack</code> command.)</li>
-</ol>
-<p>Here, we want to focus on the second workflow.</p>
-<p>Before jumping in by creating a project in GitLab, you should make sure that
-your local git configuration and your settings on GitLab are sufficiently set up:</p>
-<p>Your name and email address should be set up in your local <code>git</code> configuration.
-To ensure that this is the case, run</p>
-<pre><code>$ git config --global user.name &quot;Your Name&quot;
-$ git config --global user.email &quot;Your Name &lt;your.name@cern.ch&gt;&quot;
-</code></pre><p>and put in your information.</p>
-<p>Next, connect to <a href="https://gitlab.cern.ch" target="_blank">https://gitlab.cern.ch</a> and log in
-with your CERN credentials.</p>
-<p>Visit <a href="https://gitlab.cern.ch/profile/keys" target="_blank">https://gitlab.cern.ch/profile/keys</a> and add an SSH key.</p>
-<p>Run this LHCb-specific configuration command:</p>
-<pre><code>git config --global lb-use.protocol ssh
-</code></pre><p>This makes sure the LHCb commands use the ssh protocol instead of https.</p>
-<p>In the GitLab web interface, create a new project by clicking on the &quot;New project&quot; button.
-Give your project the name &quot;LHCbSK&quot;.</p>
-<p>We will now set up a local LHCb development area that is connected to the git
-repository you just created.
-In order to create a new dev environment, run</p>
-<pre><code>$ lb-dev --list LHCb
-</code></pre><p>to see which versions of the LHCb project are available.
-Pick the newest one and run</p>
-<pre><code>$ lb-dev --name LHCbSK LHCb/&lt;version&gt;
-</code></pre><p>where you need to insert the version you picked earlier.
-This will automatically run <code>git init</code> to create a new git repository with some initial files (<code>Makefile</code>, <code>CMakeLists.txt</code>, etc.).
-In order to connect your repository with the remote one, run</p>
-<pre><code>cd LHCbSK
-git remote add origin ssh://git@gitlab.cern.ch:7999/&lt;username&gt;/LHCbSK.git
-</code></pre><p>where you need to substitute your username.
-Run</p>
-<pre><code>git push -u origin master
-</code></pre><p>once to define <code>master</code> as the remote branch that we should push to by default.</p>
-<p><div class="panel panel-primary"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(40596777);" id="pushing-your-dev-project-to-gitlab"><i class="fa fa-info-circle"></i> Pushing your dev project to GitLab<span id="heading-40596777"></span></h3></div><div class="panel-body" id="panel-40596777"><p>You don&apos;t necessarily need to create a remote git repository on GitLab for your
-local dev project, especially if its lifetime will be short.
-However, in case you plan to collaborate with someone, a remote repo where you
-can synchronize your work is a must.
-Pushing to GitLab is also good practice if you use this dev project for ganga&apos;s
-<code>GaudiExec</code>.</p>
-</div></div></p>
-<p>For the purpose of this tutorial, we&apos;ve set up an <code>SKTest</code> project containing
-the package <code>TheTestPackage</code>.
-In order to be able to work on parts of the <code>SKTest</code> project, first run</p>
-<pre><code>git lb-use SKTest
-</code></pre><p>This will define a remote <code>SKTest</code> and fetch the git repository from GitLab.</p>
-<p>You can then run</p>
-<pre><code>git lb-checkout SKTest/master TheTestPackage
-</code></pre><p>to check out the files inside the <code>SKTest</code> project that belong to the
-<code>TheTestPackage</code> package.
-This performs <code>git checkout</code> under the hood and commits the files into the
-local (synthetic) branch.
-You can check how this looks in the history with <code>git log</code>.</p>
-<p>You can now run</p>
-<pre><code>make
-</code></pre><p>to build the project, make some changes, run <code>make</code> again, etc.
-You can also use</p>
-<pre><code>make test
-</code></pre><p>to run the tests.
-Once you&apos;re happy with the changes, run</p>
-<pre><code>git add &lt;your-changed-files&gt;
-</code></pre><p>where you have to specify all files with changes that you want to store,
-and</p>
-<pre><code>git commit
-</code></pre><p>to store them in a new commit.
-This will open up a text editor that will allow you to type in a commit message.</p>
-<p><div class="panel panel-primary"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(8043696214);" id="committing-often"><i class="fa fa-info-circle"></i> Committing often<span id="heading-8043696214"></span></h3></div><div class="panel-body" id="panel-8043696214"><p>There&apos;s no cost to committing often.
-You should try to make a new commit every time you&apos;ve made
-modifications that can be considered a single unit of changes.</p>
-</div></div></p>
-<p>Now push your changes to your newly created GitLab project</p>
-<pre><code>git push
-</code></pre><p>and check that they appear on the website.</p>
-<p>Once you want to upload your commits to the SKTest project for review, run</p>
-<pre><code>git lb-push SKTest &lt;username&gt;-new-feature
-</code></pre><p>to create a new <code>&lt;username&gt;-new-feature</code> branch on the main GitLab repository
-and upload your commits to it.
-This will calculate the changes between your local dev repository and the
-remote project repository, and create corresponding commits for the remote
-project.
-You can now create a merge request by going to
-<a href="https://gitlab.cern.ch/LHCb-SVN-mirrors/SKTest/merge_requests/new" target="_blank">https://gitlab.cern.ch/LHCb-SVN-mirrors/SKTest/merge_requests/new</a>,
-selecting the <code>&lt;username&gt;-new-feature</code> branch as the source and <code>master</code> as the target.
-Add a title for your merge request and explain what you&apos;ve done in the main text.</p>
-<p><div class="panel panel-success"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(6742618526);" id="merge-conflicts"><i class="fa fa-square-o"></i> Merge conflicts<span id="heading-6742618526"></span></h3></div><div class="panel-body" id="panel-6742618526"><ul>
-<li>Working with a partner, try to create a merge conflict by making changes to
-the same file.
-If you don&apos;t have someone else to work with, you can simulate this by creating a second development area.</li>
-<li>Now, try to resolve the merge conflict.
-This is a bit complicated because of the way the local repository is set up.
-Take a look at <a href="https://twiki.cern.ch/twiki/bin/view/LHCb/Git4LHCb#Replacement_for_svn_update_in_lo" target="_blank">https://twiki.cern.ch/twiki/bin/view/LHCb/Git4LHCb#Replacement_for_svn_update_in_lo</a> for pointers.</li>
-</ul>
-</div></div></p>
-<p><div class="panel panel-primary"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(7387982762);" id="working-with-entire-projects"><i class="fa fa-info-circle"></i> Working with entire projects<span id="heading-7387982762"></span></h3></div><div class="panel-body" id="panel-7387982762"><p>Working with entire projects is just as simple, but requires a little more
-care with the environment.
-Most importantly, be prepared that the project repo clones and the build
-products may need a few GB of disk space and that the compilation may take a
-long time.
-A step-by-step guide is available at <a href="https://twiki.cern.ch/twiki/bin/view/LHCb/Git4LHCb#Building_everything_locally_exam" target="_blank">https://twiki.cern.ch/twiki/bin/view/LHCb/Git4LHCb#Building_everything_locally_exam</a>.
-A more integrated approach that automatically takes care of the environment is <a href="https://gitlab.cern.ch/lhcb/upgrade-hackathon-setup" target="_blank">https://gitlab.cern.ch/lhcb/upgrade-hackathon-setup</a> and a variation of it that lets you use some of the nightly builds
-to spare compiling many projects is at <a href="https://gitlab.cern.ch/lhcb-HLT/trigger-dev" target="_blank">https://gitlab.cern.ch/lhcb-HLT/trigger-dev</a>.</p>
-</div></div></p>
-
+</div></div> </p>
+<h2 id="advanced-controlling-the-decay">Advanced: Controlling the decay</h2>
+<h2 id="two-body-decays---getting-angular-momentum-right">Two-body decays - getting angular momentum right</h2>
+<p>EvtGen has specific models for each two body spin configuration, for example Scalar to Vector+Scalar (SVS), and Vector to lepton+lepton(VLL)</p>
+<pre><code>#
+Decay B+sig
+  1.000     MyJ/psi  K+                   SVS;
+Enddecay
+CDecay B-sig
+#
+Decay MyJ/psi
+  1.000     mu+  mu-                      PHOTOS  VLL;
+Enddecay
+</code></pre><p>For decays to two vectors, there is a more complicated polarization structure which needs to be specified - for example here the fraction and phase for each helicity are set according to measured values:</p>
+<pre><code>Define Hp 0.159
+Define Hz 0.775
+Define Hm 0.612
+Define pHp 1.563
+Define pHz 0.0
+Define pHm 2.712
+#
+Alias      MyJ/psi    J/psi
+Alias      MyK*0      K*0
+Alias      Myanti-K*0 anti-K*0
+ChargeConj MyK*0      Myanti-K*0
+ChargeConj MyJ/psi    MyJ/psi
+#
+Decay B0sig
+  1.000         MyJ/psi   MyK*0          SVV_HELAMP Hp pHp Hz pHz Hm pHm;
+Enddecay
+Decay anti-B0sig
+  1.000         MyJ/psi   Myanti-K*0     SVV_HELAMP Hm pHm Hz pHz Hp pHp;
+Enddecay
+</code></pre><h2 id="3-multi-body-decays">3+ multi-body decays</h2>
+<p>For 3+ bodies the physics models get more complicated. For a fully hadronic final state, typically a Dalitz model will be specified, e.g:</p>
+<pre><code># D_DALITZ includes resonances contributions (K*(892), K*(1430), K*(1680))
+Decay MyD-
+  1.000    K+        pi-    pi-          D_DALITZ;
+Enddecay
+CDecay MyD+
+</code></pre><p>Any time you see a 3+ body decay with the PHSP model, you know it will be very far from reality. If you have no other information sometimes this is the best you can do, though.</p>
+<p>A semileptonic decay would typically be produced according to some form factor model, e.g</p>
+<pre><code>Decay B0sig 
+# FORM FACTORS as per HFAG PDG10
+   1   MyD*-        mu+  nu_mu         PHOTOS  HQET 1.20 1.426 0.818 0.908;
+  #
+Enddecay
+CDecay anti-B0sig
+</code></pre><p>here the numbers correspond to measured values for the form factor parameters. </p>
+<h2 id="cocktail-decays">Cocktail decays</h2>
+<p>Often you will want to simulate more than one decay mode in a sample, e.g:</p>
+<pre><code>Decay MyD_s+
+ 0.0259 phi      mu+     nu_mu                      PHOTOS  ISGW2;
+ 0.0267 eta      mu+     nu_mu                      PHOTOS  ISGW2;
+ 0.0099 eta&apos;     mu+     nu_mu                      PHOTOS  ISGW2;
+ 0.0037 K0       mu+     nu_mu                      PHOTOS  ISGW2;  
+ 0.0018 K*0      mu+     nu_mu                      PHOTOS  ISGW2;
+ 0.0020 f_0      mu+     nu_mu                      PHOTOS  ISGW2; 
+ 0.0059 mu+      nu_mu                              PHOTOS   SLN; 
+Enddecay
+CDecay MyD_s-
+</code></pre><p>Note that the fractions will always be renormalised to sum to 1 - you can directly use PDG branching fractions without having to rescale by hand.</p>
+<h2 id="final-state-radiation">Final state radiation</h2>
+<p>After generating the decay, final state radiation is added using PHOTOS. Note that PHOTOS is enabled by default, even though many decfiles explicitly specify it. It needs to be explicitly removed via &quot;noPhotos&quot;</p>
+<h2 id="changing-particle-masses--lifetimes-widths">Changing particle masses / lifetimes/ widths</h2>
+<p>Sometimes you need to change the mass or lifetime of a particle, either because the initial values are wrong, or the particle you actually want doesn&apos;t exist in EvtGen, and you need to adapt an existing particle.
+This can be done with python code inserted in the header:</p>
+<pre><code># InsertPythonCode:
+#from Configurables import LHCb__ParticlePropertySvc
+#LHCb__ParticlePropertySvc().Particles = [ 
+# &quot;N(1440)+              636       12212   1.0      1.4400000      2.194041e-24                 N(1440)+           21440      0.00&quot;,
+# &quot;N(1440)~-             637      -12212  -1.0      1.4400000      2.194841e-24                   anti-N(1440)-           -21440      0.00&quot;,
+#&quot;N(1520)+              420        2124   1.0      1.52000000      5.723584e-24                   N(1520)+           21520      0.00&quot;,
+# &quot;N(1520)~-             421       -2124  -1.0      1.52000000     5.723584e-24                   anti-N(1520)-           -21520      0.00&quot;,
+#&quot;N(1535)+              713       22212   1.0      1.53500000      4.388081e-24                   N(1535)+           21535      0.00&quot;,
+#&quot;N(1535)~-             714      -22212  -1.0      1.53500000      4.388081e-24                   anti-N(1535)-           -21535      0.00&quot;,
+#&quot;N(1720)+              775       32124   1.0      1.72000000      2.632849e-24                   N(1720)+           21720      0.00&quot;,
+#&quot;N(1720)~-             776      -32124  -1.0      1.72000000      2.632849e-24                   anti-N(1720)-           -21720      0.00&quot;
+#]
+# EndInsertPythonCode
+</code></pre><p>The format is: </p>
+<pre><code>#                    GEANTID    PDGID  CHARGE   MASS(GeV)      TLIFE(s)                    EVTGENNAME    PYTHIAID    MAXWIDTH
+</code></pre>
                                 
                                 </section>
                             
@@ -945,12 +903,12 @@ to spare compiling many projects is at <a href="https://gitlab.cern.ch/lhcb-HLT/
 
             
                 
-                <a href="./" class="navigation navigation-prev " aria-label="Previous page: Second analysis steps">
+                <a href="simulation-dkfiles.html" class="navigation navigation-prev " aria-label="Previous page: Controlling the decay">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="building-decays.html" class="navigation navigation-next " aria-label="Next page: Building your own decay">
+                <a href="simulation-gencuts.html" class="navigation navigation-next " aria-label="Next page: Modifying generator cuts">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -961,7 +919,7 @@ to spare compiling many projects is at <a href="https://gitlab.cern.ch/lhcb-HLT/
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Using git to develop LHCb software","level":"3.1.1","depth":2,"next":{"title":"Building your own decay","level":"3.1.2","depth":2,"path":"second-analysis-steps/building-decays.md","ref":"second-analysis-steps/building-decays.md","articles":[{"title":"The Selection Framework","level":"3.1.2.1","depth":3,"path":"second-analysis-steps/building-decays-part0.md","ref":"second-analysis-steps/building-decays-part0.md","articles":[]},{"title":"A Historical Approach","level":"3.1.2.2","depth":3,"path":"second-analysis-steps/building-decays-part1.md","ref":"second-analysis-steps/building-decays-part1.md","articles":[]},{"title":"Modern Selection Framework","level":"3.1.2.3","depth":3,"path":"second-analysis-steps/building-decays-part2.md","ref":"second-analysis-steps/building-decays-part2.md","articles":[]}]},"previous":{"title":"Second analysis steps","level":"3.1","depth":1,"path":"second-analysis-steps/README.md","ref":"second-analysis-steps/README.md","articles":[{"title":"Using git to develop LHCb software","level":"3.1.1","depth":2,"path":"second-analysis-steps/lb-git.md","ref":"second-analysis-steps/lb-git.md","articles":[]},{"title":"Building your own decay","level":"3.1.2","depth":2,"path":"second-analysis-steps/building-decays.md","ref":"second-analysis-steps/building-decays.md","articles":[{"title":"The Selection Framework","level":"3.1.2.1","depth":3,"path":"second-analysis-steps/building-decays-part0.md","ref":"second-analysis-steps/building-decays-part0.md","articles":[]},{"title":"A Historical Approach","level":"3.1.2.2","depth":3,"path":"second-analysis-steps/building-decays-part1.md","ref":"second-analysis-steps/building-decays-part1.md","articles":[]},{"title":"Modern Selection Framework","level":"3.1.2.3","depth":3,"path":"second-analysis-steps/building-decays-part2.md","ref":"second-analysis-steps/building-decays-part2.md","articles":[]}]},{"title":"What to do when something fails","level":"3.1.3","depth":2,"path":"second-analysis-steps/fixing-errors.md","ref":"second-analysis-steps/fixing-errors.md","articles":[]},{"title":"Run a different stripping line on simulated data","level":"3.1.4","depth":2,"path":"second-analysis-steps/rerun-stripping.md","ref":"second-analysis-steps/rerun-stripping.md","articles":[]},{"title":"Replace a mass hypothesis","level":"3.1.5","depth":2,"path":"second-analysis-steps/switch-mass-hypo.md","ref":"second-analysis-steps/switch-mass-hypo.md","articles":[]},{"title":"Reuse particles from a decay tree","level":"3.1.6","depth":2,"path":"second-analysis-steps/filter-in-trees.md","ref":"second-analysis-steps/filter-in-trees.md","articles":[]},{"title":"The simulation framework","level":"3.1.7","depth":2,"path":"second-analysis-steps/simulation.md","ref":"second-analysis-steps/simulation.md","articles":[{"title":"Introduction: The basics of Gauss","level":"3.1.7.1","depth":3,"path":"second-analysis-steps/simulation-intro.md","ref":"second-analysis-steps/simulation-intro.md","articles":[]},{"title":"Getting the correct option files","level":"3.1.7.2","depth":3,"path":"second-analysis-steps/simulation-running-gauss.md","ref":"second-analysis-steps/simulation-running-gauss.md","articles":[]},{"title":"Controlling the decay","level":"3.1.7.3","depth":3,"path":"second-analysis-steps/simulation-dkfiles.md","ref":"second-analysis-steps/simulation-dkfiles.md","articles":[]},{"title":"Advanced: Controlling the decay","level":"3.1.7.4","depth":3,"path":"second-analysis-steps/simulation-advanced-dkfiles.md","ref":"second-analysis-steps/simulation-advanced-dkfiles.md","articles":[]},{"title":"Modifying generator cuts","level":"3.1.7.5","depth":3,"path":"second-analysis-steps/simulation-gencuts.md","ref":"second-analysis-steps/simulation-gencuts.md","articles":[]},{"title":"Fast simulation options","level":"3.1.7.6","depth":3,"path":"second-analysis-steps/simulation-fastsim.md","ref":"second-analysis-steps/simulation-fastsim.md","articles":[]}]},{"title":"HLT intro","level":"3.1.8","depth":2,"path":"second-analysis-steps/hlt-intro.md","ref":"second-analysis-steps/hlt-intro.md","articles":[]},{"title":"TisTos DIY","level":"3.1.9","depth":2,"path":"second-analysis-steps/tistos-diy.md","ref":"second-analysis-steps/tistos-diy.md","articles":[]},{"title":"Ganga Scripting","level":"3.1.10","depth":2,"path":"second-analysis-steps/ganga-scripting.md","ref":"second-analysis-steps/ganga-scripting.md","articles":[]},{"title":"Managing files in Ganga","level":"3.1.11","depth":2,"path":"second-analysis-steps/managing-files-with-ganga.md","ref":"second-analysis-steps/managing-files-with-ganga.md","articles":[]},{"title":"Analysis automation: snakemake","level":"3.1.12","depth":2,"path":"second-analysis-steps/analysis-automation-snakemake.md","ref":"second-analysis-steps/analysis-automation-snakemake.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["-sharing","panels@git+https://github.com/lhcb/gitbook-plugin-panels.git#master","katex-auto-render@git+https://github.com/lhcb/gitbook-plugin-katex-auto-render.git#master","collapsible-menu","otherlink"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"collapsible-menu":{},"search":{},"otherlink":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"panels":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"katex-auto-render":{},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"The Starterkit team and contributors","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"gitbook":"*"},"file":{"path":"second-analysis-steps/lb-git.md","mtime":"2018-05-09T14:23:52.172Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-05-09T14:29:45.357Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Advanced: Controlling the decay","level":"3.1.7.4","depth":3,"next":{"title":"Modifying generator cuts","level":"3.1.7.5","depth":3,"path":"second-analysis-steps/simulation-gencuts.md","ref":"second-analysis-steps/simulation-gencuts.md","articles":[]},"previous":{"title":"Controlling the decay","level":"3.1.7.3","depth":3,"path":"second-analysis-steps/simulation-dkfiles.md","ref":"second-analysis-steps/simulation-dkfiles.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-sharing","panels@git+https://github.com/lhcb/gitbook-plugin-panels.git#master","katex-auto-render@git+https://github.com/lhcb/gitbook-plugin-katex-auto-render.git#master","collapsible-menu","otherlink"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"collapsible-menu":{},"search":{},"otherlink":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"panels":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"katex-auto-render":{},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"The Starterkit team and contributors","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"gitbook":"*"},"file":{"path":"second-analysis-steps/simulation-advanced-dkfiles.md","mtime":"2018-05-09T14:23:52.176Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-05-09T14:29:45.357Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

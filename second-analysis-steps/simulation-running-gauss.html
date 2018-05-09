@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>Using git to develop LHCb software · GitBook</title>
+        <title>Getting the correct option files · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -65,10 +65,10 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="building-decays.html" />
+    <link rel="next" href="simulation-dkfiles.html" />
     
     
-    <link rel="prev" href="./" />
+    <link rel="prev" href="simulation-intro.html" />
     
 
     </head>
@@ -436,7 +436,7 @@
             <ul class="articles">
                 
     
-        <li class="chapter active" data-level="3.1.1" data-path="lb-git.html">
+        <li class="chapter " data-level="3.1.1" data-path="lb-git.html">
             
                 <a href="lb-git.html">
             
@@ -586,7 +586,7 @@
             
         </li>
     
-        <li class="chapter " data-level="3.1.7.2" data-path="simulation-running-gauss.html">
+        <li class="chapter active" data-level="3.1.7.2" data-path="simulation-running-gauss.html">
             
                 <a href="simulation-running-gauss.html">
             
@@ -776,7 +776,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >Using git to develop LHCb software</a>
+        <a href=".." >Getting the correct option files</a>
     </h1>
 </div>
 
@@ -791,133 +791,139 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="using-git-to-develop-lhcb-software">Using git to develop LHCb software</h1>
-<p><div class="panel panel-warning"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(6907265342);" id="learning-objectives"><i class="fa fa-line-chart"></i> Learning Objectives<span id="heading-6907265342"></span></h3></div><div class="panel-body" id="panel-6907265342"><ul>
-<li>Learn how to clone specific LHCb packages to a local development directory</li>
-<li>Learn how to make changes and upload them to be reviewed by others</li>
+                                <p><div class="panel panel-warning"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(74330959);" id="learning-objectives"><i class="fa fa-line-chart"></i> Learning Objectives<span id="heading-74330959"></span></h3></div><div class="panel-body" id="panel-74330959"><ul>
+<li>Find the correct option files to run Gauss</li>
+<li>Produce generator level Monte Carlo, print the decay tree and produce nTuples</li>
 </ul>
+</div></div> </p>
+<h2 id="which-option-files-to-use-and-how-to-run-gauss">Which option files to use and how to run Gauss</h2>
+<p>Imagine you need to know the option files and software versions used for a simulated sample you have found in the bookkeeping, e.g.</p>
+<pre><code>/MC/2016/Beam6500GeV-2016-MagDown-Nu1.6-25ns-Pythia8/Sim09c/Trig0x6138160F/Reco16/Turbo03/Stripping28r1Filtered/27163003/D2HMUNUSTREAM.STRIP.DST
+</code></pre><p>First, find the ProductionID:</p>
+<p><img src="img/simulation_1.png" alt="FindingProductionID"></p>
+<p>Search for this ID in the Transformation Monitor, right click the result and select &quot;Show request&quot;. Right clicking and selecting &quot;View&quot; in the new window will open an overview about all the individual steps of the production with their application version and option files used.</p>
+<p><div class="panel panel-primary"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(9043386568);" id="important-the-order-of-the-option-files-does-matter"><i class="fa fa-info-circle"></i> Important: the order of the option files does matter!<span id="heading-9043386568"></span></h3></div><div class="panel-body" id="panel-9043386568"><p><code>&apos;$DECFILESROOT/options/27163003.py&apos; &apos;$LBPYTHIA8ROOT/options/Pythia8.py&apos;</code> 
+produces the sample using Pythia 8 while <code>&apos;$LBPYTHIA8ROOT/options/Pythia8.py&apos; 
+&apos;$DECFILESROOT/options/27163003.py&apos;</code> uses Pythia 6.</p>
 </div></div></p>
-<p><div class="panel panel-primary"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(7407652893);" id="prerequisites"><i class="fa fa-info-circle"></i> Prerequisites<span id="heading-7407652893"></span></h3></div><div class="panel-body" id="panel-7407652893"><p>Before starting, you should have a basic understanding of how to use <code>git</code>,
-similar to what has been taught during the starterkit.</p>
+<h2 id="running-gauss-and-create-a-generator-only-sample">Running Gauss and create a generator-only sample</h2>
+<p>The production system handles the necessary settings for initial event- and runnumber and the used database tags. In a private production, you need to set these yourself in an additional options file, containing, for example:</p>
+<pre><code class="lang-python"><span class="hljs-keyword">from</span> Gauss.Configuration <span class="hljs-keyword">import</span> GenInit
+
+GaussGen = GenInit(<span class="hljs-string">&quot;GaussGen&quot;</span>)
+GaussGen.FirstEventNumber = <span class="hljs-number">1</span>
+GaussGen.RunNumber = <span class="hljs-number">1082</span>
+
+<span class="hljs-keyword">from</span> Configurables <span class="hljs-keyword">import</span> LHCbApp
+LHCbApp().DDDBtag = <span class="hljs-string">&apos;dddb-20170721-3&apos;</span>
+LHCbApp().CondDBtag = <span class="hljs-string">&apos;sim-20170721-2-vc-md100&apos;</span>
+LHCbApp().EvtMax = <span class="hljs-number">5</span>
+</code></pre>
+<p>Assuming this is saved in a file called <code>Gauss-Job.py</code> and following the example above, the sample can then be produced by running</p>
+<pre><code class="lang-shell">./run gaudirun.py &apos;$APPCONFIGOPTS/Gauss/Beam6500GeV-md100-2016-nu1.6.py&apos; \
+        &apos;$APPCONFIGOPTS/Gauss/EnableSpillover-25ns.py&apos; \
+        &apos;$APPCONFIGOPTS/Gauss/DataType-2016.py&apos; \
+        &apos;$APPCONFIGOPTS/Gauss/RICHRandomHits.py&apos; \
+        &apos;$DECFILESROOT/options/27163003.py&apos; \
+        &apos;$LBPYTHIA8ROOT/options/Pythia8.py&apos; \
+        &apos;$APPCONFIGOPTS/Gauss/G4PL_FTFP_BERT_EmNoCuts.py&apos; \
+        Gauss-Job.py
+</code></pre>
+<p>This would take 5 to 10 minutes due to the detector simulation, which can be turned off by adding <code>&apos;$GAUSSOPTS/GenStandAlone.py&apos;</code> as one of the option files.
+In this case, all but <code>&apos;$GAUSSOPTS/GenStandAlone.py&apos;</code>, <code>&apos;$DECFILESROOT/options/27163003.py&apos;</code>, and <code>&apos;$LBPYTHIA8ROOT/options/Pythia8.py&apos;</code> are redundant 
+<div class="panel panel-primary"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(2070094296);" id="only-one-option-file"><i class="fa fa-info-circle"></i> Only one option file<span id="heading-2070094296"></span></h3></div><div class="panel-body" id="panel-2070094296"><p>You can source the various options files from your <code>&apos;Gauss-Job.py&apos;</code> by adding at its top:</p>
+<pre><code class="lang-python"><span class="hljs-keyword">from</span> Gaudi.Configuration <span class="hljs-keyword">import</span> *
+importOptions(<span class="hljs-string">&quot;$APPCONFIGOPTS/Gauss/Beam6500GeV-md100-2016-nu1.6.py&quot;</span>)
+<span class="hljs-comment"># etc ...</span>
+</code></pre>
 </div></div></p>
-<p>In this lesson, we&apos;ll show you a complete workflow for developing the LHCb software
-using the <code>git</code> version control system.
-At LHCb, we use GitLab to manage our git repositories.
-Among other features, GitLab allows you to browse the source code for each project,
-and to review new changes (called <em>merge requests</em>) in a convenient web interface.
-You can find the CERN GitLab instance at <a href="https://gitlab.cern.ch" target="_blank">https://gitlab.cern.ch</a>.</p>
-<p>In principle, there are multiple ways of interacting with the LHCb software repositories:</p>
-<ol>
-<li>A vanilla git workflow using only the standard git commands.
-This requires you to <code>clone</code> and compile an entire LHCb project at a time.
-This approach is recommended when your development is expected to last
-multiple days or more or if you collaborate with others.</li>
-<li>An LHCb-specific workflow using a set of <code>lb-*</code> subcommands.
-This allows you to check out individual packages inside a project, and
-streamlines the modification of a few packages at a time.
-This approach is mostly appropriate for quick and isolated changes.
-(This is closer to the previously used <code>getpack</code> command.)</li>
-</ol>
-<p>Here, we want to focus on the second workflow.</p>
-<p>Before jumping in by creating a project in GitLab, you should make sure that
-your local git configuration and your settings on GitLab are sufficiently set up:</p>
-<p>Your name and email address should be set up in your local <code>git</code> configuration.
-To ensure that this is the case, run</p>
-<pre><code>$ git config --global user.name &quot;Your Name&quot;
-$ git config --global user.email &quot;Your Name &lt;your.name@cern.ch&gt;&quot;
-</code></pre><p>and put in your information.</p>
-<p>Next, connect to <a href="https://gitlab.cern.ch" target="_blank">https://gitlab.cern.ch</a> and log in
-with your CERN credentials.</p>
-<p>Visit <a href="https://gitlab.cern.ch/profile/keys" target="_blank">https://gitlab.cern.ch/profile/keys</a> and add an SSH key.</p>
-<p>Run this LHCb-specific configuration command:</p>
-<pre><code>git config --global lb-use.protocol ssh
-</code></pre><p>This makes sure the LHCb commands use the ssh protocol instead of https.</p>
-<p>In the GitLab web interface, create a new project by clicking on the &quot;New project&quot; button.
-Give your project the name &quot;LHCbSK&quot;.</p>
-<p>We will now set up a local LHCb development area that is connected to the git
-repository you just created.
-In order to create a new dev environment, run</p>
-<pre><code>$ lb-dev --list LHCb
-</code></pre><p>to see which versions of the LHCb project are available.
-Pick the newest one and run</p>
-<pre><code>$ lb-dev --name LHCbSK LHCb/&lt;version&gt;
-</code></pre><p>where you need to insert the version you picked earlier.
-This will automatically run <code>git init</code> to create a new git repository with some initial files (<code>Makefile</code>, <code>CMakeLists.txt</code>, etc.).
-In order to connect your repository with the remote one, run</p>
-<pre><code>cd LHCbSK
-git remote add origin ssh://git@gitlab.cern.ch:7999/&lt;username&gt;/LHCbSK.git
-</code></pre><p>where you need to substitute your username.
-Run</p>
-<pre><code>git push -u origin master
-</code></pre><p>once to define <code>master</code> as the remote branch that we should push to by default.</p>
-<p><div class="panel panel-primary"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(40596777);" id="pushing-your-dev-project-to-gitlab"><i class="fa fa-info-circle"></i> Pushing your dev project to GitLab<span id="heading-40596777"></span></h3></div><div class="panel-body" id="panel-40596777"><p>You don&apos;t necessarily need to create a remote git repository on GitLab for your
-local dev project, especially if its lifetime will be short.
-However, in case you plan to collaborate with someone, a remote repo where you
-can synchronize your work is a must.
-Pushing to GitLab is also good practice if you use this dev project for ganga&apos;s
-<code>GaudiExec</code>.</p>
-</div></div></p>
-<p>For the purpose of this tutorial, we&apos;ve set up an <code>SKTest</code> project containing
-the package <code>TheTestPackage</code>.
-In order to be able to work on parts of the <code>SKTest</code> project, first run</p>
-<pre><code>git lb-use SKTest
-</code></pre><p>This will define a remote <code>SKTest</code> and fetch the git repository from GitLab.</p>
-<p>You can then run</p>
-<pre><code>git lb-checkout SKTest/master TheTestPackage
-</code></pre><p>to check out the files inside the <code>SKTest</code> project that belong to the
-<code>TheTestPackage</code> package.
-This performs <code>git checkout</code> under the hood and commits the files into the
-local (synthetic) branch.
-You can check how this looks in the history with <code>git log</code>.</p>
-<p>You can now run</p>
-<pre><code>make
-</code></pre><p>to build the project, make some changes, run <code>make</code> again, etc.
-You can also use</p>
-<pre><code>make test
-</code></pre><p>to run the tests.
-Once you&apos;re happy with the changes, run</p>
-<pre><code>git add &lt;your-changed-files&gt;
-</code></pre><p>where you have to specify all files with changes that you want to store,
-and</p>
-<pre><code>git commit
-</code></pre><p>to store them in a new commit.
-This will open up a text editor that will allow you to type in a commit message.</p>
-<p><div class="panel panel-primary"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(8043696214);" id="committing-often"><i class="fa fa-info-circle"></i> Committing often<span id="heading-8043696214"></span></h3></div><div class="panel-body" id="panel-8043696214"><p>There&apos;s no cost to committing often.
-You should try to make a new commit every time you&apos;ve made
-modifications that can be considered a single unit of changes.</p>
-</div></div></p>
-<p>Now push your changes to your newly created GitLab project</p>
-<pre><code>git push
-</code></pre><p>and check that they appear on the website.</p>
-<p>Once you want to upload your commits to the SKTest project for review, run</p>
-<pre><code>git lb-push SKTest &lt;username&gt;-new-feature
-</code></pre><p>to create a new <code>&lt;username&gt;-new-feature</code> branch on the main GitLab repository
-and upload your commits to it.
-This will calculate the changes between your local dev repository and the
-remote project repository, and create corresponding commits for the remote
-project.
-You can now create a merge request by going to
-<a href="https://gitlab.cern.ch/LHCb-SVN-mirrors/SKTest/merge_requests/new" target="_blank">https://gitlab.cern.ch/LHCb-SVN-mirrors/SKTest/merge_requests/new</a>,
-selecting the <code>&lt;username&gt;-new-feature</code> branch as the source and <code>master</code> as the target.
-Add a title for your merge request and explain what you&apos;ve done in the main text.</p>
-<p><div class="panel panel-success"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(6742618526);" id="merge-conflicts"><i class="fa fa-square-o"></i> Merge conflicts<span id="heading-6742618526"></span></h3></div><div class="panel-body" id="panel-6742618526"><ul>
-<li>Working with a partner, try to create a merge conflict by making changes to
-the same file.
-If you don&apos;t have someone else to work with, you can simulate this by creating a second development area.</li>
-<li>Now, try to resolve the merge conflict.
-This is a bit complicated because of the way the local repository is set up.
-Take a look at <a href="https://twiki.cern.ch/twiki/bin/view/LHCb/Git4LHCb#Replacement_for_svn_update_in_lo" target="_blank">https://twiki.cern.ch/twiki/bin/view/LHCb/Git4LHCb#Replacement_for_svn_update_in_lo</a> for pointers.</li>
-</ul>
-</div></div></p>
-<p><div class="panel panel-primary"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(7387982762);" id="working-with-entire-projects"><i class="fa fa-info-circle"></i> Working with entire projects<span id="heading-7387982762"></span></h3></div><div class="panel-body" id="panel-7387982762"><p>Working with entire projects is just as simple, but requires a little more
-care with the environment.
-Most importantly, be prepared that the project repo clones and the build
-products may need a few GB of disk space and that the compilation may take a
-long time.
-A step-by-step guide is available at <a href="https://twiki.cern.ch/twiki/bin/view/LHCb/Git4LHCb#Building_everything_locally_exam" target="_blank">https://twiki.cern.ch/twiki/bin/view/LHCb/Git4LHCb#Building_everything_locally_exam</a>.
-A more integrated approach that automatically takes care of the environment is <a href="https://gitlab.cern.ch/lhcb/upgrade-hackathon-setup" target="_blank">https://gitlab.cern.ch/lhcb/upgrade-hackathon-setup</a> and a variation of it that lets you use some of the nightly builds
-to spare compiling many projects is at <a href="https://gitlab.cern.ch/lhcb-HLT/trigger-dev" target="_blank">https://gitlab.cern.ch/lhcb-HLT/trigger-dev</a>.</p>
-</div></div></p>
+<h2 id="make-an-ntuple">Make an nTuple</h2>
+<p>The <code>.xgen</code> file can be processed into something more usable (copied together from <a href="https://gitlab.cern.ch/lhcb-datapkg/Gen/DecFiles/blob/master/CONTRIBUTING.md" target="_blank">here</a>).
+A larger input file containing 10,000 generated events for event-type can be found on EOS: <code>root://eosuser.cern.ch//eos/user/l/lhcbsk/sim-lesson/Gauss-27163003-10000ev.xgen</code>.</p>
+<pre><code class="lang-python"><span class="hljs-string">&quot;&quot;&quot;Configure the variables below with:
+decay: Decay you want to inspect, using &apos;newer&apos; LoKi decay descriptor syntax,
+decay_heads: Particles you&apos;d like to see the decay tree of,
+datafile: Where the file created by the Gauss generation phase is, and
+year: What year the MC is simulating.
+&quot;&quot;&quot;</span>
+<span class="hljs-comment"># https://twiki.cern.ch/twiki/bin/view/LHCb/FAQ/LoKiNewDecayFinders</span>
+decay = <span class="hljs-string">&quot;[D*(2010)+ =&gt; ^[([D0]cc =&gt; ^K- ^pi+)]CC ^pi+]CC&quot;</span>
+datafile = <span class="hljs-string">&quot;./Gauss-27163003-100ev-20180507.xgen&quot;</span>
+
+mc_basic_loki_vars = {
+    <span class="hljs-string">&apos;ETA&apos;</span>: <span class="hljs-string">&apos;MCETA&apos;</span>,
+    <span class="hljs-string">&apos;PHI&apos;</span>: <span class="hljs-string">&apos;MCPHI&apos;</span>,
+    <span class="hljs-string">&apos;PT&apos;</span>: <span class="hljs-string">&apos;MCPT&apos;</span>,
+    <span class="hljs-string">&apos;P&apos;</span>: <span class="hljs-string">&apos;MCP&apos;</span>,
+}
+
+<span class="hljs-keyword">from</span> Configurables <span class="hljs-keyword">import</span> (
+    DaVinci,
+    MCDecayTreeTuple
+)
+<span class="hljs-keyword">from</span> DecayTreeTuple.Configuration <span class="hljs-keyword">import</span> *
+
+<span class="hljs-comment"># For a quick and dirty check, you don&apos;t need to edit anything below here.</span>
+<span class="hljs-comment">##########################################################################</span>
+
+<span class="hljs-comment"># Create an MC DTT containing any candidates matching the decay descriptor</span>
+mctuple = MCDecayTreeTuple(<span class="hljs-string">&quot;MCDecayTreeTuple&quot;</span>)
+mctuple.Decay = decay
+
+mctuple.ToolList = []
+mctuple.addTupleTool(
+    <span class="hljs-string">&apos;LoKi::Hybrid::MCTupleTool/basicLoKiTT&apos;</span>
+).Variables = mc_basic_loki_vars
+
+<span class="hljs-comment"># Name of the .xgen file produced by Gauss</span>
+<span class="hljs-keyword">from</span> GaudiConf <span class="hljs-keyword">import</span> IOHelper
+<span class="hljs-comment"># Use the local input data</span>
+IOHelper().inputFiles([
+    datafile
+], clear=<span class="hljs-keyword">True</span>)
+
+<span class="hljs-comment"># Configure DaVinci</span>
+DaVinci().TupleFile = <span class="hljs-string">&quot;DVntuple.root&quot;</span>
+DaVinci().Simulation = <span class="hljs-keyword">True</span>
+DaVinci().Lumi = <span class="hljs-keyword">False</span>
+DaVinci().DataType = <span class="hljs-string">&apos;2016&apos;</span>
+DaVinci().InputType = <span class="hljs-string">&apos;DIGI&apos;</span>
+DaVinci().UserAlgorithms = [mctuple]
+
+<span class="hljs-keyword">from</span> Gaudi.Configuration <span class="hljs-keyword">import</span> appendPostConfigAction
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">doIt</span><span class="hljs-params">()</span>:</span>
+    <span class="hljs-string">&quot;&quot;&quot;
+    specific post-config action for (x)GEN-files
+    &quot;&quot;&quot;</span>
+    extension = <span class="hljs-string">&quot;xgen&quot;</span>
+    ext = extension.upper()
+
+    <span class="hljs-keyword">from</span> Configurables <span class="hljs-keyword">import</span> DataOnDemandSvc
+    dod  = DataOnDemandSvc ()
+    <span class="hljs-keyword">from</span> copy <span class="hljs-keyword">import</span> deepcopy
+    algs = deepcopy ( dod.AlgMap )
+    bad  = set()
+    <span class="hljs-keyword">for</span> key <span class="hljs-keyword">in</span> algs :
+        <span class="hljs-keyword">if</span>     <span class="hljs-number">0</span> &lt;= key.find ( <span class="hljs-string">&apos;Rec&apos;</span>     )                  : bad.add ( key )
+        <span class="hljs-keyword">elif</span>   <span class="hljs-number">0</span> &lt;= key.find ( <span class="hljs-string">&apos;Raw&apos;</span>     )                  : bad.add ( key )
+        <span class="hljs-keyword">elif</span>   <span class="hljs-number">0</span> &lt;= key.find ( <span class="hljs-string">&apos;DAQ&apos;</span>     )                  : bad.add ( key )
+        <span class="hljs-keyword">elif</span>   <span class="hljs-number">0</span> &lt;= key.find ( <span class="hljs-string">&apos;Trigger&apos;</span> )                  : bad.add ( key )
+        <span class="hljs-keyword">elif</span>   <span class="hljs-number">0</span> &lt;= key.find ( <span class="hljs-string">&apos;Phys&apos;</span>    )                  : bad.add ( key )
+        <span class="hljs-keyword">elif</span>   <span class="hljs-number">0</span> &lt;= key.find ( <span class="hljs-string">&apos;Prev/&apos;</span>   )                  : bad.add ( key )
+        <span class="hljs-keyword">elif</span>   <span class="hljs-number">0</span> &lt;= key.find ( <span class="hljs-string">&apos;Next/&apos;</span>   )                  : bad.add ( key )
+        <span class="hljs-keyword">elif</span>   <span class="hljs-number">0</span> &lt;= key.find ( <span class="hljs-string">&apos;/MC/&apos;</span>    ) <span class="hljs-keyword">and</span> <span class="hljs-string">&apos;GEN&apos;</span> == ext : bad.add ( key )
+
+    <span class="hljs-keyword">for</span> b <span class="hljs-keyword">in</span> bad :
+        <span class="hljs-keyword">del</span> algs[b]
+
+    dod.AlgMap = algs
+
+    <span class="hljs-keyword">from</span> Configurables <span class="hljs-keyword">import</span> EventClockSvc, CondDB
+    EventClockSvc ( EventTimeDecoder = <span class="hljs-string">&quot;FakeEventTime&quot;</span> )
+    CondDB  ( IgnoreHeartBeat = <span class="hljs-keyword">True</span> )
+
+appendPostConfigAction( doIt )
+</code></pre>
 
                                 
                                 </section>
@@ -945,12 +951,12 @@ to spare compiling many projects is at <a href="https://gitlab.cern.ch/lhcb-HLT/
 
             
                 
-                <a href="./" class="navigation navigation-prev " aria-label="Previous page: Second analysis steps">
+                <a href="simulation-intro.html" class="navigation navigation-prev " aria-label="Previous page: Introduction: The basics of Gauss">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="building-decays.html" class="navigation navigation-next " aria-label="Next page: Building your own decay">
+                <a href="simulation-dkfiles.html" class="navigation navigation-next " aria-label="Next page: Controlling the decay">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -961,7 +967,7 @@ to spare compiling many projects is at <a href="https://gitlab.cern.ch/lhcb-HLT/
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Using git to develop LHCb software","level":"3.1.1","depth":2,"next":{"title":"Building your own decay","level":"3.1.2","depth":2,"path":"second-analysis-steps/building-decays.md","ref":"second-analysis-steps/building-decays.md","articles":[{"title":"The Selection Framework","level":"3.1.2.1","depth":3,"path":"second-analysis-steps/building-decays-part0.md","ref":"second-analysis-steps/building-decays-part0.md","articles":[]},{"title":"A Historical Approach","level":"3.1.2.2","depth":3,"path":"second-analysis-steps/building-decays-part1.md","ref":"second-analysis-steps/building-decays-part1.md","articles":[]},{"title":"Modern Selection Framework","level":"3.1.2.3","depth":3,"path":"second-analysis-steps/building-decays-part2.md","ref":"second-analysis-steps/building-decays-part2.md","articles":[]}]},"previous":{"title":"Second analysis steps","level":"3.1","depth":1,"path":"second-analysis-steps/README.md","ref":"second-analysis-steps/README.md","articles":[{"title":"Using git to develop LHCb software","level":"3.1.1","depth":2,"path":"second-analysis-steps/lb-git.md","ref":"second-analysis-steps/lb-git.md","articles":[]},{"title":"Building your own decay","level":"3.1.2","depth":2,"path":"second-analysis-steps/building-decays.md","ref":"second-analysis-steps/building-decays.md","articles":[{"title":"The Selection Framework","level":"3.1.2.1","depth":3,"path":"second-analysis-steps/building-decays-part0.md","ref":"second-analysis-steps/building-decays-part0.md","articles":[]},{"title":"A Historical Approach","level":"3.1.2.2","depth":3,"path":"second-analysis-steps/building-decays-part1.md","ref":"second-analysis-steps/building-decays-part1.md","articles":[]},{"title":"Modern Selection Framework","level":"3.1.2.3","depth":3,"path":"second-analysis-steps/building-decays-part2.md","ref":"second-analysis-steps/building-decays-part2.md","articles":[]}]},{"title":"What to do when something fails","level":"3.1.3","depth":2,"path":"second-analysis-steps/fixing-errors.md","ref":"second-analysis-steps/fixing-errors.md","articles":[]},{"title":"Run a different stripping line on simulated data","level":"3.1.4","depth":2,"path":"second-analysis-steps/rerun-stripping.md","ref":"second-analysis-steps/rerun-stripping.md","articles":[]},{"title":"Replace a mass hypothesis","level":"3.1.5","depth":2,"path":"second-analysis-steps/switch-mass-hypo.md","ref":"second-analysis-steps/switch-mass-hypo.md","articles":[]},{"title":"Reuse particles from a decay tree","level":"3.1.6","depth":2,"path":"second-analysis-steps/filter-in-trees.md","ref":"second-analysis-steps/filter-in-trees.md","articles":[]},{"title":"The simulation framework","level":"3.1.7","depth":2,"path":"second-analysis-steps/simulation.md","ref":"second-analysis-steps/simulation.md","articles":[{"title":"Introduction: The basics of Gauss","level":"3.1.7.1","depth":3,"path":"second-analysis-steps/simulation-intro.md","ref":"second-analysis-steps/simulation-intro.md","articles":[]},{"title":"Getting the correct option files","level":"3.1.7.2","depth":3,"path":"second-analysis-steps/simulation-running-gauss.md","ref":"second-analysis-steps/simulation-running-gauss.md","articles":[]},{"title":"Controlling the decay","level":"3.1.7.3","depth":3,"path":"second-analysis-steps/simulation-dkfiles.md","ref":"second-analysis-steps/simulation-dkfiles.md","articles":[]},{"title":"Advanced: Controlling the decay","level":"3.1.7.4","depth":3,"path":"second-analysis-steps/simulation-advanced-dkfiles.md","ref":"second-analysis-steps/simulation-advanced-dkfiles.md","articles":[]},{"title":"Modifying generator cuts","level":"3.1.7.5","depth":3,"path":"second-analysis-steps/simulation-gencuts.md","ref":"second-analysis-steps/simulation-gencuts.md","articles":[]},{"title":"Fast simulation options","level":"3.1.7.6","depth":3,"path":"second-analysis-steps/simulation-fastsim.md","ref":"second-analysis-steps/simulation-fastsim.md","articles":[]}]},{"title":"HLT intro","level":"3.1.8","depth":2,"path":"second-analysis-steps/hlt-intro.md","ref":"second-analysis-steps/hlt-intro.md","articles":[]},{"title":"TisTos DIY","level":"3.1.9","depth":2,"path":"second-analysis-steps/tistos-diy.md","ref":"second-analysis-steps/tistos-diy.md","articles":[]},{"title":"Ganga Scripting","level":"3.1.10","depth":2,"path":"second-analysis-steps/ganga-scripting.md","ref":"second-analysis-steps/ganga-scripting.md","articles":[]},{"title":"Managing files in Ganga","level":"3.1.11","depth":2,"path":"second-analysis-steps/managing-files-with-ganga.md","ref":"second-analysis-steps/managing-files-with-ganga.md","articles":[]},{"title":"Analysis automation: snakemake","level":"3.1.12","depth":2,"path":"second-analysis-steps/analysis-automation-snakemake.md","ref":"second-analysis-steps/analysis-automation-snakemake.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["-sharing","panels@git+https://github.com/lhcb/gitbook-plugin-panels.git#master","katex-auto-render@git+https://github.com/lhcb/gitbook-plugin-katex-auto-render.git#master","collapsible-menu","otherlink"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"collapsible-menu":{},"search":{},"otherlink":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"panels":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"katex-auto-render":{},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"The Starterkit team and contributors","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"gitbook":"*"},"file":{"path":"second-analysis-steps/lb-git.md","mtime":"2018-05-09T14:23:52.172Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-05-09T14:29:45.357Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Getting the correct option files","level":"3.1.7.2","depth":3,"next":{"title":"Controlling the decay","level":"3.1.7.3","depth":3,"path":"second-analysis-steps/simulation-dkfiles.md","ref":"second-analysis-steps/simulation-dkfiles.md","articles":[]},"previous":{"title":"Introduction: The basics of Gauss","level":"3.1.7.1","depth":3,"path":"second-analysis-steps/simulation-intro.md","ref":"second-analysis-steps/simulation-intro.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-sharing","panels@git+https://github.com/lhcb/gitbook-plugin-panels.git#master","katex-auto-render@git+https://github.com/lhcb/gitbook-plugin-katex-auto-render.git#master","collapsible-menu","otherlink"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"collapsible-menu":{},"search":{},"otherlink":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"panels":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"katex-auto-render":{},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"The Starterkit team and contributors","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"gitbook":"*"},"file":{"path":"second-analysis-steps/simulation-running-gauss.md","mtime":"2018-05-09T14:23:52.176Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-05-09T14:29:45.357Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

@@ -570,6 +570,90 @@
             
 
             
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.1.7.1" data-path="simulation-intro.html">
+            
+                <a href="simulation-intro.html">
+            
+                    
+                    Introduction: The basics of Gauss
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.7.2" data-path="simulation-running-gauss.html">
+            
+                <a href="simulation-running-gauss.html">
+            
+                    
+                    Getting the correct option files
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.7.3" data-path="simulation-dkfiles.html">
+            
+                <a href="simulation-dkfiles.html">
+            
+                    
+                    Controlling the decay
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.7.4" data-path="simulation-advanced-dkfiles.html">
+            
+                <a href="simulation-advanced-dkfiles.html">
+            
+                    
+                    Advanced: Controlling the decay
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.7.5" data-path="simulation-gencuts.html">
+            
+                <a href="simulation-gencuts.html">
+            
+                    
+                    Modifying generator cuts
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.7.6" data-path="simulation-fastsim.html">
+            
+                <a href="simulation-fastsim.html">
+            
+                    
+                    Fast simulation options
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
         </li>
     
         <li class="chapter " data-level="3.1.8" data-path="hlt-intro.html">
@@ -708,13 +792,13 @@
                                 <section class="normal markdown-section">
                                 
                                 <h1 id="replace-a-mass-hypothesis">Replace a mass hypothesis</h1>
-<p><div class="panel panel-warning"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(5827278709);" id="learning-objectives"><i class="fa fa-line-chart"></i> Learning Objectives<span id="heading-5827278709"></span></h3></div><div class="panel-body" id="panel-5827278709"><ul>
+<p><div class="panel panel-warning"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(4138114804);" id="learning-objectives"><i class="fa fa-line-chart"></i> Learning Objectives<span id="heading-4138114804"></span></h3></div><div class="panel-body" id="panel-4138114804"><ul>
 <li>Create a new selection starting from the stripping line output</li>
 <li>Change the particle hypothesis made by the stripping line</li>
 </ul>
 </div></div> </p>
 <p>There are many situations where you want to repurpose a stripping line to look for a new decay that is similar in topology but distinct from what was put into the stripping line. The easiest thing to do is to change some of the hypothesis on particle IDs made in the stripping. This lesson will show you how to do that.</p>
-<p><div class="panel panel-primary"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(6100016486);" id="reinterpreting-stripping-selections"><i class="fa fa-info-circle"></i> Reinterpreting stripping selections<span id="heading-6100016486"></span></h3></div><div class="panel-body" id="panel-6100016486"><p>Note that with this method you can never find more candidates than the 
+<p><div class="panel panel-primary"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(2654276014);" id="reinterpreting-stripping-selections"><i class="fa fa-info-circle"></i> Reinterpreting stripping selections<span id="heading-2654276014"></span></h3></div><div class="panel-body" id="panel-2654276014"><p>Note that with this method you can never find more candidates than the 
 stripping has already found.  However, you can reinterpret parts of the decay 
 to look for new decay modes.</p>
 </div></div></p>
@@ -770,7 +854,7 @@ dtt.Inputs = [selSeq.outputLocation()]
 dtt.Decay = <span class="hljs-string">&apos;[D*(2010)+ -&gt; ^(D0 -&gt; ^K- ^pi+) ^pi+]CC&apos;</span>
 </code></pre>
 <p>The input to the <code>DecayTreeTuple</code> is taken as the <code>outputLocations</code> of the <code>SelectionSequence</code> we just created. </p>
-<p><div class="panel panel-primary"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(9627301471);" id="why-use-davinci-selections"><i class="fa fa-info-circle"></i> Why use DaVinci selections?<span id="heading-9627301471"></span></h3></div><div class="panel-body" id="panel-9627301471"><p>Selections and SelectionSequences are an elegant way to organize the required 
+<p><div class="panel panel-primary"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(7732023234);" id="why-use-davinci-selections"><i class="fa fa-info-circle"></i> Why use DaVinci selections?<span id="heading-7732023234"></span></h3></div><div class="panel-body" id="panel-7732023234"><p>Selections and SelectionSequences are an elegant way to organize the required 
 algorithms that perform the job of selecting data.
 The <a href="https://twiki.cern.ch/twiki/bin/view/LHCb/ParticleSelection" target="_blank">particle selection toolkit</a> uses python tricks to make the management of even complicated sequences of selections rather straight forward. In particular the toolkit ensures that all necessary algorithms are run in the correct order to produce the desired selections. It is therefore mainly a tool to manage dependencies. For technical details, have a look at the <a href="https://twiki.cern.ch/twiki/bin/view/LHCb/ParticleSelection" target="_blank">TWiki page</a>.</p>
 </div></div></p>
@@ -783,7 +867,7 @@ DaVinci().appendToMainSequence([seq])
 </code></pre>
 <p>The solution to this exercise <code>ntuple_switchHypo.py</code>, is <a href="code/18-switch-mass-hypo/ntuple_switchHypo.py">available 
 here</a>.</p>
-<p><div class="panel panel-primary"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(8547546284);" id="think-about-it"><i class="fa fa-info-circle"></i> Think about it<span id="heading-8547546284"></span></h3></div><div class="panel-body" id="panel-8547546284"><p>Why can&apos;t we use this method to look for D* decaying to D0+photon ? </p>
+<p><div class="panel panel-primary"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(9210956902);" id="think-about-it"><i class="fa fa-info-circle"></i> Think about it<span id="heading-9210956902"></span></h3></div><div class="panel-body" id="panel-9210956902"><p>Why can&apos;t we use this method to look for D* decaying to D0+photon ? </p>
 </div></div></p>
 
                                 
@@ -828,7 +912,7 @@ here</a>.</p>
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Replace a mass hypothesis","level":"3.1.5","depth":2,"next":{"title":"Reuse particles from a decay tree","level":"3.1.6","depth":2,"path":"second-analysis-steps/filter-in-trees.md","ref":"second-analysis-steps/filter-in-trees.md","articles":[]},"previous":{"title":"Run a different stripping line on simulated data","level":"3.1.4","depth":2,"path":"second-analysis-steps/rerun-stripping.md","ref":"second-analysis-steps/rerun-stripping.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-sharing","panels@git+https://github.com/lhcb/gitbook-plugin-panels.git#master","katex-auto-render@git+https://github.com/lhcb/gitbook-plugin-katex-auto-render.git#master","collapsible-menu","otherlink"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"collapsible-menu":{},"search":{},"otherlink":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"panels":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"katex-auto-render":{},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"The Starterkit team and contributors","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"gitbook":"*"},"file":{"path":"second-analysis-steps/switch-mass-hypo.md","mtime":"2018-05-09T10:41:15.372Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-05-09T10:43:39.070Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Replace a mass hypothesis","level":"3.1.5","depth":2,"next":{"title":"Reuse particles from a decay tree","level":"3.1.6","depth":2,"path":"second-analysis-steps/filter-in-trees.md","ref":"second-analysis-steps/filter-in-trees.md","articles":[]},"previous":{"title":"Run a different stripping line on simulated data","level":"3.1.4","depth":2,"path":"second-analysis-steps/rerun-stripping.md","ref":"second-analysis-steps/rerun-stripping.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-sharing","panels@git+https://github.com/lhcb/gitbook-plugin-panels.git#master","katex-auto-render@git+https://github.com/lhcb/gitbook-plugin-katex-auto-render.git#master","collapsible-menu","otherlink"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"collapsible-menu":{},"search":{},"otherlink":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"panels":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"katex-auto-render":{},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"The Starterkit team and contributors","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"gitbook":"*"},"file":{"path":"second-analysis-steps/switch-mass-hypo.md","mtime":"2018-05-09T14:23:52.176Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-05-09T14:29:45.357Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

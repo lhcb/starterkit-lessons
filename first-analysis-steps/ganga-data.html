@@ -570,6 +570,90 @@
             
 
             
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.1.7.1" data-path="../second-analysis-steps/simulation-intro.html">
+            
+                <a href="../second-analysis-steps/simulation-intro.html">
+            
+                    
+                    Introduction: The basics of Gauss
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.7.2" data-path="../second-analysis-steps/simulation-running-gauss.html">
+            
+                <a href="../second-analysis-steps/simulation-running-gauss.html">
+            
+                    
+                    Getting the correct option files
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.7.3" data-path="../second-analysis-steps/simulation-dkfiles.html">
+            
+                <a href="../second-analysis-steps/simulation-dkfiles.html">
+            
+                    
+                    Controlling the decay
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.7.4" data-path="../second-analysis-steps/simulation-advanced-dkfiles.html">
+            
+                <a href="../second-analysis-steps/simulation-advanced-dkfiles.html">
+            
+                    
+                    Advanced: Controlling the decay
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.7.5" data-path="../second-analysis-steps/simulation-gencuts.html">
+            
+                <a href="../second-analysis-steps/simulation-gencuts.html">
+            
+                    
+                    Modifying generator cuts
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.7.6" data-path="../second-analysis-steps/simulation-fastsim.html">
+            
+                <a href="../second-analysis-steps/simulation-fastsim.html">
+            
+                    
+                    Fast simulation options
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
         </li>
     
         <li class="chapter " data-level="3.1.8" data-path="../second-analysis-steps/hlt-intro.html">
@@ -708,7 +792,7 @@
                                 <section class="normal markdown-section">
                                 
                                 <h1 id="more-ganga">More Ganga</h1>
-<p><div class="panel panel-warning"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(9621824274);" id="learning-objectives"><i class="fa fa-line-chart"></i> Learning Objectives<span id="heading-9621824274"></span></h3></div><div class="panel-body" id="panel-9621824274"><ul>
+<p><div class="panel panel-warning"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(7315686648);" id="learning-objectives"><i class="fa fa-line-chart"></i> Learning Objectives<span id="heading-7315686648"></span></h3></div><div class="panel-body" id="panel-7315686648"><ul>
 <li>Set the input data with BKQuery</li>
 <li>Use LHCbDatasets</li>
 <li>Set the location of the output of our jobs</li>
@@ -738,7 +822,7 @@ Ganga Out [<span class="hljs-number">5</span>]: [<span class="hljs-string">&apos
 </code></pre>
 <p>The returned path can be used by Bender to explore the contents of the DST, as in the <a href="interactive-dst.html">Interactively exploring a DST</a> lesson.</p>
 <p>In the previous lesson we looked at the location of the ouput with <code>job(782).outputdir</code>. This location points us to the <code>gangadir</code> where ganga stores information about the jobs and the output. If we have lots of jobs with large files the file system where the gangadir is located will quickly fill up.</p>
-<p><div class="panel panel-primary"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(4735360106);" id="setting-the-gangadir-location"><i class="fa fa-info-circle"></i> Setting the gangadir location<span id="heading-4735360106"></span></h3></div><div class="panel-body" id="panel-4735360106"><p>The location of the <code>gangadir</code> can be changed in the configuration file 
+<p><div class="panel panel-primary"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(8819551919);" id="setting-the-gangadir-location"><i class="fa fa-info-circle"></i> Setting the gangadir location<span id="heading-8819551919"></span></h3></div><div class="panel-body" id="panel-8819551919"><p>The location of the <code>gangadir</code> can be changed in the configuration file 
 &apos;~/.gangarc&apos;. Just search for the <code>gangadir</code> attribute and change it to where 
 you like (on the CERN AFS the <code>work</code> area is a popular choice).</p>
 </div></div> </p>
@@ -747,7 +831,7 @@ you like (on the CERN AFS the <code>work</code> area is a popular choice).</p>
 </code></pre>
 <p>The <code>DiracFile</code> will be stored in your user area on the grid (with up to 2TB personal capacity) from where you can access it with the <code>accessURL()</code> function as before. The wildcard means that any root file produced by your job will stay on the grid. <code>LocalFile</code> downloads the file to your <code>gangadir</code>, in this case the one called <code>stdout</code>.</p>
 <p>Small files are downloaded as standard: <code>.root</code>, logfiles etc. Files that are expected to be large which have extensions .dst etc are by default kept on the grid as Dirac files. In general you are encouraged to keep your large files on the grid to avoid moving large amounts of data around through your work area.</p>
-<p><div class="panel panel-primary"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(1658136098);" id="getting-help-with-ganga"><i class="fa fa-info-circle"></i> Getting help with ganga<span id="heading-1658136098"></span></h3></div><div class="panel-body" id="panel-1658136098"><p>To find out more take a look at the <a href="https://twiki.cern.ch/twiki/bin/view/LHCb/FAQ/GangaLHCbFAQ" target="_blank">Ganga 
+<p><div class="panel panel-primary"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(4050460747);" id="getting-help-with-ganga"><i class="fa fa-info-circle"></i> Getting help with ganga<span id="heading-4050460747"></span></h3></div><div class="panel-body" id="panel-4050460747"><p>To find out more take a look at the <a href="https://twiki.cern.ch/twiki/bin/view/LHCb/FAQ/GangaLHCbFAQ" target="_blank">Ganga 
 FAQ</a></p>
 </div></div> </p>
 
@@ -793,7 +877,7 @@ FAQ</a></p>
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"More Ganga","level":"2.1.14","depth":2,"next":{"title":"Storing large files on EOS","level":"2.1.15","depth":2,"path":"first-analysis-steps/eos-storage.md","ref":"first-analysis-steps/eos-storage.md","articles":[]},"previous":{"title":"How do I use DecayTreeFitter?","level":"2.1.13","depth":2,"path":"first-analysis-steps/decay-tree-fitter.md","ref":"first-analysis-steps/decay-tree-fitter.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-sharing","panels@git+https://github.com/lhcb/gitbook-plugin-panels.git#master","katex-auto-render@git+https://github.com/lhcb/gitbook-plugin-katex-auto-render.git#master","collapsible-menu","otherlink"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"collapsible-menu":{},"search":{},"otherlink":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"panels":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"katex-auto-render":{},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"The Starterkit team and contributors","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"gitbook":"*"},"file":{"path":"first-analysis-steps/ganga-data.md","mtime":"2018-05-09T10:41:15.324Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-05-09T10:43:39.070Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"More Ganga","level":"2.1.14","depth":2,"next":{"title":"Storing large files on EOS","level":"2.1.15","depth":2,"path":"first-analysis-steps/eos-storage.md","ref":"first-analysis-steps/eos-storage.md","articles":[]},"previous":{"title":"How do I use DecayTreeFitter?","level":"2.1.13","depth":2,"path":"first-analysis-steps/decay-tree-fitter.md","ref":"first-analysis-steps/decay-tree-fitter.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-sharing","panels@git+https://github.com/lhcb/gitbook-plugin-panels.git#master","katex-auto-render@git+https://github.com/lhcb/gitbook-plugin-katex-auto-render.git#master","collapsible-menu","otherlink"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"collapsible-menu":{},"search":{},"otherlink":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"panels":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"katex-auto-render":{},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"The Starterkit team and contributors","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"gitbook":"*"},"file":{"path":"first-analysis-steps/ganga-data.md","mtime":"2018-05-09T14:23:52.128Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-05-09T14:29:45.357Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
