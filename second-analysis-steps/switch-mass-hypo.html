@@ -708,19 +708,20 @@
                                 <section class="normal markdown-section">
                                 
                                 <h1 id="replace-a-mass-hypothesis">Replace a mass hypothesis</h1>
-<p><div class="panel panel-warning"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(1907662698);" id="learning-objectives"><i class="fa fa-line-chart"></i> Learning Objectives<span id="heading-1907662698"></span></h3></div><div class="panel-body" id="panel-1907662698"><ul>
+<p><div class="panel panel-warning"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(217758640);" id="learning-objectives"><i class="fa fa-line-chart"></i> Learning Objectives<span id="heading-217758640"></span></h3></div><div class="panel-body" id="panel-217758640"><ul>
 <li>Create a new selection starting from the stripping line output</li>
 <li>Change the particle hypothesis made by the stripping line</li>
 </ul>
 </div></div> </p>
 <p>There are many situations where you want to repurpose a stripping line to look for a new decay that is similar in topology but distinct from what was put into the stripping line. The easiest thing to do is to change some of the hypothesis on particle IDs made in the stripping. This lesson will show you how to do that.</p>
-<p><div class="panel panel-primary"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(9039736337);" id="reinterpreting-stripping-selections"><i class="fa fa-info-circle"></i> Reinterpreting stripping selections<span id="heading-9039736337"></span></h3></div><div class="panel-body" id="panel-9039736337"><p>Note that with this method you can never find more candidates than the 
+<p><div class="panel panel-primary"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(5537565936);" id="reinterpreting-stripping-selections"><i class="fa fa-info-circle"></i> Reinterpreting stripping selections<span id="heading-5537565936"></span></h3></div><div class="panel-body" id="panel-5537565936"><p>Note that with this method you can never find more candidates than the 
 stripping has already found.  However, you can reinterpret parts of the decay 
 to look for new decay modes.</p>
 </div></div></p>
 <p>As an example we will switch the decays of the D0 from (K- K+) to (K- pi+). </p>
 <p>There is an algorithm that allows us to replace parts of the decay descriptor called <code>SubstitutePID</code>:</p>
-<pre><code class="lang-python"><span class="hljs-comment"># configure an algorithm to substitute the K+ in the D0 (resp the K- in the D~0) decay by a pion </span>
+<pre><code class="lang-python"><span class="hljs-comment"># configure an algorithm to substitute the K+ (resp. the K-)</span>
+<span class="hljs-comment"># in the D0 (resp the D~0) decay by a pion </span>
 <span class="hljs-keyword">from</span> Configurables <span class="hljs-keyword">import</span> SubstitutePID
 subs = SubstitutePID(
     <span class="hljs-string">&apos;MakeD02Kpi&apos;</span>,
@@ -732,7 +733,7 @@ subs = SubstitutePID(
 )
 </code></pre>
 <p>The algorithm is configured with a name <code>MakeD02Kpi</code>. In the <code>Code</code> argument we need to specify the initial selection. This is done by using LoKi functors. Since we know we will be using an already prepared selection, we can simply use the <code>DECTREE</code> functor to search for candidates fulfilling this decay structure. See the <a href="../first-analysis-steps/loki-functors.html">lesson on LoKi</a> for more info on what you can do here. </p>
-<p>Now we ware ready to specify which hypotheses to change. <code>Substitutions</code> is a dictionary where the keys are decay descriptors and the values are the names of the replacement particles. The particle that should be replaced is marked with a <code>^</code>. So in the example above</p>
+<p>Now we are ready to specify which hypotheses to change. <code>Substitutions</code> is a dictionary where the keys are decay descriptors and the values are the names of the replacement particles. The particle that should be replaced is marked with a <code>^</code>. So in the example above</p>
 <pre><code class="lang-python"><span class="hljs-string">&apos;Charm -&gt; (D0 -&gt; K- ^K+) Meson&apos;</span>: <span class="hljs-string">&apos;pi+&apos;</span>
 </code></pre>
 <p>means: Look for a decay of a Charm-particle into D0 plus any meson, where the D0 decays to (K- K+) and replace the K+ with a pi+.</p>
@@ -758,7 +759,7 @@ selSub = Selection(
     RequiredSelections=strippingSels
 )
 </code></pre>
-<p>Note how the input stripping selection is daisy-chained to the output selection through the <code>RequiredSelections</code> (it has to be a list of selections) argument. The new selection is added into a <code>SelectionSequnce</code> for further use by DaVinci:</p>
+<p>Note how the input stripping selection is daisy-chained to the output selection through the <code>RequiredSelections</code> (it has to be a list of selections) argument. The new selection is added into a <code>SelectionSequence</code> for further use by DaVinci:</p>
 <pre><code class="lang-python">selSeq = SelectionSequence(<span class="hljs-string">&apos;SelSeq&apos;</span>, TopSelection=selSub)
 </code></pre>
 <p>We are now ready to produce an ntuple on our newly created selection. As usual we configure a <code>DecayTreeTuple</code>, which now is looking for the candidates, which have the redefined D0 decay:</p>
@@ -769,9 +770,9 @@ dtt.Inputs = [selSeq.outputLocation()]
 dtt.Decay = <span class="hljs-string">&apos;[D*(2010)+ -&gt; ^(D0 -&gt; ^K- ^pi+) ^pi+]CC&apos;</span>
 </code></pre>
 <p>The input to the <code>DecayTreeTuple</code> is taken as the <code>outputLocations</code> of the <code>SelectionSequence</code> we just created. </p>
-<p><div class="panel panel-primary"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(903789242);" id="why-use-davinci-selections"><i class="fa fa-info-circle"></i> Why use DaVinci selections?<span id="heading-903789242"></span></h3></div><div class="panel-body" id="panel-903789242"><p>Selections and SelectionSequences are an elegant way to organize the required 
+<p><div class="panel panel-primary"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(5458753056);" id="why-use-davinci-selections"><i class="fa fa-info-circle"></i> Why use DaVinci selections?<span id="heading-5458753056"></span></h3></div><div class="panel-body" id="panel-5458753056"><p>Selections and SelectionSequences are an elegant way to organize the required 
 algorithms that perform the job of selecting data.
-The <a href="https://twiki.cern.ch/twiki/bin/view/LHCb/ParticleSelection" target="_blank">particle selection toolkit</a> uses python tricks to make the management of even complicated sequences of selections rather straight forward. In particular the toolkit ensures that all necessary algorithms are run in the correct order to produce the desired selections. It is therfore mainly a tool to manage dependencies. For technical details have a look at the <a href="https://twiki.cern.ch/twiki/bin/view/LHCb/ParticleSelection" target="_blank">TWiki page</a>.</p>
+The <a href="https://twiki.cern.ch/twiki/bin/view/LHCb/ParticleSelection" target="_blank">particle selection toolkit</a> uses python tricks to make the management of even complicated sequences of selections rather straight forward. In particular the toolkit ensures that all necessary algorithms are run in the correct order to produce the desired selections. It is therefore mainly a tool to manage dependencies. For technical details, have a look at the <a href="https://twiki.cern.ch/twiki/bin/view/LHCb/ParticleSelection" target="_blank">TWiki page</a>.</p>
 </div></div></p>
 <p>Finally we add the <code>SelectionSequence</code> and the <code>DecayTreeTuple</code> to the DaVinci application. Since we are adding more than one algorithm we need a <code>GaudiSequencer</code> that takes care of calling everything in the right order:</p>
 <pre><code class="lang-python"><span class="hljs-comment"># add our new selection and the tuple into the sequencer</span>
@@ -782,7 +783,7 @@ DaVinci().appendToMainSequence([seq])
 </code></pre>
 <p>The solution to this exercise <code>ntuple_switchHypo.py</code>, is <a href="code/18-switch-mass-hypo/ntuple_switchHypo.py">available 
 here</a>.</p>
-<p><div class="panel panel-primary"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(1134845990);" id="think-about-it"><i class="fa fa-info-circle"></i> Think about it<span id="heading-1134845990"></span></h3></div><div class="panel-body" id="panel-1134845990"><p>Why can&apos;t we use this method to look for D* decaying to D0+photon ? </p>
+<p><div class="panel panel-primary"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(1630442253);" id="think-about-it"><i class="fa fa-info-circle"></i> Think about it<span id="heading-1630442253"></span></h3></div><div class="panel-body" id="panel-1630442253"><p>Why can&apos;t we use this method to look for D* decaying to D0+photon ? </p>
 </div></div></p>
 
                                 
@@ -827,7 +828,7 @@ here</a>.</p>
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Replace a mass hypothesis","level":"3.1.5","depth":2,"next":{"title":"Reuse particles from a decay tree","level":"3.1.6","depth":2,"path":"second-analysis-steps/filter-in-trees.md","ref":"second-analysis-steps/filter-in-trees.md","articles":[]},"previous":{"title":"Run a different stripping line on simulated data","level":"3.1.4","depth":2,"path":"second-analysis-steps/rerun-stripping.md","ref":"second-analysis-steps/rerun-stripping.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-sharing","panels@git+https://github.com/lhcb/gitbook-plugin-panels.git#master","katex-auto-render@git+https://github.com/lhcb/gitbook-plugin-katex-auto-render.git#master","collapsible-menu","otherlink"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"collapsible-menu":{},"search":{},"otherlink":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"panels":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"katex-auto-render":{},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"The Starterkit team and contributors","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"gitbook":"*"},"file":{"path":"second-analysis-steps/switch-mass-hypo.md","mtime":"2018-05-08T20:26:42.386Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-05-08T20:29:41.434Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Replace a mass hypothesis","level":"3.1.5","depth":2,"next":{"title":"Reuse particles from a decay tree","level":"3.1.6","depth":2,"path":"second-analysis-steps/filter-in-trees.md","ref":"second-analysis-steps/filter-in-trees.md","articles":[]},"previous":{"title":"Run a different stripping line on simulated data","level":"3.1.4","depth":2,"path":"second-analysis-steps/rerun-stripping.md","ref":"second-analysis-steps/rerun-stripping.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-sharing","panels@git+https://github.com/lhcb/gitbook-plugin-panels.git#master","katex-auto-render@git+https://github.com/lhcb/gitbook-plugin-katex-auto-render.git#master","collapsible-menu","otherlink"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"collapsible-menu":{},"search":{},"otherlink":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"panels":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"katex-auto-render":{},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"The Starterkit team and contributors","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"gitbook":"*"},"file":{"path":"second-analysis-steps/switch-mass-hypo.md","mtime":"2018-05-09T05:06:10.294Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-05-09T05:08:28.301Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
