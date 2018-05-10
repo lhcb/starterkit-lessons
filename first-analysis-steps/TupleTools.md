@@ -24,7 +24,7 @@ Write code here
 
 This the tuple tool for MCTupleToolAngles 
 [.cpp](MCTupleToolAngles.html) 
-[.h](/MCTupleToolAngles2.html) 
+[.h](MCTupleToolAngles2.html) 
 
 {% endchallenge %} 
 
