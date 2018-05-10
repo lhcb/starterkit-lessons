@@ -27,6 +27,8 @@
     * [Early career, gender and diversity](first-analysis-steps/ecgd.md)
     * [Contribute to this lesson](first-analysis-steps/contributing-lesson.md)
     * [TupleTools](first-analysis-steps/TupleTools.md)
+      * [MCTupleToolPID C++](MCTupleToolPID.md)
+      * [MCTupleToolPID Header](MCTupleToolPID2.md)
 
 ----
 
