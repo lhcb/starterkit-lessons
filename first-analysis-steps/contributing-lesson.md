@@ -56,6 +56,12 @@ files. `**Bold text**` leads to **Bold text**, `_Italic_` is _italic_
 and `[the search engine](http://google.com)` makes a link to [the
 search engine](http://google.com).
 
+To add a lesson create your lesson.md file then add the following line to the SUMMARY.md file:
+
+```
+* [My New Lesson](first-analysis-steps/lesson.md)
+```
+
 {% callout "Trying it out live " %}
 Try out Markdown live in your browser with [Dillinger](http://dillinger.io/).
 {% endcallout %} 
