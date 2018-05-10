@@ -10,7 +10,7 @@
 > “The Snakemake workflow management system is a tool to create reproducible and scalable data analyses”
 
 * A workflow management system allows you to:
-  * Keep a record of how your scripts are used what their input dependencies are
+  * Keep a record of how your scripts are used and what their input dependencies are
   * Run multiple steps in sequence, parallelising where possible
   * Automatically detect if something changes and then reprocess data if needed
 * Using a workflow management forces you to:
@@ -27,15 +27,17 @@ Snakemake requires Python 3, if you already have this available it can be easily
 
 ```bash
 python3 -m pip install --user snakemake
+# Depending on your PATH variable you may also need to use:
+alias snakemake='python3 -m snakemake'
 ```
 
 {% callout "Installing on lxplus" %}
 Unfortunately most LHCb software only supports Python 2 and doesn't provide a Python 3 installation.
 When running on lxplus we recommend using the LCG Python 3 distribution and creating a function in your `.bashrc` to launch Snakemake so that it doesn't affect other LHCb applications.
-This can be done using [this script](https://github.com/lhcb/starterkit-lessons/blob/snakemake/second-analysis-steps/code/snakemake/install_snake.sh) by running:
+This can be done using [this script](https://github.com/lhcb/starterkit-lessons/blob/master/second-analysis-steps/code/snakemake/install_snake.sh) by running:
 
 ```bash
-curl -L http://cern.ch/go/l8fT | bash
+curl -L http://cern.ch/go/Z8Nk | bash
 source ~/.bashrc
 ```
 {% endcallout %}
@@ -104,7 +106,7 @@ Notice that:
 To try out download:
 
 ```bash
-wget https://github.com/lhcb/starterkit-lessons/raw/snakemake/second-analysis-steps/code/snakemake/tutorial.tar
+wget https://github.com/lhcb/starterkit-lessons/raw/master/second-analysis-steps/code/snakemake/tutorial.tar
 ```
 
 You will find one containing names and phone numbers. You can make one rule that, given a name extracts the line with the phone of that person.
@@ -169,7 +171,7 @@ snakemake output/Fred/data.txt
 
 {% solution "Solution" %}
 
-See [here](code/snakemake/tutorial/simple_solution/Snakefile), or `simple_solution/Snakefile`.
+See `Snakefile` in the `simple_solution` folder [here](https://github.com/lhcb/starterkit-lessons/raw/master/second-analysis-steps/code/snakemake/tutorial.tar).
 
 {% endchallenge %}
 
@@ -296,8 +298,6 @@ Move your rules to other files and include them
 
 {% solution "Solution" %}
 
-You can find a solution in the `complete_solution` folder, which you can find [here](https://github.com/lhcb/starterkit-lessons/raw/snakemake/second-analysis-steps/code/snakemake/tutorial.tar).
+You can find a solution in the `more_complete_solution` folder, which you can find [here](https://github.com/lhcb/starterkit-lessons/raw/master/second-analysis-steps/code/snakemake/tutorial.tar).
 
 {% endchallenge %}
-
-

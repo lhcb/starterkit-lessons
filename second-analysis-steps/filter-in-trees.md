@@ -18,11 +18,14 @@ Using `FilterInTrees` is done in the same way we would use `FilterDesktop`:
 from Configurables import FilterInTrees
 from PhysSelPython.Wrappers import Selection, DataOnDemand
 
-decay_tree_location = 'Phys/D2hhPromptDst2D2KKLine/Particles'
+stream = 'AllStreams'
+line = 'D2hhPromptDst2D2KKLine'
+tesLoc = '/Event/{0}/Phys/{1}/Particles'.format(stream, line)
+
 kaons_from_d0 = FilterInTrees('kaons_from_d0_filter', Code="('K+' == ABSID)")
 kaons_from_d0_sel = Selection("kaons_from_d0_sel",
                             Algorithm=kaons_from_d0,
-                            RequiredSelections=[AutomaticData(Location=decay_tree_location)])
+                            RequiredSelections=[DataOnDemand(Location=tesLoc)])
 ```
 
 The output of `kaons_from_d0_sel` is a container with all the kaons coming from the $$D^0$$.
