@@ -1,10 +1,9 @@
 # Summary
 
 * [The LHCb Starterkit](README.md)
-  * [Contributing](CONTRIBUTING.md)
+    * [Contributing](CONTRIBUTING.md)
 
-----
-
+-----
 * [First analysis steps](first-analysis-steps/README.md)
     * [Pre-workshop checklist](first-analysis-steps/prerequisites.md)
     * [Goals of the course](first-analysis-steps/introduction-to-course.md)
@@ -28,31 +27,30 @@
     * [Contribute to this lesson](first-analysis-steps/contributing-lesson.md)
     * [TupleTools](first-analysis-steps/TupleTools.md)
 
-----
-
+-----
 * [Second analysis steps](second-analysis-steps/README.md)
     * [Using git to develop LHCb software](second-analysis-steps/lb-git.md)
     * [Building your own decay](second-analysis-steps/building-decays.md)
-      * [The Selection Framework](second-analysis-steps/building-decays-part0.md)
-      * [A Historical Approach](second-analysis-steps/building-decays-part1.md)
-      * [Modern Selection Framework](second-analysis-steps/building-decays-part2.md)
+        * [The Selection Framework](second-analysis-steps/building-decays-part0.md)
+        * [A Historical Approach](second-analysis-steps/building-decays-part1.md)
+        * [Modern Selection Framework](second-analysis-steps/building-decays-part2.md)
     * [What to do when something fails](second-analysis-steps/fixing-errors.md)
     * [Run a different stripping line on simulated data](second-analysis-steps/rerun-stripping.md)
     * [Replace a mass hypothesis](second-analysis-steps/switch-mass-hypo.md)
     * [Reuse particles from a decay tree](second-analysis-steps/filter-in-trees.md)
     * [The simulation framework](second-analysis-steps/simulation.md)
-      * [Introduction: The basics of Gauss](second-analysis-steps/simulation-intro.md)
-      * [Getting the correct option files](second-analysis-steps/simulation-running-gauss.md)
-      * [Controlling the decay](second-analysis-steps/simulation-dkfiles.md)
-      * [Advanced: Controlling the decay](second-analysis-steps/simulation-advanced-dkfiles.md)
-      * [Modifying generator cuts](second-analysis-steps/simulation-gencuts.md)
-      * [Fast simulation options](second-analysis-steps/simulation-fastsim.md)
+        * [Introduction: The basics of Gauss](second-analysis-steps/simulation-intro.md)
+        * [Getting the correct option files](second-analysis-steps/simulation-running-gauss.md)
+        * [Controlling the decay](second-analysis-steps/simulation-dkfiles.md)
+        * [Advanced: Controlling the decay](second-analysis-steps/simulation-advanced-dkfiles.md)
+        * [Modifying generator cuts](second-analysis-steps/simulation-gencuts.md)
+        * [Fast simulation options](second-analysis-steps/simulation-fastsim.md)
     * [HLT intro](second-analysis-steps/hlt-intro.md)
     * [TisTos DIY](second-analysis-steps/tistos-diy.md)
     * [Ganga Scripting](second-analysis-steps/ganga-scripting.md)
     * [Managing files in Ganga](second-analysis-steps/managing-files-with-ganga.md)
     * [Analysis automation: snakemake](second-analysis-steps/analysis-automation-snakemake.md)
 
-----
+-----
+* [Download PDF](ref://starterkit-lessons.pdf)
 
- * [Download PDF](ref://starterkit-lessons.pdf)
