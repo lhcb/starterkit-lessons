@@ -21,7 +21,10 @@ Write code here
 ```
 
 {% challenge "Challenging" %}
-[minimal DaVinci job](minimal-dv-job.html) This is a link
+
+This the tuple tool for MCTupleToolAngles.md 
+[.cpp](DecayTrees/MCTupleToolAngles.html) 
+[.h](DecayTrees/MCTupleToolAngles2.html) 
 
 {% endchallenge %} 
 

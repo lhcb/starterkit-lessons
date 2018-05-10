@@ -1,0 +1,85 @@
+
+private:
+
+//=============================================================================
+// The templated method filling the tuple for Particles and MCParticles
+//=============================================================================
+/// The templated method that does it all
+template<class TYPE> StatusCode fill( const std::vector<const TYPE*>& dauts     /// daughters
+                 , const std::string& head                 /// header
+                 , Tuples::Tuple& tuple                    /// tuple
+                 , bool revert ) /// revert all PID (because mother is antiparticle)
+{
+
+  const std::string prefix = fullName(head);
+  bool test = true;
+  // sort out daughters vector
+  std::vector<const TYPE*> daughters(dauts); // local copies to sort
+  const LHCb::IParticlePropertySvc* pp=ppSvc() ;
+  std::stable_sort(daughters.begin(), daughters.end(), [revert,pp](const TYPE* c1, const TYPE* c2){
+      int sign=(revert) ? -1 : 1;
+      int p1 = ( pp->find( c1->particleID())->selfcc() ) ? c1->particleID().pid() : sign*c1->particleID().pid();
+      int p2 = ( pp->find( c2->particleID())->selfcc() ) ? c2->particleID().pid() : sign*c2->particleID().pid();
+      bool comp=std::make_pair(p1,c1->key()) > std::make_pair(p2,c2->key());
+      return comp;
+    });
+  std::map<std::string,unsigned int> used;
+
+  for ( typename std::vector<const TYPE*>::const_iterator i = daughters.begin();i != daughters.end(); ++i )  {
+    const std::string n1 = particleName( (*i)->particleID(), revert );
+    const Gaudi::LorentzVector& p1 = (*i)->momentum() ;
+    for ( typename std::vector<const TYPE*>::const_iterator j = daughters.begin();i != j; ++j )    {
+      const std::string n2 = particleName( (*j)->particleID(), revert );
+      const Gaudi::LorentzVector p = p1 + (*j)->momentum();
+      const std::string basename = prefix+"_Dalitz_"+n1+"_"+n2+"_M2";
+      std::string name = basename;
+      if(used.find(basename) != used.end() ){
+        unsigned int add=used[basename];
+        name = basename+"_"+boost::lexical_cast<std::string>(add);
+        used[basename]=add+1;
+        Info("Renaming duplicate to "+name,StatusCode::SUCCESS,1);
+      }else{
+        used[basename]=1;
+      }
+      test &= tuple->column( name, p .M2() );
+    }
+  }
+  return StatusCode(test);
+}
+
+/// get name of particle or anti-particle
+std::string particleName( const LHCb::ParticleID& id, bool revert ) const
+{
+  const LHCb::ParticleProperty* ppp = ppSvc()->find( id );
+  if ( !ppp )
+  {
+    std::ostringstream mess;
+    mess << "Unknown ParticleID " << id;
+    Exception( mess.str() );
+  }
+  return Decays::escape( ( revert ?
+                           ppp->antiParticle()->particle() :
+                           ppp->particle() ) ) ;
+}
+
+/// get particle property serivce
+const LHCb::IParticlePropertySvc* ppSvc() const
+{
+  return m_ppSvc;
+}
+
+public:
+
+StatusCode initialize() override
+{
+  const StatusCode sc = TupleToolBase::initialize();
+  if ( sc.isSuccess() )
+  {
+    m_ppSvc = svc<LHCb::IParticlePropertySvc>("LHCb::ParticlePropertySvc", true );
+  }
+  return sc;
+}
+
+private:
+
+LHCb::IParticlePropertySvc* m_ppSvc ;
