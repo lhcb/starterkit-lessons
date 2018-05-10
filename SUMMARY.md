@@ -26,7 +26,7 @@
     * [Asking good questions](first-analysis-steps/asking-questions.md)
     * [Early career, gender and diversity](first-analysis-steps/ecgd.md)
     * [Contribute to this lesson](first-analysis-steps/contributing-lesson.md)
-
+    * [Multivariate Analysis with SciKit Learn](first-analysis-steps/sklearn.md)
 ----
 
 * [Second analysis steps](second-analysis-steps/README.md)
