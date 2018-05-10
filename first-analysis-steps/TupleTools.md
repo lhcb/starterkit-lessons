@@ -22,9 +22,9 @@ Write code here
 
 {% challenge "Challenging" %}
 
-This the tuple tool for MCTupleToolAngles.md 
-[.cpp](DecayTrees/MCTupleToolAngles.html) 
-[.h](DecayTrees/MCTupleToolAngles2.html) 
+This the tuple tool for MCTupleToolAngles 
+[.cpp](MCTupleToolAngles.html) 
+[.h](/MCTupleToolAngles2.html) 
 
 {% endchallenge %} 
 
