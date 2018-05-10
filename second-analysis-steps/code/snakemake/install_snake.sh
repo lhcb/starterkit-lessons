@@ -27,6 +27,7 @@ python3 -m pip uninstall --yes snakemake || true
 python3 -m pip install --user snakemake
 
 {
+    echo ''
     echo 'function snakemake() {'
     echo '    source "/cvmfs/sft.cern.ch/lcg/views/'"${LCG_VERSION}"'/${CMTCONFIG}/setup.sh" && \'
     echo '    PYTHON3_USER_BASE=$(python3 -m site --user-base) && \'
