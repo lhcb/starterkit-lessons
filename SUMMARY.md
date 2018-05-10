@@ -26,6 +26,7 @@
     * [Asking good questions](first-analysis-steps/asking-questions.md)
     * [Early career, gender and diversity](first-analysis-steps/ecgd.md)
     * [Contribute to this lesson](first-analysis-steps/contributing-lesson.md)
+    * [TupleTools](first-analysis-steps/TupleTools.md)
 
 ----
 
