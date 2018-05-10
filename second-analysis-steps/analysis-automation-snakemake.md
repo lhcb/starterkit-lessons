@@ -32,7 +32,7 @@ python3 -m pip install --user snakemake
 {% callout "Installing on lxplus" %}
 Unfortunately most LHCb software only supports Python 2 and doesn't provide a Python 3 installation.
 When running on lxplus we recommend using the LCG Python 3 distribution and creating a function in your `.bashrc` to launch Snakemake so that it doesn't affect other LHCb applications.
-This can be done using [this script](https://github.com/lhcb/starterkit-lessons/blob/snakemake/second-analysis-steps/code/snakemake/install_snake.sh) by running:
+This can be done using [this script](https://github.com/lhcb/starterkit-lessons/blob/master/second-analysis-steps/code/snakemake/install_snake.sh) by running:
 
 ```bash
 curl -L http://cern.ch/go/l8fT | bash
