@@ -20,7 +20,7 @@ The default tools added in `DecayTreeTuple` are:
 Write code here
 ```
 
-*Branches* let you define custom namespaces in your ntuple by means of a `dict`.
+*Italic* let you define custom namespaces in your ntuple by means of a `looks like code`.
 Its keys define the name of each branch (and, as a consequence, the prefix of the corresponding leaves in the ntuple), while the corresponding values are decay descriptors that specify which particles you want to include in the branch.
 
 
