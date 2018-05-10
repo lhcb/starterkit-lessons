@@ -27,6 +27,8 @@ Snakemake requires Python 3, if you already have this available it can be easily
 
 ```bash
 python3 -m pip install --user snakemake
+# Depending on your PATH variable you may also need to use:
+alias snakemake='python3 -m snakemake'
 ```
 
 {% callout "Installing on lxplus" %}
@@ -35,7 +37,7 @@ When running on lxplus we recommend using the LCG Python 3 distribution and crea
 This can be done using [this script](https://github.com/lhcb/starterkit-lessons/blob/master/second-analysis-steps/code/snakemake/install_snake.sh) by running:
 
 ```bash
-curl -L http://cern.ch/go/l8fT | bash
+curl -L http://cern.ch/go/Z8Nk | bash
 source ~/.bashrc
 ```
 {% endcallout %}
@@ -299,5 +301,3 @@ Move your rules to other files and include them
 You can find a solution in the `more_complete_solution` folder, which you can find [here](https://github.com/lhcb/starterkit-lessons/raw/master/second-analysis-steps/code/snakemake/tutorial.tar).
 
 {% endchallenge %}
-
-
