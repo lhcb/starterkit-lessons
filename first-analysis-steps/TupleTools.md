@@ -20,22 +20,12 @@ Different ways of writing:
 Write code here
 ```
 
-
 {% challenge "Challenging" %}
-Run the options in the same way as in the [minimal DaVinci 
-job](minimal-dv-job.html) lesson.
-
-
-```
-$ root DVntuple.root
-
-```
+[minimal DaVinci job](minimal-dv-job.html) This is a link
 
 {% endchallenge %} 
 
-
 Numbered list coming up:
 
-  1. Its *name*, specified in the `addTupleTool` call after a `/`.  This is 
-     very useful (and recommended) if we want to have different 
+  1. We are number 1
 
