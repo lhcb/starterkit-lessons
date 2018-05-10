@@ -3,17 +3,27 @@
 
 this is where the tuple tool is gunna go!
 
-# Title goes here
+# List of TupleTool Variables
 
 {% objectives "Learning Objectives" %}
 * Lauren do something
 {% endobjectives %} 
 
-{% callout "Nice list bro" %}
-Different ways of writing:
+{% callout "List of DecayTreeTuples" %}
+DecayTreeTuples:
 
- - `Code looks fun`
- - *Italic shit*
+ -  DecayTreeTuple 
+ -  DecayTreeTupleANNPID 
+ -  DecayTreeTupleBase 
+ -  DecayTreeTupleDalitz 
+ -  DecayTreeTupleHerschel 
+ -  DecayTreeTupleJets 
+ -  DecayTreeTupleMC 
+ -  DecayTreeTupleMuonCalib 
+ -  DecayTreeTupleReco 
+ -  DecayTreeTupleTracking 
+ -  DecayTreeTupleTrigger 
+
 {% endcallout %} 
 
 ```python
