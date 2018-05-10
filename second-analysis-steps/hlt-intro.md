@@ -57,7 +57,7 @@ Moore().EnableTimer = True
 # Input data
 from PRConfig import TestFileDB
 # The following call configures input data, database tags and data type
-TestFileDB.test_file_db["2016NB_25ns_L0Filt0x1707"].run(configurable=Moore())
+TestFileDB.test_file_db["2017NB_L0Filt0x1707"].run(configurable=Moore())
 Moore().DataType = "2018"
 # Override the TCK in the ThresholdSettings to match the input data
 from Configurables import HltConf
