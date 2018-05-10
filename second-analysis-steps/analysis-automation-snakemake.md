@@ -10,7 +10,7 @@
 > “The Snakemake workflow management system is a tool to create reproducible and scalable data analyses”
 
 * A workflow management system allows you to:
-  * Keep a record of how your scripts are used what their input dependencies are
+  * Keep a record of how your scripts are used and what their input dependencies are
   * Run multiple steps in sequence, parallelising where possible
   * Automatically detect if something changes and then reprocess data if needed
 * Using a workflow management forces you to:
@@ -169,7 +169,7 @@ snakemake output/Fred/data.txt
 
 {% solution "Solution" %}
 
-See [here](code/snakemake/tutorial/simple_solution/Snakefile), or `simple_solution/Snakefile`.
+See `Snakefile` in the `simple_solution` folder [here](https://github.com/lhcb/starterkit-lessons/raw/master/second-analysis-steps/code/snakemake/tutorial.tar).
 
 {% endchallenge %}
 
@@ -296,7 +296,7 @@ Move your rules to other files and include them
 
 {% solution "Solution" %}
 
-You can find a solution in the `complete_solution` folder, which you can find [here](https://github.com/lhcb/starterkit-lessons/raw/master/second-analysis-steps/code/snakemake/tutorial.tar).
+You can find a solution in the `more_complete_solution` folder, which you can find [here](https://github.com/lhcb/starterkit-lessons/raw/master/second-analysis-steps/code/snakemake/tutorial.tar).
 
 {% endchallenge %}
 
