@@ -54,4 +54,8 @@
 
 ----
 
+* [Self guided lessons](self-guided-lessons/README.md)
+
+----
+
  * [Download PDF](ref://starterkit-lessons.pdf)
