@@ -486,40 +486,34 @@ Below you will find links to the source code and header files for each of the Tu
 {%endcallout %}
 
 {% callout "DecayTreeTupleMuonCalib - for muon calibration tools" %}
-DecayTreeTupleMuonCalib 
- - [TupleToolMuonIDCalib.cpp](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTupleMuonCalib/src/TupleToolMuonIDCalib.cpp)
- - [TupleToolMuonIDCalib.h](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTupleMuonCalib/src/TupleToolMuonIDCalib.h)
-
-
-_m_trackX[station] 
-  _m_trackY[station] 
-  _m_TextraX[station] 
-  _m_TextraY[station] 
-  _m_ms2X[station] 
-  _m_ms2Y[station] 
-  _m_TextraReg[station]
-   _X
-   _Y
-   _Z
-   _5pZM1
-   _5qOverP
-   _5sigmaQOverP2
-   _5pXvtx
-   _5pYvtx
-   _5pZvtx
-   _4pZM1
-   _4qOverP
-   _4sigmaQOverP2
-   _4pXvtx
-   _4pYvtx
-   _4pZvtx
-   _DistAve
-
- - [TupleToolMuonPid.cpp](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTupleMuonCalib/src/TupleToolMuonPid.cpp)
- - [TupleToolMuonPid.h](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTupleMuonCalib/src/TupleToolMuonPid.h)
-
-
- _ID
+ * [TupleToolMuonIDCalib.cpp](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTupleMuonCalib/src/TupleToolMuonIDCalib.cpp)
+ * [TupleToolMuonIDCalib.h](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTupleMuonCalib/src/TupleToolMuonIDCalib.h)
+   * _m_trackX[station]
+   * _m_trackY[station]
+   * _m_TextraX[station]
+   * _m_TextraY[station]
+   * _m_ms2X[station]
+   * _m_ms2Y[station]
+   * _m_TextraReg[station]
+   * _X
+   * _Y
+   * _Z
+   * _5pZM1
+   * _5qOverP
+   * _5sigmaQOverP2
+   * _5pXvtx
+   * _5pYvtx
+   * _5pZvtx
+   * _4pZM1
+   * _4qOverP
+   * _4sigmaQOverP2
+   * _4pXvtx
+   * _4pYvtx
+   * _4pZvtx
+   * _DistAve
+ * [TupleToolMuonPid.cpp](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTupleMuonCalib/src/TupleToolMuonPid.cpp)
+ * [TupleToolMuonPid.h](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTupleMuonCalib/src/TupleToolMuonPid.h)
+   * _ID
  _CombDLLMu
  _ProbNNmu
  _ProbNNghost
