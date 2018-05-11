@@ -70,10 +70,10 @@ _CaloHypoDaugh1_X,
 _CaloHypoDaugh1_Y, 
 _CaloHypoDaugh1_Z, 
 _CaloHypoPileUpEnergy, 
-_CaloHypo_, 
-_BremCaloHypo_, 
-_CaloHypoDaugh0_,
-_CaloHypoDaugh1_, 
+_CaloHypo_*, 
+_BremCaloHypo_*, 
+_CaloHypoDaugh0_*,
+_CaloHypoDaugh1_*, 
 
  - [TupleToolCorrectedMass.cpp](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTuple/src/TupleToolCorrectedMass.cpp)
  - [TupleToolCorrectedMass.h](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTuple/src/TupleToolCorrectedMass.h)
@@ -189,10 +189,92 @@ _TAUCHI2,
  - [TupleToolParticleStats.h](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTuple/src/TupleToolParticleStats.h)
  - [TupleToolPhotonInfo.cpp](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTuple/src/TupleToolPhotonInfo.cpp)
  - [TupleToolPhotonInfo.h](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTuple/src/TupleToolPhotonInfo.h)
+
+_Converted, 
+_Prs, 
+_Matching, 
+_PID, 
+_CL ,
+_ShowerShape, 
+
  - [TupleToolPi0Info.cpp](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTuple/src/TupleToolPi0Info.cpp)
  - [TupleToolPi0Info.h](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTuple/src/TupleToolPi0Info.h)
+
+_Type, 
+_CL, 
+_gamma0_PT, 
+_gamma1_PT, 
+_MCPi0_id, 
+_MCPi0_key, 
+_MCPi0Mother_id, 
+_MCPi0Mother_key, 
+_MCPi0GrandMother_id, 
+_MCPi0GrandMother_key, 
+_MCPi0GrandGrandMother_id, 
+_MCPi0GrandGrandMother_key, 
+
+
+
+
+
  - [TupleToolPid.cpp](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTuple/src/TupleToolPid.cpp)
  - [TupleToolPid.h](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTuple/src/TupleToolPid.h)
+
+
+_ID, 
+_PIDe, 
+_PIDmu, 
+_PIDK, 
+_PIDp, 
+_ProbNNe, 
+_ProbNNk, 
+_ProbNNp, 
+_ProbNNpi, 
+_ProbNNmu, 
+_ProbNNghost, 
+_hasMuon, 
+_isMuon, 
+_hasRich, 
+_UsedRichAerogel, 
+_UsedRich1Gas, 
+_UsedRich2Gas, 
+_RichAboveElThres, 
+_RichAboveMuThres, 
+_RichAbovePiThres, 
+_RichAboveKaThres, 
+_RichAbovePrThres, 
+_hasCalo, 
+_RichDLLe, 
+_RichDLLmu, 
+_RichDLLpi, 
+_RichDLLk, 
+_RichDLLp, 
+_RichDLLbt, 
+_InAccMuon, 
+_isMuonLoose, 
+_isMuonTight, 
+_MuonMuLL, 
+_MuonBkgLL, 
+_MuonNShared, 
+_MuonChi2Corr, 
+_InAccEcal, 
+_CaloEcalE, 
+_EcalPIDe, 
+_EcalPIDmu, 
+_InAccHcal, 
+_CaloHcalE, 
+_HcalPIDe, 
+_HcalPIDmu, 
+_InAccPrs, 
+_PrsPIDe, 
+_CaloPrsE, 
+_InAccSpd, 
+_CaloSpdE, 
+_InAccBrem, 
+_BremPIDe, 
+_VeloCharge, 
+
+
  - [TupleToolPropertime.cpp](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTuple/src/TupleToolPropertime.cpp)
  - [TupleToolPropertime.h](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTuple/src/TupleToolPropertime.h)
  - [TupleToolSelResults.cpp](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTuple/src/TupleToolSelResults.cpp)
