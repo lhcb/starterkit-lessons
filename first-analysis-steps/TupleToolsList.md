@@ -18,8 +18,9 @@ DecayTreeTuples:
 - DecayTreeTupleTrigger - for accessing to the trigger information of the candidates. [Class Reference here.](http://lhcb-doxygen.web.cern.ch/lhcb-doxygen/analysis/latest/d3/dd1/class_tuple_tool_trigger.html)
 {% endcallout %}
 
+The class references and descriptions of each of the individual tuple tools can be found [here](http://lhcb-doxygen.web.cern.ch/lhcb-doxygen/analysis/latest/annotated.html), (scroll down to T).
 
-Below you will find links to the source code and header files for each of the TupleTools.
+Below you will find links to the source code and header files for each of the TupleTools, with each variable beneath.
 
 {% callout "DecayTreeTuple - for the more general tools" %}
  * [TupleToolAllTracks.cpp](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTuple/src/TupleToolAllTracks.cpp)
@@ -878,7 +879,3 @@ Below you will find links to the source code and header files for each of the Tu
  * [TupleToolTriggerRecoStats.h](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTupleTrigger/src/TupleToolTriggerRecoStats.h)
    * _TriggerRecoStats./Particles
 {% endcallout %} 
-
-
-
-The class references and descriptions of each of the individual tuple tools can be found [here](http://lhcb-doxygen.web.cern.ch/lhcb-doxygen/analysis/latest/annotated.html), (scroll down to T).
