@@ -33,18 +33,16 @@ DecayTreeTuple:
 
  - [TupleToolBeamSpot.cpp](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTuple/src/TupleToolBeamSpot.cpp)
  - [TupleToolBeamSpot.h](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTuple/src/TupleToolBeamSpot.h)
-
-1. _BeamX, 
-2. _BeamY, 
+   * _BeamX, 
+   * _BeamY, 
 
  - [TupleToolBremInfo.cpp](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTuple/src/TupleToolBremInfo.cpp)
  - [TupleToolBremInfo.h](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTuple/src/TupleToolBremInfo.h)
-
-1. _DiEBremMultiplicity, 
-2. _DiEBremP, 
-3. _BremOrigin, 
-4. _BremP, 
-5. _HasBremAdded, 
+   * _DiEBremMultiplicity, 
+   * _DiEBremP, 
+   * _BremOrigin, 
+   * _BremP, 
+   * _HasBremAdded, 
 
 
  - [TupleToolCaloDigits.cpp](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTuple/src/TupleToolCaloDigits.cpp)
