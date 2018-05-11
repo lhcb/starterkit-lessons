@@ -55,6 +55,8 @@
 ----
 
 * [Self guided lessons](self-guided-lessons/README.md)
+    * [Getting started with RooFit](self-guided-lessons/intro_roofit.md)
+    * [Fitting with RooFit](self-guided-lessons/fitting_roofit.md)
 
 ----
 
