@@ -396,148 +396,93 @@ Below you will find links to the source code and header files for each of the Tu
 {% endcallout %} 
 
 {% callout "DecayTreeTupleMC - gives us access to MC-level information" %}
-DecayTreeTupleMC 
- - [MCTupleToolAngles.cpp](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTupleMC/src/MCTupleToolAngles.cpp)
- - [MCTupleToolAngles.h](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTupleMC/src/MCTupleToolAngles.h)
-
-
-
-_TRUECosTheta
-_TRUETheta
-
-
- - [MCTupleToolDecayType.cpp](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTupleMC/src/MCTupleToolDecayType.cpp)
- - [MCTupleToolDecayType.h](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTupleMC/src/MCTupleToolDecayType.h)
-
-
-  __numFoundTypes
-  __numMatchingTypes
-  __numPseudoTypes
-  __numMatchingPseudoTypes
-  __hasGivenDecay
-
-
-
- - [MCTupleToolEventType.cpp](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTupleMC/src/MCTupleToolEventType.cpp)
- - [MCTupleToolEventType.h](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTupleMC/src/MCTupleToolEventType.h)
-
-
-  _GenEvent
-  _hasGenEvent
-  _hasPseudoGenEvent
-  _numFoundTypes
-  _numMatchingTypes
-  _numPseudoTypes
-  _numMatchingPseudoTypes
-  _hasGivenDecay
-
-
-
-
- - [MCTupleToolHierarchy.cpp](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTupleMC/src/MCTupleToolHierarchy.cpp)
- - [MCTupleToolHierarchy.h](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTupleMC/src/MCTupleToolHierarchy.h)
-
-
-  _MC_MOTHER_ID
-  _MC_MOTHER_KEY
-  _MC_GD_MOTHER_ID
-  _MC_GD_MOTHER_KEY
-  _MC_GD_GD_MOTHER_ID
-  _MC_GD_GD_MOTHER_KEY
-
-
- - [MCTupleToolInteractions.cpp](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTupleMC/src/MCTupleToolInteractions.cpp)
- - [MCTupleToolInteractions.h](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTupleMC/src/MCTupleToolInteractions.h)
-
-
-
-   _I
-   _Mean
-   _Prob
-   _AdjustMean
-   _AdjustProb
-   _AdjustWeight
-   _NormalisedAt
-   _NormalisedTo
-  _nMCI
-   _nMCPV
-   _nRecPV
-
-
- - [MCTupleToolKinematic.cpp](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTupleMC/src/MCTupleToolKinematic.cpp)
- - [MCTupleToolKinematic.h](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTupleMC/src/MCTupleToolKinematic.h)
-
-
-    _TRUEID
-    _TRUEP_
-    _TRUEPT
-    _TRUEORIGINVERTEX_
-    _TRUEENDVERTEX_
-    _TRUEISSTABLE
-    _TRUETAU
-    _OSCIL
-
-
- - [MCTupleToolP2VV.cpp](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTupleMC/src/MCTupleToolP2VV.cpp)
- - [MCTupleToolP2VV.h](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTupleMC/src/MCTupleToolP2VV.h)
-
-
- _TRUEThetaL
- _TRUEThetaK
- _TRUEPhi
- _TRUEThetaTr
- _TRUEPhiTr
- _TRUEThetaVtr
-
-
-
- - [MCTupleToolPID.cpp](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTupleMC/src/MCTupleToolPID.cpp)
- - [MCTupleToolPID.h](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTupleMC/src/MCTupleToolPID.h)
-
-
-_ID
-
-
-
- - [MCTupleToolPrimaries.cpp](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTupleMC/src/MCTupleToolPrimaries.cpp)
- - [MCTupleToolPrimaries.h](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTupleMC/src/MCTupleToolPrimaries.h)
- - [MCTupleToolPrompt.cpp](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTupleMC/src/MCTupleToolPrompt.cpp)
- - [MCTupleToolPrompt.h](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTupleMC/src/MCTupleToolPrompt.h)
-
-
-  _MC_ISPROMPT
-  _MC_LONGLIVED_ID
-  _MC_LONGLIVED_KEY
-
-
- - [MCTupleToolReconstructed.cpp](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTupleMC/src/MCTupleToolReconstructed.cpp)
- - [MCTupleToolReconstructed.h](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTupleMC/src/MCTupleToolReconstructed.h)
-
-_Reconstructible
-_Reconstructed
-
-
- - [MCTupleToolRedecay.cpp](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTupleMC/src/MCTupleToolRedecay.cpp)
- - [MCTupleToolRedecay.h](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTupleMC/src/MCTupleToolRedecay.h)
-
-
-_prefix + RD_org_eventNumber
-_prefix + RD_org_runNumber
-_prefix + RD_i_event
-
- - [TupleToolGeneration.cpp](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTupleMC/src/TupleToolGeneration.cpp)
- - [TupleToolGeneration.h](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTupleMC/src/TupleToolGeneration.h)
- - [TupleToolMCBackgroundInfo.cpp](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTupleMC/src/TupleToolMCBackgroundInfo.cpp)
- - [TupleToolMCBackgroundInfo.h](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTupleMC/src/TupleToolMCBackgroundInfo.h)
-
-_prefix+_BKGCAT
-
-
- - [TupleToolMCTruth.cpp](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTupleMC/src/TupleToolMCTruth.cpp)
- - [TupleToolMCTruth.h](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTupleMC/src/TupleToolMCTruth.h)
-
-_TRUEID
-
+ * [MCTupleToolAngles.cpp](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTupleMC/src/MCTupleToolAngles.cpp)
+ * [MCTupleToolAngles.h](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTupleMC/src/MCTupleToolAngles.h)
+   * _TRUECosTheta
+   * _TRUETheta
+ * [MCTupleToolDecayType.cpp](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTupleMC/src/MCTupleToolDecayType.cpp)
+ * [MCTupleToolDecayType.h](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTupleMC/src/MCTupleToolDecayType.h)
+   * _numFoundTypes
+   * _numMatchingTypes
+   * _numPseudoTypes
+   * _numMatchingPseudoTypes
+   * _hasGivenDecay
+ * [MCTupleToolEventType.cpp](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTupleMC/src/MCTupleToolEventType.cpp)
+ * [MCTupleToolEventType.h](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTupleMC/src/MCTupleToolEventType.h)
+   * _GenEvent
+   *  _hasGenEvent
+   *  _hasPseudoGenEvent
+   *  _numFoundTypes
+   *  _numMatchingTypes
+   *  _numPseudoTypes
+   *  _numMatchingPseudoTypes
+   *  _hasGivenDecay
+ * [MCTupleToolHierarchy.cpp](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTupleMC/src/MCTupleToolHierarchy.cpp)
+ * [MCTupleToolHierarchy.h](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTupleMC/src/MCTupleToolHierarchy.h)
+   * _MC_MOTHER_ID
+   *  _MC_MOTHER_KEY
+   *  _MC_GD_MOTHER_ID
+   *  _MC_GD_MOTHER_KEY
+   * _MC_GD_GD_MOTHER_ID
+   * _MC_GD_GD_MOTHER_KEY
+ * [MCTupleToolInteractions.cpp](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTupleMC/src/MCTupleToolInteractions.cpp)
+ * [MCTupleToolInteractions.h](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTupleMC/src/MCTupleToolInteractions.h)
+   * _I
+   * _Mean
+   * _Prob
+   * _AdjustMean
+   * _AdjustProb
+   * _AdjustWeight
+   * _NormalisedAt
+   * _NormalisedTo
+   * _nMCI
+   * _nMCPV
+   * _nRecPV
+ * [MCTupleToolKinematic.cpp](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTupleMC/src/MCTupleToolKinematic.cpp)
+ * [MCTupleToolKinematic.h](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTupleMC/src/MCTupleToolKinematic.h)
+   * _TRUEID
+   * _TRUEP_
+   * _TRUEPT
+   * _TRUEORIGINVERTEX_
+   * _TRUEENDVERTEX_
+   * _TRUEISSTABLE
+   * _TRUETAU
+   * _OSCIL
+ * [MCTupleToolP2VV.cpp](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTupleMC/src/MCTupleToolP2VV.cpp)
+ * [MCTupleToolP2VV.h](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTupleMC/src/MCTupleToolP2VV.h)
+   * _TRUEThetaL
+   * _TRUEThetaK
+   * _TRUEPhi
+   * _TRUEThetaTr
+   * _TRUEPhiTr
+   * _TRUEThetaVtr
+ * [MCTupleToolPID.cpp](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTupleMC/src/MCTupleToolPID.cpp)
+ * [MCTupleToolPID.h](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTupleMC/src/MCTupleToolPID.h)
+   * _ID
+ * [MCTupleToolPrimaries.cpp](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTupleMC/src/MCTupleToolPrimaries.cpp)
+ * [MCTupleToolPrimaries.h](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTupleMC/src/MCTupleToolPrimaries.h)
+ * [MCTupleToolPrompt.cpp](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTupleMC/src/MCTupleToolPrompt.cpp)
+ * [MCTupleToolPrompt.h](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTupleMC/src/MCTupleToolPrompt.h)
+   * _MC_ISPROMPT
+   * _MC_LONGLIVED_ID
+   * _MC_LONGLIVED_KEY
+ * [MCTupleToolReconstructed.cpp](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTupleMC/src/MCTupleToolReconstructed.cpp)
+ * [MCTupleToolReconstructed.h](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTupleMC/src/MCTupleToolReconstructed.h)
+   * _Reconstructible
+   * _Reconstructed
+ * [MCTupleToolRedecay.cpp](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTupleMC/src/MCTupleToolRedecay.cpp)
+ * [MCTupleToolRedecay.h](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTupleMC/src/MCTupleToolRedecay.h)
+   * _prefix + RD_org_eventNumber
+   * _prefix + RD_org_runNumber
+   * _prefix + RD_i_event
+ * [TupleToolGeneration.cpp](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTupleMC/src/TupleToolGeneration.cpp)
+ * [TupleToolGeneration.h](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTupleMC/src/TupleToolGeneration.h)
+ * [TupleToolMCBackgroundInfo.cpp](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTupleMC/src/TupleToolMCBackgroundInfo.cpp)
+ * [TupleToolMCBackgroundInfo.h](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTupleMC/src/TupleToolMCBackgroundInfo.h)
+   * _prefix+_BKGCAT
+ * [TupleToolMCTruth.cpp](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTupleMC/src/TupleToolMCTruth.cpp)
+ * [TupleToolMCTruth.h](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTupleMC/src/TupleToolMCTruth.h)
+   * _TRUEID
 {%endcallout %}
 
 {% callout "DecayTreeTupleMuonCalib - for muon calibration tools" %}
