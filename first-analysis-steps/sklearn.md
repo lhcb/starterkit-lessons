@@ -53,6 +53,29 @@ bdt.predict(X_train)
 
 ```
 
+You can print the classification report using `classification_report` which builds a text report showing the main classification metrics. It is also useful to plot the area under the ROC curve. For example:
+
+```python
+Y_predict = bdt.predict(X_train)
+print classification_report(Y_train, Y_predict, target_names=["background", "signal"])
+print "Area under ROC curve: %.4f"%(roc_auc_score(Y_train, bdt.decision_function(X_train)))
+
+```
+
+You should see some output like this:
+
+```
+             precision    recall  f1-score   support
+
+ background       0.50      0.84      0.63    233927
+     signal       0.50      0.16      0.25    234251
+
+avg / total       0.50      0.50      0.44    468178
+
+Area under ROC curve: 0.5002
+
+```
+
 Now we use the `decision_function` method to return the decision tree score of the input training sample X.
 
 ```python
@@ -66,6 +89,9 @@ Add this to your code in order to make a plot of the decision tree score.
 twoclass_output = bdt.decision_function(X_train)
 plot_range = (twoclass_output.min(), twoclass_output.max())
 test_output = bdt.decision_function(X_test)
+
+plot_colors = "br"
+class_names = "AB"
 
 import matplotlib.pyplot as plt
 
@@ -132,9 +158,45 @@ plt.show()
 
 Your plots should look something like this:
 
-![image](./first-analysis-steps/images-martha/sklearn_test_output_D02KSPiPiLL.jpg)
-
-<img src="./first-analysis-steps/images-martha/sklearn_test_output_D02KSPiPiLL.jpg" width="640" height=360 />
+![image](images-martha/sklearn_test_output_D02KSPiPiLL.jpg)
 
 {% challenge "Alternative Decision Tree Classifiers" %} Try using another Boosted Decision Tree Classifier on the data. Plot the decision tree scores and the ROC curve and compare the performance of each classifier. This could be done by plotting the ROC curves for each classifier on the same plot and comparing the area under the ROC curves. For some ideas for different classifiers look [here](http://scikit-learn.org/stable/modules/ensemble.html).
 {% endchallenge %}
+
+Once we have the decision tree scores we can decide on a cut to make on the output of the BDT. Different so-called 'figures of merit' can be used to decide on the optimal cut, some are discussed [here](https://arxiv.org/pdf/physics/0308063.pdf). For the purpose of this lesson we will choose to maximise the significance $$ S/\sqrt(S+B) $$. This can be done in SciKit Learn by plotting the significance against the decision tree score; the optimal cut on the decision tree score will be at the point of maximum significance. This can be done using the SciKit Learn `roc_curve` class which returns the efficiencies (true positive rate and false positive rate) for values of the BDT score. We will plot the significance for values of the decision tree score.
+
+```python
+sig = df['sWeight_sig'].sum()
+nsig = tpr[1:]*sig
+bkg = df['sWeight_bkg'].sum()
+nbkg = fpr[1:]*bkg
+significance = nsig/np.sqrt(nsig+nbkg)
+
+index = np.argmax(significance)
+cut = thresholds[index]
+
+plt.figure()
+
+plt.plot(thresholds[1:], significance)
+plt.xlim(xmin=thresholds.min())
+plt.xlabel('Decision Tree Score')
+plt.ylabel('Significance')
+plt.title('Cut Efficiencies')
+plt.text(-0.7,10,'Optimal cut value: ' + str(cut),fontsize=12)
+plt.savefig('significance_bdtscore.pdf')
+plt.show()
+
+print 'Optimal cut value: ', cut
+
+```
+
+You  should get the optimal cut on the BDT in order to maximise the significance:
+
+```
+Optimal cut value:  -0.114274310187
+
+```
+
+And your plot should look something like this:
+
+![image](images-martha/sklearn-test.jpg)
