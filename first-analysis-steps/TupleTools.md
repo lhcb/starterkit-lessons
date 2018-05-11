@@ -96,13 +96,36 @@ DecayTreeTuple:
 
 - DecayTreeTupleANNPID 
 
+--TupleToolANNPID.cpp
+--TupleToolANNPID.h
+--TupleToolANNPIDTraining.cpp
+--TupleToolANNPIDTraining.h
+
 - DecayTreeTupleBase 
 
 - DecayTreeTupleDalitz 
 
+--MCTupleToolDalitz.cpp
+--MCTupleToolDalitz.h
+--TupleToolDalitz.cpp
+--TupleToolDalitz.h	
+
 - DecayTreeTupleHerschel 
 
 - DecayTreeTupleJets 
+
+--TupleToolJetRelations.cpp
+--TupleToolJetRelations.h	
+--TupleToolJetTag.cpp
+--TupleToolJetTag.h	
+--TupleToolJets.cpp
+--TupleToolJets.h	
+--TupleToolJetsBase.cpp	
+--TupleToolJetsBase.h	
+--TupleToolJetsForB.cpp			
+--TupleToolJetsForB.h			
+--TupleToolWZJets.cpp
+--TupleToolWZJets.h
 
 - DecayTreeTupleMC 
 
@@ -116,8 +139,8 @@ DecayTreeTuple:
 
 MCTupleToolAngles.cpp			TupleToolKinematic.h
 MCTupleToolAngles.h			TupleToolL0Calo.cpp
-MCTupleToolDalitz.cpp			TupleToolL0Calo.h
-MCTupleToolDalitz.h			TupleToolL0Data.cpp
+		TupleToolL0Calo.h
+		TupleToolL0Data.cpp
 MCTupleToolDecayType.cpp		TupleToolL0Data.h
 MCTupleToolDecayType.h			TupleToolMCAssociatedClusters.cpp
 MCTupleToolEventType.cpp		TupleToolMCAssociatedClusters.h
@@ -138,10 +161,10 @@ MCTupleToolReconstructed.cpp		TupleToolP2VV.h
 MCTupleToolReconstructed.h		TupleToolParticleReFit.cpp
 MCTupleToolRedecay.cpp			TupleToolParticleReFit.h
 MCTupleToolRedecay.h			TupleToolParticleStats.cpp
-TupleToolANNPID.cpp			TupleToolParticleStats.h
-TupleToolANNPID.h			TupleToolPhotonInfo.cpp
-TupleToolANNPIDTraining.cpp		TupleToolPhotonInfo.h
-TupleToolANNPIDTraining.h		TupleToolPi0Info.cpp
+		TupleToolParticleStats.h
+TupleToolPhotonInfo.cpp
+	TupleToolPhotonInfo.h
+	TupleToolPi0Info.cpp
 TupleToolAllPhotons.cpp			TupleToolPi0Info.h
 TupleToolAllPhotons.h			TupleToolPid.cpp
 TupleToolAllTracks.cpp			TupleToolPid.h
@@ -166,9 +189,9 @@ TupleToolCorrectedMass.cpp		TupleToolSwimmingInfo.h
 TupleToolCorrectedMass.h		TupleToolTISTOS.cpp
 TupleToolDEDX.cpp			TupleToolTISTOS.h
 TupleToolDEDX.h				TupleToolTagging.cpp
-TupleToolDalitz.cpp			TupleToolTagging.h
-TupleToolDalitz.h			TupleToolTrackInfo.cpp
-TupleToolDalitz.icpp			TupleToolTrackInfo.h
+		TupleToolTagging.h
+		TupleToolTrackInfo.cpp
+		TupleToolTrackInfo.h
 TupleToolDecayTreeFitter.cpp		TupleToolTrackIsolation.cpp
 TupleToolDecayTreeFitter.h		TupleToolTrackIsolation.h
 TupleToolDira.cpp			TupleToolTrackKink.cpp
@@ -187,16 +210,15 @@ TupleToolHerschel.cpp			TupleToolTwoParticleMatching.cpp
 TupleToolHerschel.h			TupleToolTwoParticleMatching.h
 TupleToolIsolationTwoBody.cpp		TupleToolVELOClusters.cpp
 TupleToolIsolationTwoBody.h		TupleToolVELOClusters.h
-TupleToolJetRelations.cpp		TupleToolVeloTrackClusterInfo.cpp
-TupleToolJetRelations.h			TupleToolVeloTrackClusterInfo.h
-TupleToolJetTag.cpp			TupleToolVeloTrackMatch.cpp
-TupleToolJetTag.h			TupleToolVeloTrackMatch.h
-TupleToolJets.cpp			TupleToolVeto.cpp
-TupleToolJets.h				TupleToolVeto.h
-TupleToolJetsBase.cpp			TupleToolVtxIsoln.cpp
-TupleToolJetsBase.h			TupleToolVtxIsoln.h
-TupleToolJetsForB.cpp			TupleToolWZJets.cpp
-TupleToolJetsForB.h			TupleToolWZJets.h
+		TupleToolVeloTrackClusterInfo.cpp
+		TupleToolVeloTrackClusterInfo.h
+	TupleToolVeloTrackMatch.cpp
+			TupleToolVeloTrackMatch.h
+			TupleToolVeto.cpp
+			TupleToolVeto.h
+		TupleToolVtxIsoln.cpp
+	TupleToolVtxIsoln.h
+
 TupleToolKinematic.cpp
 
 Numbered list coming up:
