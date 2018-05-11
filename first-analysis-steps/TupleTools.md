@@ -6,7 +6,6 @@
 
 {% callout "List of DecayTreeTuples" %}
 DecayTreeTuples:
-
  -  DecayTreeTuple 
  -  DecayTreeTupleANNPID 
  -  DecayTreeTupleBase 
@@ -18,12 +17,7 @@ DecayTreeTuples:
  -  DecayTreeTupleReco 
  -  DecayTreeTupleTracking 
  -  DecayTreeTupleTrigger 
-
 {% endcallout %} 
-
-```python
-
-```
 
 - This the tuple tool for MCTupleToolAngles 
 [.cpp](MCTupleToolAngles.html) 
@@ -89,7 +83,6 @@ DecayTreeTuple:
  - [TupleToolVeto.h] (://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTuple/src/TupleToolVeto.h.h)
  - [TupleToolVtxIsoln.cpp] (://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTuple/src/TupleToolVtxIsoln.cpp.h)
  - [TupleToolVtxIsoln.h] (://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTuple/src/TupleToolVtxIsoln.h.h)
-
 {% endcallout %} 
 
 {% callout "DecayTreeTupleANNPID - for the NeuralNet-based PID tools" %}
@@ -164,6 +157,7 @@ DecayTreeTupleMC
  - TupleToolMCBackgroundInfo.h
  - TupleToolMCTruth.cpp
  - TupleToolMCTruth.h
+{%endcallout %}
 
 {% callout "DecayTreeTupleMuonCalib - for muon calibration tools" %}
 DecayTreeTupleMuonCalib 
