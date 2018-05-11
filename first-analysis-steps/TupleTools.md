@@ -796,7 +796,6 @@ Below you will find links to the source code and header files for each of the Tu
 {% endcallout %} 
 
 {% callout "DecayTreeTupleTrigger - for access to the trigger information of the candidates" %}
-DecayTreeTupleTrigger 
  * [TupleToolEventInfo.cpp](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTupleTrigger/src/TupleToolEventInfo.cpp)
  * [TupleToolEventInfo.h](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTupleTrigger/src/TupleToolEventInfo.h)
    * _Mu
