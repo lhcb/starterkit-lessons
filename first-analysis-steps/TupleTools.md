@@ -11,8 +11,8 @@ DecayTreeTuples:
 - DecayTreeTupleANNPID - for the NeuralNet-based PID tools. [Class Reference here.](http://lhcb-doxygen.web.cern.ch/lhcb-doxygen/analysis/latest/dc/dd6/class_tuple_tool_a_n_n_p_i_d.html)
 - DecayTreeTupleDalitz - for Dalitz analysis. [Class Reference here.](http://lhcb-doxygen.web.cern.ch/lhcb-doxygen/analysis/latest/df/d6a/class_tuple_tool_dalitz.html)
 - DecayTreeTupleJets - for obtaining information on jets. [Class Reference here.](http://lhcb-doxygen.web.cern.ch/lhcb-doxygen/analysis/latest/d9/d48/class_tuple_tool_jets.html)
-- DecayTreeTupleMC - gives us access to MC-level information. [Class Reference here](http://lhcb-doxygen.web.cern.ch/lhcb-doxygen/analysis/latest/da/dd6/class_tuple_tool_m_c_truth.html)
-- DecayTreeTupleMuonCalib - for muon calibration tools.
+- DecayTreeTupleMC - gives us access to MC-level information. [Class Reference here.](http://lhcb-doxygen.web.cern.ch/lhcb-doxygen/analysis/latest/da/dd6/class_tuple_tool_m_c_truth.html)
+- DecayTreeTupleMuonCalib - for muon calibration tools. [Class Reference here.](http://lhcb-doxygen.web.cern.ch/lhcb-doxygen/analysis/latest/d4/de9/class_tuple_tool_muon_i_d_calib.html)
 - DecayTreeTupleReco - for reconstruction-level information, such as TupleToolTrackInfo.
 - DecayTreeTupleTracking - for more detailed tools regarding tracking.
 - DecayTreeTupleTrigger - for accessing to the trigger information of the candidates. [Class Reference here.](http://lhcb-doxygen.web.cern.ch/lhcb-doxygen/analysis/latest/d3/dd1/class_tuple_tool_trigger.html)
