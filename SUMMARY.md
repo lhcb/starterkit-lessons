@@ -17,6 +17,7 @@
     * [Running a minimal DaVinci job locally](first-analysis-steps/minimal-dv-job.md)
     * [Running DaVinci on the grid](first-analysis-steps/davinci-grid.md)
     * [TupleTools and branches](first-analysis-steps/add-tupletools.md)
+    * [TupleTools](first-analysis-steps/TupleTools.md)
     * [How do I use DecayTreeFitter?](first-analysis-steps/decay-tree-fitter.md)
     * [More Ganga](first-analysis-steps/ganga-data.md)
     * [Storing large files on EOS](first-analysis-steps/eos-storage.md)
@@ -25,9 +26,8 @@
     * [Asking good questions](first-analysis-steps/asking-questions.md)
     * [Early career, gender and diversity](first-analysis-steps/ecgd.md)
     * [Contribute to this lesson](first-analysis-steps/contributing-lesson.md)
-    * [TupleTools](first-analysis-steps/TupleTools.md)
-      * [MCTupleToolPID C++](MCTupleToolPID.md)
-      * [MCTupleToolPID Header](MCTupleToolPID2.md)
+
+
 
 -----
 * [Second analysis steps](second-analysis-steps/README.md)
