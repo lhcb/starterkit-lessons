@@ -245,16 +245,16 @@ Below you will find links to the source code and header files for each of the Tu
    * _PROB
  * [TupleToolTwoParticleMatching.cpp](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTuple/src/TupleToolTwoParticleMatching.cpp)
  * [TupleToolTwoParticleMatching.h](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTuple/src/TupleToolTwoParticleMatching.h)
-   * _NMatchingCand_+fullName(head)+m_headSuffix
-   * _Overlap_loaded_+fullName(head)+m_headSuffix
-   * _Overlap_original_+fullName(head)+m_headSuffix 
+   * \_NMatchingCand\_+fullName(head)+m\_headSuffix
+   * \_Overlap_loaded\_+fullName(head)+m\_headSuffix
+   * \_Overlap_original\_+fullName(head)+m\_headSuffix 
  * [TupleToolVeto.cpp](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTuple/src/TupleToolVeto.cpp)
  * [TupleToolVeto.h](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTuple/src/TupleToolVeto.h)
    * _Veto+flag
    * _VetoOther+flag 
  * [TupleToolVtxIsoln.cpp](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTuple/src/TupleToolVtxIsoln.cpp)
  * [TupleToolVtxIsoln.h](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTuple/src/TupleToolVtxIsoln.h)
-   * _VtxIsoln.m_varNames[index]
+   * \_VtxIsoln.m\_varNames[index]
    * _VtxIsoln.name
 {% endcallout %}
 
