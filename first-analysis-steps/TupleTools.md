@@ -1,6 +1,6 @@
 # List of TupleTool Variables
 
-{% objectives "Learning Objectives" %}
+{% objectives "Learning Objectives"; border: 1px solid #EEEEEE; %}
 * What are each TupleTool's variables?
 {% endobjectives %} 
 
