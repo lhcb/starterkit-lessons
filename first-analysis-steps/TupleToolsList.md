@@ -853,9 +853,9 @@ Below you will find links to the source code and header files for each of the Tu
    * _L0Calo_ECAL_yTrigger
  * [TupleToolL0Data.cpp](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTupleTrigger/src/TupleToolL0Data.cpp)
  * [TupleToolL0Data.h](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTupleTrigger/src/TupleToolL0Data.h)
-   * _prefix+L0Data_+rename(name)
-   * _prefix+L0Data_+rename(name)
-   * _prefix+L0Emu_TCK+stck
+   * \\_prefix+L0Data\\_+rename(name)
+   * \\_prefix+L0Data\\_+rename(name)
+   * \\_prefix+L0Emu\\_TCK+stck
  * [TupleToolStripping.cpp](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTupleTrigger/src/TupleToolStripping.cpp)
  * [TupleToolStripping.h](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTupleTrigger/src/TupleToolStripping.h)
  * [TupleToolTISTOS.cpp](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTupleTrigger/src/TupleToolTISTOS.cpp)
