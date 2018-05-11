@@ -111,18 +111,18 @@ DecayTreeTupleDalitz
 
 {% callout "DecayTreeTupleJets - for obtaining information on jets" %}
 DecayTreeTupleJets 
-- TupleToolJetRelations.cpp
-- TupleToolJetRelations.h	
-- TupleToolJetTag.cpp
-- TupleToolJetTag.h	
-- TupleToolJets.cpp
-- TupleToolJets.h	
-- TupleToolJetsBase.cpp	
-- TupleToolJetsBase.h	
-- TupleToolJetsForB.cpp			
-- TupleToolJetsForB.h			
-- TupleToolWZJets.cpp
-- TupleToolWZJets.h
+ - [TupleToolJetRelations.cpp](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTupleJets/src/TupleToolJetRelations.cpp)
+ - [TupleToolJetRelations.h](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTupleJets/src/TupleToolJetRelations.h)
+ - [TupleToolJetsBase.cpp](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTupleJets/src/TupleToolJetsBase.cpp)
+ - [TupleToolJetsBase.h](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTupleJets/src/TupleToolJetsBase.h)
+ - [TupleToolJets.cpp](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTupleJets/src/TupleToolJets.cpp)
+ - [TupleToolJetsForB.cpp](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTupleJets/src/TupleToolJetsForB.cpp)
+ - [TupleToolJetsForB.h](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTupleJets/src/TupleToolJetsForB.h)
+ - [TupleToolJets.h](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTupleJets/src/TupleToolJets.h)
+ - [TupleToolJetTag.cpp](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTupleJets/src/TupleToolJetTag.cpp)
+ - [TupleToolJetTag.h](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTupleJets/src/TupleToolJetTag.h)
+ - [TupleToolWZJets.cpp](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTupleJets/src/TupleToolWZJets.cpp)
+ - [TupleToolWZJets.h](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTupleJets/src/TupleToolWZJets.h)
 {% endcallout %} 
 
 {% callout "DecayTreeTupleMC - gives us access to MC-level information" %}
