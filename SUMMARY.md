@@ -26,14 +26,6 @@
     * [Asking good questions](first-analysis-steps/asking-questions.md)
     * [Early career, gender and diversity](first-analysis-steps/ecgd.md)
     * [Contribute to this lesson](first-analysis-steps/contributing-lesson.md)
-<<<<<<< HEAD
-    * [TupleTools](first-analysis-steps/TupleTools.md)
-        * [MCTupleToolPID C++](MCTupleToolPID.md)
-        * [MCTupleToolPID Header](MCTupleToolPID2.md)
-=======
-
-
->>>>>>> 8e7a12bc9234e868508745577801022c117c9b4e
 
 -----
 * [Second analysis steps](second-analysis-steps/README.md)
