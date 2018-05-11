@@ -273,8 +273,8 @@ Below you will find links to the source code and header files for each of the Tu
 {% endcallout %} 
 
 {% callout "DecayTreeTupleBase" %}
- * [TupleToolBase.cpp](https://www.youtube.com/watch?v=dQw4w9WgXcQ)
- * [TupleToolBase.h](https://www.youtube.com/watch?v=A1L2xODZSI4)
+ * [TupleToolBaseEggPasta.cpp](https://www.jamieoliver.com/recipes/pasta-recipes/a-basic-recipe-for-fresh-egg-pasta/)
+ * [TupleToolBaseEggPasta.h](https://www.jamieoliver.com/recipes/pasta-recipes/a-basic-recipe-for-fresh-egg-pasta/)
 {% endcallout %} 
 
 {% callout "DecayTreeTupleDalitz - for Dalitz analysis" %}
