@@ -1,17 +1,7 @@
-
-
-
-this is where the tuple tool is gunna go!
-
-<<<<<<< HEAD
 # List of TupleTool Variables
-=======
-
-# Title goes here
->>>>>>> 6b066b6c1ac2c0e0136203de1f8d564a66419e86
 
 {% objectives "Learning Objectives" %}
-* Lauren do something
+* What are each TupleTool's variables?
 {% endobjectives %} 
 
 {% callout "List of DecayTreeTuples" %}
@@ -32,16 +22,13 @@ DecayTreeTuples:
 {% endcallout %} 
 
 ```python
-Write code here
+
 ```
 
-{% challenge "Challenging" %}
-
-This the tuple tool for MCTupleToolAngles 
+- This the tuple tool for MCTupleToolAngles 
 [.cpp](MCTupleToolAngles.html) 
 [.h](MCTupleToolAngles2.html) 
-
-{% endchallenge %} 
+ 
 
 MCTupleToolAngles.cpp			TupleToolKinematic.h
 MCTupleToolAngles.h			TupleToolL0Calo.cpp
