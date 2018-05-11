@@ -29,7 +29,7 @@ DecayTreeTuples:
 [.cpp](MCTupleToolAngles.html) 
 [.h](MCTupleToolAngles2.html) 
  
-{% callout "DecayTreeTuple" %}
+{% callout "DecayTreeTuple - for the more general tools" %}
 DecayTreeTuple:
  - TupleToolAllTracks.cpp
  - TupleToolAllTracks.h
@@ -91,7 +91,7 @@ DecayTreeTuple:
  - TupleToolVtxIsoln.h
 {% endcallout %} 
 
-{% callout "DecayTreeTupleANNPID" %}
+{% callout "DecayTreeTupleANNPID - for the NeuralNet-based PID tools" %}
 DecayTreeTupleANNPID 
  - TupleToolANNPID.cpp
  - TupleToolANNPID.h
@@ -103,7 +103,7 @@ DecayTreeTupleANNPID
 DecayTreeTupleBase 
 {% endcallout %} 
 
-{% callout "DecayTreeTupleDalitz" %}
+{% callout "DecayTreeTupleDalitz - for Dalitz analysis" %}
 DecayTreeTupleDalitz 
 - MCTupleToolDalitz.cpp
 - MCTupleToolDalitz.h
@@ -115,7 +115,7 @@ DecayTreeTupleDalitz
 - DecayTreeTupleHerschel 
 {% endcallout %} 
 
-{% callout "DecayTreeTupleJets" %}
+{% callout "DecayTreeTupleJets - for obtaining information on jets" %}
 DecayTreeTupleJets 
 - TupleToolJetRelations.cpp
 - TupleToolJetRelations.h	
@@ -131,7 +131,7 @@ DecayTreeTupleJets
 - TupleToolWZJets.h
 {% endcallout %} 
 
-{% callout "DecayTreeTupleMC" %}
+{% callout "DecayTreeTupleMC - gives us access to MC-level information" %}
 DecayTreeTupleMC 
  - MCTupleToolAngles.cpp
  - MCTupleToolAngles.h
@@ -164,7 +164,7 @@ DecayTreeTupleMC
  - TupleToolMCTruth.cpp
  - TupleToolMCTruth.h
 
-{% callout "DecayTreeTupleMuonCalib" %}
+{% callout "DecayTreeTupleMuonCalib - for muon calibration tools" %}
 DecayTreeTupleMuonCalib 
  - TupleToolMuonIDCalib.cpp
  - TupleToolMuonIDCalib.h
@@ -172,7 +172,7 @@ DecayTreeTupleMuonCalib
  - TupleToolMuonPid.h
 {% endcallout %} 
 
-{% callout "DecayTreeTupleReco" %}
+{% callout "DecayTreeTupleReco - for reconstruction-level information, such as TupleToolTrackInfo" %}
 DecayTreeTupleReco 
  - TupleToolAllPhotons.cpp
  - TupleToolAllPhotons.h
@@ -192,7 +192,7 @@ DecayTreeTupleReco
  - [TupleToolTrackInfo.h](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTupleReco/src/TupleToolTrackInfo.h)
 {% endcallout %} 
 
-{% callout "DecayTreeTupleTracking" %}
+{% callout "DecayTreeTupleTracking - for more detailed tools regarding tracking" %}
 DecayTreeTupleTracking 
  - TupleToolConeIsolation.cpp
  - TupleToolConeIsolation.h
@@ -216,7 +216,7 @@ DecayTreeTupleTracking
  - TupleToolVeloTrackMatch.h
 {% endcallout %} 
 
-{% callout "DecayTreeTupleTrigger" %}
+{% callout "DecayTreeTupleTrigger - for access to the trigger information of the candidates" %}
 DecayTreeTupleTrigger 
  - TupleToolEventInfo.cpp
  - TupleToolEventInfo.h
@@ -335,13 +335,5 @@ Numbered list coming up:
   
   
   
-  DecayTreeTuple for the more general tools.
-DecayTreeTupleANNPID for the NeuralNet-based PID tools.
-DecayTreeTupleDalitz for Dalitz analysis.
-DecayTreeTupleJets for obtaining information on jets.
-DecayTreeTupleMC gives us access to MC-level information.
-DecayTreeTupleMuonCalib for muon calibration tools.
-DecayTreeTupleReco for reconstruction-level information, such as TupleToolTrackInfo.
-DecayTreeTupleTracking for more detailed tools regarding tracking.
-DecayTreeTupleTrigger for accessing to the trigger information of the candidates.
+
 
