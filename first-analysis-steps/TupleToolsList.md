@@ -441,10 +441,10 @@ Below you will find links to the source code and header files for each of the Tu
  * [MCTupleToolKinematic.cpp](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTupleMC/src/MCTupleToolKinematic.cpp)
  * [MCTupleToolKinematic.h](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTupleMC/src/MCTupleToolKinematic.h)
    * _TRUEID
-   * _TRUEP_
+   * \_TRUEP\_
    * _TRUEPT
-   * _TRUEORIGINVERTEX_
-   * _TRUEENDVERTEX_
+   * \_TRUEORIGINVERTEX\_
+   * \_TRUEENDVERTEX\_
    * _TRUEISSTABLE
    * _TRUETAU
    * _OSCIL
