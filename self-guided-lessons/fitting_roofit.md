@@ -149,6 +149,10 @@ model_unbinned.plotOn(plot2, RooFit::Components(sig_gaus), RooFit::LineColor(kRe
 model_unbinned.plotOn(plot2, RooFit::Components(bkg), RooFit::LineColor(kGreen));
 ````
 
+Here is the corresponding plot: 
+
+[!["Rookeys_example"](C_unbinned.png)](C_unbinned.png)
+
 In order to display the output parameters of our plot, we make use of the `paramOn` method: 
 
 ````
@@ -196,18 +200,4 @@ RooSimultaneous simPdf("simPdf","simultaneous pdf",sample) ;
 ````
 
 A full example using `RooSimultaneous` is available at this [address](https://root.cern.ch/root/html/tutorials/roofit/rf501_simultaneouspdf.C.html).
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 

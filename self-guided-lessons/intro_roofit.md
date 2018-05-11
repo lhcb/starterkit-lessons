@@ -135,16 +135,4 @@ RooHistPdf histpdf("Binned Hist Pdf", "Binned Hist Pdf", x, data);
 RooKeysPdf keysPdf("Unbinned Keys Pdf", "Unbinned Keys Pdf", x, data);
 ````
 
-
-    
-    
-
-
-
-
-
-
-
-
-
-
+[!["Rookeys_example"](rookeys.png)](rookeys.png)
