@@ -782,22 +782,225 @@ _PP_+var
 DecayTreeTupleTracking 
  - [TupleToolConeIsolation.cpp](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTupleTracking/src/TupleToolConeIsolation.cpp)
  - [TupleToolConeIsolation.h](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTupleTracking/src/TupleToolConeIsolation.h)
+
+
+
+  _cc_mult
+  _cc_sPT
+  _cc_vPT
+  _cc_PX
+  _cc_PY
+  _cc_PZ
+  _cc_asy_P
+  _cc_asy_PT
+  _cc_asy_PX
+  _cc_asy_PY
+  _cc_asy_PZ
+  _cc_deltaEta
+  _cc_deltaPhi
+  _cc_IT
+  _cc_maxPt_Q
+  _cc_maxPt_PT
+  _cc_maxPt_PX
+  _cc_maxPt_PY
+  _cc_maxPt_PZ
+  _cc_maxPt_PE
+  _cc_mult
+  _cc_sPT
+  _cc_vPT
+  _cc_PX
+  _cc_PY
+  _cc_PZ
+  _cc_asy_P
+  _cc_asy_PT
+  _cc_asy_PX
+  _cc_asy_PY
+  _cc_asy_PZ
+  _cc_deltaEta
+  _cc_deltaPhi
+  _cc_IT
+  _cc_maxPt_Q
+  _cc_maxPt_PT
+  _cc_maxPt_PX
+  _cc_maxPt_PY
+  _cc_maxPt_PZ
+  _cc_maxPt_PE
+  _nc_mult
+  _nc_sPT
+  _nc_vPT
+  _nc_PX
+  _nc_PY
+  _nc_PZ
+  _nc_avCL
+  _nc_maxCL
+  _nc_asy_P
+  _nc_asy_PT
+  _nc_asy_PX
+  _nc_asy_PY
+  _nc_asy_PZ
+  _nc_deltaEta
+  _nc_deltaPhi
+  _nc_IT
+  _nc_maxPt_PT
+  _nc_maxPt_PX
+  _nc_maxPt_PY
+  _nc_maxPt_PZ
+  _nc_H1
+  _nc_H2
+  _nc_H3
+  _nc_H4
+  _nc_Mass
+  _nc_mult
+  _nc_sPT
+  _nc_vPT
+  _nc_PX
+  _nc_PY
+  _nc_PZ
+  _nc_avCL
+  _nc_maxCL
+  _nc_asy_P
+  _nc_asy_PT
+  _nc_asy_PX
+  _nc_asy_PY
+  _nc_asy_PZ
+  _nc_deltaEta
+  _nc_deltaPhi
+  _nc_IT
+  _nc_maxPt_PT
+  _nc_maxPt_PX
+  _nc_maxPt_PY
+  _nc_maxPt_PZ
+  _nc_H1
+  _nc_H2
+  _nc_H3
+  _nc_H4
+  _nc_Mass
+  _IT
+  _IT
+  _pi0_mult
+  _pi0_mult
+  _mergpi0_mult
+  _mergpi0_mult
+
+
  - [TupleToolDEDX.cpp](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTupleTracking/src/TupleToolDEDX.cpp)
  - [TupleToolDEDX.h](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTupleTracking/src/TupleToolDEDX.h)
+
+_DEDX._Q
+_DEDX._Q
+_DEDX._eta
+_EventNumber
+_TrackNumber
+_phi
+_TrackID
+_head+_DEDX_theta
+_momentum
+_momentumTRUE
+_ head+_DEDX_pt
+_ head+_DEDX_px
+_ head+_DEDX_py
+_ head+_DEDX_pz
+_ head+_DEDX_pseudoRapidity
+_ head+_DEDX_trackType
+_ head+_DEDX_trackKey
+_ head+_DEDX_trackVeloKey
+_ head+_DEDX_trackChi2
+_ head+_DEDX_trackProbChi2
+_ head+_DEDX_trackLikelihood
+_ head+_DEDX_trackGhostProb
+_ head+_DEDX_trackChi2PerDoF
+_ head+_DEDX_tracknDoF
+_ head+_DEDX_protoMuBkgLL
+_ head+_DEDX_protoMuLL
+_ head+_DEDX_protoRichDLLe
+_ head+_DEDX_protoRichDLLmu
+_ head+_DEDX_protoRichDLLpi
+_ head+_DEDX_protoRichDLLk
+_ head+_DEDX_protoRichDLLp
+_ head+_DEDX_protoRichBestPID
+_ head+_DEDX_MPV_Mean
+_ head+_DEDX_MPV_Median
+_ head+_DEDX_MPV_Corrected_Median
+_ head+_DEDX_MPV_Trunc20
+_ head+_DEDX_MPV_Trunc40
+_ head+_DEDX_MPV_GenMean_2
+_ head+_DEDX_MPV_GenMean_4
+_ head+_DEDX_MPV_GenMean_6
+_ head+_DEDX_MPV_GenMean_0_5
+_ head+_DEDX_nClustersPerTrack
+
  - [TupleToolMCAssociatedClusters.cpp](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTupleTracking/src/TupleToolMCAssociatedClusters.cpp)
  - [TupleToolMCAssociatedClusters.h](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTupleTracking/src/TupleToolMCAssociatedClusters.h)
+
+
+_prefix+_MC_nUsedOTClusters
+_prefix+_MC_nUsedITClusters
+_prefix+_MC_nUsedTTClusters
+_prefix+_MC_nUsedVeloClusters
+_prefix+_MC_nUsedUniqueOTClusters
+_prefix+_MC_nUsedUniqueITClusters
+_prefix+_MC_nUsedUniqueTTClusters
+_prefix+_MC_nUsedUniqueVeloClusters
+_prefix+_MC_nOTClusters
+_prefix+_MC_nITClusters
+_prefix+_MC_nTTClusters
+_prefix+_MC_nVeloClusters
+
+
  - [TupleToolTrackIsolation.cpp](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTupleTracking/src/TupleToolTrackIsolation.cpp)
  - [TupleToolTrackIsolation.h](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTupleTracking/src/TupleToolTrackIsolation.h)
+
+
+_conePx
+_conePy
+_conePz
+_conePt 
+_coneP 
+_myPair.second
+_deltaEta
+_deltaPhi 
+
+
  - [TupleToolTrackKink.cpp](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTupleTracking/src/TupleToolTrackKink.cpp)
  - [TupleToolTrackKink.h](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTupleTracking/src/TupleToolTrackKink.h)
+
+_TRACK_kinkChi2
+_TRACK_kinkChi2z
+_TRACK_kinkFitChi2
+_TRACK_kinkFitDeltaR
+_TRACK_kinkFitDeltaRE
+_TRACK_kinkFitDeltaRZ
+
+
  - [TupleToolTrackPosition.cpp](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTupleTracking/src/TupleToolTrackPosition.cpp)
  - [TupleToolTrackPosition.h](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTupleTracking/src/TupleToolTrackPosition.h)
+
+_X
+_Y
+
+
  - [TupleToolTrackTime.cpp](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTupleTracking/src/TupleToolTrackTime.cpp)
  - [TupleToolTrackTime.h](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTupleTracking/src/TupleToolTrackTime.h)
+
+_TRACK_time
+_TRACK_time_err
+
+
  - [TupleToolVELOClusters.cpp](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTupleTracking/src/TupleToolVELOClusters.cpp)
  - [TupleToolVELOClusters.h](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTupleTracking/src/TupleToolVELOClusters.h)
+
+_nUnusedVeloClusters
+
  - [TupleToolVeloTrackClusterInfo.cpp](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTupleTracking/src/TupleToolVeloTrackClusterInfo.cpp)
  - [TupleToolVeloTrackClusterInfo.h](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTupleTracking/src/TupleToolVeloTrackClusterInfo.h)
+
+
+_TRACK_TCHI2NDOF
+_TRACK_VELO_TOTALCHARGE
+_TRACK_VELO_AVERAGECHARGE
+_TRACK_VELO_CLUSTERSONTRACK
+
+
  - [TupleToolVeloTrackMatch.cpp](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTupleTracking/src/TupleToolVeloTrackMatch.cpp)
  - [TupleToolVeloTrackMatch.h](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTupleTracking/src/TupleToolVeloTrackMatch.h)
 {% endcallout %} 
