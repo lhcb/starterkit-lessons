@@ -24,26 +24,21 @@ Below you will find links to the source code and header files for each of the Tu
 {% callout "DecayTreeTuple - for the more general tools" %}
  * [TupleToolAllTracks.cpp](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTuple/src/TupleToolAllTracks.cpp)
  * [TupleToolAllTracks.h](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTuple/src/TupleToolAllTracks.h)
-
  * [TupleToolAngles.cpp](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTuple/src/TupleToolAngles.cpp)
  * [TupleToolAngles.h](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTuple/src/TupleToolAngles.h)
    * _CosTheta 
    * _Theta
-
  * [TupleToolBeamSpot.cpp](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTuple/src/TupleToolBeamSpot.cpp)
  * [TupleToolBeamSpot.h](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTuple/src/TupleToolBeamSpot.h)
    * _BeamX, 
-   * _BeamY, 
-
+   * _BeamY,
  * [TupleToolBremInfo.cpp](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTuple/src/TupleToolBremInfo.cpp)
  * [TupleToolBremInfo.h](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTuple/src/TupleToolBremInfo.h)
-   
    * _DiEBremMultiplicity, 
    * _DiEBremP, 
    * _BremOrigin, 
    * _BremP, 
    * _HasBremAdded, 
-
  * [TupleToolCaloDigits.cpp](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTuple/src/TupleToolCaloDigits.cpp)
  * [TupleToolCaloDigits.h](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTuple/src/TupleToolCaloDigits.h)
  * [TupleToolCaloHypo.cpp](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTuple/src/TupleToolCaloHypo.cpp)
