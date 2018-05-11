@@ -10,10 +10,10 @@ In the next few paragraphs, we will present how to fit some data composed of a s
 Before fitting, we should ask ourselves the following questions: 
 
 - What should our signal look like? 
-- What does our signal really look like? Do we have to include a resolution/acceptance to our PDF
+- What does our signal really look like? Do we have to include a resolution/acceptance to our PDF?
 - What does our background look like? 
 
-After having answered the last three points, we can start writing our fitting code. 
+After having answered these points, we can start writing our fitting code. 
 
 Generally, data is imported from a ROOT file and the fits are carried on from variables of the corresponding tree. In the following example we will randomly generate data so that the code can be run without any external input.
 In this tutorial, we generated two different data samples. One is binned and the other one unbinned, and the combined unbinned data sample is fitted. 
@@ -24,7 +24,7 @@ In this tutorial, we generated two different data samples. One is binned and the
 Binned means that the number of events is counted in each bin and the fits are carried on using this information. This implies that the result of the fit will depend on the number of bins that is chosen. In the case of an unbinned dataset, each event position is taken into account and the fit results will not depend on a given number of bins. Using RooDataHist will often result much faster. Imagine performing an unbinned fit using tens of millions of events, it can sometimes take hours!
 {% endcallout %} 
 
-RooDataHist and RooDataSet are declared in very similar ways, except that RooDataHist is built from a TH (TH1, TH2, etc…, the binned ROOT histograms) while RooDataSet is built directly from variables of a TTree. 
+`RooDataHist` and `RooDataSet` are declared in very similar ways, except that RooDataHist is built from a TH (TH1, TH2, etc…, the binned ROOT histograms) while RooDataSet is built directly from variables of a TTree. 
 There are various ways to build these two objects (that you can find in various examples on the web) and we will show one possibility. 
 
 ````
@@ -66,7 +66,9 @@ const TTree* write_tree = d -> tree();
 write_tree -> Write();
 ````
 
-Now let's fit! RooFit allows us to perform complicated fits. It is built around solid statistical tools. Its default method uses a log likelihood minimisation thanks to [Minuit](https://seal.web.cern.ch/seal/snapshot/work-packages/mathlibs/minuit/) (a very old piece of code that is still used today). 
+Now let's fit! `
+
+RooFit allows us to perform complicated fits. It is built around solid statistical tools. Its default method uses a log likelihood minimisation thanks to [Minuit](https://seal.web.cern.ch/seal/snapshot/work-packages/mathlibs/minuit/) (a very old piece of code that is still used today). 
 The fit will be binned if you use RooDataHist and unbinned if you choose RooDataSet.
 To fit, it is quite easy and it can be done in different ways: 
 
@@ -84,20 +86,20 @@ RooFitResult* result_unbinned = model_unbinned.fitTo(data, Save(True)); in this 
 - Write a chi2 or a maximum likelihood function and then call Minuit directly
 
 ````
-RooChi2Var * chi2 = new RooChi2Var("chi2","chi2",*model_unbinned,*data,NumCPU(8), Extended(kTRUE)) ;
-where NumCPU(8) is the number of CPUs used in the Fit
-Extended(kTRUE) means that the fit is extended
+RooChi2Var * chi2 = new RooChi2Var("chi2","chi2",*model_unbinned,*data,NumCPU(8), Extended(kTRUE)) ; 
+//where NumCPU(8) is the number of CPUs used in the Fit
+//Extended(kTRUE) means that the fit is extended
 RooMinuit m1(*chi2) ;
 m1.setVerbose(kTRUE); //write info on log
 m1.setPrintLevel(3); //write all the information on the development on the shell/log
-//  m1.setEps(1e-15);//set the precision to a know value
+//  m1.setEps(1e-15);//set the precision to a known value
 m1.setStrategy(1); //0, 1 or 2 depending on the function to minimise
 m1.migrad(); //call migrad for first derivative
 m1.hesse(); //call hesse for second derivative (more precise)
 m1.save()->Print("v"); //print values
 ````
 
-For more click [here](https://root.cern.ch/doc/master/classRooMinuit.html#a73477af6d519f8b91ab0538bee1fc2f8)
+For more information, click [here](https://root.cern.ch/doc/master/classRooMinuit.html#a73477af6d519f8b91ab0538bee1fc2f8)
 
 
 
@@ -109,12 +111,12 @@ TString param_file_name = "params_to_fit.txt";
 params->readFromFile( param_file_name );
 ````
 
-The parameters file params_to_fit_new.txt has the form:
+The parameters file params_to_fit.txt has the form:
 
 ````
 mean_guess =  1250  L (1225 - 1275)
 sigma_guess =  100 L (50 - 200)
-N_f = 0.8 L (0.7 - 0.9)
+N_f = 0.8 C L (0.7 - 0.9)
 ````
 
 where L and C stands for free and constraint respectively. In this way it is possible to set the parameters to their initial value or to free them. Following the fit, the parameters can be saved in another .txt file (or the same one, which could be updated):
@@ -128,17 +130,17 @@ The parameters then become:
 ````
 mean_guess =  1247.92 +/- 1.51723  L (1225 - 1275)
 sigma_guess =  120.121e+02 +/- 1.34229 L(50 - 200)
-Nf_guess =  0.805462 +/-  5.81090e-03 L (0.7 - 0.9)
+N_f = 0.8 C L (0.7 - 0.9)
 ````
 
-In order to plot the fit results, there are two ways: 1D projections of data and PDFs are implemented in a RooPlot, while for the 2D and 3D cases RooFit returns a ROOT TH1 object.
-First we have to create a RooPlot: 
+In order to plot the fit results data and PDFs are implemented in a [`RooPlot`](https://root.cern.ch/doc/master/classRooPlot.html).
+First we have to create a `RooPlot`: 
 
 ````
 RooPlot* plot2 = mass.frame(RooFit::Title("Model"));
 ````
 
-Then it is important to plot on the frame, adding all of the options we want, as LineColor, LineStyle, Name, etc.. The signal and background components have to be added one by one: 
+Then it is important to plot on the frame, adding all of the options we want, as `LineColor`, `LineStyle`, `Name`, etc.. The signal and background components have to be added one by one: 
 
 ````
 data.plotOn(plot2);
@@ -147,7 +149,7 @@ model_unbinned.plotOn(plot2, RooFit::Components(sig_gaus), RooFit::LineColor(kRe
 model_unbinned.plotOn(plot2, RooFit::Components(bkg), RooFit::LineColor(kGreen));
 ````
 
-In order to display the output parameters of our plot, we make use of the paramOn method: 
+In order to display the output parameters of our plot, we make use of the `paramOn` method: 
 
 ````
 model_unbinned->paramOn(plot2, Layout(0.6,0.89,0.89)); 
@@ -162,7 +164,7 @@ RooPlot* pulls_plot = mass.frame(Title("Pull Distribution")) ;
 pulls_plot->addPlotable(hpull,"BX") ;
 ````
 
-If the data set is binned the pull plot needs to have the same binning, so you need to add the option
+If the data set is binned the pull plot needs to have the same binning, so we need to add the option
 
 ````
 Int_t nBins = mass.getBin();
@@ -185,8 +187,15 @@ gPad->SetGrid();
 pulls_plot->Draw("B");
 ````
 
-The following code is a nice RooFit example: /afs/cern.ch/user/s/samarian/public/learn_RooFit.C
+The following code is a nice RooFit example and covers the various examples that we have covered: /afs/cern.ch/user/s/samarian/public/learn_RooFit.C
 
+Sometimes we want to fit at simulateously multiple datasets. The [`RooSimultaneous`](https://root.cern.ch/doc/master/classRooSimultaneous.html) object is here to help us: 
+
+````
+RooSimultaneous simPdf("simPdf","simultaneous pdf",sample) ;
+````
+
+A full example using `RooSimultaneous` is available at this [address](https://root.cern.ch/root/html/tutorials/roofit/rf501_simultaneouspdf.C.html).
 
 
 
