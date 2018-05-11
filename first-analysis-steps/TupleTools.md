@@ -21,9 +21,7 @@ DecayTreeTuples:
 
 Below you will find links to the source code and header files for each of the TupleTools.
 
- 
-# DecayTreeTuple - for the more general tools
-{% callout %}
+{% callout "DecayTreeTuple - for the more general tools" %}
  * [TupleToolAllTracks.cpp](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTuple/src/TupleToolAllTracks.cpp)
  * [TupleToolAllTracks.h](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTuple/src/TupleToolAllTracks.h)
 
@@ -31,7 +29,6 @@ Below you will find links to the source code and header files for each of the Tu
  * [TupleToolAngles.h](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTuple/src/TupleToolAngles.h)
    * _CosTheta 
    * _Theta
-
 
  * [TupleToolBeamSpot.cpp](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTuple/src/TupleToolBeamSpot.cpp)
  * [TupleToolBeamSpot.h](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTuple/src/TupleToolBeamSpot.h)
@@ -46,12 +43,10 @@ Below you will find links to the source code and header files for each of the Tu
    * _BremP, 
    * _HasBremAdded, 
 
-
  * [TupleToolCaloDigits.cpp](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTuple/src/TupleToolCaloDigits.cpp)
  * [TupleToolCaloDigits.h](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTuple/src/TupleToolCaloDigits.h)
  * [TupleToolCaloHypo.cpp](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTuple/src/TupleToolCaloHypo.cpp)
  * [TupleToolCaloHypo.h](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTuple/src/TupleToolCaloHypo.h)
-
    * _hasCaloHypo, 
    * _hasBremCaloHypo, 
    * _CaloHypo_E, 
@@ -73,10 +68,8 @@ Below you will find links to the source code and header files for each of the Tu
    * _CaloHypoDaugh0,
    * _CaloHypoDaugh1,
  
-
  * [TupleToolCorrectedMass.cpp](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTuple/src/TupleToolCorrectedMass.cpp)
  * [TupleToolCorrectedMass.h](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTuple/src/TupleToolCorrectedMass.h)
-
    * _MCORR, 
    * _MCORRERR, 
    * _MCORRVERTEXERR, 
@@ -85,7 +78,6 @@ Below you will find links to the source code and header files for each of the Tu
  * [TupleToolDecayTreeFitter.h](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTuple/src/TupleToolDecayTreeFitter.h)
  * [TupleToolDira.cpp](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTuple/src/TupleToolDira.cpp)
  * [TupleToolDira.h](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTuple/src/TupleToolDira.h)
-
    * _DiraAngleError,
    * _DiraCosError,
    * _DiraAngle,
@@ -93,7 +85,6 @@ Below you will find links to the source code and header files for each of the Tu
 
  * [TupleToolGeometry.cpp](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTuple/src/TupleToolGeometry.cpp)
  * [TupleToolGeometry.h](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTuple/src/TupleToolGeometry.h)
-   
    * _MINIP,
    * _MINIPCHI2,
    * _MINIPNEXTBEST,
@@ -106,13 +97,11 @@ Below you will find links to the source code and header files for each of the Tu
 
  * [TupleToolHOP.cpp](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTuple/src/TupleToolHOP.cpp)
  * [TupleToolHOP.h](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTuple/src/TupleToolHOP.h)
-
    * _HOP, 
    * _HOP_ELECTRON_MASS, 
 
  * [TupleToolIsolationTwoBody.cpp](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTuple/src/TupleToolIsolationTwoBody.cpp)
  * [TupleToolIsolationTwoBody.h](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTuple/src/TupleToolIsolationTwoBody.h)
-
    * _test,
    * _MuonChi2DOF,
    * _MuonChi2DOF,
@@ -127,8 +116,6 @@ Below you will find links to the source code and header files for each of the Tu
 
  * [TupleToolKinematic.cpp](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTuple/src/TupleToolKinematic.cpp)
  * [TupleToolKinematic.h](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTuple/src/TupleToolKinematic.h)
-
-
    * _test,
    * _MuonChi2DOF,
    * _MuonChi2DOF,
@@ -141,16 +128,12 @@ Below you will find links to the source code and header files for each of the Tu
    * _P1_iso5,
    * _P2_iso5,
  
-
-
  - [TupleToolMassHypo.cpp](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTuple/src/TupleToolMassHypo.cpp)
  - [TupleToolMassHypo.h](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTuple/src/TupleToolMassHypo.h)
-
    * _M_with,
 
  * [TupleToolNeutrinoReco.cpp](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTuple/src/TupleToolNeutrinoReco.cpp)
  * [TupleToolNeutrinoReco.h](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTuple/src/TupleToolNeutrinoReco.h)
-
    * _Nu_Parl,          
    * _Nu_Perp,
    * _Nu_a,
@@ -163,7 +146,6 @@ Below you will find links to the source code and header files for each of the Tu
 
  * [TupleToolP2VV.cpp](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTuple/src/TupleToolP2VV.cpp)
  * [TupleToolP2VV.h](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTuple/src/TupleToolP2VV.h)
-
    * _ThetaL, 
    * _ThetaK, 
    * _Phi, 
@@ -173,7 +155,6 @@ Below you will find links to the source code and header files for each of the Tu
 
  - [TupleToolParticleReFit.cpp](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTuple/src/TupleToolParticleReFit.cpp)
  - [TupleToolParticleReFit.h](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTuple/src/TupleToolParticleReFit.h)
-
    * _status, 
    * _ENDVERTEX_NDOF, 
    * _ENDVERTEX_CHI2, 
@@ -190,7 +171,6 @@ Below you will find links to the source code and header files for each of the Tu
  - [TupleToolParticleStats.h](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTuple/src/TupleToolParticleStats.h)
  - [TupleToolPhotonInfo.cpp](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTuple/src/TupleToolPhotonInfo.cpp)
  - [TupleToolPhotonInfo.h](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTuple/src/TupleToolPhotonInfo.h)
-
    * _Converted, 
    * _Prs, 
    * _Matching, 
@@ -200,7 +180,6 @@ Below you will find links to the source code and header files for each of the Tu
 
  - [TupleToolPi0Info.cpp](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTuple/src/TupleToolPi0Info.cpp)
  - [TupleToolPi0Info.h](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTuple/src/TupleToolPi0Info.h)
-
    * _Type, 
    * _CL, 
    * _gamma0_PT, 
@@ -213,10 +192,6 @@ Below you will find links to the source code and header files for each of the Tu
    * _MCPi0GrandMother_key, 
    * _MCPi0GrandGrandMother_id, 
    * _MCPi0GrandGrandMother_key, 
-
-
-
-
 
  - [TupleToolPid.cpp](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTuple/src/TupleToolPid.cpp)
  - [TupleToolPid.h](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTuple/src/TupleToolPid.h)
