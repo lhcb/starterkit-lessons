@@ -23,7 +23,6 @@ Below you will find links to the source code and header files for each of the Tu
 
  
 {% callout "DecayTreeTuple - for the more general tools" %}
-{%callout "Variables" %}
 DecayTreeTuple:
  - [TupleToolAllTracks.cpp](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTuple/src/TupleToolAllTracks.cpp)
  - [TupleToolAllTracks.h](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTuple/src/TupleToolAllTracks.h)
@@ -32,7 +31,6 @@ DecayTreeTuple:
 
 1. _CosTheta, 
 2. _Theta, 
-{% endcallout %}
 
  - [TupleToolBeamSpot.cpp](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTuple/src/TupleToolBeamSpot.cpp)
  - [TupleToolBeamSpot.h](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTuple/src/TupleToolBeamSpot.h)
