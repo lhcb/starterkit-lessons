@@ -9,7 +9,7 @@ DecayTreeTuples:
 
 - DecayTreeTuple - for the more general tools.
 - DecayTreeTupleANNPID - for the NeuralNet-based PID tools. [Class Reference here.](http://lhcb-doxygen.web.cern.ch/lhcb-doxygen/analysis/latest/dc/dd6/class_tuple_tool_a_n_n_p_i_d.html)
-- DecayTreeTupleDalitz - for Dalitz analysis.
+- DecayTreeTupleDalitz - for Dalitz analysis. [Class Reference here.](http://lhcb-doxygen.web.cern.ch/lhcb-doxygen/analysis/latest/df/d6a/class_tuple_tool_dalitz.html)
 - DecayTreeTupleJets - for obtaining information on jets.
 - DecayTreeTupleMC - gives us access to MC-level information.
 - DecayTreeTupleMuonCalib - for muon calibration tools.
