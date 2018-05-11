@@ -106,168 +106,168 @@ Below you will find links to the source code and header files for each of the Tu
    * _P2_iso5
  * [TupleToolKinematic.cpp](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTuple/src/TupleToolKinematic.cpp)
  * [TupleToolKinematic.h](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTuple/src/TupleToolKinematic.h)
-   * _test,
-   * _MuonChi2DOF,
-   * _MuonChi2DOF,
-   * _P1_massiso,
-   * _P2_massiso,
-   * _P1_Q,
-   * _P2_Q,
-   * _P1_chi2iso,
-   * _P2_chi2iso,
-   * _P1_iso5,
-   * _P2_iso5,
+   * _test
+   * _MuonChi2DOF
+   * _MuonChi2DOF
+   * _P1_massiso
+   * _P2_massiso
+   * _P1_Q
+   * _P2_Q
+   * _P1_chi2iso
+   * _P2_chi2iso
+   * _P1_iso5
+   * _P2_iso5
  - [TupleToolMassHypo.cpp](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTuple/src/TupleToolMassHypo.cpp)
  - [TupleToolMassHypo.h](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTuple/src/TupleToolMassHypo.h)
-   * _M_with,
+   * _M_with
  * [TupleToolNeutrinoReco.cpp](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTuple/src/TupleToolNeutrinoReco.cpp)
  * [TupleToolNeutrinoReco.h](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTuple/src/TupleToolNeutrinoReco.h)
-   * _Nu_Parl,          
-   * _Nu_Perp,
-   * _Nu_a,
-   * _Nu_X,
-   * _Nu_Y,
-   * _Nu_pb,
-   * _Nu_pd,
-   * _Nu_Hi,
-   * _Nu_Lo,
+   * _Nu_Parl        
+   * _Nu_Perp
+   * _Nu_a
+   * _Nu_X
+   * _Nu_Y
+   * _Nu_pb
+   * _Nu_pd
+   * _Nu_Hi
+   * _Nu_Lo
  * [TupleToolP2VV.cpp](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTuple/src/TupleToolP2VV.cpp)
  * [TupleToolP2VV.h](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTuple/src/TupleToolP2VV.h)
-   * _ThetaL, 
-   * _ThetaK, 
-   * _Phi, 
-   * _ThetaTr, 
-   * _PhiTr, 
-   * _ThetaVtr, 
+   * _ThetaL 
+   * _ThetaK 
+   * _Phi
+   * _ThetaTr 
+   * _PhiTr 
+   * _ThetaVtr 
  * [TupleToolParticleReFit.cpp](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTuple/src/TupleToolParticleReFit.cpp)
  * [TupleToolParticleReFit.h](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTuple/src/TupleToolParticleReFit.h)
-   * _status, 
-   * _ENDVERTEX_NDOF, 
-   * _ENDVERTEX_CHI2, 
-   * _MM, 
-   * _MMERR, 
-   * _P, 
-   * _PT, 
-   * _P, 
-   * _TAU, 
-   * _TAUERR, 
-   * _TAUCHI2, 
+   * _status
+   * _ENDVERTEX_NDOF 
+   * _ENDVERTEX_CHI2 
+   * _MM 
+   * _MMERR 
+   * _P 
+   * _PT 
+   * _P 
+   * _TAU 
+   * _TAUERR 
+   * _TAUCHI2 
  * [TupleToolParticleStats.cpp](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTuple/src/TupleToolParticleStats.cpp)
  * [TupleToolParticleStats.h](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTuple/src/TupleToolParticleStats.h)
  * [TupleToolPhotonInfo.cpp](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTuple/src/TupleToolPhotonInfo.cpp)
  * [TupleToolPhotonInfo.h](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTuple/src/TupleToolPhotonInfo.h)
-   * _Converted, 
-   * _Prs, 
-   * _Matching, 
-   * _PID, 
-   * _CL ,
-   * _ShowerShape, 
+   * _Converted
+   * _Prs
+   * _Matching 
+   * _PID
+   * _CL 
+   * _ShowerShape 
  * [TupleToolPi0Info.cpp](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTuple/src/TupleToolPi0Info.cpp)
  * [TupleToolPi0Info.h](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTuple/src/TupleToolPi0Info.h)
-   * _Type, 
-   * _CL, 
-   * _gamma0_PT, 
-   * _gamma1_PT, 
-   * _MCPi0_id, 
-   * _MCPi0_key, 
-   * _MCPi0Mother_id, 
-   * _MCPi0Mother_key, 
-   * _MCPi0GrandMother_id, 
-   * _MCPi0GrandMother_key, 
-   * _MCPi0GrandGrandMother_id, 
-   * _MCPi0GrandGrandMother_key, 
+   * _Type
+   * _CL
+   * _gamma0_PT 
+   * _gamma1_PT 
+   * _MCPi0_id 
+   * _MCPi0_key 
+   * _MCPi0Mother_id 
+   * _MCPi0Mother_key 
+   * _MCPi0GrandMother_id 
+   * _MCPi0GrandMother_key 
+   * _MCPi0GrandGrandMother_id 
+   * _MCPi0GrandGrandMother_key 
  * [TupleToolPid.cpp](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTuple/src/TupleToolPid.cpp)
  * [TupleToolPid.h](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTuple/src/TupleToolPid.h)
-   * _hasRich,
-   * _UsedRichAerogel,
-   * _UsedRich1Gas,
-   * _UsedRich2Gas,
-   * _RichAboveElThres,
-   * _RichAboveMuThres,
-   * _RichAbovePiThres,
-   * _RichAboveKaThres,
-   * _RichAbovePrThres,
-   * _hasCalo,
-   * _RichDLLe,
-   * _RichDLLmu,
-   * _RichDLLpi,
-   * _RichDLLk,
-   * _RichDLLp,
-   * _RichDLLbt,
-   * _InAccMuon,
-   * _isMuonLoose,
-   * _isMuonTight,
-   * _MuonMuLL,
-   * _MuonBkgLL,
-   * _MuonNShared,
-   * _MuonChi2Corr,
-   * _InAccEcal,
-   * _CaloEcalE,
-   * _EcalPIDe,
-   * _EcalPIDmu,
-   * _InAccHcal,
-   * _CaloHcalE,
-   * _HcalPIDe,
-   * _HcalPIDmu,
-   * _InAccPrs,
-   * _PrsPIDe,
-   * _CaloPrsE,
-   * _InAccSpd,
-   * _CaloSpdE,
-   * _InAccBrem,
-   * _BremPIDe,
-   * _VeloCharge,
+   * _hasRich
+   * _UsedRichAerogel
+   * _UsedRich1Gas
+   * _UsedRich2Gas
+   * _RichAboveElThres
+   * _RichAboveMuThres
+   * _RichAbovePiThres
+   * _RichAboveKaThres
+   * _RichAbovePrThres
+   * _hasCalo
+   * _RichDLLe
+   * _RichDLLmu
+   * _RichDLLpi
+   * _RichDLLk
+   * _RichDLLp
+   * _RichDLLbt
+   * _InAccMuon
+   * _isMuonLoose
+   * _isMuonTight
+   * _MuonMuLL
+   * _MuonBkgLL
+   * _MuonNShared
+   * _MuonChi2Corr
+   * _InAccEcal
+   * _CaloEcalE
+   * _EcalPIDe
+   * _EcalPIDmu
+   * _InAccHcal
+   * _CaloHcalE
+   * _HcalPIDe
+   * _HcalPIDmu
+   * _InAccPrs
+   * _PrsPIDe
+   * _CaloPrsE
+   * _InAccSpd
+   * _CaloSpdE
+   * _InAccBrem
+   * _BremPIDe
+   * _VeloCharge
  * [TupleToolPropertime.cpp](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTuple/src/TupleToolPropertime.cpp)
  * [TupleToolPropertime.h](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTuple/src/TupleToolPropertime.h)
-   * _TAU, 
-   * _TAUERR, 
-   * _TAUCHI2, 
+   * _TAU
+   * _TAUERR
+   * _TAUCHI2
  * [TupleToolSelResults.cpp](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTuple/src/TupleToolSelResults.cpp)
  * [TupleToolSelResults.h](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTuple/src/TupleToolSelResults.h)
    *  _M
-   * _VtxChi2_+flag , 
-   * _VtxnDoF+flag, 
-   * _VtxM+flag , 
-   * _IP+flag, 
-   * _IPChi2_+flag, 
+   * _VtxChi2_+flag 
+   * _VtxnDoF+flag
+   * _VtxM+flag 
+   * _IP+flag
+   * _IPChi2_+flag
  * [TupleToolSubMass.cpp](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTuple/src/TupleToolSubMass.cpp)
  * [TupleToolSubMass.h](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTuple/src/TupleToolSubMass.h)
  * [TupleToolSwimmingInfo.cpp](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTuple/src/TupleToolSwimmingInfo.cpp)
  * [TupleToolSwimmingInfo.h](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTuple/src/TupleToolSwimmingInfo.h)
  * [TupleToolTagging.cpp](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTuple/src/TupleToolTagging.cpp)
  * [TupleToolTagging.h](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTuple/src/TupleToolTagging.h)
-   * _TAGDECISION, 
-   * _TAGOMEGA, 
-   * _TAGDECISION_OS, 
-   * _TAGOMEGA_OS, 
-   * _TAGGER, 
-   * _DEC, 
-   * _PROB, 
+   * _TAGDECISION
+   * _TAGOMEGA
+   * _TAGDECISION_OS
+   * _TAGOMEGA_OS
+   * _TAGGER
+   * _DEC
+   * _PROB
  * [TupleToolTwoParticleMatching.cpp](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTuple/src/TupleToolTwoParticleMatching.cpp)
  * [TupleToolTwoParticleMatching.h](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTuple/src/TupleToolTwoParticleMatching.h)
-   * _NMatchingCand_+fullName(head)+m_headSuffix, 
-   * _Overlap_loaded_+fullName(head)+m_headSuffix, 
-   * _Overlap_original_+fullName(head)+m_headSuffix,  
+   * _NMatchingCand_+fullName(head)+m_headSuffix
+   * _Overlap_loaded_+fullName(head)+m_headSuffix
+   * _Overlap_original_+fullName(head)+m_headSuffix 
  * [TupleToolVeto.cpp](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTuple/src/TupleToolVeto.cpp)
  * [TupleToolVeto.h](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTuple/src/TupleToolVeto.h)
-   * _Veto+flag, 
-   * _VetoOther+flag, 
+   * _Veto+flag
+   * _VetoOther+flag 
  * [TupleToolVtxIsoln.cpp](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTuple/src/TupleToolVtxIsoln.cpp)
  * [TupleToolVtxIsoln.h](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTuple/src/TupleToolVtxIsoln.h)
-   * _VtxIsoln.m_varNames[index], 
-   * _VtxIsoln.name, 
+   * _VtxIsoln.m_varNames[index]
+   * _VtxIsoln.name
 {% endcallout %}
 
 {% callout "DecayTreeTupleANNPID - for the NeuralNet-based PID tools" %}
  * [TupleToolANNPID.cpp](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTupleANNPID/src/TupleToolANNPID.cpp)
  * [TupleToolANNPID.h](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTupleANNPID/src/TupleToolANNPID.h)
-   * _prefix+_ProbNNe, 
-   * _prefix+_ProbNNmu, 
-   * _prefix+_ProbNNpi, 
-   * _prefix+_ProbNNk, 
-   * _prefix+_ProbNNp, 
-   * _prefix+_ProbNNd, 
-   * _prefix+_ProbNNghost, 
+   * _prefix+_ProbNNe
+   * _prefix+_ProbNNmu 
+   * _prefix+_ProbNNpi 
+   * _prefix+_ProbNNk 
+   * _prefix+_ProbNNp 
+   * _prefix+_ProbNNd 
+   * _prefix+_ProbNNghost 
  * [TupleToolANNPIDTraining.cpp](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTupleANNPID/src/TupleToolANNPIDTraining.cpp)
  * [TupleToolANNPIDTraining.h](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTupleANNPID/src/TupleToolANNPIDTraining.h)
 {% endcallout %} 
@@ -295,47 +295,47 @@ Below you will find links to the source code and header files for each of the Tu
  * [TupleToolJetRelations.h](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTupleJets/src/TupleToolJetRelations.h)
  * [TupleToolJetsBase.cpp](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTupleJets/src/TupleToolJetsBase.cpp)
  * [TupleToolJetsBase.h](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTupleJets/src/TupleToolJetsBase.h)
-   * _PX,
-   * _PY,
-   * _PZ,
-   * _PE,
-   * _PT,
-   * _P,
-   * _Eta,
-   * _Phi,
-   * _M,
-   * _MLoKi,
-   * _MMLoKi,
-   * _NTrk,
-   * _N90,
-   * _MTF,
-   * _NSatCells,
-   * _NHasPVInfo,
-   * _JEC_Cor,
-   * _JEC_PV,
-   * _JEC_Error,
-   * _w,
-   * _CPF,
-   * _JetWidth,
-   * _NSatECAL,
-   * _NSatHCAL,
-   * _NIPChi2Inf4,
-   * _EfCharged,
-   * _EfChargedHadron,
-   * _EfMuon,
-   * _EfElectron,
-   * _EfNeutral,
-   * _EfPhoton,
-   * _EfPi0,
-   * _EfMPi0,
-   * _EfRPi0,
-   * _EfNHad,
-   * _EfNReco,
-   * _EfCompo,
-   * _EfV0,
-   * _EfD,
-   * _EfB,
-   * _EfBadParticle,
+   * _PX
+   * _PY
+   * _PZ
+   * _PE
+   * _PT
+   * _P
+   * _Eta
+   * _Phi
+   * _M
+   * _MLoKi
+   * _MMLoKi
+   * _NTrk
+   * _N90
+   * _MTF
+   * _NSatCells
+   * _NHasPVInfo
+   * _JEC_Cor
+   * _JEC_PV
+   * _JEC_Error
+   * _w
+   * _CPF
+   * _JetWidth
+   * _NSatECAL
+   * _NSatHCAL
+   * _NIPChi2Inf4
+   * _EfCharged
+   * _EfChargedHadron
+   * _EfMuon
+   * _EfElectron
+   * _EfNeutral
+   * _EfPhoton
+   * _EfPi0
+   * _EfMPi0
+   * _EfRPi0
+   * _EfNHad
+   * _EfNReco
+   * _EfCompo
+   * _EfV0
+   * _EfD
+   * _EfB
+   * _EfBadParticle
  * [TupleToolJets.cpp](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTupleJets/src/TupleToolJets.cpp)
  * [TupleToolJets.h](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTupleJets/src/TupleToolJets.h)
  * [TupleToolJetsForB.cpp](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTupleJets/src/TupleToolJetsForB.cpp)
@@ -797,112 +797,89 @@ Below you will find links to the source code and header files for each of the Tu
 
 {% callout "DecayTreeTupleTrigger - for access to the trigger information of the candidates" %}
 DecayTreeTupleTrigger 
- - [TupleToolEventInfo.cpp](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTupleTrigger/src/TupleToolEventInfo.cpp)
- - [TupleToolEventInfo.h](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTupleTrigger/src/TupleToolEventInfo.h)
-
- _Mu
- _runNumber
- _eventNumber
- _BCID
- _BCType
- _OdinTCK
- _L0DUTCK
- _HLT1TCK
- _HLT2TCK
- _GpsTime
- _GpsYear
- _GpsMonth
- _GpsDay
- _GpsHour
- _GpsMinute
- _TriggerType
- _Polarity
-
-
- - [TupleToolFillingScheme.cpp](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTupleTrigger/src/TupleToolFillingScheme.cpp)
- - [TupleToolFillingScheme.h](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTupleTrigger/src/TupleToolFillingScheme.h)
-
-
- _fill
- _CrossingsAfterToEE
- _CrossingsAfterToBB
- _CrossingsAfterToBE
- _CrossingsAfterToEB
- _CrossingsBeforeToEE
- _CrossingsBeforeToBB
- _CrossingsBeforeToBE
- _CrossingsBeforeToEB
- _IsBeamBeam
- _Prev1 
- _Prev2
- _Next1
- _Next2
- _isSpillOver
- _isEmpty
- _isPreSpill
-
-
- - [TupleToolL0Calo.cpp](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTupleTrigger/src/TupleToolL0Calo.cpp)
- - [TupleToolL0Calo.h](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTupleTrigger/src/TupleToolL0Calo.h)
-
- 
- _L0Calo_HCAL_realET
- _L0Calo_HCAL_xProjection
- _L0Calo_HCAL_yProjection
- _L0Calo_HCAL_region
- _L0Calo_HCAL_TriggerET
- _L0Calo_HCAL_TriggerHCALET
- _L0Calo_HCAL_xTrigger
- _L0Calo_HCAL_yTrigger
- _L0Calo_ECAL_realET
- _L0Calo_ECAL_xProjection
- _L0Calo_ECAL_yProjection
- _L0Calo_ECAL_region
- _L0Calo_ECAL_TriggerET
- _L0Calo_ECAL_xTrigger
- _L0Calo_ECAL_yTrigger
-
-
-
- - [TupleToolL0Data.cpp](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTupleTrigger/src/TupleToolL0Data.cpp)
- - [TupleToolL0Data.h](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTupleTrigger/src/TupleToolL0Data.h)
-
-prefix+L0Data_+rename(name)
-prefix+L0Data_+rename(name)
-prefix+L0Emu_TCK+stck
-
- - [TupleToolStripping.cpp](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTupleTrigger/src/TupleToolStripping.cpp)
- - [TupleToolStripping.h](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTupleTrigger/src/TupleToolStripping.h)
- - [TupleToolTISTOS.cpp](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTupleTrigger/src/TupleToolTISTOS.cpp)
- - [TupleToolTISTOS.h](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTupleTrigger/src/TupleToolTISTOS.h)
-
-_Dec, 
-_TIS, 
-_TOS, 
-_TUS, 
-_TPS, 
-
-
-_prefix+L0Global
-_prefix+Hlt1Global
-_prefix+Hlt2Global
-_prefix+*n,
-_prefix+level+nSelections
-
-
- - [TupleToolTriggerBase.cpp](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTupleTrigger/src/TupleToolTriggerBase.cpp)
- - [TupleToolTriggerBase.h](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTupleTrigger/src/TupleToolTriggerBase.h)
- - [TupleToolTrigger.cpp](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTupleTrigger/src/TupleToolTrigger.cpp)
- - [TupleToolTrigger.h](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTupleTrigger/src/TupleToolTrigger.h)
- - [TupleToolTriggerRecoStats.cpp](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTupleTrigger/src/TupleToolTriggerRecoStats.cpp)
- - [TupleToolTriggerRecoStats.h](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTupleTrigger/src/TupleToolTriggerRecoStats.h)
-
-_TriggerRecoStats./Particles
-
-
+ * [TupleToolEventInfo.cpp](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTupleTrigger/src/TupleToolEventInfo.cpp)
+ * [TupleToolEventInfo.h](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTupleTrigger/src/TupleToolEventInfo.h)
+   * _Mu
+   * _runNumber
+   * _eventNumber
+   * _BCID
+   * _BCType
+   * _OdinTCK
+   * _L0DUTCK
+   * _HLT1TCK
+   * _HLT2TCK
+   * _GpsTime
+   * _GpsYear
+   * _GpsMonth
+   * _GpsDay
+   * _GpsHour
+   * _GpsMinute
+   * _TriggerType
+   * _Polarity
+ * [TupleToolFillingScheme.cpp](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTupleTrigger/src/TupleToolFillingScheme.cpp)
+ * [TupleToolFillingScheme.h](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTupleTrigger/src/TupleToolFillingScheme.h)
+   * _fill
+   * _CrossingsAfterToEE
+   * _CrossingsAfterToBB
+   * _CrossingsAfterToBE
+   * _CrossingsAfterToEB
+   * _CrossingsBeforeToEE
+   * _CrossingsBeforeToBB
+   * _CrossingsBeforeToBE
+   * _CrossingsBeforeToEB
+   * _IsBeamBeam
+   * _Prev1 
+   * _Prev2
+   * _Next1
+   * _Next2
+   * _isSpillOver
+   * _isEmpty
+   * _isPreSpill
+ * [TupleToolL0Calo.cpp](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTupleTrigger/src/TupleToolL0Calo.cpp)
+ * [TupleToolL0Calo.h](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTupleTrigger/src/TupleToolL0Calo.h)
+   * _L0Calo_HCAL_realET
+   * _L0Calo_HCAL_xProjection
+   * _L0Calo_HCAL_yProjection
+   * _L0Calo_HCAL_region
+   * _L0Calo_HCAL_TriggerET
+   * _L0Calo_HCAL_TriggerHCALET
+   * _L0Calo_HCAL_xTrigger
+   * _L0Calo_HCAL_yTrigger
+   * _L0Calo_ECAL_realET
+   * _L0Calo_ECAL_xProjection
+   * _L0Calo_ECAL_yProjection
+   * _L0Calo_ECAL_region
+   * _L0Calo_ECAL_TriggerET
+   * _L0Calo_ECAL_xTrigger
+   * _L0Calo_ECAL_yTrigger
+ * [TupleToolL0Data.cpp](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTupleTrigger/src/TupleToolL0Data.cpp)
+ * [TupleToolL0Data.h](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTupleTrigger/src/TupleToolL0Data.h)
+   * _prefix+L0Data_+rename(name)
+   * _prefix+L0Data_+rename(name)
+   * _prefix+L0Emu_TCK+stck
+ * [TupleToolStripping.cpp](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTupleTrigger/src/TupleToolStripping.cpp)
+ * [TupleToolStripping.h](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTupleTrigger/src/TupleToolStripping.h)
+ * [TupleToolTISTOS.cpp](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTupleTrigger/src/TupleToolTISTOS.cpp)
+ * [TupleToolTISTOS.h](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTupleTrigger/src/TupleToolTISTOS.h)
+   * _Dec, 
+   * _TIS, 
+   * _TOS, 
+   * _TUS, 
+   * _TPS, 
+   * _prefix+L0Global
+   * _prefix+Hlt1Global
+   * _prefix+Hlt2Global
+   * _prefix+*n,
+   * _prefix+level+nSelections
+ * [TupleToolTriggerBase.cpp](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTupleTrigger/src/TupleToolTriggerBase.cpp)
+ * [TupleToolTriggerBase.h](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTupleTrigger/src/TupleToolTriggerBase.h)
+ * [TupleToolTrigger.cpp](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTupleTrigger/src/TupleToolTrigger.cpp)
+ * [TupleToolTrigger.h](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTupleTrigger/src/TupleToolTrigger.h)
+ * [TupleToolTriggerRecoStats.cpp](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTupleTrigger/src/TupleToolTriggerRecoStats.cpp)
+ * [TupleToolTriggerRecoStats.h](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTupleTrigger/src/TupleToolTriggerRecoStats.h)
+   * _TriggerRecoStats./Particles
 {% endcallout %} 
 
 
 
 The class references and descriptions of each of the individual tuple tools can be found [here](http://lhcb-doxygen.web.cern.ch/lhcb-doxygen/analysis/latest/annotated.html), (scroll down to T).
-
