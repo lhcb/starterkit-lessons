@@ -224,4 +224,21 @@ TupleToolKinematic.cpp
 Numbered list coming up:
 
   1. We are number 1
+  
+  
+  
+  
+  
+  
+  
+  
+  DecayTreeTuple for the more general tools.
+DecayTreeTupleANNPID for the NeuralNet-based PID tools.
+DecayTreeTupleDalitz for Dalitz analysis.
+DecayTreeTupleJets for obtaining information on jets.
+DecayTreeTupleMC gives us access to MC-level information.
+DecayTreeTupleMuonCalib for muon calibration tools.
+DecayTreeTupleReco for reconstruction-level information, such as TupleToolTrackInfo.
+DecayTreeTupleTracking for more detailed tools regarding tracking.
+DecayTreeTupleTrigger for accessing to the trigger information of the candidates.
 
