@@ -99,31 +99,24 @@ DecayTreeTupleANNPID
  - TupleToolANNPIDTraining.h
 {% endcallout %} 
 
-{% callout "DecayTreeTupleANNPID" %}
-
-- DecayTreeTupleBase 
+{% callout "DecayTreeTupleBase" %}
+DecayTreeTupleBase 
 {% endcallout %} 
 
-{% callout "DecayTreeTupleANNPID" %}
-- DecayTreeTupleDalitz 
-{% endcallout %} 
-
-{% callout "DecayTreeTupleANNPID" %}
+{% callout "DecayTreeTupleDalitz" %}
+DecayTreeTupleDalitz 
 - MCTupleToolDalitz.cpp
 - MCTupleToolDalitz.h
 - TupleToolDalitz.cpp
 - TupleToolDalitz.h	 
 {% endcallout %} 
 
-{% callout "DecayTreeTupleANNPID" %}
+{% callout "DecayTreeTupleHerschel" %}
 - DecayTreeTupleHerschel 
 {% endcallout %} 
 
-{% callout "DecayTreeTupleANNPID" %}
-- DecayTreeTupleJets 
-{% endcallout %} 
-
-{% callout "DecayTreeTupleANNPID" %}
+{% callout "DecayTreeTupleJets" %}
+DecayTreeTupleJets 
 - TupleToolJetRelations.cpp
 - TupleToolJetRelations.h	
 - TupleToolJetTag.cpp
@@ -138,217 +131,196 @@ DecayTreeTupleANNPID
 - TupleToolWZJets.h
 {% endcallout %} 
 
-{% callout "DecayTreeTupleANNPID" %}
-- DecayTreeTupleMC 
-{% endcallout %} 
-
-<<<<<<< HEAD
+{% callout "DecayTreeTupleMC" %}
+DecayTreeTupleMC 
  - MCTupleToolAngles.cpp
  - MCTupleToolAngles.h
  - MCTupleToolDecayType.cpp
-MCTupleToolDecayType.h
-MCTupleToolEventType.cpp
-MCTupleToolEventType.h
-MCTupleToolHierarchy.cpp
-MCTupleToolHierarchy.h
-MCTupleToolInteractions.cpp
-MCTupleToolInteractions.h
-MCTupleToolKinematic.cpp
-MCTupleToolKinematic.h
-MCTupleToolP2VV.cpp
-MCTupleToolP2VV.h
-MCTupleToolPID.cpp
-MCTupleToolPID.h
-MCTupleToolPrimaries.cpp
-MCTupleToolPrimaries.h
-MCTupleToolPrompt.cpp
-MCTupleToolPrompt.h
-MCTupleToolReconstructed.cpp
-MCTupleToolReconstructed.h
-MCTupleToolRedecay.cpp
-MCTupleToolRedecay.h
-TupleToolGeneration.cpp
-TupleToolGeneration.h
-TupleToolMCBackgroundInfo.cpp
-TupleToolMCBackgroundInfo.h
-TupleToolMCTruth.cpp
-TupleToolMCTruth.h
+ - MCTupleToolDecayType.h
+ - MCTupleToolEventType.cpp
+ - MCTupleToolEventType.h
+ - MCTupleToolHierarchy.cpp
+ - MCTupleToolHierarchy.h
+ - MCTupleToolInteractions.cpp
+ - MCTupleToolInteractions.h
+ - MCTupleToolKinematic.cpp
+ - MCTupleToolKinematic.h
+ - MCTupleToolP2VV.cpp
+ - MCTupleToolP2VV.h
+ - MCTupleToolPID.cpp
+ - MCTupleToolPID.h
+ - MCTupleToolPrimaries.cpp
+ - MCTupleToolPrimaries.h
+ - MCTupleToolPrompt.cpp
+ - MCTupleToolPrompt.h
+ - MCTupleToolReconstructed.cpp
+ - MCTupleToolReconstructed.h
+ - MCTupleToolRedecay.cpp
+ - MCTupleToolRedecay.h
+ - TupleToolGeneration.cpp
+ - TupleToolGeneration.h
+ - TupleToolMCBackgroundInfo.cpp
+ - TupleToolMCBackgroundInfo.h
+ - TupleToolMCTruth.cpp
+ - TupleToolMCTruth.h
 
-
-=======
-{% callout "DecayTreeTupleANNPID" %}
->>>>>>> 464c0fec790b9ed5b0c26e24c936be299c405e40
-- DecayTreeTupleMuonCalib 
-{% endcallout %} 
-
-<<<<<<< HEAD
+{% callout "DecayTreeTupleMuonCalib" %}
+DecayTreeTupleMuonCalib 
  - TupleToolMuonIDCalib.cpp
-TupleToolMuonIDCalib.h
-TupleToolMuonPid.cpp
-TupleToolMuonPid.h
-
-=======
-{% callout "DecayTreeTupleANNPID" %}
->>>>>>> 464c0fec790b9ed5b0c26e24c936be299c405e40
-- DecayTreeTupleReco 
+ - TupleToolMuonIDCalib.h
+ - TupleToolMuonPid.cpp
+ - TupleToolMuonPid.h
 {% endcallout %} 
 
-<<<<<<< HEAD
+{% callout "DecayTreeTupleReco" %}
+DecayTreeTupleReco 
  - TupleToolAllPhotons.cpp
-TupleToolAllPhotons.h
-TupleToolAllVeloTracks.cpp
-TupleToolAllVeloTracks.h
-TupleToolCPU.cpp
-TupleToolCPU.h
-TupleToolPrimaries.cpp
-TupleToolPrimaries.h
-TupleToolProtoPData.cpp
-TupleToolProtoPData.h
-TupleToolRecoStats.cpp
-TupleToolRecoStats.h
-TupleToolRICHPid.cpp
-TupleToolRICHPid.h
-TupleToolTrackInfo.cpp
-TupleToolTrackInfo.h
-
-=======
-{% callout "DecayTreeTupleANNPID" %}
->>>>>>> 464c0fec790b9ed5b0c26e24c936be299c405e40
-- DecayTreeTupleTracking 
+ - TupleToolAllPhotons.h
+ - TupleToolAllVeloTracks.cpp
+ - TupleToolAllVeloTracks.h
+ - TupleToolCPU.cpp
+ - TupleToolCPU.h
+ - TupleToolPrimaries.cpp
+ - TupleToolPrimaries.h
+ - TupleToolProtoPData.cpp
+ - TupleToolProtoPData.h
+ - TupleToolRecoStats.cpp
+ - TupleToolRecoStats.h
+ - TupleToolRICHPid.cpp
+ - TupleToolRICHPid.h
+ - TupleToolTrackInfo.cpp
+ - TupleToolTrackInfo.h
 {% endcallout %} 
 
-<<<<<<< HEAD
+{% callout "DecayTreeTupleTracking" %}
+DecayTreeTupleTracking 
  - TupleToolConeIsolation.cpp
-TupleToolConeIsolation.h
-TupleToolDEDX.cpp
-TupleToolDEDX.h
-TupleToolMCAssociatedClusters.cpp
-TupleToolMCAssociatedClusters.h
-TupleToolTrackIsolation.cpp
-TupleToolTrackIsolation.h
-TupleToolTrackKink.cpp
-TupleToolTrackKink.h
-TupleToolTrackPosition.cpp
-TupleToolTrackPosition.h
-TupleToolTrackTime.cpp
-TupleToolTrackTime.h
-TupleToolVELOClusters.cpp
-TupleToolVELOClusters.h
-TupleToolVeloTrackClusterInfo.cpp
-TupleToolVeloTrackClusterInfo.h
-TupleToolVeloTrackMatch.cpp
-TupleToolVeloTrackMatch.h
-
-=======
-{% callout "DecayTreeTupleANNPID" %}
->>>>>>> 464c0fec790b9ed5b0c26e24c936be299c405e40
-- DecayTreeTupleTrigger 
+ - TupleToolConeIsolation.h
+ - TupleToolDEDX.cpp
+ - TupleToolDEDX.h
+ - TupleToolMCAssociatedClusters.cpp
+ - TupleToolMCAssociatedClusters.h
+ - TupleToolTrackIsolation.cpp
+ - TupleToolTrackIsolation.h
+ - TupleToolTrackKink.cpp
+ - TupleToolTrackKink.h
+ - TupleToolTrackPosition.cpp
+ - TupleToolTrackPosition.h
+ - TupleToolTrackTime.cpp
+ - TupleToolTrackTime.h
+ - TupleToolVELOClusters.cpp
+ - TupleToolVELOClusters.h
+ - TupleToolVeloTrackClusterInfo.cpp
+ - TupleToolVeloTrackClusterInfo.h
+ - TupleToolVeloTrackMatch.cpp
+ - TupleToolVeloTrackMatch.h
 {% endcallout %} 
 
-
-<<<<<<< HEAD
+{% callout "DecayTreeTupleTrigger" %}
+DecayTreeTupleTrigger 
  - TupleToolEventInfo.cpp
-TupleToolEventInfo.h
-TupleToolFillingScheme.cpp
-TupleToolFillingScheme.h
-TupleToolL0Calo.cpp
-TupleToolL0Calo.h
-TupleToolL0Data.cpp
-TupleToolL0Data.h
-TupleToolStripping.cpp
-TupleToolStripping.h
-TupleToolTISTOS.cpp
-TupleToolTISTOS.h
-TupleToolTriggerBase.cpp
-TupleToolTriggerBase.h
-TupleToolTrigger.cpp
-TupleToolTrigger.h
-TupleToolTriggerRecoStats.cpp
-TupleToolTriggerRecoStats.h
+ - TupleToolEventInfo.h
+ - TupleToolFillingScheme.cpp
+ - TupleToolFillingScheme.h
+ - TupleToolL0Calo.cpp
+ - TupleToolL0Calo.h
+ - TupleToolL0Data.cpp
+ - TupleToolL0Data.h
+ - TupleToolStripping.cpp
+ - TupleToolStripping.h
+ - TupleToolTISTOS.cpp
+ - TupleToolTISTOS.h
+ - TupleToolTriggerBase.cpp
+ - TupleToolTriggerBase.h
+ - TupleToolTrigger.cpp
+ - TupleToolTrigger.h
+ - TupleToolTriggerRecoStats.cpp
+ - TupleToolTriggerRecoStats.h
+{% endcallout %} 
 
-MCTupleToolAngles.cpp			TupleToolKinematic.h
-MCTupleToolAngles.h			TupleToolL0Calo.cpp
-		TupleToolL0Calo.h
-		TupleToolL0Data.cpp
-MCTupleToolDecayType.cpp		TupleToolL0Data.h
-MCTupleToolDecayType.h			TupleToolMCAssociatedClusters.cpp
-MCTupleToolEventType.cpp		TupleToolMCAssociatedClusters.h
-MCTupleToolEventType.h			TupleToolMCBackgroundInfo.cpp
-MCTupleToolHierarchy.cpp		TupleToolMCBackgroundInfo.h
-MCTupleToolHierarchy.h			TupleToolMCTruth.cpp
-MCTupleToolInteractions.cpp		TupleToolMCTruth.h
-MCTupleToolInteractions.h		TupleToolMassHypo.cpp
-MCTupleToolKinematic.cpp		TupleToolMassHypo.h
-MCTupleToolKinematic.h			TupleToolMuonIDCalib.cpp
-MCTupleToolP2VV.cpp			TupleToolMuonIDCalib.h
-MCTupleToolP2VV.h			TupleToolMuonPid.cpp
-MCTupleToolPrimaries.cpp		TupleToolMuonPid.h
-MCTupleToolPrimaries.h			TupleToolNeutrinoReco.cpp
-MCTupleToolPrompt.cpp			TupleToolNeutrinoReco.h
-MCTupleToolPrompt.h			TupleToolP2VV.cpp
-MCTupleToolReconstructed.cpp		TupleToolP2VV.h
-MCTupleToolReconstructed.h		TupleToolParticleReFit.cpp
-MCTupleToolRedecay.cpp			TupleToolParticleReFit.h
-MCTupleToolRedecay.h			TupleToolParticleStats.cpp
-		TupleToolParticleStats.h
-TupleToolPhotonInfo.cpp
-	TupleToolPhotonInfo.h
-	TupleToolPi0Info.cpp
-TupleToolAllPhotons.cpp			TupleToolPi0Info.h
-TupleToolAllPhotons.h			TupleToolPid.cpp
-TupleToolAllTracks.cpp			TupleToolPid.h
-TupleToolAllTracks.h			TupleToolPrimaries.cpp
-TupleToolAllVeloTracks.cpp		TupleToolPrimaries.h
-TupleToolAllVeloTracks.h		TupleToolPropertime.cpp
-TupleToolAngles.cpp			TupleToolPropertime.h
-TupleToolAngles.h			TupleToolProtoPData.cpp
-TupleToolBeamSpot.cpp			TupleToolProtoPData.h
-TupleToolBeamSpot.h			TupleToolRICHPid.cpp
-TupleToolBremInfo.cpp			TupleToolRICHPid.h
-TupleToolBremInfo.h			TupleToolRecoStats.cpp
-TupleToolCPU.cpp			TupleToolRecoStats.h
-TupleToolCPU.h				TupleToolSelResults.cpp
-TupleToolCaloDigits.cpp			TupleToolSelResults.h
-TupleToolCaloDigits.h			TupleToolStripping.cpp
-TupleToolCaloHypo.cpp			TupleToolStripping.h
-TupleToolCaloHypo.h			TupleToolSubMass.cpp
-TupleToolConeIsolation.cpp		TupleToolSubMass.h
-TupleToolConeIsolation.h		TupleToolSwimmingInfo.cpp
-TupleToolCorrectedMass.cpp		TupleToolSwimmingInfo.h
-TupleToolCorrectedMass.h		TupleToolTISTOS.cpp
-TupleToolDEDX.cpp			TupleToolTISTOS.h
-TupleToolDEDX.h				TupleToolTagging.cpp
-		TupleToolTagging.h
-		TupleToolTrackInfo.cpp
-		TupleToolTrackInfo.h
-TupleToolDecayTreeFitter.cpp		TupleToolTrackIsolation.cpp
-TupleToolDecayTreeFitter.h		TupleToolTrackIsolation.h
-TupleToolDira.cpp			TupleToolTrackKink.cpp
-TupleToolDira.h				TupleToolTrackKink.h
-TupleToolEventInfo.cpp			TupleToolTrackPosition.cpp
-TupleToolEventInfo.h			TupleToolTrackPosition.h
-TupleToolFillingScheme.cpp		TupleToolTrackTime.cpp
-TupleToolFillingScheme.h		TupleToolTrackTime.h
-TupleToolGeneration.cpp			TupleToolTrigger.cpp
-TupleToolGeneration.h			TupleToolTrigger.h
-TupleToolGeometry.cpp			TupleToolTriggerBase.cpp
-TupleToolGeometry.h			TupleToolTriggerBase.h
-TupleToolHOP.cpp			TupleToolTriggerRecoStats.cpp
-TupleToolHOP.h				TupleToolTriggerRecoStats.h
-TupleToolHerschel.cpp			TupleToolTwoParticleMatching.cpp
-TupleToolHerschel.h			TupleToolTwoParticleMatching.h
-TupleToolIsolationTwoBody.cpp		TupleToolVELOClusters.cpp
-TupleToolIsolationTwoBody.h		TupleToolVELOClusters.h
-		TupleToolVeloTrackClusterInfo.cpp
-		TupleToolVeloTrackClusterInfo.h
-	TupleToolVeloTrackMatch.cpp
-			TupleToolVeloTrackMatch.h
-			TupleToolVeto.cpp
-			TupleToolVeto.h
-		TupleToolVtxIsoln.cpp
-	TupleToolVtxIsoln.h
-=======
->>>>>>> 464c0fec790b9ed5b0c26e24c936be299c405e40
+Kinematic.h
+L0Calo.cpp
+
+
+L0Data.h
+MCAssociatedClusters.cpp
+MCAssociatedClusters.h
+MCBackgroundInfo.cpp
+MCBackgroundInfo.h
+MCTruth.cpp
+MCTruth.h
+MassHypo.cpp
+MassHypo.h
+MuonIDCalib.cpp
+MuonIDCalib.h
+MuonPid.cpp
+MuonPid.h
+NeutrinoReco.cpp
+NeutrinoReco.h
+P2VV.cpp
+P2VV.h
+ParticleReFit.cpp
+ParticleReFit.h
+ParticleStats.cpp
+
+
+
+
+Pi0Info.h
+Pid.cpp
+Pid.h
+Primaries.cpp
+Primaries.h
+Propertime.cpp
+Propertime.h
+ProtoPData.cpp
+ProtoPData.h
+RICHPid.cpp
+RICHPid.h
+RecoStats.cpp
+RecoStats.h
+SelResults.cpp
+SelResults.h
+Stripping.cpp
+Stripping.h
+SubMass.cpp
+SubMass.h
+SwimmingInfo.cpp
+SwimmingInfo.h
+TISTOS.cpp
+TISTOS.h
+Tagging.cpp
+
+
+
+TrackIsolation.cpp
+TrackIsolation.h
+TrackKink.cpp
+TrackKink.h
+TrackPosition.cpp
+TrackPosition.h
+TrackTime.cpp
+TrackTime.h
+Trigger.cpp
+Trigger.h
+TriggerBase.cpp
+TriggerBase.h
+TriggerRecoStats.cpp
+TriggerRecoStats.h
+TwoParticleMatching.cpp
+TwoParticleMatching.h
+VELOClusters.cpp
+VELOClusters.h
+
+
+
+
+
+
+
+
+
+
 
 TupleToolKinematic.cpp
 
