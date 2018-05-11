@@ -259,203 +259,140 @@ Below you will find links to the source code and header files for each of the Tu
 {% endcallout %}
 
 {% callout "DecayTreeTupleANNPID - for the NeuralNet-based PID tools" %}
-DecayTreeTupleANNPID 
- - [TupleToolANNPID.cpp](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTupleANNPID/src/TupleToolANNPID.cpp)
- - [TupleToolANNPID.h](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTupleANNPID/src/TupleToolANNPID.h)
-
-_prefix+_ProbNNe, 
-_prefix+_ProbNNmu, 
-_prefix+_ProbNNpi, 
-_prefix+_ProbNNk, 
-_prefix+_ProbNNp, 
-_prefix+_ProbNNd, 
-_prefix+_ProbNNghost,
- 
- - [TupleToolANNPIDTraining.cpp](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTupleANNPID/src/TupleToolANNPIDTraining.cpp)
- - [TupleToolANNPIDTraining.h](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTupleANNPID/src/TupleToolANNPIDTraining.h)
+ * [TupleToolANNPID.cpp](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTupleANNPID/src/TupleToolANNPID.cpp)
+ * [TupleToolANNPID.h](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTupleANNPID/src/TupleToolANNPID.h)
+   * _prefix+_ProbNNe, 
+   * _prefix+_ProbNNmu, 
+   * _prefix+_ProbNNpi, 
+   * _prefix+_ProbNNk, 
+   * _prefix+_ProbNNp, 
+   * _prefix+_ProbNNd, 
+   * _prefix+_ProbNNghost, 
+ * [TupleToolANNPIDTraining.cpp](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTupleANNPID/src/TupleToolANNPIDTraining.cpp)
+ * [TupleToolANNPIDTraining.h](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTupleANNPID/src/TupleToolANNPIDTraining.h)
 {% endcallout %} 
 
 {% callout "DecayTreeTupleBase" %}
-DecayTreeTupleBase 
+ * [TupleToolBase.cpp](https://www.youtube.com/watch?v=dQw4w9WgXcQ)
+ * [TupleToolBase.h](https://www.youtube.com/watch?v=A1L2xODZSI4)
 {% endcallout %} 
 
 {% callout "DecayTreeTupleDalitz - for Dalitz analysis" %}
-DecayTreeTupleDalitz 
- - [TupleToolDalitz.cpp](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTupleDalitz/src/TupleToolDalitz.cpp)
- - [MCTupleToolDalitz.h](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTupleDalitz/src/MCTupleToolDalitz.h)
- - [TupleToolDalitz.cpp](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTupleDalitz/src/TupleToolDalitz.cpp)
- - [TupleToolDalitz.h](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTupleDalitz/src/TupleToolDalitz.h)
- - [TupleToolDalitz.icpp](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTupleDalitz/src/TupleToolDalitz.icpp)
+ * [TupleToolDalitz.cpp](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTupleDalitz/src/TupleToolDalitz.cpp)
+ * [MCTupleToolDalitz.h](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTupleDalitz/src/MCTupleToolDalitz.h)
+ * [TupleToolDalitz.cpp](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTupleDalitz/src/TupleToolDalitz.cpp)
+ * [TupleToolDalitz.h](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTupleDalitz/src/TupleToolDalitz.h)
+ * [TupleToolDalitz.icpp](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTupleDalitz/src/TupleToolDalitz.icpp)
 {% endcallout %} 
 
 {% callout "DecayTreeTupleHerschel" %}
-DecayTreeTupleHerschel 
- - [TupleToolHerschel.cpp](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTupleHerschel/src/TupleToolHerschel.cpp)
- - [TupleToolHerschel.h](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTupleHerschel/src/TupleToolHerschel.h)
-
+ * [TupleToolHerschel.cpp](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTupleHerschel/src/TupleToolHerschel.cpp)
+ * [TupleToolHerschel.h](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTupleHerschel/src/TupleToolHerschel.h)
 {% endcallout %} 
 
 {% callout "DecayTreeTupleJets - for obtaining information on jets" %}
-DecayTreeTupleJets 
- - [TupleToolJetRelations.cpp](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTupleJets/src/TupleToolJetRelations.cpp)
- - [TupleToolJetRelations.h](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTupleJets/src/TupleToolJetRelations.h)
- - [TupleToolJetsBase.cpp](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTupleJets/src/TupleToolJetsBase.cpp)
- - [TupleToolJetsBase.h](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTupleJets/src/TupleToolJetsBase.h)
- 
- 
- 
- _PX, 
- _PY, 
- _PZ, 
- _PE, 
- _PT, 
- _P, 
- _Eta, 
- _Phi, 
- _M, 
- _MLoKi, 
- _MMLoKi, 
- _NTrk, 
- _N90, 
- _MTF, 
- _NSatCells, 
- _NHasPVInfo, 
- _JEC_Cor, 
- _JEC_PV, 
- _JEC_Error, 
- _w, 
- _CPF, 
- _JetWidth, 
- _NSatECAL, 
- _NSatHCAL, 
- _NIPChi2Inf4, 
- _EfCharged, 
- _EfChargedHadron, 
- _EfMuon, 
- _EfElectron, 
- _EfNeutral, 
- _EfPhoton, 
- _EfPi0, 
- _EfMPi0, 
- _EfRPi0, 
- _EfNHad, 
- _EfNReco, 
- _EfCompo, 
- _EfV0, 
- _EfD, 
- _EfB, 
- _EfBadParticle, 
- _EfCharged0Momentum, 
- _EfChargedInfMomentum, 
- _EfBadPhotonMatchingT, 
- _EfBadPhoton, 
- _EfIsolatedPhoton, 
- _NLongTrk, 
- _EfLongTrk,
- _NDownTrk, 
- _EfDownTrk, 
- _NUpTrk, 
- _EfUpTrk, 
- _PU_NPVs, 
- _PU_Cone06_SumPTLongTrk, 
- _PU_Cone06_SumELongTrk, 
- _PU_Cone06_NLongTrk, 
- _PU_Cone06_NUpVeloTrk, 
- _PU_Cone10_SumPTLongTrk, 
- _PU_Cone10_SumELongTrk, 
- _PU_Cone10_NLongTrk, 
- _PU_Cone10_NUpVeloTrk, 
- _PU_Cone15_SumPTLongTrk, 
- _PU_Cone15_SumELongTrk, 
- _PU_Cone15_NLongTrk, 
- _PU_Cone15_NUpVeloTrk, 
- _ParticleMultiplicity, 
- _Charge, 
- _positiveParticleMultiplicity, 
- _negativeParticleMultiplicity, 
- _neutralParticleMultiplicity, 
- _chargedParticleMultiplicity, 
- _maxPT, 
- _PT1, 
- _PT2, 
- _PT3, 
- _PT4, 
- _PT5, 
- _PT10, 
- _PT15, 
- _PT25, 
- 
- - [TupleToolJets.cpp](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTupleJets/src/TupleToolJets.cpp)
-
- - [TupleToolJetsForB.cpp](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTupleJets/src/TupleToolJetsForB.cpp)
- - [TupleToolJetsForB.h](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTupleJets/src/TupleToolJetsForB.h)
-
-
-  _JETNOMU1PX
-  _JETNOMU1PY
-  _JETNOMU1PZ
-  _JETNOMU1PT
-  _JETNOMU1JETWIDTH
-  _JETNOMU1NNTAG
-  _JETNOMU1MNF
-  _JETNOMU2PX
-  _JETNOMU2PY
-  _JETNOMU2PZ
-  _JETNOMU2PT
-  _JETNOMU2JETWIDTH
-  _JETNOMU2NNTAG
-  _JETNOMU2MNF
-  _JETNOMU3PX
-  _JETNOMU3PY
-  _JETNOMU3PZ
-  _JETNOMU3PT
-  _JETNOMU3JETWIDTH
-  _JETNOMU3NNTAG
-  _JETNOMU3MNF
-  _JETMU1PX
-  _JETMU1PY
-  _JETMU1PZ
-  _JETMU1PT
-  _JETMU1JETWIDTH
-  _JETMU1NNTAG
-  _JETMU1MNF
-  _JETMU2PX
-  _JETMU2PY
-  _JETMU2PZ
-  _JETMU2PT
-  _JETMU2JETWIDTH
-  _JETMU2NNTAG
-  _JETMU2MNF
-  _JETBPX
-  _JETBPY
-  _JETBPZ
-  _JETBPT
-  _JETBJETWIDTH
-  _JETBNNTAG
-  _JETBMNF
-
-
-
- - [TupleToolJets.h](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTupleJets/src/TupleToolJets.h)
- - [TupleToolJetTag.cpp](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTupleJets/src/TupleToolJetTag.cpp)
- - [TupleToolJetTag.h](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTupleJets/src/TupleToolJetTag.h)
-
-
- - [TupleToolWZJets.cpp](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTupleJets/src/TupleToolWZJets.cpp)
- - [TupleToolWZJets.h](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTupleJets/src/TupleToolWZJets.h)
-
-
-  _ m_prefix+_ChargedTracksUsed
-  _ m_prefix+_NeutralObjectsUsed
-  _ m_prefix+_PositiveTracksUsed
-  _ m_prefix+_NegativeTracksUsed
-_NumJets
-_DETA
-_DPHI
-_DR
-
-
-
+  * [TupleToolJetRelations.cpp](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTupleJets/src/TupleToolJetRelations.cpp)
+ * [TupleToolJetRelations.h](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTupleJets/src/TupleToolJetRelations.h)
+ * [TupleToolJetsBase.cpp](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTupleJets/src/TupleToolJetsBase.cpp)
+ * [TupleToolJetsBase.h](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTupleJets/src/TupleToolJetsBase.h)
+   * _PX,
+   * _PY,
+   * _PZ,
+   * _PE,
+   * _PT,
+   * _P,
+   * _Eta,
+   * _Phi,
+   * _M,
+   * _MLoKi,
+   * _MMLoKi,
+   * _NTrk,
+   * _N90,
+   * _MTF,
+   * _NSatCells,
+   * _NHasPVInfo,
+   * _JEC_Cor,
+   * _JEC_PV,
+   * _JEC_Error,
+   * _w,
+   * _CPF,
+   * _JetWidth,
+   * _NSatECAL,
+   * _NSatHCAL,
+   * _NIPChi2Inf4,
+   * _EfCharged,
+   * _EfChargedHadron,
+   * _EfMuon,
+   * _EfElectron,
+   * _EfNeutral,
+   * _EfPhoton,
+   * _EfPi0,
+   * _EfMPi0,
+   * _EfRPi0,
+   * _EfNHad,
+   * _EfNReco,
+   * _EfCompo,
+   * _EfV0,
+   * _EfD,
+   * _EfB,
+   * _EfBadParticle,
+ * [TupleToolJets.cpp](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTupleJets/src/TupleToolJets.cpp)
+ * [TupleToolJets.h](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTupleJets/src/TupleToolJets.h)
+ * [TupleToolJetsForB.cpp](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTupleJets/src/TupleToolJetsForB.cpp)
+ * [TupleToolJetsForB.h](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTupleJets/src/TupleToolJetsForB.h)
+    * _JETNOMU1PX
+    * _JETNOMU1PY
+    * _JETNOMU1PZ
+    * _JETNOMU1PT
+    * _JETNOMU1JETWIDTH
+    * _JETNOMU1NNTAG
+    * _JETNOMU1MNF
+    * _JETNOMU2PX
+    * _JETNOMU2PY
+    * _JETNOMU2PZ
+    * _JETNOMU2PT
+    * _JETNOMU2JETWIDTH
+    * _JETNOMU2NNTAG
+    * _JETNOMU2MNF
+    * _JETNOMU3PX
+    * _JETNOMU3PY
+    * _JETNOMU3PZ
+    * _JETNOMU3PT
+    * _JETNOMU3JETWIDTH
+    * _JETNOMU3NNTAG
+    * _JETNOMU3MNF
+    * _JETMU1PX
+    * _JETMU1PY
+    * _JETMU1PZ
+    * _JETMU1PT
+    * _JETMU1JETWIDTH
+    * _JETMU1NNTAG
+    * _JETMU1MNF
+    * _JETMU2PX
+    * _JETMU2PY
+    * _JETMU2PZ
+    * _JETMU2PT
+    * _JETMU2JETWIDTH
+    * _JETMU2NNTAG
+    * _JETMU2MNF
+    * _JETBPX
+    * _JETBPY
+    * _JETBPZ
+    * _JETBPT
+    * _JETBJETWIDTH
+    * _JETBNNTAG
+ * [TupleToolJetTag.cpp](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTupleJets/src/TupleToolJetTag.cpp)
+ * [TupleToolJetTag.h](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTupleJets/src/TupleToolJetTag.h)
+ * [TupleToolWZJets.cpp](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTupleJets/src/TupleToolWZJets.cpp)
+ * [TupleToolWZJets.h](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTupleJets/src/TupleToolWZJets.h)
+   * _ m_prefix+_ChargedTracksUsed
+   * _ m_prefix+_NeutralObjectsUsed
+   * _ m_prefix+_PositiveTracksUsed
+   * _ m_prefix+_NegativeTracksUsed
+   * _NumJets
+   * _DETA
+   * _DPHI
+   * _DR
 {% endcallout %} 
 
 {% callout "DecayTreeTupleMC - gives us access to MC-level information" %}
