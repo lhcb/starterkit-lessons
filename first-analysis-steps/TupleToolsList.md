@@ -225,11 +225,11 @@ Below you will find links to the source code and header files for each of the Tu
  * [TupleToolSelResults.cpp](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTuple/src/TupleToolSelResults.cpp)
  * [TupleToolSelResults.h](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTuple/src/TupleToolSelResults.h)
    *  _M
-   * _VtxChi2_+flag 
+   * \_VtxChi2\_+flag 
    * _VtxnDoF+flag
    * _VtxM+flag 
    * _IP+flag
-   * _IPChi2_+flag
+   * \_IPChi2\_+flag
  * [TupleToolSubMass.cpp](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTuple/src/TupleToolSubMass.cpp)
  * [TupleToolSubMass.h](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTuple/src/TupleToolSubMass.h)
  * [TupleToolSwimmingInfo.cpp](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTuple/src/TupleToolSwimmingInfo.cpp)
