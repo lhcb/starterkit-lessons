@@ -15,7 +15,7 @@ DecayTreeTuples:
 - DecayTreeTupleMuonCalib - for muon calibration tools.
 - DecayTreeTupleReco - for reconstruction-level information, such as TupleToolTrackInfo.
 - DecayTreeTupleTracking - for more detailed tools regarding tracking.
-- DecayTreeTupleTrigger - for accessing to the trigger information of the candidates.
+- DecayTreeTupleTrigger - for accessing to the trigger information of the candidates. [Class Reference](http://lhcb-doxygen.web.cern.ch/lhcb-doxygen/analysis/latest/d3/dd1/class_tuple_tool_trigger.html)
 {% endcallout %}
 
 
