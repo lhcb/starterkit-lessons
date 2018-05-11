@@ -22,14 +22,16 @@ DecayTreeTuples:
 Below you will find links to the source code and header files for each of the TupleTools.
 
  
-{% callout "DecayTreeTuple - for the more general tools" %}
+# "DecayTreeTuple - for the more general tools"
 DecayTreeTuple:
+{% callout %}
  * [TupleToolAllTracks.cpp](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTuple/src/TupleToolAllTracks.cpp)
  * [TupleToolAllTracks.h](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTuple/src/TupleToolAllTracks.h)
  * [TupleToolAngles.cpp](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTuple/src/TupleToolAngles.cpp)
  * [TupleToolAngles.h](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTuple/src/TupleToolAngles.h)
    * _CosTheta 
    * _Theta
+{% endcallout %}
 
  - [TupleToolBeamSpot.cpp](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTuple/src/TupleToolBeamSpot.cpp)
  - [TupleToolBeamSpot.h](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTuple/src/TupleToolBeamSpot.h)
@@ -322,7 +324,6 @@ _VetoOther+flag,
 _VtxIsoln.m_varNames[index], 
 _VtxIsoln.name, 
 
-{% endcallout %} 
 
 {% callout "DecayTreeTupleANNPID - for the NeuralNet-based PID tools" %}
 DecayTreeTupleANNPID 
