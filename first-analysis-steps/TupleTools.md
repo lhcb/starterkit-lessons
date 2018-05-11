@@ -234,4 +234,4 @@ DecayTreeTupleTrigger
 
 
 
-The class references for each and descriptions of the tuple tools can be found [here](http://lhcb-doxygen.web.cern.ch/lhcb-doxygen/analysis/latest/annotated.html).
+The class references and descriptions of each of the individual tuple tools can be found [here](http://lhcb-doxygen.web.cern.ch/lhcb-doxygen/analysis/latest/annotated.html), (Scroll down to T!).
