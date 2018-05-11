@@ -106,7 +106,10 @@ DecayTreeTupleDalitz
 {% endcallout %} 
 
 {% callout "DecayTreeTupleHerschel" %}
-- DecayTreeTupleHerschel 
+DecayTreeTupleHerschel 
+ - [TupleToolHerschel.cpp](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTupleHerschel/src/TupleToolHerschel.cpp)
+ - [TupleToolHerschel.h](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTupleHerschel/src/TupleToolHerschel.h)
+
 {% endcallout %} 
 
 {% callout "DecayTreeTupleJets - for obtaining information on jets" %}
