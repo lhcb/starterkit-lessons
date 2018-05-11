@@ -22,11 +22,11 @@ DecayTreeTuples:
 Below you will find links to the source code and header files for each of the TupleTools.
 
  
-# "DecayTreeTuple - for the more general tools"
-DecayTreeTuple:
-{% callout %}
+# DecayTreeTuple - for the more general tools
+
  * [TupleToolAllTracks.cpp](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTuple/src/TupleToolAllTracks.cpp)
  * [TupleToolAllTracks.h](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTuple/src/TupleToolAllTracks.h)
+{% callout %}
  * [TupleToolAngles.cpp](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTuple/src/TupleToolAngles.cpp)
  * [TupleToolAngles.h](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTuple/src/TupleToolAngles.h)
    * _CosTheta 
