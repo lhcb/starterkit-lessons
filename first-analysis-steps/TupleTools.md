@@ -4,21 +4,19 @@
 * What are each TupleTool's variables?
 {% endobjectives %} 
 
-{% callout "List of DecayTreeTuples" %}
+{% callout "List of DecayTreeTuples - General Categories" %}
 DecayTreeTuples:
- -  DecayTreeTuple 
- -  DecayTreeTupleANNPID 
- -  DecayTreeTupleBase 
- -  DecayTreeTupleDalitz 
- -  DecayTreeTupleHerschel 
- -  DecayTreeTupleJets 
- -  DecayTreeTupleMC 
- -  DecayTreeTupleMuonCalib 
- -  DecayTreeTupleReco 
- -  DecayTreeTupleTracking 
- -  DecayTreeTupleTrigger 
-{% endcallout %} 
 
+- DecayTreeTuple - for the more general tools.
+- DecayTreeTupleANNPID - for the NeuralNet-based PID tools.
+- DecayTreeTupleDalitz - for Dalitz analysis.
+- DecayTreeTupleJets - for obtaining information on jets.
+- DecayTreeTupleMC - gives us access to MC-level information.
+- DecayTreeTupleMuonCalib - for muon calibration tools.
+- DecayTreeTupleReco - for reconstruction-level information, such as TupleToolTrackInfo.
+- DecayTreeTupleTracking - for more detailed tools regarding tracking.
+- DecayTreeTupleTrigger - for accessing to the trigger information of the candidates.
+{% endcallout %}
  
 {% callout "DecayTreeTuple - for the more general tools" %}
 DecayTreeTuple:
