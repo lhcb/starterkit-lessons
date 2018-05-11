@@ -70,10 +70,10 @@ _CaloHypoDaugh1_X,
 _CaloHypoDaugh1_Y, 
 _CaloHypoDaugh1_Z, 
 _CaloHypoPileUpEnergy, 
-_CaloHypo_*, 
-_BremCaloHypo_*, 
-_CaloHypoDaugh0_*,
-_CaloHypoDaugh1_*, 
+_CaloHypo, 
+_BremCaloHypo, 
+_CaloHypoDaugh0,
+_CaloHypoDaugh1, 
 
  - [TupleToolCorrectedMass.cpp](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTuple/src/TupleToolCorrectedMass.cpp)
  - [TupleToolCorrectedMass.h](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTuple/src/TupleToolCorrectedMass.h)
