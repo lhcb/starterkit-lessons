@@ -278,26 +278,70 @@ _VeloCharge,
 
  - [TupleToolPropertime.cpp](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTuple/src/TupleToolPropertime.cpp)
  - [TupleToolPropertime.h](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTuple/src/TupleToolPropertime.h)
+ 
+ _TAU, 
+_TAUERR, 
+_TAUCHI2, 
+
  - [TupleToolSelResults.cpp](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTuple/src/TupleToolSelResults.cpp)
  - [TupleToolSelResults.h](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTuple/src/TupleToolSelResults.h)
+ 
+ _M
+_VtxChi2_+flag , 
+_VtxnDoF+flag, 
+_VtxM+flag , 
+_IP+flag, 
+_IPChi2_+flag, 
+
  - [TupleToolSubMass.cpp](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTuple/src/TupleToolSubMass.cpp)
  - [TupleToolSubMass.h](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTuple/src/TupleToolSubMass.h)
  - [TupleToolSwimmingInfo.cpp](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTuple/src/TupleToolSwimmingInfo.cpp)
  - [TupleToolSwimmingInfo.h](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTuple/src/TupleToolSwimmingInfo.h)
  - [TupleToolTagging.cpp](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTuple/src/TupleToolTagging.cpp)
  - [TupleToolTagging.h](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTuple/src/TupleToolTagging.h)
+ 
+ _TAGDECISION, 
+_TAGOMEGA, 
+_TAGDECISION_OS, 
+_TAGOMEGA_OS, 
+_TAGGER, 
+_DEC, 
+_PROB, 
+
  - [TupleToolTwoParticleMatching.cpp](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTuple/src/TupleToolTwoParticleMatching.cpp)
  - [TupleToolTwoParticleMatching.h](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTuple/src/TupleToolTwoParticleMatching.h)
+ 
+ _NMatchingCand_+fullName(head)+m_headSuffix, 
+_Overlap_loaded_+fullName(head)+m_headSuffix, 
+_Overlap_original_+fullName(head)+m_headSuffix,  
+
  - [TupleToolVeto.cpp](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTuple/src/TupleToolVeto.cpp)
  - [TupleToolVeto.h](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTuple/src/TupleToolVeto.h)
+ 
+_Veto+flag, 
+_VetoOther+flag, 
+
  - [TupleToolVtxIsoln.cpp](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTuple/src/TupleToolVtxIsoln.cpp)
  - [TupleToolVtxIsoln.h](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTuple/src/TupleToolVtxIsoln.h)
+ 
+_VtxIsoln.m_varNames[index], 
+_VtxIsoln.name, 
+
 {% endcallout %} 
 
 {% callout "DecayTreeTupleANNPID - for the NeuralNet-based PID tools" %}
 DecayTreeTupleANNPID 
  - [TupleToolANNPID.cpp](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTupleANNPID/src/TupleToolANNPID.cpp)
  - [TupleToolANNPID.h](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTupleANNPID/src/TupleToolANNPID.h)
+
+_prefix+_ProbNNe, 
+_prefix+_ProbNNmu, 
+_prefix+_ProbNNpi, 
+_prefix+_ProbNNk, 
+_prefix+_ProbNNp, 
+_prefix+_ProbNNd, 
+_prefix+_ProbNNghost,
+ 
  - [TupleToolANNPIDTraining.cpp](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTupleANNPID/src/TupleToolANNPIDTraining.cpp)
  - [TupleToolANNPIDTraining.h](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTupleANNPID/src/TupleToolANNPIDTraining.h)
 {% endcallout %} 
