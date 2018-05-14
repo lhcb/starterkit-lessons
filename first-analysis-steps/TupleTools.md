@@ -25,6 +25,128 @@ Below you will find links to the source code and header files for each of the Tu
 {% callout "DecayTreeTuple - for the more general tools" %}
  * [TupleToolAllTracks.cpp](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTuple/src/TupleToolAllTracks.cpp)
  * [TupleToolAllTracks.h](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTuple/src/TupleToolAllTracks.h)
+   * H_M
+   * _n_Particles
+   * H_M_pion
+   * _n_Particles
+   * H_M_kaon
+   * _n_Particles
+   * H_M_proton
+   * _n_Particles
+   * _dauH_CorrM
+   * _n_Particles
+   * _dauH_CorrM_pion
+   * _n_Particles
+   * _dauH_CorrM_kaon
+   * _n_Particles
+   * _dauH_CorrM_proton
+   * _n_Particles
+   * _dauH_CorrMErr
+   * _n_Particles
+   * _dauH_CorrMErr_pion
+   * _n_Particles
+   * _dauH_CorrMErr_kaon
+   * _n_Particles
+   * _dauH_CorrMErr_proton
+   * _n_Particles
+   * H_PT
+   * _n_Particles
+   * H_ETA
+   * _n_Particles
+   * H_PHI
+   * _n_Particles
+   * H_PX
+   * _n_Particles
+   * H_PY
+   * _n_Particles
+   * H_PZ
+   * _n_Particles
+   * H_FDCHI2_OLD
+   * _n_Particles
+   * H_FDCHI2_NEW
+   * _n_Particles
+   * H_FD_OLD
+   * _n_Particles
+   * H_FD_NEW
+   * _n_Particles
+   * H_VERTEXCHI2_OLD
+   * _n_Particles
+   * H_VERTEXCHI2_NEW
+   * _n_Particles
+   * H_VERTEX_X_NEW
+   * _n_Particles
+   * H_VERTEX_Y_NEW
+   * _n_Particles
+   * H_VERTEX_Z_NEW
+   * _n_Particles
+   * H_PV_X_NEW
+   * _n_Particles
+   * H_PV_Y_NEW
+   * _n_Particles
+   * H_PV_Z_NEW
+   * _n_Particles
+   * H_VERTEX_COV_
+   * _n_Particles
+   * H_PV_COV_
+   * _n_Particles
+   * H_VertexRefitStatus
+   * _n_Particles
+   * H_IPCHI2_OLD
+   * _n_Particles
+   * H_IP_OLD
+   * _n_Particles
+   * H_IPCHI2_NEW
+   * _n_Particles
+   * H_IP_NEW
+   * _n_Particles
+   * H_MINIPCHI2
+   * _n_Particles
+   * _H_OPENING
+   * _n_Particles
+   * _H_PX
+   * _n_Particles
+   * _H_PY
+   * _n_Particles
+   * _H_PZ
+   * _n_Particles
+   * _H_PT
+   * _n_Particles
+   * _H_ETA
+   * _n_Particles
+   * _H_PHI
+   * _n_Particles
+   * _H_THETA
+   * _n_Particles
+   * _H_DELTAPHI
+   * _n_Particles
+   * _H_PID
+   * _n_Particles
+   * _H_PROBNNPID
+   * _n_Tracks
+   * _H_GHOST
+   * _n_Tracks
+   * _H_TRACKCHI2
+   * _n_Tracks
+   * _H_TRACKTYPE
+   * _n_Tracks
+   * _H_PIDe
+   * _n_Tracks
+   * _H_PIDK
+   * _n_Tracks
+   * _H_PIDmu
+   * _n_Tracks
+   * _H_PIDp
+   * _n_Tracks
+   * _H_ProbNNpi
+   * _n_Tracks
+   * _H_ProbNNk
+   * _n_Tracks
+   * _H_ProbNNp
+   * _n_Tracks
+   * _H_ProbNNe
+   * _n_Tracks
+   * _H_ProbNNmu
+   * _n_Tracks
  * [TupleToolAngles.cpp](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTuple/src/TupleToolAngles.cpp)
  * [TupleToolAngles.h](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTuple/src/TupleToolAngles.h)
    * _CosTheta 
@@ -42,6 +164,24 @@ Below you will find links to the source code and header files for each of the Tu
    * _HasBremAdded 
  * [TupleToolCaloDigits.cpp](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTuple/src/TupleToolCaloDigits.cpp)
  * [TupleToolCaloDigits.h](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTuple/src/TupleToolCaloDigits.h)
+   * DigitIndex
+   * DigitNi
+   * DigitCalo
+   * DigitNc
+   * DigitArea
+   * DigitNa
+   * DigitRow
+   * DigitNr
+   * DigitColumn
+   * DigitNco
+   * Digit_X
+   * DigitNx
+   * Digit_Y
+   * DigitNy
+   * Digit_Z
+   * DigitNz
+   * DigitEnergy
+   * DigitNe
  * [TupleToolCaloHypo.cpp](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTuple/src/TupleToolCaloHypo.cpp)
  * [TupleToolCaloHypo.h](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTuple/src/TupleToolCaloHypo.h)
    * _hasCaloHypo
@@ -71,6 +211,7 @@ Below you will find links to the source code and header files for each of the Tu
    * _MCORRVERTEXERR
  * [TupleToolDecayTreeFitter.cpp](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTuple/src/TupleToolDecayTreeFitter.cpp)
  * [TupleToolDecayTreeFitter.h](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTuple/src/TupleToolDecayTreeFitter.h)
+   * _nPV
  * [TupleToolDira.cpp](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTuple/src/TupleToolDira.cpp)
  * [TupleToolDira.h](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTuple/src/TupleToolDira.h)
    * _DiraAngleError
@@ -79,6 +220,12 @@ Below you will find links to the source code and header files for each of the Tu
    * _DiraCos
  * [TupleToolGeometry.cpp](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTuple/src/TupleToolGeometry.cpp)
  * [TupleToolGeometry.h](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTuple/src/TupleToolGeometry.h)
+   * _AllIP
+   * nPV
+   * _AllIPchi2
+   * nPV
+   * _AllDIRA
+   * nPV
    * _MINIP
    * _MINIPCHI2
    * _MINIPNEXTBEST
@@ -235,8 +382,22 @@ Below you will find links to the source code and header files for each of the Tu
  * [TupleToolSubMass.h](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTuple/src/TupleToolSubMass.h)
  * [TupleToolSwimmingInfo.cpp](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTuple/src/TupleToolSwimmingInfo.cpp)
  * [TupleToolSwimmingInfo.h](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTuple/src/TupleToolSwimmingInfo.h)
+   * _TP_RAW
+   * _nTP
+   * _TP_DEC
+   * _nTP
+   * _TP_TAU
+   * _nTP
+   * _TP_IP
+   * _nTP
+   * _TP_DEC_
+   * _nTP
+   * _TP_
+   * _nTP
+   * _TP_DEC_
  * [TupleToolTagging.cpp](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTuple/src/TupleToolTagging.cpp)
  * [TupleToolTagging.h](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTuple/src/TupleToolTagging.h)
+   * _TagPartsFeature_
    * _TAGDECISION
    * _TAGOMEGA
    * _TAGDECISION_OS
@@ -271,11 +432,6 @@ Below you will find links to the source code and header files for each of the Tu
    * _prefix+_ProbNNghost 
  * [TupleToolANNPIDTraining.cpp](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTupleANNPID/src/TupleToolANNPIDTraining.cpp)
  * [TupleToolANNPIDTraining.h](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTupleANNPID/src/TupleToolANNPIDTraining.h)
-{% endcallout %} 
-
-{% callout "DecayTreeTupleBase" %}
- * [TupleToolBaseEggPasta.cpp](https://www.jamieoliver.com/recipes/pasta-recipes/a-basic-recipe-for-fresh-egg-pasta/)
- * [TupleToolBaseEggPasta.h](https://www.jamieoliver.com/recipes/pasta-recipes/a-basic-recipe-for-fresh-egg-pasta/)
 {% endcallout %} 
 
 {% callout "DecayTreeTupleDalitz - for Dalitz analysis" %}
@@ -384,6 +540,40 @@ Below you will find links to the source code and header files for each of the Tu
    * _JETBNNTAG
  * [TupleToolJetTag.cpp](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTupleJets/src/TupleToolJetTag.cpp)
  * [TupleToolJetTag.h](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTupleJets/src/TupleToolJetTag.h)
+   * _fdrMin
+   * _NbTag
+   * _ptSvrJet
+   * _NbTag
+   * _nTrk
+   * _NbTag
+   * _nTrkJet
+   * _NbTag
+   * _drSvrJet
+   * _NbTag
+   * _absQSum
+   * _NbTag
+   * _m
+   * _NbTag
+   * _mCor
+   * _NbTag
+   * _fdChi2
+   * _NbTag
+   * _ipChi2Sum
+   * _NbTag
+   * _bdt0
+   * _NbTag
+   * _bdt1
+   * _NbTag
+   * _pass
+   * _NbTag
+   * _tau
+   * _NbTag
+   * _z
+   * _NbTag
+   * _pt
+   * _NbTag
+   * _backwards
+   * _NbTag
  * [TupleToolWZJets.cpp](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTupleJets/src/TupleToolWZJets.cpp)
  * [TupleToolWZJets.h](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTupleJets/src/TupleToolWZJets.h)
    * _ m_prefix+_ChargedTracksUsed
