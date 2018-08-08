@@ -134,7 +134,7 @@ before the `j.submit()` line:
 
 ```python
 f = MassStorageFile('DVntuple.root')
-f.outputfilenameformat = '/starterkit/{jid}_{fname}'
+f.outputfilenameformat = 'starterkit/{jid}_{fname}'
 j.outputfiles = [f] 
 ```
 
