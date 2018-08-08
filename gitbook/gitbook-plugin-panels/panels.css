@@ -16,6 +16,10 @@
   border-color: #d6e9c6;
 }
 
+.panel-info {
+  border-color: #bce8f1;
+}
+
 .panel-warning {
   border-color: #faebcc;
 }
@@ -29,6 +33,14 @@
   border-bottom: 1px solid;
   border-top-left-radius: 3px;
   border-top-right-radius: 3px;
+}
+
+.panel-heading .panel-title code {
+    background-color: rgba(247, 247, 247, 0.55);
+}
+
+.panel-default .panel-heading .panel-title code {
+    background-color: rgb(237, 237, 237);
 }
 
 .panel-default > .panel-heading {
@@ -47,6 +59,12 @@
   color: #3c763d;
   background-color: #dff0d8;
   border-color: #d6e9c6;
+}
+
+.panel-info > .panel-heading {
+  color: #31708f;
+  background-color: #d9edf7;
+  border-color: #bce8f1;
 }
 
 .panel-warning > .panel-heading {
