@@ -69,3 +69,4 @@ DaVinci().appendToMainSequence([event_node_killer, sc.sequence()])
 
 It is strongly recommended to run restripping with the same version of DaVinci as the one used for the corresponding stripping production: this ensures all the settings are configured the same exact way as for your data. For the Stripping 28r1, DaVinci v41r4p4 was used. Notice that this version is not available for the default platform `x86_64-slc6-gcc62-opt`.
 To work around this you can pick up the best suitable platform using `lb-run -c best DaVinci/v41r4p4 ...` or by [setting the `application.platform` attribute in ganga](https://lhcb.github.io/starterkit-lessons/first-analysis-steps/davinci-grid.html#picking-up-a-right-platform).
+See the [ProcessingPasses TWiki page](https://twiki.cern.ch/twiki/bin/view/Main/ProcessingPasses) to find which version of DaVinci was used for each stripping campaign.
