@@ -5,9 +5,9 @@
 {% endobjectives %} 
 
 Run 1 of the LHC ran from 2010 to the end of 2012. Run 2 began in the middle of 
-2015 and is scheduled to continue until 2019.
+2015 and finished at the end of 2018.
 During Run 1 the LHC provided proton-proton collisions at a centre-of-mass 
-energy of 7 and 8 TeV, and in Run 2 the energy increases to 13 TeV.
+energy of 7 and 8 TeV, and in Run 2 the energy was increased to 13 TeV.
 With an increase in energy comes an increase in production cross-sections, and 
 so a much higher rate of interesting events.
 
