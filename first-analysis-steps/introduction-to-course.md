@@ -45,7 +45,7 @@ repository, and _you_ can contribute!
 Please [submit an issue](https://github.com/lhcb/starterkit-lessons/issues) if 
 you spot a mistake or you think something isn't clear enough, or you can [make 
 the changes 
-yourself](https://github.com/lhcb/starterkit-lessons/blob/master/CONTRIBUTING.md) 
+yourself](contributing-lesson.html) 
 and open a pull request.
 If you're not already familiar with git, you could check out our [analysis 
 essentials](http://lhcb.github.io/analysis-essentials/) course.
