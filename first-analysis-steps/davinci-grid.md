@@ -17,7 +17,7 @@ Before creating your first `ganga` job, open the script `ntuple_options.py`, obt
 
 Then, open the file `MC_2016_27163002_Beam6500GeV2016MagDownNu1.625nsPythia8_Sim09b_Trig0x6138160F_Reco16_Turbo03_Stripping28NoPrescalingFlagged_ALLSTREAMS.DST.py`, scroll to the very end, and check if two last lines have information about the `FileCatalog`: if yes, comment them out. They will mislead `ganga` since it only needs to know about the list of LFNs.
 
-Finally, launch your grid proxy typing `lhcb-proxy-init` and enter your *grid certidicate* password. 
+Finally, launch your grid proxy typing `lhcb-proxy-init` and enter your *grid certificate* password. 
 
 Great! Now you are ready to start ganga! Do it with:
 
@@ -56,7 +56,7 @@ you get the following message:
 INFO     Set up App Env at: ./DaVinciDev_v42r6p1
 ```
 `ganga` has created a folder with a local copy of the DaVinci v42r6p1 release.
-The content of it will be sent to the grid to ensure your jobs runs with 
+The content of it will be sent to the grid to ensure your job runs with 
 exactly this configuration.
 We will use this folder for the following jobs and you will learn more about
 this in the [Developing LHCb Software](lhcb-dev.html) lesson.
@@ -112,7 +112,7 @@ session:
 %ganga first-job.py
 ```
 
-This will print output similar to submitting the job from with in
+This will print an output similar to the one you saw when submitting the job from within
 `ganga`.
 
 You can check on your jobs by typing `jobs` into a `ganga`
