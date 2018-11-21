@@ -66,7 +66,7 @@ You should get the following output:
 ApplicationMgr    SUCCESS
 ====================================================================================================================================
                                                    Welcome to DaVinci version v44r6
-                                          running on lxplus055.cern.ch on Mon Oct 16 10:47:29 2017
+                                          running on lxplus069.cern.ch on Wed Nov 21 17:53:58 2018
 ====================================================================================================================================
 ApplicationMgr       INFO Application Manager Configured successfully
 HistogramPersis...WARNING Histograms saving not required.
@@ -105,15 +105,15 @@ lb-run --list DaVinci
 {% callout "Which version of DaVinci should I use?" %}
 
 All available versions of DaVinci are given on the [DaVinci releases][releases]
-page. Which one should you use? They are a couple of guidelines to follow:
+page. Which one should you use? There are a couple of guidelines to follow:
 
 1. When starting a new analysis, use the latest version suitable for the data
-   you would like to analysis.
+   you would like to analyse.
 2. When continuing an analysis, use the same version of DaVinci consistently
    throughout. This includes cases where you want to repeat an existing
    analysis but with modified settings, e.g. re-running a Stripping line.
 
-There are a set of DaVinci versions for Upgrade studies (versions v50r0 and
+There are a set of DaVinci versions for Upgrade studies (versions v50r1 and
 above) and a set for everything else. Generally, you will want the latest
 version in the latter set, such as when making ntuples from Run 1 or Run 2
 data.
