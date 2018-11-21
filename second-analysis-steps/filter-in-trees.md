@@ -7,7 +7,7 @@
 
 Sometimes we want to extract a portion of the decay tree in order to build a different decay.
 To do that, we need to put the particles we're interested in in a new container so they can afterwards be used as inputs to a `CombineParticles` instance (as we saw in [the selection framework lesson](/second-analysis-steps/building-decays-part-0.md)).
-To achieve this we can use the `FilterInTrees` algorithm, a simple variation of `FilterDesktop` ([doxygen](https://lhcb-release-area.web.cern.ch/LHCb-release-area/DOC/hlt/latest_doxygen/de/d8e/class_filter_in_trees.html)).
+To achieve this we can use the `FilterInTrees` algorithm, a simple variation of `FilterDesktop` ([doxygen](http://lhcb-doxygen.web.cern.ch/lhcb-doxygen/davinci/latest/d0/d0c/class_filter_desktop.html)).
 
 Let's start from the example in [the selection framework lesson](/second-analysis-steps/building-decays-part0.md) and let's check that the $$K^+$$ child of the $$D^0$$ does not come from a $$K^{*}(892)^{0} \to K^{+}\pi^{-}$$.
 To do that, we have to extract the $$K^+$$ from `([D0 -> K+ K-]CC)` and combine it with all pions in `Phys/StdAllNoPIDsPions/Particles`.
