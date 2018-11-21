@@ -101,6 +101,31 @@ Do you want to get an overview of which versions of DaVinci exist? Use
 ```bash
 lb-run --list DaVinci
 ```
+
+{% callout "Which version of DaVinci should I use?" %}
+
+All available versions of DaVinci are given on the [DaVinci releases][releases]
+page. Which one should you use? They are a couple of guidelines to follow:
+
+1. When starting a new analysis, use the latest version suitable for the data
+   you would like to analysis.
+2. When continuing an analysis, use the same version of DaVinci consistently
+   throughout. This includes cases where you want to repeat an existing
+   analysis but with modified settings, e.g. re-running a Stripping line.
+
+There are a set of DaVinci versions for Upgrade studies (versions v50r0 and
+above) and a set for everything else. Generally, you will want the latest
+version in the latter set, such as when making ntuples from Run 1 or Run 2
+data.
+
+These lessons use [DaVinci v44r6][v44r6], which was the latest Run 1/2 version at the
+time the text was last revised.
+
+[releases]: http://lhcbdoc.web.cern.ch/lhcbdoc/davinci/releases/
+[v44r6]: http://lhcbdoc.web.cern.ch/lhcbdoc/davinci/releases/v44r6/
+
+{% endcallout %}
+
 Do you want to start a shell that already contains the LHCb environment, so you don't have to use `lb-run`?
 Execute
 ```bash
