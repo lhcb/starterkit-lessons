@@ -21,8 +21,11 @@ This raises its own problems:
 * Can you think of more?
 
 These questions arise mostly due to two key points: the data must be processed 
-very quickly because it's arriving very quickly, and the data is complex so 
-there's a lot that can be done with it.
+very quickly because it's arriving very quickly, and the data is complex so
+there's a lot that can be done with it. In the last lesson we saw how many
+steps it took just to reconstruct a single decay, but there are thousands of
+possibilities that we might be interested in! Being able to perform such
+combinations in a flexible manner is then very important.
 
 Collisions recorded by the LHCb detector go through a specific data flow 
 designed to maximise the data-taking efficiency and data quality.
