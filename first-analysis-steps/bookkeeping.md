@@ -59,14 +59,13 @@ not sure.
 {% endcallout %}
 
 Next we need to choose what version of the simulation you want to
-use. There is only one available in our case, `Sim09b`, but usually the latest available version is best when there are more than one.
-We also have to choose the version of the
-digitisation and what configuration of the trigger (`Trig0x6138160F` in our case) and reconstruction
+use. There are two available in our case, `Sim09b` and `Sim09c`, but usually the latest available version is the best when there are more than one.
+We also have to choose what configuration of the trigger (`Trig0x6138160F` in our case) and reconstruction
 we want to have in the simulated sample. Usually
 there is only one choice for these, which makes choosing easier.
 
-We also have to select a version of the stripping. Choose any as long as it 
-contains the word `Flagged`.
+Two final steps are versions of `Turbo` (only for Run 2 samples, as discussed in the [previous lesson](run-2-data-flow.html)) and `Stripping`. To save the processing time, each of the Run 2 samples is processed via both Turbo and Stripping frameworks, so it is usable for either of two choices.
+Usually, there is only one version of `Turbo`, but there can be multiple versions of the `Stripping`. Choose any as long as it contains the word `Flagged`.
 
 {% callout "Flagged and filtered samples" %}
 In the usual data-taking flow, the trigger and stripping are run in 
@@ -87,7 +86,7 @@ python file”, and add `.py` to the end of the text in “Save As...”. Clicki
 download. Save this file somewhere you can find it again.
 
 A copy of the file we just downloaded is [available
-here](data/MC_2016_27163002_Beam6500GeV2016MagDownNu1.625nsPythia8_Sim09b_Trig0x6138160F_Reco16_Turbo03_Stripping28NoPrescalingFlagged_ALLSTREAMS.DST.py).
+here](data/MC_2016_27163002_Beam6500GeV2016MagDownNu1.625nsPythia8_Sim09c_Trig0x6138160F_Reco16_Turbo03_Stripping28r1NoPrescalingFlagged_ALLSTREAMS.DST.py).
 
 {% callout "Shortcut" %}
 Once you get a bit of experience with navigating the bookkeeping you 
@@ -105,8 +104,9 @@ the decay that your analysis is about, or if you don't have any ideas you
 could look for the semileptonic decay $$\Lambda_{b}^{0} \to 
 \Lambda_{c}^{+}\mu^{-}\bar{\nu}_{\mu}$$, where the $$\Lambda_{c}^{+}$$ decays 
 to $$pK^{-}\pi^{+}$$.
+{% endchallenge %}
 
 If you would like to find out more about how the event types define the 
 signal decay, you can look at the [documentation for the DecFiles 
 package](http://lhcb-release-area.web.cern.ch/LHCb-release-area/DOC/decfiles/).
-{% endchallenge %}
+
