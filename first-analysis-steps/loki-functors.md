@@ -257,7 +257,7 @@ print SUMTREE('K+' == ABSID, PT)(cand)
 In this case, we have summed the transverse momentum of the charged kaons in the tree.
 Note the usage of the `ABSID` functor, which selects particles from the decay 
 tree using either their [PDG Monte Carlo 
-ID](http://pdg.lbl.gov/2015/mcdata/mc_particle_id_contents.html) or their name.
+ID](http://pdg.lbl.gov/2018/reviews/rpp2018-rev-monte-carlo-numbering.pdf) or their name.
 If you would like to consider only the kaons of one specific charge in the selection requirement, consider the `ID` functor which does exactly the same thing, however has a sign which is positive for particles and negative for antiparticles. 
 
 Another very useful LoKi functor is `CHILD`, which allows us to access a 
