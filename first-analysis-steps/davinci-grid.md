@@ -11,7 +11,15 @@ This lesson will teach you how to take our [minimal DaVinci
 job](minimal-dv-job.html) and run it on the grid.
 
 `ganga` is a program which you can use to interact with your grid
-jobs. Start it with:
+jobs. 
+
+Before creating your first `ganga` job, open the script `ntuple_options.py`, obtained in the [previous lesson](minimal-dv-job.html), and comment out the lines taking the local input data: we will now use the data stored on grid.
+
+Then, open the file `MC_2016_27163002_Beam6500GeV2016MagDownNu1.625nsPythia8_Sim09b_Trig0x6138160F_Reco16_Turbo03_Stripping28NoPrescalingFlagged_ALLSTREAMS.DST.py`, scroll to the very end, and check if two last lines have information about the `FileCatalog`: if yes, comment them out. They will mislead `ganga` since it only needs to know about the list of LFNs.
+
+Finally, launch your grid proxy typing `lhcb-proxy-init` and enter your *grid certificate* password. 
+
+Great! Now you are ready to start ganga! Do it with:
 
 ```bash
 $ ganga
@@ -22,11 +30,11 @@ looks very much like an `ipython` session. `ganga` is built on top of
 `ipython` so you can type anything that is legal `python` in addition
 to some special commands provided by `ganga`.
 
-To create your first `ganga` job type the following:
+To create your first `ganga` job, type the following:
 
 ```python
 j = Job(name='First ganga job')
-myApp = prepareGaudiExec('DaVinci','v42r6p1', myPath='.')
+myApp = prepareGaudiExec('DaVinci','v44r6', myPath='.')
 j.application = myApp
 j.application.options = ['ntuple_options.py']
 j.application.readInputData('MC_2016_27163002_Beam6500GeV2016MagDownNu1.625nsPythia8_Sim09b_Trig0x6138160F_Reco16_Turbo03_Stripping28NoPrescalingFlagged_ALLSTREAMS.DST.py')
@@ -42,13 +50,13 @@ files to process as part of the options file you have now to tell the
 processing different files simultaneously.
 
 {% callout "DaVinciDev folder" %}
-When you create a job using `prepareGaudiExec('DaVinci','v42r6p1', myPath='.')`
+When you create a job using `prepareGaudiExec('DaVinci','v44r6', myPath='.')`
 you get the following message:
 ```
-INFO     Set up App Env at: ./DaVinciDev_v42r6p1
+INFO     Set up App Env at: ./DaVinciDev_v44r6
 ```
-`ganga` has created a folder with a local copy of the DaVinci v42r6p1 release.
-The content of it will be sent to the grid to ensure your jobs runs with 
+`ganga` has created a folder with a local copy of the DaVinci v44r6 release.
+The content of it will be sent to the grid to ensure your job runs with 
 exactly this configuration.
 We will use this folder for the following jobs and you will learn more about
 this in the [Developing LHCb Software](lhcb-dev.html) lesson.
@@ -56,7 +64,7 @@ this in the [Developing LHCb Software](lhcb-dev.html) lesson.
 
 Now you have created your first job, however it has not started
 running yet. To submit it type `j.submit()`. Now `ganga` will do the
-equivalent of `lb-run DaVinci/v42r6p1`, prepare your job and then
+equivalent of `lb-run DaVinci/v44r6`, prepare your job and then
 ship it off to the grid.
 
 {% callout "Picking up a right platform" %}
@@ -70,14 +78,12 @@ $ lb-sdb-query listPlatforms DaVinci v38r0
 
 In case you have a strong reason to use one of these DaVinci versions, few additional actions are needed to set up your ganga job properly.
 
-First, outside ganga set up the necessary platform:
-```bash
-$ LbLogin -c x86_64-slc6-gcc49-opt
-```
-Then, when setting up your ganga job, add the following line after declaring the `j.application`:
+When setting up your ganga job, add the following line after declaring the `j.application`:
 ```python
 j.application.platform = 'x86_64-slc6-gcc49-opt'
 ```
+The default compiler platform for GaudiExec applications is `x86_64-slc6-gcc62-opt`.
+
 {% endcallout %} 
 
 While it runs, let's submit an identical job via slightly different
@@ -90,7 +96,7 @@ Place the following in a file called [`first-job.py`](code/davinci-grid/first-jo
 ```python
 j = Job(name='First ganga job')
 myApp = GaudiExec()
-myApp.directory = "./DaVinciDev_v42r6p1"
+myApp.directory = "./DaVinciDev_v44r6"
 j.application = myApp
 j.application.options = ['ntuple_options.py']
 j.application.readInputData('MC_2016_27163002_Beam6500GeV2016MagDownNu1.625nsPythia8_Sim09b_Trig0x6138160F_Reco16_Turbo03_Stripping28NoPrescalingFlagged_ALLSTREAMS.DST.py')
@@ -106,7 +112,7 @@ session:
 %ganga first-job.py
 ```
 
-This will print output similar to submitting the job from with in
+This will print an output similar to the one you saw when submitting the job from within
 `ganga`.
 
 You can check on your jobs by typing `jobs` into a `ganga`
@@ -143,6 +149,7 @@ print 'Job output stored in:', output
 ```
 
 Take a look at the contents of this directory.
+Tip: this can be done from ganga using command `jobs(787).peek()`.
 
 {% callout "Using the Shell from IPython" %}
 IPython lets you execute shell commands from within the `ganga` session.
@@ -156,7 +163,7 @@ To look at the `root` file produced by the job start a new terminal, and
 type:
 
 ```bash
-$ lb-run DaVinci/v42r6p1 $SHELL
+$ lb-run DaVinci/v44r6 $SHELL
 $ root -l path/to/the/job/output
 ```
 

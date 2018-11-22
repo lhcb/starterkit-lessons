@@ -111,12 +111,12 @@ For this, it is necessary to know where to find `TupleTools` and their code.
 - `DecayTreeTupleTrigger` for accessing to the trigger information of the candidates.
 
 The `TupleTools` are placed in the `src` folder within each package and it's usually easy to get what they do just by looking at their name.
-However, the best way to know what a tool does is check its documentation, either by opening its `.h` file or be searching for it in the latest [`doxygen`](http://lhcb-release-area.web.cern.ch/LHCb-release-area/DOC/davinci/releases/latest/doxygen/index.html).
+However, the best way to know what a tool does is check its documentation, either by opening its `.h` file or be searching for it in the latest [`doxygen`](http://lhcb-doxygen.web.cern.ch/lhcb-doxygen/davinci/latest/index.html).
 Most tools are very well documented and will also inform you of their configuration options.
-As an example, to get the information on the `TupleToolTrackInfo` we used before we could either check its [source code](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTupleReco/src/TupleToolTrackInfo.h) or its [web documentation](http://lhcb-release-area.web.cern.ch/LHCb-release-area/DOC/analysis/releases/latest/doxygen/da/ddd/class_tuple_tool_track_info.html).
+As an example, to get the information on the `TupleToolTrackInfo` we used before we could either check its [source code](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTupleReco/src/TupleToolTrackInfo.h) or its [web documentation](http://lhcb-doxygen.web.cern.ch/lhcb-doxygen/davinci/latest/da/ddd/class_tuple_tool_track_info.html).
  In case we need more information or need to know *exactly* what the code does, the `fill` method is the one we need to look at.
 
- As a shortcut, the list of tupletools can also be found in doxygen at the top of the pages for the [`IParticleTupleTool`](http://lhcb-release-area.web.cern.ch/LHCb-release-area/DOC/davinci/releases/latest/doxygen/d1/d77/class_i_particle_tuple_tool.html) and the [`IEventTupleTool`](http://lhcb-release-area.web.cern.ch/LHCb-release-area/DOC/davinci/releases/latest/doxygen/d7/d5c/class_i_event_tuple_tool.html) interfaces (depending on whether they fill information about specific particles or the event in general).
+ As a shortcut, the list of tupletools can also be found in doxygen at the top of the pages for the [`IParticleTupleTool`](http://lhcb-doxygen.web.cern.ch/lhcb-doxygen/davinci/latest/de/df8/struct_i_particle_tuple_tool.html) and the [`IEventTupleTool`](http://lhcb-doxygen.web.cern.ch/lhcb-doxygen/davinci/latest/d5/d88/struct_i_event_tuple_tool.html) interfaces (depending on whether they fill information about specific particles or the event in general).
 {% endcallout %} 
 
 The updated options can be found [here](./code/add-tupletools/ntuple_options.py).
@@ -194,6 +194,6 @@ In the code snippets specified above (available [here](code/add-tupletools/ntupl
 {% challenge "Getting more practice" %}
 In the `LoKi::Hybrid::TupleTool`we've used some  functors that have not been 
 described previously. Find out what they do in the 
-[doxygen](http://lhcb-release-area.web.cern.ch/LHCb-release-area/DOC/davinci/latest_doxygen/d7/dae/namespace_lo_ki_1_1_cuts.html).
+[doxygen](http://lhcb-doxygen.web.cern.ch/lhcb-doxygen/davinci/latest/d7/dae/namespace_lo_ki_1_1_cuts.html).
 To check `SUMTREE` and `CHILD`, run the code above and check that the `Dstar_max_pt` and `Dstar_max_pt_preambulo` and the `Dstar_mass_D0` and `D0_mass` branches have exactly the same values.
 {% endchallenge %} 

@@ -16,7 +16,7 @@ from PhysConf.Selections import SelectionSequence
 
 # Build the D0 from the pions and kaons
 d0_daughters = {
-    'pi-': '(PT > 750*MeV) & (P > 4000*MeV) & (MIPCHI2DV(PRIMARY) > 4)',
+    'K-': '(PT > 750*MeV) & (P > 4000*MeV) & (MIPCHI2DV(PRIMARY) > 4)',
     'K+': '(PT > 750*MeV) & (P > 4000*MeV) & (MIPCHI2DV(PRIMARY) > 4)'
 }
 d0_comb = "(AMAXDOCA('') < 0.2*mm) & (ADAMASS('D0') < 100*MeV)"
@@ -28,7 +28,7 @@ d0_mother = (
 )
 
 d0 = CombineParticles('Combine_D0',
-                      DecayDescriptor='[D0 -> pi- K+]cc',
+                      DecayDescriptor='[D0 -> K- K+]cc',
                       DaughtersCuts=d0_daughters,
                       CombinationCut=d0_comb,
                       MotherCut=d0_mother)
@@ -36,7 +36,7 @@ d0 = CombineParticles('Combine_D0',
 d0_sel = Selection(
     'Sel_D0',
     Algorithm=d0,
-    RequiredSelections=[Pions, Kaons]
+    RequiredSelections=[Kaons]
 )
 
 dstar_daughters = {'pi+': '(TRCHI2DOF < 3) & (PT > 100*MeV)'}
@@ -63,9 +63,9 @@ dstar_sel = Selection(
 dstar_seq = SelectionSequence('Dstar_Seq', TopSelection=dstar_sel)
 
 # Create an ntuple
-dtt = DecayTreeTuple('TupleDstToD0pi_D0ToKpi')
+dtt = DecayTreeTuple('TupleDstToD0pi_D0ToKK')
 dtt.Inputs = dstar_seq.outputLocations()
-dtt.Decay = '[D*(2010)+ -> D0 pi+]CC'
+dtt.Decay = '[D*(2010)+ -> ^D0 ^pi+]CC'
 
 DaVinci().UserAlgorithms += [dstar_seq.sequence(), dtt]
 
@@ -73,15 +73,11 @@ DaVinci().UserAlgorithms += [dstar_seq.sequence(), dtt]
 DaVinci().InputType = 'DST'
 DaVinci().TupleFile = 'DVntuple.root'
 DaVinci().PrintFreq = 1000
-DaVinci().DataType = '2012'
+DaVinci().DataType = '2016'
 DaVinci().Simulation = True
 # Only ask for luminosity information when not using simulated data
 DaVinci().Lumi = not DaVinci().Simulation
-DaVinci().EvtMax = 10000
+DaVinci().EvtMax = 1000
 
-# Use the local input data
-IOHelper().inputFiles([('root://eoslhcb.cern.ch/'
-                        '/eos/lhcb/grid/prod/lhcb/'
-                        'MC/2012/ALLSTREAMS.DST/00035742/0000/'
-                        '00035742_00000001_1.allstreams.dst')],
+IOHelper().inputFiles([('root://eoslhcb.cern.ch//eos/lhcb/grid/prod/lhcb/MC/2016/ALLSTREAMS.DST/00062514/0000/00062514_00000008_7.AllStreams.dst')],
                       clear=True)

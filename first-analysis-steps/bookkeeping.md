@@ -94,8 +94,8 @@ Once you get a bit of experience with navigating the bookkeeping you
 can take a shortcut! At the bottom of your browser window there is a 
 text field next to a green "plus" symbol. You can directly enter a 
 path here to navigate there directly. For example you could go 
-straight to: 
-`evt+std://MC/2012/27163003/Beam4000GeV-2012-MagDown-Nu2.5-Pythia8/` 
+straight to:
+`evt+std://MC/2016/27163002/Beam6500GeV-2016-MagDown-Nu1.6-25ns-Pythia8/`
 by typing this path and pressing the `Go` button.
 {% endcallout %}
 
@@ -108,5 +108,5 @@ to $$pK^{-}\pi^{+}$$.
 
 If you would like to find out more about how the event types define the 
 signal decay, you can look at the [documentation for the DecFiles 
-package](http://lhcb-release-area.web.cern.ch/LHCb-release-area/DOC/decfiles/).
+package](http://lhcbdoc.web.cern.ch/lhcbdoc/decfiles/).
 {% endchallenge %}

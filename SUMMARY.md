@@ -40,10 +40,21 @@
     * [Replace a mass hypothesis](second-analysis-steps/switch-mass-hypo.md)
     * [Reuse particles from a decay tree](second-analysis-steps/filter-in-trees.md)
     * [The simulation framework](second-analysis-steps/simulation.md)
+      * [Introduction: The basics of Gauss](second-analysis-steps/simulation-intro.md)
+      * [Getting the correct option files](second-analysis-steps/simulation-running-gauss.md)
+      * [Controlling the decay](second-analysis-steps/simulation-dkfiles.md)
+      * [Advanced: Controlling the decay](second-analysis-steps/simulation-advanced-dkfiles.md)
+      * [Modifying generator cuts](second-analysis-steps/simulation-gencuts.md)
+      * [Fast simulation options](second-analysis-steps/simulation-fastsim.md)
     * [HLT intro](second-analysis-steps/hlt-intro.md)
     * [TisTos DIY](second-analysis-steps/tistos-diy.md)
     * [Ganga Scripting](second-analysis-steps/ganga-scripting.md)
     * [Managing files in Ganga](second-analysis-steps/managing-files-with-ganga.md)
+    * [Analysis automation: snakemake](second-analysis-steps/analysis-automation-snakemake.md)
+
+----
+
+* [Self guided lessons](self-guided-lessons/README.md)
 
 ----
 

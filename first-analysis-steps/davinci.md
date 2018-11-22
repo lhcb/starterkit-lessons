@@ -54,10 +54,10 @@ One of the most important ones is *DaVinci*, which provides lots of *Algorithms*
 
 You can run DaVinci using the following command [on lxplus](../first-analysis-steps/prerequisites.md#Pre-workshop checklist):
 ```bash
-lb-run DaVinci/v42r6p1 gaudirun.py
+lb-run DaVinci/v44r6 gaudirun.py
 ```
 
-This will run the `gaudirun.py` command using version v42r6p1 of DaVinci. (`lb-run` sets the specified environment for `gaudirun.py` to run in.)
+This will run the `gaudirun.py` command using version v44r6 of DaVinci. (`lb-run` sets the specified environment for `gaudirun.py` to run in.)
 `gaudirun.py` is a script that sets up the EventLoop.
 You should get the following output:
 
@@ -65,8 +65,8 @@ You should get the following output:
 # setting LC_ALL to "C"
 ApplicationMgr    SUCCESS
 ====================================================================================================================================
-                                                   Welcome to DaVinci version v42r6p1
-                                          running on lxplus055.cern.ch on Mon Oct 16 10:47:29 2017
+                                                   Welcome to DaVinci version v44r6
+                                          running on lxplus069.cern.ch on Wed Nov 21 17:53:58 2018
 ====================================================================================================================================
 ApplicationMgr       INFO Application Manager Configured successfully
 HistogramPersis...WARNING Histograms saving not required.
@@ -85,7 +85,7 @@ During this run, DaVinci didn't do anything: We didn't specify any algorithms to
 Usually, you will write an option file (e.g. `options.py`) and specify it as an argument to `gaudirun.py`:
 
 ```bash
-lb-run DaVinci/v42r6p1 gaudirun.py options.py
+lb-run DaVinci/v44r6 gaudirun.py options.py
 ```
 
 An `option.py` is just a regular Python script that specifies how to set things up in the software.
@@ -93,7 +93,7 @@ Many of the following lessons will teach you how to do something with DaVinci by
 You can use the above command to test it.
 You can also specify several option files like this:
 ```bash
-lb-run DaVinci/v41r2 gaudirun.py options1.py options2.py
+lb-run DaVinci/v44r6 gaudirun.py options1.py options2.py
 ```
 They will then both be used to set up DaVinci.
 
@@ -101,14 +101,39 @@ Do you want to get an overview of which versions of DaVinci exist? Use
 ```bash
 lb-run --list DaVinci
 ```
+
+{% callout "Which version of DaVinci should I use?" %}
+
+All available versions of DaVinci are given on the [DaVinci releases][releases]
+page. Which one should you use? There are a couple of guidelines to follow:
+
+1. When starting a new analysis, use the latest version suitable for the data
+   you would like to analyse.
+2. When continuing an analysis, use the same version of DaVinci consistently
+   throughout. This includes cases where you want to repeat an existing
+   analysis but with modified settings, e.g. re-running a Stripping line.
+
+There are a set of DaVinci versions for Upgrade studies (versions v50r1 and
+above) and a set for everything else. Generally, you will want the latest
+version in the latter set, such as when making ntuples from Run 1 or Run 2
+data.
+
+These lessons use [DaVinci v44r6][v44r6], which was the latest Run 1/2 version at the
+time the text was last revised.
+
+[releases]: http://lhcbdoc.web.cern.ch/lhcbdoc/davinci/releases/
+[v44r6]: http://lhcbdoc.web.cern.ch/lhcbdoc/davinci/releases/v44r6/
+
+{% endcallout %}
+
 Do you want to start a shell that already contains the LHCb environment, so you don't have to use `lb-run`?
 Execute
 ```bash
-lb-run DaVinci/v42r6p1 $SHELL
+lb-run DaVinci/v44r6 $SHELL
 ```
->Note that sometimes this environment can result in failing scripts due to struggles with your shell's rc file (e.g., `~/.bashrc`). Using, e.g.,
+Note that sometimes this environment can result in failing scripts due to struggles with your shell's rc file (e.g., `~/.bashrc`). Using
 ```bash
-lb-run DaVinci/v42r6p1 bash --norc
+lb-run DaVinci/v44r6 bash --norc
 ```
 avoids this, but means you won't be able to use any aliases, etc, included in the ignored rc file.
 
@@ -119,9 +144,9 @@ Typing `exit` or using `Ctrl-d` will close the shell and leave the LHCb environm
 When reading through other tutorials, you will come across `SetupProject`.
 This is an older way of setting up a shell that is configured to run LHCb software.
 `lb-run` is the new way of doing things and has some nice benefits over `SetupProject`.
-For most purposes, `SetupProject DaVinci v41r2` is equivalent to
+For most purposes, `SetupProject DaVinci v44r6` is equivalent to
 ```bash
-lb-run DaVinci/v41r2 $SHELL
+lb-run DaVinci/v44r6 $SHELL
 ```
-but you should really avoid doing things this way as this method is no longer supported for the latest project releases. (The environment for DaVinci v42r6p1, for example, cannot be started this way.)
+but you should really avoid doing things this way as this method is no longer supported for the latest project releases. (The environment for DaVinci v44r6, for example, cannot be started this way.)
 {% endcallout %} 

@@ -48,7 +48,7 @@ Place this into a file called `first.py` and run the following
 command in a new terminal:
 
 ```bash
-$ lb-run DaVinci/v42r6p1 ipython -i first.py 00062514_00000001_7.AllStreams.dst
+$ lb-run DaVinci/v44r6 ipython -i first.py 00062514_00000001_7.AllStreams.dst
 ```
 
 This will open the DST and print out some of the TES locations
@@ -161,7 +161,7 @@ one with:
 print cands[0]
 ```
 
-Which will print out some information about the [Particle](http://lhcb-release-area.web.cern.ch/LHCb-release-area/DOC/davinci/releases/v41r2/doxygen/d0/d13/class_l_h_cb_1_1_particle.html#details). In our case a $$D^{* -}$$ ([particle ID number](http://pdg.lbl.gov/2017/reviews/rpp2016-rev-monte-carlo-numbering.pdf) -413). You can access its daughters with
+Which will print out some information about the [Particle](http://lhcb-doxygen.web.cern.ch/lhcb-doxygen/davinci/latest/d0/d13/class_l_h_cb_1_1_particle.html). In our case a $$D^{* -}$$ ([particle ID number](http://pdg.lbl.gov/2017/reviews/rpp2016-rev-monte-carlo-numbering.pdf) -413). You can access its daughters with
 `cands[0].daughtersVector()[0]` and `cands[0].daughtersVector()[1]`,
 which will be a $$\overline{D^{0}}$$ and a $$\pi^{-}$$.
 

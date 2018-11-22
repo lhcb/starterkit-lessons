@@ -95,7 +95,7 @@ Save it as `getEvents.py` and use it via `lb-run LHCbDIRAC python getEvents.py [
 extract the LFNs from any file
 and download them for you. So a simple
 ```python
- lb-run LHCbDIRAC dirac-dms-get-file MC_2012_27163003_Beam4000GeV2012MagDownNu2.5Pythia8_Sim08e_Digi13_Trig0x409f0045_Reco14a_Stripping20NoPrescalingFlagged_ALLSTREAMS.DST.py
+ lb-run LHCbDIRAC dirac-dms-get-file --File=MC_2016_27163002_Beam6500GeV2016MagDownNu1.625nsPythia8_Sim09b_Trig0x6138160F_Reco16_Turbo03_Stripping28NoPrescalingFlagged_ALLSTREAMS.DST.py
 ```
 would do to download them all!
 {% endcallout %} 

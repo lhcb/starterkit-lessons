@@ -12,7 +12,7 @@ For example, for the decay
 ```python
 '[D*(2010)+ -> (D0 -> K- K+) pi+]CC'
 ```
-you can make the assumption that the (K- K+) combine to form a D0 with a specific invariant mass. This results in a so called *mass-constraint*. In addition the kaon and the pion should originate from exactly the same point in space. If you know that your data only contains prompt D* candidates, you can constrain them to do come from the primary vertex. Boundary conditions like those are called *vertex-constraints*.
+you can make the assumption that the (K- K+) combine to form a D0 with a specific invariant mass. This results in a so called *mass-constraint*. In addition the two kaons should originate from exactly the same point in space. If you know that your data only contains prompt D* candidates, you can constrain them to do come from the primary vertex. Boundary conditions like those are called *vertex-constraints*.
 
 Applying such kinematic constraints leads to new best estimates for the track parameters of the final state particles. The process of calculating those is called a *kinematic refit* and the `TupleToolDecayTreeFitter` is the algorithm that performs this task for us.
 
@@ -21,17 +21,17 @@ For details of the method see the paper on [Decay chain fitting with a Kalman
 filter](http://arxiv.org/abs/physics/0503191).
 {% endcallout %} 
 
-So how do we use a `TupleToolDecayTreeFitter` to our DaVinci script? Let's create a branch to add the tool to. We'll just name it `'Dstar'`:
+So how do we use a `TupleToolDecayTreeFitter` in our DaVinci script? Let's create a branch to add the tool to. We'll just name it `'Dstar'`:
 ```python
 dtt.addBranches({
     'Dstar': '[D*(2010)+ -> (D0 -> K- K+) pi+]CC',
 })
 ```
-To this branch we can now apply the `TupleToolDecayTreeFitter`.
+To this branch we can now apply the `TupleToolDecayTreeFitter` with arbitrarily chosen name `consD`.
 ```python
 dtt.Dstar.addTupleTool('TupleToolDecayTreeFitter/ConsD')
 ```
-Now we can proceed with the configuration of the fitter. We are going to constrain the decay tree to the primary vertex of origin. We want all the output available, so we set the `verbose` option. Finally we want to apply the mass constraint on the D0:
+Now we can proceed with the configuration of the fitter. We are going to constrain the decay tree to the primary vertex of origin. We want all the output available, so we set the `verbose` option. Finally we want to apply the mass constraint to the D0:
 ```python
 dtt.Dstar.ConsD.constrainToOriginVertex = True
 dtt.Dstar.ConsD.Verbose = True
@@ -48,14 +48,14 @@ dtt.Dstar.ConsD.UpdateDaughters = True
 ```
 
 {% callout "DecayTreeFitter and LoKi functors" %}
-Alternatively, many of the operations described above can done by using the 
+Alternatively, many of the operations described above can be done by using the 
 `DecayTreeFitter` via LoKi functors, see the [DaVinci 
 tutorial](https://twiki.cern.ch/twiki/bin/view/LHCb/DaVinciTutorial9b) for 
 details.
 {% endcallout %} 
 
 {% callout "Which constraints to apply" %}
-It is important to be aware what assumptions you bake into your ntuple. For 
+It is important to be aware of the assumptions you make to build your ntuple. For 
 example, after you require the vertex constraint you must be careful if using 
 the `IPCHI2_OWNPV`, since the particle you are looking at is *forced* to point 
 to the PV. Which constraints make most sense for you depends on the questions 
@@ -69,7 +69,7 @@ root -l DVntuple.root
 TupleDstToD0pi_D0ToKK->cd()
 DecayTree->StartViewer()
 ```
-Plotting the raw mass of the D* (without the fit) `Dstar_M` you should see a broad signal around 2 GeV:
+Plotting the raw mass of the D* (without the fit) `Dstar_M`, you should see a broad signal around 2 GeV:
 
 <img src="./img/DstarRaw.png" alt="Dstar raw" style="width: 500px;"/>
 
@@ -90,7 +90,7 @@ tv__tree->Draw("Dstar_ConsD_M>>h(200,2000,2030)","","");
 
 <img src="./img/DstarRefit.png" alt="Dstar refitted" style="width: 500px;"/>
 
-Note that this plot has 356 entries, although we only have 128 candidates in the raw mass spectrum. The reason for this is, that we typically have several primary vertices per event. When you use the vertex contraint, the fitter is run for each of the possible vertex hypothesis available in the event. So all the `Dstar_ConsD-xxx` variables are in fact arrays, where the first value corresponds to the *best PV* hypothesis. We can plot only those by doing
+Note that this plot has 356 entries, although we only have 128 candidates in the raw mass spectrum. The reason for this is that we typically have several primary vertices per event. When you use the vertex contraint, the fitter is run for each of the possible vertex hypotheses available in the event. So all the `Dstar_ConsD-xxx` variables are in fact arrays, where the first value corresponds to the *best PV* hypothesis. We can plot only those by doing
 ```shell
 tv__tree->Draw("Dstar_ConsD_M[0]>>h(200,2000,2030)","","");
 ```
@@ -114,16 +114,16 @@ As expected, the D0 candidates are forced onto their PDG mass value.
 * Look at the chi2 distribution of the fit
 {% endchallenge %} 
 
-`DecayTreeFitter` can be told to change some of the hypotheses in the decay tree. This is very useful if you want to slightly change which decays you want to look at. As an example let's say we want to examine the Cabibbo-suppressed decay of the D0 into pi- pi+ instead of K- pi+. For this we add a second fitter, giving it a new name `ConsDpipi`:
+`DecayTreeFitter` can be told to change some of the hypotheses in the decay tree. This is very useful if you want to slightly change which decays you want to look at. As an example let's say we want to examine the decay of the D0 into K- pi+ instead of K- K+. For this we add a second fitter, giving it a new name `ConsDKpi`:
 ```python
-dtt.Dstar.addTupleTool('TupleToolDecayTreeFitter/ConsDpipi')
-dtt.Dstar.ConsDpipi.constrainToOriginVertex = True
-dtt.Dstar.ConsDpipi.Verbose = True
-dtt.Dstar.ConsDpipi.daughtersToConstrain = ['D0']
+dtt.Dstar.addTupleTool('TupleToolDecayTreeFitter/ConsDKpi')
+dtt.Dstar.ConsDKpi.constrainToOriginVertex = True
+dtt.Dstar.ConsDKpi.Verbose = True
+dtt.Dstar.ConsDKpi.daughtersToConstrain = ['D0']
 ```
 We now can tell the fitter to substitute one of the kaons in the D0 decay by a pion.
 ```python
-dtt.Dstar.ConsDpipi.Substitutions = {
+dtt.Dstar.ConsDKpi.Substitutions = {
     'Charm -> (D0 -> ^K- K+) Meson': 'pi-',
     'Charm -> (D~0 -> ^K+ K-) Meson': 'pi+',
     'Charm -> (D0 -> K- ^K+) Meson': 'pi+',

@@ -24,7 +24,7 @@ rather than always searching through a DST that contains lots of things we're
 not interested in.
 
 As well as being the application that runs the stripping,
-[DaVinci](http://lhcb-release-area.web.cern.ch/LHCb-release-area/DOC/davinci)
+[DaVinci](http://lhcbdoc.web.cern.ch/lhcbdoc/davinci/)
 allows you to access events stored in DSTs and copy the information to ROOT
 ntuples.
 You tell DaVinci what you want it to do through _options files_, written in
@@ -80,7 +80,7 @@ what type of data is being used, what algorithms to run over the events, and so
 on.
 
 There are [many configuration
-attributes](http://lhcb-release-area.web.cern.ch/LHCb-release-area/DOC/davinci/releases/v41r2/doxygen/py/dc/d2f/class_da_vinci_1_1_configuration_1_1_da_vinci.html#ac788f6a80f5f61d47056debe7b86ca71)
+attributes](http://lhcb-doxygen.web.cern.ch/lhcb-doxygen/davinci/latest/py/dc/d2f/class_da_vinci_1_1_configuration_1_1_da_vinci.html)
 defined on the `DaVinci` object, but we will only set the ones that are
 necessary for us.
 
@@ -115,7 +115,7 @@ that the Monte Carlo was generated with.
 Specifying these tags is important, as without them you can end up with the
 wrong magnet polarity value in your ntuple, amongst other Bad Things.
 You can find the values for these tags in the [bookkeeping
-file](data/MC_2012_27163003_Beam4000GeV2012MagDownNu2.5Pythia8_Sim08e_Digi13_Trig0x409f0045_Reco14a_Stripping20NoPrescalingFlagged_ALLSTREAMS.DST.py)
+file](data/MC_2016_27163002_Beam6500GeV2016MagDownNu1.625nsPythia8_Sim09b_Trig0x6138160F_Reco16_Turbo03_Stripping28NoPrescalingFlagged_ALLSTREAMS.DST.py)
 we downloaded earlier.
 
 {% callout "Database tags" %}
@@ -172,7 +172,7 @@ In the same folder as your options file `ntuple_options.py` and your DST file
 ending in `.dst`, there's just a single command you need run on `lxplus`.
 
 ```shell
-$ lb-run DaVinci/v42r6p1 gaudirun.py ntuple_options.py
+$ lb-run DaVinci/v44r6 gaudirun.py ntuple_options.py
 ```
 
 The full options file we've created, `ntuple_options.py`, is [available
