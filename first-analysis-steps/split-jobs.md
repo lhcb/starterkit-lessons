@@ -28,7 +28,7 @@ and reduces the impact of jobs failing due to grid problems.
 Setting `filesPerJob=5` should work well for real data, while `filesPerJob=1` should be good for signal MC.
 {% endcallout %} 
 
-{% callout Splitter arguments %}
+{% callout "Splitter arguments" %}
 The splitter has other useful arguments: 
 - `maxFiles`      : the maximal total number of files. By default splitter will run over all files in the dataset (corresponds to default value -1)
 - `ignoremissing` : boolean indicating whether it is appropriate to run if there are data files, which are not accessible at the moment. The later is important if it is necessary to make sure that resulting tuples correspond to whole data/MC sample.
