@@ -64,7 +64,7 @@ We also have to choose what configuration of the trigger (`Trig0x6138160F` in ou
 we want to have in the simulated sample. Usually
 there is only one choice for these, which makes choosing easier.
 
-Two final steps are versions of `Turbo` (only for Run 2 samples, as discussed in the [previous lesson](run-2-data-flow.html)) and `Stripping`. To save the processing time, each of the Run 2 samples is processed via both Turbo and Stripping frameworks, so it is usable for either of two choices.
+Two final steps are versions of `Turbo` (only for Run 2 samples, as discussed in the [previous lesson](run-2-data-flow.html)) and `Stripping`. In order to make the samples as useful as possible for the largest number of analyses, each of the Run 2 samples is processed via both Turbo and Stripping frameworks, so it is usable for either of two choices.
 Usually, there is only one version of `Turbo`, but there can be multiple versions of the `Stripping`. Choose any as long as it contains the word `Flagged`.
 
 {% callout "Flagged and filtered samples" %}
