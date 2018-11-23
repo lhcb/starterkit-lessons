@@ -5,14 +5,14 @@
 {% endobjectives %} 
 
 In the [previous section](bookkeeping.html), we obtained a file called 
-`MC_2016_27163002_Beam6500GeV2016MagDownNu1.625nsPythia8_Sim09b_Trig0x6138160F_Reco16_Turbo03_Stripping28NoPrescalingFlagged_ALLSTREAMS.DST` 
+`MC_2016_27163002_Beam6500GeV2016MagDownNu1.625nsPythia8_Sim09c_Trig0x6138160F_Reco16_Turbo03_Stripping28r1NoPrescalingFlagged_ALLSTREAMS.DST.py`
 which contains the following section:
 
 ```python
-IOHelper('ROOT').inputFiles(['LFN:/lhcb/MC/2016/ALLSTREAMS.DST/00062514/0000/00062514_00000001_7.AllStreams.dst',
-'LFN:/lhcb/MC/2016/ALLSTREAMS.DST/00062514/0000/00062514_00000002_7.AllStreams.dst',
-'LFN:/lhcb/MC/2016/ALLSTREAMS.DST/00062514/0000/00062514_00000003_7.AllStreams.dst',
-'LFN:/lhcb/MC/2016/ALLSTREAMS.DST/00062514/0000/00062514_00000004_7.AllStreams.dst',
+IOHelper('ROOT').inputFiles(['LFN:/lhcb/MC/2016/ALLSTREAMS.DST/00070793/0000/00070793_00000001_7.AllStreams.dst',
+'LFN:/lhcb/MC/2016/ALLSTREAMS.DST/00070793/0000/00070793_00000002_7.AllStreams.dst',
+'LFN:/lhcb/MC/2016/ALLSTREAMS.DST/00070793/0000/00070793_00000003_7.AllStreams.dst',
+'LFN:/lhcb/MC/2016/ALLSTREAMS.DST/00070793/0000/00070793_00000004_7.AllStreams.dst',
 ...
 ], clear=True)
 ```
@@ -32,17 +32,17 @@ Initialisation of the proxy might take a while and should ask you for your certi
 Once we have a working Dirac installation, getting the file is as easy as
 
 ```bash
-lb-run LHCbDIRAC dirac-dms-get-file LFN:/lhcb/MC/2016/ALLSTREAMS.DST/00062514/0000/00062514_00000001_7.AllStreams.dst
+lb-run LHCbDIRAC dirac-dms-get-file LFN:/lhcb/MC/2016/ALLSTREAMS.DST/00070793/0000/00070793_00000001_7.AllStreams.dst
 ```
 
-Again this will take a while but afterwards you should have a file called `00062514_00000001_7.AllStreams.dst` in the directory where you called the command.
+Again this will take a while but afterwards you should have a file called `00070793_00000001_7.AllStreams.dst` in the directory where you called the command.
 
 {% callout "Downloading the file during a Starterkit lesson" %}
 Lots of people downloading the same file at the same time can be very slow.
 As a workaround, the file is also available on EOS, and can be downloaded to
 your current directory with the following command:
 ```bash
-$ xrdcp root://eoslhcb.cern.ch//eos/lhcb/user/m/mwilkins/Starterkit/00062514_00000001_7.AllStreams.dst .
+$ xrdcp root://eoslhcb.cern.ch//eos/lhcb/user/v/vibellee/Starterkit/00070793_00000001_7.AllStreams.dst .
 ```
 {% endcallout %} 
 
@@ -55,7 +55,7 @@ XML catalog such that it can access them remotely.
 
 First generate the XML catalog with
 ```bash
-lb-run LHCbDIRAC dirac-bookkeeping-genXMLCatalog --Options=MC_2016_27163002_Beam6500GeV2016MagDownNu1.625nsPythia8_Sim09b_Trig0x6138160F_Reco16_Turbo03_Stripping28NoPrescalingFlagged_ALLSTREAMS.DST.py --Catalog=myCatalog.xml
+lb-run LHCbDIRAC dirac-bookkeeping-genXMLCatalog --Options=MC_2016_27163002_Beam6500GeV2016MagDownNu1.625nsPythia8_Sim09c_Trig0x6138160F_Reco16_Turbo03_Stripping28r1NoPrescalingFlagged_ALLSTREAMS.DST.py --Catalog=myCatalog.xml
 ```
 and add
 ```python
@@ -95,7 +95,7 @@ Save it as `getEvents.py` and use it via `lb-run LHCbDIRAC python getEvents.py [
 extract the LFNs from any file
 and download them for you. So a simple
 ```python
- lb-run LHCbDIRAC dirac-dms-get-file --File=MC_2016_27163002_Beam6500GeV2016MagDownNu1.625nsPythia8_Sim09b_Trig0x6138160F_Reco16_Turbo03_Stripping28NoPrescalingFlagged_ALLSTREAMS.DST.py
+ lb-run LHCbDIRAC dirac-dms-get-file --File=MC_2016_27163002_Beam6500GeV2016MagDownNu1.625nsPythia8_Sim09c_Trig0x6138160F_Reco16_Turbo03_Stripping28r1NoPrescalingFlagged_ALLSTREAMS.DST.py
 ```
 would do to download them all!
 {% endcallout %} 
