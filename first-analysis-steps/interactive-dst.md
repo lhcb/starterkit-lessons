@@ -18,7 +18,7 @@ is not working as expected.
 
 The file we [downloaded from the grid](files-from-grid.html)
 contains simulated data, with stripping and trigger decisions
-and so on. Here we assumed the file you downloaded is called `00062514_00000001_7.AllStreams.dst`.
+and so on. Here we assumed the file you downloaded is called `00070793_00000001_7.AllStreams.dst`.
 To take a look at the contents of the TES, we need to write a small
 Python file:
 
@@ -48,7 +48,7 @@ Place this into a file called `first.py` and run the following
 command in a new terminal:
 
 ```bash
-$ lb-run DaVinci/v44r6 ipython -i first.py 00062514_00000001_7.AllStreams.dst
+$ lb-run DaVinci/v44r6 ipython -i first.py 00070793_00000001_7.AllStreams.dst
 ```
 
 This will open the DST and print out some of the TES locations
@@ -188,7 +188,7 @@ the `Bender` project.
 For example, to explore the `DST` we could have simply done:
 
 ```
-lb-run Bender/latest bender 00062514_00000001_7.AllStreams.dst
+lb-run Bender/latest bender 00070793_00000001_7.AllStreams.dst
 ```
 
 This leaves us in a prompt in which we can proceed as discussed in this
@@ -201,7 +201,7 @@ banner.
 `Bender` also provides a useful command `dst-dump`, which is a quick way of
 figuring out what objects are present on a `DST` and where. Try out:
 ```
-lb-run Bender/latest dst-dump -f -n 100 00062514_00000001_7.AllStreams.dst
+lb-run Bender/latest dst-dump -f -n 100 00070793_00000001_7.AllStreams.dst
 ```
 The `-f` option tells `Bender` to try and "unpack" the locations such as
 `/Event/AllStreams/pPhys/Particles` that we mentioned above, while `-n 100`

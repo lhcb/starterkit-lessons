@@ -159,7 +159,7 @@ from GaudiConf import IOHelper
 
 # Use the local input data
 IOHelper().inputFiles([
-    './00062514_00000001_7.AllStreams.dst'
+    './00070793_00000001_7.AllStreams.dst'
 ], clear=True)
 ```
 
