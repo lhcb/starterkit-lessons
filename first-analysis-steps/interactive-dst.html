@@ -825,7 +825,7 @@
                                 <section class="normal markdown-section">
                                 
                                 <h1 id="interactively-exploring-a-dst">Interactively exploring a DST</h1>
-<p><div class="panel panel-warning"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(6516931209);" id="learning-objectives"><i class="fa fa-line-chart"></i> Learning Objectives<span id="heading-6516931209"></span></h3></div><div class="panel-body" id="panel-6516931209"><ul>
+<p><div class="panel panel-warning"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(8746947797);" id="learning-objectives"><i class="fa fa-line-chart"></i> Learning Objectives<span id="heading-8746947797"></span></h3></div><div class="panel-body" id="panel-8746947797"><ul>
 <li>Open a DST in an interactive python session</li>
 <li>Print all nodes in a DST</li>
 <li>Explore the contents of the TES</li>
@@ -841,7 +841,7 @@ something out, or the more complex processing in DaVinci
 is not working as expected.</p>
 <p>The file we <a href="files-from-grid.html">downloaded from the grid</a>
 contains simulated data, with stripping and trigger decisions
-and so on. Here we assumed the file you downloaded is called <code>00062514_00000001_7.AllStreams.dst</code>.
+and so on. Here we assumed the file you downloaded is called <code>00070793_00000001_7.AllStreams.dst</code>.
 To take a look at the contents of the TES, we need to write a small
 Python file:</p>
 <pre><code class="lang-python"><span class="hljs-keyword">import</span> sys
@@ -866,7 +866,7 @@ evt.dump()
 </code></pre>
 <p>Place this into a file called <code>first.py</code> and run the following
 command in a new terminal:</p>
-<pre><code class="lang-bash">$ lb-run DaVinci/v44r6 ipython -i first.py 00062514_00000001_7.AllStreams.dst
+<pre><code class="lang-bash">$ lb-run DaVinci/v44r6 ipython -i first.py 00070793_00000001_7.AllStreams.dst
 </code></pre>
 <p>This will open the DST and print out some of the TES locations
 which exist for this event. We are now ready to explore the TES,
@@ -937,7 +937,7 @@ the stripping decision was positive:</p>
     <span class="hljs-keyword">return</span> n
 </code></pre>
 <p>Add this to your script and restart <code>ipython</code> as before.</p>
-<p><div class="panel panel-primary"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(3275626616);" id="detecting-file-ends"><i class="fa fa-info-circle"></i> Detecting file ends<span id="heading-3275626616"></span></h3></div><div class="panel-body" id="panel-3275626616"><p>It is not easy to detect that the input file has ended. Especially
+<p><div class="panel panel-primary"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(4109973270);" id="detecting-file-ends"><i class="fa fa-info-circle"></i> Detecting file ends<span id="heading-4109973270"></span></h3></div><div class="panel-body" id="panel-4109973270"><p>It is not easy to detect that the input file has ended. Especially
 if you want to get it right for data and simulation. Checking that
 <code>/Event/Rec/Header</code> exists is a safe bet in simulation and data if
 your file has been processed by <code>Brunel</code> (the event reconstruction
@@ -969,12 +969,12 @@ print_decay.printTree(cands[<span class="hljs-number">0</span>])
 <p>With our candidates in hand, it would be nice to be able to retrieve and
 compute the variables we need for an analysis. On to <a href="loki-functors.html">LoKi
 functors</a>!</p>
-<p><div class="panel panel-primary"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(815482383);" id="fast-dst-browsing"><i class="fa fa-info-circle"></i> Fast DST browsing<span id="heading-815482383"></span></h3></div><div class="panel-body" id="panel-815482383"><p>While here we have discussed for pedagogical reasons all the configuration
+<p><div class="panel panel-primary"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(7747715412);" id="fast-dst-browsing"><i class="fa fa-info-circle"></i> Fast DST browsing<span id="heading-7747715412"></span></h3></div><div class="panel-body" id="panel-7747715412"><p>While here we have discussed for pedagogical reasons all the configuration
 options needed in order to browse a <code>DST</code> file, in your daily life as a
 physicist it is often useful to use the <code>bender</code> application that belongs to
 the <code>Bender</code> project.</p>
 <p>For example, to explore the <code>DST</code> we could have simply done:</p>
-<pre><code>lb-run Bender/latest bender 00062514_00000001_7.AllStreams.dst
+<pre><code>lb-run Bender/latest bender 00070793_00000001_7.AllStreams.dst
 </code></pre><p>This leaves us in a prompt in which we can proceed as discussed in this
 lesson, with the advantage that some functions are already provided
 for us, such as <code>seekStripDecision</code> (which replaces our <code>advance</code>) or
@@ -983,7 +983,7 @@ Other examples of useful functions are listed in the <code>bender</code> startin
 banner.</p>
 <p><code>Bender</code> also provides a useful command <code>dst-dump</code>, which is a quick way of
 figuring out what objects are present on a <code>DST</code> and where. Try out:</p>
-<pre><code>lb-run Bender/latest dst-dump -f -n 100 00062514_00000001_7.AllStreams.dst
+<pre><code>lb-run Bender/latest dst-dump -f -n 100 00070793_00000001_7.AllStreams.dst
 </code></pre><p>The <code>-f</code> option tells <code>Bender</code> to try and &quot;unpack&quot; the locations such as
 <code>/Event/AllStreams/pPhys/Particles</code> that we mentioned above, while <code>-n 100</code>
 tells it to only process the first 100 events on the <code>DST</code>.
@@ -1032,7 +1032,7 @@ Give this a try if you&apos;re ever stuck figuring out where your candidates are
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Interactively exploring a DST","level":"2.1.9","depth":2,"next":{"title":"Fun with LoKi Functors","level":"2.1.10","depth":2,"path":"first-analysis-steps/loki-functors.md","ref":"first-analysis-steps/loki-functors.md","articles":[]},"previous":{"title":"Downloading a file from the grid","level":"2.1.8","depth":2,"path":"first-analysis-steps/files-from-grid.md","ref":"first-analysis-steps/files-from-grid.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-sharing","panels@git+https://github.com/lhcb/gitbook-plugin-panels.git#master","katex-auto-render@git+https://github.com/lhcb/gitbook-plugin-katex-auto-render.git#master","collapsible-menu","otherlink"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"collapsible-menu":{},"search":{},"otherlink":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"panels":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"katex-auto-render":{},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"The Starterkit team and contributors","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"gitbook":"*"},"file":{"path":"first-analysis-steps/interactive-dst.md","mtime":"2018-11-23T14:30:50.653Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-11-23T14:32:11.338Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Interactively exploring a DST","level":"2.1.9","depth":2,"next":{"title":"Fun with LoKi Functors","level":"2.1.10","depth":2,"path":"first-analysis-steps/loki-functors.md","ref":"first-analysis-steps/loki-functors.md","articles":[]},"previous":{"title":"Downloading a file from the grid","level":"2.1.8","depth":2,"path":"first-analysis-steps/files-from-grid.md","ref":"first-analysis-steps/files-from-grid.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-sharing","panels@git+https://github.com/lhcb/gitbook-plugin-panels.git#master","katex-auto-render@git+https://github.com/lhcb/gitbook-plugin-katex-auto-render.git#master","collapsible-menu","otherlink"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"collapsible-menu":{},"search":{},"otherlink":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"panels":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"katex-auto-render":{},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"The Starterkit team and contributors","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"gitbook":"*"},"file":{"path":"first-analysis-steps/interactive-dst.md","mtime":"2018-11-23T14:32:28.069Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-11-23T14:33:49.912Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
