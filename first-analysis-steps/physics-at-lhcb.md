@@ -23,7 +23,7 @@ and so we must infer their properties through their decay products. Particles
 such as charged kaons and pions have lifetimes large enough that a large
 fraction can traverse the full detector, and so we typically consider these
 particles as ‘stable’. Unstable objects, with much shorter lifetimes, are
-formed as combinations of these ‘stable’ particles:
+formed as combinations of these ‘stable’ particles[^2]:
 
 1. Charged pions $$\pi^{\pm}$$
 2. Charged kaons $$K^{\pm}$$
@@ -31,6 +31,7 @@ formed as combinations of these ‘stable’ particles:
 4. Electrons $$e^{\pm}$$
 5. Muons $$\mu^{\pm}$$
 6. Photons $$\gamma$$
+7. Deuterons ([deuterium nuclei][deuterium])
 
 Many properties of these objects, such as their momentum and charge, are
 intrinsic, but we have to infer them based on the signals they create
@@ -86,7 +87,7 @@ We’ll go over each of these steps, starting with tracks produced by the
 reconstruction. Naturally, there are many of these in any given event,
 typically hundreds, so we begin be applying _selections_ on the tracks based on
 our physics understanding. For example, the $$J/\psi$$ is quite heavy (at
-around $$3.1\,\mathrm{GeV}$$), so we might expect its decay products to have a
+around $$3.1\,\mathrm{GeV}/c^{2}$$), so we might expect its decay products to have a
 higher momentum on average than objects produced from soft processes in the
 collision. The reconstruction gives us some probability-like
 information for a given track to have been created by a true muon, so we might
@@ -107,16 +108,17 @@ best fit that hypothesis. The result is a vertex object which has, for example,
 a fit $$\chi^{2}$$ associated to it. The quality of the fit can be used in a
 selection.
 
-Finally, with the fitted muon momenta, we can form the four vector of the
+Finally, with the fitted muon four-vectors, we can form the four-vector of the
 $$J/\psi$$ as their sum, creating the $$J/\psi$$ _candidate_[^1]. Now we get
-back to our original goal or measuring the number of true $$J/\psi \to
+back to our original goal of measuring the number of true $$J/\psi \to
 \mu^{+}\mu^{-}$$. By plotting the $$J/\psi$$ invariant mass values as a
-histogram, we might hope to see a signal component.
+histogram, we might hope to see a signal component. An example is shown in the
+following plot, created using simulated toy data.
 
 <a href="img/dimuon_mass.png"><img alt="Dimuon invariant mass spectrum" src="img/dimuon_mass.png" style="width: 50%; margin: 0 25%;"/></a>
 
-We can then use model the components using probability density functions, and
-fit the total model to this histogram. The relative normalisations of the
+We could choose to model the components using probability density functions,
+and fit the total model to this histogram. The relative normalisations of the
 components can be used to deduce the fraction of the sample which contains true
 decays, within some uncertainty.
 
@@ -131,7 +133,8 @@ The $$\phi \to K^{+}K^{-}$$ candidates can then be reconstructed in a similar
 manner to that described previously for the $$J/\psi$$ decay.
 With a set of $$J/\psi$$ and $$\phi$$ candidates, we can then build
 [$$B_{s}^{0}$$ meson][pdgbs] candidates by combining the two decay products in
-another vertex fit.
+another vertex fit. If our selection is clean enough, we may then see a
+$$B_s^{0}$$ signal peak, shown below (again, using toy data).
 
 <a href="img/jpsiphi_mass.png"><img alt="Four-body invariant mass spectrum" src="img/jpsiphi_mass.png" style="width: 50%; margin: 0 25%;"/></a>
 
@@ -143,5 +146,8 @@ properties that are relevant for your analysis.
 [pdgjpsi]: http://pdglive.lbl.gov/Particle.action?init=0&node=M070&home=MXXX025
 [pdgphi]: http://pdglive.lbl.gov/Particle.action?init=0&node=M004&home=MXXX005
 [pdgbs]: http://pdglive.lbl.gov/Particle.action?init=0&node=S086&home=MXXX046
+[deuterium]: https://en.wikipedia.org/wiki/Deuterium
 
-[^1]: ‘Candidate’ because, again, we never know anything with complete certainty; this could be a combination of muons that just happen to pass our selection criteria.
+[^1]: ‘Candidate’ because, again, we never know anything with complete certainty; this could be combination of muons that just happen to pass our selection criteria.
+
+[^2]: Other ‘stable’ particles under this definition include neutrons $$n$$ and the long-lived neutral kaon weak eigenstate $$K_{\mathrm{L}}^{0}$$, but these are not part of standard reconstruction output.
