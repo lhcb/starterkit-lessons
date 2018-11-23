@@ -15,7 +15,7 @@ jobs.
 
 Before creating your first `ganga` job, open the script `ntuple_options.py`, obtained in the [previous lesson](minimal-dv-job.html), and comment out the lines taking the local input data: we will now use the data stored on grid.
 
-Then, open the file `MC_2016_27163002_Beam6500GeV2016MagDownNu1.625nsPythia8_Sim09b_Trig0x6138160F_Reco16_Turbo03_Stripping28NoPrescalingFlagged_ALLSTREAMS.DST.py`, scroll to the very end, and check if two last lines have information about the `FileCatalog`: if yes, comment them out. They will mislead `ganga` since it only needs to know about the list of LFNs.
+Also, you need to know the path to your data from Bookkeeping. In our case the path is `/MC/2016/Beam6500GeV-2016-MagDown-Nu1.6-25ns-Pythia8/Sim09c/Trig0x6138160F/Reco16/Turbo03/Stripping28r1NoPrescalingFlagged/27163002/ALLSTREAMS.DST`
 
 Finally, launch your grid proxy typing `lhcb-proxy-init` and enter your *grid certificate* password. 
 
@@ -37,7 +37,9 @@ j = Job(name='First ganga job')
 myApp = prepareGaudiExec('DaVinci','v44r6', myPath='.')
 j.application = myApp
 j.application.options = ['ntuple_options.py']
-j.application.readInputData('MC_2016_27163002_Beam6500GeV2016MagDownNu1.625nsPythia8_Sim09b_Trig0x6138160F_Reco16_Turbo03_Stripping28NoPrescalingFlagged_ALLSTREAMS.DST.py')
+bkPath = '/MC/2016/Beam6500GeV-2016-MagDown-Nu1.6-25ns-Pythia8/Sim09c/Trig0x6138160F/Reco16/Turbo03/Stripping28r1NoPrescalingFlagged/27163002/ALLSTREAMS.DST'
+data  = BKQuery(bkPath,dqflag=['OK']).getDataset()
+j.inputdata=data[0:2]     # access only the first 2 files of data
 j.backend = Dirac()
 j.outputfiles = [LocalFile('DVntuple.root')]
 ```
@@ -47,7 +49,7 @@ with the option files given in `j.application.options` using a
 backend called `Dirac`, which is "the grid". Instead of specifying the
 files to process as part of the options file you have now to tell the
 `Job` about it. This allows `ganga` to split your job up,
-processing different files simultaneously.
+processing different files simultaneously. Note that data will be accessed using its path in the bookeeping `bkPath`. In order to speed-up, only the first 2 elements (files) of `data` will be accessed.
 
 {% callout "DaVinciDev folder" %}
 When you create a job using `prepareGaudiExec('DaVinci','v44r6', myPath='.')`
@@ -99,7 +101,9 @@ myApp = GaudiExec()
 myApp.directory = "./DaVinciDev_v44r6"
 j.application = myApp
 j.application.options = ['ntuple_options.py']
-j.application.readInputData('MC_2016_27163002_Beam6500GeV2016MagDownNu1.625nsPythia8_Sim09b_Trig0x6138160F_Reco16_Turbo03_Stripping28NoPrescalingFlagged_ALLSTREAMS.DST.py')
+bkPath = '/MC/2016/Beam6500GeV-2016-MagDown-Nu1.6-25ns-Pythia8/Sim09c/Trig0x6138160F/Reco16/Turbo03/Stripping28r1NoPrescalingFlagged/27163002/ALLSTREAMS.DST'
+data  = BKQuery(bkPath,dqflag=['OK']).getDataset()
+j.inputdata=data[0:2]
 j.backend = Dirac()
 j.outputfiles = [LocalFile('DVntuple.root')]
 j.submit()
