@@ -61,7 +61,9 @@ Ganga has a shortcut to access the list of all `.root` files from all the subjob
 mylist = getAccessURLs(j.backend.getOutputDataLFNs())
 ```
 
-Small files are downloaded as standard: `.root`, logfiles etc. Files that are expected to be large (with extensions `.dst` etc) are by default kept on the grid as Dirac files. In general, you are encouraged to keep your large files on the grid to avoid moving large amounts of data around through your work area.
+Small files are downloaded as standard: `.root`, logfiles etc. Files that are expected to be large (with extensions `.dst` etc) are by default kept on the grid as Dirac files. In general, you are encouraged to keep your large files on the grid to avoid moving large amounts of data around through your work area. 
+
+More information on the `DiracFile` usage is provided in the [next lesson](eos-storage.html).
 
 
 {% callout "Getting help with ganga" %}
@@ -69,4 +71,4 @@ To find out more take a look at the [Ganga
 FAQ](https://twiki.cern.ch/twiki/bin/view/LHCb/FAQ/GangaLHCbFAQ)
 {% endcallout %} 
 
-[^1]: By default, DaVinci uses the compression level 6 for the `.root` files, which is different from the default compression level in ROOT. Merging your files with `hadd` will be significantly faster if you run it with the option telling to use the compression level 6 also for the output file: `hadd -f6` 
+[^1]: By default, DaVinci uses the compression level 6 for the `.root` files, which is different from the default compression level in ROOT. Merging your files with `hadd` will be significantly faster if you run it with the option telling to use the compression level 6 also for the output file: `hadd -f6`.
