@@ -8,7 +8,7 @@
 {% prereq "Prerequisites" %}
 Before starting, you should have a basic understanding of how to use `git`,
 similar to what has been
-[taught](https://lhcb.github.io/analysis-essentials/git/git.html) during the
+[taught](https://lhcb.github.io/analysis-essentials/git) during the
 Starterkit.
 {% endprereq %} 
 
