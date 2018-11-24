@@ -30,8 +30,8 @@ Setting `filesPerJob=5` should work well for real data, while `filesPerJob=1` sh
 
 {% callout "Splitter arguments" %}
 The splitter has other useful arguments: 
-- `maxFiles`      : the maximal total number of files. By default splitter will run over all files in the dataset (corresponds to default value -1)
-- `ignoremissing` : boolean indicating whether it is appropriate to run if there are data files, which are not accessible at the moment. The later is important if it is necessary to make sure that resulting tuples correspond to whole data/MC sample.
+- `maxFiles`      : the maximal total number of files. By default the splitter will run over all files in the dataset (which corresponds to default value of -1)
+- `ignoremissing` : boolean indicating whether it is appropriate to run if there are data files which are not accessible at the moment. This is important if it is necessary to make sure that the resulting ntuples correspond to the whole data/MC sample.
 {% endcallout %} 
 
 Now, when you run `j.submit()`, the job will automatically be split into several subjobs.
