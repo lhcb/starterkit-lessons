@@ -825,7 +825,7 @@
                                 <section class="normal markdown-section">
                                 
                                 <h1 id="hlt-intro">HLT intro</h1>
-<p><div class="panel panel-warning"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(6825639309);" id="learning-objectives"><i class="fa fa-line-chart"></i> Learning Objectives<span id="heading-6825639309"></span></h3></div><div class="panel-body" id="panel-6825639309"><ul>
+<p><div class="panel panel-warning"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(1392170281);" id="learning-objectives"><i class="fa fa-line-chart"></i> Learning Objectives<span id="heading-1392170281"></span></h3></div><div class="panel-body" id="panel-1392170281"><ul>
 <li>Learn about the LHCb trigger.</li>
 <li>Learn how to run Moore from settings and from TCK.</li>
 <li>Getting started with writing your own trigger selection.</li>
@@ -905,7 +905,7 @@ HltConf().setProp(<span class="hljs-string">&quot;L0TCK&quot;</span>, <span clas
 <p>Note: HLT2 needs to know about the decisions of trigger lines used in HLT1.
 The decisions are decoded from the definitions in the HLT1 TCK. Therefore, HLT2 can only
 read data which have been created when running Moore from TCK and not from settings.</p>
-<p><div class="panel panel-success"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(5209189459);" id="compare-hlt1-and-hlt2"><i class="fa fa-square-o"></i> Compare Hlt1 and Hlt2<span id="heading-5209189459"></span></h3></div><div class="panel-body" id="panel-5209189459"><p>What is reduction factor of Hlt1? (Search how many events are accepted by <code>Hlt1Global</code>.)</p>
+<p><div class="panel panel-success"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(804386247);" id="compare-hlt1-and-hlt2"><i class="fa fa-square-o"></i> Compare Hlt1 and Hlt2<span id="heading-804386247"></span></h3></div><div class="panel-body" id="panel-804386247"><p>What is reduction factor of Hlt1? (Search how many events are accepted by <code>Hlt1Global</code>.)</p>
 <p>What is reduction factor of Hlt2? (Search how many events are accepted by <code>Hlt2Global</code>.)</p>
 <p>What is difference in run time of Hlt1 and Hlt2?</p>
 </div></div></p>
@@ -913,7 +913,7 @@ read data which have been created when running Moore from TCK and not from setti
 <p>There are two ways to run Moore, from <code>ThresholdSettings</code> and from <code>TCK</code> (Trigger Configuration Key).
 When you develop a trigger line, it is more convenient to run from ThresholdSettings. The TCK
 is used when running the trigger on the online farm or in MC productions as it uniquely defines the settings.</p>
-<p><div class="panel panel-primary"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(47027979);" id="what-is-a-tck"><i class="fa fa-info-circle"></i> What is a TCK?<span id="heading-47027979"></span></h3></div><div class="panel-body" id="panel-47027979"><p>The Trigger Configuration Key (TCK) stores the configuration of the HLT in a 
+<p><div class="panel panel-primary"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(4027703366);" id="what-is-a-tck"><i class="fa fa-info-circle"></i> What is a TCK?<span id="heading-4027703366"></span></h3></div><div class="panel-body" id="panel-4027703366"><p>The Trigger Configuration Key (TCK) stores the configuration of the HLT in a 
 database.
 All algorithms and their properties are defined in it.
 The key is usually given as a hexadecimal number. The last 4 digits define the L0 TCK.
@@ -941,7 +941,7 @@ Moore().EnableTimer = <span class="hljs-keyword">True</span>
 <span class="hljs-comment">#Moore().OutputLevel = INFO</span>
 <span class="hljs-comment"># Input data</span>
 <span class="hljs-keyword">from</span> PRConfig <span class="hljs-keyword">import</span> TestFileDB
-TestFileDB.test_file_db[<span class="hljs-string">&quot;22017NB_L0Filt0x18A1&quot;</span>].run(configurable=Moore())
+TestFileDB.test_file_db[<span class="hljs-string">&quot;2017NB_L0Filt0x18A1&quot;</span>].run(configurable=Moore())
 Moore().DataType = <span class="hljs-string">&quot;2018&quot;</span>
 Moore().EvtMax = <span class="hljs-number">1000</span>
 <span class="hljs-keyword">print</span> Moore()
@@ -962,7 +962,7 @@ Moore().outputFile = <span class="hljs-string">&quot;TestTCK2.mdf&quot;</span>
 <span class="hljs-comment"># A bit more output</span>
 <span class="hljs-keyword">from</span> Gaudi.Configuration <span class="hljs-keyword">import</span> INFO
 Moore().EnableTimer = <span class="hljs-keyword">True</span>
-Moore().OutputLevel = INFO
+<span class="hljs-comment">#Moore().OutputLevel = INFO</span>
 <span class="hljs-comment"># Input data</span>
 Moore().DDDBtag = <span class="hljs-string">&apos;dddb-20150724&apos;</span>
 Moore().CondDBtag = <span class="hljs-string">&apos;cond-20170724&apos;</span>
@@ -976,14 +976,17 @@ given <a href="https://twiki.cern.ch/twiki/bin/view/LHCb/CreateSplitHltTCKs" tar
 functions to explore TCKs, do</p>
 <pre><code>$ lb-run Moore/latest TCKsh
 &gt; listConfigurations()
-</code></pre><p>There are other useful commands like <code>listHlt1Lines(&lt;TCK&gt;)</code> or <code>listHlt2Lines(&lt;TCK&gt;)</code>.
-More advanced is to search for properties of a line. One example is to search for the prescale.
+</code></pre><p>Useful commands are <code>listHlt1Lines(&lt;TCK&gt;)</code> or <code>listHlt2Lines(&lt;TCK&gt;)</code> which show lists of the lines in Hlt1 or Hlt2. If you replace list with get, a list with the lines is returned.</p>
+<p>If you want to get an overview of an Hlt line and its algorithms, you can do </p>
+<pre><code>&gt; dump(&lt;TCK&gt;, lines = &lt;line_names_regex&gt;, file=&quot;output.txt&quot;)
+</code></pre><p>More advanced is to search for properties of a line. One example is to search for the prescale.
 The prescale determines how often a line is executed, 1.0 means always, 0.0 never.
 Type for example:</p>
 <pre><code>&gt; listProperties(0x214a160f,&quot;.*Hlt2DiMuonJPsi.*&quot;,&quot;AcceptFraction&quot;)
 ...
 &gt; listProperties(0x214a160f,&quot;.*Hlt2DiMuonJPsiPreScaler.*&quot;,&quot;AcceptFraction&quot;)
-</code></pre><p><div class="panel panel-success"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(5704382568);" id="compare-hlt1-lines-from-run1-and-run2"><i class="fa fa-square-o"></i> Compare HLT1 lines from Run1 and Run2<span id="heading-5704382568"></span></h3></div><div class="panel-body" id="panel-5704382568"><p>Try to find out which HLT1 lines were available in Run 1 and which are now available in Run 2.</p>
+</code></pre><p>The regex is needed to search through all algorithms connected to a line.</p>
+<p><div class="panel panel-success"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(7690691304);" id="compare-hlt1-lines-from-run1-and-run2"><i class="fa fa-square-o"></i> Compare HLT1 lines from Run1 and Run2<span id="heading-7690691304"></span></h3></div><div class="panel-body" id="panel-7690691304"><p>Try to find out which HLT1 lines were available in Run 1 and which are now available in Run 2.</p>
 <p>What are the names of the topological trigger lines in Run 1 and Run 2?</p>
 </div></div></p>
 <h3 id="write-your-own-hlt2-trigger-line-or-adapt-an-existing-one">Write your own HLT2 trigger line or adapt an existing one</h3>
@@ -1010,12 +1013,14 @@ Add an entry with the key <code>MinProbNN</code> and set some value. If you sear
 uses <code>JpsiFilter</code> from <code>Stages.py</code>. As it is used by another line as well, you have to add the entry to <code>JPsiHighPT</code> as well.
 JpsiFilter simply uses muon pairs as input.  Go to Stages.py  and adapt the code of the <code>Hlt2ParticleFilter</code> to filter on the
 pid of the muons, to do that add <code>(MINTREE(&apos;mu-&apos; == ABSID, PROBNNmu) &gt; %(MinProbNN)s )</code>
-to the cut string. Run Moore again and see if the rate of this line has now decreased.</p>
+to the cut string. Run Moore again and see if the rate of this line has now decreased. If you are happy, you can do</p>
+<pre><code>$ git lb-push Hlt myNewLine
+</code></pre><p>and create a merge request.</p>
 <p>For more complicated developments which require changing many files or concurrent development of several people,
 we encourage to use a full checkout of the <code>Moore</code> and <code>Hlt</code> projects and to use vanilla git commands.
 A user friendly setup for this is being developed under the name <a href="https://gitlab.cern.ch/lhcb-HLT/trigger-dev" target="_blank">trigger-dev</a>.
 We encourage people to check it out and give feedback on the <a href="https://gitlab.cern.ch/lhcb-HLT/trigger-dev/issues" target="_blank">issues page</a>.</p>
-<p><div class="panel panel-success"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(3682063018);" id="convert-a-stripping-line-to-a-hlt2-line"><i class="fa fa-square-o"></i> Convert a stripping line to a Hlt2 line<span id="heading-3682063018"></span></h3></div><div class="panel-body" id="panel-3682063018"><ol>
+<p><div class="panel panel-success"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(4283528398);" id="convert-a-stripping-line-to-a-hlt2-line"><i class="fa fa-square-o"></i> Convert a stripping line to a Hlt2 line<span id="heading-4283528398"></span></h3></div><div class="panel-body" id="panel-4283528398"><ol>
 <li>Pick a stripping line and convert it to a HLT2 line.</li>
 <li>Make it a Turbo line (You have to set the property Turbo to true and the name of the line has to end with Turbo).</li>
 <li>Run a rate test to determine the rate of the line, <a href="https://twiki.cern.ch/twiki/bin/view/LHCb/MooreRateTestExamples" target="_blank">instructions</a> are found here.</li>
@@ -1064,7 +1069,7 @@ We encourage people to check it out and give feedback on the <a href="https://gi
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"HLT intro","level":"3.1.8","depth":2,"next":{"title":"TisTos DIY","level":"3.1.9","depth":2,"path":"second-analysis-steps/tistos-diy.md","ref":"second-analysis-steps/tistos-diy.md","articles":[]},"previous":{"title":"Fast simulation options","level":"3.1.7.6","depth":3,"path":"second-analysis-steps/simulation-fastsim.md","ref":"second-analysis-steps/simulation-fastsim.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-sharing","panels@git+https://github.com/lhcb/gitbook-plugin-panels.git#master","katex-auto-render@git+https://github.com/lhcb/gitbook-plugin-katex-auto-render.git#master","collapsible-menu","otherlink"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"collapsible-menu":{},"search":{},"otherlink":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"panels":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"katex-auto-render":{},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"The Starterkit team and contributors","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"gitbook":"*"},"file":{"path":"second-analysis-steps/hlt-intro.md","mtime":"2018-11-24T18:42:19.198Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-11-24T18:43:41.662Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"HLT intro","level":"3.1.8","depth":2,"next":{"title":"TisTos DIY","level":"3.1.9","depth":2,"path":"second-analysis-steps/tistos-diy.md","ref":"second-analysis-steps/tistos-diy.md","articles":[]},"previous":{"title":"Fast simulation options","level":"3.1.7.6","depth":3,"path":"second-analysis-steps/simulation-fastsim.md","ref":"second-analysis-steps/simulation-fastsim.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-sharing","panels@git+https://github.com/lhcb/gitbook-plugin-panels.git#master","katex-auto-render@git+https://github.com/lhcb/gitbook-plugin-katex-auto-render.git#master","collapsible-menu","otherlink"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"collapsible-menu":{},"search":{},"otherlink":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"panels":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"katex-auto-render":{},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"The Starterkit team and contributors","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"gitbook":"*"},"file":{"path":"second-analysis-steps/hlt-intro.md","mtime":"2018-11-24T18:44:17.466Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-11-24T18:45:53.176Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
