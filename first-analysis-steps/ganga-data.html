@@ -825,7 +825,7 @@
                                 <section class="normal markdown-section">
                                 
                                 <h1 id="more-ganga">More Ganga</h1>
-<p><div class="panel panel-warning"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(4906762759);" id="learning-objectives"><i class="fa fa-line-chart"></i> Learning Objectives<span id="heading-4906762759"></span></h3></div><div class="panel-body" id="panel-4906762759"><ul>
+<p><div class="panel panel-warning"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(8864678804);" id="learning-objectives"><i class="fa fa-line-chart"></i> Learning Objectives<span id="heading-8864678804"></span></h3></div><div class="panel-body" id="panel-8864678804"><ul>
 <li>Set the input data with BKQuery</li>
 <li>Use LHCbDatasets</li>
 <li>Set the location of the output of our jobs</li>
@@ -833,7 +833,7 @@
 <li>Access output stored on the grid</li>
 </ul>
 </div></div> </p>
-<p>The input data can be specified for your job with the BKQuery tool. The path for the data can be found using the online Dirac portal and passed to the <code>BKQuery</code> to get the dataset. For example, to run over the Stripping 21 MagUp, Semileptonic stream</p>
+<p>As you already saw in the <a href="davinci-grid.html">previous lesson</a>, the input data can be specified for your job with the BKQuery tool. The path for the data can be found using the online Dirac portal and passed to the <code>BKQuery</code> to get the dataset. For example, to run over the Stripping 21 MagUp, Semileptonic stream</p>
 <pre><code class="lang-python">Ganga In [<span class="hljs-number">3</span>]: j.inputdata = BKQuery(<span class="hljs-string">&apos;/LHCb/Collision12/Beam4000GeV-VeloClosed-MagUp/Real Data/Reco14/Stripping21r0p1a/90000000/SEMILEPTONIC.DST&apos;</span>).getDataset()
 Ganga In [<span class="hljs-number">4</span>]: j.inputdata
 Ganga Out [<span class="hljs-number">4</span>]: 
@@ -854,19 +854,32 @@ Ganga Out [<span class="hljs-number">4</span>]:
 Ganga Out [<span class="hljs-number">5</span>]: [<span class="hljs-string">&apos;root://bw32-4.grid.sara.nl:1094/pnfs/grid.sara.nl/data/lhcb/LHCb/Collision12/SEMILEPTONIC.DST/00051179/0000/00051179_00006978_1.semileptonic.dst&apos;</span>]
 </code></pre>
 <p>The returned path can be used by Bender to explore the contents of the DST, as in the <a href="interactive-dst.html">Interactively exploring a DST</a> lesson.</p>
-<p>In the previous lesson we looked at the location of the ouput with <code>job(782).outputdir</code>. This location points us to the <code>gangadir</code> where ganga stores information about the jobs and the output. If we have lots of jobs with large files the file system where the gangadir is located will quickly fill up.</p>
-<p><div class="panel panel-primary"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(6763591599);" id="setting-the-gangadir-location"><i class="fa fa-info-circle"></i> Setting the gangadir location<span id="heading-6763591599"></span></h3></div><div class="panel-body" id="panel-6763591599"><p>The location of the <code>gangadir</code> can be changed in the configuration file 
+<p>In the previous lesson we looked at the location of the ouput with <code>job(782).outputdir</code>. This location points us to the <code>gangadir</code> where ganga stores information about the jobs and their output. If we have lots of jobs with large files, the file system where the gangadir is located will quickly fill up.</p>
+<p><div class="panel panel-primary"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(7752748271);" id="setting-the-gangadir-location"><i class="fa fa-info-circle"></i> Setting the gangadir location<span id="heading-7752748271"></span></h3></div><div class="panel-body" id="panel-7752748271"><p>The location of the <code>gangadir</code> can be changed in the configuration file 
 &apos;~/.gangarc&apos;. Just search for the <code>gangadir</code> attribute and change it to where 
 you like (on the CERN AFS the <code>work</code> area is a popular choice).</p>
 </div></div> </p>
-<p>To avoid filling up the filespace it is wise to put the large files produced by your job somewhere with lots of storage - the grid. You can do so by setting the <code>outputfiles</code> attribute:</p>
+<p>To avoid filling up the filespace, it is wise to put the large files produced by your job somewhere with lots of storage - the grid. You can do so by setting the <code>outputfiles</code> attribute:</p>
 <pre><code class="lang-python">j.outputfiles = [DiracFile(<span class="hljs-string">&apos;*.root&apos;</span>), LocalFile(<span class="hljs-string">&apos;stdout&apos;</span>)]
 </code></pre>
-<p>The <code>DiracFile</code> will be stored in your user area on the grid (with up to 2TB personal capacity) from where you can access it with the <code>accessURL()</code> function as before. The wildcard means that any root file produced by your job will stay on the grid. <code>LocalFile</code> downloads the file to your <code>gangadir</code>, in this case the one called <code>stdout</code>.</p>
-<p>Small files are downloaded as standard: <code>.root</code>, logfiles etc. Files that are expected to be large which have extensions .dst etc are by default kept on the grid as Dirac files. In general you are encouraged to keep your large files on the grid to avoid moving large amounts of data around through your work area.</p>
-<p><div class="panel panel-primary"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(3499618566);" id="getting-help-with-ganga"><i class="fa fa-info-circle"></i> Getting help with ganga<span id="heading-3499618566"></span></h3></div><div class="panel-body" id="panel-3499618566"><p>To find out more take a look at the <a href="https://twiki.cern.ch/twiki/bin/view/LHCb/FAQ/GangaLHCbFAQ" target="_blank">Ganga 
+<p>The <code>DiracFile</code> will be stored in your user area on the grid (with up to 2TB personal capacity). The wildcard means that any root file produced by your job will stay on the grid. <code>LocalFile</code> downloads the file to your <code>gangadir</code>, in this case the one called <code>stdout</code>.
+You can access your files stored on the grid with the <code>accessURL()</code> function as before. 
+For example, to access the location of the output <code>.root</code> file of a specific subjob, one can use </p>
+<pre><code class="lang-python">jobs(<span class="hljs-number">787</span>).subjobs(<span class="hljs-number">15</span>).outputfiles[<span class="hljs-number">0</span>].accessURL()
+</code></pre>
+<p>This is a very useful feature: you do not have to download your files from the grid in order to merge them locally! This takes a lot of time and disk space.
+Instead, one can get a list of URLs from each subjob, and pass them to the <code>TChain</code> or use the <code>hadd</code> method of ROOT<sup><a href="#fn_1" id="reffn_1">1</a></sup>. 
+Ganga has a shortcut to access the list of all <code>.root</code> files from all the subjobs of a given job:</p>
+<pre><code class="lang-python">jobs(<span class="hljs-number">787</span>).backend.getOutputDataAccessURLs()
+</code></pre>
+<p>Small files are downloaded as standard: <code>.root</code>, logfiles etc. Files that are expected to be large (with extensions <code>.dst</code> etc) are by default kept on the grid as Dirac files. In general, you are encouraged to keep your large files on the grid to avoid moving large amounts of data around through your work area. </p>
+<p>More information on the <code>DiracFile</code> usage is provided in the <a href="eos-storage.html">next lesson</a>.</p>
+<p><div class="panel panel-primary"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(5830055082);" id="getting-help-with-ganga"><i class="fa fa-info-circle"></i> Getting help with ganga<span id="heading-5830055082"></span></h3></div><div class="panel-body" id="panel-5830055082"><p>To find out more take a look at the <a href="https://twiki.cern.ch/twiki/bin/view/LHCb/FAQ/GangaLHCbFAQ" target="_blank">Ganga 
 FAQ</a></p>
 </div></div> </p>
+<blockquote id="fn_1">
+<sup>1</sup>. Merging your files with <code>hadd</code> will be significantly faster if you run it with the option telling ROOT to use the same compression level in that output file as is used for the input files. This can be done using the <code>-fk</code> option. If running on lxplus you will need to get a newer ROOT version that supports this option by using: <code>lb-run ROOT hadd -fk output.root input/*.root</code><a href="#reffn_1" title="Jump back to footnote [1] in the text."> &#x21A9;</a>
+</blockquote>
 
                                 
                                 </section>
@@ -910,7 +923,7 @@ FAQ</a></p>
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"More Ganga","level":"2.1.16","depth":2,"next":{"title":"Storing large files on EOS","level":"2.1.17","depth":2,"path":"first-analysis-steps/eos-storage.md","ref":"first-analysis-steps/eos-storage.md","articles":[]},"previous":{"title":"Splitting a job into subjobs","level":"2.1.15","depth":2,"path":"first-analysis-steps/split-jobs.md","ref":"first-analysis-steps/split-jobs.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-sharing","panels@git+https://github.com/lhcb/gitbook-plugin-panels.git#master","katex-auto-render@git+https://github.com/lhcb/gitbook-plugin-katex-auto-render.git#master","collapsible-menu","otherlink"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"collapsible-menu":{},"search":{},"otherlink":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"panels":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"katex-auto-render":{},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"The Starterkit team and contributors","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"gitbook":"*"},"file":{"path":"first-analysis-steps/ganga-data.md","mtime":"2018-11-24T17:48:19.502Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-11-24T17:49:42.927Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"More Ganga","level":"2.1.16","depth":2,"next":{"title":"Storing large files on EOS","level":"2.1.17","depth":2,"path":"first-analysis-steps/eos-storage.md","ref":"first-analysis-steps/eos-storage.md","articles":[]},"previous":{"title":"Splitting a job into subjobs","level":"2.1.15","depth":2,"path":"first-analysis-steps/split-jobs.md","ref":"first-analysis-steps/split-jobs.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-sharing","panels@git+https://github.com/lhcb/gitbook-plugin-panels.git#master","katex-auto-render@git+https://github.com/lhcb/gitbook-plugin-katex-auto-render.git#master","collapsible-menu","otherlink"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"collapsible-menu":{},"search":{},"otherlink":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"panels":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"katex-auto-render":{},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"The Starterkit team and contributors","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"gitbook":"*"},"file":{"path":"first-analysis-steps/ganga-data.md","mtime":"2018-11-24T18:28:38.160Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-11-24T18:30:05.567Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
