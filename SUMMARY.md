@@ -8,6 +8,7 @@
 * [First analysis steps](first-analysis-steps/README.md)
     * [Pre-workshop checklist](first-analysis-steps/prerequisites.md)
     * [Goals of the course](first-analysis-steps/introduction-to-course.md)
+    * [Physics at LHCb](first-analysis-steps/physics-at-lhcb.md)
     * [The LHCb data flow](first-analysis-steps/dataflow.md)
     * [Changes to the data flow in Run 2](first-analysis-steps/run-2-data-flow.md)
     * [An introduction to LHCb Software](first-analysis-steps/davinci.md)
