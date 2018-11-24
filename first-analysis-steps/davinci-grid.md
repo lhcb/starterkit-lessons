@@ -38,8 +38,8 @@ myApp = prepareGaudiExec('DaVinci','v44r6', myPath='.')
 j.application = myApp
 j.application.options = ['ntuple_options.py']
 bkPath = '/MC/2016/Beam6500GeV-2016-MagDown-Nu1.6-25ns-Pythia8/Sim09c/Trig0x6138160F/Reco16/Turbo03/Stripping28r1NoPrescalingFlagged/27163002/ALLSTREAMS.DST'
-data  = BKQuery(bkPath,dqflag=['OK']).getDataset()
-j.inputdata=data[0:2]     # access only the first 2 files of data
+data  = BKQuery(bkPath, dqflag=['OK']).getDataset()
+j.inputdata = data[0:2]     # access only the first 2 files of data
 j.backend = Dirac()
 j.outputfiles = [LocalFile('DVntuple.root')]
 ```
@@ -49,7 +49,7 @@ with the option files given in `j.application.options` using a
 backend called `Dirac`, which is "the grid". Instead of specifying the
 files to process as part of the options file you have now to tell the
 `Job` about it. This allows `ganga` to split your job up,
-processing different files simultaneously. Note that data will be accessed using its path in the bookeeping `bkPath`. In order to speed-up, only the first 2 elements (files) of `data` will be accessed.
+processing different files simultaneously. Note that data will be accessed using its path in the bookkeeping `bkPath`. In order to speed-up our job, only the first 2 elements (files) of `data` will be accessed; we don't need to look at much data here.
 
 {% callout "DaVinciDev folder" %}
 When you create a job using `prepareGaudiExec('DaVinci','v44r6', myPath='.')`
@@ -103,7 +103,7 @@ j.application = myApp
 j.application.options = ['ntuple_options.py']
 bkPath = '/MC/2016/Beam6500GeV-2016-MagDown-Nu1.6-25ns-Pythia8/Sim09c/Trig0x6138160F/Reco16/Turbo03/Stripping28r1NoPrescalingFlagged/27163002/ALLSTREAMS.DST'
 data  = BKQuery(bkPath,dqflag=['OK']).getDataset()
-j.inputdata=data[0:2]
+j.inputdata = data[0:2]
 j.backend = Dirac()
 j.outputfiles = [LocalFile('DVntuple.root')]
 j.submit()
