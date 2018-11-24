@@ -58,7 +58,7 @@ Instead, one can get a list of URLs from each subjob, and pass them to the `TCha
 Ganga has a shortcut to access the list of all `.root` files from all the subjobs of a given job:
 
 ```python
-mylist = getAccessURLs(j.backend.getOutputDataLFNs())
+jobs(787).backend.getOutputDataAccessURLs()
 ```
 
 Small files are downloaded as standard: `.root`, logfiles etc. Files that are expected to be large (with extensions `.dst` etc) are by default kept on the grid as Dirac files. In general, you are encouraged to keep your large files on the grid to avoid moving large amounts of data around through your work area. 
