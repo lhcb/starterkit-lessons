@@ -21,8 +21,11 @@ This raises its own problems:
 * Can you think of more?
 
 These questions arise mostly due to two key points: the data must be processed 
-very quickly because it's arriving very quickly, and the data is complex so 
-there's a lot that can be done with it.
+very quickly because it's arriving very quickly, and the data is complex so
+there's a lot that can be done with it. In the last lesson we saw how many
+steps it took just to reconstruct a single decay, but there are thousands of
+possibilities that we might be interested in! Being able to perform such
+combinations in a flexible manner is then very important.
 
 Collisions recorded by the LHCb detector go through a specific data flow 
 designed to maximise the data-taking efficiency and data quality.
@@ -143,9 +146,9 @@ In it we can find:
 
 Additionally, the information on all strippings can be found in the [stripping 
 project 
-website](http://lhcb-release-area.web.cern.ch/LHCb-release-area/DOC/stripping/), 
+website](http://lhcbdoc.web.cern.ch/lhcbdoc/stripping/), 
 where you can see all the algorithms run and cuts applied in each _line_.
 For example, if we wanted to understand the 
 `D2hhPromptDst2D2KKLine` line, which we will use in the 
 [exploring a DST](interactive-dst.html) lesson later on, we would go 
-[here](http://lhcb-release-area.web.cern.ch/LHCb-release-area/DOC/stripping/config/stripping28/charm/strippingd2hhpromptdst2d2kkline.html).
+[here](http://lhcbdoc.web.cern.ch/lhcbdoc/stripping/config/stripping28/charm/strippingd2hhpromptdst2d2kkline.html).

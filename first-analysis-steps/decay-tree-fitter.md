@@ -12,9 +12,9 @@ For example, for the decay
 ```python
 '[D*(2010)+ -> (D0 -> K- K+) pi+]CC'
 ```
-you can make the assumption that the (K- K+) combine to form a D0 with a specific invariant mass. This results in a so called *mass-constraint*. In addition the two kaons should originate from exactly the same point in space. If you know that your data only contains prompt D* candidates, you can constrain them to do come from the primary vertex. Boundary conditions like those are called *vertex-constraints*.
+you can make the assumption that the (K- K+) combine to form a D0 with a specific invariant mass. This results in a so called *mass constraint*. In addition the two kaons should originate from exactly the same point in space. If you know that your data only contains prompt D\* candidates, you can constrain them to do come from the primary vertex. Boundary conditions like those are called *vertex constraints* (the last of which is known as a *primary-vertex constraint*).
 
-Applying such kinematic constraints leads to new best estimates for the track parameters of the final state particles. The process of calculating those is called a *kinematic refit* and the `TupleToolDecayTreeFitter` is the algorithm that performs this task for us.
+Applying kinematic constraints leads to new best estimates for the track parameters of the final-state particles. The process of calculating those is called a *kinematic (re)fit* and the `DecayTreeFitter` is the algorithm that performs this task for us. Access to this tool is provided by the TupleTool with the name `TupleToolDecayTreeFitter`.
 
 {% callout "The physics and mathematics behind DecayTreeFitter" %}
 For details of the method see the paper on [Decay chain fitting with a Kalman 
@@ -31,7 +31,7 @@ To this branch we can now apply the `TupleToolDecayTreeFitter` with arbitrarily 
 ```python
 dtt.Dstar.addTupleTool('TupleToolDecayTreeFitter/ConsD')
 ```
-Now we can proceed with the configuration of the fitter. We are going to constrain the decay tree to the primary vertex of origin. We want all the output available, so we set the `verbose` option. Finally we want to apply the mass constraint to the D0:
+Now we can proceed with the configuration of the fitter. We are going to constrain the D0 to have originated from the primary vertex. We want all the output available, so we set the `verbose` option. Finally we want to apply the mass constraint to the D0:
 ```python
 dtt.Dstar.ConsD.constrainToOriginVertex = True
 dtt.Dstar.ConsD.Verbose = True
@@ -39,7 +39,7 @@ dtt.Dstar.ConsD.daughtersToConstrain = ['D0']
 ```
 Note that you can constrain more than one intermediate state at once if that fits your decay.
 
-When using the `DecayTreeFitter` in a `DecayTreeTuple`, all the variables created by the other TupleTools are not affected by the change, but some new variables are created, one set per `DecayTreeFitter` instance. Depending on whether the `Verbose` option is specified, the new variables are created for the head particle only or for the head particle and its daughters too.
+When using the `TupleToolDecayTreeFitter` in a `DecayTreeTuple`, all the variables created by the other TupleTools are not affected by the change, but some new variables are created, one set per `DecayTreeFitter` instance. Depending on whether the `Verbose` option is specified, the new variables are created for the head particle only or for the head particle and its daughters too.
 
 If the daughters are not stable particles and decay further, the daughters of the daughters have no new variables associated to them by default.
 Since in many cases this information might be useful, there is an option to store the information from those tracks
@@ -74,10 +74,11 @@ Plotting the raw mass of the D* (without the fit) `Dstar_M`, you should see a br
 <img src="./img/DstarRaw.png" alt="Dstar raw" style="width: 500px;"/>
 
 {% callout "Which mass variable to use" %}
-In many ntuples you also find a mass variable called `_MM`. This confusingly 
+In many ntuples you also find a mass variable called `_MM`. This (confusingly) 
 refers to measured mass. However, it is usually better to use `_M`. `_MM` is 
 the sum of the 4-momenta of the final state particles extrapolated back to the 
-fitted vertex position, but not the result of the actual vertex fit.
+fitted vertex position, but not the result of the actual vertex fit. Remember that
+a vertex fit acts like a vertex constraint, improving the opening-angle resolution.
 {% endcallout %} 
 
 

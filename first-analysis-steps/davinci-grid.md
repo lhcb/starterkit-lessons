@@ -34,7 +34,7 @@ To create your first `ganga` job, type the following:
 
 ```python
 j = Job(name='First ganga job')
-myApp = prepareGaudiExec('DaVinci','v42r6p1', myPath='.')
+myApp = prepareGaudiExec('DaVinci','v44r6', myPath='.')
 j.application = myApp
 j.application.options = ['ntuple_options.py']
 j.application.readInputData('MC_2016_27163002_Beam6500GeV2016MagDownNu1.625nsPythia8_Sim09b_Trig0x6138160F_Reco16_Turbo03_Stripping28NoPrescalingFlagged_ALLSTREAMS.DST.py')
@@ -50,12 +50,12 @@ files to process as part of the options file you have now to tell the
 processing different files simultaneously.
 
 {% callout "DaVinciDev folder" %}
-When you create a job using `prepareGaudiExec('DaVinci','v42r6p1', myPath='.')`
+When you create a job using `prepareGaudiExec('DaVinci','v44r6', myPath='.')`
 you get the following message:
 ```
-INFO     Set up App Env at: ./DaVinciDev_v42r6p1
+INFO     Set up App Env at: ./DaVinciDev_v44r6
 ```
-`ganga` has created a folder with a local copy of the DaVinci v42r6p1 release.
+`ganga` has created a folder with a local copy of the DaVinci v44r6 release.
 The content of it will be sent to the grid to ensure your job runs with 
 exactly this configuration.
 We will use this folder for the following jobs and you will learn more about
@@ -64,7 +64,7 @@ this in the [Developing LHCb Software](lhcb-dev.html) lesson.
 
 Now you have created your first job, however it has not started
 running yet. To submit it type `j.submit()`. Now `ganga` will do the
-equivalent of `lb-run DaVinci/v42r6p1`, prepare your job and then
+equivalent of `lb-run DaVinci/v44r6`, prepare your job and then
 ship it off to the grid.
 
 {% callout "Picking up a right platform" %}
@@ -96,7 +96,7 @@ Place the following in a file called [`first-job.py`](code/davinci-grid/first-jo
 ```python
 j = Job(name='First ganga job')
 myApp = GaudiExec()
-myApp.directory = "./DaVinciDev_v42r6p1"
+myApp.directory = "./DaVinciDev_v44r6"
 j.application = myApp
 j.application.options = ['ntuple_options.py']
 j.application.readInputData('MC_2016_27163002_Beam6500GeV2016MagDownNu1.625nsPythia8_Sim09b_Trig0x6138160F_Reco16_Turbo03_Stripping28NoPrescalingFlagged_ALLSTREAMS.DST.py')
@@ -163,7 +163,7 @@ To look at the `root` file produced by the job start a new terminal, and
 type:
 
 ```bash
-$ lb-run DaVinci/v42r6p1 $SHELL
+$ lb-run DaVinci/v44r6 $SHELL
 $ root -l path/to/the/job/output
 ```
 

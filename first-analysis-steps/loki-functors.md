@@ -181,7 +181,7 @@ In the context of `DaVinci` application, e.g. the Stripping, the things become m
 {% callout "Finding LoKi functors" %}
 The full list of defined LoKi functors can be found in the `LoKi::Cuts` 
 namespace in the 
-[doxygen](http://lhcb-release-area.web.cern.ch/LHCb-release-area/DOC/davinci/latest_doxygen/d7/dae/namespace_lo_ki_1_1_cuts.html).
+[doxygen](http://lhcb-doxygen.web.cern.ch/lhcb-doxygen/davinci/latest/d7/dae/namespace_lo_ki_1_1_cuts.html).
 They are quite well documented with examples on how to use them.
 The list can be overwhelming, so it's also worth checking a more curated selection of functors in the TWiki, [here](https://twiki.cern.ch/twiki/bin/view/LHCb/LoKiHybridFilters) and [here](https://twiki.cern.ch/twiki/bin/view/LHCb/LoKiParticleFunctions).
 {% endcallout %} 
@@ -328,7 +328,7 @@ in_range(1860, CHILD(M, 1), 1870)(cand)
 ```
 {% callout "Understanding the cuts in the stripping lines" %}
 Have a look at the stripping line 
-[D2hhPromptDst2D2KKLine](http://lhcb-release-area.web.cern.ch/LHCb-release-area/DOC/stripping/config/stripping28/charm/strippingd2hhpromptdst2d2kkline.html) which is used in our example. Open a `CombineParticles/D2hhPromptDst2D2KKLine` section, and explain which requirements are coded in the 'MotherCut', 'DaughterCuts' and 'CombinationCut' sections. 
+[D2hhPromptDst2D2KKLine](http://lhcbdoc.web.cern.ch/lhcbdoc/stripping/config/stripping28/charm/strippingd2hhpromptdst2d2kkline.html) which is used in our example. Open a `CombineParticles/D2hhPromptDst2D2KKLine` section, and explain which requirements are coded in the 'MotherCut', 'DaughterCuts' and 'CombinationCut' sections. 
 (More details about `CombineParticles` algorithm are explained in the [lesson of second analysis steps](/second-analysis-steps/building-decays-part1.md).)
 {% endcallout %} 
 

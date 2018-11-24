@@ -268,5 +268,5 @@ It can also be useful to know where things are written for accessing them intera
 
 {% callout "Configuring the algorithm" %}
 The `StoreExplorerAlg` has the same print frequency as `DaVinci`, but it can be configured by modifying `PrintFreq` (fraction of events that are printed) or `PrintEvt`.
-Have a look at the [class Doxygen](http://lhcb-release-area.web.cern.ch/LHCb-release-area/DOC/moore/releases/v14r2p5/doxygen/d2/d3b/class_store_explorer_alg.html) to see what they do.
+Have a look at the [class Doxygen](http://lhcb-doxygen.web.cern.ch/lhcb-doxygen/davinci/latest/d2/d3b/class_store_explorer_alg.html) to see what they do.
 {% endcallout %}
