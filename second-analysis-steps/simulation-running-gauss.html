@@ -267,20 +267,7 @@
             
         </li>
     
-        <li class="chapter " data-level="2.1.10" data-path="../first-analysis-steps/loki-functors.html">
-            
-                <a href="../first-analysis-steps/loki-functors.html">
-            
-                    
-                    Fun with LoKi Functors
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="2.1.11" data-path="../first-analysis-steps/minimal-dv-job.html">
+        <li class="chapter " data-level="2.1.10" data-path="../first-analysis-steps/minimal-dv-job.html">
             
                 <a href="../first-analysis-steps/minimal-dv-job.html">
             
@@ -293,12 +280,12 @@
             
         </li>
     
-        <li class="chapter " data-level="2.1.12" data-path="../first-analysis-steps/davinci-grid.html">
+        <li class="chapter " data-level="2.1.11" data-path="../first-analysis-steps/loki-functors.html">
             
-                <a href="../first-analysis-steps/davinci-grid.html">
+                <a href="../first-analysis-steps/loki-functors.html">
             
                     
-                    Running DaVinci on the grid
+                    Fun with LoKi Functors
             
                 </a>
             
@@ -306,7 +293,7 @@
             
         </li>
     
-        <li class="chapter " data-level="2.1.13" data-path="../first-analysis-steps/add-tupletools.html">
+        <li class="chapter " data-level="2.1.12" data-path="../first-analysis-steps/add-tupletools.html">
             
                 <a href="../first-analysis-steps/add-tupletools.html">
             
@@ -319,7 +306,7 @@
             
         </li>
     
-        <li class="chapter " data-level="2.1.14" data-path="../first-analysis-steps/decay-tree-fitter.html">
+        <li class="chapter " data-level="2.1.13" data-path="../first-analysis-steps/decay-tree-fitter.html">
             
                 <a href="../first-analysis-steps/decay-tree-fitter.html">
             
@@ -332,7 +319,33 @@
             
         </li>
     
-        <li class="chapter " data-level="2.1.15" data-path="../first-analysis-steps/ganga-data.html">
+        <li class="chapter " data-level="2.1.14" data-path="../first-analysis-steps/davinci-grid.html">
+            
+                <a href="../first-analysis-steps/davinci-grid.html">
+            
+                    
+                    Running DaVinci on the grid
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.15" data-path="../first-analysis-steps/split-jobs.html">
+            
+                <a href="../first-analysis-steps/split-jobs.html">
+            
+                    
+                    Splitting a job into subjobs
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.16" data-path="../first-analysis-steps/ganga-data.html">
             
                 <a href="../first-analysis-steps/ganga-data.html">
             
@@ -345,25 +358,12 @@
             
         </li>
     
-        <li class="chapter " data-level="2.1.16" data-path="../first-analysis-steps/eos-storage.html">
+        <li class="chapter " data-level="2.1.17" data-path="../first-analysis-steps/eos-storage.html">
             
                 <a href="../first-analysis-steps/eos-storage.html">
             
                     
                     Storing large files on EOS
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="2.1.17" data-path="../first-analysis-steps/split-jobs.html">
-            
-                <a href="../first-analysis-steps/split-jobs.html">
-            
-                    
-                    Splitting a job into subjobs
             
                 </a>
             
@@ -824,7 +824,7 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <p><div class="panel panel-warning"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(6262161699);" id="learning-objectives"><i class="fa fa-line-chart"></i> Learning Objectives<span id="heading-6262161699"></span></h3></div><div class="panel-body" id="panel-6262161699"><ul>
+                                <p><div class="panel panel-warning"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(3335199555);" id="learning-objectives"><i class="fa fa-line-chart"></i> Learning Objectives<span id="heading-3335199555"></span></h3></div><div class="panel-body" id="panel-3335199555"><ul>
 <li>Find the correct option files to run Gauss</li>
 <li>Produce generator level Monte Carlo, print the decay tree and produce nTuples</li>
 </ul>
@@ -835,7 +835,7 @@
 </code></pre><p>First, find the ProductionID:</p>
 <p><img src="img/simulation_1.png" alt="FindingProductionID"></p>
 <p>Search for this ID in the Transformation Monitor, right click the result and select &quot;Show request&quot;. Right clicking and selecting &quot;View&quot; in the new window will open an overview about all the individual steps of the production with their application version and option files used.</p>
-<p><div class="panel panel-primary"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(2636022980);" id="important-the-order-of-the-option-files-does-matter"><i class="fa fa-info-circle"></i> Important: the order of the option files does matter!<span id="heading-2636022980"></span></h3></div><div class="panel-body" id="panel-2636022980"><p><code>&apos;$DECFILESROOT/options/27163003.py&apos; &apos;$LBPYTHIA8ROOT/options/Pythia8.py&apos;</code> 
+<p><div class="panel panel-primary"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(9408729842);" id="important-the-order-of-the-option-files-does-matter"><i class="fa fa-info-circle"></i> Important: the order of the option files does matter!<span id="heading-9408729842"></span></h3></div><div class="panel-body" id="panel-9408729842"><p><code>&apos;$DECFILESROOT/options/27163003.py&apos; &apos;$LBPYTHIA8ROOT/options/Pythia8.py&apos;</code> 
 produces the sample using Pythia 8 while <code>&apos;$LBPYTHIA8ROOT/options/Pythia8.py&apos; 
 &apos;$DECFILESROOT/options/27163003.py&apos;</code> uses Pythia 6.</p>
 </div></div></p>
@@ -864,7 +864,7 @@ LHCbApp().EvtMax = <span class="hljs-number">5</span>
 </code></pre>
 <p>This would take 5 to 10 minutes due to the detector simulation, which can be turned off by adding <code>&apos;$GAUSSOPTS/GenStandAlone.py&apos;</code> as one of the option files.
 In this case, all but <code>&apos;$GAUSSOPTS/GenStandAlone.py&apos;</code>, <code>&apos;$DECFILESROOT/options/27163003.py&apos;</code>, and <code>&apos;$LBPYTHIA8ROOT/options/Pythia8.py&apos;</code> are redundant 
-<div class="panel panel-primary"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(7489551212);" id="only-one-option-file"><i class="fa fa-info-circle"></i> Only one option file<span id="heading-7489551212"></span></h3></div><div class="panel-body" id="panel-7489551212"><p>You can source the various options files from your <code>&apos;Gauss-Job.py&apos;</code> by adding at its top:</p>
+<div class="panel panel-primary"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(9191342343);" id="only-one-option-file"><i class="fa fa-info-circle"></i> Only one option file<span id="heading-9191342343"></span></h3></div><div class="panel-body" id="panel-9191342343"><p>You can source the various options files from your <code>&apos;Gauss-Job.py&apos;</code> by adding at its top:</p>
 <pre><code class="lang-python"><span class="hljs-keyword">from</span> Gaudi.Configuration <span class="hljs-keyword">import</span> *
 importOptions(<span class="hljs-string">&quot;$APPCONFIGOPTS/Gauss/Beam6500GeV-md100-2016-nu1.6.py&quot;</span>)
 <span class="hljs-comment"># etc ...</span>
@@ -1000,7 +1000,7 @@ appendPostConfigAction( doIt )
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Getting the correct option files","level":"3.1.7.2","depth":3,"next":{"title":"Controlling the decay","level":"3.1.7.3","depth":3,"path":"second-analysis-steps/simulation-dkfiles.md","ref":"second-analysis-steps/simulation-dkfiles.md","articles":[]},"previous":{"title":"Introduction: The basics of Gauss","level":"3.1.7.1","depth":3,"path":"second-analysis-steps/simulation-intro.md","ref":"second-analysis-steps/simulation-intro.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-sharing","panels@git+https://github.com/lhcb/gitbook-plugin-panels.git#master","katex-auto-render@git+https://github.com/lhcb/gitbook-plugin-katex-auto-render.git#master","collapsible-menu","otherlink"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"collapsible-menu":{},"search":{},"otherlink":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"panels":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"katex-auto-render":{},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"The Starterkit team and contributors","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"gitbook":"*"},"file":{"path":"second-analysis-steps/simulation-running-gauss.md","mtime":"2018-11-24T17:47:26.682Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-11-24T17:48:54.480Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Getting the correct option files","level":"3.1.7.2","depth":3,"next":{"title":"Controlling the decay","level":"3.1.7.3","depth":3,"path":"second-analysis-steps/simulation-dkfiles.md","ref":"second-analysis-steps/simulation-dkfiles.md","articles":[]},"previous":{"title":"Introduction: The basics of Gauss","level":"3.1.7.1","depth":3,"path":"second-analysis-steps/simulation-intro.md","ref":"second-analysis-steps/simulation-intro.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-sharing","panels@git+https://github.com/lhcb/gitbook-plugin-panels.git#master","katex-auto-render@git+https://github.com/lhcb/gitbook-plugin-katex-auto-render.git#master","collapsible-menu","otherlink"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"collapsible-menu":{},"search":{},"otherlink":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"panels":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"katex-auto-render":{},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"The Starterkit team and contributors","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"gitbook":"*"},"file":{"path":"second-analysis-steps/simulation-running-gauss.md","mtime":"2018-11-24T17:48:19.538Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-11-24T17:49:42.927Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

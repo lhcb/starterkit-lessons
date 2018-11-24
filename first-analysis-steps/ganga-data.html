@@ -68,7 +68,7 @@
     <link rel="next" href="eos-storage.html" />
     
     
-    <link rel="prev" href="decay-tree-fitter.html" />
+    <link rel="prev" href="split-jobs.html" />
     
 
     </head>
@@ -267,20 +267,7 @@
             
         </li>
     
-        <li class="chapter " data-level="2.1.10" data-path="loki-functors.html">
-            
-                <a href="loki-functors.html">
-            
-                    
-                    Fun with LoKi Functors
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="2.1.11" data-path="minimal-dv-job.html">
+        <li class="chapter " data-level="2.1.10" data-path="minimal-dv-job.html">
             
                 <a href="minimal-dv-job.html">
             
@@ -293,12 +280,12 @@
             
         </li>
     
-        <li class="chapter " data-level="2.1.12" data-path="davinci-grid.html">
+        <li class="chapter " data-level="2.1.11" data-path="loki-functors.html">
             
-                <a href="davinci-grid.html">
+                <a href="loki-functors.html">
             
                     
-                    Running DaVinci on the grid
+                    Fun with LoKi Functors
             
                 </a>
             
@@ -306,7 +293,7 @@
             
         </li>
     
-        <li class="chapter " data-level="2.1.13" data-path="add-tupletools.html">
+        <li class="chapter " data-level="2.1.12" data-path="add-tupletools.html">
             
                 <a href="add-tupletools.html">
             
@@ -319,7 +306,7 @@
             
         </li>
     
-        <li class="chapter " data-level="2.1.14" data-path="decay-tree-fitter.html">
+        <li class="chapter " data-level="2.1.13" data-path="decay-tree-fitter.html">
             
                 <a href="decay-tree-fitter.html">
             
@@ -332,7 +319,33 @@
             
         </li>
     
-        <li class="chapter active" data-level="2.1.15" data-path="ganga-data.html">
+        <li class="chapter " data-level="2.1.14" data-path="davinci-grid.html">
+            
+                <a href="davinci-grid.html">
+            
+                    
+                    Running DaVinci on the grid
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.15" data-path="split-jobs.html">
+            
+                <a href="split-jobs.html">
+            
+                    
+                    Splitting a job into subjobs
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="2.1.16" data-path="ganga-data.html">
             
                 <a href="ganga-data.html">
             
@@ -345,25 +358,12 @@
             
         </li>
     
-        <li class="chapter " data-level="2.1.16" data-path="eos-storage.html">
+        <li class="chapter " data-level="2.1.17" data-path="eos-storage.html">
             
                 <a href="eos-storage.html">
             
                     
                     Storing large files on EOS
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="2.1.17" data-path="split-jobs.html">
-            
-                <a href="split-jobs.html">
-            
-                    
-                    Splitting a job into subjobs
             
                 </a>
             
@@ -825,7 +825,7 @@
                                 <section class="normal markdown-section">
                                 
                                 <h1 id="more-ganga">More Ganga</h1>
-<p><div class="panel panel-warning"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(5908163563);" id="learning-objectives"><i class="fa fa-line-chart"></i> Learning Objectives<span id="heading-5908163563"></span></h3></div><div class="panel-body" id="panel-5908163563"><ul>
+<p><div class="panel panel-warning"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(4906762759);" id="learning-objectives"><i class="fa fa-line-chart"></i> Learning Objectives<span id="heading-4906762759"></span></h3></div><div class="panel-body" id="panel-4906762759"><ul>
 <li>Set the input data with BKQuery</li>
 <li>Use LHCbDatasets</li>
 <li>Set the location of the output of our jobs</li>
@@ -855,7 +855,7 @@ Ganga Out [<span class="hljs-number">5</span>]: [<span class="hljs-string">&apos
 </code></pre>
 <p>The returned path can be used by Bender to explore the contents of the DST, as in the <a href="interactive-dst.html">Interactively exploring a DST</a> lesson.</p>
 <p>In the previous lesson we looked at the location of the ouput with <code>job(782).outputdir</code>. This location points us to the <code>gangadir</code> where ganga stores information about the jobs and the output. If we have lots of jobs with large files the file system where the gangadir is located will quickly fill up.</p>
-<p><div class="panel panel-primary"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(8751076683);" id="setting-the-gangadir-location"><i class="fa fa-info-circle"></i> Setting the gangadir location<span id="heading-8751076683"></span></h3></div><div class="panel-body" id="panel-8751076683"><p>The location of the <code>gangadir</code> can be changed in the configuration file 
+<p><div class="panel panel-primary"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(6763591599);" id="setting-the-gangadir-location"><i class="fa fa-info-circle"></i> Setting the gangadir location<span id="heading-6763591599"></span></h3></div><div class="panel-body" id="panel-6763591599"><p>The location of the <code>gangadir</code> can be changed in the configuration file 
 &apos;~/.gangarc&apos;. Just search for the <code>gangadir</code> attribute and change it to where 
 you like (on the CERN AFS the <code>work</code> area is a popular choice).</p>
 </div></div> </p>
@@ -864,7 +864,7 @@ you like (on the CERN AFS the <code>work</code> area is a popular choice).</p>
 </code></pre>
 <p>The <code>DiracFile</code> will be stored in your user area on the grid (with up to 2TB personal capacity) from where you can access it with the <code>accessURL()</code> function as before. The wildcard means that any root file produced by your job will stay on the grid. <code>LocalFile</code> downloads the file to your <code>gangadir</code>, in this case the one called <code>stdout</code>.</p>
 <p>Small files are downloaded as standard: <code>.root</code>, logfiles etc. Files that are expected to be large which have extensions .dst etc are by default kept on the grid as Dirac files. In general you are encouraged to keep your large files on the grid to avoid moving large amounts of data around through your work area.</p>
-<p><div class="panel panel-primary"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(220573881);" id="getting-help-with-ganga"><i class="fa fa-info-circle"></i> Getting help with ganga<span id="heading-220573881"></span></h3></div><div class="panel-body" id="panel-220573881"><p>To find out more take a look at the <a href="https://twiki.cern.ch/twiki/bin/view/LHCb/FAQ/GangaLHCbFAQ" target="_blank">Ganga 
+<p><div class="panel panel-primary"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(3499618566);" id="getting-help-with-ganga"><i class="fa fa-info-circle"></i> Getting help with ganga<span id="heading-3499618566"></span></h3></div><div class="panel-body" id="panel-3499618566"><p>To find out more take a look at the <a href="https://twiki.cern.ch/twiki/bin/view/LHCb/FAQ/GangaLHCbFAQ" target="_blank">Ganga 
 FAQ</a></p>
 </div></div> </p>
 
@@ -894,7 +894,7 @@ FAQ</a></p>
 
             
                 
-                <a href="decay-tree-fitter.html" class="navigation navigation-prev " aria-label="Previous page: How do I use DecayTreeFitter?">
+                <a href="split-jobs.html" class="navigation navigation-prev " aria-label="Previous page: Splitting a job into subjobs">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
@@ -910,7 +910,7 @@ FAQ</a></p>
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"More Ganga","level":"2.1.15","depth":2,"next":{"title":"Storing large files on EOS","level":"2.1.16","depth":2,"path":"first-analysis-steps/eos-storage.md","ref":"first-analysis-steps/eos-storage.md","articles":[]},"previous":{"title":"How do I use DecayTreeFitter?","level":"2.1.14","depth":2,"path":"first-analysis-steps/decay-tree-fitter.md","ref":"first-analysis-steps/decay-tree-fitter.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-sharing","panels@git+https://github.com/lhcb/gitbook-plugin-panels.git#master","katex-auto-render@git+https://github.com/lhcb/gitbook-plugin-katex-auto-render.git#master","collapsible-menu","otherlink"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"collapsible-menu":{},"search":{},"otherlink":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"panels":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"katex-auto-render":{},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"The Starterkit team and contributors","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"gitbook":"*"},"file":{"path":"first-analysis-steps/ganga-data.md","mtime":"2018-11-24T17:47:26.646Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-11-24T17:48:54.480Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"More Ganga","level":"2.1.16","depth":2,"next":{"title":"Storing large files on EOS","level":"2.1.17","depth":2,"path":"first-analysis-steps/eos-storage.md","ref":"first-analysis-steps/eos-storage.md","articles":[]},"previous":{"title":"Splitting a job into subjobs","level":"2.1.15","depth":2,"path":"first-analysis-steps/split-jobs.md","ref":"first-analysis-steps/split-jobs.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-sharing","panels@git+https://github.com/lhcb/gitbook-plugin-panels.git#master","katex-auto-render@git+https://github.com/lhcb/gitbook-plugin-katex-auto-render.git#master","collapsible-menu","otherlink"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"collapsible-menu":{},"search":{},"otherlink":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"panels":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"katex-auto-render":{},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"The Starterkit team and contributors","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"gitbook":"*"},"file":{"path":"first-analysis-steps/ganga-data.md","mtime":"2018-11-24T17:48:19.502Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-11-24T17:49:42.927Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
