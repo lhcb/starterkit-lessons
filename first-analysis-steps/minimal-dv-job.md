@@ -121,11 +121,25 @@ we downloaded earlier.
 {% callout "Database tags" %}
 Generally, the `CondDB` and `DDDB` tags are different for each dataset you
 want to use, but will be the same for all DSTs within a given dataset.
-When using simulated data, *always* find out what the database tags are for
-your dataset!
+
 For real collision data, you shouldn't specify these tags, as the default
 tags are the latest and greatest, so just remove those lines from the options
 file.
+
+However, when using simulated data, *always* find out what the database tags are for
+your dataset!
+
+There are several ways to access the database tags used for a specific production, but the most reliable one consists of the following steps:
+- Find the bookkeeping location of any DST for your desired event type and conditions (e.g. `/lhcb/MC/2016/ALLSTREAMS.DST/00070793/0000/00070793_00000002_7.AllStreams.dst`).
+- The number after `ALLSTREAMS.DST` is the number of the production: in this case, `00070793`.
+- Go to the [transformation monitor](https://lhcb-portal-dirac.cern.ch/DIRAC/?view=tabs&theme=Grey&url_state=1|*LHCbDIRAC.BookkeepingBrowser.classes.BookkeepingBrowser:*LHCbDIRAC.LHCbTransformationMonitor.classes.LHCbTransformationMonitor:,). Put this number in the field `ProductionID(s):` and press "Submit". You will see the details of the production to the right.
+- Click the right button on these details, and press "Show request". The new tab "Production Request manager" will appear to the right of the "LHCb Transformation Monitor". Go to that tab.
+- You will see the details of the MC request. Click right button on it, and press "View".
+- A new window will pop up with the complete details of the request. You have to find the "Step 1" section, and the following line in it `DDDB: dddb-20170721-3 Condition DB: sim-20170721-2-vc-md100` contains your database tags.
+
+Note that the Condition DB tags for different magnet polarities are different: `-md100` should be replaced by `-mu100` for the MagUp conditions. 
+
+This method can also be used to find other details about how any data was processed by DIRAC, such as the options files and application versions.
 {% endcallout %} 
 
 In order to run an algorithm that we have previously created, we need to add it
