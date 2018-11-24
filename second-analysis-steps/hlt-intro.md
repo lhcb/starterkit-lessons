@@ -144,7 +144,7 @@ Moore().EnableTimer = True
 #Moore().OutputLevel = INFO
 # Input data
 from PRConfig import TestFileDB
-TestFileDB.test_file_db["22017NB_L0Filt0x18A1"].run(configurable=Moore())
+TestFileDB.test_file_db["2017NB_L0Filt0x18A1"].run(configurable=Moore())
 Moore().DataType = "2018"
 Moore().EvtMax = 1000
 print Moore()
@@ -171,7 +171,7 @@ Moore().outputFile = "TestTCK2.mdf"
 # A bit more output
 from Gaudi.Configuration import INFO
 Moore().EnableTimer = True
-Moore().OutputLevel = INFO
+#Moore().OutputLevel = INFO
 # Input data
 Moore().DDDBtag = 'dddb-20150724'
 Moore().CondDBtag = 'cond-20170724'
@@ -192,7 +192,14 @@ $ lb-run Moore/latest TCKsh
 > listConfigurations()
 ```
 
-There are other useful commands like `listHlt1Lines(<TCK>)` or `listHlt2Lines(<TCK>)`.
+Useful commands are `listHlt1Lines(<TCK>)` or `listHlt2Lines(<TCK>)` which show lists of the lines in Hlt1 or Hlt2. If you replace list with get, a list with the lines is returned.
+
+If you want to get an overview of an Hlt line and its algorithms, you can do 
+
+```
+> dump(<TCK>, lines = <line_names_regex>, file="output.txt")
+```
+
 More advanced is to search for properties of a line. One example is to search for the prescale.
 The prescale determines how often a line is executed, 1.0 means always, 0.0 never.
 Type for example:
@@ -202,6 +209,7 @@ Type for example:
 ...
 > listProperties(0x214a160f,".*Hlt2DiMuonJPsiPreScaler.*","AcceptFraction")
 ```
+The regex is needed to search through all algorithms connected to a line.
 
 {% challenge "Compare HLT1 lines from Run1 and Run2" %}
 Try to find out which HLT1 lines were available in Run 1 and which are now available in Run 2.
@@ -241,7 +249,11 @@ Add an entry with the key `MinProbNN` and set some value. If you search for `JPs
 uses `JpsiFilter` from `Stages.py`. As it is used by another line as well, you have to add the entry to `JPsiHighPT` as well.
 JpsiFilter simply uses muon pairs as input.  Go to Stages.py  and adapt the code of the `Hlt2ParticleFilter` to filter on the
 pid of the muons, to do that add `(MINTREE('mu-' == ABSID, PROBNNmu) > %(MinProbNN)s )`
-to the cut string. Run Moore again and see if the rate of this line has now decreased.
+to the cut string. Run Moore again and see if the rate of this line has now decreased. If you are happy, you can do
+```
+$ git lb-push Hlt myNewLine
+```
+and create a merge request.
 
 For more complicated developments which require changing many files or concurrent development of several people,
 we encourage to use a full checkout of the `Moore` and `Hlt` projects and to use vanilla git commands.
