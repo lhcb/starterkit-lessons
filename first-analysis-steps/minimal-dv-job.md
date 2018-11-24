@@ -121,7 +121,12 @@ we downloaded earlier.
 {% callout "Database tags" %}
 Generally, the `CondDB` and `DDDB` tags are different for each dataset you
 want to use, but will be the same for all DSTs within a given dataset.
-When using simulated data, *always* find out what the database tags are for
+
+For real collision data, you shouldn't specify these tags, as the default
+tags are the latest and greatest, so just remove those lines from the options
+file.
+
+However, when using simulated data, *always* find out what the database tags are for
 your dataset!
 
 There are several ways to access the database tags used for a specific production, but the most reliable one consists of the following steps:
@@ -134,9 +139,7 @@ There are several ways to access the database tags used for a specific productio
 
 Note that the Condition DB tags for different magnet polarities are different: `-md100` should be replaced by `-mu100` for the MagUp conditions. 
 
-For real collision data, you shouldn't specify these tags, as the default
-tags are the latest and greatest, so just remove those lines from the options
-file.
+This method can also be used to find other details about how any data was processed by DIRAC, such as the options files and application versions.
 {% endcallout %} 
 
 In order to run an algorithm that we have previously created, we need to add it
