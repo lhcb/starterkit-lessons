@@ -132,6 +132,8 @@ There are several ways to access the database tags used for a specific productio
 - You will see the details of the MC request. Click right button on it, and press "View".
 - A new window will pop up with the complete details of the request. You have to find the "Step 1" section, and the following line in it `DDDB: dddb-20170721-3 Condition DB: sim-20170721-2-vc-md100` contains your database tags.
 
+Note that the Condition DB tags for different magnet polarities are different: `-md100` should be replaced by `-mu100` for the MagUp conditions. 
+
 For real collision data, you shouldn't specify these tags, as the default
 tags are the latest and greatest, so just remove those lines from the options
 file.
