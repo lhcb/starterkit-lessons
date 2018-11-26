@@ -97,8 +97,8 @@ DaVinci().Simulation = True
 # Only ask for luminosity information when not using simulated data
 DaVinci().Lumi = not DaVinci().Simulation
 DaVinci().EvtMax = -1
-DaVinci().CondDBtag = 'sim-20161124-2-vc-md100'
-DaVinci().DDDBtag = 'dddb-20150724'
+DaVinci().CondDBtag = 'sim-20170721-2-vc-md100'
+DaVinci().DDDBtag = 'dddb-20170721-3'
 ```
 
 Nicely, a lot of the attributes of the `DaVinci` object are self-explanatory:
@@ -132,7 +132,7 @@ your dataset!
 There are several ways to access the database tags used for a specific production, but the most reliable one consists of the following steps:
 - Find the bookkeeping location of any DST for your desired event type and conditions (e.g. `/lhcb/MC/2016/ALLSTREAMS.DST/00070793/0000/00070793_00000002_7.AllStreams.dst`).
 - The number after `ALLSTREAMS.DST` is the number of the production: in this case, `00070793`.
-- Go to the [transformation monitor](https://lhcb-portal-dirac.cern.ch/DIRAC/?view=tabs&theme=Grey&url_state=1|*LHCbDIRAC.BookkeepingBrowser.classes.BookkeepingBrowser:*LHCbDIRAC.LHCbTransformationMonitor.classes.LHCbTransformationMonitor:,). Put this number in the field `ProductionID(s):` and press "Submit". You will see the details of the production to the right.
+- Go to the [transformation monitor](https://lhcb-portal-dirac.cern.ch/DIRAC/?view=tabs&theme=Grey&url_state=1|*LHCbDIRAC.LHCbTransformationMonitor.classes.LHCbTransformationMonitor:,). Put this number in the field `ProductionID(s):` and press "Submit". You will see the details of the production to the right.
 - Click the right button on these details, and press "Show request". The new tab "Production Request manager" will appear to the right of the "LHCb Transformation Monitor". Go to that tab.
 - You will see the details of the MC request. Click right button on it, and press "View".
 - A new window will pop up with the complete details of the request. You have to find the "Step 1" section, and the following line in it `DDDB: dddb-20170721-3 Condition DB: sim-20170721-2-vc-md100` contains your database tags.
