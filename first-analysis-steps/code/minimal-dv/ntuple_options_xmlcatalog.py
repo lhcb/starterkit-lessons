@@ -21,19 +21,19 @@ DaVinci().Simulation = True
 # Only ask for luminosity information when not using simulated data
 DaVinci().Lumi = not DaVinci().Simulation
 DaVinci().EvtMax = -1
-DaVinci().CondDBtag = 'sim-20161124-2-vc-md100'
-DaVinci().DDDBtag = 'dddb-20150724'
+DaVinci().CondDBtag = 'sim-20170721-2-vc-md100'
+DaVinci().DDDBtag = 'dddb-20170721-3'
 
 # Use input data from the bookkeeping query with XML catalog
 importOptions(
     "MC_2016_27163002_"
-    "Beam6500GeV2016MagDownNu1.625nsPythia8_Sim09b_"
+    "Beam6500GeV2016MagDownNu1.625nsPythia8_Sim09c_"
     "Trig0x6138160F_Reco16_Turbo03_"
-    "Stripping28NoPrescalingFlagged_ALLSTREAMS.DST.py"
+    "Stripping28r1NoPrescalingFlagged_ALLSTREAMS.DST.py"
     )
 FileCatalog().Catalogs = [
     "xmlcatalog_file:MC_2016_27163002_"
-    "Beam6500GeV2016MagDownNu1.625nsPythia8_Sim09b_"
+    "Beam6500GeV2016MagDownNu1.625nsPythia8_Sim09c_"
     "Trig0x6138160F_Reco16_Turbo03_"
-    "Stripping28NoPrescalingFlagged_ALLSTREAMS.DST.xml"
+    "Stripping28r1NoPrescalingFlagged_ALLSTREAMS.DST.xml"
     ]
