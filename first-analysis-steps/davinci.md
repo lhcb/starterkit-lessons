@@ -19,7 +19,7 @@ It's worth thinking about these for a second:
 How would you go about solving these?
 The decisions you make will affect the performance of your experiment during datataking and analysis.
 
-At LHCb, we base our software on the [Gaudi](https://proj-gaudi.web.cern.ch/proj-gaudi/) framework, which was specifically designed with the above questions in mind.
+At LHCb, we base our software on the [Gaudi](https://gaudi.web.cern.ch/gaudi/) framework, which was specifically designed with the above questions in mind.
 It's worth getting an idea of some of the most important Gaudi concepts at this point.
 After this, we will jump right into running the software and getting useful things done.
 
@@ -47,7 +47,7 @@ To make all of this configurable, Gaudi allows you to set properties of *Algorit
 In an option file, you can specify which Algorithms are run in which order, and set their properties (strings, integers, doubles, and lists and dicts of these things can be set).
 You can then start the Gaudi EventLoop using this option file, and it will set up and run the corresponding C++ objects with specified settings.
 
-You can find comprehensive documentation in the [Gaudi Doxygen](https://proj-gaudi.web.cern.ch/proj-gaudi/releases/latest/doxygen/) or the [Gaudi Manual](http://lhcb-comp.web.cern.ch/lhcb-comp/Frameworks/Gaudi/Gaudi_v9/GUG/GUG.pdf).
+You can find comprehensive documentation in the [Gaudi Doxygen](https://gaudi.web.cern.ch/gaudi/doxygen/v30r3/index.html) or the [Gaudi Manual](https://gaudi.web.cern.ch/gaudi/resources/GUG.pdf).
 
 Usually, you will work with one of the LHCb software projects that are based on Gaudi.
 One of the most important ones is *DaVinci*, which provides lots of *Algorithms* and *Tools* for physics analysis.
