@@ -98,6 +98,19 @@ straight to:
 by typing this path and pressing the `Go` button.
 {% endcallout %}
 
+Now, let's get to the real data!
+
+Let's assume the drop-down menu at the bottom of the "Bookkeeping tree" tab is changed to `Event
+type`, as in the previous case. The real data is stored in the directory `LHCb` (as opposed to `MC` for the simulation). Navigating inside this directory, you may find the folders corresponding to the various datasets, for example, calibration data taken in different years, or the actual collision data. 
+If you are interested in analysing the dataset of proton-proton collisions for a given year (say 2016), you should find a directory called `Collision16`. 
+This is different for collisions involving other particles than protons, each of them has its own directory (e.g. `Protonhelium18` or `Lead15`). 
+
+We will focus on the proton-proton collisions here. Inside the `Colision16` folder, you will find a set of event types. 
+The ones which are the most important are `90000000` corresponding to the data processed by the Stripping framework, and `94000000` corresponding to the Turbo data. If you would like to use the Stripping dataset, select the necessary data taking conditions (e.g. `Beam6500GeV-VeloClosed-MagDown`), navigate to the `Real Data`  and select the version of the Reconstruction (e.g. `Reco16`). You will see a list of available Stripping versions for a given dataset. 
+Inside each of the folders, you find a list of `DST` and `MDST` files corresponding to different streams, and sub-folders containing so-called Working Group Productions, which are the reduced versions of relevant streams with certain preselection applied. 
+Similar strategy holds for the Turbo dataset, but instead of selecting the Reconstruction and Stripping versions, one has to choose the version of the Turbo.
+
+
 {% challenge "Find your own decay!" %}
 Think of a decay and try to find a Monte Carlo sample for it. You could use 
 the decay that your analysis is about, or if you don't have any ideas you 
