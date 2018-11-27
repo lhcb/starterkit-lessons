@@ -231,3 +231,72 @@ script with:
 TFile::Open('root://eoslhcb.cern.ch//eos/lhcb/user/a/another/starterkit/myfavouritefile.root')
 ```
 {% endcallout %} 
+
+If you are working with plenty of heavy files, at some point you might be interested in checking how much of your EOS quota is actually filled. This can be done using `eos quota` command with the following syntax:
+```bash
+$ eos quota /eos/lhcb/user/a/another
+```
+
+Checking the grid storage quota is more complicated. To do so, you need to run the LHCbDirac using your grid certificate:
+```bash
+$ lb-run LHCbDirac/prod bash --norc
+$ lhcb-proxy-init
+```
+To check the current quota, one simply types
+```bash
+$ dirac-dms-user-quota
+```
+However, this does not show the actual amount of space used. To see it, one types
+```bash
+$ dirac-dms-storage-usage-summary --Directory /eos/lhcb/grid/user/lhcb/user/a/another
+```
+This will show a summary of your data on every grid site:
+```output
+Storage usage for directories ['/lhcb/user/a/another/']
+------------------------------------------------
+DIRAC SE             Size (TB)            Files               
+------------------------------------------------
+CERN-USER            0.111                4272                
+CNAF-USER            0.132                2443                
+GRIDKA-USER          0.156                1332                
+IN2P3-USER           0.054                1453                
+PIC-USER             0.018                247                 
+RAL-USER             0.121                3548                
+SARA-USER            0.051                815                 
+Total (disk)         0.642                14110               
+------------------------------------------------
+```
+If you are using grid storage extensively, your qouta will run out and you will be requested to clean the storage.
+To have a summary of locations of all your old files, type
+```bash
+$ dirac-dms-user-lfns --BaseDir=/lhcb/user/a/another
+```
+This command creates a `lhcb-user-a-another.lfns` file containing the list of LFNs for your old data. (This takes some time, if you have plenty of files).
+You may also specify subdirectories in the option `--BaseDir` if you need to remove something specific.
+There is a number of options allowing to select only files of certain name or produced before certain date, which may be reviewed in the following way:
+```bash
+$ dirac-dms-user-lfns --help
+```
+Having the `.lfns` file allows you to check the amount of space occupied by these files:
+```bash
+$ dirac-dms-data-size lhcb-user-a-another.lfns 
+```
+```output
+------------------------------
+Files          |      Size (GB)
+------------------------------
+7120           |            5.2
+------------------------------
+```
+Finally, to remove these files, one does
+```bash
+$ dirac-dms-remove-files lhcb-user-a-another.lfns
+```
+{% callout "Removal by direct path" %}
+One may also simply remove a single specific file providing the path to it:
+```bash
+$ dirac-dms-remove-files /lhcb/user/a/another/2017_08/176410/176410700/Tuple.root 
+```
+{% endcallout %} 
+
+Beware that the `dirac-dms-remove-files` command removes only the files, not the folders. You will have the empty folders left, however you should do nothing with this, they will be cleaned automatically after some time. 
