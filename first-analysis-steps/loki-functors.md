@@ -45,7 +45,7 @@ cands = evt['/Event/AllStreams/Phys/D2hhPromptDst2D2KKLine/Particles']
 cand = cands[0]
 ```
 
-We can now try to get very simple properties of the $$D^{* -}$$ candidate. Let's start from the components of its momentum.
+We can now try to get very simple properties of the $$D^{* +}$$ candidate. Let's start from the components of its momentum.
 This can be done calling the function `momentum()` for our candidate in the following way:
 ```python
 p_x = cand.momentum().X()
@@ -107,7 +107,7 @@ print PT(cand)/GeV
 ```
 {% endcallout %} 
 
-If we want to get the properties of the $$D^{* -}$$ vertex, for example its fit 
+If we want to get the properties of the $$D^{* +}$$ vertex, for example its fit 
 quality ($$\chi^2$$), we need to pass a vertex object to the vertex functor.
 
 ```python
@@ -187,7 +187,7 @@ The list can be overwhelming, so it's also worth checking a more curated selecti
 {% endcallout %} 
 
 So far we've only looked at the properties of the head of the decay (that is, 
-the $$D^{* -}$$), but what if we want to get information about its daughters? As 
+the $$D^{* +}$$), but what if we want to get information about its daughters? As 
 an example, let's get the largest transverse momentum of the final state 
 particles.
 A simple solution would be to navigate the tree and calculate the maximum 
@@ -268,13 +268,14 @@ For example, from
 In [10]: cand.daughtersVector()
 Out[10]:
 
-0 |->D~0                          M/PT/E/PX/PY/PZ: 1.8643/ 2.841 / 34.29/ 1.288/ 2.532/ 34.12 [GeV]  #  1 
-                                     EndVertex  X/Y/Z: 1.042/0.2034/-112.2 [mm]  Chi2/nDoF 0.007451/1 #  1 
-1    |->K-                        M/PT/E/PX/PY/PZ: 0.4937/ 2.2054/ 19.37/ 1.481/ 1.634/ 19.23 [GeV]  #  8 
-1    |->K+                        M/PT/E/PX/PY/PZ: 0.4937/ 0.9181/ 14.92/-0.1928/0.8977/ 14.89 [GeV]  #  7 
-0 |->pi-                          M/PT/E/PX/PY/PZ: 0.1396/ 0.1808/ 2.544/0.1047/0.1474/ 2.534 [GeV]  #  1 
+ 0 |->D0                           M/PT/E/PX/PY/PZ: 1.8653/ 2.5848/ 31.32/ 2.508/-0.6267/ 31.15 [GeV]  #  0 
+                                       EndVertex  X/Y/Z: 1.053/-0.2006/-29.13 [mm]  Chi2/nDoF 0.2349/1 #  0 
+ 1    |->K+                        M/PT/E/PX/PY/PZ: 0.4937/ 2.1334/ 20.26/ 2.129/0.1371/ 20.14 [GeV]  #  5 
+ 1    |->K-                        M/PT/E/PX/PY/PZ: 0.4937/ 0.8534/ 11.06/0.3795/-0.7643/ 11.01 [GeV]  # 10 
+ 0 |->pi+                          M/PT/E/PX/PY/PZ: 0.1396/ 0.2558/ 3.101/0.2451/-0.0733/ 3.088 [GeV]  #  4 
+
 ```
-we know that `D~0` is the first child and `pi-` is the second.
+we know that `D0` is the first child and `pi+` is the second.
 Therefore, to access the mass of the $$D^{0}$$ we have 2 options:
 ```python
 from LoKiPhys.decorators import CHILD
@@ -287,7 +288,7 @@ mass == mass_child
 ```
 
 {% challenge "Child vertex?" %}
-Evaluate the quality of the $$D^{0}$$ decay vertex.
+Evaluate the quality of the D0 decay vertex.
 {% endchallenge %} 
 
 In the similar way, we may access properties of child of the child: for example, a kaon from the $$D^{0}$$ decay:
