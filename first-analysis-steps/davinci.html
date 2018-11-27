@@ -825,7 +825,7 @@
                                 <section class="normal markdown-section">
                                 
                                 <h1 id="an-introduction-to-lhcb-software">An introduction to LHCb Software</h1>
-<p><div class="panel panel-warning"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(3215551801);" id="learning-objectives"><i class="fa fa-line-chart"></i> Learning Objectives<span id="heading-3215551801"></span></h3></div><div class="panel-body" id="panel-3215551801"><ul>
+<p><div class="panel panel-warning"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(9135992544);" id="learning-objectives"><i class="fa fa-line-chart"></i> Learning Objectives<span id="heading-9135992544"></span></h3></div><div class="panel-body" id="panel-9135992544"><ul>
 <li>Learn the key concepts needed to work with the LHCb software</li>
 <li>Learn how to launch the LHCb software with <code>lb-run</code></li>
 </ul>
@@ -843,7 +843,7 @@ It&apos;s worth thinking about these for a second:</p>
 </ul>
 <p>How would you go about solving these?
 The decisions you make will affect the performance of your experiment during datataking and analysis.</p>
-<p>At LHCb, we base our software on the <a href="https://proj-gaudi.web.cern.ch/proj-gaudi/" target="_blank">Gaudi</a> framework, which was specifically designed with the above questions in mind.
+<p>At LHCb, we base our software on the <a href="https://gaudi.web.cern.ch/gaudi/" target="_blank">Gaudi</a> framework, which was specifically designed with the above questions in mind.
 It&apos;s worth getting an idea of some of the most important Gaudi concepts at this point.
 After this, we will jump right into running the software and getting useful things done.</p>
 <p><strong>Event Loop</strong>
@@ -865,7 +865,7 @@ These are implemented as <em>Tools</em>, which are shared between Algorithms.</p
 To make all of this configurable, Gaudi allows you to set properties of <em>Algorithms</em> and <em>Tools</em> from a Python script, called an <em>option</em> file.
 In an option file, you can specify which Algorithms are run in which order, and set their properties (strings, integers, doubles, and lists and dicts of these things can be set).
 You can then start the Gaudi EventLoop using this option file, and it will set up and run the corresponding C++ objects with specified settings.</p>
-<p>You can find comprehensive documentation in the <a href="https://proj-gaudi.web.cern.ch/proj-gaudi/releases/latest/doxygen/" target="_blank">Gaudi Doxygen</a> or the <a href="http://lhcb-comp.web.cern.ch/lhcb-comp/Frameworks/Gaudi/Gaudi_v9/GUG/GUG.pdf" target="_blank">Gaudi Manual</a>.</p>
+<p>You can find comprehensive documentation in the <a href="https://gaudi.web.cern.ch/gaudi/doxygen/v30r3/index.html" target="_blank">Gaudi Doxygen</a> or the <a href="https://gaudi.web.cern.ch/gaudi/resources/GUG.pdf" target="_blank">Gaudi Manual</a>.</p>
 <p>Usually, you will work with one of the LHCb software projects that are based on Gaudi.
 One of the most important ones is <em>DaVinci</em>, which provides lots of <em>Algorithms</em> and <em>Tools</em> for physics analysis.</p>
 <p>You can run DaVinci using the following command <a href="prerequisites.html#Pre-workshop%20checklist">on lxplus</a>:</p>
@@ -905,7 +905,7 @@ You can also specify several option files like this:</p>
 <p>Do you want to get an overview of which versions of DaVinci exist? Use</p>
 <pre><code class="lang-bash">lb-run --list DaVinci
 </code></pre>
-<p><div class="panel panel-primary"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(2676943294);" id="which-version-of-davinci-should-i-use"><i class="fa fa-info-circle"></i> Which version of DaVinci should I use?<span id="heading-2676943294"></span></h3></div><div class="panel-body" id="panel-2676943294"><p>All available versions of DaVinci are given on the <a href="http://lhcbdoc.web.cern.ch/lhcbdoc/davinci/releases/" target="_blank">DaVinci releases</a>
+<p><div class="panel panel-primary"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(5851651121);" id="which-version-of-davinci-should-i-use"><i class="fa fa-info-circle"></i> Which version of DaVinci should I use?<span id="heading-5851651121"></span></h3></div><div class="panel-body" id="panel-5851651121"><p>All available versions of DaVinci are given on the <a href="http://lhcbdoc.web.cern.ch/lhcbdoc/davinci/releases/" target="_blank">DaVinci releases</a>
 page. Which one should you use? There are a couple of guidelines to follow:</p>
 <ol>
 <li>When starting a new analysis, use the latest version suitable for the data
@@ -931,7 +931,7 @@ Execute</p>
 <p>avoids this, but means you won&apos;t be able to use any aliases, etc, included in the ignored rc file.</p>
 <p>A simple <code>gaudirun.py</code> should work as well now.
 Typing <code>exit</code> or using <code>Ctrl-d</code> will close the shell and leave the LHCb environment behind.</p>
-<p><div class="panel panel-primary"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(9937388957);" id="using-setupproject-instead-of-lb-run"><i class="fa fa-info-circle"></i> Using SetupProject instead of lb-run<span id="heading-9937388957"></span></h3></div><div class="panel-body" id="panel-9937388957"><p>When reading through other tutorials, you will come across <code>SetupProject</code>.
+<p><div class="panel panel-primary"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(8309814967);" id="using-setupproject-instead-of-lb-run"><i class="fa fa-info-circle"></i> Using SetupProject instead of lb-run<span id="heading-8309814967"></span></h3></div><div class="panel-body" id="panel-8309814967"><p>When reading through other tutorials, you will come across <code>SetupProject</code>.
 This is an older way of setting up a shell that is configured to run LHCb software.
 <code>lb-run</code> is the new way of doing things and has some nice benefits over <code>SetupProject</code>.
 For most purposes, <code>SetupProject DaVinci v44r6</code> is equivalent to</p>
@@ -982,7 +982,7 @@ For most purposes, <code>SetupProject DaVinci v44r6</code> is equivalent to</p>
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"An introduction to LHCb Software","level":"2.1.6","depth":2,"next":{"title":"Finding data in the Bookkeeping","level":"2.1.7","depth":2,"path":"first-analysis-steps/bookkeeping.md","ref":"first-analysis-steps/bookkeeping.md","articles":[]},"previous":{"title":"Changes to the data flow in Run 2","level":"2.1.5","depth":2,"path":"first-analysis-steps/run-2-data-flow.md","ref":"first-analysis-steps/run-2-data-flow.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-sharing","panels@git+https://github.com/lhcb/gitbook-plugin-panels.git#master","katex-auto-render@git+https://github.com/lhcb/gitbook-plugin-katex-auto-render.git#master","collapsible-menu","otherlink"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"collapsible-menu":{},"search":{},"otherlink":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"panels":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"katex-auto-render":{},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"The Starterkit team and contributors","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"gitbook":"*"},"file":{"path":"first-analysis-steps/davinci.md","mtime":"2018-11-26T22:09:06.244Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-11-26T22:10:32.243Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"An introduction to LHCb Software","level":"2.1.6","depth":2,"next":{"title":"Finding data in the Bookkeeping","level":"2.1.7","depth":2,"path":"first-analysis-steps/bookkeeping.md","ref":"first-analysis-steps/bookkeeping.md","articles":[]},"previous":{"title":"Changes to the data flow in Run 2","level":"2.1.5","depth":2,"path":"first-analysis-steps/run-2-data-flow.md","ref":"first-analysis-steps/run-2-data-flow.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-sharing","panels@git+https://github.com/lhcb/gitbook-plugin-panels.git#master","katex-auto-render@git+https://github.com/lhcb/gitbook-plugin-katex-auto-render.git#master","collapsible-menu","otherlink"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"collapsible-menu":{},"search":{},"otherlink":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"panels":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"katex-auto-render":{},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"The Starterkit team and contributors","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"gitbook":"*"},"file":{"path":"first-analysis-steps/davinci.md","mtime":"2018-11-27T07:11:36.774Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-11-27T07:13:05.639Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
