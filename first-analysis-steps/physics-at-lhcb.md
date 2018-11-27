@@ -58,7 +58,7 @@ proton-proton bunches collided, several _primary vertices_ can be created in
 the interaction region. We can reconstruct primary vertices by looking for
 intersections in space of large numbers of tracks.
 
-Much more detail on the LHCb reconstruction can be found TODO. It is
+Much more detail on the LHCb reconstruction can be found in the [LHCb detector description][detdesc] and [Run 1 performance][run1perf] papers (these are both rather long, but worth taking the time to read). It is
 recommended that you become familiar with at least the aspects of the
 reconstruction that are relevant to your analysis. For now, we only need to
 understand tracks and vertices, and how decays can be reconstructed and
@@ -147,6 +147,8 @@ properties that are relevant for your analysis.
 [pdgphi]: http://pdglive.lbl.gov/Particle.action?init=0&node=M004&home=MXXX005
 [pdgbs]: http://pdglive.lbl.gov/Particle.action?init=0&node=S086&home=MXXX046
 [deuterium]: https://en.wikipedia.org/wiki/Deuterium
+[detdesc]: http://iopscience.iop.org/article/10.1088/1748-0221/3/08/S08005
+[run1perf]: https://arxiv.org/abs/1412.6352
 
 [^1]: ‘Candidate’ because, again, we never know anything with complete certainty; this could be combination of muons that just happen to pass our selection criteria.
 
