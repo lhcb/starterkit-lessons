@@ -106,9 +106,3 @@ You may also use the following path which is independent of the EOS mount (the m
 ```bash
 $ root root://eoslhcb.cern.ch//eos/lhcb/user/a/another/myfavouritefile.root
 ```
-or, alternatively,
-
-```bash
-$ root $EOS_MGM_URL//eos/lhcb/user/a/another/myfavouritefile.root
-```
-
