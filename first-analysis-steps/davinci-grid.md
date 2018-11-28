@@ -50,7 +50,7 @@ with the option files given in `j.application.options` using a
 backend called `Dirac`, which is "the grid". Instead of specifying the
 files to process as part of the options file you have now to tell the
 `Job` about it. This allows `ganga` to split your job up by setting `j.splitter`,
-processing different files simultaneously. More details about the splitter is given in the [next lesson](split-jobs.html). Note that data will be accessed using its path in the bookkeeping `bkPath`. In order to speed-up our job, only the first 2 elements (files) of `data` will be accessed; we don't need to look at much data here. 
+processing different files simultaneously. More details about the splitter are given in the [next lesson](split-jobs.html). Note that data will be accessed using its path in the bookkeeping `bkPath`. In order to speed-up our job, only the first 2 elements (files) of `data` will be accessed; we don't need to look at much data here. 
 
 {% callout "DaVinciDev folder" %}
 When you create a job using `prepareGaudiExec('DaVinci','v44r6', myPath='.')`
