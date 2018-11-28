@@ -37,6 +37,7 @@ j.backend = Dirac()
 j.outputfiles = [
     DiracFile('DVntuple.root')
 ]
+j.splitter = SplitByFiles(filesPerJob=5)
 j.submit()
 ```
 
