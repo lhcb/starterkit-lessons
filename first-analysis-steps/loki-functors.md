@@ -165,10 +165,9 @@ Some functors also end with the suffix `DV`, which means they can only be used i
 
 To get the quality of impact parameter of the candidate, one needs as well to call a distance calculator:
 ```python
-from GaudiPython.Bindings import AppMgr, gbl 
-gaudi = AppMgr() 
-distCal = gaudi.toolSvc().create("LoKi::DistanceCalculator", interface=gbl.IDistanceCalculator) 
-ipTool = gbl.LoKi.Vertices.ImpactParamTool(distCal) 
+from GaudiPython.Bindings import gbl
+distCal = appMgr.toolSvc().create("LoKi::DistanceCalculator", interface=gbl.IDistanceCalculator)
+ipTool = gbl.LoKi.Vertices.ImpactParamTool(distCal)
 ```
 Now, we evaluate the quality of impact parameter of the candidate, given the primary vertex, and using the provided calculator:
 ```python
