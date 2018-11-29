@@ -207,7 +207,7 @@ def find_tracks(particle):
                     tracks.append(particle)
     else:
         for child in particle.daughters():
-            tracks.extend(find_tracks(child))
+            tracks += find_tracks(child)
     return tracks
 
 max_pt = max([PT(child) for child in find_tracks(cand)])
