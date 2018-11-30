@@ -206,6 +206,7 @@ are a few things you might proceed to do with these parameters in your script:
   'Ntuples_{0}_{1}.format(year, polarity)'`;
 * Give data-specific options files to the `application` object, e.g. if you 
   have one options file per year defining `DaVinci().DataType`.
+* Run your whole gangascript in the background so it doesn't interrupt you in the flow of submitting with:`execfile("create_job.py")`.
 
 Of course, you can add as many arguments as you think might be useful.
 Above we added the `--test` flag as an example: if this is `True`, you could 
