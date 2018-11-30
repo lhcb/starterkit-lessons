@@ -42,7 +42,7 @@ Note that you can constrain more than one intermediate state at once if that fit
 When using the `TupleToolDecayTreeFitter` in a `DecayTreeTuple`, all the variables created by the other TupleTools are not affected by the change, but some new variables are created, one set per `DecayTreeFitter` instance. Depending on whether the `Verbose` option is specified, the new variables are created for the head particle only or for the head particle and its daughters too.
 
 If the daughters are not stable particles and decay further, the daughters of the daughters have no new variables associated to them by default.
-Since in many cases this information might be useful, there is an option to store the information from those tracks
+Since in many cases this information might be useful, there is an option to store the information from those tracks: 
 ```python
 dtt.Dstar.ConsD.UpdateDaughters = True
 ```
