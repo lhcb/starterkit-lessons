@@ -1,5 +1,6 @@
 j = Job(application=DaVinci(version='v41r2'))
 j.backend = Dirac()
+#Random name
 j.name = 'First ganga job'
 j.inputdata = j.application.readInputData((
     'data/'
