@@ -65,6 +65,11 @@ If that is the case, try to reset the Dirac backend:
 ```python
 jobs(787).subjobs(42).backend.reset()
 ```
+If you want to this for all stucked subjobs of your job in once, you can use
+```python
+jobs(787).backend.reset(True)
+```
+
 If that doesn't help, try failing the job and resubmitting:
 ```python
 jobs(787).subjobs(42).force_status('failed')
