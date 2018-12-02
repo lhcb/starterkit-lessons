@@ -134,7 +134,7 @@ There are several ways to access the database tags used for a specific productio
 - The number after `ALLSTREAMS.DST` is the number of the production: in this case, `00070793`.
 - Go to the [transformation monitor](https://lhcb-portal-dirac.cern.ch/DIRAC/?view=tabs&theme=Grey&url_state=1|*LHCbDIRAC.LHCbTransformationMonitor.classes.LHCbTransformationMonitor:,). Put this number in the field `ProductionID(s):` and press "Submit". You will see the details of the production to the right.
 - Right click on these details, and press "Show request". The new tab "Production Request manager" will appear to the right of the "LHCb Transformation Monitor". Go to that tab.
-- You will see the details of the MC request. Right click button on it, and press "View".
+- You will see the details of the MC request. Right click on it, and press "View".
 - A new window will pop up with the complete details of the request. You have to find the "Step 1" section, and the following line in it `DDDB: dddb-20170721-3 Condition DB: sim-20170721-2-vc-md100` contains your database tags.
 
 Note that the Condition DB tags for different magnet polarities are different: `-md100` should be replaced by `-mu100` for the MagUp conditions. 
