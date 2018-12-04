@@ -125,10 +125,9 @@ dtt.Dstar.ConsDKpi.daughtersToConstrain = ['D0']
 We now can tell the fitter to substitute one of the kaons in the D0 decay by a pion.
 ```python
 dtt.Dstar.ConsDKpi.Substitutions = {
-    'Charm -> (D0 -> ^K- K+) Meson': 'pi-',
-    'Charm -> (D~0 -> ^K+ K-) Meson': 'pi+',
     'Charm -> (D0 -> K- ^K+) Meson': 'pi+',
-    'Charm -> (D~0 -> K+ ^K-) Meson': 'pi-'}
+    'Charm -> (D~0 -> K+ ^K-) Meson': 'pi-'
+}
 ```
 In the dictionary that is passed to the `Substitutions` property of the fitter, the keys are decay descriptors, where the respective particle to be substituted is marked with a `^`. The values are the respective new particle hypotheses. The substitution will only work if you start from a decay descriptor that actually matches your candidates. However, you are allowed to generalise parts of the decay. Here we replaced `D*(2010)` with the more general `Charm` and the bachelor `pi-` is just represented by a `Meson`.
 
