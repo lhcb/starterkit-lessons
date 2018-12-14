@@ -16,7 +16,6 @@ The VOMS client can be installed in the following ways, if your operating system
 
 ```bash
 brew cask install java
-brew cask install jce-unlimited-strength-policy
 brew install voms
 ```
 
