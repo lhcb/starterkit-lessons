@@ -32,6 +32,7 @@ Allows to re-use the underlying event but generates and simulates new signal dec
 speed-ups by a factor between 10 and 20 are typically seen. Additionally, the same precision as in the nominal simulation is reached.
 However, as the underlying event and the kinematics of the signal particle remain unchanged, correlations between different events are introduced whose
 effect depends on the studied observables and need to be handled with care if significant.
+See also https://twiki.cern.ch/twiki/bin/view/LHCb/ReDecay.
 
 ## Speeding up the generation
 
@@ -42,3 +43,4 @@ to split the generator cuts: One part is applied as usual, triggering a reset of
 EvtGen generated the signal decay. If the generated decay fails (e.g. the invariant mass combination of two children is below a threshold), the decay products are
 removed and a new decay is generated until the cuts are passed. This avoids rerunning Pythia unnecessarily and can lead to substantial CPU savings when studying rare
 particles (e.g. $$\Lambda_b$$).
+For implementation details, see https://twiki.cern.ch/twiki/bin/view/LHCb/GeneratorLevelEvtGenCuts
