@@ -57,6 +57,11 @@
 
 * [Self guided lessons](self-guided-lessons/README.md)
 
+---
+
+* [Using the grid](using-the-grid/README.md)
+    * [Grid proxies without LbScripts](using-the-grid/local-grid-proxy.md)
+
 ----
 
  * [Download PDF](ref://starterkit-lessons.pdf)
