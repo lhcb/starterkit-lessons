@@ -766,7 +766,46 @@
         
         
     
-        <li class="chapter " data-level="5.1" >
+        <li class="chapter " data-level="5.1" data-path="../using-the-grid/">
+            
+                <a href="../using-the-grid/">
+            
+                    
+                    Using the grid
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="5.1.1" data-path="../using-the-grid/local-grid-proxy.html">
+            
+                <a href="../using-the-grid/local-grid-proxy.html">
+            
+                    
+                    Grid proxies without LbScripts
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="6.1" >
             
                 <a target="_blank" href="ref://starterkit-lessons.pdf">
             
@@ -824,7 +863,7 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <p><div class="panel panel-warning"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(5774006019);" id="learning-objectives"><i class="fa fa-line-chart"></i> Learning Objectives<span id="heading-5774006019"></span></h3></div><div class="panel-body" id="panel-5774006019"><ul>
+                                <p><div class="panel panel-warning"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(3904887077);" id="learning-objectives"><i class="fa fa-line-chart"></i> Learning Objectives<span id="heading-3904887077"></span></h3></div><div class="panel-body" id="panel-3904887077"><ul>
 <li>Find the correct option files to run Gauss</li>
 <li>Produce generator level Monte Carlo, print the decay tree and produce nTuples</li>
 </ul>
@@ -835,7 +874,7 @@
 </code></pre><p>First, find the ProductionID:</p>
 <p><img src="img/simulation_1.png" alt="FindingProductionID"></p>
 <p>Search for this ID in the Transformation Monitor, right click the result and select &quot;Show request&quot;. Right clicking and selecting &quot;View&quot; in the new window will open an overview about all the individual steps of the production with their application version and option files used.</p>
-<p><div class="panel panel-primary"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(4571345506);" id="important-the-order-of-the-option-files-does-matter"><i class="fa fa-info-circle"></i> Important: the order of the option files does matter!<span id="heading-4571345506"></span></h3></div><div class="panel-body" id="panel-4571345506"><p><code>&apos;$DECFILESROOT/options/27163003.py&apos; &apos;$LBPYTHIA8ROOT/options/Pythia8.py&apos;</code> 
+<p><div class="panel panel-primary"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(875324215);" id="important-the-order-of-the-option-files-does-matter"><i class="fa fa-info-circle"></i> Important: the order of the option files does matter!<span id="heading-875324215"></span></h3></div><div class="panel-body" id="panel-875324215"><p><code>&apos;$DECFILESROOT/options/27163003.py&apos; &apos;$LBPYTHIA8ROOT/options/Pythia8.py&apos;</code> 
 produces the sample using Pythia 8 while <code>&apos;$LBPYTHIA8ROOT/options/Pythia8.py&apos; 
 &apos;$DECFILESROOT/options/27163003.py&apos;</code> uses Pythia 6.</p>
 </div></div></p>
@@ -864,7 +903,7 @@ LHCbApp().EvtMax = <span class="hljs-number">5</span>
 </code></pre>
 <p>This would take 5 to 10 minutes due to the detector simulation, which can be turned off by adding <code>&apos;$GAUSSOPTS/GenStandAlone.py&apos;</code> as one of the option files.
 In this case, all but <code>&apos;$GAUSSOPTS/GenStandAlone.py&apos;</code>, <code>&apos;$DECFILESROOT/options/27163003.py&apos;</code>, and <code>&apos;$LBPYTHIA8ROOT/options/Pythia8.py&apos;</code> are redundant 
-<div class="panel panel-primary"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(218128104);" id="only-one-option-file"><i class="fa fa-info-circle"></i> Only one option file<span id="heading-218128104"></span></h3></div><div class="panel-body" id="panel-218128104"><p>You can source the various options files from your <code>&apos;Gauss-Job.py&apos;</code> by adding at its top:</p>
+<div class="panel panel-primary"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(7498550174);" id="only-one-option-file"><i class="fa fa-info-circle"></i> Only one option file<span id="heading-7498550174"></span></h3></div><div class="panel-body" id="panel-7498550174"><p>You can source the various options files from your <code>&apos;Gauss-Job.py&apos;</code> by adding at its top:</p>
 <pre><code class="lang-python"><span class="hljs-keyword">from</span> Gaudi.Configuration <span class="hljs-keyword">import</span> *
 importOptions(<span class="hljs-string">&quot;$APPCONFIGOPTS/Gauss/Beam6500GeV-md100-2016-nu1.6.py&quot;</span>)
 <span class="hljs-comment"># etc ...</span>
@@ -1000,7 +1039,7 @@ appendPostConfigAction( doIt )
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Getting the correct option files","level":"3.1.7.2","depth":3,"next":{"title":"Controlling the decay","level":"3.1.7.3","depth":3,"path":"second-analysis-steps/simulation-dkfiles.md","ref":"second-analysis-steps/simulation-dkfiles.md","articles":[]},"previous":{"title":"Introduction: The basics of Gauss","level":"3.1.7.1","depth":3,"path":"second-analysis-steps/simulation-intro.md","ref":"second-analysis-steps/simulation-intro.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-sharing","panels@git+https://github.com/lhcb/gitbook-plugin-panels.git#master","katex-auto-render@git+https://github.com/lhcb/gitbook-plugin-katex-auto-render.git#master","collapsible-menu","otherlink"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"collapsible-menu":{},"search":{},"otherlink":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"panels":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"katex-auto-render":{},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"The Starterkit team and contributors","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"gitbook":"*"},"file":{"path":"second-analysis-steps/simulation-running-gauss.md","mtime":"2018-12-04T09:32:17.338Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-12-04T09:33:44.087Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Getting the correct option files","level":"3.1.7.2","depth":3,"next":{"title":"Controlling the decay","level":"3.1.7.3","depth":3,"path":"second-analysis-steps/simulation-dkfiles.md","ref":"second-analysis-steps/simulation-dkfiles.md","articles":[]},"previous":{"title":"Introduction: The basics of Gauss","level":"3.1.7.1","depth":3,"path":"second-analysis-steps/simulation-intro.md","ref":"second-analysis-steps/simulation-intro.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-sharing","panels@git+https://github.com/lhcb/gitbook-plugin-panels.git#master","katex-auto-render@git+https://github.com/lhcb/gitbook-plugin-katex-auto-render.git#master","collapsible-menu","otherlink"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"collapsible-menu":{},"search":{},"otherlink":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"panels":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"katex-auto-render":{},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"The Starterkit team and contributors","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"gitbook":"*"},"file":{"path":"second-analysis-steps/simulation-running-gauss.md","mtime":"2019-01-01T09:29:40.438Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-01-01T09:31:04.062Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

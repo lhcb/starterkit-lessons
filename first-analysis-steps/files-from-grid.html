@@ -766,7 +766,46 @@
         
         
     
-        <li class="chapter " data-level="5.1" >
+        <li class="chapter " data-level="5.1" data-path="../using-the-grid/">
+            
+                <a href="../using-the-grid/">
+            
+                    
+                    Using the grid
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="5.1.1" data-path="../using-the-grid/local-grid-proxy.html">
+            
+                <a href="../using-the-grid/local-grid-proxy.html">
+            
+                    
+                    Grid proxies without LbScripts
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="6.1" >
             
                 <a target="_blank" href="ref://starterkit-lessons.pdf">
             
@@ -825,7 +864,7 @@
                                 <section class="normal markdown-section">
                                 
                                 <h1 id="downloading-a-file-from-the-grid">Downloading a file from the grid</h1>
-<p><div class="panel panel-warning"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(9803367368);" id="learning-objectives"><i class="fa fa-line-chart"></i> Learning Objectives<span id="heading-9803367368"></span></h3></div><div class="panel-body" id="panel-9803367368"><ul>
+<p><div class="panel panel-warning"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(2218691902);" id="learning-objectives"><i class="fa fa-line-chart"></i> Learning Objectives<span id="heading-2218691902"></span></h3></div><div class="panel-body" id="panel-2218691902"><ul>
 <li>Obtain a DST file from the grid</li>
 </ul>
 </div></div> </p>
@@ -851,7 +890,7 @@ quick look at the dataset, it is sufficient to just obtain one of those files.</
 <pre><code class="lang-bash">lb-run LHCbDIRAC dirac-dms-get-file LFN:/lhcb/MC/2016/ALLSTREAMS.DST/00070793/0000/00070793_00000001_7.AllStreams.dst
 </code></pre>
 <p>Again this will take a while but afterwards you should have a file called <code>00070793_00000001_7.AllStreams.dst</code> in the directory where you called the command.</p>
-<p><div class="panel panel-primary"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(9905678438);" id="downloading-the-file-during-a-starterkit-lesson"><i class="fa fa-info-circle"></i> Downloading the file during a Starterkit lesson<span id="heading-9905678438"></span></h3></div><div class="panel-body" id="panel-9905678438"><p>Lots of people downloading the same file at the same time can be very slow.
+<p><div class="panel panel-primary"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(3323458514);" id="downloading-the-file-during-a-starterkit-lesson"><i class="fa fa-info-circle"></i> Downloading the file during a Starterkit lesson<span id="heading-3323458514"></span></h3></div><div class="panel-body" id="panel-3323458514"><p>Lots of people downloading the same file at the same time can be very slow.
 As a workaround, the file is also available on EOS, and can be downloaded to
 your current directory with the following command:</p>
 <pre><code class="lang-bash">$ xrdcp root://eosuser.cern.ch//eos/user/l/lhcbsk/data-sets/00070793_00000001_7.AllStreams.dst .
@@ -859,7 +898,7 @@ your current directory with the following command:</p>
 </div></div> </p>
 <p>Since these files tend to be quite large, you might want to use your AFS work 
 directory instead of your AFS user directory to store files.</p>
-<p><div class="panel panel-primary"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(3413277481);" id="alternative-read-files-remotely-instead-of-downloading-them"><i class="fa fa-info-circle"></i> Alternative: read files remotely instead of downloading them<span id="heading-3413277481"></span></h3></div><div class="panel-body" id="panel-3413277481"><p>To avoid filling up your AFS quota with DST files, you can also pass Gaudi an 
+<p><div class="panel panel-primary"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(8066341752);" id="alternative-read-files-remotely-instead-of-downloading-them"><i class="fa fa-info-circle"></i> Alternative: read files remotely instead of downloading them<span id="heading-8066341752"></span></h3></div><div class="panel-body" id="panel-8066341752"><p>To avoid filling up your AFS quota with DST files, you can also pass Gaudi an 
 XML catalog such that it can access them remotely.</p>
 <p>First generate the XML catalog with</p>
 <pre><code class="lang-bash">lb-run LHCbDIRAC dirac-bookkeeping-genXMLCatalog --Options=MC_2016_27163002_Beam6500GeV2016MagDownNu1.625nsPythia8_Sim09c_Trig0x6138160F_Reco16_Turbo03_Stripping28r1NoPrescalingFlagged_ALLSTREAMS.DST.py --Catalog=myCatalog.xml
@@ -890,7 +929,7 @@ FILES = []
     print(<span class="hljs-string">&apos;Done getting {0} files.&apos;</span>.format(n_files))
 </code></pre>
 <p>Save it as <code>getEvents.py</code> and use it via <code>lb-run LHCbDIRAC python getEvents.py [n]</code>. If you specify <code>n</code>, the script will only get the first n files from the grid.</p>
-<p><div class="panel panel-primary"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(5519726495);" id="such-a-clever-script"><i class="fa fa-info-circle"></i> Such a clever script!<span id="heading-5519726495"></span></h3></div><div class="panel-body" id="panel-5519726495"><p><code>dirac-dms-get-file</code> (and the other <code>dirac-dms-*</code> scripts) is actually able to 
+<p><div class="panel panel-primary"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(1575964508);" id="such-a-clever-script"><i class="fa fa-info-circle"></i> Such a clever script!<span id="heading-1575964508"></span></h3></div><div class="panel-body" id="panel-1575964508"><p><code>dirac-dms-get-file</code> (and the other <code>dirac-dms-*</code> scripts) is actually able to 
 extract the LFNs from any file
 and download them for you. So a simple</p>
 <pre><code class="lang-python"> lb-run LHCbDIRAC dirac-dms-get-file --File=MC_2016_27163002_Beam6500GeV2016MagDownNu1<span class="hljs-number">.625</span>nsPythia8_Sim09c_Trig0x6138160F_Reco16_Turbo03_Stripping28r1NoPrescalingFlagged_ALLSTREAMS.DST.py
@@ -940,7 +979,7 @@ and download them for you. So a simple</p>
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Downloading a file from the grid","level":"2.1.8","depth":2,"next":{"title":"Interactively exploring a DST","level":"2.1.9","depth":2,"path":"first-analysis-steps/interactive-dst.md","ref":"first-analysis-steps/interactive-dst.md","articles":[]},"previous":{"title":"Finding data in the Bookkeeping","level":"2.1.7","depth":2,"path":"first-analysis-steps/bookkeeping.md","ref":"first-analysis-steps/bookkeeping.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-sharing","panels@git+https://github.com/lhcb/gitbook-plugin-panels.git#master","katex-auto-render@git+https://github.com/lhcb/gitbook-plugin-katex-auto-render.git#master","collapsible-menu","otherlink"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"collapsible-menu":{},"search":{},"otherlink":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"panels":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"katex-auto-render":{},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"The Starterkit team and contributors","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"gitbook":"*"},"file":{"path":"first-analysis-steps/files-from-grid.md","mtime":"2018-12-04T09:32:17.302Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-12-04T09:33:44.087Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Downloading a file from the grid","level":"2.1.8","depth":2,"next":{"title":"Interactively exploring a DST","level":"2.1.9","depth":2,"path":"first-analysis-steps/interactive-dst.md","ref":"first-analysis-steps/interactive-dst.md","articles":[]},"previous":{"title":"Finding data in the Bookkeeping","level":"2.1.7","depth":2,"path":"first-analysis-steps/bookkeeping.md","ref":"first-analysis-steps/bookkeeping.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-sharing","panels@git+https://github.com/lhcb/gitbook-plugin-panels.git#master","katex-auto-render@git+https://github.com/lhcb/gitbook-plugin-katex-auto-render.git#master","collapsible-menu","otherlink"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"collapsible-menu":{},"search":{},"otherlink":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"panels":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"katex-auto-render":{},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"The Starterkit team and contributors","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"gitbook":"*"},"file":{"path":"first-analysis-steps/files-from-grid.md","mtime":"2019-01-01T09:29:40.402Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-01-01T09:31:04.062Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
