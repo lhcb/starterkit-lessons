@@ -69,6 +69,7 @@ the entire generation phase of the simulation. Therefore, very tight generator l
 with a signal particle that only rarely occurs in minimum bias events can results in the generation phase
 taking manifold longer than the simulation of the detector response (and you might want to rethink your
 strategy for event generation).
+For some ideas on which kind of cuts to apply, you can have a look here: https://twiki.cern.ch/twiki/bin/view/LHCb/GeneratorLevelTightCuts
 
 {% callout "Modifying cut tools for production" %}
 As the cut tools are to be configured in the DecFiles, they form an integral part of the event-type itself.
