@@ -20,6 +20,14 @@ This is nice, because most tools expect to read the stripping decisions from the
 
 Take a look at the file and try to find out what has changed compared to the [minimal DaVinci example](code/09-minimal-dv/ntuple_options.py).
 
+{% callout "Downloading the file during a Impactkit lesson" %}
+Lots of people downloading the same file at the same time can be very slow.
+The file in the minimal DaVinci example can be copied using this command:
+```bash
+$ xrdcp root://eosuser.cern.ch//eos/user/m/mhilton/impact-kit/00070793_00000001_7.AllStreams.dst .
+```
+{% endcallout %}
+
 The key changes are
 
  - Removing the old stripping reports with a node killer
