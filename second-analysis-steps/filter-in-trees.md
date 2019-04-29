@@ -46,6 +46,18 @@ kst_sel = Selection('kst_sel',
                     RequiredSelections=[kaons_from_d0_sel, Pions])
 ```
 
+Add the `kst_sel` to the example from [building your own decay](/second-analysis-steps/building-decays-part0.md):
+
+```python
+#Combine D and pions into Dstar                                                                                                              
+dstar_sel = CombineSelection(
+    'Sel_Dstar',
+    [d0_sel, soft_pion_sel, kst_sel],
+    DecayDescriptor='[D*(2010)+ -> D0 pi+]cc',
+    CombinationCut=dstar_comb,
+    MotherCut=dstar_mother
+)
+```
 
 {% callout "An interesting detail" %}
 One can use `FilterInTrees` and `FilterDecays` to select several particles at
