@@ -59,6 +59,8 @@ dstar_sel = CombineSelection(
 )
 ```
 
+The full example can be found [here](code/filter-in-trees.py).
+
 {% callout "An interesting detail" %}
 One can use `FilterInTrees` and `FilterDecays` to select several particles at
 once and obtain a flattened list.
