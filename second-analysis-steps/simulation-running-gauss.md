@@ -83,7 +83,7 @@ year: What year the MC is simulating.
 """
 # https://twiki.cern.ch/twiki/bin/view/LHCb/FAQ/LoKiNewDecayFinders
 decay = "[D*(2010)+ => ^[([D0]cc => ^K- ^pi+)]CC ^pi+]CC"
-datafile = "./Gauss-27163003-100ev-20180507.xgen"
+datafile = "./Gauss-27163003-10000ev.xgen"
 
 mc_basic_loki_vars = {
     'ETA': 'MCETA',
