@@ -51,7 +51,16 @@ Assuming this is saved in a file called `Gauss-Job.py` and following the example
 ```
 
 This would take 5 to 10 minutes due to the detector simulation, which can be turned off by adding `'$GAUSSOPTS/GenStandAlone.py'` as one of the option files.
-In this case, all but `'$GAUSSOPTS/GenStandAlone.py'`, `'$DECFILESROOT/options/27163003.py'`, and `'$LBPYTHIA8ROOT/options/Pythia8.py'` are redundant 
+In this case, all but `'$GAUSSOPTS/GenStandAlone.py'`, `'$DECFILESROOT/options/27163003.py'`, and `'$LBPYTHIA8ROOT/options/Pythia8.py'` are redundant.
+
+You can then run this by:
+```shell
+./run gaudirun.py '$GAUSSOPTS/GenStandAlone.py' \
+      '$DECFILESROOT/options/27163003.py' \
+      '$LBPYTHIA8ROOT/options/Pythia8.py' \
+      Gauss-Job.py
+```
+
 {% callout "Only one option file" %}
 You can source the various options files from your `'Gauss-Job.py'` by adding at its top:
 ```python
