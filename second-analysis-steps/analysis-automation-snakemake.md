@@ -106,7 +106,8 @@ Notice that:
 To try out download:
 
 ```bash
-wget https://github.com/lhcb/starterkit-lessons/raw/master/second-analysis-steps/code/snakemake/tutorial.tar
+$ wget https://github.com/lhcb/starterkit-lessons/raw/master/second-analysis-steps/code/snakemake/tutorial.tar
+$ tar -xvf tutorial.tar
 ```
 
 You will find one containing names and phone numbers. You can make one rule that, given a name extracts the line with the phone of that person.
