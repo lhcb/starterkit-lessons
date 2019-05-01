@@ -77,7 +77,7 @@ You can even avoid typos by substituting variables instead of typing the filenam
 
 ```python
 rule merge_files:
-    input: ['input_1.txt', 'input_1.txt']
+    input: ['input_1.txt', 'input_2.txt']
     output: 'output.txt'
     shell: 'cat {input[0]} > {output} && cat {input[1]} >> {output}'
 ```
