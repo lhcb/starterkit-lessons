@@ -96,6 +96,7 @@ If you then make another rule with `output/a_file.txt` and `output/another_file.
 ```python
 rule all:
      input: ['output/a_file.txt', 'output/another_file.txt']
+```
 
 This allows for rules to be reusable, for example to make a rule that can be used to process data with from different years or polarities.
 
