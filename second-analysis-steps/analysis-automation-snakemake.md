@@ -252,6 +252,10 @@ rule dosomething_pysh:
 
 {% challenge "Use run instead of shell" %}
 Rewrite your previous file using a python script to run the search and use `run` to run on both phones and addresses in the same rule
+
+{% solution "Solution" %}
+An example solution can be found [here](https://github.com/lhcb/starterkit-lessons/tree/master/second-analysis-steps/code/snakemake/Snakefile). 
+Although it's fine if you have done it a different way.
 {% endchallenge %}
 
 ### Config files
