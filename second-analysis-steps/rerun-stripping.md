@@ -24,7 +24,7 @@ Take a look at the file and try to find out what has changed compared to the [mi
 Lots of people downloading the same file at the same time can be very slow.
 The file in the minimal DaVinci example can be copied using this command:
 ```bash
-$ xrdcp root://eosuser.cern.ch//eos/user/m/mhilton/impact-kit/00070793_00000001_7.AllStreams.dst .
+$ xrdcp root://eosuser.cern.ch//eos/user/l/lhcbsk/impactkit/00070793_00000001_7.AllStreams.dst .
 ```
 {% endcallout %}
 
