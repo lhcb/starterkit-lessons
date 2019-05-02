@@ -231,8 +231,8 @@ rule dosomething_py:
     input: 'myfile.txt'
     output: 'myoutput.txt'
     run:
-        with open(input, 'rt') as fi:
-            with open(output, 'wt') as fo:
+        with open(str(input), 'rt') as fi:
+            with open(str(output), 'wt') as fo:
                 fo.write(fi.read())
 ```
 
