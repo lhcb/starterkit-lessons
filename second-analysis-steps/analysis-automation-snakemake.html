@@ -864,7 +864,7 @@
                                 <section class="normal markdown-section">
                                 
                                 <h1 id="analysis-automation-with-snakemake">Analysis automation with snakemake</h1>
-<p><div class="panel panel-warning"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(7733958556);" id="learning-objectives"><i class="fa fa-line-chart"></i> Learning Objectives<span id="heading-7733958556"></span></h3></div><div class="panel-body" id="panel-7733958556"><ul>
+<p><div class="panel panel-warning"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(8268780387);" id="learning-objectives"><i class="fa fa-line-chart"></i> Learning Objectives<span id="heading-8268780387"></span></h3></div><div class="panel-body" id="panel-8268780387"><ul>
 <li>Learn what analysis automation is and how it helps with analysis preservation</li>
 <li>Learn how to create a pipeline with Snakemake</li>
 </ul>
@@ -897,7 +897,7 @@
 <span class="hljs-comment"># Depending on your PATH variable you may also need to use:</span>
 <span class="hljs-built_in">alias</span> snakemake=<span class="hljs-string">&apos;python3 -m snakemake&apos;</span>
 </code></pre>
-<p><div class="panel panel-primary"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(831127658);" id="installing-on-lxplus"><i class="fa fa-info-circle"></i> Installing on lxplus<span id="heading-831127658"></span></h3></div><div class="panel-body" id="panel-831127658"><p>Unfortunately most LHCb software only supports Python 2 and doesn&apos;t provide a Python 3 installation.
+<p><div class="panel panel-primary"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(1347481261);" id="installing-on-lxplus"><i class="fa fa-info-circle"></i> Installing on lxplus<span id="heading-1347481261"></span></h3></div><div class="panel-body" id="panel-1347481261"><p>Unfortunately most LHCb software only supports Python 2 and doesn&apos;t provide a Python 3 installation.
 When running on lxplus we recommend using the LCG Python 3 distribution and creating a function in your <code>.bashrc</code> to launch Snakemake so that it doesn&apos;t affect other LHCb applications.
 This can be done using <a href="https://github.com/lhcb/starterkit-lessons/blob/master/second-analysis-steps/code/snakemake/install_snake.sh" target="_blank">this script</a> by running:</p>
 <pre><code class="lang-bash">curl -L http://cern.ch/go/Z8Nk | bash
@@ -929,7 +929,7 @@ Just those that you want to monitor or that are used by a subsequent step as inp
 </code></pre>
 <p>You can even avoid typos by substituting variables instead of typing the filenames twice:</p>
 <pre><code class="lang-python">rule merge_files:
-    input: [<span class="hljs-string">&apos;input_1.txt&apos;</span>, <span class="hljs-string">&apos;input_1.txt&apos;</span>]
+    input: [<span class="hljs-string">&apos;input_1.txt&apos;</span>, <span class="hljs-string">&apos;input_2.txt&apos;</span>]
     output: <span class="hljs-string">&apos;output.txt&apos;</span>
     shell: <span class="hljs-string">&apos;cat {input[0]} &gt; {output} &amp;&amp; cat {input[1]} &gt;&gt; {output}&apos;</span>
 </code></pre>
@@ -939,8 +939,11 @@ Just those that you want to monitor or that are used by a subsequent step as inp
     output: <span class="hljs-string">&apos;output/{filename}.txt&apos;</span>
     shell: <span class="hljs-string">&apos;echo {wildcards.filename} &amp;&amp; cp {input} {output}&apos;</span>
 </code></pre>
-<p>If you then make another rule with <code>output/a_file.txt</code> and <code>output/another_file.txt</code> as inputs they will be automatically created by the <code>copy_and_echo</code> rule.
-This allows for rules to be reusable, for example to make a rule that can be used to process data with from different years or polarities.</p>
+<p>If you then make another rule with <code>output/a_file.txt</code> and <code>output/another_file.txt</code> as inputs they will be automatically created by the <code>copy_and_echo</code> rule.</p>
+<pre><code class="lang-python">rule all:
+     input: [<span class="hljs-string">&apos;output/a_file.txt&apos;</span>, <span class="hljs-string">&apos;output/another_file.txt&apos;</span>]
+</code></pre>
+<p>This allows for rules to be reusable, for example to make a rule that can be used to process data with from different years or polarities.</p>
 <p>Notice that:</p>
 <ul>
 <li>Inputs and outputs can be of any type</li>
@@ -948,8 +951,9 @@ This allows for rules to be reusable, for example to make a rule that can be use
 <li>If a single file is input or output you are allowed to omit the brackets</li>
 <li>Wildcards must always be present in the output of a rule (else it wouldn&apos;t be possible to know what they should be)</li>
 </ul>
-<p><div class="panel panel-success"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(2999532118);" id="write-a-snakefile-with-a-single-rule"><i class="fa fa-square-o"></i> Write a snakefile with a single rule<span id="heading-2999532118"></span></h3></div><div class="panel-body" id="panel-2999532118"><p>To try out download:</p>
-<pre><code class="lang-bash">wget https://github.com/lhcb/starterkit-lessons/raw/master/second-analysis-steps/code/snakemake/tutorial.tar
+<p><div class="panel panel-success"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(1215743938);" id="write-a-snakefile-with-a-single-rule"><i class="fa fa-square-o"></i> Write a snakefile with a single rule<span id="heading-1215743938"></span></h3></div><div class="panel-body" id="panel-1215743938"><p>To try out download:</p>
+<pre><code class="lang-bash">$ wget https://github.com/lhcb/starterkit-lessons/raw/master/second-analysis-steps/code/snakemake/tutorial.tar
+$ tar -xvf tutorial.tar
 </code></pre>
 <p>You will find one containing names and phone numbers. You can make one rule that, given a name extracts the line with the phone of that person.</p>
 <p>To do this in a shell you can use <code>grep</code>, which is a command that lists all lines in a file containing a certain text.</p>
@@ -977,7 +981,7 @@ ciao a tutti
 <li>If you want a rule to be &quot;standalone&quot; just do not give its input/outputs as outputs/inputs of any other rule</li>
 <li>It is normal practice to put as a first rule a dummy rule that only takes as inputs all the &quot;final&quot; outputs you want to be created by any other rule. In this way when you run just <code>snakemake</code> with no label it will run all rules (in the correct order).</li>
 </ul>
-<p><div class="panel panel-success"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(2140622141);" id="make-a-snakefile-with-at-least-3-rules-connected-to-each-other-and-run-them-in-one-go"><i class="fa fa-square-o"></i> Make a snakefile with at least 3 rules connected to each other and run them in one go<span id="heading-2140622141"></span></h3></div><div class="panel-body" id="panel-2140622141"><p>In the tutorial folder you find two files containing addresses, and phone numbers.
+<p><div class="panel panel-success"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(1281876702);" id="make-a-snakefile-with-at-least-3-rules-connected-to-each-other-and-run-them-in-one-go"><i class="fa fa-square-o"></i> Make a snakefile with at least 3 rules connected to each other and run them in one go<span id="heading-1281876702"></span></h3></div><div class="panel-body" id="panel-1281876702"><p>In the tutorial folder you find two files containing addresses, and phone numbers.
 You can make rules that, given a name, <code>grep</code> the address and phone and then one other rule to merge them into your final output file.</p>
 <p>If we do this for &#x201C;Luca&#x201D;, it can be represented by the following graph:</p>
 <p><a href="img/snakemake-dag-single.png"><img src="img/snakemake-dag-single-wide.png" alt="DAG"></a></p>
@@ -988,10 +992,10 @@ cat output/Luca/myaddress.txt &gt; output/Luca/data.txt &amp;&amp; cat output/Lu
 </code></pre>
 <p><em>But it does not have to be this, any other task is fine, be creative!</em></p>
 </div></div></p>
-<p><div class="panel panel-success"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(95088609);" id="use-wildcards"><i class="fa fa-square-o"></i> Use wildcards<span id="heading-95088609"></span></h3></div><div class="panel-body" id="panel-95088609"><p>Following on from the previous challenge use wildcards to make it so that any name can be used, such as &#x201C;Fred&#x201D;</p>
+<p><div class="panel panel-success"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(787142719);" id="use-wildcards"><i class="fa fa-square-o"></i> Use wildcards<span id="heading-787142719"></span></h3></div><div class="panel-body" id="panel-787142719"><p>Following on from the previous challenge use wildcards to make it so that any name can be used, such as &#x201C;Fred&#x201D;</p>
 <pre><code class="lang-bash">snakemake output/Fred/data.txt
 </code></pre>
-<div class="panel panel-danger"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(9913307222);" id="solutionclick-to-expand"><i class="fa fa-line-chart"></i> Solution<span id="heading-9913307222">Click to expand</span></h3></div><div class="panel-body" style="display: none" id="panel-9913307222"><p>See <code>Snakefile</code> in the <code>simple_solution</code> folder <a href="https://github.com/lhcb/starterkit-lessons/raw/master/second-analysis-steps/code/snakemake/tutorial.tar" target="_blank">here</a>.</p>
+<div class="panel panel-danger"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(2334631752);" id="solutionclick-to-expand"><i class="fa fa-line-chart"></i> Solution<span id="heading-2334631752">Click to expand</span></h3></div><div class="panel-body" style="display: none" id="panel-2334631752"><p>See <code>Snakefile</code> in the <code>simple_solution</code> folder <a href="https://github.com/lhcb/starterkit-lessons/raw/master/second-analysis-steps/code/snakemake/tutorial.tar" target="_blank">here</a>.</p>
 </div></div></div></div></p>
 <p>Comments, partial running:</p>
 <ul>
@@ -999,7 +1003,7 @@ cat output/Luca/myaddress.txt &gt; output/Luca/data.txt &amp;&amp; cat output/Lu
 Note that if you put your code into the inputs snakemake will detect when your code changes and automatically rerun the corresponding rule!</li>
 <li>If you want to force running all rules even if part of the output is present use <code>snakemake --forceall</code></li>
 </ul>
-<p><div class="panel panel-success"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(6412917162);" id="explore-the-snakemake-behaviour"><i class="fa fa-square-o"></i> Explore the snakemake behaviour<span id="heading-6412917162"></span></h3></div><div class="panel-body" id="panel-6412917162"><p>In the previous example try deleting one of the intermediate files, rerun snakemake and see what happens</p>
+<p><div class="panel panel-success"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(9984642045);" id="explore-the-snakemake-behaviour"><i class="fa fa-square-o"></i> Explore the snakemake behaviour<span id="heading-9984642045"></span></h3></div><div class="panel-body" id="panel-9984642045"><p>In the previous example try deleting one of the intermediate files, rerun snakemake and see what happens</p>
 </div></div></p>
 <h3 id="sub-labels">Sub-labels</h3>
 <p>Inside the pre-defined tags you can add custom subtags as in this example.</p>
@@ -1015,7 +1019,7 @@ Note that if you put your code into the inputs snakemake will detect when your c
 <pre><code class="lang-bash">python myscript.py mydata.roo --extra some_extra_info.txt &gt; output.txt
 </code></pre>
 <p>The <code>--extra</code> is not necessary. It&apos;s just to illustrate how python scripts options can be used.</p>
-<p><div class="panel panel-success"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(8222992136);" id="code-as-input"><i class="fa fa-square-o"></i> Code as input<span id="heading-8222992136"></span></h3></div><div class="panel-body" id="panel-8222992136"><p>Add your python script to the inputs than make some modifications to it, rerun snakemake and see what happens.</p>
+<p><div class="panel panel-success"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(3526111385);" id="code-as-input"><i class="fa fa-square-o"></i> Code as input<span id="heading-3526111385"></span></h3></div><div class="panel-body" id="panel-3526111385"><p>Add your python script to the inputs than make some modifications to it, rerun snakemake and see what happens.</p>
 </div></div></p>
 <h3 id="run-and-shell">Run and shell</h3>
 <p>You have two ways to specify commands. One is <code>shell</code> that assumes shell commands as shown before.
@@ -1025,8 +1029,8 @@ The other is <code>run</code> that instead directly takes python code (Careful i
     input: <span class="hljs-string">&apos;myfile.txt&apos;</span>
     output: <span class="hljs-string">&apos;myoutput.txt&apos;</span>
     run:
-        <span class="hljs-keyword">with</span> open(input, <span class="hljs-string">&apos;rt&apos;</span>) <span class="hljs-keyword">as</span> fi:
-            <span class="hljs-keyword">with</span> open(output, <span class="hljs-string">&apos;wt&apos;</span>) <span class="hljs-keyword">as</span> fo:
+        <span class="hljs-keyword">with</span> open(str(input), <span class="hljs-string">&apos;rt&apos;</span>) <span class="hljs-keyword">as</span> fi:
+            <span class="hljs-keyword">with</span> open(str(output), <span class="hljs-string">&apos;wt&apos;</span>) <span class="hljs-keyword">as</span> fo:
                 fo.write(fi.read())
 </code></pre>
 <p>And finally you can mix! Namely you can send shell commands from python code.
@@ -1040,8 +1044,10 @@ This is useful, in particular if you have to launch the same shell command on mo
         <span class="hljs-keyword">for</span> f <span class="hljs-keyword">in</span> input.data:
             shell(<span class="hljs-string">&apos;./{input.code} %s&apos;</span> % f)
 </code></pre>
-<p><div class="panel panel-success"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(5188207378);" id="use-run-instead-of-shell"><i class="fa fa-square-o"></i> Use run instead of shell<span id="heading-5188207378"></span></h3></div><div class="panel-body" id="panel-5188207378"><p>Rewrite your previous file using a python script to run the search and use <code>run</code> to run on both phones and addresses in the same rule</p>
-</div></div></p>
+<p><div class="panel panel-success"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(9661931183);" id="use-run-instead-of-shell"><i class="fa fa-square-o"></i> Use run instead of shell<span id="heading-9661931183"></span></h3></div><div class="panel-body" id="panel-9661931183"><p>Rewrite your previous file using a python script to run the search and use <code>run</code> to run on both phones and addresses in the same rule</p>
+<div class="panel panel-danger"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(6833671349);" id="solutionclick-to-expand"><i class="fa fa-line-chart"></i> Solution<span id="heading-6833671349">Click to expand</span></h3></div><div class="panel-body" style="display: none" id="panel-6833671349"><p>An example solution can be found <a href="https://github.com/lhcb/starterkit-lessons/tree/master/second-analysis-steps/code/snakemake/Snakefile" target="_blank">here</a>. 
+Although it&apos;s fine if you have done it a different way.</p>
+</div></div></div></div></p>
 <h3 id="config-files">Config files</h3>
 <p>Often you want to run the same rule on different sample or with different options for your scripts.
 This can be done in snakemake using config files written in <a href="https://learn.getgrav.org/advanced/yaml" target="_blank">yaml</a>.</p>
@@ -1063,7 +1069,7 @@ rule dosomething_pysh:
             shell(<span class="hljs-string">&apos;./{input.code} %s&apos;</span> % f)
 </code></pre>
 <p>The config dictionary can be used anywhere, also inside the shell command or even outside a rule.</p>
-<p><div class="panel panel-success"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(9584681688);" id="make-a-config-file"><i class="fa fa-square-o"></i> Make a config file<span id="heading-9584681688"></span></h3></div><div class="panel-body" id="panel-9584681688"><p>Put the inputs of your script into a config file</p>
+<p><div class="panel panel-success"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(3537700191);" id="make-a-config-file"><i class="fa fa-square-o"></i> Make a config file<span id="heading-3537700191"></span></h3></div><div class="panel-body" id="panel-3537700191"><p>Put the inputs of your script into a config file</p>
 </div></div></p>
 <h3 id="includes">Includes</h3>
 <p>The Snakefile can quickly grow to a monster with tens of rules. For this reason it&apos;s possible to split them into more files and then include them into the Snakefile. For example you might have a <code>fit_rules.snake</code> and <code>efficiency_rules.snake</code> and then your Snakefile will look like this:</p>
@@ -1071,8 +1077,8 @@ rule dosomething_pysh:
 include: /path/to/efficiency_rules.snake
 </code></pre>
 <p>The order of the includes is irrelevant.</p>
-<p><div class="panel panel-success"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(5635808854);" id="use-includes"><i class="fa fa-square-o"></i> Use includes<span id="heading-5635808854"></span></h3></div><div class="panel-body" id="panel-5635808854"><p>Move your rules to other files and include them</p>
-<div class="panel panel-danger"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(8826665573);" id="solutionclick-to-expand"><i class="fa fa-line-chart"></i> Solution<span id="heading-8826665573">Click to expand</span></h3></div><div class="panel-body" style="display: none" id="panel-8826665573"><p>You can find a solution in the <code>more_complete_solution</code> folder, which you can find <a href="https://github.com/lhcb/starterkit-lessons/raw/master/second-analysis-steps/code/snakemake/tutorial.tar" target="_blank">here</a>.</p>
+<p><div class="panel panel-success"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(483251905);" id="use-includes"><i class="fa fa-square-o"></i> Use includes<span id="heading-483251905"></span></h3></div><div class="panel-body" id="panel-483251905"><p>Move your rules to other files and include them</p>
+<div class="panel panel-danger"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(3872397088);" id="solutionclick-to-expand"><i class="fa fa-line-chart"></i> Solution<span id="heading-3872397088">Click to expand</span></h3></div><div class="panel-body" style="display: none" id="panel-3872397088"><p>You can find a solution in the <code>more_complete_solution</code> folder, which you can find <a href="https://github.com/lhcb/starterkit-lessons/raw/master/second-analysis-steps/code/snakemake/tutorial.tar" target="_blank">here</a>.</p>
 </div></div></div></div></p>
 
                                 
@@ -1117,7 +1123,7 @@ include: /path/to/efficiency_rules.snake
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Analysis automation: snakemake","level":"3.1.12","depth":2,"next":{"title":"Self guided lessons","level":"4.1","depth":1,"path":"self-guided-lessons/README.md","ref":"self-guided-lessons/README.md","articles":[]},"previous":{"title":"Managing files in Ganga","level":"3.1.11","depth":2,"path":"second-analysis-steps/managing-files-with-ganga.md","ref":"second-analysis-steps/managing-files-with-ganga.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-sharing","panels@git+https://github.com/lhcb/gitbook-plugin-panels.git#master","katex-auto-render@git+https://github.com/lhcb/gitbook-plugin-katex-auto-render.git#master","collapsible-menu","otherlink"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"collapsible-menu":{},"search":{},"otherlink":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"panels":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"katex-auto-render":{},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"The Starterkit team and contributors","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"gitbook":"*"},"file":{"path":"second-analysis-steps/analysis-automation-snakemake.md","mtime":"2019-01-26T18:06:26.523Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-01-26T18:07:53.324Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Analysis automation: snakemake","level":"3.1.12","depth":2,"next":{"title":"Self guided lessons","level":"4.1","depth":1,"path":"self-guided-lessons/README.md","ref":"self-guided-lessons/README.md","articles":[]},"previous":{"title":"Managing files in Ganga","level":"3.1.11","depth":2,"path":"second-analysis-steps/managing-files-with-ganga.md","ref":"second-analysis-steps/managing-files-with-ganga.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-sharing","panels@git+https://github.com/lhcb/gitbook-plugin-panels.git#master","katex-auto-render@git+https://github.com/lhcb/gitbook-plugin-katex-auto-render.git#master","collapsible-menu","otherlink"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"collapsible-menu":{},"search":{},"otherlink":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"panels":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"katex-auto-render":{},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"The Starterkit team and contributors","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"gitbook":"*"},"file":{"path":"second-analysis-steps/analysis-automation-snakemake.md","mtime":"2019-05-07T14:25:44.759Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-05-07T14:27:08.010Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
