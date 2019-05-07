@@ -62,7 +62,7 @@ The output of the algorithm has to be packaged into a new selection:
 # create a selection using the substitution algorithm
 selSub = Selection(
     'Dst2D0pi_D02Kpi_Sel',
-    Algorithm=Subs,
+    Algorithm=subs,
     RequiredSelections=strippingSels
 )
 ```
@@ -75,6 +75,8 @@ selSeq = SelectionSequence('SelSeq', TopSelection=selSub)
 
 We are now ready to produce an ntuple on our newly created selection. As usual we configure a `DecayTreeTuple`, which now is looking for the candidates, which have the redefined D0 decay:
 ```python
+from Configurables import DecayTreeTuple
+
 # Create an ntuple to capture D*+ decays from the new selection
 dtt = DecayTreeTuple('TupleDstToD0pi_D0ToKpi')
 dtt.Inputs = [selSeq.outputLocation()]
@@ -92,6 +94,8 @@ The [particle selection toolkit](https://twiki.cern.ch/twiki/bin/view/LHCb/Parti
 
 Finally we add the `SelectionSequence` and the `DecayTreeTuple` to the DaVinci application. Since we are adding more than one algorithm we need a `GaudiSequencer` that takes care of calling everything in the right order:
 ```python
+from Configurables import GaudiSequencer, DaVinci
+
 # add our new selection and the tuple into the sequencer
 seq = GaudiSequencer('MyTupleSeq')
 seq.Members += [selSeq.sequence()]

@@ -77,7 +77,7 @@ You can even avoid typos by substituting variables instead of typing the filenam
 
 ```python
 rule merge_files:
-    input: ['input_1.txt', 'input_1.txt']
+    input: ['input_1.txt', 'input_2.txt']
     output: 'output.txt'
     shell: 'cat {input[0]} > {output} && cat {input[1]} >> {output}'
 ```
@@ -92,6 +92,12 @@ rule copy_and_echo:
 ```
 
 If you then make another rule with `output/a_file.txt` and `output/another_file.txt` as inputs they will be automatically created by the `copy_and_echo` rule.
+
+```python
+rule all:
+     input: ['output/a_file.txt', 'output/another_file.txt']
+```
+
 This allows for rules to be reusable, for example to make a rule that can be used to process data with from different years or polarities.
 
 Notice that:
@@ -106,7 +112,8 @@ Notice that:
 To try out download:
 
 ```bash
-wget https://github.com/lhcb/starterkit-lessons/raw/master/second-analysis-steps/code/snakemake/tutorial.tar
+$ wget https://github.com/lhcb/starterkit-lessons/raw/master/second-analysis-steps/code/snakemake/tutorial.tar
+$ tar -xvf tutorial.tar
 ```
 
 You will find one containing names and phone numbers. You can make one rule that, given a name extracts the line with the phone of that person.
@@ -225,8 +232,8 @@ rule dosomething_py:
     input: 'myfile.txt'
     output: 'myoutput.txt'
     run:
-        with open(input, 'rt') as fi:
-            with open(output, 'wt') as fo:
+        with open(str(input), 'rt') as fi:
+            with open(str(output), 'wt') as fo:
                 fo.write(fi.read())
 ```
 
@@ -246,6 +253,10 @@ rule dosomething_pysh:
 
 {% challenge "Use run instead of shell" %}
 Rewrite your previous file using a python script to run the search and use `run` to run on both phones and addresses in the same rule
+
+{% solution "Solution" %}
+An example solution can be found [here](https://github.com/lhcb/starterkit-lessons/tree/master/second-analysis-steps/code/snakemake/Snakefile). 
+Although it's fine if you have done it a different way.
 {% endchallenge %}
 
 ### Config files
