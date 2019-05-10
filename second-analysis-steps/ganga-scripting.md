@@ -253,19 +253,19 @@ The latter is particularly interesting. Do you often find yourself creating a
 file that contains all the output LFNs of your job? Write a helper!
 
 ```python
-def write_lfns(job, filename):
+def write_lfns(j, filename):
     """Write LFNs of all DiracFiles of all completed subjobs to fname."""
     # Treat a job with subjobs the same as a job with no subjobs
-    jobs = j.subjobs
-    if len(jobs) == 0:
-        jobs = [job]
+    sjobs = j.subjobs
+    if len(sjobs) == 0:
+        sjobs = [j]
 
     lfns = []
-    for j in jobs:
-        if j.status != 'completed':
-            print 'Skipping #{0}'.format(j.id)
+    for sj in sjobs:
+        if sj.status != 'completed':
+            print 'Skipping #{0}'.format(sj.id)
             continue
-        for df in j.outputfiles.get(DiracFile):
+        for df in sj.outputfiles.get(DiracFile):
             lfns.append(df.lfn)
 
     with open(filename, 'w') as f:
@@ -275,18 +275,18 @@ def write_lfns(job, filename):
 How about downloading and merging the ROOT output of a job's subjobs? Write a helper!
 
 ```python
-def merge_root_output(job, input_tree_name, merged_filepath):
+def merge_root_output(j, input_tree_name, merged_filepath):
     # Treat a job with subjobs the same as a job with no subjobs
-    jobs = j.subjobs
-    if len(jobs) == 0:
-        jobs = [job]
+    sjobs = j.subjobs
+    if len(sjobs) == 0:
+        sjobs = [j]
 
     access_urls = []
-    for j in jobs:
-        if j.status != 'completed':
-            print 'Skipping #{0}'.format(j.id)
+    for sj in sjobs:
+        if sj.status != 'completed':
+            print 'Skipping #{0}'.format(sj.id)
             continue
-        for df in j.outputfiles.get(DiracFile):
+        for df in sj.outputfiles.get(DiracFile):
             access_urls.append(df.accessURL())
 
     tchain = ROOT.TChain(input_tree_name)
