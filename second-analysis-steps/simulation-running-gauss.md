@@ -16,9 +16,9 @@ First, find the ProductionID:
 Search for this ID in the Transformation Monitor, right click the result and select "Show request". Right clicking and selecting "View" in the new window will open an overview about all the individual steps of the production with their application version and option files used.
 
 {% callout "Important: the order of the option files does matter!" %}
-`'$DECFILESROOT/options/27163003.py' '$LBPYTHIA8ROOT/options/Pythia8.py'` 
+`'$DECFILESROOT/options/{eventnumber}.py' '$LBPYTHIA8ROOT/options/Pythia8.py'` 
 produces the sample using Pythia 8 while `'$LBPYTHIA8ROOT/options/Pythia8.py' 
-'$DECFILESROOT/options/27163003.py'` uses Pythia 6.
+'$DECFILESROOT/options/{eventnumber}.py'` uses Pythia 6.
 {% endcallout %}
 
 ## Running Gauss and create a generator-only sample
@@ -40,25 +40,29 @@ LHCbApp().EvtMax = 5
 Assuming this is saved in a file called `Gauss-Job.py` and following the example above, the sample can then be produced by running
 
 ```shell
-./run gaudirun.py '$APPCONFIGOPTS/Gauss/Beam6500GeV-md100-2016-nu1.6.py' \
-        '$APPCONFIGOPTS/Gauss/EnableSpillover-25ns.py' \
+./run gaudirun.py 
+        '$APPCONFIGOPTS/Gauss/Beam6500GeV-md100-2016-nu1.6.py' \  # Sets beam energy and position
+        '$APPCONFIGOPTS/Gauss/EnableSpillover-25ns.py' \  # Enables spillover (only Run2)
         '$APPCONFIGOPTS/Gauss/DataType-2016.py' \
-        '$APPCONFIGOPTS/Gauss/RICHRandomHits.py' \
-        '$DECFILESROOT/options/27163003.py' \
-        '$LBPYTHIA8ROOT/options/Pythia8.py' \
-        '$APPCONFIGOPTS/Gauss/G4PL_FTFP_BERT_EmNoCuts.py' \
+        '$APPCONFIGOPTS/Gauss/RICHRandomHits.py' \  # Random hits in RICH for occupancy
+        '$DECFILESROOT/options/{eventnumber}.py' \  # Event type containing the signal
+        '$LBPYTHIA8ROOT/options/Pythia8.py' \  # Setting Pythia8 as generator
+        '$APPCONFIGOPTS/Gauss/G4PL_FTFP_BERT_EmNoCuts.py' \  # Physics simulated by Geant4
         Gauss-Job.py
 ```
 
-This would take 5 to 10 minutes due to the detector simulation, which can be turned off by adding `'$GAUSSOPTS/GenStandAlone.py'` as one of the option files.
-In this case, all but `'$GAUSSOPTS/GenStandAlone.py'`, `'$DECFILESROOT/options/27163003.py'`, and `'$LBPYTHIA8ROOT/options/Pythia8.py'` are redundant.
+{% callout "This would take 5 to 10 minutes!!" %}
+The detector simulation is slow, to only run the generator phase, add `'$GAUSSOPTS/GenStandAlone.py'` as one of the option files.
+{% endcallout %}
 
-You can then run this by:
+In this case, the options simplify to :
 ```shell
-./run gaudirun.py '$GAUSSOPTS/GenStandAlone.py' \
-      '$DECFILESROOT/options/27163003.py' \
-      '$LBPYTHIA8ROOT/options/Pythia8.py' \
-      Gauss-Job.py
+./run gaudirun.py 
+        '$APPCONFIGOPTS/Gauss/Beam6500GeV-md100-2016-nu1.6.py' \  # Sets beam energy and position
+        '$GAUSSOPTS/GenStandAlone.py' \  # Deactivates the detector simulation
+        '$DECFILESROOT/options/{eventnumber}.py' \  # Event type containing the signal
+        '$LBPYTHIA8ROOT/options/Pythia8.py' \  # Setting Pythia8 as generator
+        Gauss-Job.py
 ```
 
 {% callout "Only one option file" %}
@@ -69,6 +73,8 @@ importOptions("$APPCONFIGOPTS/Gauss/Beam6500GeV-md100-2016-nu1.6.py")
 # etc ...
 ```
 {% endcallout %}
+
+See if you can generate a generator level only sample for event type `27175000` ( $$D^{*+} \to D^{0}(\to K^{+}K^{-}\mu^{+}\mu^{-})\pi^{+}$$ )
 
 ## Make an nTuple
 
@@ -82,13 +88,17 @@ datafile: Where the file created by the Gauss generation phase is, and
 year: What year the MC is simulating.
 """
 # https://twiki.cern.ch/twiki/bin/view/LHCb/FAQ/LoKiNewDecayFinders
-decay = "[D*(2010)+ => ^[([D0]cc => ^K- ^pi+)]CC ^pi+]CC"
-datafile = "./Gauss-27163003-10000ev.xgen"
+decay = "[D*(2010)+ ==> ^(D0 ==> ^K+ ^K- ^mu+ ^mu-) ^pi+]CC"
+datafile = # THE INPUT FILE
 
 mc_basic_loki_vars = {
     'ETA': 'MCETA',
     'PHI': 'MCPHI',
     'PT': 'MCPT',
+    'PX': 'MCPX',
+    'PY': 'MCPY',
+    'PZ': 'MCPZ',
+    'E': 'MCE',
     'P': 'MCP',
 }
 
