@@ -110,7 +110,7 @@ solved and what the solution is.
 A lot of the material in this topic was taken from the following, excellent
 guides to asking good questions:
 
- * [How To Ask Questions The Smart Way](http://www.catb.org/esr/faqs/smart-questions.html) by
+ * [How To Ask Questions In A Smart Way](http://www.catb.org/esr/faqs/smart-questions.html) by
    Eric Raymond
  * [Writing the perfect question](http://codeblog.jonskeet.uk/2010/08/29/writing-the-perfect-question/)
    by Jon Skeet
