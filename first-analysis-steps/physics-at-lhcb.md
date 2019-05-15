@@ -23,7 +23,7 @@ and so we must infer their properties through their decay products. Particles
 such as charged kaons and pions have lifetimes large enough that a large
 fraction can traverse the full detector, and so we typically consider these
 particles as ‘stable’. Unstable objects, with much shorter lifetimes, are
-formed as combinations of these ‘stable’ particles[^2]:
+formed as combinations of these ‘stable’ particles[^1]:
 
 1. Charged pions $$\pi^{\pm}$$
 2. Charged kaons $$K^{\pm}$$
@@ -109,7 +109,7 @@ a fit $$\chi^{2}$$ associated to it. The quality of the fit can be used in a
 selection.
 
 Finally, with the fitted muon four-vectors, we can form the four-vector of the
-$$J/\psi$$ as their sum, creating the $$J/\psi$$ _candidate_[^1]. Now we get
+$$J/\psi$$ as their sum, creating the $$J/\psi$$ _candidate_[^2]. Now we get
 back to our original goal of measuring the number of true $$J/\psi \to
 \mu^{+}\mu^{-}$$. By plotting the $$J/\psi$$ invariant mass values as a
 histogram, we might hope to see a signal component. An example is shown in the
@@ -150,6 +150,6 @@ properties that are relevant for your analysis.
 [detdesc]: http://iopscience.iop.org/article/10.1088/1748-0221/3/08/S08005
 [run1perf]: https://arxiv.org/abs/1412.6352
 
-[^1]: ‘Candidate’ because, again, we never know anything with complete certainty; this could be combination of muons that just happen to pass our selection criteria.
+[^1]: Other ‘stable’ particles under this definition include neutrons $$n$$ and the long-lived neutral kaon weak eigenstate $$K_{\mathrm{L}}^{0}$$, but these are not part of standard reconstruction output.
 
-[^2]: Other ‘stable’ particles under this definition include neutrons $$n$$ and the long-lived neutral kaon weak eigenstate $$K_{\mathrm{L}}^{0}$$, but these are not part of standard reconstruction output.
+[^2]: ‘Candidate’ because, again, we never know anything with complete certainty; this could be combination of muons that just happen to pass our selection criteria.
