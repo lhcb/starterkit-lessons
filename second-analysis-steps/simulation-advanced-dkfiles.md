@@ -2,7 +2,7 @@
 * Learn advanced configuration options to configure `EvtGen`
 {% endobjectives %} 
 
-## Advanced: Controlling the decay
+## Advanced: Modifying the decay
 
 ##Two-body decays - getting angular momentum right
 EvtGen has specific models for each two body spin configuration, for example Scalar to Vector+Scalar (SVS), and Vector to lepton+lepton(VLL)
