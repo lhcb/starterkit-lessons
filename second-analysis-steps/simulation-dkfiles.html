@@ -65,7 +65,7 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="simulation-advanced-dkfiles.html" />
+    <link rel="next" href="simulation-gencuts.html" />
     
     
     <link rel="prev" href="simulation-running-gauss.html" />
@@ -625,12 +625,12 @@
             
         </li>
     
-        <li class="chapter " data-level="3.1.7.4" data-path="simulation-advanced-dkfiles.html">
+        <li class="chapter " data-level="3.1.7.4" data-path="simulation-gencuts.html">
             
-                <a href="simulation-advanced-dkfiles.html">
+                <a href="simulation-gencuts.html">
             
                     
-                    Advanced: Controlling the decay
+                    Modifying the decay
             
                 </a>
             
@@ -638,12 +638,12 @@
             
         </li>
     
-        <li class="chapter " data-level="3.1.7.5" data-path="simulation-gencuts.html">
+        <li class="chapter " data-level="3.1.7.5" data-path="simulation-advanced-dkfiles.html">
             
-                <a href="simulation-gencuts.html">
+                <a href="simulation-advanced-dkfiles.html">
             
                     
-                    Modifying generator cuts
+                    Advanced: Modifying the decay
             
                 </a>
             
@@ -863,60 +863,60 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <p><div class="panel panel-warning"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(7580092260);" id="learning-objectives"><i class="fa fa-line-chart"></i> Learning Objectives<span id="heading-7580092260"></span></h3></div><div class="panel-body" id="panel-7580092260"><ul>
+                                <p><div class="panel panel-warning"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(4739144270);" id="learning-objectives"><i class="fa fa-line-chart"></i> Learning Objectives<span id="heading-4739144270"></span></h3></div><div class="panel-body" id="panel-4739144270"><ul>
 <li>Learn the basic structure of a decfile.</li>
 </ul>
 </div></div></p>
 <h2 id="controlling-the-decay-decfiles">Controlling the decay: DecFiles</h2>
 <p>The <code>DecFile</code> controls the decay itself (i.e. what <code>EvtGen</code> does) as well as provide any event-type specific configuration (e.g. generator cuts).
 They exist in the <code>Gen/DecFile</code> package which we have already checked out and built in the beginning and are given as <code>.dec</code> files in <code>Gen/DecFiles/dkfiles</code>.
-For example, the <code>.dec</code> file for event-type <code>27163003</code> is <code>Dst_D0pi,Kpi=DecProdCut.dec</code>:</p>
-<pre><code class="lang-bash"><span class="hljs-comment"># EventType: 27163003</span>
-<span class="hljs-comment">#</span>
-<span class="hljs-comment"># Descriptor: [D*(2010)+ -&gt; (D0 -&gt; K- pi+) pi+]cc</span>
-<span class="hljs-comment">#</span>
-<span class="hljs-comment"># NickName: Dst_D0pi,Kpi=DecProdCut</span>
-<span class="hljs-comment">#</span>
-<span class="hljs-comment"># Cuts: DaughtersInLHCb</span>
-<span class="hljs-comment">#</span>
-<span class="hljs-comment"># Documentation: D0 decays to right-sign mode (K- pi+) with a D* tag.</span>
-<span class="hljs-comment"># EndDocumentation</span>
-<span class="hljs-comment">#</span>
-<span class="hljs-comment"># PhysicsWG: Charm</span>
-<span class="hljs-comment"># Tested: Yes</span>
-<span class="hljs-comment"># Responsible: Mat Charles</span>
-<span class="hljs-comment"># Email: matthew.charles@&lt;nospam&gt;cern.ch</span>
-<span class="hljs-comment"># Date: 20101210</span>
-<span class="hljs-comment">#</span>
+For example, the <code>.dec</code> file for event-type <code>27175000</code> is <code>Dst_D0pi,KKmumu=DecProdCut.dec</code>:</p>
+<pre><code class="lang-bash"><span class="hljs-comment"># EventType: 27175000                                                                                                                                                                                                                                      </span>
+<span class="hljs-comment">#                                                                                                                                                                                                                                                          </span>
+<span class="hljs-comment"># Descriptor: [D*(2010)+ -&gt; (D0 -&gt; {K+ K- mu+ mu-}) pi+]cc                                                                                                                                                                                                 </span>
+<span class="hljs-comment">#                                                                                                                                                                                                                                                          </span>
+<span class="hljs-comment"># NickName: Dst_D0pi,KKmumu=DecProdCut                                                                                                                                                                                                                     </span>
+<span class="hljs-comment">#                                                                                                                                                                                                                                                          </span>
+<span class="hljs-comment"># Cuts: DaughtersInLHCb                                                                                                                                                                                                                                    </span>
+<span class="hljs-comment">#                                                                                                                                                                                                                                                          </span>
+<span class="hljs-comment"># Documentation: Forces the D* decay in generic b-bbar / c-cbar events + Requires products to be in LHCb acceptance                                                                                                                                        </span>
+<span class="hljs-comment"># EndDocumentation                                                                                                                                                                                                                                         </span>
+<span class="hljs-comment">#                                                                                                                                                                                                                                                          </span>
+<span class="hljs-comment"># PhysicsWG: Charm                                                                                                                                                                                                                                         </span>
+<span class="hljs-comment"># Tested: Yes                                                                                                                                                                                                                                              </span>
+<span class="hljs-comment"># Responsible: Luisa Arrabito                                                                                                                                                                                                                              </span>
+<span class="hljs-comment"># Email: unknown@&lt;nospam&gt;cern.ch                                                                                                                                                                                                                           </span>
+<span class="hljs-comment"># Date: 20091215                                                                                                                                                                                                                                           </span>
+<span class="hljs-comment">#                                                                                                                                                                                                                                                          </span>
 
-Alias MyD0 D0
-Alias MyantiD0 anti-D0
-ChargeConj MyD0 MyantiD0
+Alias MyD0 D0                                                                                                                                                                                                                                              
+Alias MyantiD0 anti-D0                                                                                                                                                                                                                                     
+ChargeConj MyD0 MyantiD0                                                                                                                                                                                                                                   
 
-Decay D*+sig
-  1.000 MyD0  pi+    VSS;
-Enddecay
-CDecay D*-sig
+Decay D*+sig                                                                                                                                                                                                                                               
+  1.000 MyD0  pi+    VSS;                                                                                                                                                                                                                                  
+Enddecay                                                                                                                                                                                                                                                   
+CDecay D*-sig                                                                                                                                                                                                                                              
 
-Decay MyD0
-  1.0   K-  pi+    PHSP;
-Enddecay
-CDecay MyantiD0
-<span class="hljs-comment">#</span>
+Decay MyD0                                                                                                                                                                                                                                                 
+  1.000 K+ K- mu+ mu- PHSP;                                                                                                                                                                                                                                
+Enddecay                                                                                                                                                                                                                                                   
+CDecay MyantiD0                                                                                                                                                                                                                                            
+<span class="hljs-comment">#                                                                                                                                                                                                                                                          </span>
 End
 </code></pre>
 <p>The commented actually contains vital information and is parsed during the compilation to create the <code>&lt;event-type&gt;.py</code> file that is given to <code>Gauss</code> as one of its options!
 The EventType is a series of flags which controls the generation. The rules for this are described in detail in <a href="https://cds.cern.ch/record/855452/files/lhcb-2005-034.pdf" target="_blank">LHCb-2005-034</a> and also a <a href="http://cloud.e5.physik.tu-dortmund.de/eventtype/" target="_blank">website</a> that allows you to build/parse event-types.
-For example for the first digit: 1 = contains b quark, 2 = c quark, 3 = min bias ...
-Similarly, the document specifies the conventions for the &quot;NickName&quot; - which also has to be the filename. Note that once MC has been produced from a given DecFile, it is not allowed to be changed, so you never need to worry about which version of DecFiles you are looking at when trying to understand existing samples.
+For example for the first digit: 1 = contains b quark, 2 = c quark, 3 = min bias ...</p>
+<p>Similarly, the document specifies the conventions for the &quot;NickName&quot; - which also has to be the filename. Note that once MC has been produced from a given DecFile, it is not allowed to be changed, so you never need to worry about which version of DecFiles you are looking at when trying to understand existing samples.
 The &quot;Cuts&quot; field specifies which one of a predetermined set of cut tools are used. Additional python code can be added to the resulting configuration file:</p>
 <pre><code class="lang-bash"><span class="hljs-comment"># InsertPythonCode:</span>
 <span class="hljs-comment"># code ...</span>
 <span class="hljs-comment"># EndInsertPythonCode</span>
 </code></pre>
 <p>The bottom part of the decay file specifies the decay itself:
-This DecFile defines a signal <code>D*+</code> which decays 100% to <code>D0</code> <code>pi+</code>, and the D0 in turn decays 100% into <code>K-</code> <code>pi+</code>. Important is the definition of &quot;MyD0&quot;. If the decay was to &quot;D0&quot; rather than &quot;MyD0&quot;, the D0 would decay via all of the decay modes implemented in DECAY.DEC.
-The final part of each decay is the actual physics model used - in this case &quot;VSS&quot;, the generic matrix element for vector to scaler-scaler transitions, and &quot;PHSP&quot;, which is phase space only (matrix element = constant). Note that with PHSP the daughters are completely unpolarized - for anything other than (spin0) to (spin0 spin0) this will get the angular momentum wrong!</p>
+This DecFile defines a signal <code>D*+</code> which decays 100% to <code>D0</code> <code>pi+</code>, and the D0 in turn decays 100% into <code>K+</code>, <code>K-</code>, <code>mu+</code> and <code>mu-</code>. Important is the definition of &quot;MyD0&quot;. If the decay was to &quot;D0&quot; rather than &quot;MyD0&quot;, the D0 would decay via all of the decay modes implemented in DECAY.DEC.
+The final part of each decay is the actual physics model used - in this case &quot;VSS&quot;, the generic matrix element for vector to scaler-scaler transitions, and &quot;PHSP&quot;, which is phase space only (matrix element = constant). Note that with PHSP, the daughters are completely unpolarized - for anything other than (spin0) to (spin0 spin0) this will get the angular momentum wrong!</p>
 
                                 
                                 </section>
@@ -949,7 +949,7 @@ The final part of each decay is the actual physics model used - in this case &qu
                 </a>
                 
                 
-                <a href="simulation-advanced-dkfiles.html" class="navigation navigation-next " aria-label="Next page: Advanced: Controlling the decay">
+                <a href="simulation-gencuts.html" class="navigation navigation-next " aria-label="Next page: Modifying the decay">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -960,7 +960,7 @@ The final part of each decay is the actual physics model used - in this case &qu
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Controlling the decay","level":"3.1.7.3","depth":3,"next":{"title":"Advanced: Controlling the decay","level":"3.1.7.4","depth":3,"path":"second-analysis-steps/simulation-advanced-dkfiles.md","ref":"second-analysis-steps/simulation-advanced-dkfiles.md","articles":[]},"previous":{"title":"Getting the correct option files","level":"3.1.7.2","depth":3,"path":"second-analysis-steps/simulation-running-gauss.md","ref":"second-analysis-steps/simulation-running-gauss.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-sharing","panels@git+https://github.com/lhcb/gitbook-plugin-panels.git#master","katex-auto-render@git+https://github.com/lhcb/gitbook-plugin-katex-auto-render.git#master","collapsible-menu","otherlink"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"collapsible-menu":{},"search":{},"otherlink":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"panels":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"katex-auto-render":{},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"The Starterkit team and contributors","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"gitbook":"*"},"file":{"path":"second-analysis-steps/simulation-dkfiles.md","mtime":"2019-05-16T06:30:15.150Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-05-16T06:31:36.099Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Controlling the decay","level":"3.1.7.3","depth":3,"next":{"title":"Modifying the decay","level":"3.1.7.4","depth":3,"path":"second-analysis-steps/simulation-gencuts.md","ref":"second-analysis-steps/simulation-gencuts.md","articles":[]},"previous":{"title":"Getting the correct option files","level":"3.1.7.2","depth":3,"path":"second-analysis-steps/simulation-running-gauss.md","ref":"second-analysis-steps/simulation-running-gauss.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-sharing","panels@git+https://github.com/lhcb/gitbook-plugin-panels.git#master","katex-auto-render@git+https://github.com/lhcb/gitbook-plugin-katex-auto-render.git#master","collapsible-menu","otherlink"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"collapsible-menu":{},"search":{},"otherlink":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"panels":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"katex-auto-render":{},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"The Starterkit team and contributors","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"gitbook":"*"},"file":{"path":"second-analysis-steps/simulation-dkfiles.md","mtime":"2019-05-16T06:36:01.211Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-05-16T06:37:20.316Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

@@ -625,12 +625,12 @@
             
         </li>
     
-        <li class="chapter " data-level="3.1.7.4" data-path="simulation-advanced-dkfiles.html">
+        <li class="chapter " data-level="3.1.7.4" data-path="simulation-gencuts.html">
             
-                <a href="simulation-advanced-dkfiles.html">
+                <a href="simulation-gencuts.html">
             
                     
-                    Advanced: Controlling the decay
+                    Modifying the decay
             
                 </a>
             
@@ -638,12 +638,12 @@
             
         </li>
     
-        <li class="chapter " data-level="3.1.7.5" data-path="simulation-gencuts.html">
+        <li class="chapter " data-level="3.1.7.5" data-path="simulation-advanced-dkfiles.html">
             
-                <a href="simulation-gencuts.html">
+                <a href="simulation-advanced-dkfiles.html">
             
                     
-                    Modifying generator cuts
+                    Advanced: Modifying the decay
             
                 </a>
             
@@ -864,7 +864,7 @@
                                 <section class="normal markdown-section">
                                 
                                 <h1 id="hlt-intro">HLT intro</h1>
-<p><div class="panel panel-warning"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(7110256690);" id="learning-objectives"><i class="fa fa-line-chart"></i> Learning Objectives<span id="heading-7110256690"></span></h3></div><div class="panel-body" id="panel-7110256690"><ul>
+<p><div class="panel panel-warning"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(5370728290);" id="learning-objectives"><i class="fa fa-line-chart"></i> Learning Objectives<span id="heading-5370728290"></span></h3></div><div class="panel-body" id="panel-5370728290"><ul>
 <li>Learn about the LHCb trigger.</li>
 <li>Learn how to run Moore from settings and from TCK.</li>
 <li>Getting started with writing your own trigger selection.</li>
@@ -956,14 +956,14 @@ ttt = tupsel_KPi.addTupleTool(<span class="hljs-string">&quot;TupleToolTrigger&q
 ttt.Verbose = <span class="hljs-keyword">True</span> <span class="hljs-comment">#Needed to get trigger decisions</span>
 </code></pre>
 <p><code>TupleToolEventInfo</code> adds basic information about the event to your ntuple. Normally it is added by default. You will find two branches Hlt1TCK and Hlt2TCK. <code>TupleToolTrigger</code> adds the decisions of trigger lines. You will only find branches called L0Global, Hlt1Global and Hlt2Global. We first have to find out which trigger lines were available for these data.</p>
-<p><div class="panel panel-primary"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(639377667);" id="what-is-a-tck"><i class="fa fa-info-circle"></i> What is a TCK?<span id="heading-639377667"></span></h3></div><div class="panel-body" id="panel-639377667"><p>The Trigger Configuration Key (TCK) stores the configuration of the HLT in a 
+<p><div class="panel panel-primary"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(1711980907);" id="what-is-a-tck"><i class="fa fa-info-circle"></i> What is a TCK?<span id="heading-1711980907"></span></h3></div><div class="panel-body" id="panel-1711980907"><p>The Trigger Configuration Key (TCK) stores the configuration of the HLT in a 
 database.
 All algorithms and their properties are defined in it.
 The key is usually given as a hexadecimal number. The last 4 digits define the L0 TCK.
 The first 4 digits define the HLT configuration. HLT1 TCKs start with 1, HLT2 TCKs start
 with 2.</p>
 </div></div></p>
-<p><div class="panel panel-success"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(7456169243);" id="which-tcks-were-used-to-trigger-these-data"><i class="fa fa-square-o"></i> Which TCKs were used to trigger these data?<span id="heading-7456169243"></span></h3></div><div class="panel-body" id="panel-7456169243"><p>Find out what the hexadecimal presentation of the Hlt1 and Hlt2 TCK is.</p>
+<p><div class="panel panel-success"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(6641906540);" id="which-tcks-were-used-to-trigger-these-data"><i class="fa fa-square-o"></i> Which TCKs were used to trigger these data?<span id="heading-6641906540"></span></h3></div><div class="panel-body" id="panel-6641906540"><p>Find out what the hexadecimal presentation of the Hlt1 and Hlt2 TCK is.</p>
 </div></div></p>
 <h3 id="exploring-a-tck-list-of-trigger-lines">Exploring a TCK: List of trigger lines</h3>
 <p>To get a list of all available TCKs one can use TCKsh which is a python shell with predefined
@@ -971,7 +971,7 @@ functions to explore TCKs, do</p>
 <pre><code>$ lb-run Moore/latest TCKsh
 &gt; listConfigurations()
 </code></pre><p>The commands <code>listL0Channels(&lt;TCK&gt;)</code>, <code>listHlt1Lines(&lt;TCK&gt;)</code> or <code>listHlt2Lines(&lt;TCK&gt;)</code> show lists of the lines in L0, Hlt1 or Hlt2. If you replace list with get, a list with the lines is returned.</p>
-<p><div class="panel panel-success"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(2869775182);" id="compare-hlt1-lines-from-run1-and-run2"><i class="fa fa-square-o"></i> Compare HLT1 lines from Run1 and Run2<span id="heading-2869775182"></span></h3></div><div class="panel-body" id="panel-2869775182"><p>Try to find out which HLT1 lines were available in Run 1 and which are now available in Run 2.</p>
+<p><div class="panel panel-success"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(4825817320);" id="compare-hlt1-lines-from-run1-and-run2"><i class="fa fa-square-o"></i> Compare HLT1 lines from Run1 and Run2<span id="heading-4825817320"></span></h3></div><div class="panel-body" id="panel-4825817320"><p>Try to find out which HLT1 lines were available in Run 1 and which are now available in Run 2.</p>
 <p>What are the names of the topological trigger lines in Run 1 and Run 2?</p>
 </div></div></p>
 <h3 id="add-trigger-information-to-your-ntuple-continued">Add trigger information to your ntuple, continued</h3>
@@ -1014,7 +1014,7 @@ ttt.TriggerList = triggerList
 tttt.Verbose = <span class="hljs-keyword">True</span> <span class="hljs-comment">#To decisions from all trigger stages</span>
 tttt.TriggerList = triggerList
 </code></pre>
-<p><div class="panel panel-success"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(9023605662);" id="understanding-tistos"><i class="fa fa-square-o"></i> Understanding TISTOS<span id="heading-9023605662"></span></h3></div><div class="panel-body" id="panel-9023605662"><p>Explain why a single particle cannot be TOS on the Hlt1TwoTrackMVA line.</p>
+<p><div class="panel panel-success"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(7968905109);" id="understanding-tistos"><i class="fa fa-square-o"></i> Understanding TISTOS<span id="heading-7968905109"></span></h3></div><div class="panel-body" id="panel-7968905109"><p>Explain why a single particle cannot be TOS on the Hlt1TwoTrackMVA line.</p>
 </div></div></p>
 <h3 id="exploring-a-tck-properties-of-trigger-lines">Exploring a TCK: Properties of trigger lines</h3>
 <p>If you want to get an overview of an Hlt line and its algorithms, you can do </p>
@@ -1089,7 +1089,7 @@ Note: HLT2 needs to know about the decisions of trigger lines used in HLT1.
 The decisions are decoded from the definitions in the HLT1 TCK. Therefore, HLT2 can only
 read data which have been created when running Moore from TCK and not from settings.
 
-<div class="panel panel-success"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(4234963367);"><i class="fa fa-square-o"></i> Compare Hlt1 and Hlt2<span id="heading-4234963367"></span></h3></div><div class="panel-body" id="panel-4234963367"><p>What is reduction factor of Hlt1? (Search how many events are accepted by <code>Hlt1Global</code>.)</p>
+<div class="panel panel-success"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(4523205478);"><i class="fa fa-square-o"></i> Compare Hlt1 and Hlt2<span id="heading-4523205478"></span></h3></div><div class="panel-body" id="panel-4523205478"><p>What is reduction factor of Hlt1? (Search how many events are accepted by <code>Hlt1Global</code>.)</p>
 <p>What is reduction factor of Hlt2? (Search how many events are accepted by <code>Hlt2Global</code>.)</p>
 <p>What is difference in run time of Hlt1 and Hlt2?</p>
 </div></div>
@@ -1202,7 +1202,7 @@ we encourage to use a full checkout of the `Moore` and `Hlt` projects and to use
 A user friendly setup for this is being developed under the name [trigger-dev](https://gitlab.cern.ch/lhcb-HLT/trigger-dev).
 We encourage people to check it out and give feedback on the [issues page](https://gitlab.cern.ch/lhcb-HLT/trigger-dev/issues).
 
-<div class="panel panel-success"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(3199077670);"><i class="fa fa-square-o"></i> Convert a stripping line to a Hlt2 line<span id="heading-3199077670"></span></h3></div><div class="panel-body" id="panel-3199077670"><ol>
+<div class="panel panel-success"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(9585907806);"><i class="fa fa-square-o"></i> Convert a stripping line to a Hlt2 line<span id="heading-9585907806"></span></h3></div><div class="panel-body" id="panel-9585907806"><ol>
 <li>Pick a stripping line and convert it to a HLT2 line.</li>
 <li>Make it a Turbo line (You have to set the property Turbo to true and the name of the line has to end with Turbo).</li>
 <li>Run a rate test to determine the rate of the line, <a href="https://twiki.cern.ch/twiki/bin/view/LHCb/MooreRateTestExamples">instructions</a> are found here.</li>
@@ -1251,7 +1251,7 @@ We encourage people to check it out and give feedback on the [issues page](https
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"HLT intro","level":"3.1.8","depth":2,"next":{"title":"TisTos DIY","level":"3.1.9","depth":2,"path":"second-analysis-steps/tistos-diy.md","ref":"second-analysis-steps/tistos-diy.md","articles":[]},"previous":{"title":"Fast simulation options","level":"3.1.7.6","depth":3,"path":"second-analysis-steps/simulation-fastsim.md","ref":"second-analysis-steps/simulation-fastsim.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-sharing","panels@git+https://github.com/lhcb/gitbook-plugin-panels.git#master","katex-auto-render@git+https://github.com/lhcb/gitbook-plugin-katex-auto-render.git#master","collapsible-menu","otherlink"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"collapsible-menu":{},"search":{},"otherlink":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"panels":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"katex-auto-render":{},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"The Starterkit team and contributors","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"gitbook":"*"},"file":{"path":"second-analysis-steps/hlt-intro.md","mtime":"2019-05-16T06:30:15.142Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-05-16T06:31:36.099Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"HLT intro","level":"3.1.8","depth":2,"next":{"title":"TisTos DIY","level":"3.1.9","depth":2,"path":"second-analysis-steps/tistos-diy.md","ref":"second-analysis-steps/tistos-diy.md","articles":[]},"previous":{"title":"Fast simulation options","level":"3.1.7.6","depth":3,"path":"second-analysis-steps/simulation-fastsim.md","ref":"second-analysis-steps/simulation-fastsim.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-sharing","panels@git+https://github.com/lhcb/gitbook-plugin-panels.git#master","katex-auto-render@git+https://github.com/lhcb/gitbook-plugin-katex-auto-render.git#master","collapsible-menu","otherlink"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"collapsible-menu":{},"search":{},"otherlink":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"panels":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"katex-auto-render":{},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"The Starterkit team and contributors","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"gitbook":"*"},"file":{"path":"second-analysis-steps/hlt-intro.md","mtime":"2019-05-16T06:36:01.207Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-05-16T06:37:20.316Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

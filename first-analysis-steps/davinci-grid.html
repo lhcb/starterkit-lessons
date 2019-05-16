@@ -625,12 +625,12 @@
             
         </li>
     
-        <li class="chapter " data-level="3.1.7.4" data-path="../second-analysis-steps/simulation-advanced-dkfiles.html">
+        <li class="chapter " data-level="3.1.7.4" data-path="../second-analysis-steps/simulation-gencuts.html">
             
-                <a href="../second-analysis-steps/simulation-advanced-dkfiles.html">
+                <a href="../second-analysis-steps/simulation-gencuts.html">
             
                     
-                    Advanced: Controlling the decay
+                    Modifying the decay
             
                 </a>
             
@@ -638,12 +638,12 @@
             
         </li>
     
-        <li class="chapter " data-level="3.1.7.5" data-path="../second-analysis-steps/simulation-gencuts.html">
+        <li class="chapter " data-level="3.1.7.5" data-path="../second-analysis-steps/simulation-advanced-dkfiles.html">
             
-                <a href="../second-analysis-steps/simulation-gencuts.html">
+                <a href="../second-analysis-steps/simulation-advanced-dkfiles.html">
             
                     
-                    Modifying generator cuts
+                    Advanced: Modifying the decay
             
                 </a>
             
@@ -864,7 +864,7 @@
                                 <section class="normal markdown-section">
                                 
                                 <h1 id="running-davinci-on-the-grid">Running DaVinci on the grid</h1>
-<p><div class="panel panel-warning"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(4720789162);" id="learning-objectives"><i class="fa fa-line-chart"></i> Learning Objectives<span id="heading-4720789162"></span></h3></div><div class="panel-body" id="panel-4720789162"><ul>
+<p><div class="panel panel-warning"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(4590169215);" id="learning-objectives"><i class="fa fa-line-chart"></i> Learning Objectives<span id="heading-4590169215"></span></h3></div><div class="panel-body" id="panel-4590169215"><ul>
 <li>Create a ganga job</li>
 <li>Submit a ganga job</li>
 <li>Waiting for ganga</li>
@@ -903,7 +903,7 @@ backend called <code>Dirac</code>, which is &quot;the grid&quot;. Instead of spe
 files to process as part of the options file you have now to tell the
 <code>Job</code> about it. This allows <code>ganga</code> to split your job up by setting <code>j.splitter</code>,
 processing different files simultaneously. More details about the splitter are given in the <a href="split-jobs.html">next lesson</a>. Note that data will be accessed using its path in the bookkeeping <code>bkPath</code>. In order to speed-up our job, only the first 2 elements (files) of <code>data</code> will be accessed; we don&apos;t need to look at much data here. </p>
-<p><div class="panel panel-primary"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(9472171276);" id="davincidev-folder"><i class="fa fa-info-circle"></i> DaVinciDev folder<span id="heading-9472171276"></span></h3></div><div class="panel-body" id="panel-9472171276"><p>When you create a job using <code>prepareGaudiExec(&apos;DaVinci&apos;,&apos;v44r6&apos;, myPath=&apos;.&apos;)</code>
+<p><div class="panel panel-primary"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(3025058359);" id="davincidev-folder"><i class="fa fa-info-circle"></i> DaVinciDev folder<span id="heading-3025058359"></span></h3></div><div class="panel-body" id="panel-3025058359"><p>When you create a job using <code>prepareGaudiExec(&apos;DaVinci&apos;,&apos;v44r6&apos;, myPath=&apos;.&apos;)</code>
 you get the following message:</p>
 <pre><code>INFO     Set up App Env at: ./DaVinciDev_v44r6
 </code></pre><p><code>ganga</code> has created a folder with a local copy of the DaVinci v44r6 release.
@@ -916,7 +916,7 @@ this in the <a href="lhcb-dev.html">Developing LHCb Software</a> lesson.</p>
 running yet. To submit it type <code>j.submit()</code>. Now <code>ganga</code> will do the
 equivalent of <code>lb-run DaVinci/v44r6</code>, prepare your job and then
 ship it off to the grid.</p>
-<p><div class="panel panel-primary"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(4383658145);" id="picking-up-a-right-platform"><i class="fa fa-info-circle"></i> Picking up a right platform<span id="heading-4383658145"></span></h3></div><div class="panel-body" id="panel-4383658145"><p>Early 2018, the default platform on most of lxplus machines was changed to <code>x86_64-slc6-gcc62-opt</code> (instead of <code>x86_64-slc6-gcc49-opt</code>), changing the version of the gcc compiler from 4.9 to 6.2. 
+<p><div class="panel panel-primary"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(6646226136);" id="picking-up-a-right-platform"><i class="fa fa-info-circle"></i> Picking up a right platform<span id="heading-6646226136"></span></h3></div><div class="panel-body" id="panel-6646226136"><p>Early 2018, the default platform on most of lxplus machines was changed to <code>x86_64-slc6-gcc62-opt</code> (instead of <code>x86_64-slc6-gcc49-opt</code>), changing the version of the gcc compiler from 4.9 to 6.2. 
 However, most of older DaVinci versions, anterior to v42r0, are not compiled for <code>x86_64-slc6-gcc62-opt</code>. </p>
 <p>The list of platforms available for a certain DaVinci version (let&apos;s say <code>v38r0</code>), can be viewed by</p>
 <pre><code class="lang-bash">$ lb-sdb-query listPlatforms DaVinci v38r0
@@ -977,7 +977,7 @@ property of your job.</p>
 </code></pre>
 <p>Take a look at the contents of this directory.
 Tip: this can be done from ganga using command <code>jobs(787).peek()</code>.</p>
-<p><div class="panel panel-primary"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(3651057329);" id="using-the-shell-from-ipython"><i class="fa fa-info-circle"></i> Using the Shell from IPython<span id="heading-3651057329"></span></h3></div><div class="panel-body" id="panel-3651057329"><p>IPython lets you execute shell commands from within the <code>ganga</code> session.
+<p><div class="panel panel-primary"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(632129867);" id="using-the-shell-from-ipython"><i class="fa fa-info-circle"></i> Using the Shell from IPython<span id="heading-632129867"></span></h3></div><div class="panel-body" id="panel-632129867"><p>IPython lets you execute shell commands from within the <code>ganga</code> session.
 This means you can list the contents of a directory without leaving ganga
 by typing <code>!ls /tmp/</code>. This will list the contents of the <code>/tmp</code> directory.
 In our case we can use this to list the contents of the job output directory
@@ -989,7 +989,7 @@ type:</p>
 $ root <span class="hljs-_">-l</span> path/to/the/job/output
 </code></pre>
 <p>You need to setup <code>DaVinci</code> as we need ROOT version 6 to read the nTuple.</p>
-<p><div class="panel panel-primary"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(2130705247);" id="getting-help-with-ganga"><i class="fa fa-info-circle"></i> Getting help with ganga<span id="heading-2130705247"></span></h3></div><div class="panel-body" id="panel-2130705247"><p>To find out more take a look at the <a href="https://twiki.cern.ch/twiki/bin/view/LHCb/FAQ/GangaLHCbFAQ" target="_blank">Ganga 
+<p><div class="panel panel-primary"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(5386085751);" id="getting-help-with-ganga"><i class="fa fa-info-circle"></i> Getting help with ganga<span id="heading-5386085751"></span></h3></div><div class="panel-body" id="panel-5386085751"><p>To find out more take a look at the <a href="https://twiki.cern.ch/twiki/bin/view/LHCb/FAQ/GangaLHCbFAQ" target="_blank">Ganga 
 FAQ</a></p>
 </div></div> </p>
 
@@ -1035,7 +1035,7 @@ FAQ</a></p>
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Running DaVinci on the grid","level":"2.1.14","depth":2,"next":{"title":"Splitting a job into subjobs","level":"2.1.15","depth":2,"path":"first-analysis-steps/split-jobs.md","ref":"first-analysis-steps/split-jobs.md","articles":[]},"previous":{"title":"How do I use DecayTreeFitter?","level":"2.1.13","depth":2,"path":"first-analysis-steps/decay-tree-fitter.md","ref":"first-analysis-steps/decay-tree-fitter.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-sharing","panels@git+https://github.com/lhcb/gitbook-plugin-panels.git#master","katex-auto-render@git+https://github.com/lhcb/gitbook-plugin-katex-auto-render.git#master","collapsible-menu","otherlink"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"collapsible-menu":{},"search":{},"otherlink":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"panels":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"katex-auto-render":{},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"The Starterkit team and contributors","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"gitbook":"*"},"file":{"path":"first-analysis-steps/davinci-grid.md","mtime":"2019-05-16T06:30:15.114Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-05-16T06:31:36.099Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Running DaVinci on the grid","level":"2.1.14","depth":2,"next":{"title":"Splitting a job into subjobs","level":"2.1.15","depth":2,"path":"first-analysis-steps/split-jobs.md","ref":"first-analysis-steps/split-jobs.md","articles":[]},"previous":{"title":"How do I use DecayTreeFitter?","level":"2.1.13","depth":2,"path":"first-analysis-steps/decay-tree-fitter.md","ref":"first-analysis-steps/decay-tree-fitter.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-sharing","panels@git+https://github.com/lhcb/gitbook-plugin-panels.git#master","katex-auto-render@git+https://github.com/lhcb/gitbook-plugin-katex-auto-render.git#master","collapsible-menu","otherlink"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"collapsible-menu":{},"search":{},"otherlink":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"panels":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"katex-auto-render":{},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"The Starterkit team and contributors","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"gitbook":"*"},"file":{"path":"first-analysis-steps/davinci-grid.md","mtime":"2019-05-16T06:36:01.179Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-05-16T06:37:20.316Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

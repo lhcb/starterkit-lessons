@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>Modifying generator cuts · GitBook</title>
+        <title>Modifying the decay · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -65,10 +65,10 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="simulation-fastsim.html" />
+    <link rel="next" href="simulation-advanced-dkfiles.html" />
     
     
-    <link rel="prev" href="simulation-advanced-dkfiles.html" />
+    <link rel="prev" href="simulation-dkfiles.html" />
     
 
     </head>
@@ -625,12 +625,12 @@
             
         </li>
     
-        <li class="chapter " data-level="3.1.7.4" data-path="simulation-advanced-dkfiles.html">
+        <li class="chapter active" data-level="3.1.7.4" data-path="simulation-gencuts.html">
             
-                <a href="simulation-advanced-dkfiles.html">
+                <a href="simulation-gencuts.html">
             
                     
-                    Advanced: Controlling the decay
+                    Modifying the decay
             
                 </a>
             
@@ -638,12 +638,12 @@
             
         </li>
     
-        <li class="chapter active" data-level="3.1.7.5" data-path="simulation-gencuts.html">
+        <li class="chapter " data-level="3.1.7.5" data-path="simulation-advanced-dkfiles.html">
             
-                <a href="simulation-gencuts.html">
+                <a href="simulation-advanced-dkfiles.html">
             
                     
-                    Modifying generator cuts
+                    Advanced: Modifying the decay
             
                 </a>
             
@@ -848,7 +848,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >Modifying generator cuts</a>
+        <a href=".." >Modifying the decay</a>
     </h1>
 </div>
 
@@ -863,10 +863,36 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <p><div class="panel panel-warning"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(512382604);" id="learning-objectives"><i class="fa fa-line-chart"></i> Learning Objectives<span id="heading-512382604"></span></h3></div><div class="panel-body" id="panel-512382604"><ul>
+                                <p><div class="panel panel-warning"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(1808164930);" id="learning-objectives"><i class="fa fa-line-chart"></i> Learning Objectives<span id="heading-1808164930"></span></h3></div><div class="panel-body" id="panel-1808164930"><ul>
+<li>Learn how to customise the generated decay</li>
+<li>Learn how to modify the used decay channels</li>
 <li>Learn how to modify/remove generator level cuts</li>
 </ul>
 </div></div> </p>
+<h1 id="modifying-the-decay">Modifying the decay</h1>
+<h2 id="adding-a-decay-channel">Adding a decay channel</h2>
+<p>In order to make our decay model more realistic we can add in known resonances. E.g. instead of solely relying on phase-space, we can add in the prominent $$\Phi\to K^{+}K^{-}$$ resonance to hopefully. In the decfile, we can another line to the decay channels of the $$D^0$$:</p>
+<pre><code class="lang-bash">Decay MyD0                                                                                                                                                                                                                                                 
+  0.5 K+ K- mu+ mu- PHSP;                                                                                                                                                                                                                                
+  0.5 phi mu+ mu- PHSP;                                                                                                                                                                                                                                
+Enddecay                                                                                                                                                                                                                                                   
+CDecay MyantiD0
+</code></pre>
+<p>This triggers EvtGen to produce the $$\phi$$ resonance in 50% of the cases and $$\phi$$ is subsequently decayed. However, we have not told EvtGen that the $$\phi$$ should be decayed only to a $$K^+K^-$$, hence it will randomly choose from all possible decays it knows about. Instead of modifying the common <code>phi</code>, we apply the same trick as we did for the $$D^0$$ decay:</p>
+<pre><code class="lang-bash">Alias MyPhi phi
+ChargeConj MyPhi MyPhi
+
+Decay MyD0
+  0.25 K+ K- mu+ mu- PHSP;  
+  0.75 MyPhi mu+ mu- PHSP;  
+Enddecay
+CDecay MyantiD0
+
+Decay MyPhi
+  1.000 K+  K-    VSS;
+Enddecay
+</code></pre>
+<p>After changing the decfile, you have to rerun <code>make</code>. Try out the modified decfile with Gauss, you should see a large spike in $$m(K^+K^-)$$.</p>
 <h2 id="generator-level-cuts">Generator level cuts</h2>
 <p>Detector simulation is computationally expensive, and event generation is comparatively fast. Cuts at generator level save a huge amount of CPU and disk space (which means you can have more actually useful events) almost for free. At generator level you can only cut on pre-resolution quantities, so normally you want the generator cuts to be 100% efficient for selected events (within epsilon). The default example is to immediately remove events where the daughters are far outside the LHCb acceptance.
 This is implemented in &quot;DaugthersInLHCb&quot;, aka &quot;DecProdCut&quot; in the NickName. This requires that each &quot;stable charged particle&quot; is in a loose region around the LHCb acceptance (10-400 mrad in Theta).
@@ -889,7 +915,7 @@ Cut tools need to be implemented in C++ and reside in the package <code>Gen/GenC
 <pre><code class="lang-python">Generation().SignalPlain.CutTool = <span class="hljs-string">&quot;&quot;</span>
 </code></pre>
 <p>which must be included after <code>27163003.py</code> is sourced (e.g. in <code>Gauss-Job.py</code>). You can convince yourself that this alters the observed
-distributions and leads to a generator level cut efficiency of 100%. A large sample can be found on EOS: <code>root://eosuser.cern.ch//eos/user/l/lhcbsk/sim-lesson/GaussNoGenCut-27163003-10000ev.xgen</code>
+distributions and leads to a generator level cut efficiency of 100%. A large sample can be found on EOS: <code>root://eosuser.cern.ch//eos/user/l/lhcbsk/sim-lesson-2019/Gauss-27175000-modified-50000ev-20190515.xgen</code> (includes additional resonance added above).
 Have a look at the pseudorapidity distribution of the head particle. This illustrates another default behavior of the generation of signal decays in Gauss: The generated events&apos; z-axis if inverted if the selected signal particle&apos;s momentum along that axis is negative.</p>
 <h2 id="modifying-the-cut-tool">Modifying the cut tool</h2>
 <p>If you need to modify the cut tool, you generally can pick between multiple options with increasing complexity and time until in production:</p>
@@ -899,24 +925,27 @@ Have a look at the pseudorapidity distribution of the head particle. This illust
 <li>Last resort for really special things: write your own C++ implementation of the <code>IGenCutTool</code> interface.</li>
 </ol>
 <p><code>LoKi::GenCutTool</code> are a good solution when you need to impose additional requirements beyond those provided by <code>DaughtersInLHCb</code>, for example a minimum for the transverse mometum of a <code>D0</code>.
-For local tests, this can be easily implemented by overwriting the default cut tool set by <code>27163003.py</code>:</p>
+For local tests, this can be easily implemented by overwriting the default cut tool set by <code>27175000.py</code>:</p>
 <pre><code class="lang-python"><span class="hljs-keyword">from</span> Configurables <span class="hljs-keyword">import</span> LoKi__GenCutTool
 <span class="hljs-keyword">from</span> Gauss.Configuration <span class="hljs-keyword">import</span> *
-generation = Generation()
-signal = generation.SignalPlain
-signal.addTool(LoKi__GenCutTool, <span class="hljs-string">&apos;TightCut&apos;</span>)
-tightCut = signal.TightCut
-tightCut.Decay = <span class="hljs-string">&apos;[D*(2010)+ -&gt; ^( D0 =&gt; ^K- ^pi+ ) pi+]CC&apos;</span>
+Generation().SignalPlain.CutTool = <span class="hljs-string">&quot;LoKi::GenCutTool/TightCut&quot;</span>
+
+<span class="hljs-keyword">from</span> Configurables <span class="hljs-keyword">import</span> LoKi__GenCutTool
+gen=Generation()
+gen.SignalPlain.addTool ( LoKi__GenCutTool , <span class="hljs-string">&apos;TightCut&apos;</span> )
+
+tightCut = Generation().SignalPlain.TightCut
+tightCut.Decay     = <span class="hljs-string">&apos;^[D*(2010)+ ==&gt; ^( D0 ==&gt; ^K+ ^K- ^mu+ ^mu- ) pi+]CC&apos;</span>
 tightCut.Preambulo += [
-    <span class="hljs-string">&apos;from GaudiKernel.SystemOfUnits import GeV&apos;</span>,
-    <span class="hljs-string">&apos;inAcc         =  in_range ( 0.005 , GTHETA , 0.400 )&apos;</span>,
-    <span class="hljs-string">&apos;goodD0        =  ( GPT &gt; 2.0 * GeV )&apos;</span>,
+   <span class="hljs-string">&apos;from GaudiKernel.SystemOfUnits import GeV&apos;</span>,
+   <span class="hljs-string">&apos;inAcc         =  in_range ( 0.005 , GTHETA , 0.400 )&apos;</span>,
+   <span class="hljs-string">&apos;goodD0        =  ( GPT &gt; 2.0 * GeV )&apos;</span>,
 ]
 tightCut.Cuts = {
-    <span class="hljs-string">&apos;[D0]cc&apos;</span>: <span class="hljs-string">&apos;goodD0&apos;</span>,
-    <span class="hljs-string">&apos;[K+]cc&apos;</span>: <span class="hljs-string">&apos;inAcc&apos;</span>,
-    <span class="hljs-string">&apos;[pi+]cc&apos;</span>: <span class="hljs-string">&apos;inAcc&apos;</span>
-    }
+   <span class="hljs-string">&apos;[D0]cc&apos;</span>: <span class="hljs-string">&apos;goodD0&apos;</span>,
+   <span class="hljs-string">&apos;[K+]cc&apos;</span>: <span class="hljs-string">&apos;inAcc&apos;</span>,
+   <span class="hljs-string">&apos;[mu+]cc&apos;</span>: <span class="hljs-string">&apos;inAcc&apos;</span>
+}
 </code></pre>
 <p>You can again check that this works and a larger sample of 10,000 events can be found <code>root://eosuser.cern.ch//eos/user/l/lhcbsk/sim-lesson/GaussTightCut-27163003-10000ev.xgen</code>
 .
@@ -927,7 +956,7 @@ with a signal particle that only rarely occurs in minimum bias events can result
 taking manifold longer than the simulation of the detector response (and you might want to rethink your
 strategy for event generation).
 For some ideas on which kind of cuts to apply, you can have a look here: <a href="https://twiki.cern.ch/twiki/bin/view/LHCb/GeneratorLevelTightCuts" target="_blank">https://twiki.cern.ch/twiki/bin/view/LHCb/GeneratorLevelTightCuts</a></p>
-<p><div class="panel panel-primary"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(3181730793);" id="modifying-cut-tools-for-production"><i class="fa fa-info-circle"></i> Modifying cut tools for production<span id="heading-3181730793"></span></h3></div><div class="panel-body" id="panel-3181730793"><p>As the cut tools are to be configured in the DecFiles, they form an integral part of the event-type itself.
+<p><div class="panel panel-primary"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(2239423311);" id="modifying-cut-tools-for-production"><i class="fa fa-info-circle"></i> Modifying cut tools for production<span id="heading-2239423311"></span></h3></div><div class="panel-body" id="panel-2239423311"><p>As the cut tools are to be configured in the DecFiles, they form an integral part of the event-type itself.
 Hence, any modification that changes the produced events usually requires the release of a new DecFile including a new event-type or a new simulation sub-version so events end up in a different bookkeeping location.</p>
 </div></div> </p>
 
@@ -957,12 +986,12 @@ Hence, any modification that changes the produced events usually requires the re
 
             
                 
-                <a href="simulation-advanced-dkfiles.html" class="navigation navigation-prev " aria-label="Previous page: Advanced: Controlling the decay">
+                <a href="simulation-dkfiles.html" class="navigation navigation-prev " aria-label="Previous page: Controlling the decay">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="simulation-fastsim.html" class="navigation navigation-next " aria-label="Next page: Fast simulation options">
+                <a href="simulation-advanced-dkfiles.html" class="navigation navigation-next " aria-label="Next page: Advanced: Modifying the decay">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -973,7 +1002,7 @@ Hence, any modification that changes the produced events usually requires the re
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Modifying generator cuts","level":"3.1.7.5","depth":3,"next":{"title":"Fast simulation options","level":"3.1.7.6","depth":3,"path":"second-analysis-steps/simulation-fastsim.md","ref":"second-analysis-steps/simulation-fastsim.md","articles":[]},"previous":{"title":"Advanced: Controlling the decay","level":"3.1.7.4","depth":3,"path":"second-analysis-steps/simulation-advanced-dkfiles.md","ref":"second-analysis-steps/simulation-advanced-dkfiles.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-sharing","panels@git+https://github.com/lhcb/gitbook-plugin-panels.git#master","katex-auto-render@git+https://github.com/lhcb/gitbook-plugin-katex-auto-render.git#master","collapsible-menu","otherlink"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"collapsible-menu":{},"search":{},"otherlink":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"panels":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"katex-auto-render":{},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"The Starterkit team and contributors","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"gitbook":"*"},"file":{"path":"second-analysis-steps/simulation-gencuts.md","mtime":"2019-05-16T06:30:15.150Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-05-16T06:31:36.099Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Modifying the decay","level":"3.1.7.4","depth":3,"next":{"title":"Advanced: Modifying the decay","level":"3.1.7.5","depth":3,"path":"second-analysis-steps/simulation-advanced-dkfiles.md","ref":"second-analysis-steps/simulation-advanced-dkfiles.md","articles":[]},"previous":{"title":"Controlling the decay","level":"3.1.7.3","depth":3,"path":"second-analysis-steps/simulation-dkfiles.md","ref":"second-analysis-steps/simulation-dkfiles.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-sharing","panels@git+https://github.com/lhcb/gitbook-plugin-panels.git#master","katex-auto-render@git+https://github.com/lhcb/gitbook-plugin-katex-auto-render.git#master","collapsible-menu","otherlink"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"collapsible-menu":{},"search":{},"otherlink":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"panels":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"katex-auto-render":{},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"The Starterkit team and contributors","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"gitbook":"*"},"file":{"path":"second-analysis-steps/simulation-gencuts.md","mtime":"2019-05-16T06:36:01.211Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-05-16T06:37:20.316Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
