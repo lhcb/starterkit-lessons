@@ -864,7 +864,7 @@
                                 <section class="normal markdown-section">
                                 
                                 <h1 id="fun-with-loki-functors">Fun with LoKi Functors</h1>
-<p><div class="panel panel-warning"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(679267974);" id="learning-objectives"><i class="fa fa-line-chart"></i> Learning Objectives<span id="heading-679267974"></span></h3></div><div class="panel-body" id="panel-679267974"><ul>
+<p><div class="panel panel-warning"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(6548048431);" id="learning-objectives"><i class="fa fa-line-chart"></i> Learning Objectives<span id="heading-6548048431"></span></h3></div><div class="panel-body" id="panel-6548048431"><ul>
 <li>Find out how the physics information can be obtained from the DST</li>
 <li>Understand what LoKi functors are</li>
 <li>Use LoKi functors interactively</li>
@@ -892,7 +892,7 @@ They can be used both in C++ and in Python code, and can be combined with each o
 <li><em>Array particle functors</em>, which take a <code>LoKi::Range_</code> (an array of particles) as input.</li>
 <li><em>Track functors</em>, which take <code>LHCb::Track</code> as input.</li>
 </ul>
-<p><div class="panel panel-primary"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(1512940852);" id="c-classes"><i class="fa fa-info-circle"></i> C++ classes<span id="heading-1512940852"></span></h3></div><div class="panel-body" id="panel-1512940852"><p>Things like <code>LHCb::Particle</code> are C++ classes that usually represent some 
+<p><div class="panel panel-primary"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(2146804311);" id="c-classes"><i class="fa fa-info-circle"></i> C++ classes<span id="heading-2146804311"></span></h3></div><div class="panel-body" id="panel-2146804311"><p>Things like <code>LHCb::Particle</code> are C++ classes that usually represent some 
 physical object. You will interact with the C++ objects directly very rarely, 
 if ever.</p>
 </div></div> </p>
@@ -924,7 +924,7 @@ LoKiSvc.REPORT      ERROR The   ERROR message is suppressed : &apos;LoKi::AuxDes
 harmless in the examples we will use.
 If the import is made <em>before</em> the instantiation of the <code>ApplicationMgr</code>, there 
 will be no warnings.</p>
-<p><div class="panel panel-success"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(7256683772);" id="does-it-make-sense"><i class="fa fa-square-o"></i> Does it make sense?<span id="heading-7256683772"></span></h3></div><div class="panel-body" id="panel-7256683772"><p>Compare the output of <code>PX</code> functor with the result of calling the function <code>cand.momentum().X()</code>. </p>
+<p><div class="panel panel-success"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(4364881510);" id="does-it-make-sense"><i class="fa fa-square-o"></i> Does it make sense?<span id="heading-4364881510"></span></h3></div><div class="panel-body" id="panel-4364881510"><p>Compare the output of <code>PX</code> functor with the result of calling the function <code>cand.momentum().X()</code>. </p>
 </div></div> </p>
 <p>Math operations are also allowed:</p>
 <pre><code class="lang-python">p_components_sum = PX + PY + PZ
@@ -935,10 +935,10 @@ p_components_sum(cand)
 <span class="hljs-keyword">print</span> PT(cand)
 <span class="hljs-keyword">print</span> M(cand)
 </code></pre>
-<p><div class="panel panel-success"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(5420690876);" id="some-practice"><i class="fa fa-square-o"></i> Some practice<span id="heading-5420690876"></span></h3></div><div class="panel-body" id="panel-5420690876"><p>Retrieve the momentum magnitude using functors <code>PX</code>, <code>PY</code> and <code>PZ</code>. There is also a specific functor <code>P</code> which does the job. Compare the results. </p>
+<p><div class="panel panel-success"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(9130094875);" id="some-practice"><i class="fa fa-square-o"></i> Some practice<span id="heading-9130094875"></span></h3></div><div class="panel-body" id="panel-9130094875"><p>Retrieve the momentum magnitude using functors <code>PX</code>, <code>PY</code> and <code>PZ</code>. There is also a specific functor <code>P</code> which does the job. Compare the results. </p>
 <p>Now, retrieve the transverse momentum and invariant mass (you will probably need the energy functor <code>E</code>), and see if it matches what the <code>PT</code> and <code>M</code> functors return.</p>
 </div></div> </p>
-<p><div class="panel panel-primary"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(419240266);" id="a-note-about-units"><i class="fa fa-info-circle"></i> A note about units<span id="heading-419240266"></span></h3></div><div class="panel-body" id="panel-419240266"><p>By the <a href="http://lhcb-comp.web.cern.ch/lhcb-comp/Support/Conventions/units.pdf" target="_blank">convention</a>, the LHCb default units are MeV, millimeters and nanoseconds. It is easy to print the values of interest in other units:</p>
+<p><div class="panel panel-primary"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(6290772143);" id="a-note-about-units"><i class="fa fa-info-circle"></i> A note about units<span id="heading-6290772143"></span></h3></div><div class="panel-body" id="panel-6290772143"><p>By the <a href="http://lhcb-comp.web.cern.ch/lhcb-comp/Support/Conventions/units.pdf" target="_blank">convention</a>, the LHCb default units are MeV, millimeters and nanoseconds. It is easy to print the values of interest in other units:</p>
 <pre><code class="lang-python"><span class="hljs-keyword">from</span> LoKiPhys.decorators <span class="hljs-keyword">import</span> GeV
 <span class="hljs-keyword">print</span> PT(cand)/GeV
 </code></pre>
@@ -957,7 +957,7 @@ built by combining two functors).</p>
 <pre><code class="lang-python"><span class="hljs-keyword">from</span> LoKiPhys.decorators <span class="hljs-keyword">import</span> VFASPF
 VCHI2(cand.endVertex()) == VFASPF(VCHI2)(cand)
 </code></pre>
-<p><div class="panel panel-success"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(4142991204);" id="functions-of-functions-of-functions-of"><i class="fa fa-square-o"></i> Functions of functions of functions of&#x2026;<span id="heading-4142991204"></span></h3></div><div class="panel-body" id="panel-4142991204"><p>Make sure you understand what <code>VFASPF(VCHI2)(cand)</code> means. It may help to play 
+<p><div class="panel panel-success"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(3331191679);" id="functions-of-functions-of-functions-of"><i class="fa fa-square-o"></i> Functions of functions of functions of&#x2026;<span id="heading-3331191679"></span></h3></div><div class="panel-body" id="panel-3331191679"><p>Make sure you understand what <code>VFASPF(VCHI2)(cand)</code> means. It may help to play 
 around in Python, creating a function that takes another function as an 
 argument, for example:</p>
 <pre><code class="lang-python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">create_greeting</span><span class="hljs-params">(salutation)</span>:</span>
@@ -995,7 +995,7 @@ ipTool = gbl.LoKi.Vertices.ImpactParamTool(distCal)
 <span class="hljs-keyword">print</span> IPCHI2(best_pv, ipTool)(cand)
 </code></pre>
 <p>In the context of <code>DaVinci</code> application, e.g. the Stripping, the things become much simplier since the calculator instances are loaded automatically, and the syntax for calling the <code>IPCHI2</code> functor becomes <code>IPCHI2(best_pv,geo())(cand)</code>, where <code>geo()</code> is the geometry calculator tool.</p>
-<p><div class="panel panel-primary"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(7694749405);" id="finding-loki-functors"><i class="fa fa-info-circle"></i> Finding LoKi functors<span id="heading-7694749405"></span></h3></div><div class="panel-body" id="panel-7694749405"><p>The full list of defined LoKi functors can be found in the <code>LoKi::Cuts</code> 
+<p><div class="panel panel-primary"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(5299300495);" id="finding-loki-functors"><i class="fa fa-info-circle"></i> Finding LoKi functors<span id="heading-5299300495"></span></h3></div><div class="panel-body" id="panel-5299300495"><p>The full list of defined LoKi functors can be found in the <code>LoKi::Cuts</code> 
 namespace in the 
 <a href="http://lhcb-doxygen.web.cern.ch/lhcb-doxygen/davinci/latest/d7/dae/namespace_lo_ki_1_1_cuts.html" target="_blank">doxygen</a>.
 They are quite well documented with examples on how to use them.
@@ -1025,7 +1025,7 @@ $$p_{\text{T}}$$.</p>
 
 max_pt = max([PT(child) <span class="hljs-keyword">for</span> child <span class="hljs-keyword">in</span> find_tracks(cand)])
 </code></pre>
-<p><div class="panel panel-primary"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(9820972901);" id="a-note-about-the-tryexcept"><i class="fa fa-info-circle"></i> A note about the try/except<span id="heading-9820972901"></span></h3></div><div class="panel-body" id="panel-9820972901"><p>If you import LoKi before running this example, it magically removes the 
+<p><div class="panel panel-primary"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(8365072685);" id="a-note-about-the-tryexcept"><i class="fa fa-info-circle"></i> A note about the try/except<span id="heading-8365072685"></span></h3></div><div class="panel-body" id="panel-8365072685"><p>If you import LoKi before running this example, it magically removes the 
 <code>.data()</code> function and allows the particle to be used directly. The code above 
 is made general using the <code>try</code>/<code>except</code> block and will work in either case.</p>
 </div></div> </p>
@@ -1036,7 +1036,7 @@ MAXTREE(ISBASIC &amp; HASTRACK, PT, <span class="hljs-number">-1</span>)(cand) =
 </code></pre>
 <p>In this example, we have used two selection functors, <code>ISBASIC</code> and <code>HASTRACK</code>, which return true if the particle doesn&apos;t have children and is made up by a track, respectively.
 We can see that they do the same thing as <code>particle.isBasicParticle()</code> and <code>particle.proto().track()</code> in a more compact way.</p>
-<p><div class="panel panel-primary"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(2112978315);" id="combining-loki-cuts"><i class="fa fa-info-circle"></i> Combining LoKi cuts<span id="heading-2112978315"></span></h3></div><div class="panel-body" id="panel-2112978315"><p>You might have noticed above we used the <code>&amp;</code> operator (&quot;bitwise AND&quot;) to 
+<p><div class="panel panel-primary"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(2711212885);" id="combining-loki-cuts"><i class="fa fa-info-circle"></i> Combining LoKi cuts<span id="heading-2711212885"></span></h3></div><div class="panel-body" id="panel-2711212885"><p>You might have noticed above we used the <code>&amp;</code> operator (&quot;bitwise AND&quot;) to 
 combine the <code>ISBASIC</code> and <code>HASTRACK</code> cuts above.
 This is because Python doesn&apos;t allow LoKi to override the behaviour of <code>and</code> and <code>or</code> (&quot;logical AND/OR&quot;), so if we use them
 the Python interpreter tries to combine the two cuts straight away, before we have even passed in our candidate:</p>
@@ -1083,13 +1083,13 @@ mass_child = CHILD(M, <span class="hljs-number">1</span>)(cand)
 <span class="hljs-comment"># Do they agree?</span>
 mass == mass_child
 </code></pre>
-<p><div class="panel panel-success"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(4249330319);" id="child-vertex"><i class="fa fa-square-o"></i> Child vertex?<span id="heading-4249330319"></span></h3></div><div class="panel-body" id="panel-4249330319"><p>Evaluate the quality of the D0 decay vertex.</p>
+<p><div class="panel panel-success"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(3852759534);" id="child-vertex"><i class="fa fa-square-o"></i> Child vertex?<span id="heading-3852759534"></span></h3></div><div class="panel-body" id="panel-3852759534"><p>Evaluate the quality of the D0 decay vertex.</p>
 </div></div> </p>
 <p>In the similar way, we may access properties of child of the child: for example, a kaon from the $$D^{0}$$ decay:</p>
 <pre><code class="lang-python"><span class="hljs-keyword">from</span> LoKiPhys.decorators <span class="hljs-keyword">import</span> CHILD
 mass_kaon = CHILD(CHILD(M, <span class="hljs-number">1</span>),<span class="hljs-number">1</span>)(cand)
 </code></pre>
-<p><div class="panel panel-success"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(6184951982);" id="tracks-and-pid"><i class="fa fa-square-o"></i> Tracks and PID<span id="heading-6184951982"></span></h3></div><div class="panel-body" id="panel-6184951982"><p>For the particles having tracks, we may exploit track functors to get the corresponding track properties. For instance, the track quality is given by functor <code>TRCHI2</code>.</p>
+<p><div class="panel panel-success"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(2165080386);" id="tracks-and-pid"><i class="fa fa-square-o"></i> Tracks and PID<span id="heading-2165080386"></span></h3></div><div class="panel-body" id="panel-2165080386"><p>For the particles having tracks, we may exploit track functors to get the corresponding track properties. For instance, the track quality is given by functor <code>TRCHI2</code>.</p>
 <p>What happens if we call <code>TRCHI2(cand)</code>? Explain the result.</p>
 <p>Evaluate the track quality for the first and second kaon, also independently of that retrieve (in a single line) the worst of two.</p>
 <p>Then, evaluate the probability that each kaon is really a kaon (<code>PROBNNk</code>) or rather a misidentified pion (<code>PROBNNpi</code>).</p>
@@ -1111,13 +1111,13 @@ It helps writing CPU-efficient functors and thus is very important when building
 in_range(<span class="hljs-number">2000</span>, M, <span class="hljs-number">2014</span>)(cand)
 in_range(<span class="hljs-number">1860</span>, CHILD(M, <span class="hljs-number">1</span>), <span class="hljs-number">1870</span>)(cand)
 </code></pre>
-<p><div class="panel panel-primary"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(4565543562);" id="understanding-the-cuts-in-the-stripping-lines"><i class="fa fa-info-circle"></i> Understanding the cuts in the stripping lines<span id="heading-4565543562"></span></h3></div><div class="panel-body" id="panel-4565543562"><p>Have a look at the stripping line 
+<p><div class="panel panel-primary"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(4198187881);" id="understanding-the-cuts-in-the-stripping-lines"><i class="fa fa-info-circle"></i> Understanding the cuts in the stripping lines<span id="heading-4198187881"></span></h3></div><div class="panel-body" id="panel-4198187881"><p>Have a look at the stripping line 
 <a href="http://lhcbdoc.web.cern.ch/lhcbdoc/stripping/config/stripping28/charm/strippingd2hhpromptdst2d2kkline.html" target="_blank">D2hhPromptDst2D2KKLine</a> which is used in our example. Open a <code>CombineParticles/D2hhPromptDst2D2KKLine</code> section, and explain which requirements are coded in the &apos;MotherCut&apos;, &apos;DaughterCuts&apos; and &apos;CombinationCut&apos; sections. 
 (More details about <code>CombineParticles</code> algorithm are explained in the <a href="../second-analysis-steps/building-decays-part1.html">lesson of second analysis steps</a>.)</p>
 </div></div> </p>
 <p>Additionally, LoKi functors can be used directly inside our <code>DaVinci</code> jobs to store specific bits of information in our ntuples without the need for a complicated C++-based algorithms.
 This second option will be discussed in the <a href="add-tupletools.html">TupleTools and branches lesson</a>.</p>
-<p><div class="panel panel-primary"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(5654016109);" id="debugging-loki-functors"><i class="fa fa-info-circle"></i> Debugging LoKi functors<span id="heading-5654016109"></span></h3></div><div class="panel-body" id="panel-5654016109"><p>If you write complicated LoKi functors, typically in the context of selections, 
+<p><div class="panel panel-primary"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(5098002993);" id="debugging-loki-functors"><i class="fa fa-info-circle"></i> Debugging LoKi functors<span id="heading-5098002993"></span></h3></div><div class="panel-body" id="panel-5098002993"><p>If you write complicated LoKi functors, typically in the context of selections, 
 you need functions for debugging when things go wrong.
 LoKi provides wrapper functors that evaluate a functor (or functor expression), print debugging information and return the result;
 the most important of these are:</p>
@@ -1177,7 +1177,7 @@ monitor_p_components_sum(cand)
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Fun with LoKi Functors","level":"2.1.11","depth":2,"next":{"title":"TupleTools and branches","level":"2.1.12","depth":2,"path":"first-analysis-steps/add-tupletools.md","ref":"first-analysis-steps/add-tupletools.md","articles":[]},"previous":{"title":"Running a minimal DaVinci job locally","level":"2.1.10","depth":2,"path":"first-analysis-steps/minimal-dv-job.md","ref":"first-analysis-steps/minimal-dv-job.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-sharing","panels@git+https://github.com/lhcb/gitbook-plugin-panels.git#master","katex-auto-render@git+https://github.com/lhcb/gitbook-plugin-katex-auto-render.git#master","collapsible-menu","otherlink"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"collapsible-menu":{},"search":{},"otherlink":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"panels":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"katex-auto-render":{},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"The Starterkit team and contributors","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"gitbook":"*"},"file":{"path":"first-analysis-steps/loki-functors.md","mtime":"2019-05-15T10:03:42.281Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-05-15T10:05:04.600Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Fun with LoKi Functors","level":"2.1.11","depth":2,"next":{"title":"TupleTools and branches","level":"2.1.12","depth":2,"path":"first-analysis-steps/add-tupletools.md","ref":"first-analysis-steps/add-tupletools.md","articles":[]},"previous":{"title":"Running a minimal DaVinci job locally","level":"2.1.10","depth":2,"path":"first-analysis-steps/minimal-dv-job.md","ref":"first-analysis-steps/minimal-dv-job.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-sharing","panels@git+https://github.com/lhcb/gitbook-plugin-panels.git#master","katex-auto-render@git+https://github.com/lhcb/gitbook-plugin-katex-auto-render.git#master","collapsible-menu","otherlink"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"collapsible-menu":{},"search":{},"otherlink":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"panels":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"katex-auto-render":{},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"The Starterkit team and contributors","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"gitbook":"*"},"file":{"path":"first-analysis-steps/loki-functors.md","mtime":"2019-05-16T06:30:15.138Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-05-16T06:31:36.099Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
