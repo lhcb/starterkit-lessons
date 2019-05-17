@@ -67,15 +67,13 @@ print('Converting input file to upper-case...')
 f_out.write( f_in.read().upper() )
 ```
 
-If you test this locally by running your executable, you should see that it prints one line to the terminal, and then creates a new file, `result.txt`. Looking inside this new file, you should see that it contains whatever was written in `input.txt`, except all in upper-case, as expected.
-
-If you remove `result.txt` and then submit your job, once it has finished you will find that HTCondor has successfully reproduced the same file, and has automatically put it in your working directory, without even having to add anything to the submit file! This is the default behaviour of the `transfer_output_files` option - when it isn't specified, it automatically transfers back all files that have been created or modified in the job's temporary working directory.
+Now you can submit this job. Once it has finished you will find that HTCondor has successfully produced the file `result.txt`, and has automatically put it in your working directory, without even having to add anything to the submit file! This is the default behaviour of the `transfer_output_files` option - when it isn't specified, it automatically transfers back all files that have been created or modified in the job's temporary working directory.
 
 However, while this behaviour is helpful, it's generally preferable to specify which output files you want HTCondor to transfer back to you. There are a couple of reasons for this, but the most important ones are:
 
-* Files aren't automatically transferred when running using certain universes (notably, this applies to most grid universes)
-* If you don't want all files to be transferred back, but only a subset of them
-* If the files created are made inside of directories
+* Files aren't automatically transferred when running using certain universes (notably, this applies to most grid universes).
+* If you don't want all files to be transferred back, but only a subset of them.
+* If the files created are made inside of directories.
 
 ### Arguments
 
