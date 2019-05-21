@@ -31,7 +31,7 @@ There are many more options that can be added to a submit file, but these ones a
 * **universe**: the base runtime environment for the job.
 * **output**: the location of the file that will contain the terminal output (STDOUT) of the executable.
 * **error**: similar to output, except for any errors (STDERR).
-* **log**: the location of the file that will store the logging information created by HTCondor as it tracks your job.
+* **log**: the location of the file that will store the logging information created by HTCondor as it tracks your job. Note that specifying a log file is required, and you will get an error if you try to submit a job without one.
 * **queue**: tells HTCondor to add the job to the queue.
 
 You can now submit your job by running `condor_submit submit.sub`. After a few seconds, it should have produced an output similar to the one shown below.
@@ -62,6 +62,8 @@ The above output is from shortly after submitting. The job starts out in the 'id
 {% callout "Tracking the queue in real-time" %} By itself, this command will print the status of your jobs at the current time to the terminal. If you want to see how they're progressing, you may find it useful to prefix it with `watch` (e.g. `watch condor_q`). This will repeatedly run the command at regular intervals, allowing you to see how the output changes over time. You can press `Ctrl+c` to exit back to the terminal at any time.
 {% endcallout %}
 
+* `condor_history`: <!-- put stuff here!! -->
+
 * `condor_wait -status <log_file>`: watches the log file and waits until the jobs have been completed before exiting.
 
 {% challenge "Find some additional information" %} These commands only display a fraction of the posisble information. Look at the documentation for both `condor_q` and `condor_wait` (either online, or using the `-help` flag) to see what else is available.
@@ -79,8 +81,6 @@ Hopefully, by this point, the job should have finished! To check that it worked 
 ```
 Hello world!
 ```
-
-
 
 
 
