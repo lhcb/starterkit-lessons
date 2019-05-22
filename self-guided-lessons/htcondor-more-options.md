@@ -86,11 +86,16 @@ transfer_output_files = result.txt
 
 Some additional options that are useful to know are:
 
-* `should_transfer_files`: enables/disables file transfer altogether. This has three possible values: `YES` (usually the default) always transfers files to the remote working directory; `IF_NEEDED` will access the files from a shared file system if possible, otherwise it will transfer the files; and `NO` disables file transfer. If you use this option, you must also specify...
+* `should_transfer_files`: enables/disables file transfer altogether. This has three possible values: `YES` always transfers files to the remote working directory; `IF_NEEDED` will access the files from a shared file system if possible, otherwise it will transfer the files; and `NO` disables file transfer. If you use this option, you must also specify...
 
-* `when_to_transfer_output`: specifies when output files should be transferred back. This has two possible values: `ON_EXIT` transfers files when the job ends on its own; and `ON_EXIT_OR_EVICT` will do this, as well as if the job is evicted from a machine. This is useful for longer programs that have the capability to resume from where they exited. This has no default.
+* `when_to_transfer_output`: specifies when output files should be transferred back. This has two possible values: `ON_EXIT` transfers files when the job ends on its own; and `ON_EXIT_OR_EVICT` will do this, as well as if the job is evicted from a machine. The latter option is useful for longer programs that have the capability to resume from where they exited.
 
-* `transfer_output_remaps`: allows you to transfer output files back with different names, and to locations other than the initial working directory.
+By default, these take the values:
+
+```
+should_transfer_files = IF_NEEDED
+when_to_transfer_output = ON_EXIT
+```
 
 ### Arguments
 
@@ -154,7 +159,7 @@ Equivalently, one could use the `JobFlavour` attribute instead:
 +JobFlavour = "microcentury"
 ```
 
-There are seven possible job flavours that one can use:
+There are seven possible job flavours that one can use, with the default being `espresso`:
 
 ```
 espresso     = 20 minutes
@@ -185,19 +190,19 @@ The default setting is `Complete`. The `Error` setting is also extremely useful:
 {% challenge "Debug some jobs" %} TODO: [Here]() you can download a `.tar(.GZ??)` file containing the scripts for 3 jobs, each of which features some commonly-experimenced error or mistake. For each one, submit the job, see if you can figure out what went wrong with it (making use of the error files), and then try to fix it. To unpack the file, run `LINE`.
 
 {% solution "Solution to problem 1" %}
-The submit file here does not specify a log file, which is always required. To fix this, just add `log = log.log` to the submit file.
+**Prime factor finder**: when you try to submit this, you get `ERROR: Submit requirement NoEos evaluated to non-boolean.`. With a little bit of Google searching, or just by looking carefully at the submit file, you can find that this is due to a log file having not been specified, when one is always required. To fix this, just add `log = log.log` to the submit file.
 {% endsolution %}
 
 {% solution "Solution to problem 2" %}
-**Linear fitter** - this one actually has 2 errors, but only the first will cause an error message.
-
-Firstly, the submit file contains the wrong argument for passing the input file. The `transfer_input_files` option correctly transfers it from its subdirectory to the remote storage area, but when it arrives it is no longer inside any subdirectory relative to the executable. When the job runs, the `arguments` option in the submit file transfers the file location `input/data.txt` to the executable, which in turn passes it to the python script, which finds no file at that location. To fix this, the line in the submit file should be changed to `arguments = data.txt`.
-
-Secondly, the `plot.png` file containing the plotted graph is not returned to the user once the job has completed. This is because the python script saves it inside a subdirectory, and the `transfer_output_files` option has not been specified in the submit file (the default behaviour of this option means that files created inside subdirectories will not be transferred back). To fix this, add the line `transfer_output_files = images/plot.png`
+**Fibonacci term calculator**: with this one, you should have found that HTCondor will automatically put the job on hold. By debugging this using `condor_q <ClusterId>.<ProcId> -held` you should be able to see that the reason for this is that it "failed to send file(s)", which gives a clue as to where the problem is. Indeed, if you look at the part of the submit file that governs file transfer, it's transferring the input data file, but not the python script. To fix this, you can just add the script to the list of input files to be transferred: `transfer_input_files = SCRIPT_NAME.py, INPUT_FILE.txt`.
 {% endsolution %}
 
 {% solution "Solution to problem 3" %}
-**Prime factor finder** - this one is a tricky one, since it appears to run correctly until it completes and returns an empty file. The reason for this is not actually to do with the scripts, which are all correct - rather, the shell script `script.sh` has just not been made into an executable. To fix this, run `chmod +x script.sh` before submitting.
+**Linear fitter**: this one actually has 2 errors, but only the first will cause an error message.
+
+Firstly, the error file shows that the argument parser in the python script has complained that it hasn't received the correct arguments, although the arguments provided in the submit file are fine. Here, the wrapper executable has not passed the arguments correctly - `"$1"` will only pass the first argument. This should be changed to `"$@"` to get it to pass all the arguments it receives to the python script.
+
+Secondly, the `plot.png` file containing the plotted graph is not returned to the user once the job has completed. This is because the python script saves it inside a subdirectory, and the `transfer_output_files` option has not been specified in the submit file (the default behaviour of this option means that files created inside subdirectories will not be transferred back). To fix this, add the line `transfer_output_files = images/plot.png`
 {% endsolution %}
 
 {% endchallenge %}
