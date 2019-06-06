@@ -62,7 +62,7 @@ Most of this should look familiar at this point, with the most significant new a
 
 This shows a bit more information about the jobs than the standard `condor_q`. In particular, note that all of these jobs have the same cluster ID, but each has a different process ID ranging from 0 to 3. In almost all cases, when you submit multiple jobs using a single queue command, they will share the same cluster ID, and have sequential process IDs starting from 0.
 
-There are a couple of issues with the above script. Firstly, we're running the exact same job (with the exact same input) multiple times, which is rarely what we need. Secondly, once the jobs have all completed, notice that you only have one `output.out` file - each time one completes, it overwrites any existing output file with its own output because each one has the same name. In order to fix these issues, we need to be able to distinguish the jobs created by a single submit file. We can do this using the variables `$(ClusterId)` and `$(ProcId)` (or, equivalently, `$(Cluster)` and `$(Process)` respectively). These variables are automatically-defined for each job individually. Using this, you can modify your submit file to read:
+There are a couple of issues with the above script. Firstly, we're running the exact same job (with the exact same input) multiple times, which is rarely what we need. Secondly, once the jobs have all completed, notice that you only have one `output.out` file - each time one completes, it overwrites any existing output file with its own output because each one has the same name. In order to fix these issues, we need to be able to distinguish each job created by a single submit file. We can do this using the variables `$(ClusterId)` and `$(ProcId)` (or, equivalently, `$(Cluster)` and `$(Process)` respectively). These variables are automatically-defined for each job individually. Using this, you can modify your submit file to read:
 
 ```
 executable  = exec.sh
@@ -81,9 +81,38 @@ log         = log/log.$(ProcId).log
 queue 4
 ```
 
-If you first create the folders `output`, `error`, and `log`, it 
+If you first create the folders `output`, `error`, and `log`, and then submit this job, HTCondor will automatically create 4 separate output and error files, and will transfer back 4 separate result files.
+
+{% challenge "Multiple input files" %} The result files from the above script all contain the same information, since the same input file is being used and the script is deterministic. How could you modify it to allow for the use of multiple input files?
+
+{% solution "Solution" %}
+If you create multiple input files (e.g. `input/data_0.txt`, `input/data_1.txt`, ...), you can modify the `transfer_input_files` option to read:
+
+```
+transfer_input_files = my_script.py, input/data_$(ProcId).txt
+```
+{% endsolution %}
+
+{% endchallenge %}
 
 <!-- 2 typical ways to manage files for lots of jobs: 1) folders for output, error, logs, input, etc., with different (numbered) filenames 2) different (numbered) folders for each job, with the same filenames (use initialdir = job$(ProcId)) -->
+
+### More on variables
+
+As you've seen above, the variables that HTCondor automatically defines provide a lot of potential for the automisation of large numbers of jobs. To expand on this, you are also able to define your own variables within your submit file using very similar syntax. Among other things, this is particularly useful for avoiding repetition - in the example above, the input and output file names had to be written in two places. Equivalent functionality can be achieved by using:
+
+```
+INPUTFN = data.txt
+OUTPUTFN = result_$(ProcID).txt
+# ...
+arguments = $(INPUTFN) $(OUTPUTFN)
+# ...
+transfer_input_files = my_script.py, input/$(INPUTFN)
+transfer_output_files = $(OUTPUTFN)
+```
+
+### Other ways to queue
+
 
 
 

@@ -5,7 +5,7 @@
 * Monitor the progress of your jobs, from a terminal and a browser
 {% endobjectives %} 
 
-Now it's time to make and submit a job of our own. To start with, you'll need to create an executable for the job you want to run. Create a file in your user area on lxplus called `my_first_script.sh`, and add the following lines:
+Now it's time to make and submit a job of our own. To start with, you'll need to create an executable for the job you want to run. Create a file in your AFS area *(currently, submitting jobs from EOS is not supported, although coming soon!)* on lxplus called `my_first_script.sh`, and add the following lines:
 
 ```
 #!/bin/bash
