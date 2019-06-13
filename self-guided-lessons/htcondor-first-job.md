@@ -58,7 +58,7 @@ djwhite CMD: my_first_script.sh   5/16 18:22      _      _      1      1 2875625
 
 The above output is from shortly after submitting. A typical job starts out in the 'idle' state while it waits for HTCondor to schedule it. Even for a job as simple as this, this step can take up to a couple of minutes. Following this, the job's status will change to 'running', and eventually to 'completed' when finished.
 
-The other three job states are less common. A job may be put into the 'hold' state if there is something wrong with the submit file, or the user uses the `condor_hold` command. Similarly, a user can suspend their job using `condor_suspend`, or remove it using `condor_rm`.
+The other three job states are less common. A job may be put into the 'hold' state if there is something wrong with the submit file, or the user uses the `condor_hold` command. Similarly, a user can suspend their job using `condor_suspend`, or remove it using `condor_rm`. A held job can be restarted by using `condor_release`.
 
 {% callout "Tracking the queue in real-time" %} By itself, this command will print the status of your jobs at the current time to the terminal. If you want to see how they're progressing, you may find it useful to prefix it with `watch` (e.g. `watch condor_q`). This will repeatedly run the command at regular intervals, allowing you to see how the output changes over time. You can press `Ctrl+c` to exit back to the terminal at any time.
 {% endcallout %}

@@ -49,7 +49,7 @@ Finally, let's modify the executable script, `exec.sh`, so that it will run this
 
 ```
 #!/bin/bash
-python3 process_file.py
+python process_file.py
 ```
 
 Now you can submit the job, and check that this works as expected.
@@ -90,12 +90,14 @@ Some additional options that are useful to know are:
 
 * `when_to_transfer_output`: specifies when output files should be transferred back. This has two possible values: `ON_EXIT` transfers files when the job ends on its own; and `ON_EXIT_OR_EVICT` will do this, as well as if the job is evicted from a machine. The latter option is useful for longer programs that have the capability to resume from where they exited.
 
-By default, these take the values:
+By default, these two options take the values:
 
 ```
 should_transfer_files = IF_NEEDED
 when_to_transfer_output = ON_EXIT
 ```
+
+* `transfer_output_remaps`: allows for files to be transferred back with different names or to a file path other than the job's initial working directory. This is particularly useful if you have a script with a fixed output file name, and you want to run many jobs without these files overwriting each other (see the next section for more on how to handle multiple jobs).
 
 ### Arguments
 
@@ -128,7 +130,7 @@ This will pass the argument `upper` to our executable (equivalent to running `./
 
 ```
 #!/bin/bash
-python3 process_file.py "$@"
+python process_file.py "$@"
 ```
 
 This will cause the script to pass all arguments it receives along to the python script.
@@ -187,23 +189,23 @@ notification = < Always | Complete | Error | Never >
 
 The default setting is `Complete`. The `Error` setting is also extremely useful: imagine you have a long job you intend to leave running over the weekend - if something were to go wrong, you may want to be alerted so that you can resubmit it sooner rather than later.
 
-{% challenge "Debug some jobs" %} TODO: [Here]() you can download a `.tar(.GZ??)` file containing the scripts for 3 jobs, each of which features some commonly-experimenced error or mistake. For each one, submit the job, see if you can figure out what went wrong with it (making use of the error files), and then try to fix it. To unpack the file, run `LINE`.
+{% challenge "Practice: Debug some broken jobs" %} TODO: [Here](code/htcondor-more-options/htcondor-examples.tar.gz) you can download a `.tar.gz` file containing the scripts for 3 jobs, each of which features some commonly-experimenced error or mistake. To unpack the file, run `tar -zxvf htcondor-examples.tar.gz`. For each one, submit the job, see if you can figure out what went wrong with it (making use of the error files), and then try to fix it.
 
 {% solution "Solution to problem 1" %}
 **Prime factor finder**: when you try to submit this, you get `ERROR: Submit requirement NoEos evaluated to non-boolean.`. With a little bit of Google searching, or just by looking carefully at the submit file, you can find that this is due to a log file having not been specified, when one is always required. To fix this, just add `log = log.log` to the submit file.
 {% endsolution %}
 
 {% solution "Solution to problem 2" %}
-**Fibonacci term calculator**: with this one, you should have found that HTCondor will automatically put the job on hold. By debugging this using `condor_q <ClusterId>.<ProcId> -held` you should be able to see that the reason for this is that it "failed to send file(s)", which gives a clue as to where the problem is. Indeed, if you look at the part of the submit file that governs file transfer, it's transferring the input data file, but not the python script. To fix this, you can just add the script to the list of input files to be transferred: `transfer_input_files = SCRIPT_NAME.py, INPUT_FILE.txt`.
+**Invariant mass calculator**: with this one, the job appears to go through fine, but when it's finished you'll find that the output file is empty and the error file reads `python: can't open file 'inv_mass_reconstructor.py': [Errno 2] No such file or directory`. Indeed, if you look at the part of the submit file that governs file transfer, it's transferring the input data file, but not the python script. To fix this, you can just add the script to the list of input files to be transferred: `transfer_input_files = inv_mass_reconstructor.py, child_4momenta.dat`.
 {% endsolution %}
 
 {% solution "Solution to problem 3" %}
-**Linear fitter**: this one actually has 2 errors, but only the first will cause an error message.
+**Linear fitter**: after submitting the job, the error file will say `IOError: [Errno 2] No such file or directory: 'data/data.txt'`. Here, the data file is being transferred from `data/data.txt`, but the executable can't seem to find anything at that location. This is because the file is copied from a subdirectory in your user storage area, but it isn't placed inside any subdirectory in the worker node's storage area. This means that the `transfer_input_files` option is fine, but the `arguments` line needs to be changed to refer to just `data.txt`, since on the remote storage area the executable and the data file will be placed in the same directory.
 
-Firstly, the error file shows that the argument parser in the python script has complained that it hasn't received the correct arguments, although the arguments provided in the submit file are fine. Here, the wrapper executable has not passed the arguments correctly - `"$1"` will only pass the first argument. This should be changed to `"$@"` to get it to pass all the arguments it receives to the python script.
-
-Secondly, the `plot.png` file containing the plotted graph is not returned to the user once the job has completed. This is because the python script saves it inside a subdirectory, and the `transfer_output_files` option has not been specified in the submit file (the default behaviour of this option means that files created inside subdirectories will not be transferred back). To fix this, add the line `transfer_output_files = images/plot.png`
+Once this has been corrected, the job will appear to run without issue, and the output file should contain all the fit information as expected - however, the file `fig.pdf` containing the drawn plot is not copied back to your user area. This is because it is being saved inside a subdirectory, and the `transfer_output_files` option has not been specified in the submit file (recall that the default behaviour of this option means that files created inside subdirectories will not be transferred back). To fix this, you can either modify it to save the figure to the working directory (`arguments = data.txt, fig.pdf`), or, better yet, specify that the file containing the figure should be transferred back (`transfer_output_files = figures/fig.pdf`).
 {% endsolution %}
+
+Working examples for each of these jobs, with the corrections outlined above applied, can be found [here](code/htcondor-more-options/htcondor-examples-fix.tar.gz).
 
 {% endchallenge %}
 

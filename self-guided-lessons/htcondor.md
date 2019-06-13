@@ -9,10 +9,6 @@ HTCondor is a high throughput computing service. Its purpose is to decide how an
 
 When you submit jobs to HTCondor from lxplus, it adds them to a queue. Once they reach the front of the queue, they will automatically be sent to some of the worker nodes in the distributed computing service. The jobs are then run on the nodes HTCondor assigned them to. As each one completes, any output is returned to the user, along with any errors that occurred.
 
-<!-- Diagram of batch system architecture here! -->
-
-<!-- More about the architecture here - how remote sites can access AFS/EOS/CVMFS(read-only) as well -->
-
 In order to decide where to place your jobs in the queue, HTCondor considers factors including (but not limited to):
 
 * Amount of resources requested - number of CPUs, etc.
@@ -22,6 +18,14 @@ In order to decide where to place your jobs in the queue, HTCondor considers fac
 * Your priority score
 
 Your priority score is determined based on your recent usage. Submitting lots of intensive jobs will cause your score to increase quickly, but if you wait a little while afterwards it will gradually reduce back down *(N.B. a lower score means your jobs will have a higher priority)*.
+
+### System architecture
+
+When you connect to lxplus, you have read/write access to both the AFS and EOS filesystems, as well as read-only access to CVMFS for accessing experiment software. Worker notes in the batch system have the same permissions, which is what allows them to read input files from, and write output files to, your user areas.
+
+Each worker node has its own remote storage space, which is limited to 20GB. When a job starts, the executable is copied to this storage area, usually along with any input data files required. Any files created by the script should be created there as well, where they can later be transferred back to your user area. When a job completes, the worker node cleans out its storage area, so it's important to tell HTCondor to transfer any output files you want to keep.
+
+See [here](http://batchdocs.web.cern.ch/batchdocs/concepts/dataflow.html) for a more detailed explanation (and a helpful diagram).
 
 ### Other useful resources
 
