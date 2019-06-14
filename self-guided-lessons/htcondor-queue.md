@@ -91,8 +91,6 @@ If you create multiple input files (e.g. `input/data_0.txt`, `input/data_1.txt`,
 ```
 transfer_input_files = my_script.py, input/data_$(ProcId).txt
 ```
-{% endsolution %}
-
 {% endchallenge %}
 
 
