@@ -191,19 +191,14 @@ The default setting is `Complete`. The `Error` setting is also extremely useful:
 
 {% challenge "Practice: Debug some broken jobs" %} TODO: [Here](code/htcondor-more-options/htcondor-examples.tar.gz) you can download a `.tar.gz` file containing the scripts for 3 jobs, each of which features some commonly-experimenced error or mistake. To unpack the file, run `tar -zxvf htcondor-examples.tar.gz`. For each one, submit the job, see if you can figure out what went wrong with it (making use of the error files), and then try to fix it.
 
-{% solution "Solution to problem 1" %}
+{% solution "Solutions" %}
 **Prime factor finder**: when you try to submit this, you get `ERROR: Submit requirement NoEos evaluated to non-boolean.`. With a little bit of Google searching, or just by looking carefully at the submit file, you can find that this is due to a log file having not been specified, when one is always required. To fix this, just add `log = log.log` to the submit file.
-{% endsolution %}
 
-{% solution "Solution to problem 2" %}
 **Invariant mass calculator**: with this one, the job appears to go through fine, but when it's finished you'll find that the output file is empty and the error file reads `python: can't open file 'inv_mass_reconstructor.py': [Errno 2] No such file or directory`. Indeed, if you look at the part of the submit file that governs file transfer, it's transferring the input data file, but not the python script. To fix this, you can just add the script to the list of input files to be transferred: `transfer_input_files = inv_mass_reconstructor.py, child_4momenta.dat`.
-{% endsolution %}
 
-{% solution "Solution to problem 3" %}
 **Linear fitter**: after submitting the job, the error file will say `IOError: [Errno 2] No such file or directory: 'data/data.txt'`. Here, the data file is being transferred from `data/data.txt`, but the executable can't seem to find anything at that location. This is because the file is copied from a subdirectory in your user storage area, but it isn't placed inside any subdirectory in the worker node's storage area. This means that the `transfer_input_files` option is fine, but the `arguments` line needs to be changed to refer to just `data.txt`, since on the remote storage area the executable and the data file will be placed in the same directory.
 
 Once this has been corrected, the job will appear to run without issue, and the output file should contain all the fit information as expected - however, the file `fig.pdf` containing the drawn plot is not copied back to your user area. This is because it is being saved inside a subdirectory, and the `transfer_output_files` option has not been specified in the submit file (recall that the default behaviour of this option means that files created inside subdirectories will not be transferred back). To fix this, you can either modify it to save the figure to the working directory (`arguments = data.txt, fig.pdf`), or, better yet, specify that the file containing the figure should be transferred back (`transfer_output_files = figures/fig.pdf`).
-{% endsolution %}
 
 Working examples for each of these jobs, with the corrections outlined above applied, can be found [here](code/htcondor-more-options/htcondor-examples-fix.tar.gz).
 
