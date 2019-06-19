@@ -34,6 +34,7 @@ While putting this lesson together, the following guides, tutorials, and pages p
 * [HTCondor v8.8.2 Manual](https://research.cs.wisc.edu/htcondor/manual/v8.8/) - University of Wisconsin-Madison
 * [CERN Batch Service User Guide](http://batchdocs.web.cern.ch/batchdocs/index.html)
 * [HTCondor User Tutorial](https://indico.cern.ch/event/611296/contributions/2604376/attachments/1471164/2276521/TannenbaumT_UserTutorial.pdf) - Todd Tannenbaum, 6th June 2017
-
+* [Mattermost](https://mattermost.web.cern.ch/lhcb) - you can join the 'condor' and 'Distributed Analysis' channels
+* [lhcb-distributed-analysis@cern.ch mailing list](mailto:lhcb-distributed-analysis@cern.ch)
 
  
