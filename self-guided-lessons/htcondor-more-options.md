@@ -18,7 +18,7 @@ echo "# Contents of file 'input.txt': #"
 cat input.txt
 ```
 
-Remember to make the script exectable, and to test it locally first. Then, go into your submit file. Here, you'll want to make sure that the `executable` option is set to run `exec.sh`, and also to add the following line to the body of your submit file:
+Remember to make the script exectable, and to test it locally first. Then, go into your submit file. Here, you'll want to make sure that the `executable` option is set to run `exec.sh`, and also to add the following line to the body of your submit file (on a new line somewhere above the `queue` command):
 
 ```
 transfer_input_files = input.txt
@@ -143,7 +143,7 @@ You can specify running conditions of your jobs in the submit file. The system f
 
 A complete list of ClassAd attributes can be found [in the documentation](http://research.cs.wisc.edu/htcondor/manual/v8.8/ClassAdAttributes.html#x167-1231000A), but in this part a few particularly useful ones are highlighted. Note that, by using these, you are restricting how your job can run, which means that it will likely take longer to run. You should use these with care, and speak with the Batch support team for advice if you're not sure.
 
-* `OpSysAndVer`: specifies the operating system (and version) that a machine is using. Currently, some of the grid resources are using SL6, while others have been migrated to CentOS7. For example, if you wanted to ensure that your program runs using CentOS7, you would need to add `requirements = (OpSysAndVer =?= "CentOS7")` to your submit file.
+* `OpSysAndVer`: specifies the operating system (and version) that a machine is using. Currently, some of the grid resources are using SLC6, while others have been migrated to CentOS7. For example, if you wanted to ensure that your program runs using CentOS7, you would need to add `requirements = (OpSysAndVer =?= "CentOS7")` to your submit file.
 
 * `ClockMin` and `ClockDay`: the time of day (in minutes since midnight) and day of the week respectively. These can be used to give your jobs a preference for running outside of peak times - for example, you could use `rank = ( (ClockDay == 0) || (ClockDay == 6) ) && (ClockMin <= 480)` to encourage your job to run between midnight and 8am on weekends.
 
@@ -189,7 +189,7 @@ notification = < Always | Complete | Error | Never >
 
 The default setting is `Complete`. The `Error` setting is also extremely useful: imagine you have a long job you intend to leave running over the weekend - if something were to go wrong, you may want to be alerted so that you can resubmit it sooner rather than later.
 
-{% challenge "Practice: Debug some broken jobs" %} TODO: [Here](code/htcondor-more-options/htcondor-examples.tar.gz) you can download a `.tar.gz` file containing the scripts for 3 jobs, each of which features some commonly-experimenced error or mistake. To unpack the file, run `tar -zxvf htcondor-examples.tar.gz`. For each one, submit the job, see if you can figure out what went wrong with it (making use of the error files), and then try to fix it.
+{% challenge "Practice: Debug some broken jobs" %} [Here](code/htcondor-more-options/htcondor-examples.tar.gz) you can download a `.tar.gz` file containing the scripts for 3 jobs, each of which features some commonly-experimenced error or mistake. To unpack the file, run `tar -zxvf htcondor-examples.tar.gz`. For each one, submit the job, see if you can figure out what went wrong with it (making use of the error files), and then try to fix it.
 
 {% solution "Solutions" %}
 **Prime factor finder**: when you try to submit this, you get `ERROR: Submit requirement NoEos evaluated to non-boolean.`. With a little bit of Google searching, or just by looking carefully at the submit file, you can find that this is due to a log file having not been specified, when one is always required. To fix this, just add `log = log.log` to the submit file.
