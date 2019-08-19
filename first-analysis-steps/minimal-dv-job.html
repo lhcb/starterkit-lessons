@@ -757,6 +757,70 @@
             
 
             
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.1.1" data-path="../self-guided-lessons/htcondor.html">
+            
+                <a href="../self-guided-lessons/htcondor.html">
+            
+                    
+                    Batch submission with HTCondor
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.1.1.1" data-path="../self-guided-lessons/htcondor-first-job.html">
+            
+                <a href="../self-guided-lessons/htcondor-first-job.html">
+            
+                    
+                    Creating your first job
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.1.2" data-path="../self-guided-lessons/htcondor-more-options.html">
+            
+                <a href="../self-guided-lessons/htcondor-more-options.html">
+            
+                    
+                    More submit file options
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.1.3" data-path="../self-guided-lessons/htcondor-queue.html">
+            
+                <a href="../self-guided-lessons/htcondor-queue.html">
+            
+                    
+                    The queue command
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
         </li>
     
 
@@ -874,7 +938,7 @@ decays.
 In these cases we use DaVinci, the application for analysing high-level
 information such as tracks and vertices, which we&apos;ll look at in this lesson to
 produce a ROOT ntuple.</p>
-<p><div class="panel panel-warning"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(523098562);" id="learning-objectives"><i class="fa fa-line-chart"></i> Learning Objectives<span id="heading-523098562"></span></h3></div><div class="panel-body" id="panel-523098562"><ul>
+<p><div class="panel panel-warning"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(3636928878);" id="learning-objectives"><i class="fa fa-line-chart"></i> Learning Objectives<span id="heading-3636928878"></span></h3></div><div class="panel-body" id="panel-3636928878"><ul>
 <li>Run a DaVinci job over a local DST</li>
 <li>Inspect the ntuple output</li>
 <li>Set up the job to run in Ganga</li>
@@ -919,7 +983,7 @@ we&apos;re interested in.</p>
 specifies what decay we would like to have in our ntuple.
 If there are no particles at the <code>Input</code> location, or the <code>Decay</code> string
 doesn&apos;t match any particles at that location, the ntuple will not be filled.</p>
-<p><div class="panel panel-primary"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(1905285887);" id="decay-descriptors"><i class="fa fa-info-circle"></i> Decay descriptors<span id="heading-1905285887"></span></h3></div><div class="panel-body" id="panel-1905285887"><p>There is a special syntax for the <code>Decay</code> attribute string, commonly called
+<p><div class="panel panel-primary"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(2117096791);" id="decay-descriptors"><i class="fa fa-info-circle"></i> Decay descriptors<span id="heading-2117096791"></span></h3></div><div class="panel-body" id="panel-2117096791"><p>There is a special syntax for the <code>Decay</code> attribute string, commonly called
 &apos;decay descriptors&apos;, that allow a lot of flexibility with what you accept.
 For example, <code>D0 -&gt; K- X+</code> will match any D0 decay that contains one
 negatively charged kaon and one positively charged track of any species.
@@ -965,7 +1029,7 @@ wrong magnet polarity value in your ntuple, amongst other Bad Things.
 You can find the values for these tags in the <a href="data/MC_2016_27163002_Beam6500GeV2016MagDownNu1.625nsPythia8_Sim09b_Trig0x6138160F_Reco16_Turbo03_Stripping28NoPrescalingFlagged_ALLSTREAMS.DST.py">bookkeeping
 file</a>
 we downloaded earlier.</p>
-<p><div class="panel panel-primary"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(7795259925);" id="database-tags"><i class="fa fa-info-circle"></i> Database tags<span id="heading-7795259925"></span></h3></div><div class="panel-body" id="panel-7795259925"><p>Generally, the <code>CondDB</code> and <code>DDDB</code> tags are different for each dataset you
+<p><div class="panel panel-primary"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(7515884243);" id="database-tags"><i class="fa fa-info-circle"></i> Database tags<span id="heading-7515884243"></span></h3></div><div class="panel-body" id="panel-7515884243"><p>Generally, the <code>CondDB</code> and <code>DDDB</code> tags are different for each dataset you
 want to use, but will be the same for all DSTs within a given dataset.</p>
 <p>For real collision data, you shouldn&apos;t specify these tags, as the default
 tags are the latest and greatest, so just remove those lines from the options
@@ -988,7 +1052,7 @@ your dataset!</p>
 to the <code>UserAlgorithms</code> list.
 The <code>TupleFile</code> attribute defines the name of the ROOT output file that DaVinci
 will store any algorithm output in, which should be our ntuple.</p>
-<p><div class="panel panel-primary"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(5608757105);" id="being-smart-and-efficient"><i class="fa fa-info-circle"></i> Being smart and efficient<span id="heading-5608757105"></span></h3></div><div class="panel-body" id="panel-5608757105"><p>Typical stripping lines take only a small part of the stripped stream - so, a small fraction of events in the DST: actually, usually you care about a single TES location!
+<p><div class="panel panel-primary"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(752950781);" id="being-smart-and-efficient"><i class="fa fa-info-circle"></i> Being smart and efficient<span id="heading-752950781"></span></h3></div><div class="panel-body" id="panel-752950781"><p>Typical stripping lines take only a small part of the stripped stream - so, a small fraction of events in the DST: actually, usually you care about a single TES location!
 At the same time, event unpacking and running the DecayTreeTuple machinery for each event is time-consuming. 
 Consequently, DSTs can be processed much faster if before unpacking we select <em>only</em> events which are likely to accomodate the desired TES location. This can be achieved, for example, by requiring a prefilter checking whether event passes a stripping requirement. You may also filter on trigger decisions - this is an idea behind the Turbo stream.
 As a conclusion, it is <em>strongly</em> recommended to exploit the <code>EventPreFilters</code> method offered by <code>DaVinci</code>: this feature can save a lot of processing time and collaboration&apos;s computing resources when running over millions of events.
@@ -1024,7 +1088,7 @@ here</a>.
 A slightly modified version that uses remote files (using an XML catalog as
 <a href="files-from-grid.html">described here</a>) is <a href="code/minimal-dv/ntuple_options_xmlcatalog.py">available
 here</a>.</p>
-<p><div class="panel panel-primary"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(2700665058);" id="using-a-microdst"><i class="fa fa-info-circle"></i> Using a microDST<span id="heading-2700665058"></span></h3></div><div class="panel-body" id="panel-2700665058"><p>A microDST (or &#xB5;DST) is a smaller version of a DST.
+<p><div class="panel panel-primary"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(6104177606);" id="using-a-microdst"><i class="fa fa-info-circle"></i> Using a microDST<span id="heading-6104177606"></span></h3></div><div class="panel-body" id="panel-6104177606"><p>A microDST (or &#xB5;DST) is a smaller version of a DST.
 Some stripping lines go to &#xB5;DSTs, and some go to DSTs.
 There are two things that need changing in our options file in order to have
 it work when it is used with a stripping line that goes to a &#xB5;DST:</p>
@@ -1083,7 +1147,7 @@ DaVinci().RootInTES = <span class="hljs-string">&apos;/Event/{0}&apos;</span>.fo
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Running a minimal DaVinci job locally","level":"2.1.10","depth":2,"next":{"title":"Fun with LoKi Functors","level":"2.1.11","depth":2,"path":"first-analysis-steps/loki-functors.md","ref":"first-analysis-steps/loki-functors.md","articles":[]},"previous":{"title":"Interactively exploring a DST","level":"2.1.9","depth":2,"path":"first-analysis-steps/interactive-dst.md","ref":"first-analysis-steps/interactive-dst.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-sharing","panels@git+https://github.com/lhcb/gitbook-plugin-panels.git#master","katex-auto-render@git+https://github.com/lhcb/gitbook-plugin-katex-auto-render.git#master","collapsible-menu","otherlink"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"collapsible-menu":{},"search":{},"otherlink":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"panels":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"katex-auto-render":{},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"The Starterkit team and contributors","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"gitbook":"*"},"file":{"path":"first-analysis-steps/minimal-dv-job.md","mtime":"2019-07-08T12:22:31.208Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-07-08T12:23:55.022Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Running a minimal DaVinci job locally","level":"2.1.10","depth":2,"next":{"title":"Fun with LoKi Functors","level":"2.1.11","depth":2,"path":"first-analysis-steps/loki-functors.md","ref":"first-analysis-steps/loki-functors.md","articles":[]},"previous":{"title":"Interactively exploring a DST","level":"2.1.9","depth":2,"path":"first-analysis-steps/interactive-dst.md","ref":"first-analysis-steps/interactive-dst.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-sharing","panels@git+https://github.com/lhcb/gitbook-plugin-panels.git#master","katex-auto-render@git+https://github.com/lhcb/gitbook-plugin-katex-auto-render.git#master","collapsible-menu","otherlink"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"collapsible-menu":{},"search":{},"otherlink":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"panels":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"katex-auto-render":{},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"The Starterkit team and contributors","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"gitbook":"*"},"file":{"path":"first-analysis-steps/minimal-dv-job.md","mtime":"2019-08-19T09:21:36.608Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-08-19T09:23:08.692Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

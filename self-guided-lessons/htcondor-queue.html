@@ -1,0 +1,1129 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>The queue command · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="The Starterkit team and contributors">
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-panels/panels.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-katex-auto-render/katex.min.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="../using-the-grid/" />
+    
+    
+    <link rel="prev" href="htcondor-more-options.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    The LHCb Starterkit
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.1.1" data-path="../CONTRIBUTING.html">
+            
+                <a href="../CONTRIBUTING.html">
+            
+                    
+                    Contributing
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="2.1" data-path="../first-analysis-steps/">
+            
+                <a href="../first-analysis-steps/">
+            
+                    
+                    First analysis steps
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.1.1" data-path="../first-analysis-steps/prerequisites.html">
+            
+                <a href="../first-analysis-steps/prerequisites.html">
+            
+                    
+                    Pre-workshop checklist
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.2" data-path="../first-analysis-steps/introduction-to-course.html">
+            
+                <a href="../first-analysis-steps/introduction-to-course.html">
+            
+                    
+                    Goals of the course
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.3" data-path="../first-analysis-steps/physics-at-lhcb.html">
+            
+                <a href="../first-analysis-steps/physics-at-lhcb.html">
+            
+                    
+                    Physics at LHCb
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.4" data-path="../first-analysis-steps/dataflow.html">
+            
+                <a href="../first-analysis-steps/dataflow.html">
+            
+                    
+                    The LHCb data flow
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.5" data-path="../first-analysis-steps/run-2-data-flow.html">
+            
+                <a href="../first-analysis-steps/run-2-data-flow.html">
+            
+                    
+                    Changes to the data flow in Run 2
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.6" data-path="../first-analysis-steps/davinci.html">
+            
+                <a href="../first-analysis-steps/davinci.html">
+            
+                    
+                    An introduction to LHCb Software
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.7" data-path="../first-analysis-steps/bookkeeping.html">
+            
+                <a href="../first-analysis-steps/bookkeeping.html">
+            
+                    
+                    Finding data in the Bookkeeping
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.8" data-path="../first-analysis-steps/files-from-grid.html">
+            
+                <a href="../first-analysis-steps/files-from-grid.html">
+            
+                    
+                    Downloading a file from the grid
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.9" data-path="../first-analysis-steps/interactive-dst.html">
+            
+                <a href="../first-analysis-steps/interactive-dst.html">
+            
+                    
+                    Interactively exploring a DST
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.10" data-path="../first-analysis-steps/minimal-dv-job.html">
+            
+                <a href="../first-analysis-steps/minimal-dv-job.html">
+            
+                    
+                    Running a minimal DaVinci job locally
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.11" data-path="../first-analysis-steps/loki-functors.html">
+            
+                <a href="../first-analysis-steps/loki-functors.html">
+            
+                    
+                    Fun with LoKi Functors
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.12" data-path="../first-analysis-steps/add-tupletools.html">
+            
+                <a href="../first-analysis-steps/add-tupletools.html">
+            
+                    
+                    TupleTools and branches
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.13" data-path="../first-analysis-steps/decay-tree-fitter.html">
+            
+                <a href="../first-analysis-steps/decay-tree-fitter.html">
+            
+                    
+                    How do I use DecayTreeFitter?
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.14" data-path="../first-analysis-steps/davinci-grid.html">
+            
+                <a href="../first-analysis-steps/davinci-grid.html">
+            
+                    
+                    Running DaVinci on the grid
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.15" data-path="../first-analysis-steps/split-jobs.html">
+            
+                <a href="../first-analysis-steps/split-jobs.html">
+            
+                    
+                    Splitting a job into subjobs
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.16" data-path="../first-analysis-steps/ganga-data.html">
+            
+                <a href="../first-analysis-steps/ganga-data.html">
+            
+                    
+                    More Ganga
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.17" data-path="../first-analysis-steps/eos-storage.html">
+            
+                <a href="../first-analysis-steps/eos-storage.html">
+            
+                    
+                    Storing large files on EOS
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.18" data-path="../first-analysis-steps/lhcb-dev.html">
+            
+                <a href="../first-analysis-steps/lhcb-dev.html">
+            
+                    
+                    Developing LHCb Software
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.19" data-path="../first-analysis-steps/asking-questions.html">
+            
+                <a href="../first-analysis-steps/asking-questions.html">
+            
+                    
+                    Asking good questions
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.20" data-path="../first-analysis-steps/ecgd.html">
+            
+                <a href="../first-analysis-steps/ecgd.html">
+            
+                    
+                    Early career, gender and diversity
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.21" data-path="../first-analysis-steps/contributing-lesson.html">
+            
+                <a href="../first-analysis-steps/contributing-lesson.html">
+            
+                    
+                    Contribute to this lesson
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="3.1" data-path="../second-analysis-steps/">
+            
+                <a href="../second-analysis-steps/">
+            
+                    
+                    Second analysis steps
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.1.1" data-path="../second-analysis-steps/lb-git.html">
+            
+                <a href="../second-analysis-steps/lb-git.html">
+            
+                    
+                    Using git to develop LHCb software
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.2" data-path="../second-analysis-steps/building-decays.html">
+            
+                <a href="../second-analysis-steps/building-decays.html">
+            
+                    
+                    Building your own decay
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.1.2.1" data-path="../second-analysis-steps/building-decays-part0.html">
+            
+                <a href="../second-analysis-steps/building-decays-part0.html">
+            
+                    
+                    The Selection Framework
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.2.2" data-path="../second-analysis-steps/building-decays-part1.html">
+            
+                <a href="../second-analysis-steps/building-decays-part1.html">
+            
+                    
+                    A Historical Approach
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.2.3" data-path="../second-analysis-steps/building-decays-part2.html">
+            
+                <a href="../second-analysis-steps/building-decays-part2.html">
+            
+                    
+                    Modern Selection Framework
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.3" data-path="../second-analysis-steps/fixing-errors.html">
+            
+                <a href="../second-analysis-steps/fixing-errors.html">
+            
+                    
+                    What to do when something fails
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.4" data-path="../second-analysis-steps/rerun-stripping.html">
+            
+                <a href="../second-analysis-steps/rerun-stripping.html">
+            
+                    
+                    Run a different stripping line on simulated data
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.5" data-path="../second-analysis-steps/switch-mass-hypo.html">
+            
+                <a href="../second-analysis-steps/switch-mass-hypo.html">
+            
+                    
+                    Replace a mass hypothesis
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.6" data-path="../second-analysis-steps/filter-in-trees.html">
+            
+                <a href="../second-analysis-steps/filter-in-trees.html">
+            
+                    
+                    Reuse particles from a decay tree
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.7" data-path="../second-analysis-steps/simulation.html">
+            
+                <a href="../second-analysis-steps/simulation.html">
+            
+                    
+                    The simulation framework
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.1.7.1" data-path="../second-analysis-steps/simulation-intro.html">
+            
+                <a href="../second-analysis-steps/simulation-intro.html">
+            
+                    
+                    Introduction: The basics of Gauss
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.7.2" data-path="../second-analysis-steps/simulation-running-gauss.html">
+            
+                <a href="../second-analysis-steps/simulation-running-gauss.html">
+            
+                    
+                    Getting the correct option files
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.7.3" data-path="../second-analysis-steps/simulation-dkfiles.html">
+            
+                <a href="../second-analysis-steps/simulation-dkfiles.html">
+            
+                    
+                    Controlling the decay
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.7.4" data-path="../second-analysis-steps/simulation-gencuts.html">
+            
+                <a href="../second-analysis-steps/simulation-gencuts.html">
+            
+                    
+                    Modifying the decay
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.7.5" data-path="../second-analysis-steps/simulation-advanced-dkfiles.html">
+            
+                <a href="../second-analysis-steps/simulation-advanced-dkfiles.html">
+            
+                    
+                    Advanced: Modifying the decay
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.7.6" data-path="../second-analysis-steps/simulation-fastsim.html">
+            
+                <a href="../second-analysis-steps/simulation-fastsim.html">
+            
+                    
+                    Fast simulation options
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.8" data-path="../second-analysis-steps/hlt-intro.html">
+            
+                <a href="../second-analysis-steps/hlt-intro.html">
+            
+                    
+                    HLT intro
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.9" data-path="../second-analysis-steps/tistos-diy.html">
+            
+                <a href="../second-analysis-steps/tistos-diy.html">
+            
+                    
+                    TisTos DIY
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.10" data-path="../second-analysis-steps/ganga-scripting.html">
+            
+                <a href="../second-analysis-steps/ganga-scripting.html">
+            
+                    
+                    Ganga Scripting
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.11" data-path="../second-analysis-steps/managing-files-with-ganga.html">
+            
+                <a href="../second-analysis-steps/managing-files-with-ganga.html">
+            
+                    
+                    Managing files in Ganga
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.12" data-path="../second-analysis-steps/analysis-automation-snakemake.html">
+            
+                <a href="../second-analysis-steps/analysis-automation-snakemake.html">
+            
+                    
+                    Analysis automation: snakemake
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="4.1" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    Self guided lessons
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.1.1" data-path="htcondor.html">
+            
+                <a href="htcondor.html">
+            
+                    
+                    Batch submission with HTCondor
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.1.1.1" data-path="htcondor-first-job.html">
+            
+                <a href="htcondor-first-job.html">
+            
+                    
+                    Creating your first job
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.1.2" data-path="htcondor-more-options.html">
+            
+                <a href="htcondor-more-options.html">
+            
+                    
+                    More submit file options
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="4.1.1.3" data-path="htcondor-queue.html">
+            
+                <a href="htcondor-queue.html">
+            
+                    
+                    The queue command
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="5.1" data-path="../using-the-grid/">
+            
+                <a href="../using-the-grid/">
+            
+                    
+                    Using the grid
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="5.1.1" data-path="../using-the-grid/local-grid-proxy.html">
+            
+                <a href="../using-the-grid/local-grid-proxy.html">
+            
+                    
+                    Grid proxies without LbScripts
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="6.1" >
+            
+                <a target="_blank" href="ref://starterkit-lessons.pdf">
+            
+                    
+                    Download PDF
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >The queue command</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="using-the-queue-command">Using the queue command</h1>
+<p><div class="panel panel-warning"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(481907235);" id="learning-objectives"><i class="fa fa-line-chart"></i> Learning Objectives<span id="heading-481907235"></span></h3></div><div class="panel-body" id="panel-481907235"><ul>
+<li>Be able to submit multiple jobs at once by adding to the <code>queue</code> command</li>
+<li>Be able to use variables in a submit file to automatically change the behaviour of each job</li>
+<li>Learn some different options for queuing multiple jobs</li>
+</ul>
+</div></div> </p>
+<p>So far, we have ended all of our submit files by simply writing <code>queue</code> to tell HTCondor to schedule a single execution of the job that we defined. However, it wouldn&apos;t be batch computing without being able to submit large numbers of jobs at once!</p>
+<p>Let&apos;s create another simple job using a python script, <code>my_script.py</code>. We want both file input and output - for this example, let&apos;s have it reverse the input text, and save it to a new file. We also want to specify both files as arguments. Such a script might look something like:</p>
+<pre><code>import argparse
+parser = argparse.ArgumentParser()
+parser.add_argument(&apos;inputfile&apos;, help=&apos;Specify an input file&apos;, type=str)
+parser.add_argument(&apos;outputfile&apos;, help=&apos;Specify an output file&apos;, type=str)
+args = parser.parse_args()
+
+f_in = open(args.inputfile, &apos;r&apos;)
+f_out = open(args.outputfile, &apos;w+&apos;)
+f_out.write( &apos;&apos;.join( reversed(f_in.read()) ) )
+</code></pre><p>As before, we&apos;ll use an executable shell script <code>exec.sh</code> as a wrapper:</p>
+<pre><code>#!/bin/bash
+python3 my_script.py &quot;$@&quot;
+</code></pre><p>And finally, the all-important submit file:</p>
+<pre><code>executable  = exec.sh
+universe    = vanilla
+arguments   = data.txt result.txt
++JobFlavour = &quot;espresso&quot;
+
+transfer_input_files = my_script.py, input/data.txt
+transfer_output_files = result.txt
+should_transfer_files = IF_NEEDED
+when_to_transfer_output = ON_EXIT
+
+output      = output.out
+error       = error.err
+log         = log.log
+queue 4
+</code></pre><p>Most of this should look familiar at this point, with the most significant new addition being the final line: <code>queue 4</code>. If you create a <code>data.txt</code> file in the <code>input</code> directory, submit this, and then look at the queue, you will see that HTCondor has indeed scheduled 4 separate jobs. You can see these jobs in the queue individually by running <code>condor_q -nobatch</code>:</p>
+<pre><code> ID         OWNER            SUBMITTED     RUN_TIME ST PRI SIZE CMD
+2908604.0   djwhite         5/22 12:07   0+00:00:00 I  0    0.0 exec.sh data.txt result.txt
+2908604.1   djwhite         5/22 12:07   0+00:00:00 I  0    0.0 exec.sh data.txt result.txt
+2908604.2   djwhite         5/22 12:07   0+00:00:00 I  0    0.0 exec.sh data.txt result.txt
+2908604.3   djwhite         5/22 12:07   0+00:00:00 I  0    0.0 exec.sh data.txt result.txt
+
+4 jobs; 0 completed, 0 removed, 4 idle, 0 running, 0 held, 0 suspended
+</code></pre><p>This shows a bit more information about the jobs than the standard <code>condor_q</code>. In particular, note that all of these jobs have the same cluster ID, but each has a different process ID ranging from 0 to 3. In almost all cases, when you submit multiple jobs using a single queue command, they will share the same cluster ID, and have sequential process IDs starting from 0.</p>
+<p>There are a couple of issues with the above script. Firstly, we&apos;re running the exact same job (with the exact same input) multiple times, which is rarely what is needed. Secondly, once the jobs have all completed, notice that you only have one <code>output.out</code> file - each time one completes, it overwrites any existing output file with its own output because each one has the same name. In order to fix these issues, we need to be able to distinguish each job created by a single submit file. We can do this using the variables <code>$(ClusterId)</code> and <code>$(ProcId)</code> (or, equivalently, <code>$(Cluster)</code> and <code>$(Process)</code> respectively). These variables are automatically-defined for each job individually. Using this, you can modify your submit file to read:</p>
+<pre><code>executable  = exec.sh
+universe    = vanilla
+arguments   = data.txt result_$(ProcID).txt
++JobFlavour = &quot;espresso&quot;
+
+transfer_input_files = my_script.py, input/data.txt
+transfer_output_files = result_$(ProcID).txt
+should_transfer_files = IF_NEEDED
+when_to_transfer_output = ON_EXIT
+
+output      = output/output.$(ClusterId).$(ProcId).out
+error       = error/error.$(ClusterId).$(ProcId).err
+log         = log/log.$(ProcId).log
+queue 4
+</code></pre><p>If you first create the folders <code>output</code>, <code>error</code>, and <code>log</code>, and then submit this job, HTCondor will automatically create 4 separate output and error files, and will transfer back 4 separate result files.</p>
+<p><div class="panel panel-success"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(8019135811);" id="multiple-input-files"><i class="fa fa-square-o"></i> Multiple input files<span id="heading-8019135811"></span></h3></div><div class="panel-body" id="panel-8019135811"><p> The result files from the above script all contain the same information, since the same input file is being used and the script is deterministic. How could you modify it to allow for the use of multiple input files?</p>
+<div class="panel panel-danger"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(7646983875);" id="solutionclick-to-expand"><i class="fa fa-line-chart"></i> Solution<span id="heading-7646983875">Click to expand</span></h3></div><div class="panel-body" style="display: none" id="panel-7646983875"><p>If you create multiple input files (e.g. <code>input/data_0.txt</code>, <code>input/data_1.txt</code>, ...), you can modify the <code>transfer_input_files</code> option to read:</p>
+<pre><code>transfer_input_files = my_script.py, input/data_$(ProcId).txt
+</code></pre></div></div></div></div></p>
+<h3 id="more-on-variables">More on variables</h3>
+<p>As you&apos;ve seen above, the variables that HTCondor automatically defines provide a lot of potential for the automisation of large numbers of jobs. To expand on this, you are also able to define your own variables within your submit file using very similar syntax. Among other things, this is particularly useful for avoiding repetition - in the example above, the input and output file names had to be written in two places. Equivalent functionality can be achieved by using:</p>
+<pre><code>INPUTFN = data.txt
+OUTPUTFN = result_$(ProcID).txt
+# ...
+arguments = $(INPUTFN) $(OUTPUTFN)
+# ...
+transfer_input_files = my_script.py, input/$(INPUTFN)
+transfer_output_files = $(OUTPUTFN)
+</code></pre><h3 id="other-ways-to-queue">Other ways to queue</h3>
+<p>The above syntax for queuing multiple jobs is very simple and convenient for jobs with sequential enumeration starting from zero, but this isn&apos;t always the case. Fortunately, the queue command is extremely flexible and has many alternative choices of syntax. This part of the lesson showcases some of these options and how to use them. For more information and other examples, you can visit <a href="http://research.cs.wisc.edu/htcondor/manual/v8.5/2_5Submitting_Job.html#SECTION00352000000000000000" target="_blank">the documentation for the queue command</a>.</p>
+<ul>
+<li><strong>Variable defined from a list</strong>: <code>queue [&lt;int expr&gt;] [&lt;varname&gt;] in [slice] &lt;list of items&gt;</code></li>
+</ul>
+<p>This defines a variable name and lets you give it a list of values, and HTCondor will create separate jobs for each value in the list. For example, you could use <code>queue MagnetPolarity in (up,down)</code> to automatically create two jobs, each with a variable <code>$(MagnetPolarity)</code> defined, which can then be used elsewhere in the submit file to pass either <code>up</code> or <code>down</code> to other options.</p>
+<p>It&apos;s worth noting that the optional parameter <code>&lt;int expr&gt;</code> represents the number of jobs to create per element in the list. By default, its value is 1, meaning that one job is created for each list entry. If you were to instead run <code>queue 4 MagnetPolarity in (up,down)</code>, a total of 8 jobs would be created, i.e. 4 for <code>up</code>, and 4 for <code>down</code>, and the variable <code>$(ProcessId)</code> would run from 0 to 7. You can use another automatically-defined variable, <code>$(Step)</code>, to get the index of the jobs for each list element individually. In this example, <code>$(Step)</code> would run from 0 to 3 for jobs with a <code>$(MagnetPolarity)</code> value of <code>up</code>, and again from 0 to 3 for the <code>down</code> value.</p>
+<ul>
+<li><strong>Multiple variables defined from a list</strong>: <code>queue [&lt;int expr&gt;] [&lt;list of varnames&gt;] from [slice] &lt;file name&gt; | &lt;list of items&gt;</code></li>
+</ul>
+<p>Expanding on the previous option, you can define multiple variables using the <code>from</code> syntax. For example, you could use:</p>
+<pre><code>queue MagnetPolarity,NTupleId from (
+    up,00083875
+    down,00083879
+)
+</code></pre><p>This would have the effect of creating 2 jobs: one with the values <code>up</code> and <code>00083875</code>, and one with the values <code>down</code> and <code>00083879</code>.</p>
+<p>You can also put your list into a separate file if you prefer. The above example would be equivalent to using the command <code>queue MagnetPolarity,NTupleId from options.lst</code>, where you have a file <code>options.lst</code> which looks like:</p>
+<pre><code>up,00083875
+down,00083879
+</code></pre><ul>
+<li><strong>Files or directories from a filesystem</strong>: <code>queue [&lt;int expr&gt;] [&lt;varname&gt;] matching [files | dirs] [slice] &lt;list of items with file globbing&gt;</code></li>
+</ul>
+<p>This method of creating a list of input files is particularly convenient because it doesn&apos;t require you to manually list entries, or to define exactly how many files there are, as the previous methods have. Here, you can use wildcards to get HTCondor to automatically construct the list for you. For example, if you had a set of input <code>.dat</code> files and wanted to create a separate job for each one, you could use the command <code>queue INPUTFN matching files *.dat</code>.</p>
+<h3 id="mixing-options-and-variables">Mixing options and variables</h3>
+<p>It may have become apparent by now that options and variables behave in a very similar way within a submit file - you provide parameters to an option (e.g. <code>transfer_input_files = input.dat</code>) using the same syntax as you use to provide a value to a variable (e.g. <code>MyCustomVar = 25</code>). You can think of options as being specific variables that HTCondor looks at to determine how to create and schedule your jobs.</p>
+<p>This observation allows for some additional flexibility when using the queue command - when specifying a variable name, you can choose to use the name of an already-defined submit file option for convenience. For example, you could use <code>queue arguments in (-a 200,-a 300,-a 400)</code> to automatically create 3 jobs with different arguments.</p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="htcondor-more-options.html" class="navigation navigation-prev " aria-label="Previous page: More submit file options">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="../using-the-grid/" class="navigation navigation-next " aria-label="Next page: Using the grid">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"The queue command","level":"4.1.1.3","depth":3,"next":{"title":"Using the grid","level":"5.1","depth":1,"path":"using-the-grid/README.md","ref":"using-the-grid/README.md","articles":[{"title":"Grid proxies without LbScripts","level":"5.1.1","depth":2,"path":"using-the-grid/local-grid-proxy.md","ref":"using-the-grid/local-grid-proxy.md","articles":[]}]},"previous":{"title":"More submit file options","level":"4.1.1.2","depth":3,"path":"self-guided-lessons/htcondor-more-options.md","ref":"self-guided-lessons/htcondor-more-options.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-sharing","panels@git+https://github.com/lhcb/gitbook-plugin-panels.git#master","katex-auto-render@git+https://github.com/lhcb/gitbook-plugin-katex-auto-render.git#master","collapsible-menu","otherlink"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"collapsible-menu":{},"search":{},"otherlink":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"panels":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"katex-auto-render":{},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"The Starterkit team and contributors","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"gitbook":"*"},"file":{"path":"self-guided-lessons/htcondor-queue.md","mtime":"2019-08-19T09:21:36.620Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-08-19T09:23:08.692Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-panels/panels.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-katex-auto-render/katex.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-katex-auto-render/auto-render.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-katex-auto-render/enable-auto-render.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-collapsible-menu/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-otherlink/js/otherlink.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
