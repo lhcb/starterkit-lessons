@@ -56,6 +56,10 @@
 ----
 
 * [Self guided lessons](self-guided-lessons/README.md)
+    * [Batch submission with HTCondor](self-guided-lessons/htcondor.md)
+      * [Creating your first job](self-guided-lessons/htcondor-first-job.md)
+      * [More submit file options](self-guided-lessons/htcondor-more-options.md)
+      * [The queue command](self-guided-lessons/htcondor-queue.md)
 
 ---
 
