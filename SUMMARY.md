@@ -68,4 +68,13 @@
 
 ----
 
- * [Download PDF](ref://starterkit-lessons.pdf)
+* [First computing steps](https://lhcb.github.io/analysis-essentials/)
+
+----
+
+* [First development steps](https://lhcb.github.io/developkit-lessons/first-development-steps/)
+
+----
+
+* [Download PDF](ref://starterkit-lessons.pdf)
+
