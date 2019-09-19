@@ -9,21 +9,21 @@ some of the steps the solution requires waiting for a day or so.
 So please try them before arriving and try to fix what ever does
 not work.
 
-> Follow this guide before arriving; we will not have time to help
-> you with problems on these issues during the workshop. This means
-> you will end up watching instead of participating.
+* Follow this guide before arriving; we will not have time to help
+you with problems on these issues during the workshop. This means
+you will end up watching instead of participating.
 
-This will be an interactive workshop, so you will need to bring
+* This will be an interactive workshop, so you will need to bring
 a computer. There will be no machines for you to use in the room.
 
-> Follow all the steps using the computer you plan to bring, not
-> your desktop or someone else's computer.
+* Follow all the steps using the computer you plan to bring, not
+your desktop or someone else's computer.
 
-If this is the first time you are bringing your laptop to CERN, you
+* If this is the first time you are bringing your laptop to CERN, you
 will have to [register it](http://information-technology.web.cern.ch/help/connect-your-device) before it can
 access the internet.
 
-Please bring your power supply, as well as a plug adaptor to Swiss and European plugs.
+* Please bring your power supply, as well as a plug adaptor to Swiss and European plugs.
 
 {% callout "Windows" %}
 In the following we assume you use Mac OS X or Linux. If you are running
