@@ -98,7 +98,7 @@ The easiest way to use it is to add it to your `first.py` script
 and re-run it as before. Then, in your iPython session, enter `nodes(evt)`.
 This will list a large number of TES locations, but even so there
 are some which you have to know about. Another oddity is that some
-locations are "packed", for example: `/Event/AllStreams/pPhys/Particles`.
+locations are 'packed', for example: `/Event/AllStreams/pPhys/Particles`.
 You can not access these directly at this location. Instead you
 have to know what location the contents will get unpacked to when
 you want to use it. Often you can just try removing the small `p`
