@@ -28,7 +28,7 @@ Because the individual bunch crossings (events) are almost completely independen
 Gaudi provides a global EventLoop, which allows you to process events one by one.
 
 **Transient Event Store:**
-A single event contains lots of different data objects (Particles, Vertices, Tracks, Hits, ...).
+A single event contains lots of different data objects (Particles, Vertices, Tracks, Hits).
 In Gaudi, these are organized in the Transient Event Store (TES).
 You can think of it as a per-event file system with locations like `/Event/Rec/Track/Best` or `/Event/Phys/MyParticles`.
 When running over the event stream, Gaudi allows you to get and put from/to these locations.
@@ -36,10 +36,10 @@ The contents of the TES are emptied at the end of the processing of each event.
 
 **Algorithms:**
 An *Algorithm* is a C++ class that can be inserted into the EventLoop.
-These allow you to perform a certain function for each event (like filtering according to trigger decision, reconstructing particles, ...).
+These allow you to perform a certain function for each event (like filtering according to trigger decision, reconstructing particles).
 
 **Tools:**
-Often, algorithms will want to make use of some common function (vertex fitting, calculating distances, associating a primary vertex, ...).
+Often, algorithms will want to make use of some common function (vertex fitting, calculating distances, associating a primary vertex).
 These are implemented as *Tools*, which are shared between Algorithms.
 
 **Options:**
