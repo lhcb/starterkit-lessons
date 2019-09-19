@@ -59,7 +59,7 @@ not sure.
 {% endcallout %}
 
 Next we need to choose what version of the simulation you want to
-use. There are two available in our case, `Sim09b` and `Sim09c`, but usually the latest available version is the best when there are more than one.
+use. There are three available in our case, `Sim09b`, `Sim09c` and `Sim09f-ReDecay01`. Usually the latest available version is the best when there are more than one. However in this case, the `Sim09f` version contains a stripping filtered sample so for this lesson we will use `Sim09c`.
 We also have to choose what configuration of the trigger (`Trig0x6138160F` in our case) and reconstruction
 we want to have in the simulated sample. Usually
 there is only one choice for these, which makes choosing easier.
