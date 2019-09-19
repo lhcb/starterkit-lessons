@@ -48,7 +48,7 @@ Place this into a file called `first.py` and run the following
 command in a new terminal:
 
 ```bash
-$ lb-run DaVinci/v44r6 ipython -i first.py 00070793_00000001_7.AllStreams.dst
+$ lb-run DaVinci/v45r1 ipython -i first.py 00070793_00000001_7.AllStreams.dst
 ```
 
 This will open the DST and print out some of the TES locations
