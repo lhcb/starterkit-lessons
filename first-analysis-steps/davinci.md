@@ -122,6 +122,8 @@ time the text was last revised.
 [releases]: http://lhcbdoc.web.cern.ch/lhcbdoc/davinci/releases/
 [v45r1]: http://lhcbdoc.web.cern.ch/lhcbdoc/davinci/releases/v45r1/
 
+**Note:** Older versions of DaVinci may not be available on the default platform ```x86_64-centos7-gcc8-opt```. To get around this we can pick the best suitable platform by using ```lb-run -c best DaVinci/vXXrYpZ ...```.
+
 {% endcallout %}
 
 Do you want to start a shell that already contains the LHCb environment, so you don't have to use `lb-run`?
