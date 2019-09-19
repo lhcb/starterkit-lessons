@@ -20,8 +20,8 @@ where the $$D^{0}$$ decays to $$K^{-} K^{+}$$.
 {% endobjectives %}
 
 Navigate to the 
-[bookkeeping](https://lhcb-portal-dirac.cern.ch/DIRAC/?view=tabs&theme=Grey&url_state=1|*LHCbDIRAC.BookkeepingBrowser.classes.BookkeepingBrowser:,) 
-which lets you find both simulated
+[bookkeeping](https://lhcb-portal-dirac.cern.ch/DIRAC/) 
+under Data / Bookeeping Browser, which lets you find both simulated
 and real data.
 
 At the bottom of the "Bookkeeping tree" tab there is a drop-down menu
