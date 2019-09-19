@@ -18,7 +18,7 @@ selection of candidates made in the second stage of the high level trigger,
 HLT2, is saved to disk and used _directly_ by analysts, with no further offline 
 reconstruction by Brunel.
 
-Omitting the offline reconstruction is usually a Bad Idea because it's usually 
+Omitting the offline reconstruction is usually a **Bad Idea** because it's usually 
 of a much better quality than the reconstruction performed in the HLT (the 
 ‘online reconstruction’) as there's more time to run it. But, thanks to an 
 enormous effort improving the reconstruction software both online and offline 
