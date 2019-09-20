@@ -27,7 +27,7 @@ To add the DiracFile in the configuration of the job we just need:
 ```python
 j = Job(name='First ganga job')
 myApp = GaudiExec()
-myApp.directory = "./DaVinciDev_v44r6"
+myApp.directory = "./DaVinciDev_v45r1"
 j.application = myApp
 j.application.options = ['code/davinci-grid/ntuple_options_grid.py']
 bkPath = '/MC/2016/Beam6500GeV-2016-MagDown-Nu1.6-25ns-Pythia8/Sim09c/Trig0x6138160F/Reco16/Turbo03/Stripping28r1NoPrescalingFlagged/27163002/ALLSTREAMS.DST'
