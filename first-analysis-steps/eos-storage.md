@@ -30,6 +30,7 @@ myApp = GaudiExec()
 myApp.directory = "./DaVinciDev_v45r1"
 j.application = myApp
 j.application.options = ['code/davinci-grid/ntuple_options_grid.py']
+j.application.platform = 'x86_64-centos7-gcc8-opt'
 bkPath = '/MC/2016/Beam6500GeV-2016-MagDown-Nu1.6-25ns-Pythia8/Sim09c/Trig0x6138160F/Reco16/Turbo03/Stripping28r1NoPrescalingFlagged/27163002/ALLSTREAMS.DST'
 data  = BKQuery(bkPath, dqflag=['OK']).getDataset()
 j.inputdata = data[0:2]     # access only the first 2 files of data
