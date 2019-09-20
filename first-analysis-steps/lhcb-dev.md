@@ -13,10 +13,10 @@ Starterkit.
 {% endprereq %} 
 
 In this lesson, we'll show you a complete workflow for developing the LHCb
-software using the `git` version control system.  At LHCb, we use Gitlab to
-manage our git repositories.  Among other features, Gitlab allows you to browse
+software using the `git` version control system.  At LHCb, we use GitLab to
+manage our git repositories.  Among other features, GitLab allows you to browse
 the source code for each project, and to review new changes (called *merge
-requests*) in a convenient web interface.  You can find the CERN Gitlab
+requests*) in a convenient web interface.  You can find the CERN GitLab
 instance at https://gitlab.cern.ch.
 
 In principle, there are multiple ways of interacting with the LHCb software
@@ -37,8 +37,8 @@ cumbersome, for any serious development the usage of vanilla git is much more
 stable. Please consider using it if you can spare the compilation time.
 
 {% callout "Initial setup" %}
-Before jumping in by creating a project in Gitlab, you should make sure that
-your local git configuration and your settings on Gitlab are sufficiently set
+Before jumping in by creating a project in GitLab, you should make sure that
+your local git configuration and your settings on GitLab are sufficiently set
 up.
 
  - Your name and email address should be set up in your local `git`
@@ -196,7 +196,7 @@ page](https://gitlab.cern.ch/lhcb/Stripping/merge_requests/new), for
 example.
 
 {% callout "Quick link to create a merge request" %}
-When pushing to a branch in a project in Gitlab you will see a message like:
+When pushing to a branch in a project in GitLab you will see a message like:
 
 ```
 remote:
@@ -245,7 +245,7 @@ update the reference file.
 {% endcallout %} 
 
 If you want to take a look the source code, without checking it out, you can
-easily access the repository through the [Gitlab web
+easily access the repository through the [GitLab web
 interface](https://gitlab.cern.ch/lhcb). This website also provides search
 functionality, but the output is not always easy to read, especially if it
 returns many hits. To search a project much quicker, you can use `Lbglimpse`.
