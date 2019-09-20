@@ -2,7 +2,7 @@
 
 [Looping event-by-event](interactive-dst.html) over a file and [inspecting
 interesting quantities with LoKi functors](loki-functors.html) is great for
-exploration: to checking that the file contains the candidates you need, that
+exploration: to check that the file contains the candidates you need, that
 the topology makes sense, and so on.
 It's impractical for most cases, though, where you want _all_ the candidates
 your trigger/stripping line produced, which could be tens of millions of
