@@ -53,12 +53,12 @@ files to process as part of the options file you have now to tell the
 processing different files simultaneously. More details about the splitter are given in the [next lesson](split-jobs.html). Note that data will be accessed using its path in the bookkeeping `bkPath`. In order to speed-up our job, only the first 2 elements (files) of `data` will be accessed; we don't need to look at much data here. 
 
 {% callout "DaVinciDev folder" %}
-When you create a job using `prepareGaudiExec('DaVinci','v44r6', myPath='.')`
+When you create a job using `prepareGaudiExec('DaVinci','v45r1', myPath='.')`
 you get the following message:
 ```
-INFO     Set up App Env at: ./DaVinciDev_v44r6
+INFO     Set up App Env at: ./DaVinciDev_v45r1
 ```
-`ganga` has created a folder with a local copy of the DaVinci v44r6 release.
+`ganga` has created a folder with a local copy of the DaVinci v45r1 release.
 The content of it will be sent to the grid to ensure your job runs with 
 exactly this configuration.
 We will use this folder for the following jobs and you will learn more about
@@ -67,7 +67,7 @@ this in the [Developing LHCb Software](lhcb-dev.html) lesson.
 
 Now you have created your first job, however it has not started
 running yet. To submit it type `j.submit()`. Now `ganga` will do the
-equivalent of `lb-run DaVinci/v44r6`, prepare your job and then
+equivalent of `lb-run DaVinci/v45r1`, prepare your job and then
 ship it off to the grid.
 
 {% callout "Picking up a right platform" %}
@@ -99,7 +99,7 @@ Place the following in a file called [`first-job.py`](code/davinci-grid/first-jo
 ```python
 j = Job(name='First ganga job')
 myApp = GaudiExec()
-myApp.directory = "./DaVinciDev_v44r6"
+myApp.directory = "./DaVinciDev_v45r1"
 j.application = myApp
 j.application.options = ['ntuple_options.py']
 bkPath = '/MC/2016/Beam6500GeV-2016-MagDown-Nu1.6-25ns-Pythia8/Sim09c/Trig0x6138160F/Reco16/Turbo03/Stripping28r1NoPrescalingFlagged/27163002/ALLSTREAMS.DST'
@@ -169,7 +169,7 @@ To look at the `root` file produced by the job start a new terminal, and
 type:
 
 ```bash
-$ lb-run DaVinci/v44r6 $SHELL
+$ lb-run DaVinci/v45r1 $SHELL
 $ root -l path/to/the/job/output
 ```
 
