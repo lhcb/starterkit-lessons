@@ -71,21 +71,20 @@ equivalent of `lb-run DaVinci/v45r1`, prepare your job and then
 ship it off to the grid.
 
 {% callout "Picking up a right platform" %}
-Early 2018, the default platform on most of lxplus machines was changed to `x86_64-slc6-gcc62-opt` (instead of `x86_64-slc6-gcc49-opt`), changing the version of the gcc compiler from 4.9 to 6.2. 
-However, most of older DaVinci versions, anterior to v42r0, are not compiled for `x86_64-slc6-gcc62-opt`. 
+The default platform on most lxplus machines is `x86_64-centos7-gcc8-opt` with gcc compiler version 8.
+However some older DaVinci version are not compiled for 'x86_64-centos7-gcc8-opt'.
 
 The list of platforms available for a certain DaVinci version (let's say `v38r0`), can be viewed by
 ```bash
 $ lb-sdb-query listPlatforms DaVinci v38r0
 ```
-
-In case you have a strong reason to use one of these DaVinci versions, few additional actions are needed to set up your ganga job properly.
+The default compiler platform for GaudiExec applications is `x86_64-slc6-gcc62-opt`.
+So for some DaVinci versions, including the latest `DaVinci v45r1` a few additional actions are needed to set up your ganga job properly.
 
 When setting up your ganga job, add the following line after declaring the `j.application`:
 ```python
-j.application.platform = 'x86_64-slc6-gcc49-opt'
+j.application.platform = 'x86_64-centos7-gcc8-opt'
 ```
-The default compiler platform for GaudiExec applications is `x86_64-slc6-gcc62-opt`.
 
 {% endcallout %} 
 
