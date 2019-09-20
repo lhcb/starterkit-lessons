@@ -195,6 +195,18 @@ A slightly modified version that uses remote files (using an XML catalog as
 [described here](files-from-grid.html)) is [available
 here](./code/minimal-dv/ntuple_options_xmlcatalog.py).
 
+You can now view and inspect your ntuple using ROOT `TBrowser` just do:
+
+```shell
+$ root -l DVntuple.root 
+
+root [0] 
+Attaching file DVntuple.root as _file0...
+(TFile *) 0x2ae94f0
+root [1] new TBrowser
+(TBrowser *) 0x2fe31b0
+```
+
 {% callout "Using a microDST" %}
 A microDST (or µDST) is a smaller version of a DST.
 Some stripping lines go to µDSTs, and some go to DSTs.
