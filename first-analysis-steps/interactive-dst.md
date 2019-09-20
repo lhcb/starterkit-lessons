@@ -188,9 +188,10 @@ the `Bender` project.
 For example, to explore the `DST` we could have simply done:
 
 ```
-lb-run Bender/latest bender 00070793_00000001_7.AllStreams.dst
+lb-run Bender/latest bender -d 2016 00070793_00000001_7.AllStreams.dst
 ```
 
+where `-d 2016` is the `DataType` flag.
 This leaves us in a prompt in which we can proceed as discussed in this
 lesson, with the advantage that some functions are already provided
 for us, such as `seekStripDecision` (which replaces our `advance`) or
@@ -201,7 +202,7 @@ banner.
 `Bender` also provides a useful command `dst-dump`, which is a quick way of
 figuring out what objects are present on a `DST` and where. Try out:
 ```
-lb-run Bender/latest dst-dump -f -n 100 00070793_00000001_7.AllStreams.dst
+lb-run Bender/latest dst-dump -d 2016 -f -n 100 00070793_00000001_7.AllStreams.dst
 ```
 The `-f` option tells `Bender` to try and "unpack" the locations such as
 `/Event/AllStreams/pPhys/Particles` that we mentioned above, while `-n 100`
