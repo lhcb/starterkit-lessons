@@ -38,9 +38,16 @@ if ever.
 
 To understand what we can do with LoKi functors, we will pick up from where we 
 left off [exploring a DST interactively](interactive-dst.html).
-Open the DST and get the first candidate in the `D2hhPromptDst2D2KKLine` line:
+First open the DST as we did previously:
+
+```bash
+$ lb-run DaVinci/v44r6 ipython -i first.py 00070793_00000001_7.AllStreams.dst
+```
+
+Get the first candidate in the `D2hhPromptDst2D2KKLine` line:
 
 ```python
+advnace('D2hhPromptDst2D2KKLine')
 cands = evt['/Event/AllStreams/Phys/D2hhPromptDst2D2KKLine/Particles']
 cand = cands[0]
 ```
