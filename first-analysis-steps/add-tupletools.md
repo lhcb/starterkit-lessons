@@ -15,10 +15,10 @@ there is an extensive library of these, some of which will be briefly discussed 
 {% callout "Default DecayTreeTuple tools" %}
 The default tools added in `DecayTreeTuple` are:
 
- - `TupleToolKinematic`, which fills the kinematic information of the decay.
- - `TupleToolPid`, which stores DLL and PID information of the particle.
- - `TupleToolANNPID`, which stores the new NeuralNet-based PID information of the particle.
- - `TupleToolGeometry`, which stores the geometrical variables (IP, vertex position, etc) of the particle.
+ - `TupleToolKinematic`, which fills the kinematic information of the decay;
+ - `TupleToolPid`, which stores DLL and PID information of the particle;
+ - `TupleToolANNPID`, which stores the new NeuralNet-based PID information of the particle;
+ - `TupleToolGeometry`, which stores the geometrical variables (IP, vertex position, etc) of the particle;
  - `TupleToolEventInfo`, which stores general information (event number, run number, GPS time, etc) of the event.
 {% endcallout %} 
 
