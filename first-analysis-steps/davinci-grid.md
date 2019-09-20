@@ -34,7 +34,7 @@ To create your first `ganga` job, type the following:
 
 ```python
 j = Job(name='First ganga job')
-myApp = prepareGaudiExec('DaVinci','v44r6', myPath='.')
+myApp = prepareGaudiExec('DaVinci','v45r1', myPath='.')
 j.application = myApp
 j.application.options = ['ntuple_options.py']
 bkPath = '/MC/2016/Beam6500GeV-2016-MagDown-Nu1.6-25ns-Pythia8/Sim09c/Trig0x6138160F/Reco16/Turbo03/Stripping28r1NoPrescalingFlagged/27163002/ALLSTREAMS.DST'
