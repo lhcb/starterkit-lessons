@@ -1,12 +1,13 @@
-j = Job(application=DaVinci(version='v41r2'))
+j = Job(name='First ganga job')
+myApp = GaudiExec()
+myApp.directory = "./DaVinciDev_v45r1"
+j.application = myApp
+j.application.options = ['ntuple_options.py']
+j.application.platform = 'x86_64-centos7-gcc8-opt'
+bkPath = '/MC/2016/Beam6500GeV-2016-MagDown-Nu1.6-25ns-Pythia8/Sim09c/Trig0x6138160F/Reco16/Turbo03/Stripping28r1NoPrescalingFlagged/27163002/ALLSTREAMS.DST'
+data  = BKQuery(bkPath, dqflag=['OK']).getDataset()
+j.inputdata = data[0:2]
 j.backend = Dirac()
-j.name = 'First ganga job'
-j.inputdata = j.application.readInputData((
-    'data/'
-    "MC_2016_27163002_"
-    "Beam6500GeV2016MagDownNu1.625nsPythia8_Sim09b_"
-    "Trig0x6138160F_Reco16_Turbo03_"
-    "Stripping28NoPrescalingFlagged_ALLSTREAMS.DST.py"
-))
-j.application.optsfile = 'code/davinci-grid/ntuple_options_grid.py'
+j.splitter = SplitByFiles(filesPerJob=1)
+j.outputfiles = [LocalFile('DVntuple.root')]
 j.submit()
