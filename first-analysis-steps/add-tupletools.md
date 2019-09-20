@@ -84,7 +84,8 @@ dtt.D0.addTupleTool('TupleToolPropertime')
 {% callout "Do I really have to type my decay descriptor that many times?" %}
 No! You can use the `dtt.setDescriptorTemplate()` method to set up your 
 decay descriptor and branches in just one line!
-Well, nearly: because this is a new feature it is not available in most released versions of `DaVinci`, but [this snippet](https://gitlab.cern.ch/snippets/147) will add it to an older version.
+Note this may not be available in some older versions of `DaVinci', 
+but [this snippet](https://gitlab.cern.ch/snippets/147) will add it to an older version.
 With that out of the way, you can simply use
 ```python
 dtt.setDescriptorTemplate('${Dstar}[D*(2010)+ -> ${D0}(D0 -> ${Kminus}K- ${Kplus}K+) ${pisoft}pi+]CC')
