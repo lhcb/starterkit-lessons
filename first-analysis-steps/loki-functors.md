@@ -237,7 +237,7 @@ In this example, we have used two selection functors, `ISBASIC` and `HASTRACK`, 
 We can see that they do the same thing as `particle.isBasicParticle()` and `particle.proto().track()` in a more compact way.
 
 {% callout "Combining LoKi cuts" %}
-You might have noticed above we used the `&` operator ("bitwise AND") to 
+You might have noticed above we used the `&` operator (bitwise AND) to 
 combine the `ISBASIC` and `HASTRACK` cuts above.
 This is because Python doesn't allow LoKi to override the behaviour of `and` and `or` ("logical AND/OR"), so if we use them
 the Python interpreter tries to combine the two cuts straight away, before we have even passed in our candidate:
