@@ -122,7 +122,9 @@ time the text was last revised.
 [releases]: http://lhcbdoc.web.cern.ch/lhcbdoc/davinci/releases/
 [v45r1]: http://lhcbdoc.web.cern.ch/lhcbdoc/davinci/releases/v45r1/
 
-**Note:** Older versions of DaVinci may not be available on the default platform ```x86_64-centos7-gcc8-opt```. To get around this we can pick the best suitable platform by using ```lb-run -c best DaVinci/vXXrYpZ ...```.
+**Note:** Older versions of DaVinci may not be available on the default platform ```x86_64-centos7-gcc8-opt```.
+To get around this we can pick the best suitable platform by using ```lb-run -c best DaVinci/vXXrYpZ ...```.
+More details about the platform string are available in [HSF-TN-2018-01](https://hepsoftwarefoundation.org/notes/HSF-TN-2018-01.pdf).
 
 {% endcallout %}
 
