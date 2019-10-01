@@ -1,7 +1,7 @@
 language: node_js
 node_js:
   # GitBook plugin install stopped working between node_js versions 12.10 and 12.11
-  - 12.10
+  - "12.10"
 addons:
   apt:
     packages:
