@@ -3,14 +3,14 @@
 {% objectives "Learning Objectives" %}
 * Learn what TisTos is and why it's useful
 * Use an interactive python session to look at TisTos on a local DST
-{% endobjectives %} 
+{% endobjectives %}
 
 Once HLT1 or HLT2 has accepted an event, the candidates accepted by all trigger
 lines are saved to the raw event in a stripped-down form. One of the things that
 is saved are all the LHCbIDs of the final state particles of a decay tree.
 
 {% callout "What is an LHCbID?" %}
-Every single sub-detector element has an LHCbID which is unique across the 
+Every single sub-detector element has an LHCbID which is unique across the
 whole detector.
 Physics objects, such as tracks, can be defined as sets of LHCbID objects.
 When a trigger decision is made, the set of LHCbID objects which comprise the triggering
@@ -23,16 +23,16 @@ available in HLT2 is the same as the offline reconstruction, physics analysis
 can be done with the candidates created in HLT2. If a line is configured to be a
 Turbo line, all information on the candidates that it selects is stored in the
 raw event. These candidates can be resurrected later by the Tesla application and
-written to a microDST. This is similar to stripping streams that go to 
-microDST, where only candidates that are used in passing selections are 
-available to analysts. The Turbo stream is different because information that 
+written to a microDST. This is similar to stripping streams that go to
+microDST, where only candidates that are used in passing selections are
+available to analysts. The Turbo stream is different because information that
 is not saved is lost forever.
 
 We will now have a look at some of the candidates stored by the HLT. We will use the script we
 [used last time](../first-analysis-steps/interactive-dst.md)
 as a starting point, and the file
 `root://eoslhcb.cern.ch//eos/lhcb/user/r/raaij/Impactkit/00051318_00000509_1.turbo.mdst`.
-This file contains some 2016 Turbo events from [run 
+This file contains some 2016 Turbo events from [run
 174252](http://lbrundb.cern.ch/rundb/run/174252/).  Fire up your
 favourite editor, open the script and save a copy to work on as
 `hlt_info.py`. There are a few things in the script that we don't need and can
@@ -63,7 +63,7 @@ The HLT1 selections that are most efficient for hadronic charm and beauty decays
 in Run 2 are called Hlt1TrackMVA and Hlt1TwoTrackMVA. Use the advance function
 to find an event that was accepted by either of these trigger selections.
 
-The DecReports only contains the decisions for each line, 1 or 0. The 
+The DecReports only contains the decisions for each line, 1 or 0. The
 candidates themselves are stored in the
 SelReports ("Hlt{1,2}/SelReports"). Get the HLT1 SelReports from the event store
 and retrieve the one for one of the TrackMVA selections using the selReport function,

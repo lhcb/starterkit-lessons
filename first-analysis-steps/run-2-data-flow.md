@@ -18,7 +18,7 @@ selection of candidates made in the second stage of the high level trigger,
 HLT2, is saved to disk and used _directly_ by analysts, with no further offline 
 reconstruction by Brunel.
 
-Omitting the offline reconstruction is usually a Bad Idea because it's usually 
+Omitting the offline reconstruction is usually a **Bad Idea** because it's usually 
 of a much better quality than the reconstruction performed in the HLT (the 
 ‘online reconstruction’) as there's more time to run it. But, thanks to an 
 enormous effort improving the reconstruction software both online and offline 
@@ -27,7 +27,7 @@ This means if HLT2 performs all the reconstruction you need in your analysis,
 there's no need to wait for the offline reconstruction to run!
 This saves a lot of time (it's Turbo, after all), and hence money.
 
-This saves time and money, but you still have many more events to save. To 
+However you still have many more events to save. To 
 overcome this, events saved to the Turbo stream contain _only_ the candidates 
 that were reconstructed in the trigger. That is to say, any tracks or detector 
 responses that don't form part of the decay that the trigger line uses to 

@@ -2,7 +2,7 @@
 
 [Looping event-by-event](interactive-dst.html) over a file and [inspecting
 interesting quantities with LoKi functors](loki-functors.html) is great for
-exploration: to checking that the file contains the candidates you need, that
+exploration: to check that the file contains the candidates you need, that
 the topology makes sense, and so on.
 It's impractical for most cases, though, where you want _all_ the candidates
 your trigger/stripping line produced, which could be tens of millions of
@@ -186,7 +186,7 @@ In the same folder as your options file `ntuple_options.py` and your DST file
 ending in `.dst`, there's just a single command you need run on `lxplus`.
 
 ```shell
-$ lb-run DaVinci/v44r6 gaudirun.py ntuple_options.py
+$ lb-run DaVinci/v45r1 gaudirun.py ntuple_options.py
 ```
 
 The full options file we've created, `ntuple_options.py`, is [available
@@ -194,6 +194,18 @@ here](./code/minimal-dv/ntuple_options.py).
 A slightly modified version that uses remote files (using an XML catalog as
 [described here](files-from-grid.html)) is [available
 here](./code/minimal-dv/ntuple_options_xmlcatalog.py).
+
+You can now view and inspect your ntuple using ROOT `TBrowser` just do:
+
+```shell
+$ root -l DVntuple.root 
+
+root [0] 
+Attaching file DVntuple.root as _file0...
+(TFile *) 0x2ae94f0
+root [1] new TBrowser
+(TBrowser *) 0x2fe31b0
+```
 
 {% callout "Using a microDST" %}
 A microDST (or µDST) is a smaller version of a DST.

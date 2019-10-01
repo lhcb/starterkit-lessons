@@ -48,7 +48,7 @@ Place this into a file called `first.py` and run the following
 command in a new terminal:
 
 ```bash
-$ lb-run DaVinci/v44r6 ipython -i first.py 00070793_00000001_7.AllStreams.dst
+$ lb-run DaVinci/v45r1 ipython -i first.py 00070793_00000001_7.AllStreams.dst
 ```
 
 This will open the DST and print out some of the TES locations
@@ -98,7 +98,7 @@ The easiest way to use it is to add it to your `first.py` script
 and re-run it as before. Then, in your iPython session, enter `nodes(evt)`.
 This will list a large number of TES locations, but even so there
 are some which you have to know about. Another oddity is that some
-locations are "packed", for example: `/Event/AllStreams/pPhys/Particles`.
+locations are 'packed', for example: `/Event/AllStreams/pPhys/Particles`.
 You can not access these directly at this location. Instead you
 have to know what location the contents will get unpacked to when
 you want to use it. Often you can just try removing the small `p`
@@ -188,9 +188,10 @@ the `Bender` project.
 For example, to explore the `DST` we could have simply done:
 
 ```
-lb-run Bender/latest bender 00070793_00000001_7.AllStreams.dst
+lb-run Bender/latest bender -d 2016 00070793_00000001_7.AllStreams.dst
 ```
 
+where `-d 2016` is the `DataType` flag.
 This leaves us in a prompt in which we can proceed as discussed in this
 lesson, with the advantage that some functions are already provided
 for us, such as `seekStripDecision` (which replaces our `advance`) or
@@ -201,7 +202,7 @@ banner.
 `Bender` also provides a useful command `dst-dump`, which is a quick way of
 figuring out what objects are present on a `DST` and where. Try out:
 ```
-lb-run Bender/latest dst-dump -f -n 100 00070793_00000001_7.AllStreams.dst
+lb-run Bender/latest dst-dump -d 2016 -f -n 100 00070793_00000001_7.AllStreams.dst
 ```
 The `-f` option tells `Bender` to try and "unpack" the locations such as
 `/Event/AllStreams/pPhys/Particles` that we mentioned above, while `-n 100`

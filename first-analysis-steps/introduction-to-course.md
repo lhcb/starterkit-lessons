@@ -21,7 +21,7 @@ standalone reference when you need to revisit a particular topic.
 We'll be looking at:
 
 * How data flows through the LHCb processing chain, what software is involved, 
-  and how the data are stored;
+  and how the data is stored;
 * How the data flow is different for simulated (Monte Carlo) events;
 * Where the data ends up, how it's indexed, and how you can find and access the 
   data you need;

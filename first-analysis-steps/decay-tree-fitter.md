@@ -91,7 +91,7 @@ tv__tree->Draw("Dstar_ConsD_M>>h(200,2000,2030)","","");
 
 <img src="./img/DstarRefit.png" alt="Dstar refitted" style="width: 500px;"/>
 
-Note that this plot has 356 entries, although we only have 128 candidates in the raw mass spectrum. The reason for this is that we typically have several primary vertices per event. When you use the vertex contraint, the fitter is run for each of the possible vertex hypotheses available in the event. So all the `Dstar_ConsD-xxx` variables are in fact arrays, where the first value corresponds to the *best PV* hypothesis. We can plot only those by doing
+Note that this plot has 149 entries, although we only have 73 candidates in the raw mass spectrum. The reason for this is that we typically have several primary vertices per event. When you use the vertex contraint, the fitter is run for each of the possible vertex hypotheses available in the event. So all the `Dstar_ConsD-xxx` variables are in fact arrays, where the first value corresponds to the *best PV* hypothesis. We can plot only those by doing
 ```shell
 tv__tree->Draw("Dstar_ConsD_M[0]>>h(200,2000,2030)","","");
 ```

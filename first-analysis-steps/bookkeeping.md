@@ -20,8 +20,8 @@ where the $$D^{0}$$ decays to $$K^{-} K^{+}$$.
 {% endobjectives %}
 
 Navigate to the 
-[bookkeeping](https://lhcb-portal-dirac.cern.ch/DIRAC/?view=tabs&theme=Grey&url_state=1|*LHCbDIRAC.BookkeepingBrowser.classes.BookkeepingBrowser:,) 
-which lets you find both simulated
+[bookkeeping](https://lhcb-portal-dirac.cern.ch/DIRAC/) 
+under Data / Bookeeping Browser, which lets you find both simulated
 and real data.
 
 At the bottom of the "Bookkeeping tree" tab there is a drop-down menu
@@ -59,7 +59,7 @@ not sure.
 {% endcallout %}
 
 Next we need to choose what version of the simulation you want to
-use. There are two available in our case, `Sim09b` and `Sim09c`, but usually the latest available version is the best when there are more than one.
+use. There are three available in our case, `Sim09b`, `Sim09c` and `Sim09f-ReDecay01`. Usually the latest available version is the best when there are more than one. However in this case, the `Sim09f` version contains a stripping filtered sample so for this lesson we will use `Sim09c`.
 We also have to choose what configuration of the trigger (`Trig0x6138160F` in our case) and reconstruction
 we want to have in the simulated sample. Usually
 there is only one choice for these, which makes choosing easier.
@@ -85,8 +85,7 @@ running our DaVinci job. Click it, select “Save as a
 python file”, and add `.py` to the end of the text in “Save As...”. Clicking “Save” once again in the pop-up menu will start the
 download. Save this file somewhere you can find it again.
 
-A copy of the file we just downloaded is [available
-here](data/MC_2016_27163002_Beam6500GeV2016MagDownNu1.625nsPythia8_Sim09c_Trig0x6138160F_Reco16_Turbo03_Stripping28r1NoPrescalingFlagged_ALLSTREAMS.DST.py).
+A copy of the file we just downloaded is available [here](data/MC_2016_27163002_Beam6500GeV2016MagDownNu1.625nsPythia8_Sim09c_Trig0x6138160F_Reco16_Turbo03_Stripping28r1NoPrescalingFlagged_ALLSTREAMS.DST.py).
 
 {% callout "Shortcut" %}
 Once you get a bit of experience with navigating the bookkeeping you 

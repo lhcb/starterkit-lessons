@@ -38,9 +38,16 @@ if ever.
 
 To understand what we can do with LoKi functors, we will pick up from where we 
 left off [exploring a DST interactively](interactive-dst.html).
-Open the DST and get the first candidate in the `D2hhPromptDst2D2KKLine` line:
+First open the DST as we did previously:
+
+```bash
+$ lb-run DaVinci/v45r1 ipython -i first.py 00070793_00000001_7.AllStreams.dst
+```
+
+Get the first candidate in the `D2hhPromptDst2D2KKLine` line:
 
 ```python
+advnace('D2hhPromptDst2D2KKLine')
 cands = evt['/Event/AllStreams/Phys/D2hhPromptDst2D2KKLine/Particles']
 cand = cands[0]
 ```
@@ -230,7 +237,7 @@ In this example, we have used two selection functors, `ISBASIC` and `HASTRACK`, 
 We can see that they do the same thing as `particle.isBasicParticle()` and `particle.proto().track()` in a more compact way.
 
 {% callout "Combining LoKi cuts" %}
-You might have noticed above we used the `&` operator ("bitwise AND") to 
+You might have noticed above we used the `&` operator (bitwise AND) to 
 combine the `ISBASIC` and `HASTRACK` cuts above.
 This is because Python doesn't allow LoKi to override the behaviour of `and` and `or` ("logical AND/OR"), so if we use them
 the Python interpreter tries to combine the two cuts straight away, before we have even passed in our candidate:

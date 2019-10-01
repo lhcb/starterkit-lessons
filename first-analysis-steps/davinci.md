@@ -23,26 +23,26 @@ At LHCb, we base our software on the [Gaudi](https://gaudi.web.cern.ch/gaudi/) f
 It's worth getting an idea of some of the most important Gaudi concepts at this point.
 After this, we will jump right into running the software and getting useful things done.
 
-**Event Loop**
+**Event Loop:**
 Because the individual bunch crossings (events) are almost completely independent of each other, it makes sense to process them one by one, without holding them all in memory at once.
 Gaudi provides a global EventLoop, which allows you to process events one by one.
 
-**Transient Event Store**
-A single event contains lots of different data objects (Particles, Vertices, Tracks, Hits, ...).
+**Transient Event Store:**
+A single event contains lots of different data objects (Particles, Vertices, Tracks, Hits).
 In Gaudi, these are organized in the Transient Event Store (TES).
 You can think of it as a per-event file system with locations like `/Event/Rec/Track/Best` or `/Event/Phys/MyParticles`.
 When running over the event stream, Gaudi allows you to get and put from/to these locations.
 The contents of the TES are emptied at the end of the processing of each event.
 
-**Algorithms**
+**Algorithms:**
 An *Algorithm* is a C++ class that can be inserted into the EventLoop.
-These allow you to perform a certain function for each event (like filtering according to trigger decision, reconstructing particles, ...).
+These allow you to perform a certain function for each event (like filtering according to trigger decision, reconstructing particles).
 
-**Tools**
-Often, algorithms will want to make use of some common function (vertex fitting, calculating distances, associating a primary vertex, ...).
+**Tools:**
+Often, algorithms will want to make use of some common function (vertex fitting, calculating distances, associating a primary vertex).
 These are implemented as *Tools*, which are shared between Algorithms.
 
-**Options**
+**Options:**
 To make all of this configurable, Gaudi allows you to set properties of *Algorithms* and *Tools* from a Python script, called an *option* file.
 In an option file, you can specify which Algorithms are run in which order, and set their properties (strings, integers, doubles, and lists and dicts of these things can be set).
 You can then start the Gaudi EventLoop using this option file, and it will set up and run the corresponding C++ objects with specified settings.
@@ -54,26 +54,24 @@ One of the most important ones is *DaVinci*, which provides lots of *Algorithms*
 
 You can run DaVinci using the following command [on lxplus](../first-analysis-steps/prerequisites.md#Pre-workshop checklist):
 ```bash
-lb-run DaVinci/v44r6 gaudirun.py
+lb-run DaVinci/v45r1 gaudirun.py
 ```
 
-This will run the `gaudirun.py` command using version v44r6 of DaVinci. (`lb-run` sets the specified environment for `gaudirun.py` to run in.)
+This will run the `gaudirun.py` command using version v45r1 of DaVinci. (`lb-run` sets the specified environment for `gaudirun.py` to run in.)
 `gaudirun.py` is a script that sets up the EventLoop.
 You should get the following output:
 
 ```
-# setting LC_ALL to "C"
-ApplicationMgr    SUCCESS
 ====================================================================================================================================
-                                                   Welcome to DaVinci version v44r6
-                                          running on lxplus069.cern.ch on Wed Nov 21 17:53:58 2018
+                                                   Welcome to DaVinci version v45r1
+                                          running on lxplus707.cern.ch on Thu Sep 19 14:17:08 2019
 ====================================================================================================================================
 ApplicationMgr       INFO Application Manager Configured successfully
 HistogramPersis...WARNING Histograms saving not required.
 ApplicationMgr       INFO Application Manager Initialized successfully
 ApplicationMgr       INFO Application Manager Started successfully
 EventSelector        INFO End of event input reached.
-EventLoopMgr         INFO No more events in event selection
+EventLoopMgr         INFO No more events in event selection 
 ApplicationMgr       INFO Application Manager Stopped successfully
 EventLoopMgr         INFO Histograms converted successfully according to request.
 ToolSvc              INFO Removing all tools created by ToolSvc
@@ -85,7 +83,7 @@ During this run, DaVinci didn't do anything: We didn't specify any algorithms to
 Usually, you will write an option file (e.g. `options.py`) and specify it as an argument to `gaudirun.py`:
 
 ```bash
-lb-run DaVinci/v44r6 gaudirun.py options.py
+lb-run DaVinci/v45r1 gaudirun.py options.py
 ```
 
 An `option.py` is just a regular Python script that specifies how to set things up in the software.
@@ -93,7 +91,7 @@ Many of the following lessons will teach you how to do something with DaVinci by
 You can use the above command to test it.
 You can also specify several option files like this:
 ```bash
-lb-run DaVinci/v44r6 gaudirun.py options1.py options2.py
+lb-run DaVinci/v45r1 gaudirun.py options1.py options2.py
 ```
 They will then both be used to set up DaVinci.
 
@@ -118,22 +116,26 @@ above) and a set for everything else. Generally, you will want the latest
 version in the latter set, such as when making ntuples from Run 1 or Run 2
 data.
 
-These lessons use [DaVinci v44r6][v44r6], which was the latest Run 1/2 version at the
+These lessons use [DaVinci v45r1][v45r1], which was the latest Run 1/2 version at the
 time the text was last revised.
 
 [releases]: http://lhcbdoc.web.cern.ch/lhcbdoc/davinci/releases/
-[v44r6]: http://lhcbdoc.web.cern.ch/lhcbdoc/davinci/releases/v44r6/
+[v45r1]: http://lhcbdoc.web.cern.ch/lhcbdoc/davinci/releases/v45r1/
+
+**Note:** Older versions of DaVinci may not be available on the default platform ```x86_64-centos7-gcc8-opt```.
+To get around this we can pick the best suitable platform by using ```lb-run -c best DaVinci/vXXrYpZ ...```.
+More details about the platform string are available in [HSF-TN-2018-01](https://hepsoftwarefoundation.org/notes/HSF-TN-2018-01.pdf).
 
 {% endcallout %}
 
 Do you want to start a shell that already contains the LHCb environment, so you don't have to use `lb-run`?
 Execute
 ```bash
-lb-run DaVinci/v44r6 $SHELL
+lb-run DaVinci/v45r1 $SHELL
 ```
 Note that sometimes this environment can result in failing scripts due to struggles with your shell's rc file (e.g., `~/.bashrc`). Using
 ```bash
-lb-run DaVinci/v44r6 bash --norc
+lb-run DaVinci/v45r1 bash --norc
 ```
 avoids this, but means you won't be able to use any aliases, etc, included in the ignored rc file.
 
@@ -144,9 +146,9 @@ Typing `exit` or using `Ctrl-d` will close the shell and leave the LHCb environm
 When reading through other tutorials, you will come across `SetupProject`.
 This is an older way of setting up a shell that is configured to run LHCb software.
 `lb-run` is the new way of doing things and has some nice benefits over `SetupProject`.
-For most purposes, `SetupProject DaVinci v44r6` is equivalent to
+For most purposes, `SetupProject DaVinci v45r1` is equivalent to
 ```bash
-lb-run DaVinci/v44r6 $SHELL
+lb-run DaVinci/v45r1 $SHELL
 ```
-but you should really avoid doing things this way as this method is no longer supported for the latest project releases. (The environment for DaVinci v44r6, for example, cannot be started this way.)
+but you should really avoid doing things this way as this method is no longer supported for the latest project releases. (The environment for DaVinci v45r1, for example, cannot be started this way.)
 {% endcallout %} 

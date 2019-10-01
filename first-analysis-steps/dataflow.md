@@ -120,7 +120,7 @@ identified by a version as `SXrYpZ`:
  - The digit `Y` is the release version, which was used during Run 1 to mark 
    the _data type_, which corresponds to the year the data were taken: `0` was 
    used for 2012 and `1` for 2011. The latest stripping for Run 1 data is called 
-   `S21` for 2012 and `S21r1` for 2011.
+   `S21r0p1` for 2012 and `S21r1p2` for 2011.
  - The digit `Z` marks the _patch_ version, which correspond to _incremental 
    strippings_; campaigns in which only a handful of selections are run, either 
 to fix bugs or to add a small number of new ones.

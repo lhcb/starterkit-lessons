@@ -13,7 +13,7 @@ job](minimal-dv-job.html) and run it on the grid.
 `ganga` is a program which you can use to interact with your grid
 jobs. 
 
-Before creating your first `ganga` job, open the script `ntuple_options.py`, obtained in the [previous lesson](minimal-dv-job.html), and comment out the lines taking the local input data: we will now use the data stored on grid.
+Before creating your first `ganga` job, open the script `ntuple-options.py`, obtained in the [previous lesson](minimal-dv-job.html), and comment out the lines taking the local input data: we will now use the data stored on grid.
 
 Also, you need to know the path to your data from Bookkeeping. In our case the path is `/MC/2016/Beam6500GeV-2016-MagDown-Nu1.6-25ns-Pythia8/Sim09c/Trig0x6138160F/Reco16/Turbo03/Stripping28r1NoPrescalingFlagged/27163002/ALLSTREAMS.DST`. Note, that here the event type number should be located at the end of the path, which is not the case if you browse the bookkeping by `Event type`.
 
@@ -34,9 +34,10 @@ To create your first `ganga` job, type the following:
 
 ```python
 j = Job(name='First ganga job')
-myApp = prepareGaudiExec('DaVinci','v44r6', myPath='.')
+myApp = prepareGaudiExec('DaVinci','v45r1', myPath='.')
 j.application = myApp
-j.application.options = ['ntuple_options.py']
+j.application.options = ['ntuple-options.py']
+j.application.platform = 'x86_64-centos7-gcc8-opt'
 bkPath = '/MC/2016/Beam6500GeV-2016-MagDown-Nu1.6-25ns-Pythia8/Sim09c/Trig0x6138160F/Reco16/Turbo03/Stripping28r1NoPrescalingFlagged/27163002/ALLSTREAMS.DST'
 data  = BKQuery(bkPath, dqflag=['OK']).getDataset()
 j.inputdata = data[0:2]     # access only the first 2 files of data
@@ -53,12 +54,12 @@ files to process as part of the options file you have now to tell the
 processing different files simultaneously. More details about the splitter are given in the [next lesson](split-jobs.html). Note that data will be accessed using its path in the bookkeeping `bkPath`. In order to speed-up our job, only the first 2 elements (files) of `data` will be accessed; we don't need to look at much data here. 
 
 {% callout "DaVinciDev folder" %}
-When you create a job using `prepareGaudiExec('DaVinci','v44r6', myPath='.')`
+When you create a job using `prepareGaudiExec('DaVinci','v45r1', myPath='.')`
 you get the following message:
 ```
-INFO     Set up App Env at: ./DaVinciDev_v44r6
+INFO     Set up App Env at: ./DaVinciDev_v45r1
 ```
-`ganga` has created a folder with a local copy of the DaVinci v44r6 release.
+`ganga` has created a folder with a local copy of the DaVinci v45r1 release.
 The content of it will be sent to the grid to ensure your job runs with 
 exactly this configuration.
 We will use this folder for the following jobs and you will learn more about
@@ -67,25 +68,24 @@ this in the [Developing LHCb Software](lhcb-dev.html) lesson.
 
 Now you have created your first job, however it has not started
 running yet. To submit it type `j.submit()`. Now `ganga` will do the
-equivalent of `lb-run DaVinci/v44r6`, prepare your job and then
+equivalent of `lb-run DaVinci/v45r1`, prepare your job and then
 ship it off to the grid.
 
 {% callout "Picking up a right platform" %}
-Early 2018, the default platform on most of lxplus machines was changed to `x86_64-slc6-gcc62-opt` (instead of `x86_64-slc6-gcc49-opt`), changing the version of the gcc compiler from 4.9 to 6.2. 
-However, most of older DaVinci versions, anterior to v42r0, are not compiled for `x86_64-slc6-gcc62-opt`. 
+The default platform on most lxplus machines is `x86_64-centos7-gcc8-opt` with gcc compiler version 8.
+However some older DaVinci version are not compiled for `x86_64-centos7-gcc8-opt`.
 
-The list of platforms available for a certain DaVinci version (let's say `v38r0`), can be viewed by
+The list of platforms available for a certain DaVinci version (let's try the DaVinci version we are using `v45r1`), can be viewed by
 ```bash
-$ lb-sdb-query listPlatforms DaVinci v38r0
+$ lb-sdb-query listPlatforms DaVinci v45r1
 ```
-
-In case you have a strong reason to use one of these DaVinci versions, few additional actions are needed to set up your ganga job properly.
+The default compiler platform for GaudiExec applications is `x86_64-slc6-gcc62-opt`.
+So for some DaVinci versions, including the latest `DaVinci v45r1` a few additional actions are needed to set up your ganga job properly.
 
 When setting up your ganga job, add the following line after declaring the `j.application`:
 ```python
-j.application.platform = 'x86_64-slc6-gcc49-opt'
+j.application.platform = 'x86_64-centos7-gcc8-opt'
 ```
-The default compiler platform for GaudiExec applications is `x86_64-slc6-gcc62-opt`.
 
 {% endcallout %} 
 
@@ -99,9 +99,10 @@ Place the following in a file called [`first-job.py`](code/davinci-grid/first-jo
 ```python
 j = Job(name='First ganga job')
 myApp = GaudiExec()
-myApp.directory = "./DaVinciDev_v44r6"
+myApp.directory = "./DaVinciDev_v45r1"
 j.application = myApp
 j.application.options = ['ntuple_options.py']
+j.application.platform = 'x86_64-centos7-gcc8-opt'
 bkPath = '/MC/2016/Beam6500GeV-2016-MagDown-Nu1.6-25ns-Pythia8/Sim09c/Trig0x6138160F/Reco16/Turbo03/Stripping28r1NoPrescalingFlagged/27163002/ALLSTREAMS.DST'
 data  = BKQuery(bkPath, dqflag=['OK']).getDataset()
 j.inputdata = data[0:2]
@@ -169,7 +170,7 @@ To look at the `root` file produced by the job start a new terminal, and
 type:
 
 ```bash
-$ lb-run DaVinci/v44r6 $SHELL
+$ lb-run DaVinci/v45r1 $SHELL
 $ root -l path/to/the/job/output
 ```
 
