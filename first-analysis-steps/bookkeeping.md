@@ -85,7 +85,7 @@ running our DaVinci job. Click it, select “Save as a
 python file”, and add `.py` to the end of the text in “Save As...”. Clicking “Save” once again in the pop-up menu will start the
 download. Save this file somewhere you can find it again.
 
-A copy of the file we just downloaded is available <a href="data/MC_2016_27163002_Beam6500GeV2016MagDownNu1.625nsPythia8_Sim09c_Trig0x6138160F_Reco16_Turbo03_Stripping28r1NoPrescalingFlagged_ALLSTREAMS.DST.py" download target="_blank">here</a>.
+A copy of the file we just downloaded is available [here](data/MC_2016_27163002_Beam6500GeV2016MagDownNu1.625nsPythia8_Sim09c_Trig0x6138160F_Reco16_Turbo03_Stripping28r1NoPrescalingFlagged_ALLSTREAMS.DST.py).
 
 {% callout "Shortcut" %}
 Once you get a bit of experience with navigating the bookkeeping you 
