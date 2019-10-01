@@ -41,7 +41,7 @@ left off [exploring a DST interactively](interactive-dst.html).
 First open the DST as we did previously:
 
 ```bash
-$ lb-run DaVinci/v44r6 ipython -i first.py 00070793_00000001_7.AllStreams.dst
+$ lb-run DaVinci/v45r1 ipython -i first.py 00070793_00000001_7.AllStreams.dst
 ```
 
 Get the first candidate in the `D2hhPromptDst2D2KKLine` line:
