@@ -928,7 +928,7 @@
                                 <section class="normal markdown-section">
                                 
                                 <h1 id="interactively-exploring-a-dst">Interactively exploring a DST</h1>
-<p><div class="panel panel-warning"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(9629004322);" id="learning-objectives"><i class="fa fa-line-chart"></i> Learning Objectives<span id="heading-9629004322"></span></h3></div><div class="panel-body" id="panel-9629004322"><ul>
+<p><div class="panel panel-warning"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(2438436352);" id="learning-objectives"><i class="fa fa-line-chart"></i> Learning Objectives<span id="heading-2438436352"></span></h3></div><div class="panel-body" id="panel-2438436352"><ul>
 <li>Open a DST in an interactive python session</li>
 <li>Print all nodes in a DST</li>
 <li>Explore the contents of the TES</li>
@@ -969,7 +969,7 @@ evt.dump()
 </code></pre>
 <p>Place this into a file called <code>first.py</code> and run the following
 command in a new terminal:</p>
-<pre><code class="lang-bash">$ lb-run DaVinci/v44r6 ipython -i first.py 00070793_00000001_7.AllStreams.dst
+<pre><code class="lang-bash">$ lb-run DaVinci/v45r1 ipython -i first.py 00070793_00000001_7.AllStreams.dst
 </code></pre>
 <p>This will open the DST and print out some of the TES locations
 which exist for this event. We are now ready to explore the TES,
@@ -1012,7 +1012,7 @@ locations that are interesting:</p>
 and re-run it as before. Then, in your iPython session, enter <code>nodes(evt)</code>.
 This will list a large number of TES locations, but even so there
 are some which you have to know about. Another oddity is that some
-locations are &quot;packed&quot;, for example: <code>/Event/AllStreams/pPhys/Particles</code>.
+locations are &apos;packed&apos;, for example: <code>/Event/AllStreams/pPhys/Particles</code>.
 You can not access these directly at this location. Instead you
 have to know what location the contents will get unpacked to when
 you want to use it. Often you can just try removing the small <code>p</code>
@@ -1040,7 +1040,7 @@ the stripping decision was positive:</p>
     <span class="hljs-keyword">return</span> n
 </code></pre>
 <p>Add this to your script and restart <code>ipython</code> as before.</p>
-<p><div class="panel panel-primary"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(8409663846);" id="detecting-file-ends"><i class="fa fa-info-circle"></i> Detecting file ends<span id="heading-8409663846"></span></h3></div><div class="panel-body" id="panel-8409663846"><p>It is not easy to detect that the input file has ended. Especially
+<p><div class="panel panel-primary"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(12765928);" id="detecting-file-ends"><i class="fa fa-info-circle"></i> Detecting file ends<span id="heading-12765928"></span></h3></div><div class="panel-body" id="panel-12765928"><p>It is not easy to detect that the input file has ended. Especially
 if you want to get it right for data and simulation. Checking that
 <code>/Event/Rec/Header</code> exists is a safe bet in simulation and data if
 your file has been processed by <code>Brunel</code> (the event reconstruction
@@ -1072,13 +1072,14 @@ print_decay.printTree(cands[<span class="hljs-number">0</span>])
 <p>With our candidates in hand, it would be nice to be able to retrieve and
 compute the variables we need for an analysis. On to <a href="loki-functors.html">LoKi
 functors</a>!</p>
-<p><div class="panel panel-primary"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(3120524204);" id="fast-dst-browsing"><i class="fa fa-info-circle"></i> Fast DST browsing<span id="heading-3120524204"></span></h3></div><div class="panel-body" id="panel-3120524204"><p>While here we have discussed for pedagogical reasons all the configuration
+<p><div class="panel panel-primary"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(367385406);" id="fast-dst-browsing"><i class="fa fa-info-circle"></i> Fast DST browsing<span id="heading-367385406"></span></h3></div><div class="panel-body" id="panel-367385406"><p>While here we have discussed for pedagogical reasons all the configuration
 options needed in order to browse a <code>DST</code> file, in your daily life as a
 physicist it is often useful to use the <code>bender</code> application that belongs to
 the <code>Bender</code> project.</p>
 <p>For example, to explore the <code>DST</code> we could have simply done:</p>
-<pre><code>lb-run Bender/latest bender 00070793_00000001_7.AllStreams.dst
-</code></pre><p>This leaves us in a prompt in which we can proceed as discussed in this
+<pre><code>lb-run Bender/latest bender -d 2016 00070793_00000001_7.AllStreams.dst
+</code></pre><p>where <code>-d 2016</code> is the <code>DataType</code> flag.
+This leaves us in a prompt in which we can proceed as discussed in this
 lesson, with the advantage that some functions are already provided
 for us, such as <code>seekStripDecision</code> (which replaces our <code>advance</code>) or
 <code>ls</code> and <code>get</code>, which allow to list and get TES locations.
@@ -1086,7 +1087,7 @@ Other examples of useful functions are listed in the <code>bender</code> startin
 banner.</p>
 <p><code>Bender</code> also provides a useful command <code>dst-dump</code>, which is a quick way of
 figuring out what objects are present on a <code>DST</code> and where. Try out:</p>
-<pre><code>lb-run Bender/latest dst-dump -f -n 100 00070793_00000001_7.AllStreams.dst
+<pre><code>lb-run Bender/latest dst-dump -d 2016 -f -n 100 00070793_00000001_7.AllStreams.dst
 </code></pre><p>The <code>-f</code> option tells <code>Bender</code> to try and &quot;unpack&quot; the locations such as
 <code>/Event/AllStreams/pPhys/Particles</code> that we mentioned above, while <code>-n 100</code>
 tells it to only process the first 100 events on the <code>DST</code>.
@@ -1135,7 +1136,7 @@ Give this a try if you&apos;re ever stuck figuring out where your candidates are
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Interactively exploring a DST","level":"2.1.9","depth":2,"next":{"title":"Running a minimal DaVinci job locally","level":"2.1.10","depth":2,"path":"first-analysis-steps/minimal-dv-job.md","ref":"first-analysis-steps/minimal-dv-job.md","articles":[]},"previous":{"title":"Downloading a file from the grid","level":"2.1.8","depth":2,"path":"first-analysis-steps/files-from-grid.md","ref":"first-analysis-steps/files-from-grid.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-sharing","panels@git+https://github.com/lhcb/gitbook-plugin-panels.git#master","katex-auto-render@git+https://github.com/lhcb/gitbook-plugin-katex-auto-render.git#master","collapsible-menu","otherlink"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"collapsible-menu":{},"search":{},"otherlink":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"panels":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"katex-auto-render":{},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"The Starterkit team and contributors","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"gitbook":"*"},"file":{"path":"first-analysis-steps/interactive-dst.md","mtime":"2019-10-01T15:44:46.433Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-10-01T15:46:15.321Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Interactively exploring a DST","level":"2.1.9","depth":2,"next":{"title":"Running a minimal DaVinci job locally","level":"2.1.10","depth":2,"path":"first-analysis-steps/minimal-dv-job.md","ref":"first-analysis-steps/minimal-dv-job.md","articles":[]},"previous":{"title":"Downloading a file from the grid","level":"2.1.8","depth":2,"path":"first-analysis-steps/files-from-grid.md","ref":"first-analysis-steps/files-from-grid.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-sharing","panels@git+https://github.com/lhcb/gitbook-plugin-panels.git#master","katex-auto-render@git+https://github.com/lhcb/gitbook-plugin-katex-auto-render.git#master","collapsible-menu","otherlink"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"collapsible-menu":{},"search":{},"otherlink":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"panels":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"katex-auto-render":{},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"The Starterkit team and contributors","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"gitbook":"*"},"file":{"path":"first-analysis-steps/interactive-dst.md","mtime":"2019-10-01T21:06:48.923Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-10-01T21:08:20.268Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

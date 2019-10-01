@@ -928,15 +928,15 @@
                                 <section class="normal markdown-section">
                                 
                                 <h1 id="tistos-diy">TisTos DIY</h1>
-<p><div class="panel panel-warning"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(6893843823);" id="learning-objectives"><i class="fa fa-line-chart"></i> Learning Objectives<span id="heading-6893843823"></span></h3></div><div class="panel-body" id="panel-6893843823"><ul>
+<p><div class="panel panel-warning"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(2918161752);" id="learning-objectives"><i class="fa fa-line-chart"></i> Learning Objectives<span id="heading-2918161752"></span></h3></div><div class="panel-body" id="panel-2918161752"><ul>
 <li>Learn what TisTos is and why it&apos;s useful</li>
 <li>Use an interactive python session to look at TisTos on a local DST</li>
 </ul>
-</div></div> </p>
+</div></div></p>
 <p>Once HLT1 or HLT2 has accepted an event, the candidates accepted by all trigger
 lines are saved to the raw event in a stripped-down form. One of the things that
 is saved are all the LHCbIDs of the final state particles of a decay tree.</p>
-<p><div class="panel panel-primary"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(7128467815);" id="what-is-an-lhcbid"><i class="fa fa-info-circle"></i> What is an LHCbID?<span id="heading-7128467815"></span></h3></div><div class="panel-body" id="panel-7128467815"><p>Every single sub-detector element has an LHCbID which is unique across the 
+<p><div class="panel panel-primary"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(6075647842);" id="what-is-an-lhcbid"><i class="fa fa-info-circle"></i> What is an LHCbID?<span id="heading-6075647842"></span></h3></div><div class="panel-body" id="panel-6075647842"><p>Every single sub-detector element has an LHCbID which is unique across the
 whole detector.
 Physics objects, such as tracks, can be defined as sets of LHCbID objects.
 When a trigger decision is made, the set of LHCbID objects which comprise the triggering
@@ -948,15 +948,15 @@ available in HLT2 is the same as the offline reconstruction, physics analysis
 can be done with the candidates created in HLT2. If a line is configured to be a
 Turbo line, all information on the candidates that it selects is stored in the
 raw event. These candidates can be resurrected later by the Tesla application and
-written to a microDST. This is similar to stripping streams that go to 
-microDST, where only candidates that are used in passing selections are 
-available to analysts. The Turbo stream is different because information that 
+written to a microDST. This is similar to stripping streams that go to
+microDST, where only candidates that are used in passing selections are
+available to analysts. The Turbo stream is different because information that
 is not saved is lost forever.</p>
 <p>We will now have a look at some of the candidates stored by the HLT. We will use the script we
 <a href="../first-analysis-steps/interactive-dst.html">used last time</a>
 as a starting point, and the file
 <code>root://eoslhcb.cern.ch//eos/lhcb/user/r/raaij/Impactkit/00051318_00000509_1.turbo.mdst</code>.
-This file contains some 2016 Turbo events from <a href="http://lbrundb.cern.ch/rundb/run/174252/" target="_blank">run 
+This file contains some 2016 Turbo events from <a href="http://lbrundb.cern.ch/rundb/run/174252/" target="_blank">run
 174252</a>.  Fire up your
 favourite editor, open the script and save a copy to work on as
 <code>hlt_info.py</code>. There are a few things in the script that we don&apos;t need and can
@@ -979,7 +979,7 @@ report = reports.decReport(<span class="hljs-string">&apos;Hlt1TrackAllL0Decisio
 <p>The HLT1 selections that are most efficient for hadronic charm and beauty decays
 in Run 2 are called Hlt1TrackMVA and Hlt1TwoTrackMVA. Use the advance function
 to find an event that was accepted by either of these trigger selections.</p>
-<p>The DecReports only contains the decisions for each line, 1 or 0. The 
+<p>The DecReports only contains the decisions for each line, 1 or 0. The
 candidates themselves are stored in the
 SelReports (&quot;Hlt{1,2}/SelReports&quot;). Get the HLT1 SelReports from the event store
 and retrieve the one for one of the TrackMVA selections using the selReport function,
@@ -1002,14 +1002,14 @@ of the track. These are stored in the numerical info dictionary that can be
 retrieved using:</p>
 <pre><code class="lang-python">report.substructure()[<span class="hljs-number">0</span>].substructure()[<span class="hljs-number">0</span>].numericalInfo()
 </code></pre>
-<p><div class="panel panel-success"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(7752656640);" id="plot-the-transverse-momentum-distribution"><i class="fa fa-square-o"></i> Plot the transverse momentum distribution<span id="heading-7752656640"></span></h3></div><div class="panel-body" id="panel-7752656640"><p>Make a plot of the total and transverse moment distributions of all candidates
+<p><div class="panel panel-success"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(4995771268);" id="plot-the-transverse-momentum-distribution"><i class="fa fa-square-o"></i> Plot the transverse momentum distribution<span id="heading-4995771268"></span></h3></div><div class="panel-body" id="panel-4995771268"><p>Make a plot of the total and transverse moment distributions of all candidates
 accepted by the Hlt1TrackMVA selection. Then add Hlt1TwoTrackMVA and
 consider the difference.</p>
 </div></div></p>
 <p>The LHCbIDs of the (in this case) track can be retrieved using:</p>
 <pre><code class="lang-python">report.substructure()[<span class="hljs-number">0</span>].substructure()[<span class="hljs-number">0</span>].lhcbIDs()
 </code></pre>
-<p><div class="panel panel-success"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(620092748);" id="turbo-candidates"><i class="fa fa-square-o"></i> Turbo candidates<span id="heading-620092748"></span></h3></div><div class="panel-body" id="panel-620092748"><p>Now let&apos;s have a look at the same information that is stored for a candidate
+<p><div class="panel panel-success"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(8483432816);" id="turbo-candidates"><i class="fa fa-square-o"></i> Turbo candidates<span id="heading-8483432816"></span></h3></div><div class="panel-body" id="panel-8483432816"><p>Now let&apos;s have a look at the same information that is stored for a candidate
 created by a Turbo line, for example Hlt2CharmHadDsp2KS0PimPipPip_KS0LLTurbo.
 Adapt the <code>advance_hlt</code> with an additional argument that allows specification
 of the location of <code>DecReports</code> it uses, then advance to an event that was selected by
@@ -1142,7 +1142,7 @@ TriggerTisTos and it implements the ITriggerTisTos interface.</p>
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"TisTos DIY","level":"3.1.9","depth":2,"next":{"title":"Ganga Scripting","level":"3.1.10","depth":2,"path":"second-analysis-steps/ganga-scripting.md","ref":"second-analysis-steps/ganga-scripting.md","articles":[]},"previous":{"title":"HLT intro","level":"3.1.8","depth":2,"path":"second-analysis-steps/hlt-intro.md","ref":"second-analysis-steps/hlt-intro.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-sharing","panels@git+https://github.com/lhcb/gitbook-plugin-panels.git#master","katex-auto-render@git+https://github.com/lhcb/gitbook-plugin-katex-auto-render.git#master","collapsible-menu","otherlink"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"collapsible-menu":{},"search":{},"otherlink":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"panels":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"katex-auto-render":{},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"The Starterkit team and contributors","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"gitbook":"*"},"file":{"path":"second-analysis-steps/tistos-diy.md","mtime":"2019-10-01T15:44:46.445Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-10-01T15:46:15.321Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"TisTos DIY","level":"3.1.9","depth":2,"next":{"title":"Ganga Scripting","level":"3.1.10","depth":2,"path":"second-analysis-steps/ganga-scripting.md","ref":"second-analysis-steps/ganga-scripting.md","articles":[]},"previous":{"title":"HLT intro","level":"3.1.8","depth":2,"path":"second-analysis-steps/hlt-intro.md","ref":"second-analysis-steps/hlt-intro.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-sharing","panels@git+https://github.com/lhcb/gitbook-plugin-panels.git#master","katex-auto-render@git+https://github.com/lhcb/gitbook-plugin-katex-auto-render.git#master","collapsible-menu","otherlink"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"collapsible-menu":{},"search":{},"otherlink":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"panels":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"katex-auto-render":{},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"The Starterkit team and contributors","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"gitbook":"*"},"file":{"path":"second-analysis-steps/tistos-diy.md","mtime":"2019-10-01T21:06:48.931Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-10-01T21:08:20.268Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
