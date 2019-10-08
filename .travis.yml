@@ -5,7 +5,7 @@ cache: false
 dist: xenial
 
 install:
-  - pip install sphinx sphinx-rtd-theme recommonmark
+  - pip install sphinx sphinx-rtd-theme git+https://github.com/chrisburr/recommonmark.git@patch-1
 
 script:
   - make html
