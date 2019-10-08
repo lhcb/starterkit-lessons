@@ -10,7 +10,7 @@ fi
 
 rev=$(git rev-parse --short HEAD)
 
-cd _book
+cd build/html
 
 git init
 git config user.name "Alex Pearce"

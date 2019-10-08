@@ -1,9 +1,11 @@
 # Managing files in Ganga
 
 {% objectives "Learning Objectives" %}
+
 * Choose whether job output is saved locally or on the Grid
 * Choose where to look for job input files
 * Move files from any grid site to CERN, for analysis using EOS
+
 {% endobjectives %} 
 
 <!--
@@ -28,6 +30,7 @@ using Ganga.
 
 
 {% callout "Ganga versions" %}
+
 It is generally advised to use the latest available version of Ganga. Functionality is not removed and there are no compatibility issues between versions (it is just python!). If you
 encounter problems, you should first search [the archives of the
 `lhcb-distributed-analysis` mailing list][da-archive]. If you don't find an
@@ -39,9 +42,11 @@ page for Ganga][ganga-issues], on the [~distributed-analysis][da-mattermost] mat
 [ganga-issues]: https://github.com/ganga-devs/ganga
 [da-mattermost]: https://mattermost.web.cern.ch/lhcb/channels/distributed-analysis
 [da-mailing-list]: mailto:lhcb-distributed-analysis@cern.ch
+
 {% endcallout %}
 
 {% callout "Making a fresh start" %}
+
 To make sure there will be no pre-existing files from of Ganga to interfere,
 we will move them to a backup location.
 
@@ -56,6 +61,7 @@ $ mv gangadir .gangarc* .ganga.log .ganga.py .ipython-ganga ganga-backup
 
 You can move this back after the lesson if you want to restore your old 
 settings and data.
+
 {% endcallout %}
 
 We'll be doing everything in Ganga, so let's start it up.
@@ -94,7 +100,7 @@ In Ganga, create a `Job` object with a descriptive name and take a look at it.
 
 ```python
 j = Job(name='Reverser')
-print j
+print(j)
 ```
 
 You'll see that Ganga has created a `Job` which will execute the `echo` 
@@ -112,7 +118,7 @@ j.application.args = [File('input.txt')]
 We haven't made `input.txt`, so let's make it by executing a couple of shell 
 commands inside Ganga.
 
-```python
+```
 !echo -e "$(date)\nHello world!\nI am $USER!" > input.txt
 !cat input.txt
 ```
@@ -162,15 +168,17 @@ which contains useful information about algorithm counters.
 ```python
 df = DiracFile('input.txt', localDir='.')
 df.put(uploadSE='CERN-USER')
-print df.lfn
+print(df.lfn)
 ```
 
 {% callout "Couldn't upload file - This file GUID already exists" %}
+
 
 All files on the grid are required to have a unique identifier (GUID) which is normally generated from the file's content and is independent of its filename.
 As a result, if you try to upload a file which already exists you receive an error.
 
 If this happens, and you have a reason to not use the pre-existing file, the simplest solution is to make the file unique in some way, in this case we add the date and time to the top line of the text file.
+
 
 {% endcallout %}
 
@@ -183,6 +191,7 @@ eos ls /eos/lhcb/grid/user//lhcb/user/a/apearce/GangaFiles_22.24_Wednesday_18_Ma
 ```
 
 {% callout "Using MassStorageFile" %}
+
 The `MassStorageFile` object uploads job output directly to EOS. However, 
 using `MassStorageFile` for this purpose is actively discouraged by the Ganga 
 developers as it is highly inefficient: a file made on the Grid will first be 
@@ -190,6 +199,7 @@ downloaded to the machine running Ganga, and then uploaded to EOS.
 
 Instead, always use `DiracFile` for large outputs, and then replicate them to 
 `CERN-USER` if you want to be able to access them on EOS.
+
 {% endcallout %}
 
 If you have any `DiracFile`, you can ask for it to be replicated to a grid site 
@@ -200,6 +210,7 @@ df.replicate('RAL-USER')
 ```
 
 {% callout "Automating replication to CERN" %}
+
 If you have a job with subjobs, you can automate this to replicate all output 
 files to CERN, so that you can run your analysis directly on the files on 
 EOS.
@@ -218,6 +229,7 @@ After you did this your files will go into "/eos/lhcb/grid/lhcb/{u}/{user}/"+LFN
 
 You could make a function from this and put it in your `.ganga.py` file, whose 
 contents is available in any Ganga session.
+
 {% endcallout %}
 
 You can download a `DiracFile` locally using the `get` method. If you already 
@@ -226,7 +238,7 @@ with it. All you need to do is prefix the LFN with `LFN:`, and Ganga will
 assume that the file already exists on the Grid somewhere (whereas before it 
 assumed the file was local).
 
-```python
+```
 df2 = DiracFile('LFN:' + df.lfn)
 # The directory used for the download must exist first
 !mkdir foo
@@ -265,6 +277,7 @@ Gaudi-based jobs where:
    completes.
 
 {% callout "Defining inputfiles" %}
+
 The `inputfiles` attribute of a `Job` object works in a similar way to 
 `outputfile`. In our example, the reverser script that the `Executable` 
 application uses doesn't know how to handle things specified as `inputdata`, 
@@ -273,8 +286,9 @@ so we had to use `File` when defining the arguments.
 For LHCb applications, you will almost always define the `inputdata` list 
 using either `LocalFile` or `DiracFile` objects. Which one you will use just 
 depends on where the input files are.
+
 {% endcallout %}
 
-[batch]: http://information-technology.web.cern.ch/services/batch
+[batch]: https://information-technology.web.cern.ch/services/batch
 [ipython-shell]: https://ipython.org/ipython-doc/3/interactive/tutorial.html
 [reverse-script]: code/01-managing-files-with-ganga/reverse.py

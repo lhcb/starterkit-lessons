@@ -1,16 +1,20 @@
 # Replace a mass hypothesis
 
 {% objectives "Learning Objectives" %}
+
 * Create a new selection starting from the stripping line output
 * Change the particle hypothesis made by the stripping line
+
 {% endobjectives %} 
 
 There are many situations where you want to repurpose a stripping line to look for a new decay that is similar in topology but distinct from what was put into the stripping line. The easiest thing to do is to change some of the hypothesis on particle IDs made in the stripping. This lesson will show you how to do that.
 
 {% callout "Reinterpreting stripping selections" %}
+
 Note that with this method you can never find more candidates than the 
 stripping has already found.  However, you can reinterpret parts of the decay 
 to look for new decay modes.
+
 {% endcallout %}
 
 As an example we will switch the decays of the D0 from (K- K+) to (K- pi+). 
@@ -87,9 +91,11 @@ dtt.Decay = '[D*(2010)+ -> ^(D0 -> ^K- ^pi+) ^pi+]CC'
 The input to the `DecayTreeTuple` is taken as the `outputLocations` of the `SelectionSequence` we just created. 
 
 {% callout "Why use DaVinci selections?" %}
+
 Selections and SelectionSequences are an elegant way to organize the required 
 algorithms that perform the job of selecting data.
 The [particle selection toolkit](https://twiki.cern.ch/twiki/bin/view/LHCb/ParticleSelection) uses python tricks to make the management of even complicated sequences of selections rather straight forward. In particular the toolkit ensures that all necessary algorithms are run in the correct order to produce the desired selections. It is therefore mainly a tool to manage dependencies. For technical details, have a look at the [TWiki page](https://twiki.cern.ch/twiki/bin/view/LHCb/ParticleSelection).
+
 {% endcallout %}
 
 Finally we add the `SelectionSequence` and the `DecayTreeTuple` to the DaVinci application. Since we are adding more than one algorithm we need a `GaudiSequencer` that takes care of calling everything in the right order:
@@ -107,5 +113,7 @@ The solution to this exercise `ntuple_switchHypo.py`, is [available
 here](./code/18-switch-mass-hypo/ntuple_switchHypo.py).
 
 {% callout "Think about it" %}
+
 Why can't we use this method to look for D* decaying to D0+photon ? 
+
 {% endcallout %}

@@ -177,11 +177,13 @@ This help will also be printed if we don't supply all of the required arguments
 missing.
 
 {% callout "Getting to grips with `argparse`" %}
+
 The `argparse` module can do a lot, being able to parse complex sets of 
 arguments with much difficultly. It's a useful tool to know in general, so we 
 recommend that you check out the [documentation][argparse] to learn more.
 
 [argparse]: https://docs.python.org/2/library/argparse.html
+
 {% endcallout %}
 
 When we do supply all the necessary arguments, the values are then available in
@@ -299,6 +301,7 @@ Because of the way a [ROOT `TChain`][tchain] works, the subjobs output won't be
 downloaded, so you only need enough disk space for the merged file.
 
 {% callout "Using ROOT in Ganga" %}
+
 By default, ROOT is not available in a Ganga session:
 
 ```python
@@ -312,6 +315,7 @@ available:
 ```shell
 $ lb-run ROOT ganga
 ```
+
 {% endcallout %}
 
 Once you have your helpers defined, use them in Ganga as you would any other Python function.

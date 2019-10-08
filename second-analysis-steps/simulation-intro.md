@@ -1,5 +1,7 @@
 {% objectives "Learning Objectives" %}
+
 * Understand how a signal decay sample is produced in the LHCb framework
+
 {% endobjectives %}
 
 ## What is Gauss?
@@ -12,7 +14,9 @@ Gauss is the LHCb simulation framework which manages the creation of simulated e
 4. Particles are transported through the detector simulation.
 
 {% callout "Things to remember" %}
+
 1. The detector simulation is **__by far__** the most time consuming step (minutes, compared to seconds for the rest). So make sure your generator cuts remove events you cannot possibly reconstruct or select later on. Additional options are available to increase the speed, please talk to your MC liaisons!
 2. The generator cuts are only applied to the signal that was forced to decay to the specific final state. _Any_ other true signal candidate is not required to pass. Furthermore, if the signal candidate flies in negative `z` direction, the event is mirrored to optimise the use of available CPU resources.
 3. The number of generated events refers to the number entering step 4 above, so those passing the generator level cuts. __Not__ the number of events produced by the `ProductionTool` in the first step.
+
 {% endcallout %}

@@ -1,9 +1,11 @@
 # HLT intro
 
 {% objectives "Learning Objectives" %}
+
 * Learn about the LHCb trigger.
 * Learn how to run Moore from settings and from TCK.
 * Getting started with writing your own trigger selection.
+
 {% endobjectives %} 
 
 The Run 2 LHCb trigger reduced the input rate event rate of approximately 30 MHz
@@ -18,7 +20,7 @@ farm machines, while HLT2 uses the rest of the available CPU (100% when there is
 no beam) to process the events written by HLT1. The evolution of the disk buffer is
 shown in the figure below. Events accepted by HLT2 are sent to offline storage.
 
-<img src="./img/DiskBuffer2016.png" alt="Disk buffer in 2016" style="width: 500px;" />
+![Disk buffer in 2016](img/DiskBuffer2016.png)
 
 In Run I, both the reconstructions and selections used by HLT1, HLT2 and offline
 were very different. In Run 2 the reconstructions used in HLT2 and offline are
@@ -104,16 +106,20 @@ ttt.Verbose = True #Needed to get trigger decisions
 `TupleToolEventInfo` adds basic information about the event to your ntuple. Normally it is added by default. You will find two branches Hlt1TCK and Hlt2TCK. `TupleToolTrigger` adds the decisions of trigger lines. You will only find branches called L0Global, Hlt1Global and Hlt2Global. We first have to find out which trigger lines were available for these data.
 
 {% callout "What is a TCK?" %}
+
 The Trigger Configuration Key (TCK) stores the configuration of the HLT in a 
 database.
 All algorithms and their properties are defined in it.
 The key is usually given as a hexadecimal number. The last 4 digits define the L0 TCK.
 The first 4 digits define the HLT configuration. HLT1 TCKs start with 1, HLT2 TCKs start
 with 2.
+
 {% endcallout %}
 
 {% challenge "Which TCKs were used to trigger these data?" %}
+
 Find out what the hexadecimal presentation of the Hlt1 and Hlt2 TCK is.
+
 {% endchallenge %}
 
 ### Exploring a TCK: List of trigger lines
@@ -129,9 +135,11 @@ $ lb-run Moore/latest TCKsh
 The commands `listL0Channels(<TCK>)`, `listHlt1Lines(<TCK>)` or `listHlt2Lines(<TCK>)` show lists of the lines in L0, Hlt1 or Hlt2. If you replace list with get, a list with the lines is returned.
 
 {% challenge "Compare HLT1 lines from Run1 and Run2" %}
+
 Try to find out which HLT1 lines were available in Run 1 and which are now available in Run 2.
 
 What are the names of the topological trigger lines in Run 1 and Run 2?
+
 {% endchallenge %}
 
 ### Add trigger information to your ntuple, continued
@@ -165,7 +173,7 @@ Be aware you have to append `Decision` to the name of the trigger line.
 
 
 ### Add TISTOS information to your ntuple
-For analysis purposes it is important to know if your signal candidate was part of the trigger decision or not as one has different efficiencies for both categories. The following categories exist [ [LHCb-PUB-2014-039](http://cds.cern.ch/record/1701134/files/LHCb-PUB-2014-039.pdf) ]:
+For analysis purposes it is important to know if your signal candidate was part of the trigger decision or not as one has different efficiencies for both categories. The following categories exist [ [LHCb-PUB-2014-039](https://cds.cern.ch/record/1701134/files/LHCb-PUB-2014-039.pdf) ]:
 1. Triggered On Signal (TOS): events for which the presence of the signal is sufficient to generate a positive trigger decision.
 2. Triggered Independent of Signal (TIS): the “rest” of the event is sufficient to generate a positive trigger decision, where the rest of the event is defined through an operational procedure consisting in removing the signal and all detector hits belonging to it.
 3. Triggered On Both (TOB): these are events that are neither TIS nor TOS; neither the presence of the signal alone nor the rest of the event alone are sufficient to generate a positive trigger decision, but rather both are necessary.
@@ -180,7 +188,9 @@ tttt.TriggerList = triggerList
 ```
 
 {% challenge "Understanding TISTOS" %}
+
 Explain why a single particle cannot be TOS on the Hlt1TwoTrackMVA line.
+
 {% endchallenge %}
 
 ### Exploring a TCK: Properties of trigger lines
@@ -267,11 +277,13 @@ The decisions are decoded from the definitions in the HLT1 TCK. Therefore, HLT2 
 read data which have been created when running Moore from TCK and not from settings.
 
 {% challenge "Compare Hlt1 and Hlt2" %}
+
 What is reduction factor of Hlt1? (Search how many events are accepted by `Hlt1Global`.)
 
 What is reduction factor of Hlt2? (Search how many events are accepted by `Hlt2Global`.)
 
 What is difference in run time of Hlt1 and Hlt2?
+
 {% endchallenge %}
 
 ### Run Moore from TCK* (Run1 + Run2)
@@ -383,7 +395,9 @@ A user friendly setup for this is being developed under the name [trigger-dev](h
 We encourage people to check it out and give feedback on the [issues page](https://gitlab.cern.ch/lhcb-HLT/trigger-dev/issues).
 
 {% challenge "Convert a stripping line to a Hlt2 line" %}
+
 1. Pick a stripping line and convert it to a HLT2 line.
 2. Make it a Turbo line (You have to set the property Turbo to true and the name of the line has to end with Turbo).
 3. Run a rate test to determine the rate of the line, [instructions](https://twiki.cern.ch/twiki/bin/view/LHCb/MooreRateTestExamples) are found here.
+
 {% endchallenge %} -->

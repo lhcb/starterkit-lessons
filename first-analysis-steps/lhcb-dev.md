@@ -1,15 +1,19 @@
 # Developing LHCb Software
 
 {% objectives "Learning Objectives" %}
+
 * Learn how to work with and modify LHCb software projects and packages
 * Learn how to find and search the source code and its documentation
+
 {% endobjectives %} 
 
 {% prereq "Prerequisites" %}
+
 Before starting, you should have a basic understanding of how to use `git`,
 similar to what has been
 [taught](https://hsf-training.github.io/analysis-essentials/git) during the
 Starterkit.
+
 {% endprereq %} 
 
 In this lesson, we'll show you a complete workflow for developing the LHCb
@@ -37,6 +41,7 @@ cumbersome, for any serious development the usage of vanilla git is much more
 stable. Please consider using it if you can spare the compilation time.
 
 {% callout "Initial setup" %}
+
 Before jumping in by creating a project in GitLab, you should make sure that
 your local git configuration and your settings on GitLab are sufficiently set
 up.
@@ -57,6 +62,7 @@ and put in your information.
    git config --global lb-use.protocol ssh
    ```
    This makes sure the LHCb commands use the ssh protocol instead of https.
+
 {% endcallout %} 
 
 This lesson introduces you the commands:
@@ -92,10 +98,11 @@ and optionally (CMake only)
   > make install
 
 You can customize the configuration by editing the files 'build.conf' and
-'CMakeLists.txt' (see http://cern.ch/gaudi/CMake for details).
+'CMakeLists.txt' (see https://cern.ch/gaudi/CMake for details).
 ```
 
 {% callout "lb-dev created local projects are Git repositories" %}
+
 When `lb-dev` creates the local project directory and create the initial
 files there, it also calls `git init` and commits to the local Git repository
 the first version of the files (try with `git log` in there).
@@ -103,6 +110,7 @@ the first version of the files (try with `git log` in there).
 You can then use git to keep track of your development, and share your code
 with others (for example with a [new project in
 gitlab.cern.ch](https://gitlab.cern.ch/projects/new)).
+
 {% endcallout %} 
 
 Follow those instructions to compile the software:
@@ -147,6 +155,7 @@ adding the files under
 [`Phys/StrippingSelections`](https://gitlab.cern.ch/lhcb/Stripping/tree/master/Phys/StrippingSelections).
 
 {% callout "Which project to use in `git lb-use`?" %}
+
 The project name to pass to `git lb-use` depends on the directories you want
 to check out and work on, and not on the project name you passed to `lb-dev`.
 Moreover you can call `git lb-use` several times for different remote
@@ -163,7 +172,8 @@ git lb-use DaVinci
 Not that in order for this to work, projects you specify in `lb-use` may not
 depend on the project you specify in `lb-dev`. In other words, the top-level
 project should be at the top of the [dependency
-chain](http://lhcb-comp.web.cern.ch/lhcb-comp/).
+chain](https://lhcb-comp.web.cern.ch/lhcb-comp/).
+
 {% endcallout %} 
 
 You can now modify the `StrippingSelections` package and run `make purge &&
@@ -175,8 +185,10 @@ package and version:
 ```
 
 {% callout "What if `git` asks for my password?" %}
+
 Make sure you succesfully completed the instructions under [initial
 setup](#initial-setup).
+
 {% endcallout %} 
 
 If you have made changes that you'd like to be integrated into the official
@@ -188,14 +200,12 @@ first.
 Depending on the project, you may be required to document your changes in the
 release notes which are found in `doc/release.notes`.
 
-Note that no-one has permission to push directly to the `master` branch of any
-project. In order to get your changes merged there from the branch to which you
-`lb-push`ed, you need to create a merge request, so the project maintainer can
-inspect your code. This can be done on the [project repository web 
-page](https://gitlab.cern.ch/lhcb/Stripping/merge_requests/new), for
-example.
+Note that no-one has permission to push directly to the `master` branch of any project.
+In order to get your changes merged there from the branch to which you `lb-push`ed, you need to create a merge request, so the project maintainer can inspect your code.
+This can be done on the [project repository web page](https://gitlab.cern.ch/lhcb/Stripping/merge_requests/new), for example.
 
 {% callout "Quick link to create a merge request" %}
+
 When pushing to a branch in a project in GitLab you will see a message like:
 
 ```
@@ -207,6 +217,7 @@ remote:
 
 You can use the URL in the message to quickly create a merge request for the
 changes you just pushed.
+
 {% endcallout %} 
 
 When your merge request is approved (which can be after some additional commits
@@ -215,6 +226,7 @@ project, and your contributions are officially part of the LHCb software stack.
 Congratulations!
 
 {% callout "Nightlies" %}
+
 It is advisable to test new developments on the so-called [nightly
 builds](https://lhcb-nightlies.cern.ch). Each project is built overnight
 (hence the name), and all pending merge requests are applied. You can use a
@@ -242,6 +254,7 @@ If the aim of the commit was to change the ouput, e.g. because you increased
 the track reconstruction efficiency by a factor of two, mention it in the
 merge request description, such that the manager of the affected project can
 update the reference file.
+
 {% endcallout %} 
 
 If you want to take a look the source code, without checking it out, you can
@@ -262,11 +275,12 @@ tools.
 To get an idea of how a certain component of the LHCb software works, you can
 also access the doxygen documentation. One set of doxygen web pages is
 generated for several related projects, and is linked in all the projects web
-sites, like [for DaVinci](https://cern.ch/LHCb-release-area/DOC/davinci/).
-See also the [LHCb Computing web page](http://cern.ch/lhcb-comp/) for a
+sites, like [for DaVinci](http://lhcbdoc.web.cern.ch/lhcbdoc/davinci/).
+See also the [LHCb Computing web page](http://lhcb.web.cern.ch/lhcb/computing/) for a
 list of projects.
 
 {% callout "Working with a full project checkout" %}
+
 The `lb-git` commands are not strictly necessary, but they're very convenient
 if you just want to quickly edit one package. Otherwise you'd have to build
 the entire project in which the package is residing, instead of using the
@@ -291,4 +305,5 @@ lb-project-init make
 optionally followed by `make test` to run the tests and/or `make install` to
 install it to the `InstallArea` directory. That's all! You now have a vanilla
 git repository containing all the source files of the project.
+
 {% endcallout %} 

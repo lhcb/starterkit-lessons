@@ -1,11 +1,13 @@
 # Interactively exploring a DST
 
 {% objectives "Learning Objectives" %}
+
 * Open a DST in an interactive python session
 * Print all nodes in a DST
 * Explore the contents of the TES
 * Inspect a track
 * Inspect a stripping location
+
 {% endobjectives %} 
 
 Data is stored in files called DSTs, which are processed
@@ -16,7 +18,7 @@ This is particularly useful if you want to quickly find
 something out, or the more complex processing in DaVinci
 is not working as expected.
 
-The file we [downloaded from the grid](files-from-grid.html)
+The file we [downloaded from the grid](files-from-grid)
 contains simulated data, with stripping and trigger decisions
 and so on. Here we assumed the file you downloaded is called `00070793_00000001_7.AllStreams.dst`.
 To take a look at the contents of the TES, we need to write a small
@@ -132,11 +134,13 @@ def advance(decision):
 Add this to your script and restart `ipython` as before.
 
 {% callout "Detecting file ends" %}
+
 It is not easy to detect that the input file has ended. Especially
 if you want to get it right for data and simulation. Checking that
 `/Event/Rec/Header` exists is a safe bet in simulation and data if
 your file has been processed by `Brunel` (the event reconstruction
 software). It might not work in other cases.
+
 {% endcallout %} 
 
 Using the name of our stripping line we can now advance through the
@@ -161,9 +165,9 @@ one with:
 print cands[0]
 ```
 
-Which will print out some information about the [Particle](http://lhcb-doxygen.web.cern.ch/lhcb-doxygen/davinci/latest/d0/d13/class_l_h_cb_1_1_particle.html). In our case a $$D^{* +}$$ ([particle ID number](http://pdg.lbl.gov/2017/reviews/rpp2016-rev-monte-carlo-numbering.pdf) 413). You can access its daughters with
+Which will print out some information about the [Particle](https://lhcb-doxygen.web.cern.ch/lhcb-doxygen/davinci/latest/d0/d13/class_l_h_cb_1_1_particle.html). In our case a `$ D^{* +} $` ([particle ID number](http://pdg.lbl.gov/2019/reviews/rpp2018-rev-monte-carlo-numbering.pdf) 413). You can access its daughters with
 `cands[0].daughtersVector()[0]` and `cands[0].daughtersVector()[1]`,
-which will be a $$D^{0}$$ and a $$\pi^{+}$$.
+which will be a `$ D^{0} $` and a `$ \pi^{+} $`.
 
 There is a useful tool for printing out decay trees, which you can
 pass the top level particle to and it will print out the daughters etc:
@@ -177,9 +181,10 @@ print_decay.printTree(cands[0])
 
 With our candidates in hand, it would be nice to be able to retrieve and
 compute the variables we need for an analysis. On to [LoKi
-functors](loki-functors.html)!
+functors](loki-functors)!
 
 {% callout "Fast DST browsing" %}
+
 While here we have discussed for pedagogical reasons all the configuration
 options needed in order to browse a `DST` file, in your daily life as a
 physicist it is often useful to use the `bender` application that belongs to
@@ -208,4 +213,5 @@ The `-f` option tells `Bender` to try and "unpack" the locations such as
 `/Event/AllStreams/pPhys/Particles` that we mentioned above, while `-n 100`
 tells it to only process the first 100 events on the `DST`.
 Give this a try if you're ever stuck figuring out where your candidates are hiding!
+
 {% endcallout %} 

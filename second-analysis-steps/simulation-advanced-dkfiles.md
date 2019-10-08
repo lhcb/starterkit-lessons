@@ -1,5 +1,7 @@
 {% objectives "Learning Objectives" %}
+
 * Learn advanced configuration options to configure `EvtGen`
+
 {% endobjectives %} 
 
 ## Advanced: Modifying the decay

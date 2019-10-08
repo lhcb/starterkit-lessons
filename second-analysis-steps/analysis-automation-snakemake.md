@@ -1,8 +1,10 @@
 # Analysis automation with snakemake
 
 {% objectives "Learning Objectives" %}
+
 * Learn what analysis automation is and how it helps with analysis preservation
 * Learn how to create a pipeline with Snakemake
+
 {% endobjectives %}
 
 ## Motivation
@@ -21,7 +23,7 @@
 
 ## Documentation and installation
 
-You can find full documentation for Snakemake [at this link](http://snakemake.readthedocs.io/en/stable/index.html), you can also ask any questions you have on the [~reproducible](https://mattermost.web.cern.ch/lhcb/channels/reproducible) channel on mattermost.
+You can find full documentation for Snakemake [at this link](https://snakemake.readthedocs.io/en/stable/index.html), you can also ask any questions you have on the [~reproducible](https://mattermost.web.cern.ch/lhcb/channels/reproducible) channel on mattermost.
 
 Snakemake requires Python 3, if you already have this available it can be easily installed using pip:
 
@@ -32,14 +34,16 @@ alias snakemake='python3 -m snakemake'
 ```
 
 {% callout "Installing on lxplus" %}
+
 Unfortunately most LHCb software only supports Python 2 and doesn't provide a Python 3 installation.
 When running on lxplus we recommend using the LCG Python 3 distribution and creating a function in your `.bashrc` to launch Snakemake so that it doesn't affect other LHCb applications.
 This can be done using [this script](https://github.com/lhcb/starterkit-lessons/blob/master/second-analysis-steps/code/snakemake/install_snake.sh) by running:
 
 ```bash
-curl -L http://cern.ch/go/Z8Nk | bash
+curl -L https://cern.ch/go/Z8Nk | bash
 source ~/.bashrc
 ```
+
 {% endcallout %}
 
 You can now check if Snakemake is working by using `snakemake --help`.
@@ -109,6 +113,7 @@ Notice that:
 
 {% challenge "Write a snakefile with a single rule" %}
 
+
 To try out download:
 
 ```bash
@@ -124,6 +129,7 @@ To do this in a shell you can use `grep`, which is a command that lists all line
 $ grep ciao test.txt
 ciao a tutti
 ```
+
 {% endchallenge %}
 
 ### Usage and basic behaviour
@@ -149,6 +155,7 @@ Comments, which rules are run:
 
 {% challenge "Make a snakefile with at least 3 rules connected to each other and run them in one go" %}
 
+
 In the tutorial folder you find two files containing addresses, and phone numbers.
 You can make rules that, given a name, `grep` the address and phone and then one other rule to merge them into your final output file.
 
@@ -166,9 +173,11 @@ cat output/Luca/myaddress.txt > output/Luca/data.txt && cat output/Luca/myphone.
 
 _But it does not have to be this, any other task is fine, be creative!_
 
+
 {% endchallenge %}
 
 {% challenge "Use wildcards" %}
+
 
 Following on from the previous challenge use wildcards to make it so that any name can be used, such as “Fred”
 
@@ -178,7 +187,10 @@ snakemake output/Fred/data.txt
 
 {% solution "Solution" %}
 
+
 See `Snakefile` in the `simple_solution` folder [here](https://github.com/lhcb/starterkit-lessons/raw/master/second-analysis-steps/code/snakemake/tutorial.tar).
+
+{% endsolution %}
 
 {% endchallenge %}
 
@@ -189,7 +201,9 @@ Note that if you put your code into the inputs snakemake will detect when your c
 * If you want to force running all rules even if part of the output is present use `snakemake --forceall`
 
 {% challenge "Explore the snakemake behaviour" %}
+
 In the previous example try deleting one of the intermediate files, rerun snakemake and see what happens
+
 {% endchallenge %}
 
 ### Sub-labels
@@ -215,7 +229,9 @@ python myscript.py mydata.roo --extra some_extra_info.txt > output.txt
 The `--extra` is not necessary. It's just to illustrate how python scripts options can be used.
 
 {% challenge "Code as input" %}
+
 Add your python script to the inputs than make some modifications to it, rerun snakemake and see what happens.
+
 {% endchallenge %}
 
 
@@ -252,11 +268,16 @@ rule dosomething_pysh:
 ```
 
 {% challenge "Use run instead of shell" %}
+
 Rewrite your previous file using a python script to run the search and use `run` to run on both phones and addresses in the same rule
 
 {% solution "Solution" %}
-An example solution can be found [here](https://github.com/lhcb/starterkit-lessons/tree/master/second-analysis-steps/code/snakemake/Snakefile). 
+
+An example solution can be found [here](https://github.com/lhcb/starterkit-lessons/blob/master/second-analysis-steps/code/snakemake/Snakefile). 
 Although it's fine if you have done it a different way.
+
+{% endsolution %}
+
 {% endchallenge %}
 
 ### Config files
@@ -290,7 +311,9 @@ rule dosomething_pysh:
 The config dictionary can be used anywhere, also inside the shell command or even outside a rule.
 
 {% challenge "Make a config file" %}
+
 Put the inputs of your script into a config file
+
 {% endchallenge %}
 
 ### Includes
@@ -305,10 +328,14 @@ include: /path/to/efficiency_rules.snake
 The order of the includes is irrelevant.
 
 {% challenge "Use includes" %}
+
 Move your rules to other files and include them
 
 {% solution "Solution" %}
 
+
 You can find a solution in the `more_complete_solution` folder, which you can find [here](https://github.com/lhcb/starterkit-lessons/raw/master/second-analysis-steps/code/snakemake/tutorial.tar).
+
+{% endsolution %}
 
 {% endchallenge %}

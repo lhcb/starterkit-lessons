@@ -25,12 +25,12 @@ fraction can traverse the full detector, and so we typically consider these
 particles as ‘stable’. Unstable objects, with much shorter lifetimes, are
 formed as combinations of these ‘stable’ particles[^1]:
 
-1. Charged pions $$\pi^{\pm}$$
-2. Charged kaons $$K^{\pm}$$
-3. Protons $$p/\bar{p}$$
-4. Electrons $$e^{\pm}$$
-5. Muons $$\mu^{\pm}$$
-6. Photons $$\gamma$$
+1. Charged pions `$ \pi^{\pm} $`
+2. Charged kaons `$ K^{\pm} $`
+3. Protons `$ p/\bar{p} $`
+4. Electrons `$ e^{\pm} $`
+5. Muons `$ \mu^{\pm} $`
+6. Photons `$ \gamma $`
 7. Deuterons ([deuterium nuclei][deuterium])
 
 Many properties of these objects, such as their momentum and charge, are
@@ -75,8 +75,8 @@ a real trajectory.
 Given this, we can never know anything with complete certainty. Instead we
 must infer properties _statistically_ based on ensembles of objects and events.
 
-Let’s say we want to count the number of [$$J/\psi$$ mesons][pdgjpsi] that
-decay to two muons, $$\mu^{+}\mu^{-}$$. This proceeds via three steps:
+Let’s say we want to count the number of [`$ J/\psi $` mesons][pdgjpsi] that
+decay to two muons, `$ \mu^{+}\mu^{-} $`. This proceeds via three steps:
 
 1. Select tracks created by the reconstruction;
 2. Create pairs of oppositely-charged tracks;
@@ -86,8 +86,8 @@ decay to two muons, $$\mu^{+}\mu^{-}$$. This proceeds via three steps:
 We’ll go over each of these steps, starting with tracks produced by the
 reconstruction. Naturally, there are many of these in any given event,
 typically hundreds, so we begin be applying _selections_ on the tracks based on
-our physics understanding. For example, the $$J/\psi$$ is quite heavy (at
-around $$3.1\,\mathrm{GeV}/c^{2}$$), so we might expect its decay products to have a
+our physics understanding. For example, the `$ J/\psi $` is quite heavy (at
+around `$ 3.1\,\mathrm{GeV}/c^{2} $`), so we might expect its decay products to have a
 higher momentum on average than objects produced from soft processes in the
 collision. The reconstruction gives us some probability-like
 information for a given track to have been created by a true muon, so we might
@@ -97,25 +97,25 @@ With a reduced set of a tracks, we can create all pairs of opposite-sign muons.
 We know that a real particle decay happens at a point in space, so we could
 require that the distance of closest approach between the two muons does not
 exceed some maximum value. We could further require that the invariant mass of
-the dimuon combination is close to the known mass of the $$J/\psi$$, invoking
+the dimuon combination is close to the known mass of the `$ J/\psi $`, invoking
 the conservation of momentum.
 
-With selected dimuon pairs, we can _fit_ a $$J/\psi \to \mu^{+}\mu^{-}$$ decay
+With selected dimuon pairs, we can _fit_ a `$ J/\psi \to \mu^{+}\mu^{-} $` decay
 vertex. This is done by expressing the hypothesis that there is a common origin
 vertex of both tracks as an optimisation problem, and then varying the measured
-$$\mu^{+}$$ and $$\mu^{-}$$ four-momenta within their measured uncertainties to
+`$ \mu^{+} $` and `$ \mu^{-} $` four-momenta within their measured uncertainties to
 best fit that hypothesis. The result is a vertex object which has, for example,
-a fit $$\chi^{2}$$ associated to it. The quality of the fit can be used in a
+a fit `$ \chi^{2} $` associated to it. The quality of the fit can be used in a
 selection.
 
 Finally, with the fitted muon four-vectors, we can form the four-vector of the
-$$J/\psi$$ as their sum, creating the $$J/\psi$$ _candidate_[^2]. Now we get
-back to our original goal of measuring the number of true $$J/\psi \to
-\mu^{+}\mu^{-}$$. By plotting the $$J/\psi$$ invariant mass values as a
+`$ J/\psi $` as their sum, creating the `$ J/\psi $` _candidate_[^2]. Now we get
+back to our original goal of measuring the number of true `$ J/\psi \to
+\mu^{+}\mu^{-} $`. By plotting the `$ J/\psi $` invariant mass values as a
 histogram, we might hope to see a signal component. An example is shown in the
 following plot, created using simulated toy data.
 
-<a href="img/dimuon_mass.png"><img alt="Dimuon invariant mass spectrum" src="img/dimuon_mass.png" style="width: 50%; margin: 0 25%;"/></a>
+![Dimuon invariant mass spectrum](img/dimuon_mass.png)
 
 We could choose to model the components using probability density functions,
 and fit the total model to this histogram. The relative normalisations of the
@@ -124,19 +124,19 @@ decays, within some uncertainty.
 
 ## Building more complex decays
 
-With a set of $$J/\psi$$ candidates, we could build more complex decay chains
-such as $$B_{s}^{0} \to J/\psi\phi(1020)$$.
-The $$J/\psi$$ and the [$$\phi$$ meson][pdgphi] can decay in various ways,
-but we might choose to reconstruct them in the $$\mu^{+}\mu^{-}$$ and
-$$K^{+}K^{-}$$ final states, respectively.
-The $$\phi \to K^{+}K^{-}$$ candidates can then be reconstructed in a similar
-manner to that described previously for the $$J/\psi$$ decay.
-With a set of $$J/\psi$$ and $$\phi$$ candidates, we can then build
-[$$B_{s}^{0}$$ meson][pdgbs] candidates by combining the two decay products in
+With a set of `$ J/\psi $` candidates, we could build more complex decay chains
+such as `$ B_{s}^{0} \to J/\psi\phi(1020) $`.
+The `$ J/\psi $` and the [`$ \phi $` meson][pdgphi] can decay in various ways,
+but we might choose to reconstruct them in the `$ \mu^{+}\mu^{-} $` and
+`$ K^{+}K^{-} $` final states, respectively.
+The `$ \phi \to K^{+}K^{-} $` candidates can then be reconstructed in a similar
+manner to that described previously for the `$ J/\psi $` decay.
+With a set of `$ J/\psi $` and `$ \phi $` candidates, we can then build
+[`$ B_{s}^{0} $` meson][pdgbs] candidates by combining the two decay products in
 another vertex fit. If our selection is clean enough, we may then see a
-$$B_s^{0}$$ signal peak, shown below (again, using toy data).
+`$ B_s^{0} $` signal peak, shown below (again, using toy data).
 
-<a href="img/jpsiphi_mass.png"><img alt="Four-body invariant mass spectrum" src="img/jpsiphi_mass.png" style="width: 50%; margin: 0 25%;"/></a>
+![Four-body invariant mass spectrum](img/jpsiphi_mass.png)
 
 As we’ll see in the following lesson, lots of selections like these are run
 centrally and produce output datasets that contain a mixture of decay chain
@@ -147,9 +147,9 @@ properties that are relevant for your analysis.
 [pdgphi]: http://pdglive.lbl.gov/Particle.action?init=0&node=M004&home=MXXX005
 [pdgbs]: http://pdglive.lbl.gov/Particle.action?init=0&node=S086&home=MXXX046
 [deuterium]: https://en.wikipedia.org/wiki/Deuterium
-[detdesc]: http://iopscience.iop.org/article/10.1088/1748-0221/3/08/S08005
+[detdesc]: https://iopscience.iop.org/article/10.1088/1748-0221/3/08/S08005
 [run1perf]: https://arxiv.org/abs/1412.6352
 
-[^1]: Other ‘stable’ particles under this definition include neutrons $$n$$ and the long-lived neutral kaon weak eigenstate $$K_{\mathrm{L}}^{0}$$, but these are not part of standard reconstruction output.
+[^1]: Other ‘stable’ particles under this definition include neutrons `$ n $` and the long-lived neutral kaon weak eigenstate `$ K_{\mathrm{L}}^{0} $`, but these are not part of standard reconstruction output.
 
 [^2]: ‘Candidate’ because, again, we never know anything with complete certainty; this could be combination of muons that just happen to pass our selection criteria.

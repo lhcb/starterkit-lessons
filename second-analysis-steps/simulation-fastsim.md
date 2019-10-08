@@ -1,5 +1,7 @@
 {% objectives "Learning Objectives" %}
+
 * Learn about existing fast simulation options
+
 {% endobjectives %} 
 
 # Why fast simulation is crucial
@@ -42,5 +44,5 @@ cuts which do not depend on what Pythia did (i.e. Lorentz-invariant quantities s
 to split the generator cuts: One part is applied as usual, triggering a reset of the generation phase if not passed. The other part is applied immediately after
 EvtGen generated the signal decay. If the generated decay fails (e.g. the invariant mass combination of two children is below a threshold), the decay products are
 removed and a new decay is generated until the cuts are passed. This avoids rerunning Pythia unnecessarily and can lead to substantial CPU savings when studying rare
-particles (e.g. $$\Lambda_b$$).
+particles (e.g. `$ \Lambda_b $`).
 For implementation details, see https://twiki.cern.ch/twiki/bin/view/LHCb/GeneratorLevelEvtGenCuts

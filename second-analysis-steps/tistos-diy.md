@@ -1,8 +1,10 @@
 # TisTos DIY
 
 {% objectives "Learning Objectives" %}
+
 * Learn what TisTos is and why it's useful
 * Use an interactive python session to look at TisTos on a local DST
+
 {% endobjectives %}
 
 Once HLT1 or HLT2 has accepted an event, the candidates accepted by all trigger
@@ -10,12 +12,14 @@ lines are saved to the raw event in a stripped-down form. One of the things that
 is saved are all the LHCbIDs of the final state particles of a decay tree.
 
 {% callout "What is an LHCbID?" %}
+
 Every single sub-detector element has an LHCbID which is unique across the
 whole detector.
 Physics objects, such as tracks, can be defined as sets of LHCbID objects.
 When a trigger decision is made, the set of LHCbID objects which comprise the triggering
 object is stored in the SelReports. This allows objects reconstructed later, such as in Brunel,
 to be compared with the objects reconstructed in the trigger.
+
 {% endcallout %}
 
 A new feature in Run 2 is the so-called Turbo stream. Since the reconstruction
@@ -33,7 +37,7 @@ We will now have a look at some of the candidates stored by the HLT. We will use
 as a starting point, and the file
 `root://eoslhcb.cern.ch//eos/lhcb/user/r/raaij/Impactkit/00051318_00000509_1.turbo.mdst`.
 This file contains some 2016 Turbo events from [run
-174252](http://lbrundb.cern.ch/rundb/run/174252/).  Fire up your
+174252](https://lbrundb.cern.ch/rundb/run/174252/).  Fire up your
 favourite editor, open the script and save a copy to work on as
 `hlt_info.py`. There are a few things in the script that we don't need and can
 be removed, such as the `print_decay` method and the decay finder tools.
@@ -94,9 +98,11 @@ report.substructure()[0].substructure()[0].numericalInfo()
 ```
 
 {% challenge "Plot the transverse momentum distribution" %}
+
 Make a plot of the total and transverse moment distributions of all candidates
 accepted by the Hlt1TrackMVA selection. Then add Hlt1TwoTrackMVA and
 consider the difference.
+
 {% endchallenge %}
 
 The LHCbIDs of the (in this case) track can be retrieved using:
@@ -106,12 +112,14 @@ report.substructure()[0].substructure()[0].lhcbIDs()
 ```
 
 {% challenge "Turbo candidates" %}
+
 Now let's have a look at the same information that is stored for a candidate
 created by a Turbo line, for example Hlt2CharmHadDsp2KS0PimPipPip_KS0LLTurbo.
 Adapt the `advance_hlt` with an additional argument that allows specification
 of the location of `DecReports` it uses, then advance to an event that was selected by
 Hlt2CharmHadDsp2KS0PimPipPip_KS0LLTurbo, retrieve its `SelReport` and have a
 look at what's stored.
+
 {% endchallenge %}
 
 
@@ -210,7 +218,7 @@ result = hlt1TisTosTool.tisTosTobTrigger()
 
 The (Tos) trigger efficiency of a trigger selection can be calculated as:
 
-$$\epsilon_{\mathrm{Tos}}=N_{\mathrm{Tis}\&\mathrm{Tos}} / {N_{\mathrm{Tis}}}$$
+`$ \epsilon_{\mathrm{Tos}}=N_{\mathrm{Tis}\&\mathrm{Tos}} / {N_{\mathrm{Tis}}} $`
 
 Loop over the events in the DST and calculate the efficiency of
 Hlt1TrackAllL0. You can add some more Hlt1 selecitons when checking for Tis,

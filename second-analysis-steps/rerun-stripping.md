@@ -1,8 +1,10 @@
 # Run a different stripping line on simulated data
 
 {% objectives "Learning Objectives" %}
+
 * Modify the minimal DecayTreeTuple example to apply a different stripping 
 version to an MC sample
+
 {% endobjectives %} 
 
 Ideally, our simulated samples should feature the same stripping cuts as the real data we want to work with.
@@ -21,11 +23,13 @@ This is nice, because most tools expect to read the stripping decisions from the
 Take a look at the file and try to find out what has changed compared to the [minimal DaVinci example](code/09-minimal-dv/ntuple_options.py).
 
 {% callout "Downloading the file during a Impactkit lesson" %}
+
 Lots of people downloading the same file at the same time can be very slow.
 The file in the minimal DaVinci example can be copied using this command:
 ```bash
 $ xrdcp root://eosuser.cern.ch//eos/user/l/lhcbsk/impactkit/00070793_00000001_7.AllStreams.dst .
 ```
+
 {% endcallout %}
 
 The key changes are

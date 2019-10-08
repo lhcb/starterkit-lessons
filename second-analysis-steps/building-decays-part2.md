@@ -1,9 +1,10 @@
-# Building your own decay
 ## Modern Selection Framework
 
 {% objectives "Learning Objectives" %}
+
 * Build a decay chain with the most optimized tools
 * Learn the advantages of these specialized tools
+
 {% endobjectives %} 
 
 As discussed previously, the Selection Framework can become a bit cumbersome in terms of the naming and construction of the `Selection`-`CombineParticles` repetitions.
@@ -31,15 +32,17 @@ Note how we needed to use the `CombineParticles` from `GaudiConfUtils.Configurab
 This is because the LHCb algorithms are configured as singletons and it is mandatory to give them a name, which we don't want to in `SimpleSelection` (we want to skip steps!).
 
 {% callout "Why `ConfigurableGenerators`?" %}
+
 If we had tried to simply use `CombineParticles` inside our 
 `SimpleSelection`, we would have seen it fail with the following error
 
-```output
+```
 NameError: Could not instantiate Selection because input Configurable CombineParticles has default name. This is too unsafe to be allowed.
 ```
 
 The reason for this is that all LHCb algorithms need an explicit and unique name.
 The solution for our problem, in which we actually don't care about the `CombineParticles` name, is the `GaudiConfUtils.ConfigurableGenerators` package: it contains wrappers around algorithms such as `CombineParticles` or `FilterDesktop` allowing them to be instantiated without an explicit name argument.
+
 {% endcallout %}
 
 In this case, we could also wonder about the need for the `CombineParticles` generator.
@@ -70,10 +73,12 @@ While `SimpleSelection` will allow us to do anything we would do with `Selection
 
 
 {% challenge "Work to do" %}
+
 - Rewrite the previous script to select our signal in terms of 
 `SimpleSelections` and the other algorithms we just learned.
-- Introduce `FilterSelection` by performing the soft pion selection outside the `CombineParticles` as discussed in the *Building shared selections* callout in the [previous lesson](building-decays-part1.html).
+- Introduce `FilterSelection` by performing the soft pion selection outside the `CombineParticles` as discussed in the *Building shared selections* callout in the [previous lesson](building-decays-part1).
 The solution can be found [here](code/building-decays/02.optimized.py).
+
 {% endchallenge %}
 
 To finalize, it is also very useful to know about the existence of certain selection algorithms specialized in filtering according to very commonly used criteria.
@@ -99,6 +104,7 @@ The most interesting are (see the [code](https://gitlab.cern.ch/lhcb/Phys/blob/m
   Additionally, it takes care of `RootInTes` for you.
 
 {% challenge "A small test" %}
+
 Try running the [minimal DaVinci job](../first-analysis-steps/minimal-dv-job.md) with and without the `StrippingSelection`/`DecayTreeTuple` selections, and compare their performance
 
 In this particular case, there is a simple way to achieve a CPU-efficient code with `DecayTreeTuple`, thanks to the use of `DaVinci` pre-event filters;
@@ -108,6 +114,7 @@ In this particular case, there is a simple way to achieve a CPU-efficient code w
 
  DaVinci().EventPreFilters = filter_.filters("FILTERS")
 ```
+
 {% endchallenge %}
 
   - Related to the previous ones, `TisTosSelection` are used to filter according to TIS/TOS.

@@ -1,23 +1,27 @@
-# Building your own decay
 ## A Historical Approach
 
 {% objectives "Learning Objectives" %}
+
 * Build a decay chain using the most basic tools
 * Understand the limitations and problems of these tools
+
 {% endobjectives %} 
 
 {% callout "Lesson caveat" %}
+
 In this lesson we will explain how to work with the most basic building 
 blocks of the Selection Framework.
 This is not the most optimal way to use it, but it is included here because their use is very generalized, for example in the Stripping, and understanding them is very useful for understanding most of our current code.
-At the end of this lesson its shortcomings will be highlighted and a better way to approach the problem will be presented in the [following lesson](building-decays-part2.html).
+At the end of this lesson its shortcomings will be highlighted and a better way to approach the problem will be presented in the [following lesson](building-decays-part2).
+
 {% endcallout %}
 
 Now we'll learn to apply the concepts of the Selection Framework by running through a full example:
-using the DST files from the [Downloading a file from the Grid](../first-analysis-steps/files-from-grid.md) lesson, we will build our own $$D^\ast\rightarrow D^0(\rightarrow K^{-} K^{+}) \pi$$ decay chain from scratch.
+using the DST files from the [Downloading a file from the Grid](../first-analysis-steps/files-from-grid.md) lesson, we will build our own `$ D^\ast\rightarrow D^0(\rightarrow K^{-} K^{+}) \pi $` decay chain from scratch.
 Get your [LoKi skills](../first-analysis-steps/loki-functors.md) ready and let's start.
 
 {% callout "Getting started" %}
+
 There's no need to download the files from the Grid for this lesson.
 We can simply open them using the `root` protocol thanks to the fact that they are replicated at CERN:
 
@@ -28,6 +32,7 @@ IOHelper().inputFiles([('root://eoslhcb.cern.ch//eos/lhcb/grid/prod/lhcb/MC/2016
 ```
 
 The starting code for this exercise can be found [here](code/building-decays/00.start.py).
+
 {% endcallout %}
 
 Our input pions and kaons can be imported from the `StandardParticles` package:
@@ -40,6 +45,7 @@ from StandardParticles import StdAllLooseKaons as Kaons
 This is an ideal way to get pre-made particles with the standard LHCb configuration.
 
 {% callout "Where do `StandardParticles` come from?" %}
+
 One important type of `Selection` is the `AutomaticData`, which builds objects from their TES location using a centrally predefined algorithm.
 The `StandardParticles`/`CommonParticles` packages (one imports the other), which you can find [here](https://gitlab.cern.ch/lhcb/Phys/tree/master/Phys/CommonParticles), allow to access premade particles with reasonable reconstruction/selections for us to use with `AutomaticData`.
 
@@ -50,9 +56,10 @@ from PhysConf.Selections import AutomaticData
 Pions = AutomaticData('Phys/StdAllNoPIDsPions/Particles')
 Kaons = AutomaticData('Phys/StdAllLooseKaons/Particles')
 ```
+
 {% endcallout %}
 
-Once we have the input kaons, we can combine them to build a $$D^0$$ by means of the `CombineParticles` algorithm.
+Once we have the input kaons, we can combine them to build a `$ D^0 $` by means of the `CombineParticles` algorithm.
 This algorithm performs the combinatorics for us according to a given decay descriptor and puts the resulting particle in the TES, allowing also to apply some cuts on them:
 
  - `DaughtersCuts` is a dictionary that maps each child particle type to a LoKi 
@@ -99,8 +106,10 @@ d0 = CombineParticles(
 ```
 
 {% challenge "A small question" %}
+
 - Do you understand this selection?
 - Do you know what each of these LoKi functors does?
+
 {% endchallenge %}
 
 Now we have to build a `Selection` out of it so we can later on put all pieces together:
@@ -118,7 +127,7 @@ We can already see that this two-step process (building the `CombineParticles` a
 This can be simplified using a `SimpleSelection` object, which will be discussed in the next lesson.
 
 For the time being, let's finish building our candidates.
-Now we can use another `CombineParticles` to build the $$D^\ast$$ with pions and the $$D^0$$'s as inputs, and applying a filtering only on the soft pion:
+Now we can use another `CombineParticles` to build the `$ D^\ast $` with pions and the `$ D^0 $`'s as inputs, and applying a filtering only on the soft pion:
 
 ```python
 dstar_daughters = {'pi+': '(TRCHI2DOF < 3) & (PT > 100*MeV)'}
@@ -144,6 +153,7 @@ dstar_sel = Selection(
 ```
 
 {% callout "Building shared selections" %}
+
 In some cases we may want to build several decays in the same script with 
 some common particles/selection;
 for example, in our case we could have been building D0->K pi in the same script, and then we would have wanted to select the soft pion in the same way when building the Dstar.
@@ -173,6 +183,7 @@ dstar_sel = Selection(
 ```
 
 This allows us to save time by performing the filtering of the soft pions only once, and to keep all the common cuts in a single place, avoiding duplication of code.
+
 {% endcallout %}
 
 
@@ -186,6 +197,7 @@ DaVinci().UserAlgorithms += [dstar_seq.sequence()]
 ```
 
 {% challenge "Work to do" %}
+
 - Finish the script by adapting the basic `DaVinci` configuration from its 
 corresponding 
 [lesson](../first-analysis-steps/minimal-dv-job.md) and 
@@ -198,8 +210,9 @@ enough entries). The solution can be found
   was discussed in the [Exploring a 
   DST](../first-analysis-steps/interactive-dst.md) lesson.
 - Compare your selection with what is done in the actual Stripping, which can be found [here](https://gitlab.cern.ch/lhcb/Stripping/blob/master/Phys/StrippingArchive/python/StrippingArchive/Stripping28/StrippingCharm/StrippingD2hh.py). You can appreciate the power of the Selection Framework in the modularity of that Stripping.
+
 {% endchallenge %}
 
 By looking at the final script, there is one striking thing:
 there is a lot of repetition (`CombineParticles`-`Selection` sequence) which leads to complicated naming schemes, due to the fact that we want our `Selection` or `CombineParticle` objects to have a unique name.
-To help with these name clashes and to allow a much more streamlined `Selection` building, the `PhysConf.Selections` module offers a large set of more optimized classes, which we'll discuss in the [next lesson](building-decays-part2.html).
+To help with these name clashes and to allow a much more streamlined `Selection` building, the `PhysConf.Selections` module offers a large set of more optimized classes, which we'll discuss in the [next lesson](building-decays-part2).
