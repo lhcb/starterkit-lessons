@@ -23,7 +23,7 @@ project = 'LHCb Starterkit Lessons'
 copyright = '2015-2019, LHCb Starterkit'
 author = 'LHCb Starterkit'
 
-master_doc = 'README'
+# master_doc = 'README'
 
 # -- General configuration ---------------------------------------------------
 
@@ -44,6 +44,7 @@ templates_path = ['_templates']
 # This pattern also affects html_static_path and html_extra_path.
 exclude_patterns = [
     'first-analysis-steps/code/plots/README.md',
+    'README.md',
 ]
 
 html_theme = 'sphinx_rtd_theme'
