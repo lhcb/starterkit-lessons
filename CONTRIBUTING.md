@@ -30,6 +30,7 @@ To build the lessons locally, install the following:
 
 1. [sphinx](http://www.sphinx-doc.org/en/master/usage/installation.html)
 2. [sphinx-rtd-theme](https://sphinx-rtd-theme.readthedocs.io/en/stable/)
+2. [recommonmark](https://recommonmark.readthedocs.io/en/latest/)
 
 Then build the pages:
 
