@@ -61,6 +61,7 @@ html_context = {
     'github_version': 'master',
     'conf_py_path': '/source/',
 }
+highlight_language = 'none'
 
 html_static_path = [
     '_static',
