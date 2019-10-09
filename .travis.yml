@@ -5,7 +5,9 @@ cache: false
 dist: xenial
 
 install:
-  - pip install starterkit_ci
+  # FIXME: Inline math is broken in upstream recommonmark
+  - pip install git+https://github.com/chrisburr/recommonmark.git@patch-1
+  - pip install starterkit-ci
 
 script:
   - starterkit_ci build
