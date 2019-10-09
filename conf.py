@@ -19,6 +19,10 @@ html_context = {
     'conf_py_path': '/',
 }
 
+html_static_path += [
+    f'_static',
+]
+
 linkcheck_ignore += [
     # FIXME: The URLs have changed
     r'https://research\.cs\.wisc\.edu/htcondor/.*',
