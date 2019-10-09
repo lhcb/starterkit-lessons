@@ -26,7 +26,7 @@ rather than always searching through a DST that contains lots of things we're
 not interested in.
 
 As well as being the application that runs the stripping,
-[DaVinci](https://lhcbdoc.web.cern.ch/lhcbdoc/davinci/)
+[DaVinci](http://lhcbdoc.web.cern.ch/lhcbdoc/davinci/)
 allows you to access events stored in DSTs and copy the information to ROOT
 ntuples.
 You tell DaVinci what you want it to do through _options files_, written in

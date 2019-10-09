@@ -150,9 +150,9 @@ In it we can find:
 
 Additionally, the information on all strippings can be found in the [stripping 
 project 
-website](https://lhcbdoc.web.cern.ch/lhcbdoc/stripping/), 
+website](http://lhcbdoc.web.cern.ch/lhcbdoc/stripping/), 
 where you can see all the algorithms run and cuts applied in each _line_.
 For example, if we wanted to understand the 
 `D2hhPromptDst2D2KKLine` line, which we will use in the 
 [exploring a DST](interactive-dst) lesson later on, we would go 
-[here](https://lhcbdoc.web.cern.ch/lhcbdoc/stripping/config/stripping28/charm/strippingd2hhpromptdst2d2kkline.html).
+[here](http://lhcbdoc.web.cern.ch/lhcbdoc/stripping/config/stripping28/charm/strippingd2hhpromptdst2d2kkline.html).

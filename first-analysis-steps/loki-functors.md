@@ -356,7 +356,7 @@ in_range(1860, CHILD(M, 1), 1870)(cand)
 {% callout "Understanding the cuts in the stripping lines" %}
 
 Have a look at the stripping line 
-[D2hhPromptDst2D2KKLine](https://lhcbdoc.web.cern.ch/lhcbdoc/stripping/config/stripping28/charm/strippingd2hhpromptdst2d2kkline.html) which is used in our example. Open a `CombineParticles/D2hhPromptDst2D2KKLine` section, and explain which requirements are coded in the 'MotherCut', 'DaughterCuts' and 'CombinationCut' sections. 
+[D2hhPromptDst2D2KKLine](http://lhcbdoc.web.cern.ch/lhcbdoc/stripping/config/stripping28/charm/strippingd2hhpromptdst2d2kkline.html) which is used in our example. Open a `CombineParticles/D2hhPromptDst2D2KKLine` section, and explain which requirements are coded in the 'MotherCut', 'DaughterCuts' and 'CombinationCut' sections. 
 (More details about `CombineParticles` algorithm are explained in the [lesson of second analysis steps](/second-analysis-steps/building-decays-part1.md).)
 
 {% endcallout %} 

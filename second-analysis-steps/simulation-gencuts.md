@@ -42,7 +42,7 @@ Cut tools need to be implemented in C++ and reside in the package `Gen/GenCuts`.
 
 ## Removing the generator cuts
 
-The absolute efficiencies for generator cuts can be obtained from the respective [website](https://lhcbdoc.web.cern.ch/lhcbdoc/STATISTICS/SIM09STAT/index.shtml) or the produced `GeneratorLog.xml` file, which contains:
+The absolute efficiencies for generator cuts can be obtained from the respective [website](http://lhcbdoc.web.cern.ch/lhcbdoc/STATISTICS/SIM09STAT/index.shtml) or the produced `GeneratorLog.xml` file, which contains:
 ```xml
 <efficiency name = "generator level cut">
     <after> 5 </after>

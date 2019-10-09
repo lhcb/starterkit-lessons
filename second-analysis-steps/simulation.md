@@ -9,7 +9,7 @@
 
 Gauss is LHCb's simulation framework that interfaces various generators to decay engines and then simulate the response of our detector.
 This lesson will give a basic introduction to Gauss, focussing on the most common use-cases analysts might encounter. Additional information
-and a collection of useful links can be found on the project's website: https://lhcbdoc.web.cern.ch/lhcbdoc/gauss/.
+and a collection of useful links can be found on the project's website: http://lhcbdoc.web.cern.ch/lhcbdoc/gauss/.
 
 {% objectives "Learning Objectives" %}
 

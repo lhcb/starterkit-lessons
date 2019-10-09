@@ -122,8 +122,8 @@ data.
 These lessons use [DaVinci v45r1][v45r1], which was the latest Run 1/2 version at the
 time the text was last revised.
 
-[releases]: https://lhcbdoc.web.cern.ch/lhcbdoc/davinci/releases/
-[v45r1]: https://lhcbdoc.web.cern.ch/lhcbdoc/davinci/releases/v45r1/
+[releases]: http://lhcbdoc.web.cern.ch/lhcbdoc/davinci/releases/
+[v45r1]: http://lhcbdoc.web.cern.ch/lhcbdoc/davinci/releases/v45r1/
 
 **Note:** Older versions of DaVinci may not be available on the default platform ```x86_64-centos7-gcc8-opt```.
 To get around this we can pick the best suitable platform by using ```lb-run -c best DaVinci/vXXrYpZ ...```.

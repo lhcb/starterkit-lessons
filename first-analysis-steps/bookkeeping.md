@@ -117,4 +117,4 @@ to `$ pK^{-}\pi^{+} $`.
 
 If you would like to find out more about how the event types define the 
 signal decay, you can look at the [documentation for the DecFiles 
-package](https://lhcbdoc.web.cern.ch/lhcbdoc/decfiles/).
+package](http://lhcbdoc.web.cern.ch/lhcbdoc/decfiles/).
