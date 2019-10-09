@@ -17,7 +17,12 @@ jobs.
 
 Before creating your first `ganga` job, open the script `ntuple-options.py`, obtained in the [previous lesson](minimal-dv-job), and comment out the lines taking the local input data: we will now use the data stored on grid.
 
-Also, you need to know the path to your data from Bookkeeping. In our case the path is `/MC/2016/Beam6500GeV-2016-MagDown-Nu1.6-25ns-Pythia8/Sim09c/Trig0x6138160F/Reco16/Turbo03/Stripping28r1NoPrescalingFlagged/27163002/ALLSTREAMS.DST`. Note, that here the event type number should be located at the end of the path, which is not the case if you browse the bookkeping by `Event type`.
+Also, you need to know the path to your data from Bookkeeping.
+In our case the path is:
+```
+/MC/2016/Beam6500GeV-2016-MagDown-Nu1.6-25ns-Pythia8/Sim09c/Trig0x6138160F/Reco16/Turbo03/Stripping28r1NoPrescalingFlagged/27163002/ALLSTREAMS.DST
+```
+Note, that here the event type number should be located at the end of the path, which is not the case if you browse the bookkeeping by `Event type`.
 
 Finally, launch your grid proxy typing `lhcb-proxy-init` and enter your *grid certificate* password. 
 
