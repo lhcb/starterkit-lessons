@@ -147,7 +147,7 @@ properties that are relevant for your analysis.
 [pdgphi]: http://pdglive.lbl.gov/Particle.action?init=0&node=M004&home=MXXX005
 [pdgbs]: http://pdglive.lbl.gov/Particle.action?init=0&node=S086&home=MXXX046
 [deuterium]: https://en.wikipedia.org/wiki/Deuterium
-[detdesc]: https://iopscience.iop.org/article/10.1088/1748-0221/3/08/S08005
+[detdesc]: https://doi.org/10.1088/1748-0221/3/08/S08005
 [run1perf]: https://arxiv.org/abs/1412.6352
 
 [^1]: Other ‘stable’ particles under this definition include neutrons `$ n $` and the long-lived neutral kaon weak eigenstate `$ K_{\mathrm{L}}^{0} $`, but these are not part of standard reconstruction output.
