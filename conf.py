@@ -67,13 +67,19 @@ html_static_path = [
 ]
 
 linkcheck_ignore = [
+    # Expect certificate errors
     r'https://lhcb-portal-dirac\.cern\.ch/DIRAC/',
     r'https://lhcb-nightlies\.cern\.ch.*',
+    # 404 if not logged in
     r'https://gitlab\.cern\.ch/.*/merge_requests/new',
+    # Anchors to specific lines are generated with Javascript
     r'https://gitlab\.cern\.ch/lhcb/Stripping/blob/.*',
+    # Seems to be unreliable?
+    r'http://pdg.*\.lbl\.gov/.*',
+    # FIXME: The URLs have changed
     r'https://research\.cs\.wisc\.edu/htcondor/.*',
 ]
-linkcheck_workers = 128
+linkcheck_workers = 32
 
 
 class FixMardownDownloads(SphinxTransform):
