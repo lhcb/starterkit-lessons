@@ -2,6 +2,7 @@
 
 {% objectives "Learning Objectives" %}
 
+
 * Be able to submit multiple jobs at once by adding to the `queue` command
 * Be able to use variables in a submit file to automatically change the behaviour of each job
 * Learn some different options for queuing multiple jobs
@@ -86,9 +87,11 @@ queue 4
 If you first create the folders `output`, `error`, and `log`, and then submit this job, HTCondor will automatically create 4 separate output and error files, and will transfer back 4 separate result files.
 
 {% challenge "Multiple input files" %}
+
  The result files from the above script all contain the same information, since the same input file is being used and the script is deterministic. How could you modify it to allow for the use of multiple input files?
 
 {% solution "Solution" %}
+
 
 If you create multiple input files (e.g. `input/data_0.txt`, `input/data_1.txt`, ...), you can modify the `transfer_input_files` option to read:
 
