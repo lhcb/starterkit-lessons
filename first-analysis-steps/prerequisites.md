@@ -90,7 +90,7 @@ the workshop!
 
 {% callout "Using Bash" %}
 
-The [Bash shell](https://en.wikipedia.org/wiki/Bash_(Unix_shell%29) will be used
+The [Bash shell](http://cern.ch/go/gdJ9) will be used
 throughout the workshop.
 The default for new LHCb computing accounts is now Bash. If you have an older
 account, the default used to be a shell called `tcsh`
