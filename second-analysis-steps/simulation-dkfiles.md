@@ -45,7 +45,7 @@ CDecay MyantiD0
 End  
 ```
 The commented actually contains vital information and is parsed during the compilation to create the `<event-type>.py` file that is given to `Gauss` as one of its options!
-The EventType is a series of flags which controls the generation. The rules for this are described in detail in [LHCb-2005-034](https://cds.cern.ch/record/855452/files/lhcb-2005-034.pdf) and also a [website](https://lbeventtype.web.cern.ch/) that allows you to build/parse event-types.
+The EventType is a series of flags which controls the generation. The rules for this are described in detail in [LHCb-2005-034](https://cds.cern.ch/record/855452/files/lhcb-2005-034.pdf) and also a [website](http://lbeventtype.web.cern.ch/) that allows you to build/parse event-types.
 For example for the first digit: 1 = contains b quark, 2 = c quark, 3 = min bias ...
 
 Similarly, the document specifies the conventions for the "NickName" - which also has to be the filename. Note that once MC has been produced from a given DecFile, it is not allowed to be changed, so you never need to worry about which version of DecFiles you are looking at when trying to understand existing samples.
