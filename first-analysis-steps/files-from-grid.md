@@ -6,8 +6,10 @@
 
 {% endobjectives %} 
 
-In the [previous section](bookkeeping), we obtained a file called 
-`MC_2016_27163002_Beam6500GeV2016MagDownNu1.625nsPythia8_Sim09c_Trig0x6138160F_Reco16_Turbo03_Stripping28r1NoPrescalingFlagged_ALLSTREAMS.DST.py`
+In the [previous section](bookkeeping), we obtained a file called:
+```
+MC_2016_27163002_Beam6500GeV2016MagDownNu1.625nsPythia8_Sim09c_Trig0x6138160F_Reco16_Turbo03_Stripping28r1NoPrescalingFlagged_ALLSTREAMS.DST.py
+```
 which contains the following section:
 
 ```python
