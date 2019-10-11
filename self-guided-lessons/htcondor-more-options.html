@@ -1,1147 +1,542 @@
 
-<!DOCTYPE HTML>
-<html lang="" >
-    <head>
-        <meta charset="UTF-8">
-        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>More submit file options · GitBook</title>
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="description" content="">
-        <meta name="generator" content="GitBook 3.2.3">
-        <meta name="author" content="The Starterkit team and contributors">
-        
-        
-    
-    <link rel="stylesheet" href="../gitbook/style.css">
 
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>More submit file options &mdash; LHCb Starterkit Lessons  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
     
-            
-                
-                <link rel="stylesheet" href="../gitbook/gitbook-plugin-panels/panels.css">
-                
-            
-                
-                <link rel="stylesheet" href="../gitbook/gitbook-plugin-katex-auto-render/katex.min.css">
-                
-            
-                
-                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
-                
-            
-                
-                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
-                
-            
-                
-                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
-                
-            
-        
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="../_static/panels.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
 
     
 
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/panels.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/starterkit.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Using the queue command" href="htcondor-queue.html" />
+    <link rel="prev" title="Submitting a simple job" href="htcondor-first-job.html" /> 
+</head>
 
-        
-    
-    
-    <meta name="HandheldFriendly" content="true"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
-    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+<body class="wy-body-for-nav">
 
+   
+  <div class="wy-grid-for-nav">
     
-    <link rel="next" href="htcondor-queue.html" />
-    
-    
-    <link rel="prev" href="htcondor-first-job.html" />
-    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
 
-    </head>
-    <body>
-        
-<div class="book">
-    <div class="book-summary">
-        
+          
+            <a href="../index.html" class="icon icon-home"> LHCb Starterkit Lessons
+          
+
+          
+          </a>
+
+          
             
-<div id="book-search-input" role="search">
-    <input type="text" placeholder="Type to search" />
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
 </div>
 
-            
-                <nav role="navigation">
-                
-
-
-<ul class="summary">
-    
-    
-
-    
-
-    
-        
-        
-    
-        <li class="chapter " data-level="1.1" data-path="../">
-            
-                <a href="../">
-            
-                    
-                    The LHCb Starterkit
-            
-                </a>
-            
-
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="1.1.1" data-path="../CONTRIBUTING.html">
-            
-                <a href="../CONTRIBUTING.html">
-            
-                    
-                    Contributing
-            
-                </a>
-            
-
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-
-    
-        
-        <li class="divider"></li>
-        
-        
-    
-        <li class="chapter " data-level="2.1" data-path="../first-analysis-steps/">
-            
-                <a href="../first-analysis-steps/">
-            
-                    
-                    First analysis steps
-            
-                </a>
-            
-
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="2.1.1" data-path="../first-analysis-steps/prerequisites.html">
-            
-                <a href="../first-analysis-steps/prerequisites.html">
-            
-                    
-                    Pre-workshop checklist
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="2.1.2" data-path="../first-analysis-steps/introduction-to-course.html">
-            
-                <a href="../first-analysis-steps/introduction-to-course.html">
-            
-                    
-                    Goals of the course
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="2.1.3" data-path="../first-analysis-steps/physics-at-lhcb.html">
-            
-                <a href="../first-analysis-steps/physics-at-lhcb.html">
-            
-                    
-                    Physics at LHCb
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="2.1.4" data-path="../first-analysis-steps/dataflow.html">
-            
-                <a href="../first-analysis-steps/dataflow.html">
-            
-                    
-                    The LHCb data flow
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="2.1.5" data-path="../first-analysis-steps/run-2-data-flow.html">
-            
-                <a href="../first-analysis-steps/run-2-data-flow.html">
-            
-                    
-                    Changes to the data flow in Run 2
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="2.1.6" data-path="../first-analysis-steps/davinci.html">
-            
-                <a href="../first-analysis-steps/davinci.html">
-            
-                    
-                    An introduction to LHCb Software
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="2.1.7" data-path="../first-analysis-steps/bookkeeping.html">
-            
-                <a href="../first-analysis-steps/bookkeeping.html">
-            
-                    
-                    Finding data in the Bookkeeping
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="2.1.8" data-path="../first-analysis-steps/files-from-grid.html">
-            
-                <a href="../first-analysis-steps/files-from-grid.html">
-            
-                    
-                    Downloading a file from the grid
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="2.1.9" data-path="../first-analysis-steps/interactive-dst.html">
-            
-                <a href="../first-analysis-steps/interactive-dst.html">
-            
-                    
-                    Interactively exploring a DST
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="2.1.10" data-path="../first-analysis-steps/minimal-dv-job.html">
-            
-                <a href="../first-analysis-steps/minimal-dv-job.html">
-            
-                    
-                    Running a minimal DaVinci job locally
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="2.1.11" data-path="../first-analysis-steps/loki-functors.html">
-            
-                <a href="../first-analysis-steps/loki-functors.html">
-            
-                    
-                    Fun with LoKi Functors
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="2.1.12" data-path="../first-analysis-steps/add-tupletools.html">
-            
-                <a href="../first-analysis-steps/add-tupletools.html">
-            
-                    
-                    TupleTools and branches
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="2.1.13" data-path="../first-analysis-steps/decay-tree-fitter.html">
-            
-                <a href="../first-analysis-steps/decay-tree-fitter.html">
-            
-                    
-                    How do I use DecayTreeFitter?
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="2.1.14" data-path="../first-analysis-steps/davinci-grid.html">
-            
-                <a href="../first-analysis-steps/davinci-grid.html">
-            
-                    
-                    Running DaVinci on the grid
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="2.1.15" data-path="../first-analysis-steps/split-jobs.html">
-            
-                <a href="../first-analysis-steps/split-jobs.html">
-            
-                    
-                    Splitting a job into subjobs
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="2.1.16" data-path="../first-analysis-steps/ganga-data.html">
-            
-                <a href="../first-analysis-steps/ganga-data.html">
-            
-                    
-                    More Ganga
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="2.1.17" data-path="../first-analysis-steps/eos-storage.html">
-            
-                <a href="../first-analysis-steps/eos-storage.html">
-            
-                    
-                    Storing large files on EOS
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="2.1.18" data-path="../first-analysis-steps/lhcb-dev.html">
-            
-                <a href="../first-analysis-steps/lhcb-dev.html">
-            
-                    
-                    Developing LHCb Software
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="2.1.19" data-path="../first-analysis-steps/asking-questions.html">
-            
-                <a href="../first-analysis-steps/asking-questions.html">
-            
-                    
-                    Asking good questions
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="2.1.20" data-path="../first-analysis-steps/ecgd.html">
-            
-                <a href="../first-analysis-steps/ecgd.html">
-            
-                    
-                    Early career, gender and diversity
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="2.1.21" data-path="../first-analysis-steps/contributing-lesson.html">
-            
-                <a href="../first-analysis-steps/contributing-lesson.html">
-            
-                    
-                    Contribute to this lesson
-            
-                </a>
-            
-
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-
-    
-        
-        <li class="divider"></li>
-        
-        
-    
-        <li class="chapter " data-level="3.1" data-path="../second-analysis-steps/">
-            
-                <a href="../second-analysis-steps/">
-            
-                    
-                    Second analysis steps
-            
-                </a>
-            
-
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="3.1.1" data-path="../second-analysis-steps/lb-git.html">
-            
-                <a href="../second-analysis-steps/lb-git.html">
-            
-                    
-                    Using git to develop LHCb software
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="3.1.2" data-path="../second-analysis-steps/building-decays.html">
-            
-                <a href="../second-analysis-steps/building-decays.html">
-            
-                    
-                    Building your own decay
-            
-                </a>
-            
-
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="3.1.2.1" data-path="../second-analysis-steps/building-decays-part0.html">
-            
-                <a href="../second-analysis-steps/building-decays-part0.html">
-            
-                    
-                    The Selection Framework
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="3.1.2.2" data-path="../second-analysis-steps/building-decays-part1.html">
-            
-                <a href="../second-analysis-steps/building-decays-part1.html">
-            
-                    
-                    A Historical Approach
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="3.1.2.3" data-path="../second-analysis-steps/building-decays-part2.html">
-            
-                <a href="../second-analysis-steps/building-decays-part2.html">
-            
-                    
-                    Modern Selection Framework
-            
-                </a>
-            
-
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-        <li class="chapter " data-level="3.1.3" data-path="../second-analysis-steps/fixing-errors.html">
-            
-                <a href="../second-analysis-steps/fixing-errors.html">
-            
-                    
-                    What to do when something fails
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="3.1.4" data-path="../second-analysis-steps/rerun-stripping.html">
-            
-                <a href="../second-analysis-steps/rerun-stripping.html">
-            
-                    
-                    Run a different stripping line on simulated data
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="3.1.5" data-path="../second-analysis-steps/switch-mass-hypo.html">
-            
-                <a href="../second-analysis-steps/switch-mass-hypo.html">
-            
-                    
-                    Replace a mass hypothesis
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="3.1.6" data-path="../second-analysis-steps/filter-in-trees.html">
-            
-                <a href="../second-analysis-steps/filter-in-trees.html">
-            
-                    
-                    Reuse particles from a decay tree
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="3.1.7" data-path="../second-analysis-steps/simulation.html">
-            
-                <a href="../second-analysis-steps/simulation.html">
-            
-                    
-                    The simulation framework
-            
-                </a>
-            
-
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="3.1.7.1" data-path="../second-analysis-steps/simulation-intro.html">
-            
-                <a href="../second-analysis-steps/simulation-intro.html">
-            
-                    
-                    Introduction: The basics of Gauss
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="3.1.7.2" data-path="../second-analysis-steps/simulation-running-gauss.html">
-            
-                <a href="../second-analysis-steps/simulation-running-gauss.html">
-            
-                    
-                    Getting the correct option files
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="3.1.7.3" data-path="../second-analysis-steps/simulation-dkfiles.html">
-            
-                <a href="../second-analysis-steps/simulation-dkfiles.html">
-            
-                    
-                    Controlling the decay
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="3.1.7.4" data-path="../second-analysis-steps/simulation-gencuts.html">
-            
-                <a href="../second-analysis-steps/simulation-gencuts.html">
-            
-                    
-                    Modifying the decay
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="3.1.7.5" data-path="../second-analysis-steps/simulation-advanced-dkfiles.html">
-            
-                <a href="../second-analysis-steps/simulation-advanced-dkfiles.html">
-            
-                    
-                    Advanced: Modifying the decay
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="3.1.7.6" data-path="../second-analysis-steps/simulation-fastsim.html">
-            
-                <a href="../second-analysis-steps/simulation-fastsim.html">
-            
-                    
-                    Fast simulation options
-            
-                </a>
-            
-
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-        <li class="chapter " data-level="3.1.8" data-path="../second-analysis-steps/hlt-intro.html">
-            
-                <a href="../second-analysis-steps/hlt-intro.html">
-            
-                    
-                    HLT intro
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="3.1.9" data-path="../second-analysis-steps/tistos-diy.html">
-            
-                <a href="../second-analysis-steps/tistos-diy.html">
-            
-                    
-                    TisTos DIY
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="3.1.10" data-path="../second-analysis-steps/ganga-scripting.html">
-            
-                <a href="../second-analysis-steps/ganga-scripting.html">
-            
-                    
-                    Ganga Scripting
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="3.1.11" data-path="../second-analysis-steps/managing-files-with-ganga.html">
-            
-                <a href="../second-analysis-steps/managing-files-with-ganga.html">
-            
-                    
-                    Managing files in Ganga
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="3.1.12" data-path="../second-analysis-steps/analysis-automation-snakemake.html">
-            
-                <a href="../second-analysis-steps/analysis-automation-snakemake.html">
-            
-                    
-                    Analysis automation: snakemake
-            
-                </a>
-            
-
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-
-    
-        
-        <li class="divider"></li>
-        
-        
-    
-        <li class="chapter " data-level="4.1" data-path="./">
-            
-                <a href="./">
-            
-                    
-                    Self guided lessons
-            
-                </a>
-            
-
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="4.1.1" data-path="htcondor.html">
-            
-                <a href="htcondor.html">
-            
-                    
-                    Batch submission with HTCondor
-            
-                </a>
-            
-
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="4.1.1.1" data-path="htcondor-first-job.html">
-            
-                <a href="htcondor-first-job.html">
-            
-                    
-                    Creating your first job
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter active" data-level="4.1.1.2" data-path="htcondor-more-options.html">
-            
-                <a href="htcondor-more-options.html">
-            
-                    
-                    More submit file options
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="4.1.1.3" data-path="htcondor-queue.html">
-            
-                <a href="htcondor-queue.html">
-            
-                    
-                    The queue command
-            
-                </a>
-            
-
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-
-    
-        
-        <li class="divider"></li>
-        
-        
-    
-        <li class="chapter " data-level="5.1" data-path="../using-the-grid/">
-            
-                <a href="../using-the-grid/">
-            
-                    
-                    Using the grid
-            
-                </a>
-            
-
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="5.1.1" data-path="../using-the-grid/local-grid-proxy.html">
-            
-                <a href="../using-the-grid/local-grid-proxy.html">
-            
-                    
-                    Grid proxies without LbScripts
-            
-                </a>
-            
-
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-
-    
-        
-        <li class="divider"></li>
-        
-        
-    
-        <li class="chapter " data-level="6.1" >
-            
-                <a target="_blank" href="ref://starterkit-lessons.pdf">
-            
-                    
-                    Download PDF
-            
-                </a>
-            
-
-            
-        </li>
-    
-
-    
-
-    <li class="divider"></li>
-
-    <li>
-        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
-            Published with GitBook
-        </a>
-    </li>
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../first-analysis-steps/README.html">First Analysis Steps</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../first-analysis-steps/prerequisites.html">Pre-workshop checklist</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../first-analysis-steps/introduction-to-course.html">Goals of the course</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../first-analysis-steps/physics-at-lhcb.html">Physics at LHCb</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../first-analysis-steps/physics-at-lhcb.html#the-reconstruction">The reconstruction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../first-analysis-steps/physics-at-lhcb.html#building-decay-candidates">Building decay candidates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../first-analysis-steps/physics-at-lhcb.html#building-more-complex-decays">Building more complex decays</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../first-analysis-steps/dataflow.html">The LHCb data flow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../first-analysis-steps/run-2-data-flow.html">Changes to the data flow in Run 2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../first-analysis-steps/davinci.html">An introduction to LHCb Software</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../first-analysis-steps/bookkeeping.html">Finding data in the Bookkeeping</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../first-analysis-steps/files-from-grid.html">Downloading a file from the grid</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../first-analysis-steps/interactive-dst.html">Interactively exploring a DST</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../first-analysis-steps/minimal-dv-job.html">Running a minimal DaVinci job locally</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../first-analysis-steps/loki-functors.html">Fun with LoKi Functors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../first-analysis-steps/add-tupletools.html">TupleTools and branches</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../first-analysis-steps/decay-tree-fitter.html">How do I use DecayTreeFitter?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../first-analysis-steps/davinci-grid.html">Running DaVinci on the grid</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../first-analysis-steps/split-jobs.html">Splitting a job into subjobs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../first-analysis-steps/ganga-data.html">More Ganga</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../first-analysis-steps/eos-storage.html">Storing large files on EOS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../first-analysis-steps/lhcb-dev.html">Developing LHCb Software</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../first-analysis-steps/asking-questions.html">Asking good questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../first-analysis-steps/ecgd.html">Early career, gender and diversity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../first-analysis-steps/contributing-lesson.html">Contribute to this lesson</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../second-analysis-steps/README.html">Second Analysis Steps</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../second-analysis-steps/lb-git.html">Using git to develop LHCb software</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../second-analysis-steps/building-decays.html">Building your own decay</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../second-analysis-steps/building-decays-part0.html">The Selection Framework</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../second-analysis-steps/building-decays-part1.html">A Historical Approach</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../second-analysis-steps/building-decays-part2.html">Modern Selection Framework</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../second-analysis-steps/fixing-errors.html">What to do when something fails</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../second-analysis-steps/rerun-stripping.html">Run a different stripping line on simulated data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../second-analysis-steps/switch-mass-hypo.html">Replace a mass hypothesis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../second-analysis-steps/filter-in-trees.html">Reuse particles from a decay tree</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../second-analysis-steps/simulation.html">The simulation framework</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../second-analysis-steps/simulation-intro.html">What is Gauss?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../second-analysis-steps/simulation-running-gauss.html">Which option files to use and how to run Gauss</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../second-analysis-steps/simulation-running-gauss.html#running-gauss-and-create-a-generator-only-sample">Running Gauss and create a generator-only sample</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../second-analysis-steps/simulation-running-gauss.html#make-an-ntuple">Make an nTuple</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../second-analysis-steps/simulation-dkfiles.html">Controlling the decay: DecFiles</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../second-analysis-steps/simulation-gencuts.html">Modifying the decay</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../second-analysis-steps/simulation-gencuts.html#adding-a-decay-channel">Adding a decay channel</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../second-analysis-steps/simulation-gencuts.html#generator-level-cuts">Generator level cuts</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../second-analysis-steps/simulation-gencuts.html#removing-the-generator-cuts">Removing the generator cuts</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../second-analysis-steps/simulation-gencuts.html#modifying-the-cut-tool">Modifying the cut tool</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../second-analysis-steps/simulation-advanced-dkfiles.html">Advanced: Modifying the decay</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../second-analysis-steps/simulation-advanced-dkfiles.html#multi-body-decays">3+ multi-body decays</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../second-analysis-steps/simulation-advanced-dkfiles.html#cocktail-decays">Cocktail decays</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../second-analysis-steps/simulation-advanced-dkfiles.html#final-state-radiation">Final state radiation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../second-analysis-steps/simulation-advanced-dkfiles.html#changing-particle-masses-lifetimes-widths">Changing particle masses / lifetimes/ widths</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../second-analysis-steps/simulation-fastsim.html">Why fast simulation is crucial</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../second-analysis-steps/simulation-fastsim.html#speeding-up-the-detector-simulation">Speeding up the detector simulation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../second-analysis-steps/simulation-fastsim.html#speeding-up-the-generation">Speeding up the generation</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../second-analysis-steps/hlt-intro.html">HLT intro</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../second-analysis-steps/hlt-intro.html#add-trigger-information-to-your-ntuple">Add trigger information to your ntuple</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../second-analysis-steps/hlt-intro.html#exploring-a-tck-list-of-trigger-lines">Exploring a TCK: List of trigger lines</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../second-analysis-steps/hlt-intro.html#add-trigger-information-to-your-ntuple-continued">Add trigger information to your ntuple, continued</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../second-analysis-steps/hlt-intro.html#add-tistos-information-to-your-ntuple">Add TISTOS information to your ntuple</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../second-analysis-steps/hlt-intro.html#exploring-a-tck-properties-of-trigger-lines">Exploring a TCK: Properties of trigger lines</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../second-analysis-steps/tistos-diy.html">TisTos DIY</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../second-analysis-steps/ganga-scripting.html">Scripting Ganga</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../second-analysis-steps/ganga-scripting.html#defining-jobs-with-scripts">Defining jobs with scripts</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../second-analysis-steps/ganga-scripting.html#adding-helpers-functions">Adding helpers functions</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../second-analysis-steps/managing-files-with-ganga.html">Managing files in Ganga</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../second-analysis-steps/analysis-automation-snakemake.html">Analysis automation with snakemake</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../second-analysis-steps/analysis-automation-snakemake.html#motivation">Motivation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../second-analysis-steps/analysis-automation-snakemake.html#documentation-and-installation">Documentation and installation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../second-analysis-steps/analysis-automation-snakemake.html#tutorial">Tutorial</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../second-analysis-steps/analysis-automation-snakemake.html#usage-and-basic-behaviour">Usage and basic behaviour</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../second-analysis-steps/analysis-automation-snakemake.html#sub-labels">Sub-labels</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../second-analysis-steps/analysis-automation-snakemake.html#run-and-shell">Run and shell</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../second-analysis-steps/analysis-automation-snakemake.html#config-files">Config files</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../second-analysis-steps/analysis-automation-snakemake.html#includes">Includes</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="reference internal" href="README.html">Self guided lessons</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="htcondor.html">Batch submission using HTCondor</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="htcondor-first-job.html">Submitting a simple job</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="htcondor-first-job.html#tracking-your-jobs">Tracking your jobs</a></li>
+</ul>
+</li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">More submit file options</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#input-files">Input files</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#output-files">Output files</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#arguments">Arguments</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#resources-and-requirements">Resources and Requirements</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#notifications">Notifications</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="htcondor-queue.html">Using the queue command</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="htcondor-queue.html#more-on-variables">More on variables</a></li>
+<li class="toctree-l4"><a class="reference internal" href="htcondor-queue.html#other-ways-to-queue">Other ways to queue</a></li>
+<li class="toctree-l4"><a class="reference internal" href="htcondor-queue.html#mixing-options-and-variables">Mixing options and variables</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="htcondor.html#system-architecture">System architecture</a></li>
+<li class="toctree-l3"><a class="reference internal" href="htcondor.html#other-useful-resources">Other useful resources</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="local-grid-proxy.html">Creating a grid proxy without LbScripts</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="local-grid-proxy.html#installation">Installation</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="local-grid-proxy.html#macos-with-homebrew">macOS with homebrew</a></li>
+<li class="toctree-l4"><a class="reference internal" href="local-grid-proxy.html#ubuntu">Ubuntu</a></li>
+<li class="toctree-l4"><a class="reference internal" href="local-grid-proxy.html#centos">CentOS</a></li>
+<li class="toctree-l4"><a class="reference internal" href="local-grid-proxy.html#arch-linux">Arch Linux</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="local-grid-proxy.html#getting-the-required-files-and-certificates">Getting the required files and certificates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="local-grid-proxy.html#creating-a-proxy">Creating a proxy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="local-grid-proxy.html#managing-the-proxy">Managing the proxy</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../CONTRIBUTING.html">Contributing</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../CONTRIBUTING.html#getting-started">Getting Started</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../CONTRIBUTING.html#dependencies">Dependencies</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../CONDUCT.html">Contributor Code of Conduct</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../LICENSE.html">Instructional Material</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../LICENSE.html#software">Software</a></li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 
-
-                </nav>
             
-        
-    </div>
+          
+        </div>
+      </div>
+    </nav>
 
-    <div class="book-body">
-        
-            <div class="body-inner">
-                
-                    
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
 
-<div class="book-header" role="navigation">
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">LHCb Starterkit Lessons</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
     
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="README.html">Self guided lessons</a> &raquo;</li>
+        
+          <li><a href="htcondor.html">Batch submission using HTCondor</a> &raquo;</li>
+        
+      <li>More submit file options</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            
+              <a href="https://github.com/lhcb/starterkit-lessons/blob/master/self-guided-lessons/htcondor-more-options.md" class="fa fa-github"> Edit on GitHub</a>
+            
+          
+        
+      </li>
+    
+  </ul>
 
-    <!-- Title -->
-    <h1>
-        <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >More submit file options</a>
-    </h1>
+  
+  <hr/>
 </div>
-
-
-
-
-                    <div class="page-wrapper" tabindex="-1" role="main">
-                        <div class="page-inner">
-                            
-<div id="book-search-results">
-    <div class="search-noresults">
-    
-                                <section class="normal markdown-section">
-                                
-                                <h1 id="more-submit-file-options">More submit file options</h1>
-<p><div class="panel panel-warning"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(2801816705);" id="learning-objectives"><i class="fa fa-line-chart"></i> Learning Objectives<span id="heading-2801816705"></span></h3></div><div class="panel-body" id="panel-2801816705"><ul>
-<li>Learn some more options you can specify for your jobs</li>
-<li>Be able to submit jobs with input/output files and arguments</li>
-<li>Be able to debug some common errors</li>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="more-submit-file-options">
+<h1>More submit file options<a class="headerlink" href="#more-submit-file-options" title="Permalink to this headline">¶</a></h1>
+<div class="panel panel-objectives docutils container">
+<div class="panel-header open docutils container">
+<p id="learning-objectives"><i class="fa fa-line-chart"></i> Learning Objectives</p>
+</div>
+<div class="panel-body docutils container">
+<ul class="simple">
+<li><p>Learn some more options you can specify for your jobs</p></li>
+<li><p>Be able to submit jobs with input/output files and arguments</p></li>
+<li><p>Be able to debug some common errors</p></li>
 </ul>
-</div></div> </p>
-<p>The options showcased in submit file used in the previous section are enough for certain simpler jobs, but for many purposes you will want to do more. This section of the lesson will cover a selection of some of the more common and/or useful ones, and the settings you&apos;ll likely want to use for your own jobs. For more information, a complete list can be found <a href="https://research.cs.wisc.edu/htcondor/manual/v7.6/condor_submit.html" target="_blank">in the documentation</a> for <code>condor_submit</code>.</p>
-<h3 id="input-files">Input files</h3>
-<p>Often, you&apos;ll want your job to process data that&apos;s stored in another file. Create a file <code>input.txt</code> and add some lines of text to it. To test this, you can use the following bash script, placed in <code>exec.sh</code>:</p>
-<pre><code>#!/bin/bash
-echo &quot;# Contents of file &apos;input.txt&apos;: #&quot;
+</div>
+</div>
+<p>The options showcased in submit file used in the previous section are enough for certain simpler jobs, but for many purposes you will want to do more. This section of the lesson will cover a selection of some of the more common and/or useful ones, and the settings you’ll likely want to use for your own jobs. For more information, a complete list can be found <a class="reference external" href="https://research.cs.wisc.edu/htcondor/manual/v7.6/condor_submit.html">in the documentation</a> for <code class="docutils literal notranslate"><span class="pre">condor_submit</span></code>.</p>
+<div class="section" id="input-files">
+<h2>Input files<a class="headerlink" href="#input-files" title="Permalink to this headline">¶</a></h2>
+<p>Often, you’ll want your job to process data that’s stored in another file. Create a file <code class="docutils literal notranslate"><span class="pre">input.txt</span></code> and add some lines of text to it. To test this, you can use the following bash script, placed in <code class="docutils literal notranslate"><span class="pre">exec.sh</span></code>:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>#!/bin/bash
+echo &quot;# Contents of file &#39;input.txt&#39;: #&quot;
 cat input.txt
-</code></pre><p>Remember to make the script exectable, and to test it locally first. Then, go into your submit file. Here, you&apos;ll want to make sure that the <code>executable</code> option is set to run <code>exec.sh</code>, and also to add the following line to the body of your submit file (on a new line somewhere above the <code>queue</code> command):</p>
-<pre><code>transfer_input_files = input.txt
-</code></pre><p>Once you&apos;ve done this, you can submit your job. Behind the scenes, HTCondor has a remote temporary storage area where it runs your executable. The <code>transfer_input_files</code> option tells it to copy additional files to this storage area, so that the executable can access them.</p>
-<p><div class="panel panel-primary"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(6024216868);" id="transferring-files-from-other-directories"><i class="fa fa-info-circle"></i> Transferring files from other directories<span id="heading-6024216868"></span></h3></div><div class="panel-body" id="panel-6024216868"><p> No matter where HTCondor copies a file from, by default it will place it in the same directory as the executable when it&apos;s running it. This means that if your file was stored in the directory <code>data/input.txt</code> instead, you would need to modify the path in the submit file to <code>transfer_input_files = data/input.txt</code>, but the executable above would not need to change.</p>
-<p>You can access the remote area where your job is running using the command <code>condor_ssh_to_job -auto-retry &lt;ClusterId&gt;.&lt;ProcID&gt;</code>. Here, the cluster ID is the number it assigned to your job(s) upon submission (in the example from the previous section, this was 2875625), and the process ID is the number of the job within that cluster (for now, there is only one job, so this is just 0 - more on multiple jobs in the next section). From here, you can view the file structure. The executable is here, although it now has the name <code>condor_exec.exe</code>. Also, there are files <code>_condor_stdout</code> and <code>_condor_stderr</code> which contain the output to be transferred back to your output &amp; error files later. The file <code>input.txt</code> can be found in this directory as well, regardless of where it was located in relation to your submit file. When you&apos;re finished, you can type <code>logout</code> to exit the ssh connection.</p>
-</div></div></p>
-<p>You can use this to submit scripts in other formats, such as python scripts or C++ code. You will usually want to write a wrapper shell script to be your executable, and then to transfer the code you want to run as an input file. For example, let&apos;s create a python script <code>process_file.py</code>:</p>
-<pre><code>f = open(&apos;input.txt&apos;, &apos;r&apos;)
-print(&apos;# Contents of file \&apos;input.txt\&apos; using python: #&apos;)
+</pre></div>
+</div>
+<p>Remember to make the script exectable, and to test it locally first. Then, go into your submit file. Here, you’ll want to make sure that the <code class="docutils literal notranslate"><span class="pre">executable</span></code> option is set to run <code class="docutils literal notranslate"><span class="pre">exec.sh</span></code>, and also to add the following line to the body of your submit file (on a new line somewhere above the <code class="docutils literal notranslate"><span class="pre">queue</span></code> command):</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>transfer_input_files = input.txt
+</pre></div>
+</div>
+<p>Once you’ve done this, you can submit your job. Behind the scenes, HTCondor has a remote temporary storage area where it runs your executable. The <code class="docutils literal notranslate"><span class="pre">transfer_input_files</span></code> option tells it to copy additional files to this storage area, so that the executable can access them.</p>
+<div class="panel panel-callout docutils container">
+<div class="panel-header open docutils container">
+<p id="transferring-files-from-other-directories"><i class="fa fa-info-circle"></i> Transferring files from other directories</p>
+</div>
+<div class="panel-body docutils container">
+<p>No matter where HTCondor copies a file from, by default it will place it in the same directory as the executable when it’s running it. This means that if your file was stored in the directory <code class="docutils literal notranslate"><span class="pre">data/input.txt</span></code> instead, you would need to modify the path in the submit file to <code class="docutils literal notranslate"><span class="pre">transfer_input_files</span> <span class="pre">=</span> <span class="pre">data/input.txt</span></code>, but the executable above would not need to change.</p>
+<p>You can access the remote area where your job is running using the command <code class="docutils literal notranslate"><span class="pre">condor_ssh_to_job</span> <span class="pre">-auto-retry</span> <span class="pre">&lt;ClusterId&gt;.&lt;ProcID&gt;</span></code>. Here, the cluster ID is the number it assigned to your job(s) upon submission (in the example from the previous section, this was 2875625), and the process ID is the number of the job within that cluster (for now, there is only one job, so this is just 0 - more on multiple jobs in the next section). From here, you can view the file structure. The executable is here, although it now has the name <code class="docutils literal notranslate"><span class="pre">condor_exec.exe</span></code>. Also, there are files <code class="docutils literal notranslate"><span class="pre">_condor_stdout</span></code> and <code class="docutils literal notranslate"><span class="pre">_condor_stderr</span></code> which contain the output to be transferred back to your output &amp; error files later. The file <code class="docutils literal notranslate"><span class="pre">input.txt</span></code> can be found in this directory as well, regardless of where it was located in relation to your submit file. When you’re finished, you can type <code class="docutils literal notranslate"><span class="pre">logout</span></code> to exit the ssh connection.</p>
+</div>
+</div>
+<p>You can use this to submit scripts in other formats, such as python scripts or C++ code. You will usually want to write a wrapper shell script to be your executable, and then to transfer the code you want to run as an input file. For example, let’s create a python script <code class="docutils literal notranslate"><span class="pre">process_file.py</span></code>:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>f = open(&#39;input.txt&#39;, &#39;r&#39;)
+print(&#39;# Contents of file \&#39;input.txt\&#39; using python: #&#39;)
 print(f.read())
-</code></pre><p>You&apos;ll also need to add this script to the list of input files, so change the relevant line in your submit file to:</p>
-<pre><code>transfer_input_files = process_file.py, input.txt
-</code></pre><p>Finally, let&apos;s modify the executable script, <code>exec.sh</code>, so that it will run this python script. Change it so that it reads:</p>
-<pre><code>#!/bin/bash
+</pre></div>
+</div>
+<p>You’ll also need to add this script to the list of input files, so change the relevant line in your submit file to:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>transfer_input_files = process_file.py, input.txt
+</pre></div>
+</div>
+<p>Finally, let’s modify the executable script, <code class="docutils literal notranslate"><span class="pre">exec.sh</span></code>, so that it will run this python script. Change it so that it reads:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>#!/bin/bash
 python process_file.py
-</code></pre><p>Now you can submit the job, and check that this works as expected.</p>
-<p><div class="panel panel-primary"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(3777231859);" id="wrapper-shell-scripts"><i class="fa fa-info-circle"></i> Wrapper shell scripts<span id="heading-3777231859"></span></h3></div><div class="panel-body" id="panel-3777231859"><p> It may seem unnecessarily convoluted to use a shell script that sits in-between the submit file and the python script here, especially when it seems to only pass arguments straight to the python script. However, this step is good practice for good reasons. Most notably, for certain other jobs, you may need to use the shell script to set up the job environment correctly (for example, sourcing the correct software version from CVMFS).</p>
-</div></div></p>
-<h3 id="output-files">Output files</h3>
-<p>HTCondor uses the name &apos;output file&apos; to refer to different things in different contexts, so it&apos;s important to make it clear which is meant. One of these is the one that&apos;s been used so far, which refers to the one specified in the submit file (using the <code>output</code> option) which contains the STDOUT (terminal output) of your executable. The other use is for any new files that your executable may create as it runs. This part will cover the second of these.</p>
-<p>Let&apos;s modify our python script so that, instead of displaying the file contents in the terminal, it puts all the text into upper-case and saves it to a new file. This new script will look something like:</p>
-<pre><code>f_in = open(&apos;input.txt&apos;, &apos;r&apos;)
-f_out = open(&apos;result.txt&apos;, &apos;w+&apos;)
-print(&apos;Converting input file to upper-case...&apos;)
+</pre></div>
+</div>
+<p>Now you can submit the job, and check that this works as expected.</p>
+<div class="panel panel-callout docutils container">
+<div class="panel-header open docutils container">
+<p id="wrapper-shell-scripts"><i class="fa fa-info-circle"></i> Wrapper shell scripts</p>
+</div>
+<div class="panel-body docutils container">
+<p>It may seem unnecessarily convoluted to use a shell script that sits in-between the submit file and the python script here, especially when it seems to only pass arguments straight to the python script. However, this step is good practice for good reasons. Most notably, for certain other jobs, you may need to use the shell script to set up the job environment correctly (for example, sourcing the correct software version from CVMFS).</p>
+</div>
+</div>
+</div>
+<div class="section" id="output-files">
+<h2>Output files<a class="headerlink" href="#output-files" title="Permalink to this headline">¶</a></h2>
+<p>HTCondor uses the name ‘output file’ to refer to different things in different contexts, so it’s important to make it clear which is meant. One of these is the one that’s been used so far, which refers to the one specified in the submit file (using the <code class="docutils literal notranslate"><span class="pre">output</span></code> option) which contains the STDOUT (terminal output) of your executable. The other use is for any new files that your executable may create as it runs. This part will cover the second of these.</p>
+<p>Let’s modify our python script so that, instead of displaying the file contents in the terminal, it puts all the text into upper-case and saves it to a new file. This new script will look something like:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>f_in = open(&#39;input.txt&#39;, &#39;r&#39;)
+f_out = open(&#39;result.txt&#39;, &#39;w+&#39;)
+print(&#39;Converting input file to upper-case...&#39;)
 f_out.write( f_in.read().upper() )
-</code></pre><p>Now you can submit this job. Once it has finished you will find that HTCondor has successfully produced the file <code>result.txt</code>, and has automatically put it in your working directory, without even having to add anything to the submit file! This is the default behaviour of the <code>transfer_output_files</code> option - when it isn&apos;t specified, it automatically transfers back all files that have been created or modified in the job&apos;s temporary working directory.</p>
-<p>However, while this behaviour is helpful, it&apos;s generally preferable to specify which output files you want HTCondor to transfer back to you. There are a couple of reasons for this, but the most important ones are:</p>
-<ul>
-<li>Files aren&apos;t automatically transferred when running using certain universes (notably, this applies to most grid universes).</li>
-<li>If you don&apos;t want all files to be transferred back, but only a subset of them.</li>
-<li>If the files created by the program are made inside of directories.</li>
+</pre></div>
+</div>
+<p>Now you can submit this job. Once it has finished you will find that HTCondor has successfully produced the file <code class="docutils literal notranslate"><span class="pre">result.txt</span></code>, and has automatically put it in your working directory, without even having to add anything to the submit file! This is the default behaviour of the <code class="docutils literal notranslate"><span class="pre">transfer_output_files</span></code> option - when it isn’t specified, it automatically transfers back all files that have been created or modified in the job’s temporary working directory.</p>
+<p>However, while this behaviour is helpful, it’s generally preferable to specify which output files you want HTCondor to transfer back to you. There are a couple of reasons for this, but the most important ones are:</p>
+<ul class="simple">
+<li><p>Files aren’t automatically transferred when running using certain universes (notably, this applies to most grid universes).</p></li>
+<li><p>If you don’t want all files to be transferred back, but only a subset of them.</p></li>
+<li><p>If the files created by the program are made inside of directories.</p></li>
 </ul>
 <p>To do this, you simply need to add this line to the submit file:</p>
-<pre><code>transfer_output_files = result.txt
-</code></pre><p>Some additional options that are useful to know are:</p>
-<ul>
-<li><p><code>should_transfer_files</code>: enables/disables file transfer altogether. This has three possible values: <code>YES</code> always transfers files to the remote working directory; <code>IF_NEEDED</code> will access the files from a shared file system if possible, otherwise it will transfer the files; and <code>NO</code> disables file transfer. If you use this option, you must also specify...</p>
-</li>
-<li><p><code>when_to_transfer_output</code>: specifies when output files should be transferred back. This has two possible values: <code>ON_EXIT</code> transfers files when the job ends on its own; and <code>ON_EXIT_OR_EVICT</code> will do this, as well as if the job is evicted from a machine. The latter option is useful for longer programs that have the capability to resume from where they exited.</p>
-</li>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>transfer_output_files = result.txt
+</pre></div>
+</div>
+<p>Some additional options that are useful to know are:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">should_transfer_files</span></code>: enables/disables file transfer altogether. This has three possible values: <code class="docutils literal notranslate"><span class="pre">YES</span></code> always transfers files to the remote working directory; <code class="docutils literal notranslate"><span class="pre">IF_NEEDED</span></code> will access the files from a shared file system if possible, otherwise it will transfer the files; and <code class="docutils literal notranslate"><span class="pre">NO</span></code> disables file transfer. If you use this option, you must also specify…</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">when_to_transfer_output</span></code>: specifies when output files should be transferred back. This has two possible values: <code class="docutils literal notranslate"><span class="pre">ON_EXIT</span></code> transfers files when the job ends on its own; and <code class="docutils literal notranslate"><span class="pre">ON_EXIT_OR_EVICT</span></code> will do this, as well as if the job is evicted from a machine. The latter option is useful for longer programs that have the capability to resume from where they exited.</p></li>
 </ul>
 <p>By default, these two options take the values:</p>
-<pre><code>should_transfer_files = IF_NEEDED
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>should_transfer_files = IF_NEEDED
 when_to_transfer_output = ON_EXIT
-</code></pre><ul>
-<li><code>transfer_output_remaps</code>: allows for files to be transferred back with different names or to a file path other than the job&apos;s initial working directory. This is particularly useful if you have a script with a fixed output file name, and you want to run many jobs without these files overwriting each other (see the next section for more on how to handle multiple jobs).</li>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">transfer_output_remaps</span></code>: allows for files to be transferred back with different names or to a file path other than the job’s initial working directory. This is particularly useful if you have a script with a fixed output file name, and you want to run many jobs without these files overwriting each other (see the next section for more on how to handle multiple jobs).</p></li>
 </ul>
-<h3 id="arguments">Arguments</h3>
-<p>If your executable takes command-line arguments, you need to specify them in the submit file using the <code>arguments</code> option. Anything you put here will be passed as an argument to the executable.</p>
-<p>To test this out, let&apos;s modify our python script to add an argument that will let us choose whether to change the text to upper or lower-case. For convenience, you can use the <code>argparse</code> library:</p>
-<pre><code>import argparse
+</div>
+<div class="section" id="arguments">
+<h2>Arguments<a class="headerlink" href="#arguments" title="Permalink to this headline">¶</a></h2>
+<p>If your executable takes command-line arguments, you need to specify them in the submit file using the <code class="docutils literal notranslate"><span class="pre">arguments</span></code> option. Anything you put here will be passed as an argument to the executable.</p>
+<p>To test this out, let’s modify our python script to add an argument that will let us choose whether to change the text to upper or lower-case. For convenience, you can use the <code class="docutils literal notranslate"><span class="pre">argparse</span></code> library:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>import argparse
 parser = argparse.ArgumentParser()
-parser.add_argument(&apos;case&apos;, help=&apos;Choose what case to change the text to&apos;, type=str, choices=[&apos;upper&apos;,&apos;lower&apos;])
+parser.add_argument(&#39;case&#39;, help=&#39;Choose what case to change the text to&#39;, type=str, choices=[&#39;upper&#39;,&#39;lower&#39;])
 args = parser.parse_args()
 
-f_in = open(&apos;input.txt&apos;, &apos;r&apos;)
-f_out = open(&apos;result.txt&apos;, &apos;w+&apos;)
-print(&apos;Converting input file to {c}-case...&apos;.format(c=args.case))
-if args.case == &apos;upper&apos;:
-    f_out.write( f_in.read().upper() )
-elif args.case == &apos;lower&apos;:
-    f_out.write( f_in.read().lower() )
-</code></pre><p>You can now add the arguments to the submit file, by including the line:</p>
-<pre><code>arguments   = upper
-</code></pre><p>This will pass the argument <code>upper</code> to our executable (equivalent to running <code>./my_script upper</code>). However, because this uses a wrapper shell script, there is one more step needed here in order to get it to pass these arguments to the python script. To do this, you can just modify your executable to be:</p>
-<pre><code>#!/bin/bash
+f_in = open(&#39;input.txt&#39;, &#39;r&#39;)
+f_out = open(&#39;result.txt&#39;, &#39;w+&#39;)
+print(&#39;Converting input file to {c}-case...&#39;.format(c=args.case))
+if args.case == &#39;upper&#39;:
+	f_out.write( f_in.read().upper() )
+elif args.case == &#39;lower&#39;:
+	f_out.write( f_in.read().lower() )
+</pre></div>
+</div>
+<p>You can now add the arguments to the submit file, by including the line:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>arguments   = upper
+</pre></div>
+</div>
+<p>This will pass the argument <code class="docutils literal notranslate"><span class="pre">upper</span></code> to our executable (equivalent to running <code class="docutils literal notranslate"><span class="pre">./my_script</span> <span class="pre">upper</span></code>). However, because this uses a wrapper shell script, there is one more step needed here in order to get it to pass these arguments to the python script. To do this, you can just modify your executable to be:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>#!/bin/bash
 python process_file.py &quot;$@&quot;
-</code></pre><p>This will cause the script to pass all arguments it receives along to the python script.</p>
-<p>Submitting the job now should give produce a file <code>result.txt</code> with all the text all in upper-case. You can also switch modes by changing the argument in the submit file from <code>upper</code> to <code>lower</code> - submitting this job should replace <code>result.txt</code> with a version in all lower-case.</p>
-<h3 id="resources-and-requirements">Resources and Requirements</h3>
-<p>You can specify running conditions of your jobs in the submit file. The system for doing this uses what are known as ClassAd attributes, which are essentially properties of some part of the system (machines, jobs, the scheduler, etc.). You can use these to tell HTCondor about the requirements and preferences you have for your jobs. These can be specified in the submit file using the <code>requirements</code> and <code>rank</code> options respectively.</p>
-<p>A complete list of ClassAd attributes can be found <a href="http://research.cs.wisc.edu/htcondor/manual/v8.8/ClassAdAttributes.html#x167-1231000A" target="_blank">in the documentation</a>, but in this part a few particularly useful ones are highlighted. Note that, by using these, you are restricting how your job can run, which means that it will likely take longer to run. You should use these with care, and speak with the Batch support team for advice if you&apos;re not sure.</p>
-<ul>
-<li><p><code>OpSysAndVer</code>: specifies the operating system (and version) that a machine is using. Currently, some of the grid resources are using SLC6, while others have been migrated to CentOS7. For example, if you wanted to ensure that your program runs using CentOS7, you would need to add <code>requirements = (OpSysAndVer =?= &quot;CentOS7&quot;)</code> to your submit file.</p>
-</li>
-<li><p><code>ClockMin</code> and <code>ClockDay</code>: the time of day (in minutes since midnight) and day of the week respectively. These can be used to give your jobs a preference for running outside of peak times - for example, you could use <code>rank = ( (ClockDay == 0) || (ClockDay == 6) ) &amp;&amp; (ClockMin &lt;= 480)</code> to encourage your job to run between midnight and 8am on weekends.</p>
-</li>
-<li><p><code>Memory</code>: the amount of physical memory the machine has, measured in megabytes. It is better to use this only in a <code>rank</code> option, such as <code>rank = (Memory &gt;= 100)</code>, since there is a more preferable way to set memory &amp; CPU requirements in your submit file: the <code>RequestMemory</code> and <code>RequestCpus</code> options. There is a 2GB/core limit</p>
-</li>
+</pre></div>
+</div>
+<p>This will cause the script to pass all arguments it receives along to the python script.</p>
+<p>Submitting the job now should give produce a file <code class="docutils literal notranslate"><span class="pre">result.txt</span></code> with all the text all in upper-case. You can also switch modes by changing the argument in the submit file from <code class="docutils literal notranslate"><span class="pre">upper</span></code> to <code class="docutils literal notranslate"><span class="pre">lower</span></code> - submitting this job should replace <code class="docutils literal notranslate"><span class="pre">result.txt</span></code> with a version in all lower-case.</p>
+</div>
+<div class="section" id="resources-and-requirements">
+<h2>Resources and Requirements<a class="headerlink" href="#resources-and-requirements" title="Permalink to this headline">¶</a></h2>
+<p>You can specify running conditions of your jobs in the submit file. The system for doing this uses what are known as ClassAd attributes, which are essentially properties of some part of the system (machines, jobs, the scheduler, etc.). You can use these to tell HTCondor about the requirements and preferences you have for your jobs. These can be specified in the submit file using the <code class="docutils literal notranslate"><span class="pre">requirements</span></code> and <code class="docutils literal notranslate"><span class="pre">rank</span></code> options respectively.</p>
+<p>A complete list of ClassAd attributes can be found <a class="reference external" href="https://research.cs.wisc.edu/htcondor/manual/v8.8/ClassAdAttributes.html#x167-1231000A">in the documentation</a>, but in this part a few particularly useful ones are highlighted. Note that, by using these, you are restricting how your job can run, which means that it will likely take longer to run. You should use these with care, and speak with the Batch support team for advice if you’re not sure.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">OpSysAndVer</span></code>: specifies the operating system (and version) that a machine is using. Currently, some of the grid resources are using SLC6, while others have been migrated to CentOS7. For example, if you wanted to ensure that your program runs using CentOS7, you would need to add <code class="docutils literal notranslate"><span class="pre">requirements</span> <span class="pre">=</span> <span class="pre">(OpSysAndVer</span> <span class="pre">=?=</span> <span class="pre">&quot;CentOS7&quot;)</span></code> to your submit file.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ClockMin</span></code> and <code class="docutils literal notranslate"><span class="pre">ClockDay</span></code>: the time of day (in minutes since midnight) and day of the week respectively. These can be used to give your jobs a preference for running outside of peak times - for example, you could use <code class="docutils literal notranslate"><span class="pre">rank</span> <span class="pre">=</span> <span class="pre">(</span> <span class="pre">(ClockDay</span> <span class="pre">==</span> <span class="pre">0)</span> <span class="pre">||</span> <span class="pre">(ClockDay</span> <span class="pre">==</span> <span class="pre">6)</span> <span class="pre">)</span> <span class="pre">&amp;&amp;</span> <span class="pre">(ClockMin</span> <span class="pre">&lt;=</span> <span class="pre">480)</span></code> to encourage your job to run between midnight and 8am on weekends.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Memory</span></code>: the amount of physical memory the machine has, measured in megabytes. It is better to use this only in a <code class="docutils literal notranslate"><span class="pre">rank</span></code> option, such as <code class="docutils literal notranslate"><span class="pre">rank</span> <span class="pre">=</span> <span class="pre">(Memory</span> <span class="pre">&gt;=</span> <span class="pre">100)</span></code>, since there is a more preferable way to set memory &amp; CPU requirements in your submit file: the <code class="docutils literal notranslate"><span class="pre">RequestMemory</span></code> and <code class="docutils literal notranslate"><span class="pre">RequestCpus</span></code> options. There is a 2GB/core limit</p></li>
 </ul>
 <p>In addition to these, you should also always specify the duration of your job, which allows HTCondor to schedule things more effectively, and to give preference to shorter jobs. Importantly, it will also terminate jobs that go over their maximum runtime. Here, you are assigning a ClassAd attribute to the job rather than looking at the attributes of other systems or machines, so they are specified in a slightly different way - to set a maximum runtime of 1 hour (3600 seconds), you would need to add the following line to your submit file:</p>
-<pre><code>+MaxDuration = 3600
-</code></pre><p>Equivalently, one could use the <code>JobFlavour</code> attribute instead:</p>
-<pre><code>+JobFlavour = &quot;microcentury&quot;
-</code></pre><p>There are seven possible job flavours that one can use, with the default being <code>espresso</code>:</p>
-<pre><code>espresso     = 20 minutes
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>+MaxDuration = 3600
+</pre></div>
+</div>
+<p>Equivalently, one could use the <code class="docutils literal notranslate"><span class="pre">JobFlavour</span></code> attribute instead:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>+JobFlavour = &quot;microcentury&quot;
+</pre></div>
+</div>
+<p>There are seven possible job flavours that one can use, with the default being <code class="docutils literal notranslate"><span class="pre">espresso</span></code>:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>espresso     = 20 minutes
 microcentury = 1 hour
 longlunch    = 2 hours
 workday      = 8 hours
 tomorrow     = 1 day
 testmatch    = 3 days
 nextweek     = 1 week
-</code></pre><h3 id="notifications">Notifications</h3>
+</pre></div>
+</div>
+</div>
+<div class="section" id="notifications">
+<h2>Notifications<a class="headerlink" href="#notifications" title="Permalink to this headline">¶</a></h2>
 <p>If you want, you can tell HTCondor to send you emails updating you on the progress of your job. In your submit file, add the line:</p>
-<pre><code>notify_user = &lt;your_email_address&gt;
-</code></pre><p>By default, this will send you an email when your job completes. You can change the conditions for receiving a notification using a second option:</p>
-<pre><code>notification = &lt; Always | Complete | Error | Never &gt;
-</code></pre><p>The default setting is <code>Complete</code>. The <code>Error</code> setting is also extremely useful: imagine you have a long job you intend to leave running over the weekend - if something were to go wrong, you may want to be alerted so that you can resubmit it sooner rather than later.</p>
-<p><div class="panel panel-success"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(3842006441);" id="practice-debug-some-broken-jobs"><i class="fa fa-square-o"></i> Practice: Debug some broken jobs<span id="heading-3842006441"></span></h3></div><div class="panel-body" id="panel-3842006441"><p> <a href="code/htcondor-more-options/htcondor-examples.tar.gz">Here</a> you can download a <code>.tar.gz</code> file containing the scripts for 3 jobs, each of which features some commonly-experimenced error or mistake. To unpack the file, run <code>tar -zxvf htcondor-examples.tar.gz</code>. For each one, submit the job, see if you can figure out what went wrong with it (making use of the error files), and then try to fix it.</p>
-<div class="panel panel-danger"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(5861978032);" id="solutionsclick-to-expand"><i class="fa fa-line-chart"></i> Solutions<span id="heading-5861978032">Click to expand</span></h3></div><div class="panel-body" style="display: none" id="panel-5861978032"><p><strong>Prime factor finder</strong>: when you try to submit this, you get <code>ERROR: Submit requirement NoEos evaluated to non-boolean.</code>. With a little bit of Google searching, or just by looking carefully at the submit file, you can find that this is due to a log file having not been specified, when one is always required. To fix this, just add <code>log = log.log</code> to the submit file.</p>
-<p><strong>Invariant mass calculator</strong>: with this one, the job appears to go through fine, but when it&apos;s finished you&apos;ll find that the output file is empty and the error file reads <code>python: can&apos;t open file &apos;inv_mass_reconstructor.py&apos;: [Errno 2] No such file or directory</code>. Indeed, if you look at the part of the submit file that governs file transfer, it&apos;s transferring the input data file, but not the python script. To fix this, you can just add the script to the list of input files to be transferred: <code>transfer_input_files = inv_mass_reconstructor.py, child_4momenta.dat</code>.</p>
-<p><strong>Linear fitter</strong>: after submitting the job, the error file will say <code>IOError: [Errno 2] No such file or directory: &apos;data/data.txt&apos;</code>. Here, the data file is being transferred from <code>data/data.txt</code>, but the executable can&apos;t seem to find anything at that location. This is because the file is copied from a subdirectory in your user storage area, but it isn&apos;t placed inside any subdirectory in the worker node&apos;s storage area. This means that the <code>transfer_input_files</code> option is fine, but the <code>arguments</code> line needs to be changed to refer to just <code>data.txt</code>, since on the remote storage area the executable and the data file will be placed in the same directory.</p>
-<p>Once this has been corrected, the job will appear to run without issue, and the output file should contain all the fit information as expected - however, the file <code>fig.pdf</code> containing the drawn plot is not copied back to your user area. This is because it is being saved inside a subdirectory, and the <code>transfer_output_files</code> option has not been specified in the submit file (recall that the default behaviour of this option means that files created inside subdirectories will not be transferred back). To fix this, you can either modify it to save the figure to the working directory (<code>arguments = data.txt, fig.pdf</code>), or, better yet, specify that the file containing the figure should be transferred back (<code>transfer_output_files = figures/fig.pdf</code>).</p>
-<p>Working examples for each of these jobs, with the corrections outlined above applied, can be found <a href="code/htcondor-more-options/htcondor-examples-fix.tar.gz">here</a>.</p>
-</div></div></div></div></p>
-
-                                
-                                </section>
-                            
-    </div>
-    <div class="search-results">
-        <div class="has-results">
-            
-            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
-            <ul class="search-results-list"></ul>
-            
-        </div>
-        <div class="no-results">
-            
-            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
-            
-        </div>
-    </div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>notify_user = &lt;your_email_address&gt;
+</pre></div>
+</div>
+<p>By default, this will send you an email when your job completes. You can change the conditions for receiving a notification using a second option:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>notification = &lt; Always | Complete | Error | Never &gt;
+</pre></div>
+</div>
+<p>The default setting is <code class="docutils literal notranslate"><span class="pre">Complete</span></code>. The <code class="docutils literal notranslate"><span class="pre">Error</span></code> setting is also extremely useful: imagine you have a long job you intend to leave running over the weekend - if something were to go wrong, you may want to be alerted so that you can resubmit it sooner rather than later.</p>
+<div class="panel panel-challenge docutils container">
+<div class="panel-header open docutils container">
+<p id="practice:-debug-some-broken-jobs"><i class="fa fa-square-o"></i> Practice: Debug some broken jobs</p>
+</div>
+<div class="panel-body docutils container">
+<p><a class="reference download internal" download="" href="../_downloads/154763331c19f22b4dfed45c51d6bf90/htcondor-examples.tar.gz"><code class="xref download docutils literal notranslate"><span class="pre">Here</span></code></a> you can download a <code class="docutils literal notranslate"><span class="pre">.tar.gz</span></code> file containing the scripts for 3 jobs, each of which features some commonly-experimenced error or mistake. To unpack the file, run <code class="docutils literal notranslate"><span class="pre">tar</span> <span class="pre">-zxvf</span> <span class="pre">htcondor-examples.tar.gz</span></code>. For each one, submit the job, see if you can figure out what went wrong with it (making use of the error files), and then try to fix it.</p>
+<div class="panel panel-solution docutils container">
+<div class="panel-header docutils container">
+<p id="solutions"><i class="fa fa-check-square-o"></i> Solutions</p>
+</div>
+<div class="panel-body docutils container">
+<p><strong>Prime factor finder</strong>: when you try to submit this, you get <code class="docutils literal notranslate"><span class="pre">ERROR:</span> <span class="pre">Submit</span> <span class="pre">requirement</span> <span class="pre">NoEos</span> <span class="pre">evaluated</span> <span class="pre">to</span> <span class="pre">non-boolean.</span></code>. With a little bit of Google searching, or just by looking carefully at the submit file, you can find that this is due to a log file having not been specified, when one is always required. To fix this, just add <code class="docutils literal notranslate"><span class="pre">log</span> <span class="pre">=</span> <span class="pre">log.log</span></code> to the submit file.</p>
+<p><strong>Invariant mass calculator</strong>: with this one, the job appears to go through fine, but when it’s finished you’ll find that the output file is empty and the error file reads <code class="docutils literal notranslate"><span class="pre">python:</span> <span class="pre">can't</span> <span class="pre">open</span> <span class="pre">file</span> <span class="pre">'inv_mass_reconstructor.py':</span> <span class="pre">[Errno</span> <span class="pre">2]</span> <span class="pre">No</span> <span class="pre">such</span> <span class="pre">file</span> <span class="pre">or</span> <span class="pre">directory</span></code>. Indeed, if you look at the part of the submit file that governs file transfer, it’s transferring the input data file, but not the python script. To fix this, you can just add the script to the list of input files to be transferred: <code class="docutils literal notranslate"><span class="pre">transfer_input_files</span> <span class="pre">=</span> <span class="pre">inv_mass_reconstructor.py,</span> <span class="pre">child_4momenta.dat</span></code>.</p>
+<p><strong>Linear fitter</strong>: after submitting the job, the error file will say <code class="docutils literal notranslate"><span class="pre">IOError:</span> <span class="pre">[Errno</span> <span class="pre">2]</span> <span class="pre">No</span> <span class="pre">such</span> <span class="pre">file</span> <span class="pre">or</span> <span class="pre">directory:</span> <span class="pre">'data/data.txt'</span></code>. Here, the data file is being transferred from <code class="docutils literal notranslate"><span class="pre">data/data.txt</span></code>, but the executable can’t seem to find anything at that location. This is because the file is copied from a subdirectory in your user storage area, but it isn’t placed inside any subdirectory in the worker node’s storage area. This means that the <code class="docutils literal notranslate"><span class="pre">transfer_input_files</span></code> option is fine, but the <code class="docutils literal notranslate"><span class="pre">arguments</span></code> line needs to be changed to refer to just <code class="docutils literal notranslate"><span class="pre">data.txt</span></code>, since on the remote storage area the executable and the data file will be placed in the same directory.</p>
+<p>Once this has been corrected, the job will appear to run without issue, and the output file should contain all the fit information as expected - however, the file <code class="docutils literal notranslate"><span class="pre">fig.pdf</span></code> containing the drawn plot is not copied back to your user area. This is because it is being saved inside a subdirectory, and the <code class="docutils literal notranslate"><span class="pre">transfer_output_files</span></code> option has not been specified in the submit file (recall that the default behaviour of this option means that files created inside subdirectories will not be transferred back). To fix this, you can either modify it to save the figure to the working directory (<code class="docutils literal notranslate"><span class="pre">arguments</span> <span class="pre">=</span> <span class="pre">data.txt,</span> <span class="pre">fig.pdf</span></code>), or, better yet, specify that the file containing the figure should be transferred back (<code class="docutils literal notranslate"><span class="pre">transfer_output_files</span> <span class="pre">=</span> <span class="pre">figures/fig.pdf</span></code>).</p>
+<p>Working examples for each of these jobs, with the corrections outlined above applied, can be found <a class="reference download internal" download="" href="../_downloads/f1e543741eb32d312dabfd5c38b06780/htcondor-examples-fix.tar.gz"><code class="xref download docutils literal notranslate"><span class="pre">here</span></code></a>.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
 </div>
 
-                        </div>
-                    </div>
-                
-            </div>
 
-            
-                
-                <a href="htcondor-first-job.html" class="navigation navigation-prev " aria-label="Previous page: Creating your first job">
-                    <i class="fa fa-angle-left"></i>
-                </a>
-                
-                
-                <a href="htcondor-queue.html" class="navigation navigation-next " aria-label="Next page: The queue command">
-                    <i class="fa fa-angle-right"></i>
-                </a>
-                
-            
-        
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="htcondor-queue.html" class="btn btn-neutral float-right" title="Using the queue command" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="htcondor-first-job.html" class="btn btn-neutral float-left" title="Submitting a simple job" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
     </div>
+  
 
-    <script>
-        var gitbook = gitbook || [];
-        gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"More submit file options","level":"4.1.1.2","depth":3,"next":{"title":"The queue command","level":"4.1.1.3","depth":3,"path":"self-guided-lessons/htcondor-queue.md","ref":"self-guided-lessons/htcondor-queue.md","articles":[]},"previous":{"title":"Creating your first job","level":"4.1.1.1","depth":3,"path":"self-guided-lessons/htcondor-first-job.md","ref":"self-guided-lessons/htcondor-first-job.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-sharing","panels@git+https://github.com/lhcb/gitbook-plugin-panels.git#master","katex-auto-render@git+https://github.com/lhcb/gitbook-plugin-katex-auto-render.git#master","collapsible-menu","otherlink"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"collapsible-menu":{},"search":{},"otherlink":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"panels":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"katex-auto-render":{},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"The Starterkit team and contributors","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"gitbook":"*"},"file":{"path":"self-guided-lessons/htcondor-more-options.md","mtime":"2019-10-10T14:37:33.893Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-10-10T14:39:29.242Z"},"basePath":"..","book":{"language":""}});
-        });
-    </script>
-</div>
+  <hr/>
 
-        
-    <script src="../gitbook/gitbook.js"></script>
-    <script src="../gitbook/theme.js"></script>
-    
-        
-        <script src="../gitbook/gitbook-plugin-panels/panels.js"></script>
-        
-    
-        
-        <script src="../gitbook/gitbook-plugin-katex-auto-render/katex.min.js"></script>
-        
-    
-        
-        <script src="../gitbook/gitbook-plugin-katex-auto-render/auto-render.min.js"></script>
-        
-    
-        
-        <script src="../gitbook/gitbook-plugin-katex-auto-render/enable-auto-render.js"></script>
-        
-    
-        
-        <script src="../gitbook/gitbook-plugin-collapsible-menu/plugin.js"></script>
-        
-    
-        
-        <script src="../gitbook/gitbook-plugin-otherlink/js/otherlink.js"></script>
-        
-    
-        
-        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
-        
-    
-        
-        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
-        
-    
-        
-        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
-        
-    
-        
-        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
-        
-    
-        
-        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
-        
-    
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015-2019, LHCb Starterkit
 
-    </body>
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
 </html>
-

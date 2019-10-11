@@ -1,1095 +1,438 @@
 
-<!DOCTYPE HTML>
-<html lang="" >
-    <head>
-        <meta charset="UTF-8">
-        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>Run a different stripping line on simulated data · GitBook</title>
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="description" content="">
-        <meta name="generator" content="GitBook 3.2.3">
-        <meta name="author" content="The Starterkit team and contributors">
-        
-        
-    
-    <link rel="stylesheet" href="../gitbook/style.css">
 
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Run a different stripping line on simulated data &mdash; LHCb Starterkit Lessons  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
     
-            
-                
-                <link rel="stylesheet" href="../gitbook/gitbook-plugin-panels/panels.css">
-                
-            
-                
-                <link rel="stylesheet" href="../gitbook/gitbook-plugin-katex-auto-render/katex.min.css">
-                
-            
-                
-                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
-                
-            
-                
-                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
-                
-            
-                
-                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
-                
-            
-        
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="../_static/panels.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
 
     
 
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/panels.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/starterkit.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Replace a mass hypothesis" href="switch-mass-hypo.html" />
+    <link rel="prev" title="What to do when something fails" href="fixing-errors.html" /> 
+</head>
 
-        
-    
-    
-    <meta name="HandheldFriendly" content="true"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
-    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+<body class="wy-body-for-nav">
 
+   
+  <div class="wy-grid-for-nav">
     
-    <link rel="next" href="switch-mass-hypo.html" />
-    
-    
-    <link rel="prev" href="fixing-errors.html" />
-    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
 
-    </head>
-    <body>
-        
-<div class="book">
-    <div class="book-summary">
-        
+          
+            <a href="../index.html" class="icon icon-home"> LHCb Starterkit Lessons
+          
+
+          
+          </a>
+
+          
             
-<div id="book-search-input" role="search">
-    <input type="text" placeholder="Type to search" />
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
 </div>
 
-            
-                <nav role="navigation">
-                
-
-
-<ul class="summary">
-    
-    
-
-    
-
-    
-        
-        
-    
-        <li class="chapter " data-level="1.1" data-path="../">
-            
-                <a href="../">
-            
-                    
-                    The LHCb Starterkit
-            
-                </a>
-            
-
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="1.1.1" data-path="../CONTRIBUTING.html">
-            
-                <a href="../CONTRIBUTING.html">
-            
-                    
-                    Contributing
-            
-                </a>
-            
-
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-
-    
-        
-        <li class="divider"></li>
-        
-        
-    
-        <li class="chapter " data-level="2.1" data-path="../first-analysis-steps/">
-            
-                <a href="../first-analysis-steps/">
-            
-                    
-                    First analysis steps
-            
-                </a>
-            
-
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="2.1.1" data-path="../first-analysis-steps/prerequisites.html">
-            
-                <a href="../first-analysis-steps/prerequisites.html">
-            
-                    
-                    Pre-workshop checklist
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="2.1.2" data-path="../first-analysis-steps/introduction-to-course.html">
-            
-                <a href="../first-analysis-steps/introduction-to-course.html">
-            
-                    
-                    Goals of the course
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="2.1.3" data-path="../first-analysis-steps/physics-at-lhcb.html">
-            
-                <a href="../first-analysis-steps/physics-at-lhcb.html">
-            
-                    
-                    Physics at LHCb
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="2.1.4" data-path="../first-analysis-steps/dataflow.html">
-            
-                <a href="../first-analysis-steps/dataflow.html">
-            
-                    
-                    The LHCb data flow
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="2.1.5" data-path="../first-analysis-steps/run-2-data-flow.html">
-            
-                <a href="../first-analysis-steps/run-2-data-flow.html">
-            
-                    
-                    Changes to the data flow in Run 2
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="2.1.6" data-path="../first-analysis-steps/davinci.html">
-            
-                <a href="../first-analysis-steps/davinci.html">
-            
-                    
-                    An introduction to LHCb Software
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="2.1.7" data-path="../first-analysis-steps/bookkeeping.html">
-            
-                <a href="../first-analysis-steps/bookkeeping.html">
-            
-                    
-                    Finding data in the Bookkeeping
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="2.1.8" data-path="../first-analysis-steps/files-from-grid.html">
-            
-                <a href="../first-analysis-steps/files-from-grid.html">
-            
-                    
-                    Downloading a file from the grid
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="2.1.9" data-path="../first-analysis-steps/interactive-dst.html">
-            
-                <a href="../first-analysis-steps/interactive-dst.html">
-            
-                    
-                    Interactively exploring a DST
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="2.1.10" data-path="../first-analysis-steps/minimal-dv-job.html">
-            
-                <a href="../first-analysis-steps/minimal-dv-job.html">
-            
-                    
-                    Running a minimal DaVinci job locally
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="2.1.11" data-path="../first-analysis-steps/loki-functors.html">
-            
-                <a href="../first-analysis-steps/loki-functors.html">
-            
-                    
-                    Fun with LoKi Functors
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="2.1.12" data-path="../first-analysis-steps/add-tupletools.html">
-            
-                <a href="../first-analysis-steps/add-tupletools.html">
-            
-                    
-                    TupleTools and branches
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="2.1.13" data-path="../first-analysis-steps/decay-tree-fitter.html">
-            
-                <a href="../first-analysis-steps/decay-tree-fitter.html">
-            
-                    
-                    How do I use DecayTreeFitter?
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="2.1.14" data-path="../first-analysis-steps/davinci-grid.html">
-            
-                <a href="../first-analysis-steps/davinci-grid.html">
-            
-                    
-                    Running DaVinci on the grid
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="2.1.15" data-path="../first-analysis-steps/split-jobs.html">
-            
-                <a href="../first-analysis-steps/split-jobs.html">
-            
-                    
-                    Splitting a job into subjobs
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="2.1.16" data-path="../first-analysis-steps/ganga-data.html">
-            
-                <a href="../first-analysis-steps/ganga-data.html">
-            
-                    
-                    More Ganga
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="2.1.17" data-path="../first-analysis-steps/eos-storage.html">
-            
-                <a href="../first-analysis-steps/eos-storage.html">
-            
-                    
-                    Storing large files on EOS
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="2.1.18" data-path="../first-analysis-steps/lhcb-dev.html">
-            
-                <a href="../first-analysis-steps/lhcb-dev.html">
-            
-                    
-                    Developing LHCb Software
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="2.1.19" data-path="../first-analysis-steps/asking-questions.html">
-            
-                <a href="../first-analysis-steps/asking-questions.html">
-            
-                    
-                    Asking good questions
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="2.1.20" data-path="../first-analysis-steps/ecgd.html">
-            
-                <a href="../first-analysis-steps/ecgd.html">
-            
-                    
-                    Early career, gender and diversity
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="2.1.21" data-path="../first-analysis-steps/contributing-lesson.html">
-            
-                <a href="../first-analysis-steps/contributing-lesson.html">
-            
-                    
-                    Contribute to this lesson
-            
-                </a>
-            
-
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-
-    
-        
-        <li class="divider"></li>
-        
-        
-    
-        <li class="chapter " data-level="3.1" data-path="./">
-            
-                <a href="./">
-            
-                    
-                    Second analysis steps
-            
-                </a>
-            
-
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="3.1.1" data-path="lb-git.html">
-            
-                <a href="lb-git.html">
-            
-                    
-                    Using git to develop LHCb software
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="3.1.2" data-path="building-decays.html">
-            
-                <a href="building-decays.html">
-            
-                    
-                    Building your own decay
-            
-                </a>
-            
-
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="3.1.2.1" data-path="building-decays-part0.html">
-            
-                <a href="building-decays-part0.html">
-            
-                    
-                    The Selection Framework
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="3.1.2.2" data-path="building-decays-part1.html">
-            
-                <a href="building-decays-part1.html">
-            
-                    
-                    A Historical Approach
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="3.1.2.3" data-path="building-decays-part2.html">
-            
-                <a href="building-decays-part2.html">
-            
-                    
-                    Modern Selection Framework
-            
-                </a>
-            
-
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-        <li class="chapter " data-level="3.1.3" data-path="fixing-errors.html">
-            
-                <a href="fixing-errors.html">
-            
-                    
-                    What to do when something fails
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter active" data-level="3.1.4" data-path="rerun-stripping.html">
-            
-                <a href="rerun-stripping.html">
-            
-                    
-                    Run a different stripping line on simulated data
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="3.1.5" data-path="switch-mass-hypo.html">
-            
-                <a href="switch-mass-hypo.html">
-            
-                    
-                    Replace a mass hypothesis
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="3.1.6" data-path="filter-in-trees.html">
-            
-                <a href="filter-in-trees.html">
-            
-                    
-                    Reuse particles from a decay tree
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="3.1.7" data-path="simulation.html">
-            
-                <a href="simulation.html">
-            
-                    
-                    The simulation framework
-            
-                </a>
-            
-
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="3.1.7.1" data-path="simulation-intro.html">
-            
-                <a href="simulation-intro.html">
-            
-                    
-                    Introduction: The basics of Gauss
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="3.1.7.2" data-path="simulation-running-gauss.html">
-            
-                <a href="simulation-running-gauss.html">
-            
-                    
-                    Getting the correct option files
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="3.1.7.3" data-path="simulation-dkfiles.html">
-            
-                <a href="simulation-dkfiles.html">
-            
-                    
-                    Controlling the decay
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="3.1.7.4" data-path="simulation-gencuts.html">
-            
-                <a href="simulation-gencuts.html">
-            
-                    
-                    Modifying the decay
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="3.1.7.5" data-path="simulation-advanced-dkfiles.html">
-            
-                <a href="simulation-advanced-dkfiles.html">
-            
-                    
-                    Advanced: Modifying the decay
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="3.1.7.6" data-path="simulation-fastsim.html">
-            
-                <a href="simulation-fastsim.html">
-            
-                    
-                    Fast simulation options
-            
-                </a>
-            
-
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-        <li class="chapter " data-level="3.1.8" data-path="hlt-intro.html">
-            
-                <a href="hlt-intro.html">
-            
-                    
-                    HLT intro
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="3.1.9" data-path="tistos-diy.html">
-            
-                <a href="tistos-diy.html">
-            
-                    
-                    TisTos DIY
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="3.1.10" data-path="ganga-scripting.html">
-            
-                <a href="ganga-scripting.html">
-            
-                    
-                    Ganga Scripting
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="3.1.11" data-path="managing-files-with-ganga.html">
-            
-                <a href="managing-files-with-ganga.html">
-            
-                    
-                    Managing files in Ganga
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="3.1.12" data-path="analysis-automation-snakemake.html">
-            
-                <a href="analysis-automation-snakemake.html">
-            
-                    
-                    Analysis automation: snakemake
-            
-                </a>
-            
-
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-
-    
-        
-        <li class="divider"></li>
-        
-        
-    
-        <li class="chapter " data-level="4.1" data-path="../self-guided-lessons/">
-            
-                <a href="../self-guided-lessons/">
-            
-                    
-                    Self guided lessons
-            
-                </a>
-            
-
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="4.1.1" data-path="../self-guided-lessons/htcondor.html">
-            
-                <a href="../self-guided-lessons/htcondor.html">
-            
-                    
-                    Batch submission with HTCondor
-            
-                </a>
-            
-
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="4.1.1.1" data-path="../self-guided-lessons/htcondor-first-job.html">
-            
-                <a href="../self-guided-lessons/htcondor-first-job.html">
-            
-                    
-                    Creating your first job
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="4.1.1.2" data-path="../self-guided-lessons/htcondor-more-options.html">
-            
-                <a href="../self-guided-lessons/htcondor-more-options.html">
-            
-                    
-                    More submit file options
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="4.1.1.3" data-path="../self-guided-lessons/htcondor-queue.html">
-            
-                <a href="../self-guided-lessons/htcondor-queue.html">
-            
-                    
-                    The queue command
-            
-                </a>
-            
-
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-
-    
-        
-        <li class="divider"></li>
-        
-        
-    
-        <li class="chapter " data-level="5.1" data-path="../using-the-grid/">
-            
-                <a href="../using-the-grid/">
-            
-                    
-                    Using the grid
-            
-                </a>
-            
-
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="5.1.1" data-path="../using-the-grid/local-grid-proxy.html">
-            
-                <a href="../using-the-grid/local-grid-proxy.html">
-            
-                    
-                    Grid proxies without LbScripts
-            
-                </a>
-            
-
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-
-    
-        
-        <li class="divider"></li>
-        
-        
-    
-        <li class="chapter " data-level="6.1" >
-            
-                <a target="_blank" href="ref://starterkit-lessons.pdf">
-            
-                    
-                    Download PDF
-            
-                </a>
-            
-
-            
-        </li>
-    
-
-    
-
-    <li class="divider"></li>
-
-    <li>
-        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
-            Published with GitBook
-        </a>
-    </li>
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../first-analysis-steps/README.html">First Analysis Steps</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../first-analysis-steps/prerequisites.html">Pre-workshop checklist</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../first-analysis-steps/introduction-to-course.html">Goals of the course</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../first-analysis-steps/physics-at-lhcb.html">Physics at LHCb</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../first-analysis-steps/physics-at-lhcb.html#the-reconstruction">The reconstruction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../first-analysis-steps/physics-at-lhcb.html#building-decay-candidates">Building decay candidates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../first-analysis-steps/physics-at-lhcb.html#building-more-complex-decays">Building more complex decays</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../first-analysis-steps/dataflow.html">The LHCb data flow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../first-analysis-steps/run-2-data-flow.html">Changes to the data flow in Run 2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../first-analysis-steps/davinci.html">An introduction to LHCb Software</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../first-analysis-steps/bookkeeping.html">Finding data in the Bookkeeping</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../first-analysis-steps/files-from-grid.html">Downloading a file from the grid</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../first-analysis-steps/interactive-dst.html">Interactively exploring a DST</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../first-analysis-steps/minimal-dv-job.html">Running a minimal DaVinci job locally</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../first-analysis-steps/loki-functors.html">Fun with LoKi Functors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../first-analysis-steps/add-tupletools.html">TupleTools and branches</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../first-analysis-steps/decay-tree-fitter.html">How do I use DecayTreeFitter?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../first-analysis-steps/davinci-grid.html">Running DaVinci on the grid</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../first-analysis-steps/split-jobs.html">Splitting a job into subjobs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../first-analysis-steps/ganga-data.html">More Ganga</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../first-analysis-steps/eos-storage.html">Storing large files on EOS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../first-analysis-steps/lhcb-dev.html">Developing LHCb Software</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../first-analysis-steps/asking-questions.html">Asking good questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../first-analysis-steps/ecgd.html">Early career, gender and diversity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../first-analysis-steps/contributing-lesson.html">Contribute to this lesson</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="reference internal" href="README.html">Second Analysis Steps</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="lb-git.html">Using git to develop LHCb software</a></li>
+<li class="toctree-l2"><a class="reference internal" href="building-decays.html">Building your own decay</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="building-decays-part0.html">The Selection Framework</a></li>
+<li class="toctree-l3"><a class="reference internal" href="building-decays-part1.html">A Historical Approach</a></li>
+<li class="toctree-l3"><a class="reference internal" href="building-decays-part2.html">Modern Selection Framework</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="fixing-errors.html">What to do when something fails</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Run a different stripping line on simulated data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="switch-mass-hypo.html">Replace a mass hypothesis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="filter-in-trees.html">Reuse particles from a decay tree</a></li>
+<li class="toctree-l2"><a class="reference internal" href="simulation.html">The simulation framework</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="simulation-intro.html">What is Gauss?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="simulation-running-gauss.html">Which option files to use and how to run Gauss</a></li>
+<li class="toctree-l3"><a class="reference internal" href="simulation-running-gauss.html#running-gauss-and-create-a-generator-only-sample">Running Gauss and create a generator-only sample</a></li>
+<li class="toctree-l3"><a class="reference internal" href="simulation-running-gauss.html#make-an-ntuple">Make an nTuple</a></li>
+<li class="toctree-l3"><a class="reference internal" href="simulation-dkfiles.html">Controlling the decay: DecFiles</a></li>
+<li class="toctree-l3"><a class="reference internal" href="simulation-gencuts.html">Modifying the decay</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="simulation-gencuts.html#adding-a-decay-channel">Adding a decay channel</a></li>
+<li class="toctree-l4"><a class="reference internal" href="simulation-gencuts.html#generator-level-cuts">Generator level cuts</a></li>
+<li class="toctree-l4"><a class="reference internal" href="simulation-gencuts.html#removing-the-generator-cuts">Removing the generator cuts</a></li>
+<li class="toctree-l4"><a class="reference internal" href="simulation-gencuts.html#modifying-the-cut-tool">Modifying the cut tool</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="simulation-advanced-dkfiles.html">Advanced: Modifying the decay</a></li>
+<li class="toctree-l3"><a class="reference internal" href="simulation-advanced-dkfiles.html#multi-body-decays">3+ multi-body decays</a></li>
+<li class="toctree-l3"><a class="reference internal" href="simulation-advanced-dkfiles.html#cocktail-decays">Cocktail decays</a></li>
+<li class="toctree-l3"><a class="reference internal" href="simulation-advanced-dkfiles.html#final-state-radiation">Final state radiation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="simulation-advanced-dkfiles.html#changing-particle-masses-lifetimes-widths">Changing particle masses / lifetimes/ widths</a></li>
+<li class="toctree-l3"><a class="reference internal" href="simulation-fastsim.html">Why fast simulation is crucial</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="simulation-fastsim.html#speeding-up-the-detector-simulation">Speeding up the detector simulation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="simulation-fastsim.html#speeding-up-the-generation">Speeding up the generation</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="hlt-intro.html">HLT intro</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="hlt-intro.html#add-trigger-information-to-your-ntuple">Add trigger information to your ntuple</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hlt-intro.html#exploring-a-tck-list-of-trigger-lines">Exploring a TCK: List of trigger lines</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hlt-intro.html#add-trigger-information-to-your-ntuple-continued">Add trigger information to your ntuple, continued</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hlt-intro.html#add-tistos-information-to-your-ntuple">Add TISTOS information to your ntuple</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hlt-intro.html#exploring-a-tck-properties-of-trigger-lines">Exploring a TCK: Properties of trigger lines</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="tistos-diy.html">TisTos DIY</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ganga-scripting.html">Scripting Ganga</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="ganga-scripting.html#defining-jobs-with-scripts">Defining jobs with scripts</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ganga-scripting.html#adding-helpers-functions">Adding helpers functions</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="managing-files-with-ganga.html">Managing files in Ganga</a></li>
+<li class="toctree-l2"><a class="reference internal" href="analysis-automation-snakemake.html">Analysis automation with snakemake</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="analysis-automation-snakemake.html#motivation">Motivation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="analysis-automation-snakemake.html#documentation-and-installation">Documentation and installation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="analysis-automation-snakemake.html#tutorial">Tutorial</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="analysis-automation-snakemake.html#usage-and-basic-behaviour">Usage and basic behaviour</a></li>
+<li class="toctree-l4"><a class="reference internal" href="analysis-automation-snakemake.html#sub-labels">Sub-labels</a></li>
+<li class="toctree-l4"><a class="reference internal" href="analysis-automation-snakemake.html#run-and-shell">Run and shell</a></li>
+<li class="toctree-l4"><a class="reference internal" href="analysis-automation-snakemake.html#config-files">Config files</a></li>
+<li class="toctree-l4"><a class="reference internal" href="analysis-automation-snakemake.html#includes">Includes</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../self-guided-lessons/README.html">Self guided lessons</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../self-guided-lessons/htcondor.html">Batch submission using HTCondor</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../self-guided-lessons/htcondor-first-job.html">Submitting a simple job</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../self-guided-lessons/htcondor-first-job.html#tracking-your-jobs">Tracking your jobs</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../self-guided-lessons/htcondor-more-options.html">More submit file options</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../self-guided-lessons/htcondor-more-options.html#input-files">Input files</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../self-guided-lessons/htcondor-more-options.html#output-files">Output files</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../self-guided-lessons/htcondor-more-options.html#arguments">Arguments</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../self-guided-lessons/htcondor-more-options.html#resources-and-requirements">Resources and Requirements</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../self-guided-lessons/htcondor-more-options.html#notifications">Notifications</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../self-guided-lessons/htcondor-queue.html">Using the queue command</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../self-guided-lessons/htcondor-queue.html#more-on-variables">More on variables</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../self-guided-lessons/htcondor-queue.html#other-ways-to-queue">Other ways to queue</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../self-guided-lessons/htcondor-queue.html#mixing-options-and-variables">Mixing options and variables</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../self-guided-lessons/htcondor.html#system-architecture">System architecture</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../self-guided-lessons/htcondor.html#other-useful-resources">Other useful resources</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../self-guided-lessons/local-grid-proxy.html">Creating a grid proxy without LbScripts</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../self-guided-lessons/local-grid-proxy.html#installation">Installation</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../self-guided-lessons/local-grid-proxy.html#macos-with-homebrew">macOS with homebrew</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../self-guided-lessons/local-grid-proxy.html#ubuntu">Ubuntu</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../self-guided-lessons/local-grid-proxy.html#centos">CentOS</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../self-guided-lessons/local-grid-proxy.html#arch-linux">Arch Linux</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../self-guided-lessons/local-grid-proxy.html#getting-the-required-files-and-certificates">Getting the required files and certificates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../self-guided-lessons/local-grid-proxy.html#creating-a-proxy">Creating a proxy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../self-guided-lessons/local-grid-proxy.html#managing-the-proxy">Managing the proxy</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../CONTRIBUTING.html">Contributing</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../CONTRIBUTING.html#getting-started">Getting Started</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../CONTRIBUTING.html#dependencies">Dependencies</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../CONDUCT.html">Contributor Code of Conduct</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../LICENSE.html">Instructional Material</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../LICENSE.html#software">Software</a></li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 
-
-                </nav>
             
-        
-    </div>
+          
+        </div>
+      </div>
+    </nav>
 
-    <div class="book-body">
-        
-            <div class="body-inner">
-                
-                    
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
 
-<div class="book-header" role="navigation">
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">LHCb Starterkit Lessons</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
     
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="README.html">Second Analysis Steps</a> &raquo;</li>
+        
+      <li>Run a different stripping line on simulated data</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            
+              <a href="https://github.com/lhcb/starterkit-lessons/blob/master/second-analysis-steps/rerun-stripping.md" class="fa fa-github"> Edit on GitHub</a>
+            
+          
+        
+      </li>
+    
+  </ul>
 
-    <!-- Title -->
-    <h1>
-        <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >Run a different stripping line on simulated data</a>
-    </h1>
+  
+  <hr/>
 </div>
-
-
-
-
-                    <div class="page-wrapper" tabindex="-1" role="main">
-                        <div class="page-inner">
-                            
-<div id="book-search-results">
-    <div class="search-noresults">
-    
-                                <section class="normal markdown-section">
-                                
-                                <h1 id="run-a-different-stripping-line-on-simulated-data">Run a different stripping line on simulated data</h1>
-<p><div class="panel panel-warning"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(4805693275);" id="learning-objectives"><i class="fa fa-line-chart"></i> Learning Objectives<span id="heading-4805693275"></span></h3></div><div class="panel-body" id="panel-4805693275"><ul>
-<li>Modify the minimal DecayTreeTuple example to apply a different stripping 
-version to an MC sample</li>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="run-a-different-stripping-line-on-simulated-data">
+<h1>Run a different stripping line on simulated data<a class="headerlink" href="#run-a-different-stripping-line-on-simulated-data" title="Permalink to this headline">¶</a></h1>
+<div class="panel panel-objectives docutils container">
+<div class="panel-header open docutils container">
+<p id="learning-objectives"><i class="fa fa-line-chart"></i> Learning Objectives</p>
+</div>
+<div class="panel-body docutils container">
+<ul class="simple">
+<li><p>Modify the minimal DecayTreeTuple example to apply a different stripping
+version to an MC sample</p></li>
 </ul>
-</div></div> </p>
+</div>
+</div>
 <p>Ideally, our simulated samples should feature the same stripping cuts as the real data we want to work with.
 We can be sure of this if the same stripping version has been used when processing the simulated and real data.</p>
 <p>But often, our simulated sample will have a different version of the stripping applied to it.
 For example, what if our data sample uses Stripping 28r1, while our MC sample uses Stripping 28?</p>
 <p>In this case, we simply need to rerun our stripping line of choice from the correct stripping version with one caveat:
-the decisions of the stripping that ran during the central MC production are placed in a default location in the TES (<code>/Event/Strip/Phys/DecReports</code>), so if we try to run our custom stripping it will complain because the location it wants to write the new decisions to already exists.
-To solve this issue, we need to run an instance of <code>EventNodeKiller</code> to remove the decisions from the MC production so that our custom stripping can write there instead.
-This is nice, because most tools expect to read the stripping decisions from the default location, so we won&apos;t have to reconfigure anything.</p>
-<p><a href="code/14-rerun-stripping/options.py">This example</a> is an extended version of the <a href="../first-analysis-steps/minimal-dv-job.html">minimal DaVinci DecayTreeTuple job</a> that additionally runs the corresponding stripping line from Stripping 28r1.</p>
-<p>Take a look at the file and try to find out what has changed compared to the <a href="code/09-minimal-dv/ntuple_options.py">minimal DaVinci example</a>.</p>
-<p><div class="panel panel-primary"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(5526027077);" id="downloading-the-file-during-a-impactkit-lesson"><i class="fa fa-info-circle"></i> Downloading the file during a Impactkit lesson<span id="heading-5526027077"></span></h3></div><div class="panel-body" id="panel-5526027077"><p>Lots of people downloading the same file at the same time can be very slow.
+the decisions of the stripping that ran during the central MC production are placed in a default location in the TES (<code class="docutils literal notranslate"><span class="pre">/Event/Strip/Phys/DecReports</span></code>), so if we try to run our custom stripping it will complain because the location it wants to write the new decisions to already exists.
+To solve this issue, we need to run an instance of <code class="docutils literal notranslate"><span class="pre">EventNodeKiller</span></code> to remove the decisions from the MC production so that our custom stripping can write there instead.
+This is nice, because most tools expect to read the stripping decisions from the default location, so we won’t have to reconfigure anything.</p>
+<p><a class="reference download internal" download="" href="../_downloads/f107cac626e4f6cdb65b5e1de212025d/options.py"><code class="xref download docutils literal notranslate"><span class="pre">This</span> <span class="pre">example</span></code></a> is an extended version of the <a class="reference internal" href="../first-analysis-steps/minimal-dv-job.html"><span class="doc">minimal DaVinci DecayTreeTuple job</span></a> that additionally runs the corresponding stripping line from Stripping 28r1.</p>
+<p>Take a look at the file and try to find out what has changed compared to the <a class="reference download internal" download="" href="../_downloads/beefe47816c401481df4eb8722c37b1d/ntuple_options.py"><code class="xref download docutils literal notranslate"><span class="pre">minimal</span> <span class="pre">DaVinci</span> <span class="pre">example</span></code></a>.</p>
+<div class="panel panel-callout docutils container">
+<div class="panel-header open docutils container">
+<p id="downloading-the-file-during-a-impactkit-lesson"><i class="fa fa-info-circle"></i> Downloading the file during a Impactkit lesson</p>
+</div>
+<div class="panel-body docutils container">
+<p>Lots of people downloading the same file at the same time can be very slow.
 The file in the minimal DaVinci example can be copied using this command:</p>
-<pre><code class="lang-bash">$ xrdcp root://eosuser.cern.ch//eos/user/l/lhcbsk/impactkit/00070793_00000001_7.AllStreams.dst .
-</code></pre>
-</div></div></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ xrdcp root://eosuser.cern.ch//eos/user/l/lhcbsk/impactkit/00070793_00000001_7.AllStreams.dst .
+</pre></div>
+</div>
+</div>
+</div>
 <p>The key changes are</p>
-<ul>
-<li>Removing the old stripping reports with a node killer</li>
+<ul class="simple">
+<li><p>Removing the old stripping reports with a node killer</p></li>
 </ul>
-<pre><code class="lang-python"><span class="hljs-keyword">from</span> Configurables <span class="hljs-keyword">import</span> EventNodeKiller
-event_node_killer = EventNodeKiller(<span class="hljs-string">&apos;StripKiller&apos;</span>)
-event_node_killer.Nodes = [<span class="hljs-string">&apos;/Event/AllStreams&apos;</span>, <span class="hljs-string">&apos;/Event/Strip&apos;</span>]
-</code></pre>
-<ul>
-<li>Picking the right stripping line from Stripping 28r1 (which we prepare with <code>buildStreams</code>):</li>
-<li>Building a custom stream that only contains the desired stripping line</li>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">Configurables</span> <span class="kn">import</span> <span class="n">EventNodeKiller</span>
+<span class="n">event_node_killer</span> <span class="o">=</span> <span class="n">EventNodeKiller</span><span class="p">(</span><span class="s1">&#39;StripKiller&#39;</span><span class="p">)</span>
+<span class="n">event_node_killer</span><span class="o">.</span><span class="n">Nodes</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;/Event/AllStreams&#39;</span><span class="p">,</span> <span class="s1">&#39;/Event/Strip&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Picking the right stripping line from Stripping 28r1 (which we prepare with <code class="docutils literal notranslate"><span class="pre">buildStreams</span></code>):</p></li>
+<li><p>Building a custom stream that only contains the desired stripping line</p></li>
 </ul>
-<pre><code class="lang-python">strip = <span class="hljs-string">&apos;stripping28r1&apos;</span>
-streams = buildStreams(stripping=strippingConfiguration(strip),
-                       archive=strippingArchive(strip))
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">strip</span> <span class="o">=</span> <span class="s1">&#39;stripping28r1&#39;</span>
+<span class="n">streams</span> <span class="o">=</span> <span class="n">buildStreams</span><span class="p">(</span><span class="n">stripping</span><span class="o">=</span><span class="n">strippingConfiguration</span><span class="p">(</span><span class="n">strip</span><span class="p">),</span>
+                       <span class="n">archive</span><span class="o">=</span><span class="n">strippingArchive</span><span class="p">(</span><span class="n">strip</span><span class="p">))</span>
 
-custom_stream = StrippingStream(<span class="hljs-string">&apos;CustomStream&apos;</span>)
-custom_line = <span class="hljs-string">&apos;Stripping&apos;</span>+line
+<span class="n">custom_stream</span> <span class="o">=</span> <span class="n">StrippingStream</span><span class="p">(</span><span class="s1">&#39;CustomStream&#39;</span><span class="p">)</span>
+<span class="n">custom_line</span> <span class="o">=</span> <span class="s1">&#39;Stripping&#39;</span><span class="o">+</span><span class="n">line</span>
 
-<span class="hljs-keyword">for</span> stream <span class="hljs-keyword">in</span> streams:
-    <span class="hljs-keyword">for</span> sline <span class="hljs-keyword">in</span> stream.lines:
-        <span class="hljs-keyword">if</span> sline.name() == custom_line:
-            custom_stream.appendLines([sline])
-</code></pre>
-<ul>
-<li>Instantiating a <code>StrippingConf</code> for running the stripping</li>
+<span class="k">for</span> <span class="n">stream</span> <span class="ow">in</span> <span class="n">streams</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">sline</span> <span class="ow">in</span> <span class="n">stream</span><span class="o">.</span><span class="n">lines</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">sline</span><span class="o">.</span><span class="n">name</span><span class="p">()</span> <span class="o">==</span> <span class="n">custom_line</span><span class="p">:</span>
+            <span class="n">custom_stream</span><span class="o">.</span><span class="n">appendLines</span><span class="p">([</span><span class="n">sline</span><span class="p">])</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Instantiating a <code class="docutils literal notranslate"><span class="pre">StrippingConf</span></code> for running the stripping</p></li>
 </ul>
-<pre><code class="lang-python">sc = StrippingConf(Streams=[custom_stream],
-                   MaxCandidates=<span class="hljs-number">2000</span>,
-                   AcceptBadEvents=<span class="hljs-keyword">False</span>,
-                   BadEventSelection=filterBadEvents)
-</code></pre>
-<ul>
-<li><p>Updating the path for <code>dtt.Inputs</code>: the output is now placed directly in <code>Phys</code></p>
-<pre><code class="lang-python">dtt.Inputs = [<span class="hljs-string">&apos;/Event/Phys/{0}/Particles&apos;</span>.format(line)]
-</code></pre>
-</li>
-<li><p>Inserting the node killer and the stripping selection sequence into the Gaudi sequence</p>
-</li>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">sc</span> <span class="o">=</span> <span class="n">StrippingConf</span><span class="p">(</span><span class="n">Streams</span><span class="o">=</span><span class="p">[</span><span class="n">custom_stream</span><span class="p">],</span>
+                   <span class="n">MaxCandidates</span><span class="o">=</span><span class="mi">2000</span><span class="p">,</span>
+                   <span class="n">AcceptBadEvents</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span>
+                   <span class="n">BadEventSelection</span><span class="o">=</span><span class="n">filterBadEvents</span><span class="p">)</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Updating the path for <code class="docutils literal notranslate"><span class="pre">dtt.Inputs</span></code>: the output is now placed directly in <code class="docutils literal notranslate"><span class="pre">Phys</span></code></p></li>
 </ul>
-<pre><code class="lang-python">DaVinci().appendToMainSequence([event_node_killer, sc.sequence()])
-</code></pre>
-<p>It is strongly recommended to run restripping with the same version of DaVinci as the one used for the corresponding stripping production: this ensures all the settings are configured the same exact way as for your data. For the Stripping 28r1, DaVinci v41r4p4 was used. Notice that this version is not available for the default platform <code>x86_64-slc6-gcc62-opt</code>.
-To work around this you can pick up the best suitable platform using <code>lb-run -c best DaVinci/v41r4p4 ...</code> or by <a href="https://lhcb.github.io/starterkit-lessons/first-analysis-steps/davinci-grid.html#picking-up-a-right-platform" target="_blank">setting the <code>application.platform</code> attribute in ganga</a>.
-See the <a href="https://twiki.cern.ch/twiki/bin/view/Main/ProcessingPasses" target="_blank">ProcessingPasses TWiki page</a> to find which version of DaVinci was used for each stripping campaign.</p>
-
-                                
-                                </section>
-                            
-    </div>
-    <div class="search-results">
-        <div class="has-results">
-            
-            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
-            <ul class="search-results-list"></ul>
-            
-        </div>
-        <div class="no-results">
-            
-            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
-            
-        </div>
-    </div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">dtt</span><span class="o">.</span><span class="n">Inputs</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;/Event/Phys/{0}/Particles&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">line</span><span class="p">)]</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Inserting the node killer and the stripping selection sequence into the Gaudi sequence</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">DaVinci</span><span class="p">()</span><span class="o">.</span><span class="n">appendToMainSequence</span><span class="p">([</span><span class="n">event_node_killer</span><span class="p">,</span> <span class="n">sc</span><span class="o">.</span><span class="n">sequence</span><span class="p">()])</span>
+</pre></div>
+</div>
+<p>It is strongly recommended to run restripping with the same version of DaVinci as the one used for the corresponding stripping production: this ensures all the settings are configured the same exact way as for your data. For the Stripping 28r1, DaVinci v41r4p4 was used. Notice that this version is not available for the default platform <code class="docutils literal notranslate"><span class="pre">x86_64-slc6-gcc62-opt</span></code>.
+To work around this you can pick up the best suitable platform using <code class="docutils literal notranslate"><span class="pre">lb-run</span> <span class="pre">-c</span> <span class="pre">best</span> <span class="pre">DaVinci/v41r4p4</span> <span class="pre">...</span></code> or by <a class="reference external" href="https://lhcb.github.io/starterkit-lessons/first-analysis-steps/davinci-grid.html#picking-up-a-right-platform">setting the <code class="docutils literal notranslate"><span class="pre">application.platform</span></code> attribute in ganga</a>.
+See the <a class="reference external" href="https://twiki.cern.ch/twiki/bin/view/Main/ProcessingPasses">ProcessingPasses TWiki page</a> to find which version of DaVinci was used for each stripping campaign.</p>
 </div>
 
-                        </div>
-                    </div>
-                
-            </div>
 
-            
-                
-                <a href="fixing-errors.html" class="navigation navigation-prev " aria-label="Previous page: What to do when something fails">
-                    <i class="fa fa-angle-left"></i>
-                </a>
-                
-                
-                <a href="switch-mass-hypo.html" class="navigation navigation-next " aria-label="Next page: Replace a mass hypothesis">
-                    <i class="fa fa-angle-right"></i>
-                </a>
-                
-            
-        
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="switch-mass-hypo.html" class="btn btn-neutral float-right" title="Replace a mass hypothesis" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="fixing-errors.html" class="btn btn-neutral float-left" title="What to do when something fails" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
     </div>
+  
 
-    <script>
-        var gitbook = gitbook || [];
-        gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Run a different stripping line on simulated data","level":"3.1.4","depth":2,"next":{"title":"Replace a mass hypothesis","level":"3.1.5","depth":2,"path":"second-analysis-steps/switch-mass-hypo.md","ref":"second-analysis-steps/switch-mass-hypo.md","articles":[]},"previous":{"title":"What to do when something fails","level":"3.1.3","depth":2,"path":"second-analysis-steps/fixing-errors.md","ref":"second-analysis-steps/fixing-errors.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-sharing","panels@git+https://github.com/lhcb/gitbook-plugin-panels.git#master","katex-auto-render@git+https://github.com/lhcb/gitbook-plugin-katex-auto-render.git#master","collapsible-menu","otherlink"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"collapsible-menu":{},"search":{},"otherlink":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"panels":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"katex-auto-render":{},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"The Starterkit team and contributors","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"gitbook":"*"},"file":{"path":"second-analysis-steps/rerun-stripping.md","mtime":"2019-10-10T14:37:33.893Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-10-10T14:39:29.242Z"},"basePath":"..","book":{"language":""}});
-        });
-    </script>
-</div>
+  <hr/>
 
-        
-    <script src="../gitbook/gitbook.js"></script>
-    <script src="../gitbook/theme.js"></script>
-    
-        
-        <script src="../gitbook/gitbook-plugin-panels/panels.js"></script>
-        
-    
-        
-        <script src="../gitbook/gitbook-plugin-katex-auto-render/katex.min.js"></script>
-        
-    
-        
-        <script src="../gitbook/gitbook-plugin-katex-auto-render/auto-render.min.js"></script>
-        
-    
-        
-        <script src="../gitbook/gitbook-plugin-katex-auto-render/enable-auto-render.js"></script>
-        
-    
-        
-        <script src="../gitbook/gitbook-plugin-collapsible-menu/plugin.js"></script>
-        
-    
-        
-        <script src="../gitbook/gitbook-plugin-otherlink/js/otherlink.js"></script>
-        
-    
-        
-        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
-        
-    
-        
-        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
-        
-    
-        
-        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
-        
-    
-        
-        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
-        
-    
-        
-        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
-        
-    
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015-2019, LHCb Starterkit
 
-    </body>
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
 </html>
-

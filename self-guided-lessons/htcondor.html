@@ -1,1059 +1,417 @@
 
-<!DOCTYPE HTML>
-<html lang="" >
-    <head>
-        <meta charset="UTF-8">
-        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>Batch submission with HTCondor · GitBook</title>
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="description" content="">
-        <meta name="generator" content="GitBook 3.2.3">
-        <meta name="author" content="The Starterkit team and contributors">
-        
-        
-    
-    <link rel="stylesheet" href="../gitbook/style.css">
 
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Batch submission using HTCondor &mdash; LHCb Starterkit Lessons  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
     
-            
-                
-                <link rel="stylesheet" href="../gitbook/gitbook-plugin-panels/panels.css">
-                
-            
-                
-                <link rel="stylesheet" href="../gitbook/gitbook-plugin-katex-auto-render/katex.min.css">
-                
-            
-                
-                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
-                
-            
-                
-                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
-                
-            
-                
-                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
-                
-            
-        
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="../_static/panels.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
 
     
 
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/panels.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/starterkit.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Submitting a simple job" href="htcondor-first-job.html" />
+    <link rel="prev" title="Self guided lessons" href="README.html" /> 
+</head>
 
-        
-    
-    
-    <meta name="HandheldFriendly" content="true"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
-    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+<body class="wy-body-for-nav">
 
+   
+  <div class="wy-grid-for-nav">
     
-    <link rel="next" href="htcondor-first-job.html" />
-    
-    
-    <link rel="prev" href="./" />
-    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
 
-    </head>
-    <body>
-        
-<div class="book">
-    <div class="book-summary">
-        
+          
+            <a href="../index.html" class="icon icon-home"> LHCb Starterkit Lessons
+          
+
+          
+          </a>
+
+          
             
-<div id="book-search-input" role="search">
-    <input type="text" placeholder="Type to search" />
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
 </div>
 
-            
-                <nav role="navigation">
-                
-
-
-<ul class="summary">
-    
-    
-
-    
-
-    
-        
-        
-    
-        <li class="chapter " data-level="1.1" data-path="../">
-            
-                <a href="../">
-            
-                    
-                    The LHCb Starterkit
-            
-                </a>
-            
-
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="1.1.1" data-path="../CONTRIBUTING.html">
-            
-                <a href="../CONTRIBUTING.html">
-            
-                    
-                    Contributing
-            
-                </a>
-            
-
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-
-    
-        
-        <li class="divider"></li>
-        
-        
-    
-        <li class="chapter " data-level="2.1" data-path="../first-analysis-steps/">
-            
-                <a href="../first-analysis-steps/">
-            
-                    
-                    First analysis steps
-            
-                </a>
-            
-
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="2.1.1" data-path="../first-analysis-steps/prerequisites.html">
-            
-                <a href="../first-analysis-steps/prerequisites.html">
-            
-                    
-                    Pre-workshop checklist
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="2.1.2" data-path="../first-analysis-steps/introduction-to-course.html">
-            
-                <a href="../first-analysis-steps/introduction-to-course.html">
-            
-                    
-                    Goals of the course
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="2.1.3" data-path="../first-analysis-steps/physics-at-lhcb.html">
-            
-                <a href="../first-analysis-steps/physics-at-lhcb.html">
-            
-                    
-                    Physics at LHCb
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="2.1.4" data-path="../first-analysis-steps/dataflow.html">
-            
-                <a href="../first-analysis-steps/dataflow.html">
-            
-                    
-                    The LHCb data flow
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="2.1.5" data-path="../first-analysis-steps/run-2-data-flow.html">
-            
-                <a href="../first-analysis-steps/run-2-data-flow.html">
-            
-                    
-                    Changes to the data flow in Run 2
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="2.1.6" data-path="../first-analysis-steps/davinci.html">
-            
-                <a href="../first-analysis-steps/davinci.html">
-            
-                    
-                    An introduction to LHCb Software
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="2.1.7" data-path="../first-analysis-steps/bookkeeping.html">
-            
-                <a href="../first-analysis-steps/bookkeeping.html">
-            
-                    
-                    Finding data in the Bookkeeping
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="2.1.8" data-path="../first-analysis-steps/files-from-grid.html">
-            
-                <a href="../first-analysis-steps/files-from-grid.html">
-            
-                    
-                    Downloading a file from the grid
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="2.1.9" data-path="../first-analysis-steps/interactive-dst.html">
-            
-                <a href="../first-analysis-steps/interactive-dst.html">
-            
-                    
-                    Interactively exploring a DST
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="2.1.10" data-path="../first-analysis-steps/minimal-dv-job.html">
-            
-                <a href="../first-analysis-steps/minimal-dv-job.html">
-            
-                    
-                    Running a minimal DaVinci job locally
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="2.1.11" data-path="../first-analysis-steps/loki-functors.html">
-            
-                <a href="../first-analysis-steps/loki-functors.html">
-            
-                    
-                    Fun with LoKi Functors
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="2.1.12" data-path="../first-analysis-steps/add-tupletools.html">
-            
-                <a href="../first-analysis-steps/add-tupletools.html">
-            
-                    
-                    TupleTools and branches
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="2.1.13" data-path="../first-analysis-steps/decay-tree-fitter.html">
-            
-                <a href="../first-analysis-steps/decay-tree-fitter.html">
-            
-                    
-                    How do I use DecayTreeFitter?
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="2.1.14" data-path="../first-analysis-steps/davinci-grid.html">
-            
-                <a href="../first-analysis-steps/davinci-grid.html">
-            
-                    
-                    Running DaVinci on the grid
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="2.1.15" data-path="../first-analysis-steps/split-jobs.html">
-            
-                <a href="../first-analysis-steps/split-jobs.html">
-            
-                    
-                    Splitting a job into subjobs
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="2.1.16" data-path="../first-analysis-steps/ganga-data.html">
-            
-                <a href="../first-analysis-steps/ganga-data.html">
-            
-                    
-                    More Ganga
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="2.1.17" data-path="../first-analysis-steps/eos-storage.html">
-            
-                <a href="../first-analysis-steps/eos-storage.html">
-            
-                    
-                    Storing large files on EOS
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="2.1.18" data-path="../first-analysis-steps/lhcb-dev.html">
-            
-                <a href="../first-analysis-steps/lhcb-dev.html">
-            
-                    
-                    Developing LHCb Software
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="2.1.19" data-path="../first-analysis-steps/asking-questions.html">
-            
-                <a href="../first-analysis-steps/asking-questions.html">
-            
-                    
-                    Asking good questions
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="2.1.20" data-path="../first-analysis-steps/ecgd.html">
-            
-                <a href="../first-analysis-steps/ecgd.html">
-            
-                    
-                    Early career, gender and diversity
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="2.1.21" data-path="../first-analysis-steps/contributing-lesson.html">
-            
-                <a href="../first-analysis-steps/contributing-lesson.html">
-            
-                    
-                    Contribute to this lesson
-            
-                </a>
-            
-
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-
-    
-        
-        <li class="divider"></li>
-        
-        
-    
-        <li class="chapter " data-level="3.1" data-path="../second-analysis-steps/">
-            
-                <a href="../second-analysis-steps/">
-            
-                    
-                    Second analysis steps
-            
-                </a>
-            
-
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="3.1.1" data-path="../second-analysis-steps/lb-git.html">
-            
-                <a href="../second-analysis-steps/lb-git.html">
-            
-                    
-                    Using git to develop LHCb software
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="3.1.2" data-path="../second-analysis-steps/building-decays.html">
-            
-                <a href="../second-analysis-steps/building-decays.html">
-            
-                    
-                    Building your own decay
-            
-                </a>
-            
-
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="3.1.2.1" data-path="../second-analysis-steps/building-decays-part0.html">
-            
-                <a href="../second-analysis-steps/building-decays-part0.html">
-            
-                    
-                    The Selection Framework
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="3.1.2.2" data-path="../second-analysis-steps/building-decays-part1.html">
-            
-                <a href="../second-analysis-steps/building-decays-part1.html">
-            
-                    
-                    A Historical Approach
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="3.1.2.3" data-path="../second-analysis-steps/building-decays-part2.html">
-            
-                <a href="../second-analysis-steps/building-decays-part2.html">
-            
-                    
-                    Modern Selection Framework
-            
-                </a>
-            
-
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-        <li class="chapter " data-level="3.1.3" data-path="../second-analysis-steps/fixing-errors.html">
-            
-                <a href="../second-analysis-steps/fixing-errors.html">
-            
-                    
-                    What to do when something fails
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="3.1.4" data-path="../second-analysis-steps/rerun-stripping.html">
-            
-                <a href="../second-analysis-steps/rerun-stripping.html">
-            
-                    
-                    Run a different stripping line on simulated data
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="3.1.5" data-path="../second-analysis-steps/switch-mass-hypo.html">
-            
-                <a href="../second-analysis-steps/switch-mass-hypo.html">
-            
-                    
-                    Replace a mass hypothesis
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="3.1.6" data-path="../second-analysis-steps/filter-in-trees.html">
-            
-                <a href="../second-analysis-steps/filter-in-trees.html">
-            
-                    
-                    Reuse particles from a decay tree
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="3.1.7" data-path="../second-analysis-steps/simulation.html">
-            
-                <a href="../second-analysis-steps/simulation.html">
-            
-                    
-                    The simulation framework
-            
-                </a>
-            
-
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="3.1.7.1" data-path="../second-analysis-steps/simulation-intro.html">
-            
-                <a href="../second-analysis-steps/simulation-intro.html">
-            
-                    
-                    Introduction: The basics of Gauss
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="3.1.7.2" data-path="../second-analysis-steps/simulation-running-gauss.html">
-            
-                <a href="../second-analysis-steps/simulation-running-gauss.html">
-            
-                    
-                    Getting the correct option files
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="3.1.7.3" data-path="../second-analysis-steps/simulation-dkfiles.html">
-            
-                <a href="../second-analysis-steps/simulation-dkfiles.html">
-            
-                    
-                    Controlling the decay
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="3.1.7.4" data-path="../second-analysis-steps/simulation-gencuts.html">
-            
-                <a href="../second-analysis-steps/simulation-gencuts.html">
-            
-                    
-                    Modifying the decay
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="3.1.7.5" data-path="../second-analysis-steps/simulation-advanced-dkfiles.html">
-            
-                <a href="../second-analysis-steps/simulation-advanced-dkfiles.html">
-            
-                    
-                    Advanced: Modifying the decay
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="3.1.7.6" data-path="../second-analysis-steps/simulation-fastsim.html">
-            
-                <a href="../second-analysis-steps/simulation-fastsim.html">
-            
-                    
-                    Fast simulation options
-            
-                </a>
-            
-
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-        <li class="chapter " data-level="3.1.8" data-path="../second-analysis-steps/hlt-intro.html">
-            
-                <a href="../second-analysis-steps/hlt-intro.html">
-            
-                    
-                    HLT intro
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="3.1.9" data-path="../second-analysis-steps/tistos-diy.html">
-            
-                <a href="../second-analysis-steps/tistos-diy.html">
-            
-                    
-                    TisTos DIY
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="3.1.10" data-path="../second-analysis-steps/ganga-scripting.html">
-            
-                <a href="../second-analysis-steps/ganga-scripting.html">
-            
-                    
-                    Ganga Scripting
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="3.1.11" data-path="../second-analysis-steps/managing-files-with-ganga.html">
-            
-                <a href="../second-analysis-steps/managing-files-with-ganga.html">
-            
-                    
-                    Managing files in Ganga
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="3.1.12" data-path="../second-analysis-steps/analysis-automation-snakemake.html">
-            
-                <a href="../second-analysis-steps/analysis-automation-snakemake.html">
-            
-                    
-                    Analysis automation: snakemake
-            
-                </a>
-            
-
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-
-    
-        
-        <li class="divider"></li>
-        
-        
-    
-        <li class="chapter " data-level="4.1" data-path="./">
-            
-                <a href="./">
-            
-                    
-                    Self guided lessons
-            
-                </a>
-            
-
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter active" data-level="4.1.1" data-path="htcondor.html">
-            
-                <a href="htcondor.html">
-            
-                    
-                    Batch submission with HTCondor
-            
-                </a>
-            
-
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="4.1.1.1" data-path="htcondor-first-job.html">
-            
-                <a href="htcondor-first-job.html">
-            
-                    
-                    Creating your first job
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="4.1.1.2" data-path="htcondor-more-options.html">
-            
-                <a href="htcondor-more-options.html">
-            
-                    
-                    More submit file options
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="4.1.1.3" data-path="htcondor-queue.html">
-            
-                <a href="htcondor-queue.html">
-            
-                    
-                    The queue command
-            
-                </a>
-            
-
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-
-    
-        
-        <li class="divider"></li>
-        
-        
-    
-        <li class="chapter " data-level="5.1" data-path="../using-the-grid/">
-            
-                <a href="../using-the-grid/">
-            
-                    
-                    Using the grid
-            
-                </a>
-            
-
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="5.1.1" data-path="../using-the-grid/local-grid-proxy.html">
-            
-                <a href="../using-the-grid/local-grid-proxy.html">
-            
-                    
-                    Grid proxies without LbScripts
-            
-                </a>
-            
-
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-
-    
-        
-        <li class="divider"></li>
-        
-        
-    
-        <li class="chapter " data-level="6.1" >
-            
-                <a target="_blank" href="ref://starterkit-lessons.pdf">
-            
-                    
-                    Download PDF
-            
-                </a>
-            
-
-            
-        </li>
-    
-
-    
-
-    <li class="divider"></li>
-
-    <li>
-        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
-            Published with GitBook
-        </a>
-    </li>
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../first-analysis-steps/README.html">First Analysis Steps</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../first-analysis-steps/prerequisites.html">Pre-workshop checklist</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../first-analysis-steps/introduction-to-course.html">Goals of the course</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../first-analysis-steps/physics-at-lhcb.html">Physics at LHCb</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../first-analysis-steps/physics-at-lhcb.html#the-reconstruction">The reconstruction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../first-analysis-steps/physics-at-lhcb.html#building-decay-candidates">Building decay candidates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../first-analysis-steps/physics-at-lhcb.html#building-more-complex-decays">Building more complex decays</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../first-analysis-steps/dataflow.html">The LHCb data flow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../first-analysis-steps/run-2-data-flow.html">Changes to the data flow in Run 2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../first-analysis-steps/davinci.html">An introduction to LHCb Software</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../first-analysis-steps/bookkeeping.html">Finding data in the Bookkeeping</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../first-analysis-steps/files-from-grid.html">Downloading a file from the grid</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../first-analysis-steps/interactive-dst.html">Interactively exploring a DST</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../first-analysis-steps/minimal-dv-job.html">Running a minimal DaVinci job locally</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../first-analysis-steps/loki-functors.html">Fun with LoKi Functors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../first-analysis-steps/add-tupletools.html">TupleTools and branches</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../first-analysis-steps/decay-tree-fitter.html">How do I use DecayTreeFitter?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../first-analysis-steps/davinci-grid.html">Running DaVinci on the grid</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../first-analysis-steps/split-jobs.html">Splitting a job into subjobs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../first-analysis-steps/ganga-data.html">More Ganga</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../first-analysis-steps/eos-storage.html">Storing large files on EOS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../first-analysis-steps/lhcb-dev.html">Developing LHCb Software</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../first-analysis-steps/asking-questions.html">Asking good questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../first-analysis-steps/ecgd.html">Early career, gender and diversity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../first-analysis-steps/contributing-lesson.html">Contribute to this lesson</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../second-analysis-steps/README.html">Second Analysis Steps</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../second-analysis-steps/lb-git.html">Using git to develop LHCb software</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../second-analysis-steps/building-decays.html">Building your own decay</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../second-analysis-steps/building-decays-part0.html">The Selection Framework</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../second-analysis-steps/building-decays-part1.html">A Historical Approach</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../second-analysis-steps/building-decays-part2.html">Modern Selection Framework</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../second-analysis-steps/fixing-errors.html">What to do when something fails</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../second-analysis-steps/rerun-stripping.html">Run a different stripping line on simulated data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../second-analysis-steps/switch-mass-hypo.html">Replace a mass hypothesis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../second-analysis-steps/filter-in-trees.html">Reuse particles from a decay tree</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../second-analysis-steps/simulation.html">The simulation framework</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../second-analysis-steps/simulation-intro.html">What is Gauss?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../second-analysis-steps/simulation-running-gauss.html">Which option files to use and how to run Gauss</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../second-analysis-steps/simulation-running-gauss.html#running-gauss-and-create-a-generator-only-sample">Running Gauss and create a generator-only sample</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../second-analysis-steps/simulation-running-gauss.html#make-an-ntuple">Make an nTuple</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../second-analysis-steps/simulation-dkfiles.html">Controlling the decay: DecFiles</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../second-analysis-steps/simulation-gencuts.html">Modifying the decay</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../second-analysis-steps/simulation-gencuts.html#adding-a-decay-channel">Adding a decay channel</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../second-analysis-steps/simulation-gencuts.html#generator-level-cuts">Generator level cuts</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../second-analysis-steps/simulation-gencuts.html#removing-the-generator-cuts">Removing the generator cuts</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../second-analysis-steps/simulation-gencuts.html#modifying-the-cut-tool">Modifying the cut tool</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../second-analysis-steps/simulation-advanced-dkfiles.html">Advanced: Modifying the decay</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../second-analysis-steps/simulation-advanced-dkfiles.html#multi-body-decays">3+ multi-body decays</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../second-analysis-steps/simulation-advanced-dkfiles.html#cocktail-decays">Cocktail decays</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../second-analysis-steps/simulation-advanced-dkfiles.html#final-state-radiation">Final state radiation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../second-analysis-steps/simulation-advanced-dkfiles.html#changing-particle-masses-lifetimes-widths">Changing particle masses / lifetimes/ widths</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../second-analysis-steps/simulation-fastsim.html">Why fast simulation is crucial</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../second-analysis-steps/simulation-fastsim.html#speeding-up-the-detector-simulation">Speeding up the detector simulation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../second-analysis-steps/simulation-fastsim.html#speeding-up-the-generation">Speeding up the generation</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../second-analysis-steps/hlt-intro.html">HLT intro</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../second-analysis-steps/hlt-intro.html#add-trigger-information-to-your-ntuple">Add trigger information to your ntuple</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../second-analysis-steps/hlt-intro.html#exploring-a-tck-list-of-trigger-lines">Exploring a TCK: List of trigger lines</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../second-analysis-steps/hlt-intro.html#add-trigger-information-to-your-ntuple-continued">Add trigger information to your ntuple, continued</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../second-analysis-steps/hlt-intro.html#add-tistos-information-to-your-ntuple">Add TISTOS information to your ntuple</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../second-analysis-steps/hlt-intro.html#exploring-a-tck-properties-of-trigger-lines">Exploring a TCK: Properties of trigger lines</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../second-analysis-steps/tistos-diy.html">TisTos DIY</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../second-analysis-steps/ganga-scripting.html">Scripting Ganga</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../second-analysis-steps/ganga-scripting.html#defining-jobs-with-scripts">Defining jobs with scripts</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../second-analysis-steps/ganga-scripting.html#adding-helpers-functions">Adding helpers functions</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../second-analysis-steps/managing-files-with-ganga.html">Managing files in Ganga</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../second-analysis-steps/analysis-automation-snakemake.html">Analysis automation with snakemake</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../second-analysis-steps/analysis-automation-snakemake.html#motivation">Motivation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../second-analysis-steps/analysis-automation-snakemake.html#documentation-and-installation">Documentation and installation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../second-analysis-steps/analysis-automation-snakemake.html#tutorial">Tutorial</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../second-analysis-steps/analysis-automation-snakemake.html#usage-and-basic-behaviour">Usage and basic behaviour</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../second-analysis-steps/analysis-automation-snakemake.html#sub-labels">Sub-labels</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../second-analysis-steps/analysis-automation-snakemake.html#run-and-shell">Run and shell</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../second-analysis-steps/analysis-automation-snakemake.html#config-files">Config files</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../second-analysis-steps/analysis-automation-snakemake.html#includes">Includes</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="reference internal" href="README.html">Self guided lessons</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Batch submission using HTCondor</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="htcondor-first-job.html">Submitting a simple job</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="htcondor-first-job.html#tracking-your-jobs">Tracking your jobs</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="htcondor-more-options.html">More submit file options</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="htcondor-more-options.html#input-files">Input files</a></li>
+<li class="toctree-l4"><a class="reference internal" href="htcondor-more-options.html#output-files">Output files</a></li>
+<li class="toctree-l4"><a class="reference internal" href="htcondor-more-options.html#arguments">Arguments</a></li>
+<li class="toctree-l4"><a class="reference internal" href="htcondor-more-options.html#resources-and-requirements">Resources and Requirements</a></li>
+<li class="toctree-l4"><a class="reference internal" href="htcondor-more-options.html#notifications">Notifications</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="htcondor-queue.html">Using the queue command</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="htcondor-queue.html#more-on-variables">More on variables</a></li>
+<li class="toctree-l4"><a class="reference internal" href="htcondor-queue.html#other-ways-to-queue">Other ways to queue</a></li>
+<li class="toctree-l4"><a class="reference internal" href="htcondor-queue.html#mixing-options-and-variables">Mixing options and variables</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#system-architecture">System architecture</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#other-useful-resources">Other useful resources</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="local-grid-proxy.html">Creating a grid proxy without LbScripts</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="local-grid-proxy.html#installation">Installation</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="local-grid-proxy.html#macos-with-homebrew">macOS with homebrew</a></li>
+<li class="toctree-l4"><a class="reference internal" href="local-grid-proxy.html#ubuntu">Ubuntu</a></li>
+<li class="toctree-l4"><a class="reference internal" href="local-grid-proxy.html#centos">CentOS</a></li>
+<li class="toctree-l4"><a class="reference internal" href="local-grid-proxy.html#arch-linux">Arch Linux</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="local-grid-proxy.html#getting-the-required-files-and-certificates">Getting the required files and certificates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="local-grid-proxy.html#creating-a-proxy">Creating a proxy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="local-grid-proxy.html#managing-the-proxy">Managing the proxy</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../CONTRIBUTING.html">Contributing</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../CONTRIBUTING.html#getting-started">Getting Started</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../CONTRIBUTING.html#dependencies">Dependencies</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../CONDUCT.html">Contributor Code of Conduct</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../LICENSE.html">Instructional Material</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../LICENSE.html#software">Software</a></li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 
-
-                </nav>
             
-        
-    </div>
+          
+        </div>
+      </div>
+    </nav>
 
-    <div class="book-body">
-        
-            <div class="body-inner">
-                
-                    
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
 
-<div class="book-header" role="navigation">
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">LHCb Starterkit Lessons</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
     
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="README.html">Self guided lessons</a> &raquo;</li>
+        
+      <li>Batch submission using HTCondor</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            
+              <a href="https://github.com/lhcb/starterkit-lessons/blob/master/self-guided-lessons/htcondor.md" class="fa fa-github"> Edit on GitHub</a>
+            
+          
+        
+      </li>
+    
+  </ul>
 
-    <!-- Title -->
-    <h1>
-        <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >Batch submission with HTCondor</a>
-    </h1>
+  
+  <hr/>
 </div>
-
-
-
-
-                    <div class="page-wrapper" tabindex="-1" role="main">
-                        <div class="page-inner">
-                            
-<div id="book-search-results">
-    <div class="search-noresults">
-    
-                                <section class="normal markdown-section">
-                                
-                                <h1 id="batch-submission-using-htcondor">Batch submission using HTCondor</h1>
-<p><div class="panel panel-warning"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(5020288286);" id="learning-objectives"><i class="fa fa-line-chart"></i> Learning Objectives<span id="heading-5020288286"></span></h3></div><div class="panel-body" id="panel-5020288286"><ul>
-<li>Understand some of the basic concepts of batch computing services</li>
-<li>Understand the architecture of the CERN batch system</li>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="batch-submission-using-htcondor">
+<h1>Batch submission using HTCondor<a class="headerlink" href="#batch-submission-using-htcondor" title="Permalink to this headline">¶</a></h1>
+<div class="panel panel-objectives docutils container">
+<div class="panel-header open docutils container">
+<p id="learning-objectives"><i class="fa fa-line-chart"></i> Learning Objectives</p>
+</div>
+<div class="panel-body docutils container">
+<ul class="simple">
+<li><p>Understand some of the basic concepts of batch computing services</p></li>
+<li><p>Understand the architecture of the CERN batch system</p></li>
 </ul>
-</div></div> </p>
+</div>
+</div>
 <p>HTCondor is a high throughput computing service. Its purpose is to decide how and when jobs submitted by users should be run using the distributed computing service. It makes these decisions in a way that tries to share the available resources fairly between everyone using the system.</p>
 <p>When you submit jobs to HTCondor from lxplus, it adds them to a queue. Once they reach the front of the queue, they will automatically be sent to some of the worker nodes in the distributed computing service. The jobs are then run on the nodes HTCondor assigned them to. As each one completes, any output is returned to the user, along with any errors that occurred.</p>
 <p>In order to decide where to place your jobs in the queue, HTCondor considers factors including (but not limited to):</p>
-<ul>
-<li>Amount of resources requested - number of CPUs, etc.</li>
-<li>Expected duration of each job</li>
-<li>Quantity, and expected durations, of other users&apos; jobs</li>
-<li>Share of resources allotted to different experiments</li>
-<li>Your priority score</li>
+<ul class="simple">
+<li><p>Amount of resources requested - number of CPUs, etc.</p></li>
+<li><p>Expected duration of each job</p></li>
+<li><p>Quantity, and expected durations, of other users’ jobs</p></li>
+<li><p>Share of resources allotted to different experiments</p></li>
+<li><p>Your priority score</p></li>
 </ul>
 <p>Your priority score is determined based on your recent usage. Submitting lots of intensive jobs will cause your score to increase quickly, but if you wait a little while afterwards it will gradually reduce back down <em>(N.B. a lower score means your jobs will have a higher priority)</em>.</p>
-<h3 id="system-architecture">System architecture</h3>
-<p>When you connect to lxplus, you have read/write access to both the AFS and EOS filesystems, as well as read-only access to CVMFS for accessing experiment software. Worker notes in the batch system have the same permissions, which is what allows them to read input files from, and write output files to, your user areas.</p>
-<p>Each worker node has its own remote storage space, which is limited to 20GB. When a job starts, the executable is copied to this storage area, usually along with any input data files required. Any files created by the script should be created there as well, where they can later be transferred back to your user area. When a job completes, the worker node cleans out its storage area, so it&apos;s important to tell HTCondor to transfer any output files you want to keep.</p>
-<p>See <a href="http://batchdocs.web.cern.ch/batchdocs/concepts/dataflow.html" target="_blank">here</a> for a more detailed explanation (and a helpful diagram).</p>
-<h3 id="other-useful-resources">Other useful resources</h3>
-<p>While putting this lesson together, the following guides, tutorials, and pages proved highly useful, and may be useful to you as well if you need more information:</p>
+<div class="toctree-wrapper compound">
+<p class="caption"><span class="caption-text">Contents:</span></p>
 <ul>
-<li><a href="https://research.cs.wisc.edu/htcondor/manual/v8.8/" target="_blank">HTCondor v8.8.2 Manual</a> - University of Wisconsin-Madison</li>
-<li><a href="http://batchdocs.web.cern.ch/batchdocs/index.html" target="_blank">CERN Batch Service User Guide</a></li>
-<li><a href="https://indico.cern.ch/event/611296/contributions/2604376/attachments/1471164/2276521/TannenbaumT_UserTutorial.pdf" target="_blank">HTCondor User Tutorial</a> - Todd Tannenbaum, 6th June 2017</li>
-<li><a href="https://mattermost.web.cern.ch/lhcb" target="_blank">Mattermost</a> - you can join the &apos;condor&apos; and &apos;Distributed Analysis&apos; channels</li>
-<li><a href="mailto:lhcb-distributed-analysis@cern.ch" target="_blank">lhcb-distributed-analysis@cern.ch</a> mailing list</li>
+<li class="toctree-l1"><a class="reference internal" href="htcondor-first-job.html">Submitting a simple job</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="htcondor-first-job.html#tracking-your-jobs">Tracking your jobs</a></li>
 </ul>
-
-                                
-                                </section>
-                            
-    </div>
-    <div class="search-results">
-        <div class="has-results">
-            
-            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
-            <ul class="search-results-list"></ul>
-            
-        </div>
-        <div class="no-results">
-            
-            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
-            
-        </div>
-    </div>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="htcondor-more-options.html">More submit file options</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="htcondor-more-options.html#input-files">Input files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="htcondor-more-options.html#output-files">Output files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="htcondor-more-options.html#arguments">Arguments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="htcondor-more-options.html#resources-and-requirements">Resources and Requirements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="htcondor-more-options.html#notifications">Notifications</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="htcondor-queue.html">Using the queue command</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="htcondor-queue.html#more-on-variables">More on variables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="htcondor-queue.html#other-ways-to-queue">Other ways to queue</a></li>
+<li class="toctree-l2"><a class="reference internal" href="htcondor-queue.html#mixing-options-and-variables">Mixing options and variables</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="system-architecture">
+<h2>System architecture<a class="headerlink" href="#system-architecture" title="Permalink to this headline">¶</a></h2>
+<p>When you connect to lxplus, you have read/write access to both the AFS and EOS filesystems, as well as read-only access to CVMFS for accessing experiment software. Worker notes in the batch system have the same permissions, which is what allows them to read input files from, and write output files to, your user areas.</p>
+<p>Each worker node has its own remote storage space, which is limited to 20GB. When a job starts, the executable is copied to this storage area, usually along with any input data files required. Any files created by the script should be created there as well, where they can later be transferred back to your user area. When a job completes, the worker node cleans out its storage area, so it’s important to tell HTCondor to transfer any output files you want to keep.</p>
+<p>See <a class="reference external" href="https://batchdocs.web.cern.ch/batchdocs/concepts/dataflow.html">here</a> for a more detailed explanation (and a helpful diagram).</p>
+</div>
+<div class="section" id="other-useful-resources">
+<h2>Other useful resources<a class="headerlink" href="#other-useful-resources" title="Permalink to this headline">¶</a></h2>
+<p>While putting this lesson together, the following guides, tutorials, and pages proved highly useful, and may be useful to you as well if you need more information:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://research.cs.wisc.edu/htcondor/manual/v8.8/">HTCondor v8.8.2 Manual</a> - University of Wisconsin-Madison</p></li>
+<li><p><a class="reference external" href="https://batchdocs.web.cern.ch/batchdocs/index.html">CERN Batch Service User Guide</a></p></li>
+<li><p><a class="reference external" href="https://indico.cern.ch/event/611296/contributions/2604376/attachments/1471164/2276521/TannenbaumT_UserTutorial.pdf">HTCondor User Tutorial</a> - Todd Tannenbaum, 6th June 2017</p></li>
+<li><p><a class="reference external" href="https://mattermost.web.cern.ch/lhcb">Mattermost</a> - you can join the ‘condor’ and ‘Distributed Analysis’ channels</p></li>
+<li><p><a class="reference external" href="mailto:lhcb-distributed-analysis&#37;&#52;&#48;cern&#46;ch">lhcb-distributed-analysis<span>&#64;</span>cern<span>&#46;</span>ch</a> mailing list</p></li>
+</ul>
+</div>
 </div>
 
-                        </div>
-                    </div>
-                
-            </div>
 
-            
-                
-                <a href="./" class="navigation navigation-prev " aria-label="Previous page: Self guided lessons">
-                    <i class="fa fa-angle-left"></i>
-                </a>
-                
-                
-                <a href="htcondor-first-job.html" class="navigation navigation-next " aria-label="Next page: Creating your first job">
-                    <i class="fa fa-angle-right"></i>
-                </a>
-                
-            
-        
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="htcondor-first-job.html" class="btn btn-neutral float-right" title="Submitting a simple job" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="README.html" class="btn btn-neutral float-left" title="Self guided lessons" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
     </div>
+  
 
-    <script>
-        var gitbook = gitbook || [];
-        gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Batch submission with HTCondor","level":"4.1.1","depth":2,"next":{"title":"Creating your first job","level":"4.1.1.1","depth":3,"path":"self-guided-lessons/htcondor-first-job.md","ref":"self-guided-lessons/htcondor-first-job.md","articles":[]},"previous":{"title":"Self guided lessons","level":"4.1","depth":1,"path":"self-guided-lessons/README.md","ref":"self-guided-lessons/README.md","articles":[{"title":"Batch submission with HTCondor","level":"4.1.1","depth":2,"path":"self-guided-lessons/htcondor.md","ref":"self-guided-lessons/htcondor.md","articles":[{"title":"Creating your first job","level":"4.1.1.1","depth":3,"path":"self-guided-lessons/htcondor-first-job.md","ref":"self-guided-lessons/htcondor-first-job.md","articles":[]},{"title":"More submit file options","level":"4.1.1.2","depth":3,"path":"self-guided-lessons/htcondor-more-options.md","ref":"self-guided-lessons/htcondor-more-options.md","articles":[]},{"title":"The queue command","level":"4.1.1.3","depth":3,"path":"self-guided-lessons/htcondor-queue.md","ref":"self-guided-lessons/htcondor-queue.md","articles":[]}]}]},"dir":"ltr"},"config":{"plugins":["-sharing","panels@git+https://github.com/lhcb/gitbook-plugin-panels.git#master","katex-auto-render@git+https://github.com/lhcb/gitbook-plugin-katex-auto-render.git#master","collapsible-menu","otherlink"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"collapsible-menu":{},"search":{},"otherlink":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"panels":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"katex-auto-render":{},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"The Starterkit team and contributors","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"gitbook":"*"},"file":{"path":"self-guided-lessons/htcondor.md","mtime":"2019-10-10T14:37:33.893Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-10-10T14:39:29.242Z"},"basePath":"..","book":{"language":""}});
-        });
-    </script>
-</div>
+  <hr/>
 
-        
-    <script src="../gitbook/gitbook.js"></script>
-    <script src="../gitbook/theme.js"></script>
-    
-        
-        <script src="../gitbook/gitbook-plugin-panels/panels.js"></script>
-        
-    
-        
-        <script src="../gitbook/gitbook-plugin-katex-auto-render/katex.min.js"></script>
-        
-    
-        
-        <script src="../gitbook/gitbook-plugin-katex-auto-render/auto-render.min.js"></script>
-        
-    
-        
-        <script src="../gitbook/gitbook-plugin-katex-auto-render/enable-auto-render.js"></script>
-        
-    
-        
-        <script src="../gitbook/gitbook-plugin-collapsible-menu/plugin.js"></script>
-        
-    
-        
-        <script src="../gitbook/gitbook-plugin-otherlink/js/otherlink.js"></script>
-        
-    
-        
-        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
-        
-    
-        
-        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
-        
-    
-        
-        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
-        
-    
-        
-        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
-        
-    
-        
-        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
-        
-    
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015-2019, LHCb Starterkit
 
-    </body>
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
 </html>
-

@@ -1,1113 +1,459 @@
 
-<!DOCTYPE HTML>
-<html lang="" >
-    <head>
-        <meta charset="UTF-8">
-        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>Storing large files on EOS · GitBook</title>
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="description" content="">
-        <meta name="generator" content="GitBook 3.2.3">
-        <meta name="author" content="The Starterkit team and contributors">
-        
-        
-    
-    <link rel="stylesheet" href="../gitbook/style.css">
 
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Storing large files on EOS &mdash; LHCb Starterkit Lessons  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
     
-            
-                
-                <link rel="stylesheet" href="../gitbook/gitbook-plugin-panels/panels.css">
-                
-            
-                
-                <link rel="stylesheet" href="../gitbook/gitbook-plugin-katex-auto-render/katex.min.css">
-                
-            
-                
-                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
-                
-            
-                
-                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
-                
-            
-                
-                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
-                
-            
-        
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="../_static/panels.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
 
     
 
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/panels.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/starterkit.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Developing LHCb Software" href="lhcb-dev.html" />
+    <link rel="prev" title="More Ganga" href="ganga-data.html" /> 
+</head>
 
-        
-    
-    
-    <meta name="HandheldFriendly" content="true"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
-    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+<body class="wy-body-for-nav">
 
+   
+  <div class="wy-grid-for-nav">
     
-    <link rel="next" href="lhcb-dev.html" />
-    
-    
-    <link rel="prev" href="ganga-data.html" />
-    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
 
-    </head>
-    <body>
-        
-<div class="book">
-    <div class="book-summary">
-        
+          
+            <a href="../index.html" class="icon icon-home"> LHCb Starterkit Lessons
+          
+
+          
+          </a>
+
+          
             
-<div id="book-search-input" role="search">
-    <input type="text" placeholder="Type to search" />
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
 </div>
 
-            
-                <nav role="navigation">
-                
-
-
-<ul class="summary">
-    
-    
-
-    
-
-    
-        
-        
-    
-        <li class="chapter " data-level="1.1" data-path="../">
-            
-                <a href="../">
-            
-                    
-                    The LHCb Starterkit
-            
-                </a>
-            
-
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="1.1.1" data-path="../CONTRIBUTING.html">
-            
-                <a href="../CONTRIBUTING.html">
-            
-                    
-                    Contributing
-            
-                </a>
-            
-
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-
-    
-        
-        <li class="divider"></li>
-        
-        
-    
-        <li class="chapter " data-level="2.1" data-path="./">
-            
-                <a href="./">
-            
-                    
-                    First analysis steps
-            
-                </a>
-            
-
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="2.1.1" data-path="prerequisites.html">
-            
-                <a href="prerequisites.html">
-            
-                    
-                    Pre-workshop checklist
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="2.1.2" data-path="introduction-to-course.html">
-            
-                <a href="introduction-to-course.html">
-            
-                    
-                    Goals of the course
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="2.1.3" data-path="physics-at-lhcb.html">
-            
-                <a href="physics-at-lhcb.html">
-            
-                    
-                    Physics at LHCb
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="2.1.4" data-path="dataflow.html">
-            
-                <a href="dataflow.html">
-            
-                    
-                    The LHCb data flow
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="2.1.5" data-path="run-2-data-flow.html">
-            
-                <a href="run-2-data-flow.html">
-            
-                    
-                    Changes to the data flow in Run 2
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="2.1.6" data-path="davinci.html">
-            
-                <a href="davinci.html">
-            
-                    
-                    An introduction to LHCb Software
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="2.1.7" data-path="bookkeeping.html">
-            
-                <a href="bookkeeping.html">
-            
-                    
-                    Finding data in the Bookkeeping
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="2.1.8" data-path="files-from-grid.html">
-            
-                <a href="files-from-grid.html">
-            
-                    
-                    Downloading a file from the grid
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="2.1.9" data-path="interactive-dst.html">
-            
-                <a href="interactive-dst.html">
-            
-                    
-                    Interactively exploring a DST
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="2.1.10" data-path="minimal-dv-job.html">
-            
-                <a href="minimal-dv-job.html">
-            
-                    
-                    Running a minimal DaVinci job locally
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="2.1.11" data-path="loki-functors.html">
-            
-                <a href="loki-functors.html">
-            
-                    
-                    Fun with LoKi Functors
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="2.1.12" data-path="add-tupletools.html">
-            
-                <a href="add-tupletools.html">
-            
-                    
-                    TupleTools and branches
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="2.1.13" data-path="decay-tree-fitter.html">
-            
-                <a href="decay-tree-fitter.html">
-            
-                    
-                    How do I use DecayTreeFitter?
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="2.1.14" data-path="davinci-grid.html">
-            
-                <a href="davinci-grid.html">
-            
-                    
-                    Running DaVinci on the grid
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="2.1.15" data-path="split-jobs.html">
-            
-                <a href="split-jobs.html">
-            
-                    
-                    Splitting a job into subjobs
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="2.1.16" data-path="ganga-data.html">
-            
-                <a href="ganga-data.html">
-            
-                    
-                    More Ganga
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter active" data-level="2.1.17" data-path="eos-storage.html">
-            
-                <a href="eos-storage.html">
-            
-                    
-                    Storing large files on EOS
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="2.1.18" data-path="lhcb-dev.html">
-            
-                <a href="lhcb-dev.html">
-            
-                    
-                    Developing LHCb Software
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="2.1.19" data-path="asking-questions.html">
-            
-                <a href="asking-questions.html">
-            
-                    
-                    Asking good questions
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="2.1.20" data-path="ecgd.html">
-            
-                <a href="ecgd.html">
-            
-                    
-                    Early career, gender and diversity
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="2.1.21" data-path="contributing-lesson.html">
-            
-                <a href="contributing-lesson.html">
-            
-                    
-                    Contribute to this lesson
-            
-                </a>
-            
-
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-
-    
-        
-        <li class="divider"></li>
-        
-        
-    
-        <li class="chapter " data-level="3.1" data-path="../second-analysis-steps/">
-            
-                <a href="../second-analysis-steps/">
-            
-                    
-                    Second analysis steps
-            
-                </a>
-            
-
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="3.1.1" data-path="../second-analysis-steps/lb-git.html">
-            
-                <a href="../second-analysis-steps/lb-git.html">
-            
-                    
-                    Using git to develop LHCb software
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="3.1.2" data-path="../second-analysis-steps/building-decays.html">
-            
-                <a href="../second-analysis-steps/building-decays.html">
-            
-                    
-                    Building your own decay
-            
-                </a>
-            
-
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="3.1.2.1" data-path="../second-analysis-steps/building-decays-part0.html">
-            
-                <a href="../second-analysis-steps/building-decays-part0.html">
-            
-                    
-                    The Selection Framework
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="3.1.2.2" data-path="../second-analysis-steps/building-decays-part1.html">
-            
-                <a href="../second-analysis-steps/building-decays-part1.html">
-            
-                    
-                    A Historical Approach
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="3.1.2.3" data-path="../second-analysis-steps/building-decays-part2.html">
-            
-                <a href="../second-analysis-steps/building-decays-part2.html">
-            
-                    
-                    Modern Selection Framework
-            
-                </a>
-            
-
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-        <li class="chapter " data-level="3.1.3" data-path="../second-analysis-steps/fixing-errors.html">
-            
-                <a href="../second-analysis-steps/fixing-errors.html">
-            
-                    
-                    What to do when something fails
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="3.1.4" data-path="../second-analysis-steps/rerun-stripping.html">
-            
-                <a href="../second-analysis-steps/rerun-stripping.html">
-            
-                    
-                    Run a different stripping line on simulated data
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="3.1.5" data-path="../second-analysis-steps/switch-mass-hypo.html">
-            
-                <a href="../second-analysis-steps/switch-mass-hypo.html">
-            
-                    
-                    Replace a mass hypothesis
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="3.1.6" data-path="../second-analysis-steps/filter-in-trees.html">
-            
-                <a href="../second-analysis-steps/filter-in-trees.html">
-            
-                    
-                    Reuse particles from a decay tree
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="3.1.7" data-path="../second-analysis-steps/simulation.html">
-            
-                <a href="../second-analysis-steps/simulation.html">
-            
-                    
-                    The simulation framework
-            
-                </a>
-            
-
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="3.1.7.1" data-path="../second-analysis-steps/simulation-intro.html">
-            
-                <a href="../second-analysis-steps/simulation-intro.html">
-            
-                    
-                    Introduction: The basics of Gauss
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="3.1.7.2" data-path="../second-analysis-steps/simulation-running-gauss.html">
-            
-                <a href="../second-analysis-steps/simulation-running-gauss.html">
-            
-                    
-                    Getting the correct option files
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="3.1.7.3" data-path="../second-analysis-steps/simulation-dkfiles.html">
-            
-                <a href="../second-analysis-steps/simulation-dkfiles.html">
-            
-                    
-                    Controlling the decay
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="3.1.7.4" data-path="../second-analysis-steps/simulation-gencuts.html">
-            
-                <a href="../second-analysis-steps/simulation-gencuts.html">
-            
-                    
-                    Modifying the decay
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="3.1.7.5" data-path="../second-analysis-steps/simulation-advanced-dkfiles.html">
-            
-                <a href="../second-analysis-steps/simulation-advanced-dkfiles.html">
-            
-                    
-                    Advanced: Modifying the decay
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="3.1.7.6" data-path="../second-analysis-steps/simulation-fastsim.html">
-            
-                <a href="../second-analysis-steps/simulation-fastsim.html">
-            
-                    
-                    Fast simulation options
-            
-                </a>
-            
-
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-        <li class="chapter " data-level="3.1.8" data-path="../second-analysis-steps/hlt-intro.html">
-            
-                <a href="../second-analysis-steps/hlt-intro.html">
-            
-                    
-                    HLT intro
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="3.1.9" data-path="../second-analysis-steps/tistos-diy.html">
-            
-                <a href="../second-analysis-steps/tistos-diy.html">
-            
-                    
-                    TisTos DIY
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="3.1.10" data-path="../second-analysis-steps/ganga-scripting.html">
-            
-                <a href="../second-analysis-steps/ganga-scripting.html">
-            
-                    
-                    Ganga Scripting
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="3.1.11" data-path="../second-analysis-steps/managing-files-with-ganga.html">
-            
-                <a href="../second-analysis-steps/managing-files-with-ganga.html">
-            
-                    
-                    Managing files in Ganga
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="3.1.12" data-path="../second-analysis-steps/analysis-automation-snakemake.html">
-            
-                <a href="../second-analysis-steps/analysis-automation-snakemake.html">
-            
-                    
-                    Analysis automation: snakemake
-            
-                </a>
-            
-
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-
-    
-        
-        <li class="divider"></li>
-        
-        
-    
-        <li class="chapter " data-level="4.1" data-path="../self-guided-lessons/">
-            
-                <a href="../self-guided-lessons/">
-            
-                    
-                    Self guided lessons
-            
-                </a>
-            
-
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="4.1.1" data-path="../self-guided-lessons/htcondor.html">
-            
-                <a href="../self-guided-lessons/htcondor.html">
-            
-                    
-                    Batch submission with HTCondor
-            
-                </a>
-            
+          
+        </div>
 
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
             
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="4.1.1.1" data-path="../self-guided-lessons/htcondor-first-job.html">
             
-                <a href="../self-guided-lessons/htcondor-first-job.html">
+              
             
-                    
-                    Creating your first job
             
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="4.1.1.2" data-path="../self-guided-lessons/htcondor-more-options.html">
-            
-                <a href="../self-guided-lessons/htcondor-more-options.html">
-            
-                    
-                    More submit file options
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="4.1.1.3" data-path="../self-guided-lessons/htcondor-queue.html">
-            
-                <a href="../self-guided-lessons/htcondor-queue.html">
-            
-                    
-                    The queue command
-            
-                </a>
-            
-
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-
-    
-        
-        <li class="divider"></li>
-        
-        
-    
-        <li class="chapter " data-level="5.1" data-path="../using-the-grid/">
-            
-                <a href="../using-the-grid/">
-            
-                    
-                    Using the grid
-            
-                </a>
-            
-
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="5.1.1" data-path="../using-the-grid/local-grid-proxy.html">
-            
-                <a href="../using-the-grid/local-grid-proxy.html">
-            
-                    
-                    Grid proxies without LbScripts
-            
-                </a>
-            
-
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-
-    
-        
-        <li class="divider"></li>
-        
-        
-    
-        <li class="chapter " data-level="6.1" >
-            
-                <a target="_blank" href="ref://starterkit-lessons.pdf">
-            
-                    
-                    Download PDF
-            
-                </a>
-            
-
-            
-        </li>
-    
-
-    
-
-    <li class="divider"></li>
-
-    <li>
-        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
-            Published with GitBook
-        </a>
-    </li>
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="README.html">First Analysis Steps</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="prerequisites.html">Pre-workshop checklist</a></li>
+<li class="toctree-l2"><a class="reference internal" href="introduction-to-course.html">Goals of the course</a></li>
+<li class="toctree-l2"><a class="reference internal" href="physics-at-lhcb.html">Physics at LHCb</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="physics-at-lhcb.html#the-reconstruction">The reconstruction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="physics-at-lhcb.html#building-decay-candidates">Building decay candidates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="physics-at-lhcb.html#building-more-complex-decays">Building more complex decays</a></li>
 </ul>
-
-
-                </nav>
-            
-        
-    </div>
-
-    <div class="book-body">
-        
-            <div class="body-inner">
-                
-                    
-
-<div class="book-header" role="navigation">
-    
-
-    <!-- Title -->
-    <h1>
-        <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >Storing large files on EOS</a>
-    </h1>
-</div>
-
-
-
-
-                    <div class="page-wrapper" tabindex="-1" role="main">
-                        <div class="page-inner">
-                            
-<div id="book-search-results">
-    <div class="search-noresults">
-    
-                                <section class="normal markdown-section">
-                                
-                                <h1 id="storing-large-files-on-eos">Storing large files on EOS</h1>
-<p><div class="panel panel-warning"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(4729601230);" id="learning-objectives"><i class="fa fa-line-chart"></i> Learning Objectives<span id="heading-4729601230"></span></h3></div><div class="panel-body" id="panel-4729601230"><ul>
-<li>Run a ganga job which puts output onto EOS</li>
-<li>Open and view the files on EOS</li>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="dataflow.html">The LHCb data flow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="run-2-data-flow.html">Changes to the data flow in Run 2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="davinci.html">An introduction to LHCb Software</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bookkeeping.html">Finding data in the Bookkeeping</a></li>
+<li class="toctree-l2"><a class="reference internal" href="files-from-grid.html">Downloading a file from the grid</a></li>
+<li class="toctree-l2"><a class="reference internal" href="interactive-dst.html">Interactively exploring a DST</a></li>
+<li class="toctree-l2"><a class="reference internal" href="minimal-dv-job.html">Running a minimal DaVinci job locally</a></li>
+<li class="toctree-l2"><a class="reference internal" href="loki-functors.html">Fun with LoKi Functors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="add-tupletools.html">TupleTools and branches</a></li>
+<li class="toctree-l2"><a class="reference internal" href="decay-tree-fitter.html">How do I use DecayTreeFitter?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="davinci-grid.html">Running DaVinci on the grid</a></li>
+<li class="toctree-l2"><a class="reference internal" href="split-jobs.html">Splitting a job into subjobs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ganga-data.html">More Ganga</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Storing large files on EOS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lhcb-dev.html">Developing LHCb Software</a></li>
+<li class="toctree-l2"><a class="reference internal" href="asking-questions.html">Asking good questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ecgd.html">Early career, gender and diversity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="contributing-lesson.html">Contribute to this lesson</a></li>
 </ul>
-</div></div> </p>
-<p>During a real analysis the output of your jobs will quickly grow
-beyond what fits onto your AFS space. CERN provides you with 2TB of
-space on a set of hard drives called the <a href="http://information-technology.web.cern.ch/services/eos-service" target="_blank">EOS
-service</a> and
-a grid storage quota of 2TB.</p>
-<p>To retrieve a job outputfile, one can use two types of files:  </p>
-<ul>
-<li><code>LocalFile</code>: the standard one with the output file directly downloaded to
-the <code>gangadir</code>.  </li>
-<li><code>DiracFile</code>: the output file is stored directly on the grid and be accessed
-through the XRootD protocol.  </li>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../second-analysis-steps/README.html">Second Analysis Steps</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../second-analysis-steps/lb-git.html">Using git to develop LHCb software</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../second-analysis-steps/building-decays.html">Building your own decay</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../second-analysis-steps/building-decays-part0.html">The Selection Framework</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../second-analysis-steps/building-decays-part1.html">A Historical Approach</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../second-analysis-steps/building-decays-part2.html">Modern Selection Framework</a></li>
 </ul>
-<p>In this lesson, we will focus on the use of <code>DiracFile</code> in <code>ganga</code> to manage big
-output files.</p>
-<p>We can reuse what has been done to run <a href="davinci-grid.html">a DaVinci job on the
-grid</a> and adapt the <code>j.outputfiles</code> part.</p>
-<p>To add the DiracFile in the configuration of the job we just need:</p>
-<pre><code class="lang-python">j = Job(name=<span class="hljs-string">&apos;First ganga job&apos;</span>)
-myApp = GaudiExec()
-myApp.directory = <span class="hljs-string">&quot;./DaVinciDev_v45r1&quot;</span>
-j.application = myApp
-j.application.options = [<span class="hljs-string">&apos;ntuple-options.py&apos;</span>]
-j.application.platform = <span class="hljs-string">&apos;x86_64-centos7-gcc8-opt&apos;</span>
-bkPath = <span class="hljs-string">&apos;/MC/2016/Beam6500GeV-2016-MagDown-Nu1.6-25ns-Pythia8/Sim09c/Trig0x6138160F/Reco16/Turbo03/Stripping28r1NoPrescalingFlagged/27163002/ALLSTREAMS.DST&apos;</span>
-data  = BKQuery(bkPath, dqflag=[<span class="hljs-string">&apos;OK&apos;</span>]).getDataset()
-j.inputdata = data[<span class="hljs-number">0</span>:<span class="hljs-number">2</span>]     <span class="hljs-comment"># access only the first 2 files of data</span>
-j.backend = Dirac()
-j.outputfiles = [
-    DiracFile(<span class="hljs-string">&apos;DVntuple.root&apos;</span>)
-]
-j.splitter = SplitByFiles(filesPerJob=<span class="hljs-number">5</span>)
-j.submit()
-</code></pre>
-<p>When the job is completed, no output is dowloaded but some interesting
-information are provided by typing <code>j.outputfiles[0]</code>:</p>
-<pre><code class="lang-python">DiracFile(namePattern=<span class="hljs-string">&apos;DVntuple.root&apos;</span>,
-          lfn=<span class="hljs-string">&apos;/lhcb/user/a/another/2018_11/146255/146255492/DVntuple.root&apos;</span>,
-          localDir=<span class="hljs-string">&apos;/afs/cern.ch/user/a/another/gangadir/workspace/another/LocalXML/129/output&apos;</span>)
-</code></pre>
-<p>Apart from the <code>namePattern</code> which was set during the configuration of the job,
-we can retrieve the <code>localDir</code> which is the path in your gangadir to the output
-of the job and its <code>lfn</code> which stands for Logical File Name.</p>
-<p>This LFN can then be given as an argument in order to download the file. But
-more important in most of the cases, you don&apos;t even need to download the file
-thanks to the <code>accessURL</code> function which will give you the URL of your output
-file by typing <code>j.outputfiles[0].accessURL()</code>:</p>
-<pre><code class="lang-python">[<span class="hljs-string">&apos;root://eoslhcb.cern.ch//eos/lhcb/grid/user/lhcb/user/a/another/2018_11/146255/146255492/DVntuple.root&apos;</span>]
-</code></pre>
-<p>This URL can be directly used in your ROOT script with the help of the XRootD
-protocol as follows:  </p>
-<pre><code class="lang-python">TFile::Open(<span class="hljs-string">&quot;root://eoslhcb.cern.ch//eos/lhcb/grid/user/lhcb/user/a/another/2018_11/146255/146255492/DVntuple.root&quot;</span>)
-</code></pre>
-<p><div class="panel panel-primary"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(6134067273);" id="use-of-the-xrootd-protocol-"><i class="fa fa-info-circle"></i> Use of the XRootD protocol <span id="heading-6134067273"></span></h3></div><div class="panel-body" id="panel-6134067273"><p>In order to access files on every grid site with the XRootD protocol, be sure
-to have a valid proxy using <code>lhcb-proxy-init</code>.</p>
-</div></div> </p>
-<p>On <code>lxplus</code> EOS is mount under <code>/eos</code> .
-If you list the contents of the <code>/eos</code> directory you should see various experiments areas, and the user area:</p>
-<pre><code class="lang-output">lhcb ship user
-</code></pre>
-<p>There are two useful workspaces on EOS:</p>
-<ul>
-<li><code>/eos/user</code> which is your private EOS space, also accessible via <a href="https://cernbox.cern.ch/" target="_blank">CERNBox</a>, and has 1TB of space;</li>
-<li><code>/eos/lhcb</code> which is the LHCb area and contains the following sub-directories:<ul>
-<li><code>/eos/lhcb/user</code> which is your user area, where you can store your tuples, and has 2TB of space;</li>
-<li><code>/eos/lhcb/wg</code> which contains the Working Group areas (e.g. for preserving tuples for completed analyses);</li>
-<li><code>/eos/lhcb/grid/</code> which is the path to the CERN grid site; and many others.</li>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../second-analysis-steps/fixing-errors.html">What to do when something fails</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../second-analysis-steps/rerun-stripping.html">Run a different stripping line on simulated data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../second-analysis-steps/switch-mass-hypo.html">Replace a mass hypothesis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../second-analysis-steps/filter-in-trees.html">Reuse particles from a decay tree</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../second-analysis-steps/simulation.html">The simulation framework</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../second-analysis-steps/simulation-intro.html">What is Gauss?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../second-analysis-steps/simulation-running-gauss.html">Which option files to use and how to run Gauss</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../second-analysis-steps/simulation-running-gauss.html#running-gauss-and-create-a-generator-only-sample">Running Gauss and create a generator-only sample</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../second-analysis-steps/simulation-running-gauss.html#make-an-ntuple">Make an nTuple</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../second-analysis-steps/simulation-dkfiles.html">Controlling the decay: DecFiles</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../second-analysis-steps/simulation-gencuts.html">Modifying the decay</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../second-analysis-steps/simulation-gencuts.html#adding-a-decay-channel">Adding a decay channel</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../second-analysis-steps/simulation-gencuts.html#generator-level-cuts">Generator level cuts</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../second-analysis-steps/simulation-gencuts.html#removing-the-generator-cuts">Removing the generator cuts</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../second-analysis-steps/simulation-gencuts.html#modifying-the-cut-tool">Modifying the cut tool</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../second-analysis-steps/simulation-advanced-dkfiles.html">Advanced: Modifying the decay</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../second-analysis-steps/simulation-advanced-dkfiles.html#multi-body-decays">3+ multi-body decays</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../second-analysis-steps/simulation-advanced-dkfiles.html#cocktail-decays">Cocktail decays</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../second-analysis-steps/simulation-advanced-dkfiles.html#final-state-radiation">Final state radiation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../second-analysis-steps/simulation-advanced-dkfiles.html#changing-particle-masses-lifetimes-widths">Changing particle masses / lifetimes/ widths</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../second-analysis-steps/simulation-fastsim.html">Why fast simulation is crucial</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../second-analysis-steps/simulation-fastsim.html#speeding-up-the-detector-simulation">Speeding up the detector simulation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../second-analysis-steps/simulation-fastsim.html#speeding-up-the-generation">Speeding up the generation</a></li>
 </ul>
 </li>
 </ul>
-<p>Let&apos;s inspect your user area:</p>
-<pre><code class="lang-bash">$ ls -al /eos/lhcb/user/a/another
-</code></pre>
-<p>Files stored on EOS can be open in <code>ROOT</code> the usual way:</p>
-<pre><code class="lang-bash">$ root /eos/lhcb/user/a/another/myfavouritefile.root
-</code></pre>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../second-analysis-steps/hlt-intro.html">HLT intro</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../second-analysis-steps/hlt-intro.html#add-trigger-information-to-your-ntuple">Add trigger information to your ntuple</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../second-analysis-steps/hlt-intro.html#exploring-a-tck-list-of-trigger-lines">Exploring a TCK: List of trigger lines</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../second-analysis-steps/hlt-intro.html#add-trigger-information-to-your-ntuple-continued">Add trigger information to your ntuple, continued</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../second-analysis-steps/hlt-intro.html#add-tistos-information-to-your-ntuple">Add TISTOS information to your ntuple</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../second-analysis-steps/hlt-intro.html#exploring-a-tck-properties-of-trigger-lines">Exploring a TCK: Properties of trigger lines</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../second-analysis-steps/tistos-diy.html">TisTos DIY</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../second-analysis-steps/ganga-scripting.html">Scripting Ganga</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../second-analysis-steps/ganga-scripting.html#defining-jobs-with-scripts">Defining jobs with scripts</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../second-analysis-steps/ganga-scripting.html#adding-helpers-functions">Adding helpers functions</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../second-analysis-steps/managing-files-with-ganga.html">Managing files in Ganga</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../second-analysis-steps/analysis-automation-snakemake.html">Analysis automation with snakemake</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../second-analysis-steps/analysis-automation-snakemake.html#motivation">Motivation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../second-analysis-steps/analysis-automation-snakemake.html#documentation-and-installation">Documentation and installation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../second-analysis-steps/analysis-automation-snakemake.html#tutorial">Tutorial</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../second-analysis-steps/analysis-automation-snakemake.html#usage-and-basic-behaviour">Usage and basic behaviour</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../second-analysis-steps/analysis-automation-snakemake.html#sub-labels">Sub-labels</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../second-analysis-steps/analysis-automation-snakemake.html#run-and-shell">Run and shell</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../second-analysis-steps/analysis-automation-snakemake.html#config-files">Config files</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../second-analysis-steps/analysis-automation-snakemake.html#includes">Includes</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../self-guided-lessons/README.html">Self guided lessons</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../self-guided-lessons/htcondor.html">Batch submission using HTCondor</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../self-guided-lessons/htcondor-first-job.html">Submitting a simple job</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../self-guided-lessons/htcondor-first-job.html#tracking-your-jobs">Tracking your jobs</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../self-guided-lessons/htcondor-more-options.html">More submit file options</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../self-guided-lessons/htcondor-more-options.html#input-files">Input files</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../self-guided-lessons/htcondor-more-options.html#output-files">Output files</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../self-guided-lessons/htcondor-more-options.html#arguments">Arguments</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../self-guided-lessons/htcondor-more-options.html#resources-and-requirements">Resources and Requirements</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../self-guided-lessons/htcondor-more-options.html#notifications">Notifications</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../self-guided-lessons/htcondor-queue.html">Using the queue command</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../self-guided-lessons/htcondor-queue.html#more-on-variables">More on variables</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../self-guided-lessons/htcondor-queue.html#other-ways-to-queue">Other ways to queue</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../self-guided-lessons/htcondor-queue.html#mixing-options-and-variables">Mixing options and variables</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../self-guided-lessons/htcondor.html#system-architecture">System architecture</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../self-guided-lessons/htcondor.html#other-useful-resources">Other useful resources</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../self-guided-lessons/local-grid-proxy.html">Creating a grid proxy without LbScripts</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../self-guided-lessons/local-grid-proxy.html#installation">Installation</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../self-guided-lessons/local-grid-proxy.html#macos-with-homebrew">macOS with homebrew</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../self-guided-lessons/local-grid-proxy.html#ubuntu">Ubuntu</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../self-guided-lessons/local-grid-proxy.html#centos">CentOS</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../self-guided-lessons/local-grid-proxy.html#arch-linux">Arch Linux</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../self-guided-lessons/local-grid-proxy.html#getting-the-required-files-and-certificates">Getting the required files and certificates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../self-guided-lessons/local-grid-proxy.html#creating-a-proxy">Creating a proxy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../self-guided-lessons/local-grid-proxy.html#managing-the-proxy">Managing the proxy</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../CONTRIBUTING.html">Contributing</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../CONTRIBUTING.html#getting-started">Getting Started</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../CONTRIBUTING.html#dependencies">Dependencies</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../CONDUCT.html">Contributor Code of Conduct</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../LICENSE.html">Instructional Material</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../LICENSE.html#software">Software</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">LHCb Starterkit Lessons</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="README.html">First Analysis Steps</a> &raquo;</li>
+        
+      <li>Storing large files on EOS</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            
+              <a href="https://github.com/lhcb/starterkit-lessons/blob/master/first-analysis-steps/eos-storage.md" class="fa fa-github"> Edit on GitHub</a>
+            
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="storing-large-files-on-eos">
+<h1>Storing large files on EOS<a class="headerlink" href="#storing-large-files-on-eos" title="Permalink to this headline">¶</a></h1>
+<div class="panel panel-objectives docutils container">
+<div class="panel-header open docutils container">
+<p id="learning-objectives"><i class="fa fa-line-chart"></i> Learning Objectives</p>
+</div>
+<div class="panel-body docutils container">
+<ul class="simple">
+<li><p>Run a ganga job which puts output onto EOS</p></li>
+<li><p>Open and view the files on EOS</p></li>
+</ul>
+</div>
+</div>
+<p>During a real analysis the output of your jobs will quickly grow
+beyond what fits onto your AFS space. CERN provides you with 2TB of
+space on a set of hard drives called the <a class="reference external" href="https://information-technology.web.cern.ch/services/eos-service">EOS
+service</a> and
+a grid storage quota of 2TB.</p>
+<p>To retrieve a job outputfile, one can use two types of files:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">LocalFile</span></code>: the standard one with the output file directly downloaded to
+the <code class="docutils literal notranslate"><span class="pre">gangadir</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">DiracFile</span></code>: the output file is stored directly on the grid and be accessed
+through the XRootD protocol.</p></li>
+</ul>
+<p>In this lesson, we will focus on the use of <code class="docutils literal notranslate"><span class="pre">DiracFile</span></code> in <code class="docutils literal notranslate"><span class="pre">ganga</span></code> to manage big
+output files.</p>
+<p>We can reuse what has been done to run <a class="reference internal" href="davinci-grid.html"><span class="doc">a DaVinci job on the
+grid</span></a> and adapt the <code class="docutils literal notranslate"><span class="pre">j.outputfiles</span></code> part.</p>
+<p>To add the DiracFile in the configuration of the job we just need:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">j</span> <span class="o">=</span> <span class="n">Job</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;First ganga job&#39;</span><span class="p">)</span>
+<span class="n">myApp</span> <span class="o">=</span> <span class="n">GaudiExec</span><span class="p">()</span>
+<span class="n">myApp</span><span class="o">.</span><span class="n">directory</span> <span class="o">=</span> <span class="s2">&quot;./DaVinciDev_v45r1&quot;</span>
+<span class="n">j</span><span class="o">.</span><span class="n">application</span> <span class="o">=</span> <span class="n">myApp</span>
+<span class="n">j</span><span class="o">.</span><span class="n">application</span><span class="o">.</span><span class="n">options</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;ntuple-options.py&#39;</span><span class="p">]</span>
+<span class="n">j</span><span class="o">.</span><span class="n">application</span><span class="o">.</span><span class="n">platform</span> <span class="o">=</span> <span class="s1">&#39;x86_64-centos7-gcc8-opt&#39;</span>
+<span class="n">bkPath</span> <span class="o">=</span> <span class="s1">&#39;/MC/2016/Beam6500GeV-2016-MagDown-Nu1.6-25ns-Pythia8/Sim09c/Trig0x6138160F/Reco16/Turbo03/Stripping28r1NoPrescalingFlagged/27163002/ALLSTREAMS.DST&#39;</span>
+<span class="n">data</span>  <span class="o">=</span> <span class="n">BKQuery</span><span class="p">(</span><span class="n">bkPath</span><span class="p">,</span> <span class="n">dqflag</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;OK&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">getDataset</span><span class="p">()</span>
+<span class="n">j</span><span class="o">.</span><span class="n">inputdata</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">2</span><span class="p">]</span>     <span class="c1"># access only the first 2 files of data</span>
+<span class="n">j</span><span class="o">.</span><span class="n">backend</span> <span class="o">=</span> <span class="n">Dirac</span><span class="p">()</span>
+<span class="n">j</span><span class="o">.</span><span class="n">outputfiles</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="n">DiracFile</span><span class="p">(</span><span class="s1">&#39;DVntuple.root&#39;</span><span class="p">)</span>
+<span class="p">]</span>
+<span class="n">j</span><span class="o">.</span><span class="n">splitter</span> <span class="o">=</span> <span class="n">SplitByFiles</span><span class="p">(</span><span class="n">filesPerJob</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">j</span><span class="o">.</span><span class="n">submit</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>When the job is completed, no output is dowloaded but some interesting
+information are provided by typing <code class="docutils literal notranslate"><span class="pre">j.outputfiles[0]</span></code>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">DiracFile</span><span class="p">(</span><span class="n">namePattern</span><span class="o">=</span><span class="s1">&#39;DVntuple.root&#39;</span><span class="p">,</span>
+          <span class="n">lfn</span><span class="o">=</span><span class="s1">&#39;/lhcb/user/a/another/2018_11/146255/146255492/DVntuple.root&#39;</span><span class="p">,</span>
+          <span class="n">localDir</span><span class="o">=</span><span class="s1">&#39;/afs/cern.ch/user/a/another/gangadir/workspace/another/LocalXML/129/output&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Apart from the <code class="docutils literal notranslate"><span class="pre">namePattern</span></code> which was set during the configuration of the job,
+we can retrieve the <code class="docutils literal notranslate"><span class="pre">localDir</span></code> which is the path in your gangadir to the output
+of the job and its <code class="docutils literal notranslate"><span class="pre">lfn</span></code> which stands for Logical File Name.</p>
+<p>This LFN can then be given as an argument in order to download the file. But
+more important in most of the cases, you don’t even need to download the file
+thanks to the <code class="docutils literal notranslate"><span class="pre">accessURL</span></code> function which will give you the URL of your output
+file by typing <code class="docutils literal notranslate"><span class="pre">j.outputfiles[0].accessURL()</span></code>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="s1">&#39;root://eoslhcb.cern.ch//eos/lhcb/grid/user/lhcb/user/a/another/2018_11/146255/146255492/DVntuple.root&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>This URL can be directly used in your ROOT script with the help of the XRootD
+protocol as follows:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">TFile</span><span class="p">::</span><span class="n">Open</span><span class="p">(</span><span class="s2">&quot;root://eoslhcb.cern.ch//eos/lhcb/grid/user/lhcb/user/a/another/2018_11/146255/146255492/DVntuple.root&quot;</span><span class="p">)</span>  
+</pre></div>
+</div>
+<div class="panel panel-callout docutils container">
+<div class="panel-header open docutils container">
+<p id="use-of-the-xrootd-protocol-"><i class="fa fa-info-circle"></i> Use of the XRootD protocol </p>
+</div>
+<div class="panel-body docutils container">
+<p>In order to access files on every grid site with the XRootD protocol, be sure
+to have a valid proxy using <code class="docutils literal notranslate"><span class="pre">lhcb-proxy-init</span></code>.</p>
+</div>
+</div>
+<p>On <code class="docutils literal notranslate"><span class="pre">lxplus</span></code> EOS is mount under <code class="docutils literal notranslate"><span class="pre">/eos</span></code> .
+If you list the contents of the <code class="docutils literal notranslate"><span class="pre">/eos</span></code> directory you should see various experiments areas, and the user area:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>lhcb ship user
+</pre></div>
+</div>
+<p>There are two useful workspaces on EOS:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">/eos/user</span></code> which is your private EOS space, also accessible via <a class="reference external" href="https://cernbox.cern.ch/">CERNBox</a>, and has 1TB of space;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">/eos/lhcb</span></code> which is the LHCb area and contains the following sub-directories:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">/eos/lhcb/user</span></code> which is your user area, where you can store your tuples, and has 2TB of space;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">/eos/lhcb/wg</span></code> which contains the Working Group areas (e.g. for preserving tuples for completed analyses);</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">/eos/lhcb/grid/</span></code> which is the path to the CERN grid site; and many others.</p></li>
+</ul>
+</li>
+</ul>
+<p>Let’s inspect your user area:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ ls -al /eos/lhcb/user/a/another
+</pre></div>
+</div>
+<p>Files stored on EOS can be open in <code class="docutils literal notranslate"><span class="pre">ROOT</span></code> the usual way:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ root /eos/lhcb/user/a/another/myfavouritefile.root
+</pre></div>
+</div>
 <p>You may also use the following path which is independent of the EOS mount (the mount is in general not very reliable):</p>
-<pre><code class="lang-bash">$ root root://eoslhcb.cern.ch//eos/lhcb/user/a/another/myfavouritefile.root
-</code></pre>
-
-                                
-                                </section>
-                            
-    </div>
-    <div class="search-results">
-        <div class="has-results">
-            
-            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
-            <ul class="search-results-list"></ul>
-            
-        </div>
-        <div class="no-results">
-            
-            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
-            
-        </div>
-    </div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ root root://eoslhcb.cern.ch//eos/lhcb/user/a/another/myfavouritefile.root
+</pre></div>
+</div>
 </div>
 
-                        </div>
-                    </div>
-                
-            </div>
 
-            
-                
-                <a href="ganga-data.html" class="navigation navigation-prev " aria-label="Previous page: More Ganga">
-                    <i class="fa fa-angle-left"></i>
-                </a>
-                
-                
-                <a href="lhcb-dev.html" class="navigation navigation-next " aria-label="Next page: Developing LHCb Software">
-                    <i class="fa fa-angle-right"></i>
-                </a>
-                
-            
-        
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="lhcb-dev.html" class="btn btn-neutral float-right" title="Developing LHCb Software" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="ganga-data.html" class="btn btn-neutral float-left" title="More Ganga" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
     </div>
+  
 
-    <script>
-        var gitbook = gitbook || [];
-        gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Storing large files on EOS","level":"2.1.17","depth":2,"next":{"title":"Developing LHCb Software","level":"2.1.18","depth":2,"path":"first-analysis-steps/lhcb-dev.md","ref":"first-analysis-steps/lhcb-dev.md","articles":[]},"previous":{"title":"More Ganga","level":"2.1.16","depth":2,"path":"first-analysis-steps/ganga-data.md","ref":"first-analysis-steps/ganga-data.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-sharing","panels@git+https://github.com/lhcb/gitbook-plugin-panels.git#master","katex-auto-render@git+https://github.com/lhcb/gitbook-plugin-katex-auto-render.git#master","collapsible-menu","otherlink"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"collapsible-menu":{},"search":{},"otherlink":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"panels":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"katex-auto-render":{},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"The Starterkit team and contributors","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"gitbook":"*"},"file":{"path":"first-analysis-steps/eos-storage.md","mtime":"2019-10-10T14:37:33.849Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-10-10T14:39:29.242Z"},"basePath":"..","book":{"language":""}});
-        });
-    </script>
-</div>
+  <hr/>
 
-        
-    <script src="../gitbook/gitbook.js"></script>
-    <script src="../gitbook/theme.js"></script>
-    
-        
-        <script src="../gitbook/gitbook-plugin-panels/panels.js"></script>
-        
-    
-        
-        <script src="../gitbook/gitbook-plugin-katex-auto-render/katex.min.js"></script>
-        
-    
-        
-        <script src="../gitbook/gitbook-plugin-katex-auto-render/auto-render.min.js"></script>
-        
-    
-        
-        <script src="../gitbook/gitbook-plugin-katex-auto-render/enable-auto-render.js"></script>
-        
-    
-        
-        <script src="../gitbook/gitbook-plugin-collapsible-menu/plugin.js"></script>
-        
-    
-        
-        <script src="../gitbook/gitbook-plugin-otherlink/js/otherlink.js"></script>
-        
-    
-        
-        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
-        
-    
-        
-        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
-        
-    
-        
-        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
-        
-    
-        
-        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
-        
-    
-        
-        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
-        
-    
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015-2019, LHCb Starterkit
 
-    </body>
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
 </html>
-

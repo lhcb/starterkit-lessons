@@ -1,940 +1,319 @@
 
-<!DOCTYPE HTML>
-<html lang="" >
-    <head>
-        <meta charset="UTF-8">
-        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>Physics at LHCb · GitBook</title>
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="description" content="">
-        <meta name="generator" content="GitBook 3.2.3">
-        <meta name="author" content="The Starterkit team and contributors">
-        
-        
-    
-    <link rel="stylesheet" href="../gitbook/style.css">
 
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Physics at LHCb &mdash; LHCb Starterkit Lessons  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
     
-            
-                
-                <link rel="stylesheet" href="../gitbook/gitbook-plugin-panels/panels.css">
-                
-            
-                
-                <link rel="stylesheet" href="../gitbook/gitbook-plugin-katex-auto-render/katex.min.css">
-                
-            
-                
-                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
-                
-            
-                
-                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
-                
-            
-                
-                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
-                
-            
-        
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="../_static/panels.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
 
     
 
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/panels.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/starterkit.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="The LHCb data flow" href="dataflow.html" />
+    <link rel="prev" title="Goals of the course" href="introduction-to-course.html" /> 
+</head>
 
-        
-    
-    
-    <meta name="HandheldFriendly" content="true"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
-    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+<body class="wy-body-for-nav">
 
+   
+  <div class="wy-grid-for-nav">
     
-    <link rel="next" href="dataflow.html" />
-    
-    
-    <link rel="prev" href="introduction-to-course.html" />
-    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
 
-    </head>
-    <body>
-        
-<div class="book">
-    <div class="book-summary">
-        
+          
+            <a href="../index.html" class="icon icon-home"> LHCb Starterkit Lessons
+          
+
+          
+          </a>
+
+          
             
-<div id="book-search-input" role="search">
-    <input type="text" placeholder="Type to search" />
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
 </div>
 
-            
-                <nav role="navigation">
-                
-
-
-<ul class="summary">
-    
-    
-
-    
-
-    
-        
-        
-    
-        <li class="chapter " data-level="1.1" data-path="../">
-            
-                <a href="../">
-            
-                    
-                    The LHCb Starterkit
-            
-                </a>
-            
-
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="1.1.1" data-path="../CONTRIBUTING.html">
-            
-                <a href="../CONTRIBUTING.html">
-            
-                    
-                    Contributing
-            
-                </a>
-            
-
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-
-    
-        
-        <li class="divider"></li>
-        
-        
-    
-        <li class="chapter " data-level="2.1" data-path="./">
-            
-                <a href="./">
-            
-                    
-                    First analysis steps
-            
-                </a>
-            
-
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="2.1.1" data-path="prerequisites.html">
-            
-                <a href="prerequisites.html">
-            
-                    
-                    Pre-workshop checklist
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="2.1.2" data-path="introduction-to-course.html">
-            
-                <a href="introduction-to-course.html">
-            
-                    
-                    Goals of the course
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter active" data-level="2.1.3" data-path="physics-at-lhcb.html">
-            
-                <a href="physics-at-lhcb.html">
-            
-                    
-                    Physics at LHCb
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="2.1.4" data-path="dataflow.html">
-            
-                <a href="dataflow.html">
-            
-                    
-                    The LHCb data flow
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="2.1.5" data-path="run-2-data-flow.html">
-            
-                <a href="run-2-data-flow.html">
-            
-                    
-                    Changes to the data flow in Run 2
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="2.1.6" data-path="davinci.html">
-            
-                <a href="davinci.html">
-            
-                    
-                    An introduction to LHCb Software
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="2.1.7" data-path="bookkeeping.html">
-            
-                <a href="bookkeeping.html">
-            
-                    
-                    Finding data in the Bookkeeping
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="2.1.8" data-path="files-from-grid.html">
-            
-                <a href="files-from-grid.html">
-            
-                    
-                    Downloading a file from the grid
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="2.1.9" data-path="interactive-dst.html">
-            
-                <a href="interactive-dst.html">
-            
-                    
-                    Interactively exploring a DST
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="2.1.10" data-path="minimal-dv-job.html">
-            
-                <a href="minimal-dv-job.html">
-            
-                    
-                    Running a minimal DaVinci job locally
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="2.1.11" data-path="loki-functors.html">
-            
-                <a href="loki-functors.html">
-            
-                    
-                    Fun with LoKi Functors
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="2.1.12" data-path="add-tupletools.html">
-            
-                <a href="add-tupletools.html">
-            
-                    
-                    TupleTools and branches
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="2.1.13" data-path="decay-tree-fitter.html">
-            
-                <a href="decay-tree-fitter.html">
-            
-                    
-                    How do I use DecayTreeFitter?
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="2.1.14" data-path="davinci-grid.html">
-            
-                <a href="davinci-grid.html">
-            
-                    
-                    Running DaVinci on the grid
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="2.1.15" data-path="split-jobs.html">
-            
-                <a href="split-jobs.html">
-            
-                    
-                    Splitting a job into subjobs
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="2.1.16" data-path="ganga-data.html">
-            
-                <a href="ganga-data.html">
-            
-                    
-                    More Ganga
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="2.1.17" data-path="eos-storage.html">
-            
-                <a href="eos-storage.html">
-            
-                    
-                    Storing large files on EOS
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="2.1.18" data-path="lhcb-dev.html">
-            
-                <a href="lhcb-dev.html">
-            
-                    
-                    Developing LHCb Software
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="2.1.19" data-path="asking-questions.html">
-            
-                <a href="asking-questions.html">
-            
-                    
-                    Asking good questions
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="2.1.20" data-path="ecgd.html">
-            
-                <a href="ecgd.html">
-            
-                    
-                    Early career, gender and diversity
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="2.1.21" data-path="contributing-lesson.html">
-            
-                <a href="contributing-lesson.html">
-            
-                    
-                    Contribute to this lesson
-            
-                </a>
-            
-
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-
-    
-        
-        <li class="divider"></li>
-        
-        
-    
-        <li class="chapter " data-level="3.1" data-path="../second-analysis-steps/">
-            
-                <a href="../second-analysis-steps/">
-            
-                    
-                    Second analysis steps
-            
-                </a>
-            
-
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="3.1.1" data-path="../second-analysis-steps/lb-git.html">
-            
-                <a href="../second-analysis-steps/lb-git.html">
-            
-                    
-                    Using git to develop LHCb software
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="3.1.2" data-path="../second-analysis-steps/building-decays.html">
-            
-                <a href="../second-analysis-steps/building-decays.html">
-            
-                    
-                    Building your own decay
-            
-                </a>
-            
-
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="3.1.2.1" data-path="../second-analysis-steps/building-decays-part0.html">
-            
-                <a href="../second-analysis-steps/building-decays-part0.html">
-            
-                    
-                    The Selection Framework
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="3.1.2.2" data-path="../second-analysis-steps/building-decays-part1.html">
-            
-                <a href="../second-analysis-steps/building-decays-part1.html">
-            
-                    
-                    A Historical Approach
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="3.1.2.3" data-path="../second-analysis-steps/building-decays-part2.html">
-            
-                <a href="../second-analysis-steps/building-decays-part2.html">
-            
-                    
-                    Modern Selection Framework
-            
-                </a>
-            
-
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-        <li class="chapter " data-level="3.1.3" data-path="../second-analysis-steps/fixing-errors.html">
-            
-                <a href="../second-analysis-steps/fixing-errors.html">
-            
-                    
-                    What to do when something fails
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="3.1.4" data-path="../second-analysis-steps/rerun-stripping.html">
-            
-                <a href="../second-analysis-steps/rerun-stripping.html">
-            
-                    
-                    Run a different stripping line on simulated data
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="3.1.5" data-path="../second-analysis-steps/switch-mass-hypo.html">
-            
-                <a href="../second-analysis-steps/switch-mass-hypo.html">
-            
-                    
-                    Replace a mass hypothesis
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="3.1.6" data-path="../second-analysis-steps/filter-in-trees.html">
-            
-                <a href="../second-analysis-steps/filter-in-trees.html">
-            
-                    
-                    Reuse particles from a decay tree
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="3.1.7" data-path="../second-analysis-steps/simulation.html">
-            
-                <a href="../second-analysis-steps/simulation.html">
-            
-                    
-                    The simulation framework
-            
-                </a>
-            
-
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="3.1.7.1" data-path="../second-analysis-steps/simulation-intro.html">
-            
-                <a href="../second-analysis-steps/simulation-intro.html">
-            
-                    
-                    Introduction: The basics of Gauss
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="3.1.7.2" data-path="../second-analysis-steps/simulation-running-gauss.html">
-            
-                <a href="../second-analysis-steps/simulation-running-gauss.html">
-            
-                    
-                    Getting the correct option files
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="3.1.7.3" data-path="../second-analysis-steps/simulation-dkfiles.html">
-            
-                <a href="../second-analysis-steps/simulation-dkfiles.html">
-            
-                    
-                    Controlling the decay
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="3.1.7.4" data-path="../second-analysis-steps/simulation-gencuts.html">
-            
-                <a href="../second-analysis-steps/simulation-gencuts.html">
-            
-                    
-                    Modifying the decay
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="3.1.7.5" data-path="../second-analysis-steps/simulation-advanced-dkfiles.html">
-            
-                <a href="../second-analysis-steps/simulation-advanced-dkfiles.html">
-            
-                    
-                    Advanced: Modifying the decay
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="3.1.7.6" data-path="../second-analysis-steps/simulation-fastsim.html">
-            
-                <a href="../second-analysis-steps/simulation-fastsim.html">
-            
-                    
-                    Fast simulation options
-            
-                </a>
-            
-
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-        <li class="chapter " data-level="3.1.8" data-path="../second-analysis-steps/hlt-intro.html">
-            
-                <a href="../second-analysis-steps/hlt-intro.html">
-            
-                    
-                    HLT intro
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="3.1.9" data-path="../second-analysis-steps/tistos-diy.html">
-            
-                <a href="../second-analysis-steps/tistos-diy.html">
-            
-                    
-                    TisTos DIY
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="3.1.10" data-path="../second-analysis-steps/ganga-scripting.html">
-            
-                <a href="../second-analysis-steps/ganga-scripting.html">
-            
-                    
-                    Ganga Scripting
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="3.1.11" data-path="../second-analysis-steps/managing-files-with-ganga.html">
-            
-                <a href="../second-analysis-steps/managing-files-with-ganga.html">
-            
-                    
-                    Managing files in Ganga
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="3.1.12" data-path="../second-analysis-steps/analysis-automation-snakemake.html">
-            
-                <a href="../second-analysis-steps/analysis-automation-snakemake.html">
-            
-                    
-                    Analysis automation: snakemake
-            
-                </a>
-            
-
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-
-    
-        
-        <li class="divider"></li>
-        
-        
-    
-        <li class="chapter " data-level="4.1" data-path="../self-guided-lessons/">
-            
-                <a href="../self-guided-lessons/">
-            
-                    
-                    Self guided lessons
-            
-                </a>
-            
-
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="4.1.1" data-path="../self-guided-lessons/htcondor.html">
-            
-                <a href="../self-guided-lessons/htcondor.html">
-            
-                    
-                    Batch submission with HTCondor
-            
-                </a>
-            
-
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="4.1.1.1" data-path="../self-guided-lessons/htcondor-first-job.html">
-            
-                <a href="../self-guided-lessons/htcondor-first-job.html">
-            
-                    
-                    Creating your first job
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="4.1.1.2" data-path="../self-guided-lessons/htcondor-more-options.html">
-            
-                <a href="../self-guided-lessons/htcondor-more-options.html">
-            
-                    
-                    More submit file options
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="4.1.1.3" data-path="../self-guided-lessons/htcondor-queue.html">
-            
-                <a href="../self-guided-lessons/htcondor-queue.html">
-            
-                    
-                    The queue command
-            
-                </a>
-            
-
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-
-    
-        
-        <li class="divider"></li>
-        
-        
-    
-        <li class="chapter " data-level="5.1" data-path="../using-the-grid/">
-            
-                <a href="../using-the-grid/">
-            
-                    
-                    Using the grid
-            
-                </a>
-            
-
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="5.1.1" data-path="../using-the-grid/local-grid-proxy.html">
-            
-                <a href="../using-the-grid/local-grid-proxy.html">
-            
-                    
-                    Grid proxies without LbScripts
-            
-                </a>
-            
-
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-
-    
-        
-        <li class="divider"></li>
-        
-        
-    
-        <li class="chapter " data-level="6.1" >
-            
-                <a target="_blank" href="ref://starterkit-lessons.pdf">
-            
-                    
-                    Download PDF
-            
-                </a>
-            
-
-            
-        </li>
-    
-
-    
-
-    <li class="divider"></li>
-
-    <li>
-        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
-            Published with GitBook
-        </a>
-    </li>
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="README.html">First Analysis Steps</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="prerequisites.html">Pre-workshop checklist</a></li>
+<li class="toctree-l2"><a class="reference internal" href="introduction-to-course.html">Goals of the course</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Physics at LHCb</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#the-reconstruction">The reconstruction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#building-decay-candidates">Building decay candidates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#building-more-complex-decays">Building more complex decays</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="dataflow.html">The LHCb data flow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="run-2-data-flow.html">Changes to the data flow in Run 2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="davinci.html">An introduction to LHCb Software</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bookkeeping.html">Finding data in the Bookkeeping</a></li>
+<li class="toctree-l2"><a class="reference internal" href="files-from-grid.html">Downloading a file from the grid</a></li>
+<li class="toctree-l2"><a class="reference internal" href="interactive-dst.html">Interactively exploring a DST</a></li>
+<li class="toctree-l2"><a class="reference internal" href="minimal-dv-job.html">Running a minimal DaVinci job locally</a></li>
+<li class="toctree-l2"><a class="reference internal" href="loki-functors.html">Fun with LoKi Functors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="add-tupletools.html">TupleTools and branches</a></li>
+<li class="toctree-l2"><a class="reference internal" href="decay-tree-fitter.html">How do I use DecayTreeFitter?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="davinci-grid.html">Running DaVinci on the grid</a></li>
+<li class="toctree-l2"><a class="reference internal" href="split-jobs.html">Splitting a job into subjobs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ganga-data.html">More Ganga</a></li>
+<li class="toctree-l2"><a class="reference internal" href="eos-storage.html">Storing large files on EOS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lhcb-dev.html">Developing LHCb Software</a></li>
+<li class="toctree-l2"><a class="reference internal" href="asking-questions.html">Asking good questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ecgd.html">Early career, gender and diversity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="contributing-lesson.html">Contribute to this lesson</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../second-analysis-steps/README.html">Second Analysis Steps</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../second-analysis-steps/lb-git.html">Using git to develop LHCb software</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../second-analysis-steps/building-decays.html">Building your own decay</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../second-analysis-steps/building-decays-part0.html">The Selection Framework</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../second-analysis-steps/building-decays-part1.html">A Historical Approach</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../second-analysis-steps/building-decays-part2.html">Modern Selection Framework</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../second-analysis-steps/fixing-errors.html">What to do when something fails</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../second-analysis-steps/rerun-stripping.html">Run a different stripping line on simulated data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../second-analysis-steps/switch-mass-hypo.html">Replace a mass hypothesis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../second-analysis-steps/filter-in-trees.html">Reuse particles from a decay tree</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../second-analysis-steps/simulation.html">The simulation framework</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../second-analysis-steps/simulation-intro.html">What is Gauss?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../second-analysis-steps/simulation-running-gauss.html">Which option files to use and how to run Gauss</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../second-analysis-steps/simulation-running-gauss.html#running-gauss-and-create-a-generator-only-sample">Running Gauss and create a generator-only sample</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../second-analysis-steps/simulation-running-gauss.html#make-an-ntuple">Make an nTuple</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../second-analysis-steps/simulation-dkfiles.html">Controlling the decay: DecFiles</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../second-analysis-steps/simulation-gencuts.html">Modifying the decay</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../second-analysis-steps/simulation-gencuts.html#adding-a-decay-channel">Adding a decay channel</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../second-analysis-steps/simulation-gencuts.html#generator-level-cuts">Generator level cuts</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../second-analysis-steps/simulation-gencuts.html#removing-the-generator-cuts">Removing the generator cuts</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../second-analysis-steps/simulation-gencuts.html#modifying-the-cut-tool">Modifying the cut tool</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../second-analysis-steps/simulation-advanced-dkfiles.html">Advanced: Modifying the decay</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../second-analysis-steps/simulation-advanced-dkfiles.html#multi-body-decays">3+ multi-body decays</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../second-analysis-steps/simulation-advanced-dkfiles.html#cocktail-decays">Cocktail decays</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../second-analysis-steps/simulation-advanced-dkfiles.html#final-state-radiation">Final state radiation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../second-analysis-steps/simulation-advanced-dkfiles.html#changing-particle-masses-lifetimes-widths">Changing particle masses / lifetimes/ widths</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../second-analysis-steps/simulation-fastsim.html">Why fast simulation is crucial</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../second-analysis-steps/simulation-fastsim.html#speeding-up-the-detector-simulation">Speeding up the detector simulation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../second-analysis-steps/simulation-fastsim.html#speeding-up-the-generation">Speeding up the generation</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../second-analysis-steps/hlt-intro.html">HLT intro</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../second-analysis-steps/hlt-intro.html#add-trigger-information-to-your-ntuple">Add trigger information to your ntuple</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../second-analysis-steps/hlt-intro.html#exploring-a-tck-list-of-trigger-lines">Exploring a TCK: List of trigger lines</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../second-analysis-steps/hlt-intro.html#add-trigger-information-to-your-ntuple-continued">Add trigger information to your ntuple, continued</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../second-analysis-steps/hlt-intro.html#add-tistos-information-to-your-ntuple">Add TISTOS information to your ntuple</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../second-analysis-steps/hlt-intro.html#exploring-a-tck-properties-of-trigger-lines">Exploring a TCK: Properties of trigger lines</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../second-analysis-steps/tistos-diy.html">TisTos DIY</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../second-analysis-steps/ganga-scripting.html">Scripting Ganga</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../second-analysis-steps/ganga-scripting.html#defining-jobs-with-scripts">Defining jobs with scripts</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../second-analysis-steps/ganga-scripting.html#adding-helpers-functions">Adding helpers functions</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../second-analysis-steps/managing-files-with-ganga.html">Managing files in Ganga</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../second-analysis-steps/analysis-automation-snakemake.html">Analysis automation with snakemake</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../second-analysis-steps/analysis-automation-snakemake.html#motivation">Motivation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../second-analysis-steps/analysis-automation-snakemake.html#documentation-and-installation">Documentation and installation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../second-analysis-steps/analysis-automation-snakemake.html#tutorial">Tutorial</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../second-analysis-steps/analysis-automation-snakemake.html#usage-and-basic-behaviour">Usage and basic behaviour</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../second-analysis-steps/analysis-automation-snakemake.html#sub-labels">Sub-labels</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../second-analysis-steps/analysis-automation-snakemake.html#run-and-shell">Run and shell</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../second-analysis-steps/analysis-automation-snakemake.html#config-files">Config files</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../second-analysis-steps/analysis-automation-snakemake.html#includes">Includes</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../self-guided-lessons/README.html">Self guided lessons</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../self-guided-lessons/htcondor.html">Batch submission using HTCondor</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../self-guided-lessons/htcondor-first-job.html">Submitting a simple job</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../self-guided-lessons/htcondor-first-job.html#tracking-your-jobs">Tracking your jobs</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../self-guided-lessons/htcondor-more-options.html">More submit file options</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../self-guided-lessons/htcondor-more-options.html#input-files">Input files</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../self-guided-lessons/htcondor-more-options.html#output-files">Output files</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../self-guided-lessons/htcondor-more-options.html#arguments">Arguments</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../self-guided-lessons/htcondor-more-options.html#resources-and-requirements">Resources and Requirements</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../self-guided-lessons/htcondor-more-options.html#notifications">Notifications</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../self-guided-lessons/htcondor-queue.html">Using the queue command</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../self-guided-lessons/htcondor-queue.html#more-on-variables">More on variables</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../self-guided-lessons/htcondor-queue.html#other-ways-to-queue">Other ways to queue</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../self-guided-lessons/htcondor-queue.html#mixing-options-and-variables">Mixing options and variables</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../self-guided-lessons/htcondor.html#system-architecture">System architecture</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../self-guided-lessons/htcondor.html#other-useful-resources">Other useful resources</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../self-guided-lessons/local-grid-proxy.html">Creating a grid proxy without LbScripts</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../self-guided-lessons/local-grid-proxy.html#installation">Installation</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../self-guided-lessons/local-grid-proxy.html#macos-with-homebrew">macOS with homebrew</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../self-guided-lessons/local-grid-proxy.html#ubuntu">Ubuntu</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../self-guided-lessons/local-grid-proxy.html#centos">CentOS</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../self-guided-lessons/local-grid-proxy.html#arch-linux">Arch Linux</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../self-guided-lessons/local-grid-proxy.html#getting-the-required-files-and-certificates">Getting the required files and certificates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../self-guided-lessons/local-grid-proxy.html#creating-a-proxy">Creating a proxy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../self-guided-lessons/local-grid-proxy.html#managing-the-proxy">Managing the proxy</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../CONTRIBUTING.html">Contributing</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../CONTRIBUTING.html#getting-started">Getting Started</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../CONTRIBUTING.html#dependencies">Dependencies</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../CONDUCT.html">Contributor Code of Conduct</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../LICENSE.html">Instructional Material</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../LICENSE.html#software">Software</a></li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 
-
-                </nav>
             
-        
-    </div>
+          
+        </div>
+      </div>
+    </nav>
 
-    <div class="book-body">
-        
-            <div class="body-inner">
-                
-                    
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
 
-<div class="book-header" role="navigation">
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">LHCb Starterkit Lessons</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
     
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="README.html">First Analysis Steps</a> &raquo;</li>
+        
+      <li>Physics at LHCb</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            
+              <a href="https://github.com/lhcb/starterkit-lessons/blob/master/first-analysis-steps/physics-at-lhcb.md" class="fa fa-github"> Edit on GitHub</a>
+            
+          
+        
+      </li>
+    
+  </ul>
 
-    <!-- Title -->
-    <h1>
-        <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >Physics at LHCb</a>
-    </h1>
+  
+  <hr/>
 </div>
-
-
-
-
-                    <div class="page-wrapper" tabindex="-1" role="main">
-                        <div class="page-inner">
-                            
-<div id="book-search-results">
-    <div class="search-noresults">
-    
-                                <section class="normal markdown-section">
-                                
-                                <h1 id="physics-at-lhcb">Physics at LHCb</h1>
-<p><div class="panel panel-warning"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(9368830141);" id="learning-objectives"><i class="fa fa-line-chart"></i> Learning Objectives<span id="heading-9368830141"></span></h3></div><div class="panel-body" id="panel-9368830141"><ul>
-<li>Understand how detector signals are turned into objects in software</li>
-<li>Learn how decay chains are built.</li>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="physics-at-lhcb">
+<h1>Physics at LHCb<a class="headerlink" href="#physics-at-lhcb" title="Permalink to this headline">¶</a></h1>
+<div class="panel panel-objectives docutils container">
+<div class="panel-header open docutils container">
+<p id="learning-objectives"><i class="fa fa-line-chart"></i> Learning Objectives</p>
+</div>
+<div class="panel-body docutils container">
+<ul class="simple">
+<li><p>Understand how detector signals are turned into objects in software</p></li>
+<li><p>Learn how decay chains are built.</p></li>
 </ul>
 <p>Note that this is a very high level introduction to a high-energy physics
 experiment, and misses many important details.</p>
-</div></div> </p>
+</div>
+</div>
 <p>The software that these lessons will cover was designed to make the types of
 physics analyses most commonly performed at LHCb as easy as possible. When
 using that software, it is then important to understand how those analyses are
@@ -946,21 +325,22 @@ objects have short lifetimes they decay before interacting with the detector,
 and so we must infer their properties through their decay products. Particles
 such as charged kaons and pions have lifetimes large enough that a large
 fraction can traverse the full detector, and so we typically consider these
-particles as &#x2018;stable&#x2019;. Unstable objects, with much shorter lifetimes, are
-formed as combinations of these &#x2018;stable&#x2019; particles<sup><a href="#fn_1" id="reffn_1">1</a></sup>:</p>
-<ol>
-<li>Charged pions $$\pi^{\pm}$$</li>
-<li>Charged kaons $$K^{\pm}$$</li>
-<li>Protons $$p/\bar{p}$$</li>
-<li>Electrons $$e^{\pm}$$</li>
-<li>Muons $$\mu^{\pm}$$</li>
-<li>Photons $$\gamma$$</li>
-<li>Deuterons (<a href="https://en.wikipedia.org/wiki/Deuterium" target="_blank">deuterium nuclei</a>)</li>
+particles as ‘stable’. Unstable objects, with much shorter lifetimes, are
+formed as combinations of these ‘stable’ particles[^1]:</p>
+<ol class="simple">
+<li><p>Charged pions <span class="math notranslate nohighlight">\( \pi^{\pm} \)</span></p></li>
+<li><p>Charged kaons <span class="math notranslate nohighlight">\( K^{\pm} \)</span></p></li>
+<li><p>Protons <span class="math notranslate nohighlight">\( p/\bar{p} \)</span></p></li>
+<li><p>Electrons <span class="math notranslate nohighlight">\( e^{\pm} \)</span></p></li>
+<li><p>Muons <span class="math notranslate nohighlight">\( \mu^{\pm} \)</span></p></li>
+<li><p>Photons <span class="math notranslate nohighlight">\( \gamma \)</span></p></li>
+<li><p>Deuterons (<a class="reference external" href="https://en.wikipedia.org/wiki/Deuterium">deuterium nuclei</a>)</p></li>
 </ol>
 <p>Many properties of these objects, such as their momentum and charge, are
 intrinsic, but we have to infer them based on the signals they create
 in the detector as they traverse through it.</p>
-<h2 id="the-reconstruction">The reconstruction</h2>
+<div class="section" id="the-reconstruction">
+<h2>The reconstruction<a class="headerlink" href="#the-reconstruction" title="Permalink to this headline">¶</a></h2>
 <p>The properties of particles produced in collisions are known to Nature, but we
 must reconstruct those properties based on the readout of the detector.
 The process of inferring all properties is called <em>reconstruction</em>. For a given
@@ -969,188 +349,140 @@ simultaneously, e.g. one does not try to reconstruct one kaon, but reconstructs
 all charged tracks at the same time, considering all available information.</p>
 <p>An important output of the reconstruction is a set of <em>tracks</em>, each
 representing the trajectory of a particle through the detector. Given that all
-stable charged particles listed above have charge &#xB1;1, we can assign a momentum
+stable charged particles listed above have charge ±1, we can assign a momentum
 estimate to a track based on its curvature, as induced by the LHCb dipole
 magnet. We know the polarity of the magnet, as well as its field strength, so
-can also infer the associated particle&#x2019;s charge.</p>
+can also infer the associated particle’s charge.</p>
 <p>A <em>vertex</em> represents some source of particle production in space. When
 proton-proton bunches collided, several <em>primary vertices</em> can be created in
 the interaction region. We can reconstruct primary vertices by looking for
 intersections in space of large numbers of tracks.</p>
-<p>Much more detail on the LHCb reconstruction can be found in the <a href="http://iopscience.iop.org/article/10.1088/1748-0221/3/08/S08005" target="_blank">LHCb detector description</a> and <a href="https://arxiv.org/abs/1412.6352" target="_blank">Run 1 performance</a> papers (these are both rather long, but worth taking the time to read). It is
+<p>Much more detail on the LHCb reconstruction can be found in the <a class="reference external" href="https://doi.org/10.1088/1748-0221/3/08/S08005">LHCb detector description</a> and <a class="reference external" href="https://arxiv.org/abs/1412.6352">Run 1 performance</a> papers (these are both rather long, but worth taking the time to read). It is
 recommended that you become familiar with at least the aspects of the
 reconstruction that are relevant to your analysis. For now, we only need to
 understand tracks and vertices, and how decays can be reconstructed and
 selected from these.</p>
-<h2 id="building-decay-candidates">Building decay candidates</h2>
+</div>
+<div class="section" id="building-decay-candidates">
+<h2>Building decay candidates<a class="headerlink" href="#building-decay-candidates" title="Permalink to this headline">¶</a></h2>
 <p>All objects created by the reconstruction contain contributions from detector
 effects, such as resolution. In addition, not all created objects may
-correspond to real particles; we could for example create &#x2018;ghost&#x2019; tracks,
+correspond to real particles; we could for example create ‘ghost’ tracks,
 trajectories created from combinations of random hits that together <em>look like</em>
 a real trajectory.</p>
 <p>Given this, we can never know anything with complete certainty. Instead we
 must infer properties <em>statistically</em> based on ensembles of objects and events.</p>
-<p>Let&#x2019;s say we want to count the number of <a href="http://pdglive.lbl.gov/Particle.action?init=0&amp;node=M070&amp;home=MXXX025" target="_blank">$$J/\psi$$ mesons</a> that
-decay to two muons, $$\mu^{+}\mu^{-}$$. This proceeds via three steps:</p>
-<ol>
-<li>Select tracks created by the reconstruction;</li>
-<li>Create pairs of oppositely-charged tracks;</li>
-<li>Fit each pair under the hypothesis that they originate from a common point
-in space.</li>
+<p>Let’s say we want to count the number of <a class="reference external" href="http://pdglive.lbl.gov/Particle.action?init=0&amp;node=M070&amp;home=MXXX025"><span class="math notranslate nohighlight">\( J/\psi \)</span> mesons</a> that
+decay to two muons, <span class="math notranslate nohighlight">\( \mu^{+}\mu^{-} \)</span>. This proceeds via three steps:</p>
+<ol class="simple">
+<li><p>Select tracks created by the reconstruction;</p></li>
+<li><p>Create pairs of oppositely-charged tracks;</p></li>
+<li><p>Fit each pair under the hypothesis that they originate from a common point
+in space.</p></li>
 </ol>
-<p>We&#x2019;ll go over each of these steps, starting with tracks produced by the
+<p>We’ll go over each of these steps, starting with tracks produced by the
 reconstruction. Naturally, there are many of these in any given event,
 typically hundreds, so we begin be applying <em>selections</em> on the tracks based on
-our physics understanding. For example, the $$J/\psi$$ is quite heavy (at
-around $$3.1\,\mathrm{GeV}/c^{2}$$), so we might expect its decay products to have a
+our physics understanding. For example, the <span class="math notranslate nohighlight">\( J/\psi \)</span> is quite heavy (at
+around <span class="math notranslate nohighlight">\( 3.1\,\mathrm{GeV}/c^{2} \)</span>), so we might expect its decay products to have a
 higher momentum on average than objects produced from soft processes in the
 collision. The reconstruction gives us some probability-like
 information for a given track to have been created by a true muon, so we might
-require that the tracks we use have some minimum &#x2018;muon probability&#x2019;.</p>
+require that the tracks we use have some minimum ‘muon probability’.</p>
 <p>With a reduced set of a tracks, we can create all pairs of opposite-sign muons.
 We know that a real particle decay happens at a point in space, so we could
 require that the distance of closest approach between the two muons does not
 exceed some maximum value. We could further require that the invariant mass of
-the dimuon combination is close to the known mass of the $$J/\psi$$, invoking
+the dimuon combination is close to the known mass of the <span class="math notranslate nohighlight">\( J/\psi \)</span>, invoking
 the conservation of momentum.</p>
-<p>With selected dimuon pairs, we can <em>fit</em> a $$J/\psi \to \mu^{+}\mu^{-}$$ decay
+<p>With selected dimuon pairs, we can <em>fit</em> a <span class="math notranslate nohighlight">\( J/\psi \to \mu^{+}\mu^{-} \)</span> decay
 vertex. This is done by expressing the hypothesis that there is a common origin
 vertex of both tracks as an optimisation problem, and then varying the measured
-$$\mu^{+}$$ and $$\mu^{-}$$ four-momenta within their measured uncertainties to
+<span class="math notranslate nohighlight">\( \mu^{+} \)</span> and <span class="math notranslate nohighlight">\( \mu^{-} \)</span> four-momenta within their measured uncertainties to
 best fit that hypothesis. The result is a vertex object which has, for example,
-a fit $$\chi^{2}$$ associated to it. The quality of the fit can be used in a
+a fit <span class="math notranslate nohighlight">\( \chi^{2} \)</span> associated to it. The quality of the fit can be used in a
 selection.</p>
 <p>Finally, with the fitted muon four-vectors, we can form the four-vector of the
-$$J/\psi$$ as their sum, creating the $$J/\psi$$ <em>candidate</em><sup><a href="#fn_2" id="reffn_2">2</a></sup>. Now we get
-back to our original goal of measuring the number of true $$J/\psi \to
-\mu^{+}\mu^{-}$$. By plotting the $$J/\psi$$ invariant mass values as a
+<span class="math notranslate nohighlight">\( J/\psi \)</span> as their sum, creating the <span class="math notranslate nohighlight">\( J/\psi \)</span> <em>candidate</em>[^2]. Now we get
+back to our original goal of measuring the number of true <span class="math notranslate nohighlight">\( J/\psi \to \mu^{+}\mu^{-} \)</span>. By plotting the <span class="math notranslate nohighlight">\( J/\psi \)</span> invariant mass values as a
 histogram, we might hope to see a signal component. An example is shown in the
 following plot, created using simulated toy data.</p>
-<p><a href="img/dimuon_mass.png"><img alt="Dimuon invariant mass spectrum" src="img/dimuon_mass.png" style="width: 50%; margin: 0 25%;"></a></p>
+<p><img alt="Dimuon invariant mass spectrum" src="../_images/dimuon_mass.png" /></p>
 <p>We could choose to model the components using probability density functions,
 and fit the total model to this histogram. The relative normalisations of the
 components can be used to deduce the fraction of the sample which contains true
 decays, within some uncertainty.</p>
-<h2 id="building-more-complex-decays">Building more complex decays</h2>
-<p>With a set of $$J/\psi$$ candidates, we could build more complex decay chains
-such as $$B_{s}^{0} \to J/\psi\phi(1020)$$.
-The $$J/\psi$$ and the <a href="http://pdglive.lbl.gov/Particle.action?init=0&amp;node=M004&amp;home=MXXX005" target="_blank">$$\phi$$ meson</a> can decay in various ways,
-but we might choose to reconstruct them in the $$\mu^{+}\mu^{-}$$ and
-$$K^{+}K^{-}$$ final states, respectively.
-The $$\phi \to K^{+}K^{-}$$ candidates can then be reconstructed in a similar
-manner to that described previously for the $$J/\psi$$ decay.
-With a set of $$J/\psi$$ and $$\phi$$ candidates, we can then build
-<a href="http://pdglive.lbl.gov/Particle.action?init=0&amp;node=S086&amp;home=MXXX046" target="_blank">$$B_{s}^{0}$$ meson</a> candidates by combining the two decay products in
+</div>
+<div class="section" id="building-more-complex-decays">
+<h2>Building more complex decays<a class="headerlink" href="#building-more-complex-decays" title="Permalink to this headline">¶</a></h2>
+<p>With a set of <span class="math notranslate nohighlight">\( J/\psi \)</span> candidates, we could build more complex decay chains
+such as <span class="math notranslate nohighlight">\( B_{s}^{0} \to J/\psi\phi(1020) \)</span>.
+The <span class="math notranslate nohighlight">\( J/\psi \)</span> and the <a class="reference external" href="http://pdglive.lbl.gov/Particle.action?init=0&amp;node=M004&amp;home=MXXX005"><span class="math notranslate nohighlight">\( \phi \)</span> meson</a> can decay in various ways,
+but we might choose to reconstruct them in the <span class="math notranslate nohighlight">\( \mu^{+}\mu^{-} \)</span> and
+<span class="math notranslate nohighlight">\( K^{+}K^{-} \)</span> final states, respectively.
+The <span class="math notranslate nohighlight">\( \phi \to K^{+}K^{-} \)</span> candidates can then be reconstructed in a similar
+manner to that described previously for the <span class="math notranslate nohighlight">\( J/\psi \)</span> decay.
+With a set of <span class="math notranslate nohighlight">\( J/\psi \)</span> and <span class="math notranslate nohighlight">\( \phi \)</span> candidates, we can then build
+<a class="reference external" href="http://pdglive.lbl.gov/Particle.action?init=0&amp;node=S086&amp;home=MXXX046"><span class="math notranslate nohighlight">\( B_{s}^{0} \)</span> meson</a> candidates by combining the two decay products in
 another vertex fit. If our selection is clean enough, we may then see a
-$$B_s^{0}$$ signal peak, shown below (again, using toy data).</p>
-<p><a href="img/jpsiphi_mass.png"><img alt="Four-body invariant mass spectrum" src="img/jpsiphi_mass.png" style="width: 50%; margin: 0 25%;"></a></p>
-<p>As we&#x2019;ll see in the following lesson, lots of selections like these are run
+<span class="math notranslate nohighlight">\( B_s^{0} \)</span> signal peak, shown below (again, using toy data).</p>
+<p><img alt="Four-body invariant mass spectrum" src="../_images/jpsiphi_mass.png" /></p>
+<p>As we’ll see in the following lesson, lots of selections like these are run
 centrally and produce output datasets that contain a mixture of decay chain
 candidates. This course will show you how to extract the candidates and their
 properties that are relevant for your analysis.</p>
-<blockquote id="fn_1">
-<sup>1</sup>. Other &#x2018;stable&#x2019; particles under this definition include neutrons $$n$$ and the long-lived neutral kaon weak eigenstate $$K_{\mathrm{L}}^{0}$$, but these are not part of standard reconstruction output.<a href="#reffn_1" title="Jump back to footnote [1] in the text."> &#x21A9;</a>
-</blockquote>
-<blockquote id="fn_2">
-<sup>2</sup>. &#x2018;Candidate&#x2019; because, again, we never know anything with complete certainty; this could be combination of muons that just happen to pass our selection criteria.<a href="#reffn_2" title="Jump back to footnote [2] in the text."> &#x21A9;</a>
-</blockquote>
-
-                                
-                                </section>
-                            
-    </div>
-    <div class="search-results">
-        <div class="has-results">
-            
-            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
-            <ul class="search-results-list"></ul>
-            
-        </div>
-        <div class="no-results">
-            
-            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
-            
-        </div>
-    </div>
+<p>[^1]: Other ‘stable’ particles under this definition include neutrons <span class="math notranslate nohighlight">\( n \)</span> and the long-lived neutral kaon weak eigenstate <span class="math notranslate nohighlight">\( K_{\mathrm{L}}^{0} \)</span>, but these are not part of standard reconstruction output.</p>
+<p>[^2]: ‘Candidate’ because, again, we never know anything with complete certainty; this could be combination of muons that just happen to pass our selection criteria.</p>
+</div>
 </div>
 
-                        </div>
-                    </div>
-                
-            </div>
 
-            
-                
-                <a href="introduction-to-course.html" class="navigation navigation-prev " aria-label="Previous page: Goals of the course">
-                    <i class="fa fa-angle-left"></i>
-                </a>
-                
-                
-                <a href="dataflow.html" class="navigation navigation-next " aria-label="Next page: The LHCb data flow">
-                    <i class="fa fa-angle-right"></i>
-                </a>
-                
-            
-        
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="dataflow.html" class="btn btn-neutral float-right" title="The LHCb data flow" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="introduction-to-course.html" class="btn btn-neutral float-left" title="Goals of the course" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
     </div>
+  
 
-    <script>
-        var gitbook = gitbook || [];
-        gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Physics at LHCb","level":"2.1.3","depth":2,"next":{"title":"The LHCb data flow","level":"2.1.4","depth":2,"path":"first-analysis-steps/dataflow.md","ref":"first-analysis-steps/dataflow.md","articles":[]},"previous":{"title":"Goals of the course","level":"2.1.2","depth":2,"path":"first-analysis-steps/introduction-to-course.md","ref":"first-analysis-steps/introduction-to-course.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-sharing","panels@git+https://github.com/lhcb/gitbook-plugin-panels.git#master","katex-auto-render@git+https://github.com/lhcb/gitbook-plugin-katex-auto-render.git#master","collapsible-menu","otherlink"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"collapsible-menu":{},"search":{},"otherlink":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"panels":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"katex-auto-render":{},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"The Starterkit team and contributors","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"gitbook":"*"},"file":{"path":"first-analysis-steps/physics-at-lhcb.md","mtime":"2019-10-10T14:37:33.881Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-10-10T14:39:29.242Z"},"basePath":"..","book":{"language":""}});
-        });
-    </script>
-</div>
+  <hr/>
 
-        
-    <script src="../gitbook/gitbook.js"></script>
-    <script src="../gitbook/theme.js"></script>
-    
-        
-        <script src="../gitbook/gitbook-plugin-panels/panels.js"></script>
-        
-    
-        
-        <script src="../gitbook/gitbook-plugin-katex-auto-render/katex.min.js"></script>
-        
-    
-        
-        <script src="../gitbook/gitbook-plugin-katex-auto-render/auto-render.min.js"></script>
-        
-    
-        
-        <script src="../gitbook/gitbook-plugin-katex-auto-render/enable-auto-render.js"></script>
-        
-    
-        
-        <script src="../gitbook/gitbook-plugin-collapsible-menu/plugin.js"></script>
-        
-    
-        
-        <script src="../gitbook/gitbook-plugin-otherlink/js/otherlink.js"></script>
-        
-    
-        
-        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
-        
-    
-        
-        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
-        
-    
-        
-        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
-        
-    
-        
-        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
-        
-    
-        
-        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
-        
-    
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015-2019, LHCb Starterkit
 
-    </body>
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
 </html>
-

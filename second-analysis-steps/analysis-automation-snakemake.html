@@ -1,1246 +1,691 @@
 
-<!DOCTYPE HTML>
-<html lang="" >
-    <head>
-        <meta charset="UTF-8">
-        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>Analysis automation: snakemake · GitBook</title>
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="description" content="">
-        <meta name="generator" content="GitBook 3.2.3">
-        <meta name="author" content="The Starterkit team and contributors">
-        
-        
-    
-    <link rel="stylesheet" href="../gitbook/style.css">
 
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Analysis automation with snakemake &mdash; LHCb Starterkit Lessons  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
     
-            
-                
-                <link rel="stylesheet" href="../gitbook/gitbook-plugin-panels/panels.css">
-                
-            
-                
-                <link rel="stylesheet" href="../gitbook/gitbook-plugin-katex-auto-render/katex.min.css">
-                
-            
-                
-                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
-                
-            
-                
-                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
-                
-            
-                
-                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
-                
-            
-        
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="../_static/panels.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
 
     
 
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/panels.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/starterkit.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Self guided lessons" href="../self-guided-lessons/README.html" />
+    <link rel="prev" title="Managing files in Ganga" href="managing-files-with-ganga.html" /> 
+</head>
 
-        
-    
-    
-    <meta name="HandheldFriendly" content="true"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
-    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+<body class="wy-body-for-nav">
 
+   
+  <div class="wy-grid-for-nav">
     
-    <link rel="next" href="../self-guided-lessons/" />
-    
-    
-    <link rel="prev" href="managing-files-with-ganga.html" />
-    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
 
-    </head>
-    <body>
-        
-<div class="book">
-    <div class="book-summary">
-        
+          
+            <a href="../index.html" class="icon icon-home"> LHCb Starterkit Lessons
+          
+
+          
+          </a>
+
+          
             
-<div id="book-search-input" role="search">
-    <input type="text" placeholder="Type to search" />
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
 </div>
 
-            
-                <nav role="navigation">
-                
-
-
-<ul class="summary">
-    
-    
-
-    
-
-    
-        
-        
-    
-        <li class="chapter " data-level="1.1" data-path="../">
-            
-                <a href="../">
-            
-                    
-                    The LHCb Starterkit
-            
-                </a>
-            
-
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="1.1.1" data-path="../CONTRIBUTING.html">
-            
-                <a href="../CONTRIBUTING.html">
-            
-                    
-                    Contributing
-            
-                </a>
-            
-
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-
-    
-        
-        <li class="divider"></li>
-        
-        
-    
-        <li class="chapter " data-level="2.1" data-path="../first-analysis-steps/">
-            
-                <a href="../first-analysis-steps/">
-            
-                    
-                    First analysis steps
-            
-                </a>
-            
-
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="2.1.1" data-path="../first-analysis-steps/prerequisites.html">
-            
-                <a href="../first-analysis-steps/prerequisites.html">
-            
-                    
-                    Pre-workshop checklist
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="2.1.2" data-path="../first-analysis-steps/introduction-to-course.html">
-            
-                <a href="../first-analysis-steps/introduction-to-course.html">
-            
-                    
-                    Goals of the course
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="2.1.3" data-path="../first-analysis-steps/physics-at-lhcb.html">
-            
-                <a href="../first-analysis-steps/physics-at-lhcb.html">
-            
-                    
-                    Physics at LHCb
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="2.1.4" data-path="../first-analysis-steps/dataflow.html">
-            
-                <a href="../first-analysis-steps/dataflow.html">
-            
-                    
-                    The LHCb data flow
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="2.1.5" data-path="../first-analysis-steps/run-2-data-flow.html">
-            
-                <a href="../first-analysis-steps/run-2-data-flow.html">
-            
-                    
-                    Changes to the data flow in Run 2
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="2.1.6" data-path="../first-analysis-steps/davinci.html">
-            
-                <a href="../first-analysis-steps/davinci.html">
-            
-                    
-                    An introduction to LHCb Software
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="2.1.7" data-path="../first-analysis-steps/bookkeeping.html">
-            
-                <a href="../first-analysis-steps/bookkeeping.html">
-            
-                    
-                    Finding data in the Bookkeeping
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="2.1.8" data-path="../first-analysis-steps/files-from-grid.html">
-            
-                <a href="../first-analysis-steps/files-from-grid.html">
-            
-                    
-                    Downloading a file from the grid
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="2.1.9" data-path="../first-analysis-steps/interactive-dst.html">
-            
-                <a href="../first-analysis-steps/interactive-dst.html">
-            
-                    
-                    Interactively exploring a DST
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="2.1.10" data-path="../first-analysis-steps/minimal-dv-job.html">
-            
-                <a href="../first-analysis-steps/minimal-dv-job.html">
-            
-                    
-                    Running a minimal DaVinci job locally
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="2.1.11" data-path="../first-analysis-steps/loki-functors.html">
-            
-                <a href="../first-analysis-steps/loki-functors.html">
-            
-                    
-                    Fun with LoKi Functors
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="2.1.12" data-path="../first-analysis-steps/add-tupletools.html">
-            
-                <a href="../first-analysis-steps/add-tupletools.html">
-            
-                    
-                    TupleTools and branches
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="2.1.13" data-path="../first-analysis-steps/decay-tree-fitter.html">
-            
-                <a href="../first-analysis-steps/decay-tree-fitter.html">
-            
-                    
-                    How do I use DecayTreeFitter?
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="2.1.14" data-path="../first-analysis-steps/davinci-grid.html">
-            
-                <a href="../first-analysis-steps/davinci-grid.html">
-            
-                    
-                    Running DaVinci on the grid
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="2.1.15" data-path="../first-analysis-steps/split-jobs.html">
-            
-                <a href="../first-analysis-steps/split-jobs.html">
-            
-                    
-                    Splitting a job into subjobs
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="2.1.16" data-path="../first-analysis-steps/ganga-data.html">
-            
-                <a href="../first-analysis-steps/ganga-data.html">
-            
-                    
-                    More Ganga
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="2.1.17" data-path="../first-analysis-steps/eos-storage.html">
-            
-                <a href="../first-analysis-steps/eos-storage.html">
-            
-                    
-                    Storing large files on EOS
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="2.1.18" data-path="../first-analysis-steps/lhcb-dev.html">
-            
-                <a href="../first-analysis-steps/lhcb-dev.html">
-            
-                    
-                    Developing LHCb Software
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="2.1.19" data-path="../first-analysis-steps/asking-questions.html">
-            
-                <a href="../first-analysis-steps/asking-questions.html">
-            
-                    
-                    Asking good questions
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="2.1.20" data-path="../first-analysis-steps/ecgd.html">
-            
-                <a href="../first-analysis-steps/ecgd.html">
-            
-                    
-                    Early career, gender and diversity
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="2.1.21" data-path="../first-analysis-steps/contributing-lesson.html">
-            
-                <a href="../first-analysis-steps/contributing-lesson.html">
-            
-                    
-                    Contribute to this lesson
-            
-                </a>
-            
-
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-
-    
-        
-        <li class="divider"></li>
-        
-        
-    
-        <li class="chapter " data-level="3.1" data-path="./">
-            
-                <a href="./">
-            
-                    
-                    Second analysis steps
-            
-                </a>
-            
-
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="3.1.1" data-path="lb-git.html">
-            
-                <a href="lb-git.html">
-            
-                    
-                    Using git to develop LHCb software
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="3.1.2" data-path="building-decays.html">
-            
-                <a href="building-decays.html">
-            
-                    
-                    Building your own decay
-            
-                </a>
-            
-
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="3.1.2.1" data-path="building-decays-part0.html">
-            
-                <a href="building-decays-part0.html">
-            
-                    
-                    The Selection Framework
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="3.1.2.2" data-path="building-decays-part1.html">
-            
-                <a href="building-decays-part1.html">
-            
-                    
-                    A Historical Approach
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="3.1.2.3" data-path="building-decays-part2.html">
-            
-                <a href="building-decays-part2.html">
-            
-                    
-                    Modern Selection Framework
-            
-                </a>
-            
-
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-        <li class="chapter " data-level="3.1.3" data-path="fixing-errors.html">
-            
-                <a href="fixing-errors.html">
-            
-                    
-                    What to do when something fails
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="3.1.4" data-path="rerun-stripping.html">
-            
-                <a href="rerun-stripping.html">
-            
-                    
-                    Run a different stripping line on simulated data
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="3.1.5" data-path="switch-mass-hypo.html">
-            
-                <a href="switch-mass-hypo.html">
-            
-                    
-                    Replace a mass hypothesis
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="3.1.6" data-path="filter-in-trees.html">
-            
-                <a href="filter-in-trees.html">
-            
-                    
-                    Reuse particles from a decay tree
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="3.1.7" data-path="simulation.html">
-            
-                <a href="simulation.html">
-            
-                    
-                    The simulation framework
-            
-                </a>
-            
-
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="3.1.7.1" data-path="simulation-intro.html">
-            
-                <a href="simulation-intro.html">
-            
-                    
-                    Introduction: The basics of Gauss
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="3.1.7.2" data-path="simulation-running-gauss.html">
-            
-                <a href="simulation-running-gauss.html">
-            
-                    
-                    Getting the correct option files
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="3.1.7.3" data-path="simulation-dkfiles.html">
-            
-                <a href="simulation-dkfiles.html">
-            
-                    
-                    Controlling the decay
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="3.1.7.4" data-path="simulation-gencuts.html">
-            
-                <a href="simulation-gencuts.html">
-            
-                    
-                    Modifying the decay
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="3.1.7.5" data-path="simulation-advanced-dkfiles.html">
-            
-                <a href="simulation-advanced-dkfiles.html">
-            
-                    
-                    Advanced: Modifying the decay
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="3.1.7.6" data-path="simulation-fastsim.html">
-            
-                <a href="simulation-fastsim.html">
-            
-                    
-                    Fast simulation options
-            
-                </a>
-            
-
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-        <li class="chapter " data-level="3.1.8" data-path="hlt-intro.html">
-            
-                <a href="hlt-intro.html">
-            
-                    
-                    HLT intro
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="3.1.9" data-path="tistos-diy.html">
-            
-                <a href="tistos-diy.html">
-            
-                    
-                    TisTos DIY
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="3.1.10" data-path="ganga-scripting.html">
-            
-                <a href="ganga-scripting.html">
-            
-                    
-                    Ganga Scripting
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="3.1.11" data-path="managing-files-with-ganga.html">
-            
-                <a href="managing-files-with-ganga.html">
-            
-                    
-                    Managing files in Ganga
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter active" data-level="3.1.12" data-path="analysis-automation-snakemake.html">
-            
-                <a href="analysis-automation-snakemake.html">
-            
-                    
-                    Analysis automation: snakemake
-            
-                </a>
-            
-
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-
-    
-        
-        <li class="divider"></li>
-        
-        
-    
-        <li class="chapter " data-level="4.1" data-path="../self-guided-lessons/">
-            
-                <a href="../self-guided-lessons/">
-            
-                    
-                    Self guided lessons
-            
-                </a>
-            
-
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="4.1.1" data-path="../self-guided-lessons/htcondor.html">
-            
-                <a href="../self-guided-lessons/htcondor.html">
-            
-                    
-                    Batch submission with HTCondor
-            
-                </a>
-            
-
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="4.1.1.1" data-path="../self-guided-lessons/htcondor-first-job.html">
-            
-                <a href="../self-guided-lessons/htcondor-first-job.html">
-            
-                    
-                    Creating your first job
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="4.1.1.2" data-path="../self-guided-lessons/htcondor-more-options.html">
-            
-                <a href="../self-guided-lessons/htcondor-more-options.html">
-            
-                    
-                    More submit file options
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="4.1.1.3" data-path="../self-guided-lessons/htcondor-queue.html">
-            
-                <a href="../self-guided-lessons/htcondor-queue.html">
-            
-                    
-                    The queue command
-            
-                </a>
-            
-
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-
-    
-        
-        <li class="divider"></li>
-        
-        
-    
-        <li class="chapter " data-level="5.1" data-path="../using-the-grid/">
-            
-                <a href="../using-the-grid/">
-            
-                    
-                    Using the grid
-            
-                </a>
-            
-
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="5.1.1" data-path="../using-the-grid/local-grid-proxy.html">
-            
-                <a href="../using-the-grid/local-grid-proxy.html">
-            
-                    
-                    Grid proxies without LbScripts
-            
-                </a>
-            
-
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-
-    
-        
-        <li class="divider"></li>
-        
-        
-    
-        <li class="chapter " data-level="6.1" >
-            
-                <a target="_blank" href="ref://starterkit-lessons.pdf">
-            
-                    
-                    Download PDF
-            
-                </a>
-            
-
-            
-        </li>
-    
-
-    
-
-    <li class="divider"></li>
-
-    <li>
-        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
-            Published with GitBook
-        </a>
-    </li>
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../first-analysis-steps/README.html">First Analysis Steps</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../first-analysis-steps/prerequisites.html">Pre-workshop checklist</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../first-analysis-steps/introduction-to-course.html">Goals of the course</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../first-analysis-steps/physics-at-lhcb.html">Physics at LHCb</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../first-analysis-steps/physics-at-lhcb.html#the-reconstruction">The reconstruction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../first-analysis-steps/physics-at-lhcb.html#building-decay-candidates">Building decay candidates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../first-analysis-steps/physics-at-lhcb.html#building-more-complex-decays">Building more complex decays</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../first-analysis-steps/dataflow.html">The LHCb data flow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../first-analysis-steps/run-2-data-flow.html">Changes to the data flow in Run 2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../first-analysis-steps/davinci.html">An introduction to LHCb Software</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../first-analysis-steps/bookkeeping.html">Finding data in the Bookkeeping</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../first-analysis-steps/files-from-grid.html">Downloading a file from the grid</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../first-analysis-steps/interactive-dst.html">Interactively exploring a DST</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../first-analysis-steps/minimal-dv-job.html">Running a minimal DaVinci job locally</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../first-analysis-steps/loki-functors.html">Fun with LoKi Functors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../first-analysis-steps/add-tupletools.html">TupleTools and branches</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../first-analysis-steps/decay-tree-fitter.html">How do I use DecayTreeFitter?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../first-analysis-steps/davinci-grid.html">Running DaVinci on the grid</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../first-analysis-steps/split-jobs.html">Splitting a job into subjobs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../first-analysis-steps/ganga-data.html">More Ganga</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../first-analysis-steps/eos-storage.html">Storing large files on EOS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../first-analysis-steps/lhcb-dev.html">Developing LHCb Software</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../first-analysis-steps/asking-questions.html">Asking good questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../first-analysis-steps/ecgd.html">Early career, gender and diversity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../first-analysis-steps/contributing-lesson.html">Contribute to this lesson</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="reference internal" href="README.html">Second Analysis Steps</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="lb-git.html">Using git to develop LHCb software</a></li>
+<li class="toctree-l2"><a class="reference internal" href="building-decays.html">Building your own decay</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="building-decays-part0.html">The Selection Framework</a></li>
+<li class="toctree-l3"><a class="reference internal" href="building-decays-part1.html">A Historical Approach</a></li>
+<li class="toctree-l3"><a class="reference internal" href="building-decays-part2.html">Modern Selection Framework</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="fixing-errors.html">What to do when something fails</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rerun-stripping.html">Run a different stripping line on simulated data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="switch-mass-hypo.html">Replace a mass hypothesis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="filter-in-trees.html">Reuse particles from a decay tree</a></li>
+<li class="toctree-l2"><a class="reference internal" href="simulation.html">The simulation framework</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="simulation-intro.html">What is Gauss?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="simulation-running-gauss.html">Which option files to use and how to run Gauss</a></li>
+<li class="toctree-l3"><a class="reference internal" href="simulation-running-gauss.html#running-gauss-and-create-a-generator-only-sample">Running Gauss and create a generator-only sample</a></li>
+<li class="toctree-l3"><a class="reference internal" href="simulation-running-gauss.html#make-an-ntuple">Make an nTuple</a></li>
+<li class="toctree-l3"><a class="reference internal" href="simulation-dkfiles.html">Controlling the decay: DecFiles</a></li>
+<li class="toctree-l3"><a class="reference internal" href="simulation-gencuts.html">Modifying the decay</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="simulation-gencuts.html#adding-a-decay-channel">Adding a decay channel</a></li>
+<li class="toctree-l4"><a class="reference internal" href="simulation-gencuts.html#generator-level-cuts">Generator level cuts</a></li>
+<li class="toctree-l4"><a class="reference internal" href="simulation-gencuts.html#removing-the-generator-cuts">Removing the generator cuts</a></li>
+<li class="toctree-l4"><a class="reference internal" href="simulation-gencuts.html#modifying-the-cut-tool">Modifying the cut tool</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="simulation-advanced-dkfiles.html">Advanced: Modifying the decay</a></li>
+<li class="toctree-l3"><a class="reference internal" href="simulation-advanced-dkfiles.html#multi-body-decays">3+ multi-body decays</a></li>
+<li class="toctree-l3"><a class="reference internal" href="simulation-advanced-dkfiles.html#cocktail-decays">Cocktail decays</a></li>
+<li class="toctree-l3"><a class="reference internal" href="simulation-advanced-dkfiles.html#final-state-radiation">Final state radiation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="simulation-advanced-dkfiles.html#changing-particle-masses-lifetimes-widths">Changing particle masses / lifetimes/ widths</a></li>
+<li class="toctree-l3"><a class="reference internal" href="simulation-fastsim.html">Why fast simulation is crucial</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="simulation-fastsim.html#speeding-up-the-detector-simulation">Speeding up the detector simulation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="simulation-fastsim.html#speeding-up-the-generation">Speeding up the generation</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="hlt-intro.html">HLT intro</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="hlt-intro.html#add-trigger-information-to-your-ntuple">Add trigger information to your ntuple</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hlt-intro.html#exploring-a-tck-list-of-trigger-lines">Exploring a TCK: List of trigger lines</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hlt-intro.html#add-trigger-information-to-your-ntuple-continued">Add trigger information to your ntuple, continued</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hlt-intro.html#add-tistos-information-to-your-ntuple">Add TISTOS information to your ntuple</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hlt-intro.html#exploring-a-tck-properties-of-trigger-lines">Exploring a TCK: Properties of trigger lines</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="tistos-diy.html">TisTos DIY</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ganga-scripting.html">Scripting Ganga</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="ganga-scripting.html#defining-jobs-with-scripts">Defining jobs with scripts</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ganga-scripting.html#adding-helpers-functions">Adding helpers functions</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="managing-files-with-ganga.html">Managing files in Ganga</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Analysis automation with snakemake</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#motivation">Motivation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#documentation-and-installation">Documentation and installation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#tutorial">Tutorial</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#usage-and-basic-behaviour">Usage and basic behaviour</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sub-labels">Sub-labels</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#run-and-shell">Run and shell</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#config-files">Config files</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#includes">Includes</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../self-guided-lessons/README.html">Self guided lessons</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../self-guided-lessons/htcondor.html">Batch submission using HTCondor</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../self-guided-lessons/htcondor-first-job.html">Submitting a simple job</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../self-guided-lessons/htcondor-first-job.html#tracking-your-jobs">Tracking your jobs</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../self-guided-lessons/htcondor-more-options.html">More submit file options</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../self-guided-lessons/htcondor-more-options.html#input-files">Input files</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../self-guided-lessons/htcondor-more-options.html#output-files">Output files</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../self-guided-lessons/htcondor-more-options.html#arguments">Arguments</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../self-guided-lessons/htcondor-more-options.html#resources-and-requirements">Resources and Requirements</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../self-guided-lessons/htcondor-more-options.html#notifications">Notifications</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../self-guided-lessons/htcondor-queue.html">Using the queue command</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../self-guided-lessons/htcondor-queue.html#more-on-variables">More on variables</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../self-guided-lessons/htcondor-queue.html#other-ways-to-queue">Other ways to queue</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../self-guided-lessons/htcondor-queue.html#mixing-options-and-variables">Mixing options and variables</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../self-guided-lessons/htcondor.html#system-architecture">System architecture</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../self-guided-lessons/htcondor.html#other-useful-resources">Other useful resources</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../self-guided-lessons/local-grid-proxy.html">Creating a grid proxy without LbScripts</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../self-guided-lessons/local-grid-proxy.html#installation">Installation</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../self-guided-lessons/local-grid-proxy.html#macos-with-homebrew">macOS with homebrew</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../self-guided-lessons/local-grid-proxy.html#ubuntu">Ubuntu</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../self-guided-lessons/local-grid-proxy.html#centos">CentOS</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../self-guided-lessons/local-grid-proxy.html#arch-linux">Arch Linux</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../self-guided-lessons/local-grid-proxy.html#getting-the-required-files-and-certificates">Getting the required files and certificates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../self-guided-lessons/local-grid-proxy.html#creating-a-proxy">Creating a proxy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../self-guided-lessons/local-grid-proxy.html#managing-the-proxy">Managing the proxy</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../CONTRIBUTING.html">Contributing</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../CONTRIBUTING.html#getting-started">Getting Started</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../CONTRIBUTING.html#dependencies">Dependencies</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../CONDUCT.html">Contributor Code of Conduct</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../LICENSE.html">Instructional Material</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../LICENSE.html#software">Software</a></li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 
-
-                </nav>
             
-        
-    </div>
+          
+        </div>
+      </div>
+    </nav>
 
-    <div class="book-body">
-        
-            <div class="body-inner">
-                
-                    
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
 
-<div class="book-header" role="navigation">
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">LHCb Starterkit Lessons</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
     
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="README.html">Second Analysis Steps</a> &raquo;</li>
+        
+      <li>Analysis automation with snakemake</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            
+              <a href="https://github.com/lhcb/starterkit-lessons/blob/master/second-analysis-steps/analysis-automation-snakemake.md" class="fa fa-github"> Edit on GitHub</a>
+            
+          
+        
+      </li>
+    
+  </ul>
 
-    <!-- Title -->
-    <h1>
-        <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >Analysis automation: snakemake</a>
-    </h1>
+  
+  <hr/>
 </div>
-
-
-
-
-                    <div class="page-wrapper" tabindex="-1" role="main">
-                        <div class="page-inner">
-                            
-<div id="book-search-results">
-    <div class="search-noresults">
-    
-                                <section class="normal markdown-section">
-                                
-                                <h1 id="analysis-automation-with-snakemake">Analysis automation with snakemake</h1>
-<p><div class="panel panel-warning"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(7845967907);" id="learning-objectives"><i class="fa fa-line-chart"></i> Learning Objectives<span id="heading-7845967907"></span></h3></div><div class="panel-body" id="panel-7845967907"><ul>
-<li>Learn what analysis automation is and how it helps with analysis preservation</li>
-<li>Learn how to create a pipeline with Snakemake</li>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="analysis-automation-with-snakemake">
+<h1>Analysis automation with snakemake<a class="headerlink" href="#analysis-automation-with-snakemake" title="Permalink to this headline">¶</a></h1>
+<div class="panel panel-objectives docutils container">
+<div class="panel-header open docutils container">
+<p id="learning-objectives"><i class="fa fa-line-chart"></i> Learning Objectives</p>
+</div>
+<div class="panel-body docutils container">
+<ul class="simple">
+<li><p>Learn what analysis automation is and how it helps with analysis preservation</p></li>
+<li><p>Learn how to create a pipeline with Snakemake</p></li>
 </ul>
-</div></div></p>
-<h2 id="motivation">Motivation</h2>
+</div>
+</div>
+<div class="section" id="motivation">
+<h2>Motivation<a class="headerlink" href="#motivation" title="Permalink to this headline">¶</a></h2>
 <blockquote>
-<p>&#x201C;The Snakemake workflow management system is a tool to create reproducible and scalable data analyses&#x201D;</p>
-</blockquote>
+<div><p>“The Snakemake workflow management system is a tool to create reproducible and scalable data analyses”</p>
+</div></blockquote>
+<ul class="simple">
+<li><p>A workflow management system allows you to:</p>
 <ul>
-<li>A workflow management system allows you to:<ul>
-<li>Keep a record of how your scripts are used and what their input dependencies are</li>
-<li>Run multiple steps in sequence, parallelising where possible</li>
-<li>Automatically detect if something changes and then reprocess data if needed</li>
+<li><p>Keep a record of how your scripts are used and what their input dependencies are</p></li>
+<li><p>Run multiple steps in sequence, parallelising where possible</p></li>
+<li><p>Automatically detect if something changes and then reprocess data if needed</p></li>
 </ul>
 </li>
-<li>Using a workflow management forces you to:<ul>
-<li>Keep your code and your locations in order</li>
-<li>Structure your code so that it is user-independent</li>
-<li>Standardise your scripts<ul>
-<li>Bonus: Standardised scripts can sometimes be used across analyses!</li>
+<li><p>Using a workflow management forces you to:</p>
+<ul>
+<li><p>Keep your code and your locations in order</p></li>
+<li><p>Structure your code so that it is user-independent</p></li>
+<li><p>Standardise your scripts</p>
+<ul>
+<li><p>Bonus: Standardised scripts can sometimes be used across analyses!</p></li>
 </ul>
 </li>
 </ul>
 </li>
 </ul>
-<h2 id="documentation-and-installation">Documentation and installation</h2>
-<p>You can find full documentation for Snakemake <a href="http://snakemake.readthedocs.io/en/stable/index.html" target="_blank">at this link</a>, you can also ask any questions you have on the <a href="https://mattermost.web.cern.ch/lhcb/channels/reproducible" target="_blank">~reproducible</a> channel on mattermost.</p>
+</div>
+<div class="section" id="documentation-and-installation">
+<h2>Documentation and installation<a class="headerlink" href="#documentation-and-installation" title="Permalink to this headline">¶</a></h2>
+<p>You can find full documentation for Snakemake <a class="reference external" href="https://snakemake.readthedocs.io/en/stable/index.html">at this link</a>, you can also ask any questions you have on the <a class="reference external" href="https://mattermost.web.cern.ch/lhcb/channels/reproducible">~reproducible</a> channel on mattermost.</p>
 <p>Snakemake requires Python 3, if you already have this available it can be easily installed using pip:</p>
-<pre><code class="lang-bash">python3 -m pip install --user snakemake
-<span class="hljs-comment"># Depending on your PATH variable you may also need to use:</span>
-<span class="hljs-built_in">alias</span> snakemake=<span class="hljs-string">&apos;python3 -m snakemake&apos;</span>
-</code></pre>
-<p><div class="panel panel-primary"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(551589556);" id="installing-on-lxplus"><i class="fa fa-info-circle"></i> Installing on lxplus<span id="heading-551589556"></span></h3></div><div class="panel-body" id="panel-551589556"><p>Unfortunately most LHCb software only supports Python 2 and doesn&apos;t provide a Python 3 installation.
-When running on lxplus we recommend using the LCG Python 3 distribution and creating a function in your <code>.bashrc</code> to launch Snakemake so that it doesn&apos;t affect other LHCb applications.
-This can be done using <a href="https://github.com/lhcb/starterkit-lessons/blob/master/second-analysis-steps/code/snakemake/install_snake.sh" target="_blank">this script</a> by running:</p>
-<pre><code class="lang-bash">curl -L http://cern.ch/go/Z8Nk | bash
-<span class="hljs-built_in">source</span> ~/.bashrc
-</code></pre>
-</div></div></p>
-<p>You can now check if Snakemake is working by using <code>snakemake --help</code>.</p>
-<h2 id="tutorial">Tutorial</h2>
-<p>Snakemake allows you to create a set of rules, each one defining a &quot;step&quot; of your analysis.
-The rules need to be written in a file called <code>Snakefile</code>.
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python3 -m pip install --user snakemake
+<span class="c1"># Depending on your PATH variable you may also need to use:</span>
+<span class="nb">alias</span> <span class="nv">snakemake</span><span class="o">=</span><span class="s1">&#39;python3 -m snakemake&#39;</span>
+</pre></div>
+</div>
+<div class="panel panel-callout docutils container">
+<div class="panel-header open docutils container">
+<p id="installing-on-lxplus"><i class="fa fa-info-circle"></i> Installing on lxplus</p>
+</div>
+<div class="panel-body docutils container">
+<p>Unfortunately most LHCb software only supports Python 2 and doesn’t provide a Python 3 installation.
+When running on lxplus we recommend using the LCG Python 3 distribution and creating a function in your <code class="docutils literal notranslate"><span class="pre">.bashrc</span></code> to launch Snakemake so that it doesn’t affect other LHCb applications.
+This can be done using <a class="reference external" href="https://github.com/lhcb/starterkit-lessons/blob/master/second-analysis-steps/code/snakemake/install_snake.sh">this script</a> by running:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>curl -L https://cern.ch/go/Z8Nk <span class="p">|</span> bash
+<span class="nb">source</span> ~/.bashrc
+</pre></div>
+</div>
+</div>
+</div>
+<p>You can now check if Snakemake is working by using <code class="docutils literal notranslate"><span class="pre">snakemake</span> <span class="pre">--help</span></code>.</p>
+</div>
+<div class="section" id="tutorial">
+<h2>Tutorial<a class="headerlink" href="#tutorial" title="Permalink to this headline">¶</a></h2>
+<p>Snakemake allows you to create a set of rules, each one defining a “step” of your analysis.
+The rules need to be written in a file called <code class="docutils literal notranslate"><span class="pre">Snakefile</span></code>.
 For each step you need to provide:</p>
-<ul>
-<li>The <em>input</em>: Data files, scripts, executables or any other files.</li>
-<li>The expected <em>output</em>. It&apos;s not required to list all possible outputs.
-Just those that you want to monitor or that are used by a subsequent step as inputs.</li>
-<li>A <em>command</em> to run to process the input and create the output.</li>
+<ul class="simple">
+<li><p>The <em>input</em>: Data files, scripts, executables or any other files.</p></li>
+<li><p>The expected <em>output</em>. It’s not required to list all possible outputs.
+Just those that you want to monitor or that are used by a subsequent step as inputs.</p></li>
+<li><p>A <em>command</em> to run to process the input and create the output.</p></li>
 </ul>
 <p>The basic rule is:</p>
-<pre><code class="lang-python">rule myname:
-    input: [<span class="hljs-string">&apos;myinput1&apos;</span>, <span class="hljs-string">&apos;myinput2&apos;</span>]
-    output: [<span class="hljs-string">&apos;myoutput&apos;</span>]
-    shell: <span class="hljs-string">&apos;Some command to go from in to out&apos;</span>
-</code></pre>
-<p>An example. If you want to copy some text from a file called <code>input.txt</code> to <code>output.txt</code> you can do:</p>
-<pre><code class="lang-python">rule copy:
-    input: <span class="hljs-string">&apos;input.txt&apos;</span>
-    output: <span class="hljs-string">&apos;output.txt&apos;</span>
-    shell: <span class="hljs-string">&apos;cp input.txt output.txt&apos;</span>
-</code></pre>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">rule</span> <span class="n">myname</span><span class="p">:</span>
+    <span class="nb">input</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;myinput1&#39;</span><span class="p">,</span> <span class="s1">&#39;myinput2&#39;</span><span class="p">]</span>
+    <span class="n">output</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;myoutput&#39;</span><span class="p">]</span>
+    <span class="n">shell</span><span class="p">:</span> <span class="s1">&#39;Some command to go from in to out&#39;</span>
+</pre></div>
+</div>
+<p>An example. If you want to copy some text from a file called <code class="docutils literal notranslate"><span class="pre">input.txt</span></code> to <code class="docutils literal notranslate"><span class="pre">output.txt</span></code> you can do:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">rule</span> <span class="n">copy</span><span class="p">:</span>
+    <span class="nb">input</span><span class="p">:</span> <span class="s1">&#39;input.txt&#39;</span>
+    <span class="n">output</span><span class="p">:</span> <span class="s1">&#39;output.txt&#39;</span>
+    <span class="n">shell</span><span class="p">:</span> <span class="s1">&#39;cp input.txt output.txt&#39;</span>
+</pre></div>
+</div>
 <p>You can even avoid typos by substituting variables instead of typing the filenames twice:</p>
-<pre><code class="lang-python">rule merge_files:
-    input: [<span class="hljs-string">&apos;input_1.txt&apos;</span>, <span class="hljs-string">&apos;input_2.txt&apos;</span>]
-    output: <span class="hljs-string">&apos;output.txt&apos;</span>
-    shell: <span class="hljs-string">&apos;cat {input[0]} &gt; {output} &amp;&amp; cat {input[1]} &gt;&gt; {output}&apos;</span>
-</code></pre>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">rule</span> <span class="n">merge_files</span><span class="p">:</span>
+    <span class="nb">input</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;input_1.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;input_2.txt&#39;</span><span class="p">]</span>
+    <span class="n">output</span><span class="p">:</span> <span class="s1">&#39;output.txt&#39;</span>
+    <span class="n">shell</span><span class="p">:</span> <span class="s1">&#39;cat {input[0]} &gt; {output} &amp;&amp; cat {input[1]} &gt;&gt; {output}&#39;</span>
+</pre></div>
+</div>
 <p>Input and output can also be parametrised using wildcards:</p>
-<pre><code class="lang-python">rule copy_and_echo:
-    input: <span class="hljs-string">&apos;input/{filename}.txt&apos;</span>
-    output: <span class="hljs-string">&apos;output/{filename}.txt&apos;</span>
-    shell: <span class="hljs-string">&apos;echo {wildcards.filename} &amp;&amp; cp {input} {output}&apos;</span>
-</code></pre>
-<p>If you then make another rule with <code>output/a_file.txt</code> and <code>output/another_file.txt</code> as inputs they will be automatically created by the <code>copy_and_echo</code> rule.</p>
-<pre><code class="lang-python">rule all:
-     input: [<span class="hljs-string">&apos;output/a_file.txt&apos;</span>, <span class="hljs-string">&apos;output/another_file.txt&apos;</span>]
-</code></pre>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">rule</span> <span class="n">copy_and_echo</span><span class="p">:</span>
+    <span class="nb">input</span><span class="p">:</span> <span class="s1">&#39;input/{filename}.txt&#39;</span>
+    <span class="n">output</span><span class="p">:</span> <span class="s1">&#39;output/{filename}.txt&#39;</span>
+    <span class="n">shell</span><span class="p">:</span> <span class="s1">&#39;echo {wildcards.filename} &amp;&amp; cp {input} {output}&#39;</span>
+</pre></div>
+</div>
+<p>If you then make another rule with <code class="docutils literal notranslate"><span class="pre">output/a_file.txt</span></code> and <code class="docutils literal notranslate"><span class="pre">output/another_file.txt</span></code> as inputs they will be automatically created by the <code class="docutils literal notranslate"><span class="pre">copy_and_echo</span></code> rule.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">rule</span> <span class="nb">all</span><span class="p">:</span>
+     <span class="nb">input</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;output/a_file.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;output/another_file.txt&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
 <p>This allows for rules to be reusable, for example to make a rule that can be used to process data with from different years or polarities.</p>
 <p>Notice that:</p>
-<ul>
-<li>Inputs and outputs can be of any type</li>
-<li>You can provide python code after the tags. e.g. <code>input: glob(&quot;*.root&quot;)</code></li>
-<li>If a single file is input or output you are allowed to omit the brackets</li>
-<li>Wildcards must always be present in the output of a rule (else it wouldn&apos;t be possible to know what they should be)</li>
+<ul class="simple">
+<li><p>Inputs and outputs can be of any type</p></li>
+<li><p>You can provide python code after the tags. e.g. <code class="docutils literal notranslate"><span class="pre">input:</span> <span class="pre">glob(&quot;*.root&quot;)</span></code></p></li>
+<li><p>If a single file is input or output you are allowed to omit the brackets</p></li>
+<li><p>Wildcards must always be present in the output of a rule (else it wouldn’t be possible to know what they should be)</p></li>
 </ul>
-<p><div class="panel panel-success"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(3707853072);" id="write-a-snakefile-with-a-single-rule"><i class="fa fa-square-o"></i> Write a snakefile with a single rule<span id="heading-3707853072"></span></h3></div><div class="panel-body" id="panel-3707853072"><p>To try out download:</p>
-<pre><code class="lang-bash">$ wget https://github.com/lhcb/starterkit-lessons/raw/master/second-analysis-steps/code/snakemake/tutorial.tar
+<div class="panel panel-challenge docutils container">
+<div class="panel-header open docutils container">
+<p id="write-a-snakefile-with-a-single-rule"><i class="fa fa-square-o"></i> Write a snakefile with a single rule</p>
+</div>
+<div class="panel-body docutils container">
+<p>To try out download:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ wget https://github.com/lhcb/starterkit-lessons/raw/master/second-analysis-steps/code/snakemake/tutorial.tar
 $ tar -xvf tutorial.tar
-</code></pre>
+</pre></div>
+</div>
 <p>You will find one containing names and phone numbers. You can make one rule that, given a name extracts the line with the phone of that person.</p>
-<p>To do this in a shell you can use <code>grep</code>, which is a command that lists all lines in a file containing a certain text.</p>
-<pre><code class="lang-bash">$ grep ciao test.txt
+<p>To do this in a shell you can use <code class="docutils literal notranslate"><span class="pre">grep</span></code>, which is a command that lists all lines in a file containing a certain text.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ grep ciao test.txt
 ciao a tutti
-</code></pre>
-</div></div></p>
-<h3 id="usage-and-basic-behaviour">Usage and basic behaviour</h3>
-<p>And now that your <code>Snakefile</code> is done it&apos;s time to run! Just type</p>
-<pre><code class="lang-bash">snakemake rulename_or_filename
-</code></pre>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="usage-and-basic-behaviour">
+<h3>Usage and basic behaviour<a class="headerlink" href="#usage-and-basic-behaviour" title="Permalink to this headline">¶</a></h3>
+<p>And now that your <code class="docutils literal notranslate"><span class="pre">Snakefile</span></code> is done it’s time to run! Just type</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>snakemake rulename_or_filename
+</pre></div>
+</div>
 <p>This will:</p>
-<ol>
-<li>Check that the inputs exist<ul>
-<li>If inputs exists &#x2192; 2)</li>
-<li>If inputs do not exist or have changed snakemake will check if there is an other rule that produces them &#x2192; Go back to 1)</li>
+<ol class="simple">
+<li><p>Check that the inputs exist</p>
+<ul class="simple">
+<li><p>If inputs exists → 2)</p></li>
+<li><p>If inputs do not exist or have changed snakemake will check if there is an other rule that produces them → Go back to 1)</p></li>
 </ul>
 </li>
-<li>Run the command you defined in <code>rulename_or_filename</code> (or the rule that generates the filename that is given)</li>
-<li>Check that the output was actually produced.</li>
+<li><p>Run the command you defined in <code class="docutils literal notranslate"><span class="pre">rulename_or_filename</span></code> (or the rule that generates the filename that is given)</p></li>
+<li><p>Check that the output was actually produced.</p></li>
 </ol>
 <p>Comments, which rules are run:</p>
-<ul>
-<li>If want to run a chain of rules only up to a certain point just put the name of the rule up to which you want to run on the snakemake command.</li>
-<li>If you want a rule to be &quot;standalone&quot; just do not give its input/outputs as outputs/inputs of any other rule</li>
-<li>It is normal practice to put as a first rule a dummy rule that only takes as inputs all the &quot;final&quot; outputs you want to be created by any other rule. In this way when you run just <code>snakemake</code> with no label it will run all rules (in the correct order).</li>
+<ul class="simple">
+<li><p>If want to run a chain of rules only up to a certain point just put the name of the rule up to which you want to run on the snakemake command.</p></li>
+<li><p>If you want a rule to be “standalone” just do not give its input/outputs as outputs/inputs of any other rule</p></li>
+<li><p>It is normal practice to put as a first rule a dummy rule that only takes as inputs all the “final” outputs you want to be created by any other rule. In this way when you run just <code class="docutils literal notranslate"><span class="pre">snakemake</span></code> with no label it will run all rules (in the correct order).</p></li>
 </ul>
-<p><div class="panel panel-success"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(4373770053);" id="make-a-snakefile-with-at-least-3-rules-connected-to-each-other-and-run-them-in-one-go"><i class="fa fa-square-o"></i> Make a snakefile with at least 3 rules connected to each other and run them in one go<span id="heading-4373770053"></span></h3></div><div class="panel-body" id="panel-4373770053"><p>In the tutorial folder you find two files containing addresses, and phone numbers.
-You can make rules that, given a name, <code>grep</code> the address and phone and then one other rule to merge them into your final output file.</p>
-<p>If we do this for &#x201C;Luca&#x201D;, it can be represented by the following graph:</p>
-<p><a href="img/snakemake-dag-single.png"><img src="img/snakemake-dag-single-wide.png" alt="DAG"></a></p>
+<div class="panel panel-challenge docutils container">
+<div class="panel-header open docutils container">
+<p id="make-a-snakefile-with-at-least-3-rules-connected-to-each-other-and-run-them-in-one-go"><i class="fa fa-square-o"></i> Make a snakefile with at least 3 rules connected to each other and run them in one go</p>
+</div>
+<div class="panel-body docutils container">
+<p>In the tutorial folder you find two files containing addresses, and phone numbers.
+You can make rules that, given a name, <code class="docutils literal notranslate"><span class="pre">grep</span></code> the address and phone and then one other rule to merge them into your final output file.</p>
+<p>If we do this for “Luca”, it can be represented by the following graph:</p>
+<p><a class="reference download internal" download="" href="../_downloads/fe15f33b8992eafa2529e2d6f86c1629/snakemake-dag-single.png"><code class="xref download docutils literal notranslate"><img alt="DAG" src="../_images/snakemake-dag-single-wide.png" /></code></a></p>
 <p>Which could be achieved using this shell script:</p>
-<pre><code class="lang-bash">grep Luca inputs/addresses.txt &gt; output/Luca/myaddress.txt
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>grep Luca inputs/addresses.txt &gt; output/Luca/myaddress.txt
 grep Luca inputs/phones.txt &gt; output/Luca/myphone.txt
-cat output/Luca/myaddress.txt &gt; output/Luca/data.txt &amp;&amp; cat output/Luca/myphone.txt &gt;&gt; output/Luca/data.txt
-</code></pre>
+cat output/Luca/myaddress.txt &gt; output/Luca/data.txt <span class="o">&amp;&amp;</span> cat output/Luca/myphone.txt &gt;&gt; output/Luca/data.txt
+</pre></div>
+</div>
 <p><em>But it does not have to be this, any other task is fine, be creative!</em></p>
-</div></div></p>
-<p><div class="panel panel-success"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(9960446133);" id="use-wildcards"><i class="fa fa-square-o"></i> Use wildcards<span id="heading-9960446133"></span></h3></div><div class="panel-body" id="panel-9960446133"><p>Following on from the previous challenge use wildcards to make it so that any name can be used, such as &#x201C;Fred&#x201D;</p>
-<pre><code class="lang-bash">snakemake output/Fred/data.txt
-</code></pre>
-<div class="panel panel-danger"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(3328840454);" id="solutionclick-to-expand"><i class="fa fa-line-chart"></i> Solution<span id="heading-3328840454">Click to expand</span></h3></div><div class="panel-body" style="display: none" id="panel-3328840454"><p>See <code>Snakefile</code> in the <code>simple_solution</code> folder <a href="https://github.com/lhcb/starterkit-lessons/raw/master/second-analysis-steps/code/snakemake/tutorial.tar" target="_blank">here</a>.</p>
-</div></div></div></div></p>
+</div>
+</div>
+<div class="panel panel-challenge docutils container">
+<div class="panel-header open docutils container">
+<p id="use-wildcards"><i class="fa fa-square-o"></i> Use wildcards</p>
+</div>
+<div class="panel-body docutils container">
+<p>Following on from the previous challenge use wildcards to make it so that any name can be used, such as “Fred”</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>snakemake output/Fred/data.txt
+</pre></div>
+</div>
+<div class="panel panel-solution docutils container">
+<div class="panel-header docutils container">
+<p id="solution"><i class="fa fa-check-square-o"></i> Solution</p>
+</div>
+<div class="panel-body docutils container">
+<p>See <code class="docutils literal notranslate"><span class="pre">Snakefile</span></code> in the <code class="docutils literal notranslate"><span class="pre">simple_solution</span></code> folder <a class="reference external" href="https://github.com/lhcb/starterkit-lessons/raw/master/second-analysis-steps/code/snakemake/tutorial.tar">here</a>.</p>
+</div>
+</div>
+</div>
+</div>
 <p>Comments, partial running:</p>
-<ul>
-<li>If part of the input is already present and not modified present the corresponding rule will not run
-Note that if you put your code into the inputs snakemake will detect when your code changes and automatically rerun the corresponding rule!</li>
-<li>If you want to force running all rules even if part of the output is present use <code>snakemake --forceall</code></li>
+<ul class="simple">
+<li><p>If part of the input is already present and not modified present the corresponding rule will not run
+Note that if you put your code into the inputs snakemake will detect when your code changes and automatically rerun the corresponding rule!</p></li>
+<li><p>If you want to force running all rules even if part of the output is present use <code class="docutils literal notranslate"><span class="pre">snakemake</span> <span class="pre">--forceall</span></code></p></li>
 </ul>
-<p><div class="panel panel-success"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(7605218186);" id="explore-the-snakemake-behaviour"><i class="fa fa-square-o"></i> Explore the snakemake behaviour<span id="heading-7605218186"></span></h3></div><div class="panel-body" id="panel-7605218186"><p>In the previous example try deleting one of the intermediate files, rerun snakemake and see what happens</p>
-</div></div></p>
-<h3 id="sub-labels">Sub-labels</h3>
+<div class="panel panel-challenge docutils container">
+<div class="panel-header open docutils container">
+<p id="explore-the-snakemake-behaviour"><i class="fa fa-square-o"></i> Explore the snakemake behaviour</p>
+</div>
+<div class="panel-body docutils container">
+<p>In the previous example try deleting one of the intermediate files, rerun snakemake and see what happens</p>
+</div>
+</div>
+</div>
+<div class="section" id="sub-labels">
+<h3>Sub-labels<a class="headerlink" href="#sub-labels" title="Permalink to this headline">¶</a></h3>
 <p>Inside the pre-defined tags you can add custom subtags as in this example.</p>
-<pre><code class="lang-python">rule run_some_py_script:
-    input:
-        exe = <span class="hljs-string">&apos;myscript.py&apos;</span>,
-        data = <span class="hljs-string">&apos;mydata.root&apos;</span>,
-        extra = <span class="hljs-string">&apos;some_extra_info.txt&apos;</span>,
-    output: [<span class="hljs-string">&apos;output.txt&apos;</span>]
-    shell: <span class="hljs-string">&apos;python {input.exe} {input.data} --extra {input.extra} &gt; {output}&apos;</span>
-</code></pre>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">rule</span> <span class="n">run_some_py_script</span><span class="p">:</span>
+    <span class="nb">input</span><span class="p">:</span>
+        <span class="n">exe</span> <span class="o">=</span> <span class="s1">&#39;myscript.py&#39;</span><span class="p">,</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="s1">&#39;mydata.root&#39;</span><span class="p">,</span>
+        <span class="n">extra</span> <span class="o">=</span> <span class="s1">&#39;some_extra_info.txt&#39;</span><span class="p">,</span>
+    <span class="n">output</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;output.txt&#39;</span><span class="p">]</span>
+    <span class="n">shell</span><span class="p">:</span> <span class="s1">&#39;python {input.exe} {input.data} --extra {input.extra} &gt; {output}&#39;</span>
+</pre></div>
+</div>
 <p>So this will effectively launch the command:</p>
-<pre><code class="lang-bash">python myscript.py mydata.roo --extra some_extra_info.txt &gt; output.txt
-</code></pre>
-<p>The <code>--extra</code> is not necessary. It&apos;s just to illustrate how python scripts options can be used.</p>
-<p><div class="panel panel-success"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(9816340714);" id="code-as-input"><i class="fa fa-square-o"></i> Code as input<span id="heading-9816340714"></span></h3></div><div class="panel-body" id="panel-9816340714"><p>Add your python script to the inputs than make some modifications to it, rerun snakemake and see what happens.</p>
-</div></div></p>
-<h3 id="run-and-shell">Run and shell</h3>
-<p>You have two ways to specify commands. One is <code>shell</code> that assumes shell commands as shown before.
-The other is <code>run</code> that instead directly takes python code (Careful it&apos;s python3!).</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python myscript.py mydata.roo --extra some_extra_info.txt &gt; output.txt
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">--extra</span></code> is not necessary. It’s just to illustrate how python scripts options can be used.</p>
+<div class="panel panel-challenge docutils container">
+<div class="panel-header open docutils container">
+<p id="code-as-input"><i class="fa fa-square-o"></i> Code as input</p>
+</div>
+<div class="panel-body docutils container">
+<p>Add your python script to the inputs than make some modifications to it, rerun snakemake and see what happens.</p>
+</div>
+</div>
+</div>
+<div class="section" id="run-and-shell">
+<h3>Run and shell<a class="headerlink" href="#run-and-shell" title="Permalink to this headline">¶</a></h3>
+<p>You have two ways to specify commands. One is <code class="docutils literal notranslate"><span class="pre">shell</span></code> that assumes shell commands as shown before.
+The other is <code class="docutils literal notranslate"><span class="pre">run</span></code> that instead directly takes python code (Careful it’s python3!).</p>
 <p>For example the copy of the file as in the previous example can be done in the following way.</p>
-<pre><code class="lang-python">rule dosomething_py:
-    input: <span class="hljs-string">&apos;myfile.txt&apos;</span>
-    output: <span class="hljs-string">&apos;myoutput.txt&apos;</span>
-    run:
-        <span class="hljs-keyword">with</span> open(str(input), <span class="hljs-string">&apos;rt&apos;</span>) <span class="hljs-keyword">as</span> fi:
-            <span class="hljs-keyword">with</span> open(str(output), <span class="hljs-string">&apos;wt&apos;</span>) <span class="hljs-keyword">as</span> fo:
-                fo.write(fi.read())
-</code></pre>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">rule</span> <span class="n">dosomething_py</span><span class="p">:</span>
+    <span class="nb">input</span><span class="p">:</span> <span class="s1">&#39;myfile.txt&#39;</span>
+    <span class="n">output</span><span class="p">:</span> <span class="s1">&#39;myoutput.txt&#39;</span>
+    <span class="n">run</span><span class="p">:</span>
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="nb">input</span><span class="p">),</span> <span class="s1">&#39;rt&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">fi</span><span class="p">:</span>
+            <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">output</span><span class="p">),</span> <span class="s1">&#39;wt&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">fo</span><span class="p">:</span>
+                <span class="n">fo</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">fi</span><span class="o">.</span><span class="n">read</span><span class="p">())</span>
+</pre></div>
+</div>
 <p>And finally you can mix! Namely you can send shell commands from python code.
 This is useful, in particular if you have to launch the same shell command on more inputs.</p>
-<pre><code class="lang-python">rule dosomething_pysh:
-    input:
-        code = <span class="hljs-string">&apos;mycode.exe&apos;</span>,
-        data = [ <span class="hljs-string">&apos;data1.root&apos;</span>, <span class="hljs-string">&apos;data2.root&apos;</span> ]
-    output: [<span class="hljs-string">&apos;plot1.pdf&apos;</span>, <span class="hljs-string">&apos;plot2.pdf&apos;</span>]
-    run:
-        <span class="hljs-keyword">for</span> f <span class="hljs-keyword">in</span> input.data:
-            shell(<span class="hljs-string">&apos;./{input.code} %s&apos;</span> % f)
-</code></pre>
-<p><div class="panel panel-success"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(8842483118);" id="use-run-instead-of-shell"><i class="fa fa-square-o"></i> Use run instead of shell<span id="heading-8842483118"></span></h3></div><div class="panel-body" id="panel-8842483118"><p>Rewrite your previous file using a python script to run the search and use <code>run</code> to run on both phones and addresses in the same rule</p>
-<div class="panel panel-danger"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(3134409555);" id="solutionclick-to-expand"><i class="fa fa-line-chart"></i> Solution<span id="heading-3134409555">Click to expand</span></h3></div><div class="panel-body" style="display: none" id="panel-3134409555"><p>An example solution can be found <a href="https://github.com/lhcb/starterkit-lessons/tree/master/second-analysis-steps/code/snakemake/Snakefile" target="_blank">here</a>. 
-Although it&apos;s fine if you have done it a different way.</p>
-</div></div></div></div></p>
-<h3 id="config-files">Config files</h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">rule</span> <span class="n">dosomething_pysh</span><span class="p">:</span>
+    <span class="nb">input</span><span class="p">:</span>
+        <span class="n">code</span> <span class="o">=</span> <span class="s1">&#39;mycode.exe&#39;</span><span class="p">,</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="p">[</span> <span class="s1">&#39;data1.root&#39;</span><span class="p">,</span> <span class="s1">&#39;data2.root&#39;</span> <span class="p">]</span>
+    <span class="n">output</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;plot1.pdf&#39;</span><span class="p">,</span> <span class="s1">&#39;plot2.pdf&#39;</span><span class="p">]</span>
+    <span class="n">run</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="nb">input</span><span class="o">.</span><span class="n">data</span><span class="p">:</span>
+            <span class="n">shell</span><span class="p">(</span><span class="s1">&#39;./{input.code} </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">f</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="panel panel-challenge docutils container">
+<div class="panel-header open docutils container">
+<p id="use-run-instead-of-shell"><i class="fa fa-square-o"></i> Use run instead of shell</p>
+</div>
+<div class="panel-body docutils container">
+<p>Rewrite your previous file using a python script to run the search and use <code class="docutils literal notranslate"><span class="pre">run</span></code> to run on both phones and addresses in the same rule</p>
+<div class="panel panel-solution docutils container">
+<div class="panel-header docutils container">
+<p id="solution"><i class="fa fa-check-square-o"></i> Solution</p>
+</div>
+<div class="panel-body docutils container">
+<p>An example solution can be found <a class="reference external" href="https://github.com/lhcb/starterkit-lessons/blob/master/second-analysis-steps/code/snakemake/Snakefile">here</a>.
+Although it’s fine if you have done it a different way.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="config-files">
+<h3>Config files<a class="headerlink" href="#config-files" title="Permalink to this headline">¶</a></h3>
 <p>Often you want to run the same rule on different sample or with different options for your scripts.
-This can be done in snakemake using config files written in <a href="https://learn.getgrav.org/advanced/yaml" target="_blank">yaml</a>.</p>
-<p>For example let&apos;s put the datafiles in a cfg.yaml file</p>
-<pre><code class="lang-python">data:
-    - <span class="hljs-string">&apos;data1.root&apos;</span>
-    - <span class="hljs-string">&apos;data2.root&apos;</span>
-</code></pre>
-<p>Now in your Snakefile you can load this config file and then its content will be available into the rules as a dictionary called &quot;config&quot;. Yes, it seems black magic, but it works! Your Snakefile will look like this</p>
-<pre><code class="lang-python">configfile: <span class="hljs-string">&apos;/path/to/cfg.yaml&apos;</span>
+This can be done in snakemake using config files written in <a class="reference external" href="https://learn.getgrav.org/advanced/yaml">yaml</a>.</p>
+<p>For example let’s put the datafiles in a cfg.yaml file</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="p">:</span>
+    <span class="o">-</span> <span class="s1">&#39;data1.root&#39;</span>
+    <span class="o">-</span> <span class="s1">&#39;data2.root&#39;</span>
+</pre></div>
+</div>
+<p>Now in your Snakefile you can load this config file and then its content will be available into the rules as a dictionary called “config”. Yes, it seems black magic, but it works! Your Snakefile will look like this</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">configfile</span><span class="p">:</span> <span class="s1">&#39;/path/to/cfg.yaml&#39;</span>
 
-rule dosomething_pysh:
-    input: 
-        code = <span class="hljs-string">&apos;mycode.exe&apos;</span>,
-        data = config[<span class="hljs-string">&apos;data&apos;</span>],
-    output: [<span class="hljs-string">&apos;plot1.pdf&apos;</span>, <span class="hljs-string">&apos;plot2.pdf&apos;</span>]
-    run:
-        <span class="hljs-keyword">for</span> f <span class="hljs-keyword">in</span> input:
-            shell(<span class="hljs-string">&apos;./{input.code} %s&apos;</span> % f)
-</code></pre>
+<span class="n">rule</span> <span class="n">dosomething_pysh</span><span class="p">:</span>
+    <span class="nb">input</span><span class="p">:</span> 
+        <span class="n">code</span> <span class="o">=</span> <span class="s1">&#39;mycode.exe&#39;</span><span class="p">,</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="n">config</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">],</span>
+    <span class="n">output</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;plot1.pdf&#39;</span><span class="p">,</span> <span class="s1">&#39;plot2.pdf&#39;</span><span class="p">]</span>
+    <span class="n">run</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="nb">input</span><span class="p">:</span>
+            <span class="n">shell</span><span class="p">(</span><span class="s1">&#39;./{input.code} </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">f</span><span class="p">)</span>
+</pre></div>
+</div>
 <p>The config dictionary can be used anywhere, also inside the shell command or even outside a rule.</p>
-<p><div class="panel panel-success"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(5801619472);" id="make-a-config-file"><i class="fa fa-square-o"></i> Make a config file<span id="heading-5801619472"></span></h3></div><div class="panel-body" id="panel-5801619472"><p>Put the inputs of your script into a config file</p>
-</div></div></p>
-<h3 id="includes">Includes</h3>
-<p>The Snakefile can quickly grow to a monster with tens of rules. For this reason it&apos;s possible to split them into more files and then include them into the Snakefile. For example you might have a <code>fit_rules.snake</code> and <code>efficiency_rules.snake</code> and then your Snakefile will look like this:</p>
-<pre><code class="lang-python">include: /path/to/fit_rules.snake
-include: /path/to/efficiency_rules.snake
-</code></pre>
+<div class="panel panel-challenge docutils container">
+<div class="panel-header open docutils container">
+<p id="make-a-config-file"><i class="fa fa-square-o"></i> Make a config file</p>
+</div>
+<div class="panel-body docutils container">
+<p>Put the inputs of your script into a config file</p>
+</div>
+</div>
+</div>
+<div class="section" id="includes">
+<h3>Includes<a class="headerlink" href="#includes" title="Permalink to this headline">¶</a></h3>
+<p>The Snakefile can quickly grow to a monster with tens of rules. For this reason it’s possible to split them into more files and then include them into the Snakefile. For example you might have a <code class="docutils literal notranslate"><span class="pre">fit_rules.snake</span></code> and <code class="docutils literal notranslate"><span class="pre">efficiency_rules.snake</span></code> and then your Snakefile will look like this:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">include</span><span class="p">:</span> <span class="o">/</span><span class="n">path</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">fit_rules</span><span class="o">.</span><span class="n">snake</span>
+<span class="n">include</span><span class="p">:</span> <span class="o">/</span><span class="n">path</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">efficiency_rules</span><span class="o">.</span><span class="n">snake</span>
+</pre></div>
+</div>
 <p>The order of the includes is irrelevant.</p>
-<p><div class="panel panel-success"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(8464280497);" id="use-includes"><i class="fa fa-square-o"></i> Use includes<span id="heading-8464280497"></span></h3></div><div class="panel-body" id="panel-8464280497"><p>Move your rules to other files and include them</p>
-<div class="panel panel-danger"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(3298052662);" id="solutionclick-to-expand"><i class="fa fa-line-chart"></i> Solution<span id="heading-3298052662">Click to expand</span></h3></div><div class="panel-body" style="display: none" id="panel-3298052662"><p>You can find a solution in the <code>more_complete_solution</code> folder, which you can find <a href="https://github.com/lhcb/starterkit-lessons/raw/master/second-analysis-steps/code/snakemake/tutorial.tar" target="_blank">here</a>.</p>
-</div></div></div></div></p>
-
-                                
-                                </section>
-                            
-    </div>
-    <div class="search-results">
-        <div class="has-results">
-            
-            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
-            <ul class="search-results-list"></ul>
-            
-        </div>
-        <div class="no-results">
-            
-            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
-            
-        </div>
-    </div>
+<div class="panel panel-challenge docutils container">
+<div class="panel-header open docutils container">
+<p id="use-includes"><i class="fa fa-square-o"></i> Use includes</p>
+</div>
+<div class="panel-body docutils container">
+<p>Move your rules to other files and include them</p>
+<div class="panel panel-solution docutils container">
+<div class="panel-header docutils container">
+<p id="solution"><i class="fa fa-check-square-o"></i> Solution</p>
+</div>
+<div class="panel-body docutils container">
+<p>You can find a solution in the <code class="docutils literal notranslate"><span class="pre">more_complete_solution</span></code> folder, which you can find <a class="reference external" href="https://github.com/lhcb/starterkit-lessons/raw/master/second-analysis-steps/code/snakemake/tutorial.tar">here</a>.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
 </div>
 
-                        </div>
-                    </div>
-                
-            </div>
 
-            
-                
-                <a href="managing-files-with-ganga.html" class="navigation navigation-prev " aria-label="Previous page: Managing files in Ganga">
-                    <i class="fa fa-angle-left"></i>
-                </a>
-                
-                
-                <a href="../self-guided-lessons/" class="navigation navigation-next " aria-label="Next page: Self guided lessons">
-                    <i class="fa fa-angle-right"></i>
-                </a>
-                
-            
-        
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../self-guided-lessons/README.html" class="btn btn-neutral float-right" title="Self guided lessons" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="managing-files-with-ganga.html" class="btn btn-neutral float-left" title="Managing files in Ganga" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
     </div>
+  
 
-    <script>
-        var gitbook = gitbook || [];
-        gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Analysis automation: snakemake","level":"3.1.12","depth":2,"next":{"title":"Self guided lessons","level":"4.1","depth":1,"path":"self-guided-lessons/README.md","ref":"self-guided-lessons/README.md","articles":[{"title":"Batch submission with HTCondor","level":"4.1.1","depth":2,"path":"self-guided-lessons/htcondor.md","ref":"self-guided-lessons/htcondor.md","articles":[{"title":"Creating your first job","level":"4.1.1.1","depth":3,"path":"self-guided-lessons/htcondor-first-job.md","ref":"self-guided-lessons/htcondor-first-job.md","articles":[]},{"title":"More submit file options","level":"4.1.1.2","depth":3,"path":"self-guided-lessons/htcondor-more-options.md","ref":"self-guided-lessons/htcondor-more-options.md","articles":[]},{"title":"The queue command","level":"4.1.1.3","depth":3,"path":"self-guided-lessons/htcondor-queue.md","ref":"self-guided-lessons/htcondor-queue.md","articles":[]}]}]},"previous":{"title":"Managing files in Ganga","level":"3.1.11","depth":2,"path":"second-analysis-steps/managing-files-with-ganga.md","ref":"second-analysis-steps/managing-files-with-ganga.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-sharing","panels@git+https://github.com/lhcb/gitbook-plugin-panels.git#master","katex-auto-render@git+https://github.com/lhcb/gitbook-plugin-katex-auto-render.git#master","collapsible-menu","otherlink"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"collapsible-menu":{},"search":{},"otherlink":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"panels":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"katex-auto-render":{},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"The Starterkit team and contributors","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"gitbook":"*"},"file":{"path":"second-analysis-steps/analysis-automation-snakemake.md","mtime":"2019-10-10T14:37:33.881Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-10-10T14:39:29.242Z"},"basePath":"..","book":{"language":""}});
-        });
-    </script>
-</div>
+  <hr/>
 
-        
-    <script src="../gitbook/gitbook.js"></script>
-    <script src="../gitbook/theme.js"></script>
-    
-        
-        <script src="../gitbook/gitbook-plugin-panels/panels.js"></script>
-        
-    
-        
-        <script src="../gitbook/gitbook-plugin-katex-auto-render/katex.min.js"></script>
-        
-    
-        
-        <script src="../gitbook/gitbook-plugin-katex-auto-render/auto-render.min.js"></script>
-        
-    
-        
-        <script src="../gitbook/gitbook-plugin-katex-auto-render/enable-auto-render.js"></script>
-        
-    
-        
-        <script src="../gitbook/gitbook-plugin-collapsible-menu/plugin.js"></script>
-        
-    
-        
-        <script src="../gitbook/gitbook-plugin-otherlink/js/otherlink.js"></script>
-        
-    
-        
-        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
-        
-    
-        
-        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
-        
-    
-        
-        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
-        
-    
-        
-        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
-        
-    
-        
-        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
-        
-    
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015-2019, LHCb Starterkit
 
-    </body>
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
 </html>
-
