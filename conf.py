@@ -7,7 +7,7 @@ copyright = '2015-2019, LHCb Starterkit'
 author = 'LHCb Starterkit'
 html_logo = 'starterkit.png'
 
-exclude_patterns = [
+exclude_patterns += [
     'first-analysis-steps/code/plots/README.md',
     'README.md',
 ]
