@@ -5,6 +5,7 @@ from starterkit_ci.sphinx_config import *  # NOQA
 project = 'LHCb Starterkit Lessons'
 copyright = '2015-2019, LHCb Starterkit'
 author = 'LHCb Starterkit'
+html_logo = 'starterkit.png'
 
 exclude_patterns = [
     'first-analysis-steps/code/plots/README.md',

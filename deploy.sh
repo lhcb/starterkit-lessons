@@ -10,6 +10,7 @@ fi
 
 rev=$(git rev-parse --short HEAD)
 
+cp .nojekyll build/html
 cd build/html
 
 git init
