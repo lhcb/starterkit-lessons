@@ -1,8 +1,10 @@
 # The LHCb data flow
 
 {% objectives "Learning Objectives" %}
+
 * Understand the LHCb data flow
 * Learn the key concepts on the stripping
+
 {% endobjectives %} 
 
 The Large Hadron Collider provides proton-proton collisions to LHCb 40 million 
@@ -52,7 +54,8 @@ These steps are as follows:
     example, analysts interested in that type of physics don't waste time running 
     over the output of the dimuon selections.
 
-    {% callout "The output format" %}
+{% callout "The output format" %}
+
 A DST file is a ROOT file which contains the full event information, such as 
 reconstructed objects and raw data. Each event typically takes around 150kB of 
 disk space in the DST format.
@@ -60,7 +63,8 @@ The µDST format was designed to save space by storing only the
 information concerning the build _candidates_ (that is, the objects used 
 to construct particle decays like tracks); the raw event, which takes 
 around 50kB per event, is discarded.
-    {% endcallout %} 
+    
+{% endcallout %} 
 
  4. Users can run their own analysis tools to extract variables for their 
     analysis with the DaVinci application. The processing is slightly different 
@@ -96,10 +100,12 @@ versions can produce very different physics, so it's very useful to know how
 each application has manipulated the data you want to use.
 
 {% challenge "Why are there multiple applications?" %}
+
 It's often simpler to create and visualise a single, monolithic program that 
 does _everything_, but that's not how the data flow is set up in LHCb. Why not? 
 What are the advantages of splitting up the software per task? What are the 
 disadvantages?
+
 {% endchallenge %} 
 
 With the exception of a few specific studies, it is only the DaVinci 
@@ -139,10 +145,8 @@ page on the LHCb
 TWiki](https://twiki.cern.ch/twiki/bin/view/LHCb/LHCbStripping).
 In it we can find:
 
-  - The status of the current stripping, e.g. for [Stripping 
-    `S28`](http://lhcbproject.web.cern.ch/lhcbproject/Reprocessing/stats-re-stripping28.html).
-  - The configuration of all past stripping campaign, e.g. for [Stripping 
-    `S21r1`](http://lhcbproject.web.cern.ch/lhcbproject/Reprocessing/stats-re-stripping-fall14.html).
+  - The status of the current stripping, e.g. for [Stripping `S28`](http://lhcbproject.web.cern.ch/lhcbproject/lbdirac/Reprocessing/stats-re-stripping28.html).
+  - The configuration of all past stripping campaign, e.g. for [Stripping `S21r1`](http://lhcbproject.web.cern.ch/lhcbproject/lbdirac/Reprocessing/stats-re-stripping-fall14.html).
 
 Additionally, the information on all strippings can be found in the [stripping 
 project 
@@ -150,5 +154,5 @@ website](http://lhcbdoc.web.cern.ch/lhcbdoc/stripping/),
 where you can see all the algorithms run and cuts applied in each _line_.
 For example, if we wanted to understand the 
 `D2hhPromptDst2D2KKLine` line, which we will use in the 
-[exploring a DST](interactive-dst.html) lesson later on, we would go 
+[exploring a DST](interactive-dst) lesson later on, we would go 
 [here](http://lhcbdoc.web.cern.ch/lhcbdoc/stripping/config/stripping28/charm/strippingd2hhpromptdst2d2kkline.html).

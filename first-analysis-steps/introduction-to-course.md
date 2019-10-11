@@ -1,7 +1,9 @@
 # Goals of the course
 
 {% objectives "Learning Objectives" %}
+
 * Understand what we'll be doing, and why we'll be doing it.
+
 {% endobjectives %} 
 
 The first LHCb Starterkit is all about getting you the data you need to do your 
@@ -45,9 +47,9 @@ repository, and _you_ can contribute!
 Please [submit an issue](https://github.com/lhcb/starterkit-lessons/issues) if 
 you spot a mistake or you think something isn't clear enough, or you can [make 
 the changes 
-yourself](contributing-lesson.html) 
+yourself](contributing-lesson) 
 and open a pull request.
 If you're not already familiar with git, you could check out our [analysis 
-essentials](http://lhcb.github.io/analysis-essentials/) course.
+essentials](https://lhcb.github.io/analysis-essentials/) course.
 
 So, enough with the introduction, let's dive in!

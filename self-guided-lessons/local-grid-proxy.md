@@ -10,7 +10,7 @@ Fortunately VOMS can be easily installed and used without requiring the full LHC
 
 ## Installation
 
-The VOMS client can be installed in the following ways, if your operating system isn't listed see [here](https://github.com/italiangrid/voms-clients) (and consider [making a pull request](../CONTRIBUTING.html) to update this guide).
+The VOMS client can be installed in the following ways, if your operating system isn't listed see [here](https://github.com/italiangrid/voms-clients) (and consider [making a pull request](/CONTRIBUTING) to update this guide).
 
 #### macOS with [homebrew](https://brew.sh)
 

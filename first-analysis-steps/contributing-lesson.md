@@ -1,9 +1,11 @@
 # Contribute to this lesson
 
 {% objectives "Learning Objectives" %}
+
 * Reporting a mistake
 * How to look at the source of these lessons
 * How to modify a lesson
+
 {% endobjectives %} 
 
 These lessons are not really about software, they are about people. If
@@ -12,8 +14,7 @@ to edit the lessons. There are probably several mistakes in these
 lessons, or they will be outdated soon. Keeping the lessons working and
 fixing all mistakes is a monumental task for one single person.
 
-![The starterkit needs you! (Alfred Leete [Public domain], via
- Wikimedia Commons)](img/Kitchener-leete.jpg)
+![The starterkit needs you! (Alfred Leete [Public domain], via Wikimedia Commons)](img/Kitchener-leete.jpg)
 
 We need you! You now know everything you need to in order to
 contribute. Take advantage of this.
@@ -22,11 +23,13 @@ The source of this lesson is hosted on GitHub:
 [lhcb/starterkit-lessons](https://github.com/lhcb/starterkit-lessons).
 
 {% callout "Submitting a bug report " %}
+
 If you spot something that is wrong, create a bug report on the
 [issue tracker](https://github.com/lhcb/starterkit-lessons/issues)
 This is super simple and makes it easy for everyone to keep track of
 what is broken and needs fixing. It also increases your chances of
 someone posting a solution.
+
 {% endcallout %} 
 
 You do not need anyone's permission to start making changes. You can
@@ -44,20 +47,21 @@ as the original. Clone the repository to your computer to start making changes:
 $ git clone https://YOURUSERNAME@github.com/YOURUSERNAME/starterkit-lessons.git
 ```
 
-As you can see each lesson has its own `.md` file. The source of this
-lesson is in
-[`CONTRIBUTING.md`](https://github.com/lhcb/starterkit-lessons/blob/master/CONTRIBUTING.md).
+As you can see each lesson has its own `.md` file.
+The source of this lesson available by clicking the link on the upper right of this page.
 It is a simple text file with a few clever lines with special meaning.
 
 The format the files are written in is called
-[Markdown](http://daringfireball.net/projects/markdown/basics). It is
+[Markdown](https://daringfireball.net/projects/markdown/basics). It is
 a very simple language, which adds some basic formatting to text
 files. `**Bold text**` leads to **Bold text**, `_Italic_` is _italic_
-and `[the search engine](http://google.com)` makes a link to [the
-search engine](http://google.com).
+and `[the search engine](https://www.google.com)` makes a link to [the
+search engine](https://www.google.com).
 
 {% callout "Trying it out live " %}
-Try out Markdown live in your browser with [Dillinger](http://dillinger.io/).
+
+Try out Markdown live in your browser with [Dillinger](https://dillinger.io/).
+
 {% endcallout %} 
 
 If you want to see what your changes look like, simply paste a lesson
@@ -97,11 +101,9 @@ localhost:8000
 ```
 to see the website.
 
-Next you want to [create a pull
-request](https://help.github.com/articles/creating-a-pull-request/). The
-github documentation is excellent, so we will not duplicate it here. Simply
-follow the guide: [how to create a pull
-request](https://help.github.com/articles/creating-a-pull-request/).
+Next you want to [create a pull request](https://help.github.com/en/articles/creating-a-pull-request).
+The GitHub documentation is excellent, so we will not duplicate it here.
+Simply follow the guide: [how to create a pull request](https://help.github.com/en/articles/creating-a-pull-request).
 
 Now we can see your proposed changes and will probably leave you some
 comments. Once everyone is happy, one of the main starterkit'ers will

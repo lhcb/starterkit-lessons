@@ -1,7 +1,9 @@
 # Pre-workshop checklist
 
 {% objectives "Learning Objectives" %}
+
 * You will be ready for the workshop!
+
 {% endobjectives %}
 
 Please read and try the following steps **before** arriving. For
@@ -20,15 +22,17 @@ a computer. There will be no machines for you to use in the room.
 your desktop or someone else's computer.
 
 * If this is the first time you are bringing your laptop to CERN, you
-will have to [register it](http://information-technology.web.cern.ch/help/connect-your-device) before it can
+will have to [register it](https://information-technology.web.cern.ch/help/connect-your-device) before it can
 access the internet.
 
 * Please bring your power supply, as well as a plug adaptor to Swiss and European plugs.
 
 {% callout "Windows" %}
+
 In the following we assume you use Mac OS X or Linux. If you are running
 Windows, step 2 is replaced by a list of instructions given at the bottom
 of this page.
+
 {% endcallout %}
 
 Try the following steps with the computer you will use at the workshop:
@@ -84,7 +88,8 @@ If you can successfully execute all of the above steps, you are ready to go for
 the workshop!
 
 {% callout "Using Bash" %}
-The [Bash shell](http://en.wikipedia.org/wiki/Bash_(Unix_shell%29) will be used
+
+The [Bash shell](http://cern.ch/go/gdJ9) will be used
 throughout the workshop.
 The default for new LHCb computing accounts is now Bash. If you have an older
 account, the default used to be a shell called `tcsh`
@@ -99,17 +104,19 @@ services”, then “List services”, “LXPLUS and Linux”, “Settings”, t
 
 If you don't want to change your default shell, just execute the `bash`
 command when you login to lxplus.
+
 {% endcallout %}
 
 
 {% callout "Windows-specific Instructions" %}
+
 On Windows, some additional steps are required before you can connect via SSH.
 
 Set up steps (you only have to perform this once):
 
-1. Download the [Xming installer](http://sourceforge.net/projects/xming/files/latest/download).
+1. Download the [Xming installer](https://sourceforge.net/projects/xming/files/latest/download).
 2. Run the installer.
-3. Download [PuTTY](http://the.earth.li/~sgtatham/putty/latest/x86/putty.exe).
+3. Download [PuTTY](https://the.earth.li/~sgtatham/putty/latest/x86/putty.exe).
 
 The following steps have to be executed each time you want to connect:
 
@@ -123,4 +130,5 @@ The following steps have to be executed each time you want to connect:
 8. A window appears with the text `login as:`. Type your CERN username, followed by Enter.
 9. The window should say `Using keyboard-interactive authentication. Password:`. Type your password, again followed by Enter.
 10. You now have a remote SSH session at an lxplus server node!
+
 {% endcallout %}

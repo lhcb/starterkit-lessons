@@ -1,14 +1,16 @@
 # Storing large files on EOS
 
 {% objectives "Learning Objectives" %}
+
 * Run a ganga job which puts output onto EOS
 * Open and view the files on EOS
+
 {% endobjectives %} 
 
 During a real analysis the output of your jobs will quickly grow
 beyond what fits onto your AFS space. CERN provides you with 2TB of
 space on a set of hard drives called the [EOS
-service](http://information-technology.web.cern.ch/services/eos-service) and
+service](https://information-technology.web.cern.ch/services/eos-service) and
 a grid storage quota of 2TB.
 
 To retrieve a job outputfile, one can use two types of files:  
@@ -71,15 +73,17 @@ TFile::Open("root://eoslhcb.cern.ch//eos/lhcb/grid/user/lhcb/user/a/another/2018
 ```  
 
 {% callout "Use of the XRootD protocol " %}
+
 In order to access files on every grid site with the XRootD protocol, be sure
 to have a valid proxy using `lhcb-proxy-init`.
+
 {% endcallout %} 
 
 
 On `lxplus` EOS is mount under `/eos` .
 If you list the contents of the `/eos` directory you should see various experiments areas, and the user area:
 
-```output
+```
 lhcb ship user
 ```
 

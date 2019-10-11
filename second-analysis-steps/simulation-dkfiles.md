@@ -1,5 +1,7 @@
 {% objectives "Learning Objectives" %}
+
 * Learn the basic structure of a decfile.
+
 {% endobjectives %}
 
 ## Controlling the decay: DecFiles

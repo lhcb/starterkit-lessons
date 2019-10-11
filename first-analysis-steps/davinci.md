@@ -1,8 +1,10 @@
 # An introduction to LHCb Software
 
 {% objectives "Learning Objectives" %}
+
 * Learn the key concepts needed to work with the LHCb software
 * Learn how to launch the LHCb software with `lb-run`
+
 {% endobjectives %} 
 
 Imagine you want to design and run a new particle detector.
@@ -102,6 +104,7 @@ lb-run --list DaVinci
 
 {% callout "Which version of DaVinci should I use?" %}
 
+
 All available versions of DaVinci are given on the [DaVinci releases][releases]
 page. Which one should you use? There are a couple of guidelines to follow:
 
@@ -126,6 +129,7 @@ time the text was last revised.
 To get around this we can pick the best suitable platform by using ```lb-run -c best DaVinci/vXXrYpZ ...```.
 More details about the platform string are available in [HSF-TN-2018-01](https://hepsoftwarefoundation.org/notes/HSF-TN-2018-01.pdf).
 
+
 {% endcallout %}
 
 Do you want to start a shell that already contains the LHCb environment, so you don't have to use `lb-run`?
@@ -143,6 +147,7 @@ A simple `gaudirun.py` should work as well now.
 Typing `exit` or using `Ctrl-d` will close the shell and leave the LHCb environment behind.
 
 {% callout "Using SetupProject instead of lb-run" %}
+
 When reading through other tutorials, you will come across `SetupProject`.
 This is an older way of setting up a shell that is configured to run LHCb software.
 `lb-run` is the new way of doing things and has some nice benefits over `SetupProject`.
@@ -151,4 +156,5 @@ For most purposes, `SetupProject DaVinci v45r1` is equivalent to
 lb-run DaVinci/v45r1 $SHELL
 ```
 but you should really avoid doing things this way as this method is no longer supported for the latest project releases. (The environment for DaVinci v45r1, for example, cannot be started this way.)
+
 {% endcallout %} 

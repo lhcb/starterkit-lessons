@@ -1,8 +1,10 @@
 # What to do when something fails
 
 {% objectives "Learning Objectives" %}
+
 * Learn how to read the logs to know where things are breaking
 * Learn how to get a glimpse of where algorithms are writing in the TES
+
 {% endobjectives %} 
 
 When chaining complex workflows (building particles, combining them, etc) we find that our ntuple is not written while we don't have any errors.
@@ -49,8 +51,10 @@ Sel_Dstar         SUCCESS Number of counters : 14
 Here we have information of the input containers, types of particles, etc, with all the counters corresponding to our run on 1000 events.
 
 {% challenge "Understanding the log" %}
+
 How many excited D\* mesons do we expect in our ntuple? Can you check it?
 Can you change some cuts and see how the counters change? Try to free the D\* mass window requirement and see if you get more of those.
+
 {% endchallenge %}
 
 Now, let's make the particle builder fail silently and see if we can debug this.
@@ -82,7 +86,7 @@ Sel_D0            SUCCESS Number of counters : 10
 
 It's easy to see we have 0 input kaons and we can see we only get input pions!
 
-Another problem: we messed up with a cut, for example in building the $$D^*$$,
+Another problem: we messed up with a cut, for example in building the `$ D^* $`,
 
 ```python
 dstar_mother = (
@@ -267,6 +271,8 @@ Here we can see where our decays are being put and we can debug problems with in
 It can also be useful to know where things are written for accessing them interactively, if we want to further explore and debug.
 
 {% callout "Configuring the algorithm" %}
+
 The `StoreExplorerAlg` has the same print frequency as `DaVinci`, but it can be configured by modifying `PrintFreq` (fraction of events that are printed) or `PrintEvt`.
-Have a look at the [class Doxygen](http://lhcb-doxygen.web.cern.ch/lhcb-doxygen/davinci/latest/d2/d3b/class_store_explorer_alg.html) to see what they do.
+Have a look at the [class Doxygen](https://lhcb-doxygen.web.cern.ch/lhcb-doxygen/davinci/latest/d2/d3b/class_store_explorer_alg.html) to see what they do.
+
 {% endcallout %}

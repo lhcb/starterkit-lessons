@@ -1,8 +1,10 @@
 # Submitting a simple job
 
 {% objectives "Learning Objectives" %}
+
 * Be able to submit a simple job using HTCondor
 * Monitor the progress of your jobs, from a terminal and a browser
+
 {% endobjectives %} 
 
 Now it's time to make and submit a job of our own. To start with, you'll need to create an executable for the job you want to run. Create a file in your AFS area *(currently, submitting jobs from EOS is not supported, although coming soon!)* on lxplus called `my_first_script.sh`, and add the following lines:
@@ -60,19 +62,30 @@ The above output is from shortly after submitting. A typical job starts out in t
 
 The other three job states are less common. A job may be put into the 'hold' state if there is something wrong with the submit file, or the user uses the `condor_hold` command. Similarly, a user can suspend their job using `condor_suspend`, or remove it using `condor_rm`. A held job can be restarted by using `condor_release`.
 
-{% callout "Tracking the queue in real-time" %} By itself, this command will print the status of your jobs at the current time to the terminal. If you want to see how they're progressing, you may find it useful to prefix it with `watch` (e.g. `watch condor_q`). This will repeatedly run the command at regular intervals, allowing you to see how the output changes over time. You can press `Ctrl+c` to exit back to the terminal at any time.
+{% callout "Tracking the queue in real-time" %}
+
+
+ By itself, this command will print the status of your jobs at the current time to the terminal. If you want to see how they're progressing, you may find it useful to prefix it with `watch` (e.g. `watch condor_q`). This will repeatedly run the command at regular intervals, allowing you to see how the output changes over time. You can press `Ctrl+c` to exit back to the terminal at any time.
+
 {% endcallout %}
 
 * `condor_wait -status <log_file>`: watches the log file and waits until the jobs have been completed before exiting.
 
-{% challenge "Find some additional information" %} These commands only display a fraction of the posisble information. Look at the documentation for both `condor_q` and `condor_wait` (either online, or using the `-help` flag) to see what else is available.
+{% challenge "Find some additional information" %}
+
+
+ These commands only display a fraction of the posisble information. Look at the documentation for both `condor_q` and `condor_wait` (either online, or using the `-help` flag) to see what else is available.
+
 {% endchallenge %}
 
 For a more holistic overview, we can also use [Grafana](https://monit-grafana.cern.ch/d/000000869/user-batch-jobs?orgId=5&refresh=5m), which is a browser-based monitoring system. Log in using your CERN SSO, and it will take you to the 'User Batch Jobs' dashboard. Go to the 'user' drop-down menu, and search for your username by typing it in.
 
 This monitor displays a lot of different graphs and statistics. Importantly, in the one called 'Job Summary', you should see that you now have one job, either in the idle or running state. If it's not there, it should appear after a couple of minutes. It also displays information including when your jobs were submitted, when they started, what your user priority score is, and more.
 
-{% challenge "Other dashboards" %} There are a whole host of dashboards available beyond 'User Batch Jobs'. Take a look and see what else you can find that might be useful (if you want, you can try starting with 'Cluster Batch Jobs').
+{% challenge "Other dashboards" %}
+
+ There are a whole host of dashboards available beyond 'User Batch Jobs'. Take a look and see what else you can find that might be useful (if you want, you can try starting with 'Cluster Batch Jobs').
+
 {% endchallenge %}
 
 Hopefully, by this point, the job should have finished! To check that it worked properly, take a look inside your output file, which should now read:

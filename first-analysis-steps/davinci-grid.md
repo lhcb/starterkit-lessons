@@ -1,21 +1,28 @@
 # Running DaVinci on the grid
 
 {% objectives "Learning Objectives" %}
+
 * Create a ganga job
 * Submit a ganga job
 * Waiting for ganga
 * Find the job output
+
 {% endobjectives %} 
 
 This lesson will teach you how to take our [minimal DaVinci
-job](minimal-dv-job.html) and run it on the grid.
+job](minimal-dv-job) and run it on the grid.
 
 `ganga` is a program which you can use to interact with your grid
 jobs. 
 
-Before creating your first `ganga` job, open the script `ntuple-options.py`, obtained in the [previous lesson](minimal-dv-job.html), and comment out the lines taking the local input data: we will now use the data stored on grid.
+Before creating your first `ganga` job, open the script `ntuple-options.py`, obtained in the [previous lesson](minimal-dv-job), and comment out the lines taking the local input data: we will now use the data stored on grid.
 
-Also, you need to know the path to your data from Bookkeeping. In our case the path is `/MC/2016/Beam6500GeV-2016-MagDown-Nu1.6-25ns-Pythia8/Sim09c/Trig0x6138160F/Reco16/Turbo03/Stripping28r1NoPrescalingFlagged/27163002/ALLSTREAMS.DST`. Note, that here the event type number should be located at the end of the path, which is not the case if you browse the bookkeping by `Event type`.
+Also, you need to know the path to your data from Bookkeeping.
+In our case the path is:
+```
+/MC/2016/Beam6500GeV-2016-MagDown-Nu1.6-25ns-Pythia8/Sim09c/Trig0x6138160F/Reco16/Turbo03/Stripping28r1NoPrescalingFlagged/27163002/ALLSTREAMS.DST
+```
+Note, that here the event type number should be located at the end of the path, which is not the case if you browse the bookkeeping by `Event type`.
 
 Finally, launch your grid proxy typing `lhcb-proxy-init` and enter your *grid certificate* password. 
 
@@ -51,9 +58,10 @@ with the option files given in `j.application.options` using a
 backend called `Dirac`, which is "the grid". Instead of specifying the
 files to process as part of the options file you have now to tell the
 `Job` about it. This allows `ganga` to split your job up by setting `j.splitter`,
-processing different files simultaneously. More details about the splitter are given in the [next lesson](split-jobs.html). Note that data will be accessed using its path in the bookkeeping `bkPath`. In order to speed-up our job, only the first 2 elements (files) of `data` will be accessed; we don't need to look at much data here. 
+processing different files simultaneously. More details about the splitter are given in the [next lesson](split-jobs). Note that data will be accessed using its path in the bookkeeping `bkPath`. In order to speed-up our job, only the first 2 elements (files) of `data` will be accessed; we don't need to look at much data here. 
 
 {% callout "DaVinciDev folder" %}
+
 When you create a job using `prepareGaudiExec('DaVinci','v45r1', myPath='.')`
 you get the following message:
 ```
@@ -63,7 +71,8 @@ INFO     Set up App Env at: ./DaVinciDev_v45r1
 The content of it will be sent to the grid to ensure your job runs with 
 exactly this configuration.
 We will use this folder for the following jobs and you will learn more about
-this in the [Developing LHCb Software](lhcb-dev.html) lesson.
+this in the [Developing LHCb Software](lhcb-dev) lesson.
+
 {% endcallout %} 
 
 Now you have created your first job, however it has not started
@@ -72,6 +81,7 @@ equivalent of `lb-run DaVinci/v45r1`, prepare your job and then
 ship it off to the grid.
 
 {% callout "Picking up a right platform" %}
+
 The default platform on most lxplus machines is `x86_64-centos7-gcc8-opt` with gcc compiler version 8.
 However some older DaVinci version are not compiled for `x86_64-centos7-gcc8-opt`.
 
@@ -87,14 +97,14 @@ When setting up your ganga job, add the following line after declaring the `j.ap
 j.application.platform = 'x86_64-centos7-gcc8-opt'
 ```
 
-{% endcallout %} 
+{% endcallout %}
 
 While it runs, let's submit an identical job via slightly different
 method. Having to type in the details of each job every time you want
 to run it is error prone and tedious. Instead you can place all the
 lines that define a job in a file and simply run that.
 
-Place the following in a file called [`first-job.py`](code/davinci-grid/first-job.py):
+Place the following in a file called [first-job.py](code/davinci-grid/first-job.py):
 
 ```python
 j = Job(name='First ganga job')
@@ -159,11 +169,13 @@ Take a look at the contents of this directory.
 Tip: this can be done from ganga using command `jobs(787).peek()`.
 
 {% callout "Using the Shell from IPython" %}
+
 IPython lets you execute shell commands from within the `ganga` session.
 This means you can list the contents of a directory without leaving ganga
 by typing `!ls /tmp/`. This will list the contents of the `/tmp` directory.
 In our case we can use this to list the contents of the job output directory
 with `!ls $output` as we stored the path in the variable `output`.
+
 {% endcallout %} 
 
 To look at the `root` file produced by the job start a new terminal, and
@@ -177,6 +189,8 @@ $ root -l path/to/the/job/output
 You need to setup `DaVinci` as we need ROOT version 6 to read the nTuple.
 
 {% callout "Getting help with ganga" %}
+
 To find out more take a look at the [Ganga 
 FAQ](https://twiki.cern.ch/twiki/bin/view/LHCb/FAQ/GangaLHCbFAQ)
+
 {% endcallout %} 

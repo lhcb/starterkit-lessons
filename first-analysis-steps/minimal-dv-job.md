@@ -1,7 +1,7 @@
 # Running a minimal DaVinci job locally
 
-[Looping event-by-event](interactive-dst.html) over a file and [inspecting
-interesting quantities with LoKi functors](loki-functors.html) is great for
+[Looping event-by-event](interactive-dst) over a file and [inspecting
+interesting quantities with LoKi functors](loki-functors) is great for
 exploration: to check that the file contains the candidates you need, that
 the topology makes sense, and so on.
 It's impractical for most cases, though, where you want _all_ the candidates
@@ -12,9 +12,11 @@ information such as tracks and vertices, which we'll look at in this lesson to
 produce a ROOT ntuple.
 
 {% objectives "Learning Objectives" %}
+
 * Run a DaVinci job over a local DST
 * Inspect the ntuple output
 * Set up the job to run in Ganga
+
 {% endobjectives %} 
 
 With some stripped data located, it's useful to store the information on the
@@ -65,6 +67,7 @@ If there are no particles at the `Input` location, or the `Decay` string
 doesn't match any particles at that location, the ntuple will not be filled.
 
 {% callout "Decay descriptors" %}
+
 There is a special syntax for the `Decay` attribute string, commonly called
 'decay descriptors', that allow a lot of flexibility with what you accept.
 For example, `D0 -> K- X+` will match any D0 decay that contains one
@@ -72,6 +75,7 @@ negatively charged kaon and one positively charged track of any species.
 More information the decay descriptor syntax can be found on the [LoKi decay
 finders TWiki
 page](https://twiki.cern.ch/twiki/bin/view/LHCb/FAQ/LoKiNewDecayFinders).
+
 {% endcallout %} 
 
 Now we need to tell DaVinci how to behave.
@@ -80,7 +84,7 @@ what type of data is being used, what algorithms to run over the events, and so
 on.
 
 There are [many configuration
-attributes](http://lhcb-doxygen.web.cern.ch/lhcb-doxygen/davinci/latest/py/dc/d2f/class_da_vinci_1_1_configuration_1_1_da_vinci.html)
+attributes](https://lhcb-doxygen.web.cern.ch/lhcb-doxygen/davinci/latest/py/dc/d2f/class_da_vinci_1_1_configuration_1_1_da_vinci.html)
 defined on the `DaVinci` object, but we will only set the ones that are
 necessary for us.
 
@@ -119,6 +123,7 @@ file](data/MC_2016_27163002_Beam6500GeV2016MagDownNu1.625nsPythia8_Sim09b_Trig0x
 we downloaded earlier.
 
 {% callout "Database tags" %}
+
 Generally, the `CondDB` and `DDDB` tags are different for each dataset you
 want to use, but will be the same for all DSTs within a given dataset.
 
@@ -140,6 +145,7 @@ There are several ways to access the database tags used for a specific productio
 Note that the Condition DB tags for different magnet polarities are different: `-md100` should be replaced by `-mu100` for the MagUp conditions. 
 
 This method can also be used to find other details about how any data was processed by DIRAC, such as the options files and application versions.
+
 {% endcallout %} 
 
 In order to run an algorithm that we have previously created, we need to add it
@@ -148,6 +154,7 @@ The `TupleFile` attribute defines the name of the ROOT output file that DaVinci
 will store any algorithm output in, which should be our ntuple.
 
 {% callout "Being smart and efficient" %}
+
 Typical stripping lines take only a small part of the stripped stream - so, a small fraction of events in the DST: actually, usually you care about a single TES location!
 At the same time, event unpacking and running the DecayTreeTuple machinery for each event is time-consuming. 
 Consequently, DSTs can be processed much faster if before unpacking we select *only* events which are likely to accomodate the desired TES location. This can be achieved, for example, by requiring a prefilter checking whether event passes a stripping requirement. You may also filter on trigger decisions - this is an idea behind the Turbo stream.
@@ -160,12 +167,13 @@ fltrs = LoKi_Filters (
 )
 DaVinci().EventPreFilters = fltrs.filters('Filters')
 ```
-Here we use the [LoKi functor `HLT_PASS_RE`](http://lhcb-doxygen.web.cern.ch/lhcb-doxygen/davinci/latest/d7/dae/namespace_lo_ki_1_1_cuts.html#aee4bba9ae8443acd970dd52e20e5b8c1) which checks for a positive decision on (in this case) the stripping line. 
+Here we use the [LoKi functor `HLT_PASS_RE`](https://lhcb-doxygen.web.cern.ch/lhcb-doxygen/davinci/latest/d7/dae/namespace_lo_ki_1_1_cuts.html#aee4bba9ae8443acd970dd52e20e5b8c1) which checks for a positive decision on (in this case) the stripping line. 
 You may investigate some of more advanced examples of `EventPreFilters` usage [here](https://twiki.cern.ch/twiki/bin/view/LHCb/FAQ/DaVinciFAQ#How_to_process_the_stripped_DSTs) and [here](https://gitlab.cern.ch/lhcb/Phys/blob/master/Phys/PhysConf/python/PhysConf/Filters.py).
+
 {% endcallout %} 
 
 All that's left to do is to say what data we would like to run over.
-As we already have a data file [downloaded locally](files-from-grid.html), we
+As we already have a data file [downloaded locally](files-from-grid), we
 define that as our input data.
 
 ```python
@@ -192,7 +200,7 @@ $ lb-run DaVinci/v45r1 gaudirun.py ntuple_options.py
 The full options file we've created, `ntuple_options.py`, is [available
 here](./code/minimal-dv/ntuple_options.py).
 A slightly modified version that uses remote files (using an XML catalog as
-[described here](files-from-grid.html)) is [available
+[described here](files-from-grid)) is [available
 here](./code/minimal-dv/ntuple_options_xmlcatalog.py).
 
 You can now view and inspect your ntuple using ROOT `TBrowser` just do:
@@ -208,6 +216,7 @@ root [1] new TBrowser
 ```
 
 {% callout "Using a microDST" %}
+
 A microDST (or µDST) is a smaller version of a DST.
 Some stripping lines go to µDSTs, and some go to DSTs.
 There are two things that need changing in our options file in order to have
@@ -225,4 +234,5 @@ dtt.Inputs = ['Phys/{0}/Particles'.format(line)]
 # ...
 DaVinci().RootInTES = '/Event/{0}'.format(stream)
 ```
+
 {% endcallout %} 

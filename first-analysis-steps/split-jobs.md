@@ -1,11 +1,13 @@
 # Splitting a job into subjobs
 
 {% objectives "Learning Objectives" %}
+
 * Learn how to process many files in parallel on the grid
   by splitting a job into many subjobs
+
 {% endobjectives %} 
 
-In the [previous lesson](davinci-grid.html), you've submitted a job to the LHC grid.
+In the [previous lesson](davinci-grid), you've submitted a job to the LHC grid.
 You will notice that the job will take a long time to finish.
 This is because it has to process many gigabytes of data.
 
@@ -23,15 +25,19 @@ Note that the specified number of files per job is only the allowed maximum.
 You will often get jobs with fewer files.
 
 {% callout "How do I choose the number of files per job?" %}
+
 Choose fewer files per job if possible, as this will allow you to finish sooner 
 and reduces the impact of jobs failing due to grid problems.
 Setting `filesPerJob=5` should work well for real data, while `filesPerJob=1` should be good for signal MC.
+
 {% endcallout %} 
 
 {% callout "Splitter arguments" %}
+
 The splitter has other useful arguments: 
 - `maxFiles`      : the maximal total number of files. By default the splitter will run over all files in the dataset (which corresponds to the default value of -1)
 - `ignoremissing` : boolean indicating whether it is appropriate to run if there are data files which are not accessible at the moment. This is important if it is necessary to make sure that the resulting ntuples correspond to the whole data/MC sample.
+
 {% endcallout %} 
 
 Now, when you run `j.submit()`, the job will automatically be split into several subjobs.
@@ -81,8 +87,10 @@ Ganga will then submit this job (and its subjobs) in the background.
 Make sure not to close `ganga` before the submission is finished, or you will have to start submitting the rest of the jobs again later on.
 
 {% challenge "Splitting your first job" %}
+
 Try splitting the `ganga` job from our previous lesson with `splitByFiles=1` 
 ([reference code](code/split-jobs/first-job.py)) and submit it with `ganga`.
+
 {% endchallenge %} 
 
 

@@ -1,9 +1,12 @@
 # Using the queue command
 
 {% objectives "Learning Objectives" %}
+
+
 * Be able to submit multiple jobs at once by adding to the `queue` command
 * Be able to use variables in a submit file to automatically change the behaviour of each job
 * Learn some different options for queuing multiple jobs
+
 {% endobjectives %} 
 
 So far, we have ended all of our submit files by simply writing `queue` to tell HTCondor to schedule a single execution of the job that we defined. However, it wouldn't be batch computing without being able to submit large numbers of jobs at once!
@@ -83,14 +86,21 @@ queue 4
 
 If you first create the folders `output`, `error`, and `log`, and then submit this job, HTCondor will automatically create 4 separate output and error files, and will transfer back 4 separate result files.
 
-{% challenge "Multiple input files" %} The result files from the above script all contain the same information, since the same input file is being used and the script is deterministic. How could you modify it to allow for the use of multiple input files?
+{% challenge "Multiple input files" %}
+
+ The result files from the above script all contain the same information, since the same input file is being used and the script is deterministic. How could you modify it to allow for the use of multiple input files?
 
 {% solution "Solution" %}
+
+
 If you create multiple input files (e.g. `input/data_0.txt`, `input/data_1.txt`, ...), you can modify the `transfer_input_files` option to read:
 
 ```
 transfer_input_files = my_script.py, input/data_$(ProcId).txt
 ```
+
+{% endsolution %}
+
 {% endchallenge %}
 
 
@@ -110,7 +120,7 @@ transfer_output_files = $(OUTPUTFN)
 
 ### Other ways to queue
 
-The above syntax for queuing multiple jobs is very simple and convenient for jobs with sequential enumeration starting from zero, but this isn't always the case. Fortunately, the queue command is extremely flexible and has many alternative choices of syntax. This part of the lesson showcases some of these options and how to use them. For more information and other examples, you can visit [the documentation for the queue command](http://research.cs.wisc.edu/htcondor/manual/v8.5/2_5Submitting_Job.html#SECTION00352000000000000000).
+The above syntax for queuing multiple jobs is very simple and convenient for jobs with sequential enumeration starting from zero, but this isn't always the case. Fortunately, the queue command is extremely flexible and has many alternative choices of syntax. This part of the lesson showcases some of these options and how to use them. For more information and other examples, you can visit [the documentation for the queue command](https://research.cs.wisc.edu/htcondor/manual/v8.5/2_5Submitting_Job.html#SECTION00352000000000000000).
 
 * **Variable defined from a list**: ` queue [<int expr>] [<varname>] in [slice] <list of items>`
 

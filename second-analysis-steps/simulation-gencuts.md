@@ -1,13 +1,15 @@
 {% objectives "Learning Objectives" %}
+
 * Learn how to customise the generated decay
 * Learn how to modify the used decay channels
 * Learn how to modify/remove generator level cuts
+
 {% endobjectives %} 
 # Modifying the decay
 
 ## Adding a decay channel
 
-In order to make our decay model more realistic we can add in known resonances. E.g. instead of solely relying on phase-space, we can add in the prominent $$\Phi\to K^{+}K^{-}$$ resonance to hopefully. In the decfile, we can another line to the decay channels of the $$D^0$$:
+In order to make our decay model more realistic we can add in known resonances. E.g. instead of solely relying on phase-space, we can add in the prominent `$ \Phi\to K^{+}K^{-} $` resonance to hopefully. In the decfile, we can another line to the decay channels of the `$ D^0 $`:
 ```bash
 Decay MyD0                                                                                                                                                                                                                                                 
   0.5 K+ K- mu+ mu- PHSP;                                                                                                                                                                                                                                
@@ -15,7 +17,7 @@ Decay MyD0
 Enddecay                                                                                                                                                                                                                                                   
 CDecay MyantiD0                                                                                                                                                                                                                                            
 ```
-This triggers EvtGen to produce the $$\phi$$ resonance in 50% of the cases and $$\phi$$ is subsequently decayed. However, we have not told EvtGen that the $$\phi$$ should be decayed only to a $$K^+K^-$$, hence it will randomly choose from all possible decays it knows about. Instead of modifying the common `phi`, we apply the same trick as we did for the $$D^0$$ decay:
+This triggers EvtGen to produce the `$ \phi $` resonance in 50% of the cases and `$ \phi $` is subsequently decayed. However, we have not told EvtGen that the `$ \phi $` should be decayed only to a `$ K^+K^- $`, hence it will randomly choose from all possible decays it knows about. Instead of modifying the common `phi`, we apply the same trick as we did for the `$ D^0 $` decay:
 ```bash
 Alias MyPhi phi
 ChargeConj MyPhi MyPhi
@@ -30,7 +32,7 @@ Decay MyPhi
   1.000 K+  K-    VSS;
 Enddecay
 ```
-After changing the decfile, you have to rerun `make`. Try out the modified decfile with Gauss, you should see a large spike in $$m(K^+K^-)$$.
+After changing the decfile, you have to rerun `make`. Try out the modified decfile with Gauss, you should see a large spike in `$ m(K^+K^-) $`.
 
 ## Generator level cuts
 
@@ -105,6 +107,8 @@ strategy for event generation).
 For some ideas on which kind of cuts to apply, you can have a look here: https://twiki.cern.ch/twiki/bin/view/LHCb/GeneratorLevelTightCuts
 
 {% callout "Modifying cut tools for production" %}
+
 As the cut tools are to be configured in the DecFiles, they form an integral part of the event-type itself.
 Hence, any modification that changes the produced events usually requires the release of a new DecFile including a new event-type or a new simulation sub-version so events end up in a different bookkeeping location.
+
 {% endcallout %} 
