@@ -8,7 +8,7 @@ author = 'LHCb Starterkit'
 html_logo = 'starterkit.png'
 
 exclude_patterns += [
-    'first-analysis-steps/code/plots/README.md',
+    'first-analysis-steps/code/',
     'README.md',
 ]
 
