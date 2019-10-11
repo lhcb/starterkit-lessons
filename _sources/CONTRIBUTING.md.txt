@@ -35,8 +35,8 @@ To build the lessons locally, install the following:
 Then build the pages:
 
 ```shell
-$ make html
-$ make linkcheck
+$ starterkit_ci build --allow-warnings
+$ starterkit_ci check --allow-warnings
 ```
 
 and start a web server to host them:

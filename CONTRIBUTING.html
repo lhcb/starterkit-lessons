@@ -58,6 +58,9 @@
           
 
           
+            
+            <img src="_static/starterkit.png" class="logo" alt="Logo"/>
+          
           </a>
 
           
@@ -329,8 +332,8 @@ Comments on issues and reviews of pull requests are equally welcome.</p></li>
 <li><p><a class="reference external" href="https://recommonmark.readthedocs.io/en/latest/">recommonmark</a></p></li>
 </ol>
 <p>Then build the pages:</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ make html
-$ make linkcheck
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ starterkit_ci build --allow-warnings
+$ starterkit_ci check --allow-warnings
 </pre></div>
 </div>
 <p>and start a web server to host them:</p>
