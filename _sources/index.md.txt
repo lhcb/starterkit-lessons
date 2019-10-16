@@ -19,4 +19,11 @@ If you'd just like to learn about how to use the LHCb software, [read on](first-
     second-analysis-steps/README.md
     self-guided-lessons/README.md
     CONTRIBUTING.md
+
+.. toctree::
+    :maxdepth: 2
+    :includehidden:
+    :caption: External links:
+
+    Analysis essentials <https://hsf-training.github.io/analysis-essentials/>
 ```
