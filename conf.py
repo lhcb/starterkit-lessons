@@ -29,6 +29,9 @@ linkcheck_ignore += [
     r'https://research\.cs\.wisc\.edu/htcondor/.*',
 ]
 
+starterkit_ci_redirects['first-analysis-steps/index.html'] = 'https://lhcb.github.io/starterkit-lessons/first-analysis-steps/README.html'
+starterkit_ci_redirects['second-analysis-steps/index.html'] = 'https://lhcb.github.io/starterkit-lessons/second-analysis-steps/README.html'
+
 
 def starterkit_ci_setup(app):
     app.add_stylesheet('starterkit.css')
