@@ -7,14 +7,11 @@ dist: xenial
 install:
   # FIXME: Inline math is broken in upstream recommonmark
   - pip install git+https://github.com/chrisburr/recommonmark.git@patch-1
-  - pip install starterkit-ci>=0.8
+  - pip install starterkit-ci>=0.0.9
 
 script:
   - starterkit_ci build
   - starterkit_ci check
-
-# With instructions from http://www.steveklabnik.com/automatically_update_github_pages_with_travis_example/
-after_success:
   - test $TRAVIS_PULL_REQUEST == "false" && test $TRAVIS_BRANCH == "master" && starterkit_ci deploy
 
 env:
