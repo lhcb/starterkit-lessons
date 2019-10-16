@@ -28,9 +28,7 @@ You also agree to abide by our [contributor code of conduct][conduct].
 
 To build the lessons locally, install the following:
 
-1. [sphinx](http://www.sphinx-doc.org/en/master/usage/installation.html)
-2. [sphinx-rtd-theme](https://sphinx-rtd-theme.readthedocs.io/en/stable/)
-2. [recommonmark](https://recommonmark.readthedocs.io/en/latest/)
+1. [starterkit-ci](https://pypi.org/project/starterkit-ci/)
 
 Then build the pages:
 
