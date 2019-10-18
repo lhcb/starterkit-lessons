@@ -11,7 +11,7 @@ install:
 
 script:
   - starterkit_ci build
-  - starterkit_ci check
+  # - starterkit_ci check
 
 # With instructions from http://www.steveklabnik.com/automatically_update_github_pages_with_travis_example/
 after_success:
