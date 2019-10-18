@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Instructional Material &mdash; LHCb Starterkit Lessons  documentation</title>
+  <title>Instructional Material &mdash; Analysis essentials  documentation</title>
   
 
   
@@ -38,7 +38,7 @@
   <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
   <link rel="stylesheet" href="_static/panels.css" type="text/css" />
-  <link rel="stylesheet" href="_static/starterkit.css" type="text/css" />
+  <link rel="stylesheet" href="_static/hsf.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="prev" title="Contributor Code of Conduct" href="CONDUCT.html" /> 
@@ -55,12 +55,12 @@
           
 
           
-            <a href="index.html" class="icon icon-home"> LHCb Starterkit Lessons
+            <a href="index.html" class="icon icon-home"> Analysis essentials
           
 
           
             
-            <img src="_static/starterkit.png" class="logo" alt="Logo"/>
+            <img src="_static/hsf_logo_angled.png" class="logo" alt="Logo"/>
           
           </a>
 
@@ -90,144 +90,271 @@
             
               <p class="caption"><span class="caption-text">Contents:</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="first-analysis-steps/README.html">First Analysis Steps</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="first-analysis-steps/prerequisites.html">Pre-workshop checklist</a></li>
-<li class="toctree-l2"><a class="reference internal" href="first-analysis-steps/introduction-to-course.html">Goals of the course</a></li>
-<li class="toctree-l2"><a class="reference internal" href="first-analysis-steps/physics-at-lhcb.html">Physics at LHCb</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="first-analysis-steps/physics-at-lhcb.html#the-reconstruction">The reconstruction</a></li>
-<li class="toctree-l3"><a class="reference internal" href="first-analysis-steps/physics-at-lhcb.html#building-decay-candidates">Building decay candidates</a></li>
-<li class="toctree-l3"><a class="reference internal" href="first-analysis-steps/physics-at-lhcb.html#building-more-complex-decays">Building more complex decays</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python/README.html">An introduction to Python</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="python/README.html#aim-of-these-lessons">Aim of these lessons</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="python/running.html">Running Python</a></li>
+<li class="toctree-l3"><a class="reference internal" href="python/operators.html">Objects and operators</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="python/operators.html#objects">Objects</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="first-analysis-steps/dataflow.html">The LHCb data flow</a></li>
-<li class="toctree-l2"><a class="reference internal" href="first-analysis-steps/run-2-data-flow.html">Changes to the data flow in Run 2</a></li>
-<li class="toctree-l2"><a class="reference internal" href="first-analysis-steps/davinci.html">An introduction to LHCb Software</a></li>
-<li class="toctree-l2"><a class="reference internal" href="first-analysis-steps/bookkeeping.html">Finding data in the Bookkeeping</a></li>
-<li class="toctree-l2"><a class="reference internal" href="first-analysis-steps/files-from-grid.html">Downloading a file from the grid</a></li>
-<li class="toctree-l2"><a class="reference internal" href="first-analysis-steps/interactive-dst.html">Interactively exploring a DST</a></li>
-<li class="toctree-l2"><a class="reference internal" href="first-analysis-steps/minimal-dv-job.html">Running a minimal DaVinci job locally</a></li>
-<li class="toctree-l2"><a class="reference internal" href="first-analysis-steps/loki-functors.html">Fun with LoKi Functors</a></li>
-<li class="toctree-l2"><a class="reference internal" href="first-analysis-steps/add-tupletools.html">TupleTools and branches</a></li>
-<li class="toctree-l2"><a class="reference internal" href="first-analysis-steps/decay-tree-fitter.html">How do I use DecayTreeFitter?</a></li>
-<li class="toctree-l2"><a class="reference internal" href="first-analysis-steps/davinci-grid.html">Running DaVinci on the grid</a></li>
-<li class="toctree-l2"><a class="reference internal" href="first-analysis-steps/split-jobs.html">Splitting a job into subjobs</a></li>
-<li class="toctree-l2"><a class="reference internal" href="first-analysis-steps/ganga-data.html">More Ganga</a></li>
-<li class="toctree-l2"><a class="reference internal" href="first-analysis-steps/eos-storage.html">Storing large files on EOS</a></li>
-<li class="toctree-l2"><a class="reference internal" href="first-analysis-steps/lhcb-dev.html">Developing LHCb Software</a></li>
-<li class="toctree-l2"><a class="reference internal" href="first-analysis-steps/asking-questions.html">Asking good questions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="first-analysis-steps/ecgd.html">Early career, gender and diversity</a></li>
-<li class="toctree-l2"><a class="reference internal" href="first-analysis-steps/contributing-lesson.html">Contribute to this lesson</a></li>
+<li class="toctree-l3"><a class="reference internal" href="python/numbers.html">Numbers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="python/strings.html">Strings</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="python/strings.html#formatting">Formatting</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="second-analysis-steps/README.html">Second Analysis Steps</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="second-analysis-steps/lb-git.html">Using git to develop LHCb software</a></li>
-<li class="toctree-l2"><a class="reference internal" href="second-analysis-steps/building-decays.html">Building your own decay</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="second-analysis-steps/building-decays-part0.html">The Selection Framework</a></li>
-<li class="toctree-l3"><a class="reference internal" href="second-analysis-steps/building-decays-part1.html">A Historical Approach</a></li>
-<li class="toctree-l3"><a class="reference internal" href="second-analysis-steps/building-decays-part2.html">Modern Selection Framework</a></li>
+<li class="toctree-l3"><a class="reference internal" href="python/lists.html">Lists and looping</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="python/lists.html#looping">Looping</a></li>
+<li class="toctree-l4"><a class="reference internal" href="python/lists.html#list-comprehension">List comprehension</a></li>
+<li class="toctree-l4"><a class="reference internal" href="python/lists.html#tuples">Tuples</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="second-analysis-steps/fixing-errors.html">What to do when something fails</a></li>
-<li class="toctree-l2"><a class="reference internal" href="second-analysis-steps/rerun-stripping.html">Run a different stripping line on simulated data</a></li>
-<li class="toctree-l2"><a class="reference internal" href="second-analysis-steps/switch-mass-hypo.html">Replace a mass hypothesis</a></li>
-<li class="toctree-l2"><a class="reference internal" href="second-analysis-steps/filter-in-trees.html">Reuse particles from a decay tree</a></li>
-<li class="toctree-l2"><a class="reference internal" href="second-analysis-steps/simulation.html">The simulation framework</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="second-analysis-steps/simulation-intro.html">What is Gauss?</a></li>
-<li class="toctree-l3"><a class="reference internal" href="second-analysis-steps/simulation-running-gauss.html">Which option files to use and how to run Gauss</a></li>
-<li class="toctree-l3"><a class="reference internal" href="second-analysis-steps/simulation-running-gauss.html#running-gauss-and-create-a-generator-only-sample">Running Gauss and create a generator-only sample</a></li>
-<li class="toctree-l3"><a class="reference internal" href="second-analysis-steps/simulation-running-gauss.html#make-an-ntuple">Make an nTuple</a></li>
-<li class="toctree-l3"><a class="reference internal" href="second-analysis-steps/simulation-dkfiles.html">Controlling the decay: DecFiles</a></li>
-<li class="toctree-l3"><a class="reference internal" href="second-analysis-steps/simulation-gencuts.html">Modifying the decay</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="second-analysis-steps/simulation-gencuts.html#adding-a-decay-channel">Adding a decay channel</a></li>
-<li class="toctree-l4"><a class="reference internal" href="second-analysis-steps/simulation-gencuts.html#generator-level-cuts">Generator level cuts</a></li>
-<li class="toctree-l4"><a class="reference internal" href="second-analysis-steps/simulation-gencuts.html#removing-the-generator-cuts">Removing the generator cuts</a></li>
-<li class="toctree-l4"><a class="reference internal" href="second-analysis-steps/simulation-gencuts.html#modifying-the-cut-tool">Modifying the cut tool</a></li>
+<li class="toctree-l3"><a class="reference internal" href="python/dictionaries.html">Dictionaries</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="python/dictionaries.html#dictionary-keys">Dictionary keys</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="second-analysis-steps/simulation-advanced-dkfiles.html">Advanced: Modifying the decay</a></li>
-<li class="toctree-l3"><a class="reference internal" href="second-analysis-steps/simulation-advanced-dkfiles.html#multi-body-decays">3+ multi-body decays</a></li>
-<li class="toctree-l3"><a class="reference internal" href="second-analysis-steps/simulation-advanced-dkfiles.html#cocktail-decays">Cocktail decays</a></li>
-<li class="toctree-l3"><a class="reference internal" href="second-analysis-steps/simulation-advanced-dkfiles.html#final-state-radiation">Final state radiation</a></li>
-<li class="toctree-l3"><a class="reference internal" href="second-analysis-steps/simulation-advanced-dkfiles.html#changing-particle-masses-lifetimes-widths">Changing particle masses / lifetimes/ widths</a></li>
-<li class="toctree-l3"><a class="reference internal" href="second-analysis-steps/simulation-fastsim.html">Why fast simulation is crucial</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="second-analysis-steps/simulation-fastsim.html#speeding-up-the-detector-simulation">Speeding up the detector simulation</a></li>
-<li class="toctree-l4"><a class="reference internal" href="second-analysis-steps/simulation-fastsim.html#speeding-up-the-generation">Speeding up the generation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="python/conditions.html">Conditions</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="python/conditions.html#truthiness">Truthiness</a></li>
+<li class="toctree-l4"><a class="reference internal" href="python/conditions.html#conditions-in-loops">Conditions in loops</a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="python/methods.html">Methods</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="python/methods.html#inline-methods">Inline methods</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="second-analysis-steps/hlt-intro.html">HLT intro</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="second-analysis-steps/hlt-intro.html#add-trigger-information-to-your-ntuple">Add trigger information to your ntuple</a></li>
-<li class="toctree-l3"><a class="reference internal" href="second-analysis-steps/hlt-intro.html#exploring-a-tck-list-of-trigger-lines">Exploring a TCK: List of trigger lines</a></li>
-<li class="toctree-l3"><a class="reference internal" href="second-analysis-steps/hlt-intro.html#add-trigger-information-to-your-ntuple-continued">Add trigger information to your ntuple, continued</a></li>
-<li class="toctree-l3"><a class="reference internal" href="second-analysis-steps/hlt-intro.html#add-tistos-information-to-your-ntuple">Add TISTOS information to your ntuple</a></li>
-<li class="toctree-l3"><a class="reference internal" href="second-analysis-steps/hlt-intro.html#exploring-a-tck-properties-of-trigger-lines">Exploring a TCK: Properties of trigger lines</a></li>
+<li class="toctree-l3"><a class="reference internal" href="python/scripting.html">Scripting</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="python/scripting.html#argparse">argparse</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="second-analysis-steps/tistos-diy.html">TisTos DIY</a></li>
-<li class="toctree-l2"><a class="reference internal" href="second-analysis-steps/ganga-scripting.html">Scripting Ganga</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="second-analysis-steps/ganga-scripting.html#defining-jobs-with-scripts">Defining jobs with scripts</a></li>
-<li class="toctree-l3"><a class="reference internal" href="second-analysis-steps/ganga-scripting.html#adding-helpers-functions">Adding helpers functions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="python/modules.html">Modules</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="python/modules.html#using-modules-into-your-code-import">Using modules into your code: import</a></li>
+<li class="toctree-l4"><a class="reference internal" href="python/modules.html#the-standard-library">The standard library</a></li>
+<li class="toctree-l4"><a class="reference internal" href="python/modules.html#modules-from-pypi">Modules from PyPi</a></li>
+<li class="toctree-l4"><a class="reference internal" href="python/modules.html#modules-inside-a-virtual-environment">Modules inside a virtual environment</a></li>
+<li class="toctree-l4"><a class="reference internal" href="python/modules.html#write-your-first-python-module">Write your first Python module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="python/modules.html#write-a-structured-module">Write a structured module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="python/modules.html#run-a-module">Run a module</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="second-analysis-steps/managing-files-with-ganga.html">Managing files in Ganga</a></li>
-<li class="toctree-l2"><a class="reference internal" href="second-analysis-steps/analysis-automation-snakemake.html">Analysis automation with snakemake</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="second-analysis-steps/analysis-automation-snakemake.html#motivation">Motivation</a></li>
-<li class="toctree-l3"><a class="reference internal" href="second-analysis-steps/analysis-automation-snakemake.html#documentation-and-installation">Documentation and installation</a></li>
-<li class="toctree-l3"><a class="reference internal" href="second-analysis-steps/analysis-automation-snakemake.html#tutorial">Tutorial</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="second-analysis-steps/analysis-automation-snakemake.html#usage-and-basic-behaviour">Usage and basic behaviour</a></li>
-<li class="toctree-l4"><a class="reference internal" href="second-analysis-steps/analysis-automation-snakemake.html#sub-labels">Sub-labels</a></li>
-<li class="toctree-l4"><a class="reference internal" href="second-analysis-steps/analysis-automation-snakemake.html#run-and-shell">Run and shell</a></li>
-<li class="toctree-l4"><a class="reference internal" href="second-analysis-steps/analysis-automation-snakemake.html#config-files">Config files</a></li>
-<li class="toctree-l4"><a class="reference internal" href="second-analysis-steps/analysis-automation-snakemake.html#includes">Includes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="python/learning.html">Learning more</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="python/learning.html#exploring-python">Exploring Python</a></li>
+<li class="toctree-l4"><a class="reference internal" href="python/learning.html#conventional-coding">Conventional coding</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="python/first_histogram.html">Making your first histogram</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="python/first_histogram.html#pandas">Pandas</a></li>
+<li class="toctree-l4"><a class="reference internal" href="python/first_histogram.html#plotting-histograms">Plotting histograms</a></li>
+<li class="toctree-l4"><a class="reference internal" href="python/first_histogram.html#applying-cuts">Applying cuts</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="python/further_reading.html">More advanced topics in Python</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="python/further_reading.html#nice-standard-libraries">Nice standard libraries</a></li>
+<li class="toctree-l4"><a class="reference internal" href="python/further_reading.html#nice-libraries-for-data-analysis">Nice libraries for data analysis</a></li>
+<li class="toctree-l4"><a class="reference internal" href="python/further_reading.html#python-and-root">Python and ROOT</a></li>
 </ul>
 </li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="self-guided-lessons/README.html">Self guided lessons</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="self-guided-lessons/htcondor.html">Batch submission using HTCondor</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="self-guided-lessons/htcondor-first-job.html">Submitting a simple job</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="self-guided-lessons/htcondor-first-job.html#tracking-your-jobs">Tracking your jobs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="advanced-python/README.html">Advanced Python Tutorial</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="advanced-python/1Basics.html">1: Basics</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="advanced-python/1Basics.html#Basics">Basics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="advanced-python/1Basics.html#Markdown">Markdown</a></li>
+<li class="toctree-l3"><a class="reference internal" href="advanced-python/1Basics.html#Jupyter">Jupyter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="advanced-python/1Basics.html#Importing-modules">Importing modules</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="self-guided-lessons/htcondor-more-options.html">More submit file options</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="self-guided-lessons/htcondor-more-options.html#input-files">Input files</a></li>
-<li class="toctree-l4"><a class="reference internal" href="self-guided-lessons/htcondor-more-options.html#output-files">Output files</a></li>
-<li class="toctree-l4"><a class="reference internal" href="self-guided-lessons/htcondor-more-options.html#arguments">Arguments</a></li>
-<li class="toctree-l4"><a class="reference internal" href="self-guided-lessons/htcondor-more-options.html#resources-and-requirements">Resources and Requirements</a></li>
-<li class="toctree-l4"><a class="reference internal" href="self-guided-lessons/htcondor-more-options.html#notifications">Notifications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="advanced-python/2DataAndPlotting.html">2: First look at data</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="advanced-python/2DataAndPlotting.html#Recap:-Importing-modules">Recap: Importing modules</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="advanced-python/2DataAndPlotting.html#5.-The-toy-dataset">5. The toy dataset</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="self-guided-lessons/htcondor-queue.html">Using the queue command</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="self-guided-lessons/htcondor-queue.html#more-on-variables">More on variables</a></li>
-<li class="toctree-l4"><a class="reference internal" href="self-guided-lessons/htcondor-queue.html#other-ways-to-queue">Other ways to queue</a></li>
-<li class="toctree-l4"><a class="reference internal" href="self-guided-lessons/htcondor-queue.html#mixing-options-and-variables">Mixing options and variables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="advanced-python/2DataAndPlotting.html#Loading-data">Loading data</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="advanced-python/2DataAndPlotting.html#6.-Plotting-a-histogram-with-matplotlib">6. Plotting a histogram with <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="self-guided-lessons/htcondor.html#system-architecture">System architecture</a></li>
-<li class="toctree-l3"><a class="reference internal" href="self-guided-lessons/htcondor.html#other-useful-resources">Other useful resources</a></li>
+<li class="toctree-l3"><a class="reference internal" href="advanced-python/2DataAndPlotting.html#Adding-variables">Adding variables</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="advanced-python/2DataAndPlotting.html#Using-rectangular-cuts">Using rectangular cuts</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="self-guided-lessons/local-grid-proxy.html">Creating a grid proxy without LbScripts</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="self-guided-lessons/local-grid-proxy.html#installation">Installation</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="self-guided-lessons/local-grid-proxy.html#macos-with-homebrew">macOS with homebrew</a></li>
-<li class="toctree-l4"><a class="reference internal" href="self-guided-lessons/local-grid-proxy.html#ubuntu">Ubuntu</a></li>
-<li class="toctree-l4"><a class="reference internal" href="self-guided-lessons/local-grid-proxy.html#centos">CentOS</a></li>
-<li class="toctree-l4"><a class="reference internal" href="self-guided-lessons/local-grid-proxy.html#arch-linux">Arch Linux</a></li>
+<li class="toctree-l3"><a class="reference internal" href="advanced-python/2DataAndPlotting.html#Comparing-distributions">Comparing distributions</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="self-guided-lessons/local-grid-proxy.html#getting-the-required-files-and-certificates">Getting the required files and certificates</a></li>
-<li class="toctree-l3"><a class="reference internal" href="self-guided-lessons/local-grid-proxy.html#creating-a-proxy">Creating a proxy</a></li>
-<li class="toctree-l3"><a class="reference internal" href="self-guided-lessons/local-grid-proxy.html#managing-the-proxy">Managing the proxy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="advanced-python/3Classification.html">3: Multivariate Analysis</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="advanced-python/3Classification.html#Using-a-classifier">Using a classifier</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="advanced-python/3Classification.html#TODO-Add-a-diagram-of-a-decision-tree-for-the-above-plot">TODO Add a diagram of a decision tree for the above plot</a></li>
 </ul>
 </li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="advanced-python/4Extension.html">4: Extension</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="advanced-python/4Extension.html#Alternative-implimentations">Alternative implimentations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="advanced-python/4Extension.html#Feature-engineering">Feature engineering</a></li>
+<li class="toctree-l3"><a class="reference internal" href="advanced-python/4Extension.html#k-folding"><span class="math notranslate nohighlight">\(k\)</span>-folding</a></li>
+<li class="toctree-l3"><a class="reference internal" href="advanced-python/4Extension.html#Turn-this-into-a-scipt-using-argparse">Turn this into a scipt using argparse</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="advanced-python/5BoostingToUniformity.html">5: Boosting to Uniformity</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="advanced-python/5BoostingToUniformity.html#Loading-data">Loading data</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="advanced-python/5BoostingToUniformity.html#Distributions-in-the-Dalitz-features-for-signal-and-background">Distributions in the Dalitz features for signal and background</a></li>
+<li class="toctree-l4"><a class="reference internal" href="advanced-python/5BoostingToUniformity.html#Preparation-of-train/test-datasets">Preparation of train/test datasets</a></li>
+<li class="toctree-l4"><a class="reference internal" href="advanced-python/5BoostingToUniformity.html#Setting-up-classifiers,-training">Setting up classifiers, training</a></li>
+<li class="toctree-l4"><a class="reference internal" href="advanced-python/5BoostingToUniformity.html#Let’s-look-at-the-results-of-training">Let’s look at the results of training</a></li>
+<li class="toctree-l4"><a class="reference internal" href="advanced-python/5BoostingToUniformity.html#ROC-curves-after-training">ROC curves after training</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="advanced-python/6DemoNeuralNetworks.html">6: Neural networks</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="advanced-python/6DemoNeuralNetworks.html#Downloading-a-dataset">Downloading a dataset</a></li>
+<li class="toctree-l3"><a class="reference internal" href="advanced-python/6DemoNeuralNetworks.html#Example-of-training-a-network">Example of training a network</a></li>
+<li class="toctree-l3"><a class="reference internal" href="advanced-python/6DemoNeuralNetworks.html#Creating-your-own-neural-network">Creating your own neural network</a></li>
+<li class="toctree-l3"><a class="reference internal" href="advanced-python/6DemoNeuralNetworks.html#Example-of-a-very-specific-neural-network">Example of a very specific neural network</a></li>
+<li class="toctree-l3"><a class="reference internal" href="advanced-python/6DemoNeuralNetworks.html#Fitting-very-specific-expressions-as-estimators">Fitting very specific expressions as estimators</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="advanced-python/6DemoNeuralNetworks.html#Writing-custom-pretransformer">Writing custom pretransformer</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="advanced-python/6DemoNeuralNetworks.html#Ensembling-of-neural-neworks">Ensembling of neural neworks</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="advanced-python/7DemoReweighting.html">7: Demonstration of distribution reweighting</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="advanced-python/7DemoReweighting.html#Downloading-data">Downloading data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="advanced-python/7DemoReweighting.html#prepare-train-and-test-samples">prepare train and test samples</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="advanced-python/7DemoReweighting.html#Original-distributions">Original distributions</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="advanced-python/7DemoReweighting.html#train-part-of-original-distribution">train part of original distribution</a></li>
+<li class="toctree-l3"><a class="reference internal" href="advanced-python/7DemoReweighting.html#test-part-for-target-distribution">test part for target distribution</a></li>
+<li class="toctree-l3"><a class="reference internal" href="advanced-python/7DemoReweighting.html#Bins-based-reweighting-in-n-dimensions">Bins-based reweighting in n dimensions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="advanced-python/7DemoReweighting.html#Gradient-Boosted-Reweighter">Gradient Boosted Reweighter</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="advanced-python/7DemoReweighting.html#Comparing-some-simple-expressions:">Comparing some simple expressions:</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="advanced-python/7DemoReweighting.html#GB-discrimination">GB-discrimination</a></li>
+<li class="toctree-l3"><a class="reference internal" href="advanced-python/7DemoReweighting.html#Folding-reweighter">Folding reweighter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="advanced-python/7DemoReweighting.html#GB-discrimination-for-reweighting-rule">GB discrimination for reweighting rule</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="advanced-python/8sPlot.html">8: sPlot</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="advanced-python/8sPlot.html#Simple-sPlot-example">Simple sPlot example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="advanced-python/8sPlot.html#Observed-distributions">Observed distributions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="advanced-python/8sPlot.html#Applying-sWeights">Applying sWeights</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="advanced-python/8sPlot.html#Compare">Compare</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="advanced-python/8sPlot.html#More-complex-case">More complex case</a></li>
+<li class="toctree-l3"><a class="reference internal" href="advanced-python/8sPlot.html#Building-sPlot-over-mass">Building sPlot over mass</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="advanced-python/8sPlot.html#Of-course-we-don’t-have-labels-which-events-are-signal-and-which-are-background-beforehand">Of course we don’t have labels which events are signal and which are background beforehand</a></li>
+<li class="toctree-l4"><a class="reference internal" href="advanced-python/8sPlot.html#We-have-no-information-about-real-labels">We have no information about real labels</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="advanced-python/8sPlot.html#Fitting-doesn’t-give-us-information-about-real-labels">Fitting doesn’t give us information about real labels</a></li>
+<li class="toctree-l3"><a class="reference internal" href="advanced-python/8sPlot.html#Appying-sPlot">Appying sPlot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="advanced-python/8sPlot.html#Using-sWeights-to-reconstruct-initial-distribution">Using sWeights to reconstruct initial distribution</a></li>
+<li class="toctree-l3"><a class="reference internal" href="advanced-python/8sPlot.html#An-important-requirement-of-sPlot">An important requirement of sPlot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="advanced-python/8sPlot.html#Derivation-of-sWeights-(optional)">Derivation of sWeights (optional)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="advanced-python/8sPlot.html#Under-assumption-of-linearity:">Under assumption of linearity:</a></li>
+<li class="toctree-l4"><a class="reference internal" href="advanced-python/8sPlot.html#Minimization-of-variation">Minimization of variation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="advanced-python/8sPlot.html#Uncorrelatedness">Uncorrelatedness</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="advanced-python/8sPlot.html#Conclusion">Conclusion</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="shell/README.html">Introducing the Shell</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="shell/README.html#background">Background</a></li>
+<li class="toctree-l2"><a class="reference internal" href="shell/README.html#the-command-line-interface">The Command-Line Interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="shell/README.html#the-shell">The Shell</a></li>
+<li class="toctree-l2"><a class="reference internal" href="shell/README.html#why-bother">Why bother?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="shell/README.html#nelle-s-pipeline-starting-point">Nelle’s Pipeline: Starting Point</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="shell/02-filedir.html">Navigating Files and Directories</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="shell/02-filedir.html#nelle-s-pipeline-organizing-files">Nelle’s Pipeline: Organizing Files</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="shell/03-create.html">Working With Files and Directories</a></li>
+<li class="toctree-l3"><a class="reference internal" href="shell/04-pipefilter.html">Pipes and Filters</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="shell/04-pipefilter.html#nelle-s-pipeline-checking-files">Nelle’s Pipeline: Checking Files</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="shell/05-loop.html">Loops</a></li>
+<li class="toctree-l3"><a class="reference internal" href="shell/06-script.html">Shell Scripts</a></li>
+<li class="toctree-l3"><a class="reference internal" href="shell/07-find.html">Finding Things</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="shell-extras/README.html">UNIX shell</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="shell-extras/screen.html">Using screen to keep things running</a></li>
+<li class="toctree-l2"><a class="reference internal" href="shell-extras/screen2.html">Advanced screen topics</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="shell-extras/screen2.html#finding-lost-screens">Finding lost screens</a></li>
+<li class="toctree-l3"><a class="reference internal" href="shell-extras/screen2.html#using-tabs-in-screen">Using tabs in screen</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="shell-extras/persistent-screen.html">Persistent screen or tmux session on lxplus</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="shell-extras/persistent-screen.html#setting-up-password-less-kerberos-token">Setting up password-less kerberos token</a></li>
+<li class="toctree-l3"><a class="reference internal" href="shell-extras/persistent-screen.html#making-use-of-the-keytab">Making use of the keytab</a></li>
+<li class="toctree-l3"><a class="reference internal" href="shell-extras/persistent-screen.html#using-k5reauth-to-automatically-refresh-your-kerberos-token">Using k5reauth to automatically refresh your kerberos token</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="shell-extras/shell2.html">More about the UNIX shell</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="shell-extras/shell2.html#types-of-shell">Types of shell</a></li>
+<li class="toctree-l3"><a class="reference internal" href="shell-extras/shell2.html#manual-pages">Manual pages</a></li>
+<li class="toctree-l3"><a class="reference internal" href="shell-extras/shell2.html#environment-variables">Environment variables</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="shell-extras/shell2.html#let-s-now-try-the-following-callout">Let’s now try the following: {.callout}</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="shell-extras/shell2.html#variables">Variables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="shell-extras/shell2.html#differences-among-files">Differences among files</a></li>
+<li class="toctree-l3"><a class="reference internal" href="shell-extras/shell2.html#looping-over-files">Looping over files</a></li>
+<li class="toctree-l3"><a class="reference internal" href="shell-extras/shell2.html#conditionals">Conditionals</a></li>
+<li class="toctree-l3"><a class="reference internal" href="shell-extras/shell2.html#linking-commands">Linking commands</a></li>
+<li class="toctree-l3"><a class="reference internal" href="shell-extras/shell2.html#pipes-and-redirection">Pipes and redirection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="shell-extras/shell2.html#bash-security">Bash security</a></li>
+<li class="toctree-l3"><a class="reference internal" href="shell-extras/shell2.html#complexity">Complexity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="shell-extras/shell2.html#text-viewers">Text viewers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="shell-extras/shell2.html#text-editors">Text editors</a></li>
+<li class="toctree-l3"><a class="reference internal" href="shell-extras/shell2.html#disk-space">Disk space</a></li>
+<li class="toctree-l3"><a class="reference internal" href="shell-extras/shell2.html#over-the-wire-and-bandit-wargame">Over the Wire and Bandit wargame</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="git/README.html">Git</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="git/01-basics.html">Automated Version Control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="git/02-setup.html">Setting Up Git</a></li>
+<li class="toctree-l2"><a class="reference internal" href="git/03-create.html">Creating a Repository</a></li>
+<li class="toctree-l2"><a class="reference internal" href="git/04-changes.html">Tracking Changes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="git/05-history.html">Exploring History</a></li>
+<li class="toctree-l2"><a class="reference internal" href="git/06-ignore.html">Ignoring Things</a></li>
+<li class="toctree-l2"><a class="reference internal" href="git/07-gitlab.html">Remotes in CERN GitLab</a></li>
+<li class="toctree-l2"><a class="reference internal" href="git/08-share.html">Sharing a repository with others</a></li>
+<li class="toctree-l2"><a class="reference internal" href="git/09-pullrequests.html">Collaborating with Pull Requests</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="git/09-pullrequests.html#what-is-a-pull-or-merge-request">What is a Pull (or Merge) Request</a></li>
+<li class="toctree-l3"><a class="reference internal" href="git/09-pullrequests.html#fork-the-original-project-repository">Fork the original project repository</a></li>
+<li class="toctree-l3"><a class="reference internal" href="git/09-pullrequests.html#clone-a-remote-project-and-its-fork">Clone a remote project and its fork</a></li>
+<li class="toctree-l3"><a class="reference internal" href="git/09-pullrequests.html#sync-your-local-repository-with-remote-changes">Sync your local repository with remote changes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="git/09-pullrequests.html#implement-your-new-feature">Implement your new feature</a></li>
+<li class="toctree-l3"><a class="reference internal" href="git/09-pullrequests.html#push-changes">Push changes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="git/09-pullrequests.html#create-a-pull-or-merge-request">Create a Pull (or Merge) Request</a></li>
+<li class="toctree-l3"><a class="reference internal" href="git/09-pullrequests.html#discussing-amending-retiring-a-merge-request">Discussing, amending, retiring a Merge Request</a></li>
+<li class="toctree-l3"><a class="reference internal" href="git/09-pullrequests.html#accepting-a-pull-request">Accepting a Pull Request</a></li>
+<li class="toctree-l3"><a class="reference internal" href="git/09-pullrequests.html#the-social-side-of-coding">The social side of coding</a></li>
+<li class="toctree-l3"><a class="reference internal" href="git/09-pullrequests.html#automatic-testing">Automatic testing</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="git/10-conflict.html">Conflicts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="git/11-ci.html">GitLab CI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="git/12-open.html">Open Science</a></li>
+<li class="toctree-l2"><a class="reference internal" href="git/13-licensing.html">Licensing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="git/14-citation.html">Citation</a></li>
 </ul>
 </li>
 <li class="toctree-l1 current"><a class="reference internal" href="CONTRIBUTING.html">Contributing</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="CONTRIBUTING.html#getting-started">Getting Started</a></li>
-<li class="toctree-l2 current"><a class="reference internal" href="CONTRIBUTING.html#dependencies">Dependencies</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="CONTRIBUTING.html#dependencies">Dependencies</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="CONTRIBUTING.html#contributing-notebooks">Contributing notebooks</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="CONDUCT.html">Contributor Code of Conduct</a></li>
 <li class="toctree-l3 current"><a class="current reference internal" href="#">Instructional Material</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#software">Software</a></li>
@@ -235,10 +362,6 @@
 </li>
 </ul>
 </li>
-</ul>
-<p class="caption"><span class="caption-text">External links:</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference external" href="https://hsf-training.github.io/analysis-essentials/">Analysis essentials</a></li>
 </ul>
 
             
@@ -253,7 +376,7 @@
       <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="index.html">LHCb Starterkit Lessons</a>
+          <a href="index.html">Analysis essentials</a>
         
       </nav>
 
@@ -293,7 +416,7 @@
         
             
             
-              <a href="https://github.com/lhcb/starterkit-lessons/blob/master/LICENSE.md" class="fa fa-github"> Edit on GitHub</a>
+              <a href="https://github.com/hsf-training/analysis-essentials/blob/master/LICENSE.md" class="fa fa-github"> Edit on GitHub</a>
             
           
         
@@ -339,8 +462,8 @@ Attribution license</a>. The following is a human-readable summary of
 license</a>.</p>
 <p>You are free to:</p>
 <ul class="simple">
-<li><p>to <strong>Share</strong> — copy and redistribute the material in any medium or format</p></li>
-<li><p>to <strong>Adapt</strong> — remix, transform, and build upon the material for any
+<li><p><strong>Share</strong> — copy and redistribute the material in any medium or format</p></li>
+<li><p><strong>Adapt</strong> — remix, transform, and build upon the material for any
 purpose, even commercially.</p></li>
 </ul>
 <p>The licensor cannot revoke these freedoms as long as you follow the license
@@ -405,7 +528,7 @@ SOFTWARE.</p>
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2015-2019, LHCb Starterkit
+        &copy; Copyright HSF [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/legalcode) - Originally based on [swcarpentry](https://github.com/swcarpentry/) © 2016–2017 Software Carpentry Foundation
 
     </p>
   </div>
@@ -431,7 +554,9 @@ SOFTWARE.</p>
   
   
     
-   
+  
+    Hello world
+
 
 </body>
 </html>
