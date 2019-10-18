@@ -1,0 +1,787 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>HLT intro &mdash; LHCb Starterkit Lessons  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="../_static/panels.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/panels.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/starterkit.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="TisTos DIY" href="tistos-diy.html" />
+    <link rel="prev" title="Why fast simulation is crucial" href="simulation-fastsim.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> LHCb Starterkit Lessons
+          
+
+          
+            
+            <img src="../_static/starterkit.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../first-analysis-steps/README.html">First Analysis Steps</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../first-analysis-steps/prerequisites.html">Pre-workshop checklist</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../first-analysis-steps/introduction-to-course.html">Goals of the course</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../first-analysis-steps/physics-at-lhcb.html">Physics at LHCb</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../first-analysis-steps/physics-at-lhcb.html#the-reconstruction">The reconstruction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../first-analysis-steps/physics-at-lhcb.html#building-decay-candidates">Building decay candidates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../first-analysis-steps/physics-at-lhcb.html#building-more-complex-decays">Building more complex decays</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../first-analysis-steps/dataflow.html">The LHCb data flow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../first-analysis-steps/run-2-data-flow.html">Changes to the data flow in Run 2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../first-analysis-steps/davinci.html">An introduction to LHCb Software</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../first-analysis-steps/bookkeeping.html">Finding data in the Bookkeeping</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../first-analysis-steps/files-from-grid.html">Downloading a file from the grid</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../first-analysis-steps/interactive-dst.html">Interactively exploring a DST</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../first-analysis-steps/minimal-dv-job.html">Running a minimal DaVinci job locally</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../first-analysis-steps/loki-functors.html">Fun with LoKi Functors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../first-analysis-steps/add-tupletools.html">TupleTools and branches</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../first-analysis-steps/decay-tree-fitter.html">How do I use DecayTreeFitter?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../first-analysis-steps/davinci-grid.html">Running DaVinci on the grid</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../first-analysis-steps/split-jobs.html">Splitting a job into subjobs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../first-analysis-steps/ganga-data.html">More Ganga</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../first-analysis-steps/eos-storage.html">Storing large files on EOS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../first-analysis-steps/lhcb-dev.html">Developing LHCb Software</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../first-analysis-steps/asking-questions.html">Asking good questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../first-analysis-steps/ecgd.html">Early career, gender and diversity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../first-analysis-steps/contributing-lesson.html">Contribute to this lesson</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="reference internal" href="README.html">Second Analysis Steps</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="lb-git.html">Using git to develop LHCb software</a></li>
+<li class="toctree-l2"><a class="reference internal" href="building-decays.html">Building your own decay</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="building-decays-part0.html">The Selection Framework</a></li>
+<li class="toctree-l3"><a class="reference internal" href="building-decays-part1.html">A Historical Approach</a></li>
+<li class="toctree-l3"><a class="reference internal" href="building-decays-part2.html">Modern Selection Framework</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="fixing-errors.html">What to do when something fails</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rerun-stripping.html">Run a different stripping line on simulated data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="switch-mass-hypo.html">Replace a mass hypothesis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="filter-in-trees.html">Reuse particles from a decay tree</a></li>
+<li class="toctree-l2"><a class="reference internal" href="simulation.html">The simulation framework</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="simulation-intro.html">What is Gauss?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="simulation-running-gauss.html">Which option files to use and how to run Gauss</a></li>
+<li class="toctree-l3"><a class="reference internal" href="simulation-running-gauss.html#running-gauss-and-create-a-generator-only-sample">Running Gauss and create a generator-only sample</a></li>
+<li class="toctree-l3"><a class="reference internal" href="simulation-running-gauss.html#make-an-ntuple">Make an nTuple</a></li>
+<li class="toctree-l3"><a class="reference internal" href="simulation-dkfiles.html">Controlling the decay: DecFiles</a></li>
+<li class="toctree-l3"><a class="reference internal" href="simulation-gencuts.html">Modifying the decay</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="simulation-gencuts.html#adding-a-decay-channel">Adding a decay channel</a></li>
+<li class="toctree-l4"><a class="reference internal" href="simulation-gencuts.html#generator-level-cuts">Generator level cuts</a></li>
+<li class="toctree-l4"><a class="reference internal" href="simulation-gencuts.html#removing-the-generator-cuts">Removing the generator cuts</a></li>
+<li class="toctree-l4"><a class="reference internal" href="simulation-gencuts.html#modifying-the-cut-tool">Modifying the cut tool</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="simulation-advanced-dkfiles.html">Advanced: Modifying the decay</a></li>
+<li class="toctree-l3"><a class="reference internal" href="simulation-advanced-dkfiles.html#multi-body-decays">3+ multi-body decays</a></li>
+<li class="toctree-l3"><a class="reference internal" href="simulation-advanced-dkfiles.html#cocktail-decays">Cocktail decays</a></li>
+<li class="toctree-l3"><a class="reference internal" href="simulation-advanced-dkfiles.html#final-state-radiation">Final state radiation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="simulation-advanced-dkfiles.html#changing-particle-masses-lifetimes-widths">Changing particle masses / lifetimes/ widths</a></li>
+<li class="toctree-l3"><a class="reference internal" href="simulation-fastsim.html">Why fast simulation is crucial</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="simulation-fastsim.html#speeding-up-the-detector-simulation">Speeding up the detector simulation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="simulation-fastsim.html#speeding-up-the-generation">Speeding up the generation</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">HLT intro</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#add-trigger-information-to-your-ntuple">Add trigger information to your ntuple</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#exploring-a-tck-list-of-trigger-lines">Exploring a TCK: List of trigger lines</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#add-trigger-information-to-your-ntuple-continued">Add trigger information to your ntuple, continued</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#add-tistos-information-to-your-ntuple">Add TISTOS information to your ntuple</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#exploring-a-tck-properties-of-trigger-lines">Exploring a TCK: Properties of trigger lines</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="tistos-diy.html">TisTos DIY</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ganga-scripting.html">Scripting Ganga</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="ganga-scripting.html#defining-jobs-with-scripts">Defining jobs with scripts</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ganga-scripting.html#adding-helpers-functions">Adding helpers functions</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="managing-files-with-ganga.html">Managing files in Ganga</a></li>
+<li class="toctree-l2"><a class="reference internal" href="analysis-automation-snakemake.html">Analysis automation with snakemake</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="analysis-automation-snakemake.html#motivation">Motivation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="analysis-automation-snakemake.html#documentation-and-installation">Documentation and installation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="analysis-automation-snakemake.html#tutorial">Tutorial</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="analysis-automation-snakemake.html#usage-and-basic-behaviour">Usage and basic behaviour</a></li>
+<li class="toctree-l4"><a class="reference internal" href="analysis-automation-snakemake.html#sub-labels">Sub-labels</a></li>
+<li class="toctree-l4"><a class="reference internal" href="analysis-automation-snakemake.html#run-and-shell">Run and shell</a></li>
+<li class="toctree-l4"><a class="reference internal" href="analysis-automation-snakemake.html#config-files">Config files</a></li>
+<li class="toctree-l4"><a class="reference internal" href="analysis-automation-snakemake.html#includes">Includes</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../self-guided-lessons/README.html">Self guided lessons</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../self-guided-lessons/htcondor.html">Batch submission using HTCondor</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../self-guided-lessons/htcondor-first-job.html">Submitting a simple job</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../self-guided-lessons/htcondor-first-job.html#tracking-your-jobs">Tracking your jobs</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../self-guided-lessons/htcondor-more-options.html">More submit file options</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../self-guided-lessons/htcondor-more-options.html#input-files">Input files</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../self-guided-lessons/htcondor-more-options.html#output-files">Output files</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../self-guided-lessons/htcondor-more-options.html#arguments">Arguments</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../self-guided-lessons/htcondor-more-options.html#resources-and-requirements">Resources and Requirements</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../self-guided-lessons/htcondor-more-options.html#notifications">Notifications</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../self-guided-lessons/htcondor-queue.html">Using the queue command</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../self-guided-lessons/htcondor-queue.html#more-on-variables">More on variables</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../self-guided-lessons/htcondor-queue.html#other-ways-to-queue">Other ways to queue</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../self-guided-lessons/htcondor-queue.html#mixing-options-and-variables">Mixing options and variables</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../self-guided-lessons/htcondor.html#system-architecture">System architecture</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../self-guided-lessons/htcondor.html#other-useful-resources">Other useful resources</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../self-guided-lessons/local-grid-proxy.html">Creating a grid proxy without LbScripts</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../self-guided-lessons/local-grid-proxy.html#installation">Installation</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../self-guided-lessons/local-grid-proxy.html#macos-with-homebrew">macOS with homebrew</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../self-guided-lessons/local-grid-proxy.html#ubuntu">Ubuntu</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../self-guided-lessons/local-grid-proxy.html#centos">CentOS</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../self-guided-lessons/local-grid-proxy.html#arch-linux">Arch Linux</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../self-guided-lessons/local-grid-proxy.html#getting-the-required-files-and-certificates">Getting the required files and certificates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../self-guided-lessons/local-grid-proxy.html#creating-a-proxy">Creating a proxy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../self-guided-lessons/local-grid-proxy.html#managing-the-proxy">Managing the proxy</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../CONTRIBUTING.html">Contributing</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../CONTRIBUTING.html#getting-started">Getting Started</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../CONTRIBUTING.html#dependencies">Dependencies</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../CONDUCT.html">Contributor Code of Conduct</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../LICENSE.html">Instructional Material</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../LICENSE.html#software">Software</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">External links:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://hsf-training.github.io/analysis-essentials/">Analysis essentials</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">LHCb Starterkit Lessons</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="README.html">Second Analysis Steps</a> &raquo;</li>
+        
+      <li>HLT intro</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            
+              <a href="https://github.com/lhcb/starterkit-lessons/blob/master/second-analysis-steps/hlt-intro.md" class="fa fa-github"> Edit on GitHub</a>
+            
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  
+<style>
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast,
+.nboutput.nblast {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast + .nbinput {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
+</style>
+<div class="section" id="hlt-intro">
+<h1>HLT intro<a class="headerlink" href="#hlt-intro" title="Permalink to this headline">¶</a></h1>
+<div class="panel panel-objectives docutils container">
+<div class="panel-header open docutils container">
+<p id="learning-objectives"><i class="fa fa-line-chart"></i> Learning Objectives</p>
+</div>
+<div class="panel-body docutils container">
+<ul class="simple">
+<li><p>Learn about the LHCb trigger.</p></li>
+<li><p>Learn how to run Moore from settings and from TCK.</p></li>
+<li><p>Getting started with writing your own trigger selection.</p></li>
+</ul>
+</div>
+</div>
+<p>The Run 2 LHCb trigger reduced the input rate event rate of approximately 30 MHz
+to 12.5 kHz of events that are written to offline tape storage. The rate
+reduction is achieved in three steps: L0, HLT1 and HLT2. L0 is implemented in
+custom FPGAs, has a fixed latency of 4 μs and a maximum output rate of 1 MHz.
+HLT stands for High Level Trigger.</p>
+<p>HLT1 and HLT2 are implemented as software applications that run on the online
+farm; HLT1 runs in real-time and writes events to the local harddrives of the
+farm machines, while HLT2 uses the rest of the available CPU (100% when there is
+no beam) to process the events written by HLT1. The evolution of the disk buffer is
+shown in the figure below. Events accepted by HLT2 are sent to offline storage.</p>
+<p><img alt="Disk buffer in 2016" src="../_images/DiskBuffer2016.png" /></p>
+<p>In Run I, both the reconstructions and selections used by HLT1, HLT2 and offline
+were very different. In Run 2 the reconstructions used in HLT2 and offline are
+identical, while selections might still be different. To be fast, HLT1 runs a subset
+of the HLT2 reconstruction, for example HLT1 provides only tracks with PT &gt; 500 MeV
+and only Muon particle identification. We will see the difference in speed in the following.</p>
+<p>A new feature in Run 2 is the so-called Turbo stream. Since the reconstruction
+available in HLT2 is the same as the offline reconstruction, physics analyses
+can be done with the candidates created in HLT2. If a line is configured to be a
+Turbo line, all information on the candidates that it selects is stored in the
+raw event. The rest of the raw event, like sub-detector raw banks, is discarded,
+and cannot be recovered offline. The advantage of the Turbo stream is that
+less data are written to tape and no CPU intensive offline processing is needed.
+The output of the Turbo stream is almost identical to the output of a Stripping
+line which goes to mdst.</p>
+<p>For Run 3 LHCb is removing the hardware trigger and the first stage of the software trigger will run at 30 MHz. The HLT is being developed in the <a class="reference external" href="https://twiki.cern.ch/twiki/bin/viewauth/LHCb/RealTimeAnalysis">Real-Time-Analysis project</a>.</p>
+<div class="section" id="add-trigger-information-to-your-ntuple">
+<h2>Add trigger information to your ntuple<a class="headerlink" href="#add-trigger-information-to-your-ntuple" title="Permalink to this headline">¶</a></h2>
+<p>In this section and the following, we will explain how to find out which trigger lines selected my signal.</p>
+<p>Copy the following DaVinci script to get an ntuple.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">Configurables</span> <span class="kn">import</span> <span class="n">DaVinci</span><span class="p">,</span> <span class="n">CondDB</span>
+
+<span class="n">stream</span> <span class="o">=</span> <span class="s2">&quot;Semileptonic&quot;</span>
+<span class="n">stripping_line</span> <span class="o">=</span> <span class="s2">&quot;B2DMuNuX_D0&quot;</span>
+
+<span class="kn">from</span> <span class="nn">PhysConf.Selections</span> <span class="kn">import</span> <span class="n">AutomaticData</span><span class="p">,</span> <span class="n">SelectionSequence</span><span class="p">,</span> <span class="n">TupleSelection</span>
+<span class="n">my_particles_KPi</span> <span class="o">=</span> <span class="n">AutomaticData</span><span class="p">(</span> <span class="s2">&quot;/Event/{}/Phys/{}/Particles&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">stream</span><span class="p">,</span> <span class="n">stripping_line</span><span class="p">)</span> <span class="p">)</span>
+
+<span class="n">tupsel_KPi</span> <span class="o">=</span> <span class="n">TupleSelection</span> <span class="p">(</span>
+    <span class="s1">&#39;D0_Kpi&#39;</span> <span class="p">,</span> 
+    <span class="p">[</span><span class="n">my_particles_KPi</span><span class="p">]</span>   <span class="p">,</span>
+    <span class="n">Decay</span> <span class="o">=</span> <span class="s2">&quot;([B- -&gt; ^(D0 -&gt; ^K- ^pi+) ^mu-]CC) || ([B+ -&gt; ^(D0 -&gt; ^K- ^pi+) ^mu+]CC)&quot;</span><span class="p">,</span>
+    <span class="n">Branches</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s2">&quot;B&quot;</span>  <span class="p">:</span> <span class="s2">&quot;([B- -&gt; (D0 -&gt; K- pi+) mu-]CC) || ([B+ -&gt; (D0 -&gt; K- pi+) mu+]CC)&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;D0&quot;</span>  <span class="p">:</span> <span class="s2">&quot;([B- -&gt; ^(D0 -&gt; K- pi+) mu-]CC) || ([B+ -&gt; ^(D0 -&gt; K- pi+) mu+]CC)&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;K&quot;</span>  <span class="p">:</span> <span class="s2">&quot;([B- -&gt; (D0 -&gt; ^K- pi+) mu-]CC) || ([B+ -&gt; (D0 -&gt; ^K- pi+) mu+]CC)&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;pi&quot;</span>  <span class="p">:</span> <span class="s2">&quot;([B- -&gt; (D0 -&gt; K- ^pi+) mu-]CC) || ([B+ -&gt; (D0 -&gt; K- ^pi+) mu+]CC)&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;mu&quot;</span>  <span class="p">:</span> <span class="s2">&quot;([B- -&gt; (D0 -&gt; K- pi+) ^mu-]CC) || ([B+ -&gt; (D0 -&gt; K- pi+) ^mu+]CC)&quot;</span><span class="p">,</span>
+        <span class="p">},</span>
+    <span class="n">ToolList</span> <span class="o">=</span> <span class="p">[]</span> <span class="p">,</span>
+    <span class="p">)</span>
+
+<span class="c1"># 1. To get information about the TCK</span>
+<span class="n">tupsel_KPi</span><span class="o">.</span><span class="n">addTupleTool</span><span class="p">(</span><span class="s2">&quot;TupleToolEventInfo&quot;</span><span class="p">)</span>
+<span class="c1"># 2. To get information about trigger decisions</span>
+<span class="n">ttt</span> <span class="o">=</span> <span class="n">tupsel_KPi</span><span class="o">.</span><span class="n">addTupleTool</span><span class="p">(</span><span class="s2">&quot;TupleToolTrigger&quot;</span><span class="p">)</span>
+<span class="n">ttt</span><span class="o">.</span><span class="n">Verbose</span> <span class="o">=</span> <span class="bp">True</span> <span class="c1">#Needed to get trigger decisions</span>
+
+<span class="n">DaVinci</span><span class="p">()</span><span class="o">.</span><span class="n">UserAlgorithms</span> <span class="o">=</span> <span class="p">[</span><span class="n">SelectionSequence</span><span class="p">(</span> <span class="s1">&#39;SEQ_KPi&#39;</span> <span class="p">,</span> <span class="n">tupsel_KPi</span> <span class="p">)</span><span class="o">.</span><span class="n">sequence</span><span class="p">()]</span>
+<span class="n">DaVinci</span><span class="p">()</span><span class="o">.</span><span class="n">DataType</span> <span class="o">=</span> <span class="s2">&quot;2018&quot;</span>
+<span class="n">CondDB</span><span class="p">(</span><span class="n">LatestGlobalTagByDataType</span><span class="o">=</span><span class="n">DaVinci</span><span class="p">()</span><span class="o">.</span><span class="n">DataType</span><span class="p">)</span>
+<span class="n">DaVinci</span><span class="p">()</span><span class="o">.</span><span class="n">Simulation</span> <span class="o">=</span> <span class="bp">False</span>
+<span class="n">DaVinci</span><span class="p">()</span><span class="o">.</span><span class="n">InputType</span> <span class="o">=</span> <span class="s1">&#39;DST&#39;</span>
+<span class="n">DaVinci</span><span class="p">()</span><span class="o">.</span><span class="n">Lumi</span> <span class="o">=</span> <span class="bp">False</span>
+
+<span class="n">DaVinci</span><span class="p">()</span><span class="o">.</span><span class="n">TupleFile</span> <span class="o">=</span> <span class="s2">&quot;ntuple.root&quot;</span>
+<span class="n">DaVinci</span><span class="p">()</span><span class="o">.</span><span class="n">EvtMax</span> <span class="o">=</span> <span class="mi">1000</span>
+
+
+<span class="kn">from</span> <span class="nn">PhysConf.Filters</span> <span class="kn">import</span> <span class="n">LoKi_Filters</span>
+<span class="n">DaVinci</span><span class="p">()</span><span class="o">.</span><span class="n">EventPreFilters</span> <span class="o">=</span> <span class="p">[</span><span class="n">LoKi_Filters</span><span class="p">(</span>
+    <span class="n">STRIP_Code</span><span class="o">=</span><span class="s2">&quot;HLT_PASS_RE(&#39;Stripping&quot;</span><span class="o">+</span><span class="n">stripping_line</span><span class="o">+</span><span class="s2">&quot;Decision&#39;)&quot;</span>
+<span class="p">)</span><span class="o">.</span><span class="n">sequencer</span><span class="p">(</span><span class="s1">&#39;PreFilter&#39;</span><span class="p">)]</span>
+
+
+<span class="c1"># file from lb-run -c best LHCbDirac/prod dirac-dms-lfn-accessURL --Protocol=xroot /lhcb/LHCb/Collision18/SEMILEPTONIC.DST/00075559/0000/00075559_00002816_1.semileptonic.dst</span>
+<span class="kn">from</span> <span class="nn">GaudiConf</span> <span class="kn">import</span> <span class="n">IOHelper</span>
+<span class="n">IOHelper</span><span class="p">()</span><span class="o">.</span><span class="n">inputFiles</span><span class="p">([</span>
+    <span class="s1">&#39;root://eoslhcb.cern.ch//eos/lhcb/grid/prod/lhcb/LHCb/Collision18/SEMILEPTONIC.DST/00075559/0000/00075559_00002816_1.semileptonic.dst&#39;</span>
+<span class="p">],</span> <span class="n">clear</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The important line are</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">tupsel_KPi</span><span class="o">.</span><span class="n">addTupleTool</span><span class="p">(</span><span class="s2">&quot;TupleToolEventInfo&quot;</span><span class="p">)</span>
+<span class="n">ttt</span> <span class="o">=</span> <span class="n">tupsel_KPi</span><span class="o">.</span><span class="n">addTupleTool</span><span class="p">(</span><span class="s2">&quot;TupleToolTrigger&quot;</span><span class="p">)</span>
+<span class="n">ttt</span><span class="o">.</span><span class="n">Verbose</span> <span class="o">=</span> <span class="bp">True</span> <span class="c1">#Needed to get trigger decisions</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">TupleToolEventInfo</span></code> adds basic information about the event to your ntuple. Normally it is added by default. You will find two branches Hlt1TCK and Hlt2TCK. <code class="docutils literal notranslate"><span class="pre">TupleToolTrigger</span></code> adds the decisions of trigger lines. You will only find branches called L0Global, Hlt1Global and Hlt2Global. We first have to find out which trigger lines were available for these data.</p>
+<div class="panel panel-callout docutils container">
+<div class="panel-header open docutils container">
+<p id="what-is-a-tck?"><i class="fa fa-info-circle"></i> What is a TCK?</p>
+</div>
+<div class="panel-body docutils container">
+<p>The Trigger Configuration Key (TCK) stores the configuration of the HLT in a
+database.
+All algorithms and their properties are defined in it.
+The key is usually given as a hexadecimal number. The last 4 digits define the L0 TCK.
+The first 4 digits define the HLT configuration. HLT1 TCKs start with 1, HLT2 TCKs start
+with 2.</p>
+</div>
+</div>
+<div class="panel panel-challenge docutils container">
+<div class="panel-header open docutils container">
+<p id="which-tcks-were-used-to-trigger-these-data?"><i class="fa fa-square-o"></i> Which TCKs were used to trigger these data?</p>
+</div>
+<div class="panel-body docutils container">
+<p>Find out what the hexadecimal presentation of the Hlt1 and Hlt2 TCK is.</p>
+</div>
+</div>
+</div>
+<div class="section" id="exploring-a-tck-list-of-trigger-lines">
+<h2>Exploring a TCK: List of trigger lines<a class="headerlink" href="#exploring-a-tck-list-of-trigger-lines" title="Permalink to this headline">¶</a></h2>
+<p>To get a list of all available TCKs one can use TCKsh which is a python shell with predefined
+functions to explore TCKs, do</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ lb-run Moore/latest TCKsh
+&gt; listConfigurations()
+</pre></div>
+</div>
+<p>The commands <code class="docutils literal notranslate"><span class="pre">listL0Channels(&lt;TCK&gt;)</span></code>, <code class="docutils literal notranslate"><span class="pre">listHlt1Lines(&lt;TCK&gt;)</span></code> or <code class="docutils literal notranslate"><span class="pre">listHlt2Lines(&lt;TCK&gt;)</span></code> show lists of the lines in L0, Hlt1 or Hlt2. If you replace list with get, a list with the lines is returned.</p>
+<div class="panel panel-challenge docutils container">
+<div class="panel-header open docutils container">
+<p id="compare-hlt1-lines-from-run1-and-run2"><i class="fa fa-square-o"></i> Compare HLT1 lines from Run1 and Run2</p>
+</div>
+<div class="panel-body docutils container">
+<p>Try to find out which HLT1 lines were available in Run 1 and which are now available in Run 2.</p>
+<p>What are the names of the topological trigger lines in Run 1 and Run 2?</p>
+</div>
+</div>
+</div>
+<div class="section" id="add-trigger-information-to-your-ntuple-continued">
+<h2>Add trigger information to your ntuple, continued<a class="headerlink" href="#add-trigger-information-to-your-ntuple-continued" title="Permalink to this headline">¶</a></h2>
+<p>Once you have a list of trigger lines, you can add this to <code class="docutils literal notranslate"><span class="pre">TupleToolTrigger</span></code>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">triggerList</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="c1">#L0 TCKsh getL0Channels(0x11741801)</span>
+    <span class="s2">&quot;L0MuonDecision&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;L0DiMuonDecision&quot;</span>
+    <span class="s2">&quot;L0HadronDecision&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;L0ElectronDecision&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;L0PhotonDecision&quot;</span><span class="p">,</span>
+    <span class="c1">#Hlt1 lines TCKsh getHlt1Lines(0x11741801) </span>
+    <span class="s2">&quot;Hlt1TrackMVADecision&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Hlt1TwoTrackMVADecision&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Hlt1TrackMVATightDecision&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Hlt1TwoTrackMVATightDecision&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Hlt1TrackMuonDecision&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Hlt1TrackMuonMVADecision&quot;</span><span class="p">,</span>
+    <span class="c1">#Hlt2 lines TCKsh getHlt2(0x21751801)</span>
+    <span class="s2">&quot;Hlt2Topo2BodyDecision&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Hlt2Topo3BodyDecision&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Hlt2Topo4BodyDecision&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Hlt2TopoMu2BodyDecision&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Hlt2TopoMu3BodyDecision&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Hlt2TopoMu4BodyDecision&quot;</span>
+<span class="p">]</span>
+<span class="n">ttt</span><span class="o">.</span><span class="n">TriggerList</span> <span class="o">=</span> <span class="n">triggerList</span>
+</pre></div>
+</div>
+<p>Be aware you have to append <code class="docutils literal notranslate"><span class="pre">Decision</span></code> to the name of the trigger line.</p>
+</div>
+<div class="section" id="add-tistos-information-to-your-ntuple">
+<h2>Add TISTOS information to your ntuple<a class="headerlink" href="#add-tistos-information-to-your-ntuple" title="Permalink to this headline">¶</a></h2>
+<p>For analysis purposes it is important to know if your signal candidate was part of the trigger decision or not as one has different efficiencies for both categories. The following categories exist [ <a class="reference external" href="https://cds.cern.ch/record/1701134/files/LHCb-PUB-2014-039.pdf">LHCb-PUB-2014-039</a> ]:</p>
+<ol class="simple">
+<li><p>Triggered On Signal (TOS): events for which the presence of the signal is sufficient to generate a positive trigger decision.</p></li>
+<li><p>Triggered Independent of Signal (TIS): the “rest” of the event is sufficient to generate a positive trigger decision, where the rest of the event is defined through an operational procedure consisting in removing the signal and all detector hits belonging to it.</p></li>
+<li><p>Triggered On Both (TOB): these are events that are neither TIS nor TOS; neither the presence of the signal alone nor the rest of the event alone are sufficient to generate a positive trigger decision, but rather both are necessary.</p></li>
+</ol>
+<p>For a simple trigger candidate (e.g. Track), more than around 70% (depending on the subdetector) of the online reconstructed trigger candidate hits need to be contained within the set of all the hits from all offline reconstructed signal parts. For a composite candidate, the combination of all individual trigger candidates is compared to the set of offline candidates.</p>
+<p>To add TISTOS information to your ntuple do</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">tttt</span> <span class="o">=</span> <span class="n">tupsel_KPi</span><span class="o">.</span><span class="n">addTupleTool</span><span class="p">(</span><span class="s2">&quot;TupleToolTISTOS&quot;</span><span class="p">)</span>
+<span class="n">tttt</span><span class="o">.</span><span class="n">Verbose</span> <span class="o">=</span> <span class="bp">True</span> <span class="c1">#To decisions from all trigger stages</span>
+<span class="n">tttt</span><span class="o">.</span><span class="n">TriggerList</span> <span class="o">=</span> <span class="n">triggerList</span>
+</pre></div>
+</div>
+<div class="panel panel-challenge docutils container">
+<div class="panel-header open docutils container">
+<p id="understanding-tistos"><i class="fa fa-square-o"></i> Understanding TISTOS</p>
+</div>
+<div class="panel-body docutils container">
+<p>Explain why a single particle cannot be TOS on the Hlt1TwoTrackMVA line.</p>
+</div>
+</div>
+</div>
+<div class="section" id="exploring-a-tck-properties-of-trigger-lines">
+<h2>Exploring a TCK: Properties of trigger lines<a class="headerlink" href="#exploring-a-tck-properties-of-trigger-lines" title="Permalink to this headline">¶</a></h2>
+<p>If you want to get an overview of an Hlt line and its algorithms, you can do</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&gt; dump(&lt;TCK&gt;, lines = &lt;line_names_regex&gt;, file=&quot;output.txt&quot;)
+</pre></div>
+</div>
+<p>More advanced is to search for properties of a line. One example is to search for the prescale.
+The prescale determines how often a line is executed, 1.0 means always, 0.0 never.
+Type for example:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&gt; listProperties(0x214a160f,&quot;.*Hlt2DiMuonJPsi.*&quot;,&quot;AcceptFraction&quot;)
+...
+&gt; listProperties(0x214a160f,&quot;.*Hlt2DiMuonJPsiPreScaler.*&quot;,&quot;AcceptFraction&quot;)
+</pre></div>
+</div>
+<p>The regex is needed to search through all algorithms connected to a line.</p>
+<!-- ## Old
+
+### Run Moore from settings (Run1 + Run2)
+The application of the software trigger is called Moore. Moore relies on the same
+algorithms as are used in Brunel to run the reconstruction and in DaVinci to
+select particle decays.
+
+
+Let's start with a simple Moore script, we call it runMoore.py:
+
+```python
+from Configurables import Moore
+# Define settings
+Moore().ThresholdSettings = "Physics_pp_2018"
+Moore().RemoveInputHltRawBanks = True
+Moore().Split = ''
+# A bit more output
+from Gaudi.Configuration import INFO
+Moore().EnableTimer = True
+#Moore().OutputLevel = INFO
+# Input data
+from PRConfig import TestFileDB
+# The following call configures input data, database tags and data type
+TestFileDB.test_file_db["2017NB_L0Filt0x1707"].run(configurable=Moore())
+Moore().DataType = "2018"
+# Override the TCK in the ThresholdSettings to match the input data
+from Configurables import HltConf
+HltConf().setProp("L0TCK", '0x1707')
+# Remove a line which accepts every event when run on this sample
+HltConf().RemoveHlt1Lines = ["Hlt1MBNoBias"]
+
+Moore().EvtMax = 1000
+
+from Configurables import HltMonitoringConf
+HltMonitoringConf().OutputFile = "histos.root"
+
+print Moore()
+```
+
+Try to run it with
+```
+$ lb-run Moore/prod gaudirun.py runMoore.py | tee log.txt
+```
+
+The property split defines if HLT1, HLT2 or both are run. In the example above both are run.
+Change `Moore().Split` to `'Hlt1'` and rerun.
+To run HLT2 only, you have to change some settings and the input file has to be a file where
+HLT1 has run on:
+
+```python
+...
+Moore().RemoveInputHltRawBanks = False # Why?
+Moore().Split = 'Hlt2'
+...
+TestFileDB.test_file_db["2017_Hlt1_0x11611709"].run(configurable=Moore())
+HltConf().setProp("L0TCK", '0x1709')
+...
+```
+
+Note: HLT2 needs to know about the decisions of trigger lines used in HLT1.
+The decisions are decoded from the definitions in the HLT1 TCK. Therefore, HLT2 can only
+read data which have been created when running Moore from TCK and not from settings.
+
+{% challenge "Compare Hlt1 and Hlt2" %}
+
+What is reduction factor of Hlt1? (Search how many events are accepted by `Hlt1Global`.)
+
+What is reduction factor of Hlt2? (Search how many events are accepted by `Hlt2Global`.)
+
+What is difference in run time of Hlt1 and Hlt2?
+
+{% endchallenge %}
+
+### Run Moore from TCK* (Run1 + Run2)
+
+There are two ways to run Moore, from `ThresholdSettings` and from `TCK` (Trigger Configuration Key).
+When you develop a trigger line, it is more convenient to run from ThresholdSettings. The TCK
+is used when running the trigger on the online farm or in MC productions as it uniquely defines the settings.
+
+Running from TCK has a few restrictions:
+ 1 The L0TCK defined in the TCK and the one in data have to match.
+ 2 The HltTCK might be incompatible with a Moore version if the properties of C++ algorithms changed.	
+
+Here is an example script to run from an Hlt1 TCK.
+
+```python
+from Configurables import Moore
+# Define settings
+Moore().UseTCK = True
+# You can check in TCKsh which TCKs exist and for which Moore versions they can be used.
+Moore().InitialTCK = "0x117318A1"
+Moore().Split = 'Hlt1'
+Moore().RemoveInputHltRawBanks = True
+# In the online farm Moore checks if the TCK in data and the configuration are the same.
+# Here we disable it as we run a different TCK.
+Moore().CheckOdin = False
+Moore().outputFile = "TestTCK1.mdf"
+# A bit more output
+from Gaudi.Configuration import INFO
+Moore().EnableTimer = True
+#Moore().OutputLevel = INFO
+# Input data
+from PRConfig import TestFileDB
+TestFileDB.test_file_db["2017NB_L0Filt0x18A1"].run(configurable=Moore())
+Moore().DataType = "2018"
+Moore().EvtMax = 1000
+print Moore()
+```
+
+Run with
+```
+$ lb-run Moore/v28r2 gaudirun.py runMoore_hlt1_tck.py | tee log_hlt1_tck.txt
+```
+
+To run HLT2 on the output data of the first stage, use the following script:
+
+```python
+from Configurables import Moore
+# Define settings
+Moore().UseTCK = True
+Moore().InitialTCK = "0x217318A1"
+Moore().DataType = "2018"
+Moore().Split = 'Hlt2'
+Moore().RemoveInputHltRawBanks = False
+Moore().CheckOdin = False
+Moore().EnableOutputStreaming = True
+Moore().outputFile = "TestTCK2.mdf"
+# A bit more output
+from Gaudi.Configuration import INFO
+Moore().EnableTimer = True
+#Moore().OutputLevel = INFO
+# Input data
+Moore().DDDBtag = 'dddb-20150724'
+Moore().CondDBtag = 'cond-20170724'
+Moore().inputFiles = ["TestTCK1.mdf"]
+Moore().EvtMax = 100
+```
+
+### Adapt an existing trigger line (Run1 + Run2)
+
+HLT2 lines are similar to stripping lines. They combine basic particles to composite objects
+and you apply selections to get a clean sample. The framework in which you write a trigger
+line looks different to a stripping line but the underlying algorithms are the same.
+Documentation is found [here](https://twiki.cern.ch/twiki/bin/view/LHCb/LHCbTrigger#Developing_Hlt2_lines).
+There you also find information how to measure the efficiency or the output rate of a trigger line.
+
+HLT2 lines are found in the Hlt gitlab project in the package Hlt2Lines, see [here](https://gitlab.cern.ch/lhcb/Hlt/tree/2018-patches/Hlt/Hlt2Lines/python/Hlt2Lines).
+
+Their settings, i.e. the cut definitions, have to be defined in HltSettings package as well,
+see [here](https://gitlab.cern.ch/lhcb/Hlt/tree/2018-patches/Hlt/HltSettings/python/HltSettings).
+
+As a hands on, we will change the prescale of a line with a high rate and then reduce its rate with extra cuts.
+First setup a Moore lb-dev project from the nightlies.
+
+```
+$ lb-dev Moore/prod
+$ cd MooreDev_prod
+$ git lb-use Hlt
+$ git lb-checkout Hlt/2018-patches Hlt/HltSettings
+$ git lb-checkout Hlt/2018-patches Hlt/Hlt2Lines
+$ make
+```
+Go to `Hlt/HltSettings/python/HltSettings/DiMuon/DiMuon_pp_2018.py`, search for prescale and change the prescale of `Hlt2DiMuonJPsi` to 1.0.
+Run Moore again and see if the rate of this line has increased.
+
+The line is defined in `Hlt/Hlt2Lines/python/Hlt2Lines/DiMuon/Lines.py`. The cut properties appear in the dictionary under `JPsi`.
+Add an entry with the key `MinProbNN` and set some value. If you search for `JPsi` in the file, you will find that the lines
+uses `JpsiFilter` from `Stages.py`. As it is used by another line as well, you have to add the entry to `JPsiHighPT` as well.
+JpsiFilter simply uses muon pairs as input.  Go to Stages.py  and adapt the code of the `Hlt2ParticleFilter` to filter on the
+pid of the muons, to do that add `(MINTREE('mu-' == ABSID, PROBNNmu) > %(MinProbNN)s )`
+to the cut string. Run Moore again and see if the rate of this line has now decreased. If you are happy, you can do
+```
+$ git lb-push Hlt myNewLine
+```
+and create a merge request.
+
+For more complicated developments which require changing many files or concurrent development of several people,
+we encourage to use a full checkout of the `Moore` and `Hlt` projects and to use vanilla git commands.
+A user friendly setup for this is being developed under the name [trigger-dev](https://gitlab.cern.ch/lhcb-HLT/trigger-dev).
+We encourage people to check it out and give feedback on the [issues page](https://gitlab.cern.ch/lhcb-HLT/trigger-dev/issues).
+
+{% challenge "Convert a stripping line to a Hlt2 line" %}
+
+1. Pick a stripping line and convert it to a HLT2 line.
+2. Make it a Turbo line (You have to set the property Turbo to true and the name of the line has to end with Turbo).
+3. Run a rate test to determine the rate of the line, [instructions](https://twiki.cern.ch/twiki/bin/view/LHCb/MooreRateTestExamples) are found here.
+
+{% endchallenge %} --></div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="tistos-diy.html" class="btn btn-neutral float-right" title="TisTos DIY" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="simulation-fastsim.html" class="btn btn-neutral float-left" title="Why fast simulation is crucial" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015-2019, LHCb Starterkit
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -1,0 +1,639 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Managing files in Ganga &mdash; LHCb Starterkit Lessons  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="../_static/panels.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/panels.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/starterkit.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Analysis automation with snakemake" href="analysis-automation-snakemake.html" />
+    <link rel="prev" title="Scripting Ganga" href="ganga-scripting.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> LHCb Starterkit Lessons
+          
+
+          
+            
+            <img src="../_static/starterkit.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../first-analysis-steps/README.html">First Analysis Steps</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../first-analysis-steps/prerequisites.html">Pre-workshop checklist</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../first-analysis-steps/introduction-to-course.html">Goals of the course</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../first-analysis-steps/physics-at-lhcb.html">Physics at LHCb</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../first-analysis-steps/physics-at-lhcb.html#the-reconstruction">The reconstruction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../first-analysis-steps/physics-at-lhcb.html#building-decay-candidates">Building decay candidates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../first-analysis-steps/physics-at-lhcb.html#building-more-complex-decays">Building more complex decays</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../first-analysis-steps/dataflow.html">The LHCb data flow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../first-analysis-steps/run-2-data-flow.html">Changes to the data flow in Run 2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../first-analysis-steps/davinci.html">An introduction to LHCb Software</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../first-analysis-steps/bookkeeping.html">Finding data in the Bookkeeping</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../first-analysis-steps/files-from-grid.html">Downloading a file from the grid</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../first-analysis-steps/interactive-dst.html">Interactively exploring a DST</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../first-analysis-steps/minimal-dv-job.html">Running a minimal DaVinci job locally</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../first-analysis-steps/loki-functors.html">Fun with LoKi Functors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../first-analysis-steps/add-tupletools.html">TupleTools and branches</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../first-analysis-steps/decay-tree-fitter.html">How do I use DecayTreeFitter?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../first-analysis-steps/davinci-grid.html">Running DaVinci on the grid</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../first-analysis-steps/split-jobs.html">Splitting a job into subjobs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../first-analysis-steps/ganga-data.html">More Ganga</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../first-analysis-steps/eos-storage.html">Storing large files on EOS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../first-analysis-steps/lhcb-dev.html">Developing LHCb Software</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../first-analysis-steps/asking-questions.html">Asking good questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../first-analysis-steps/ecgd.html">Early career, gender and diversity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../first-analysis-steps/contributing-lesson.html">Contribute to this lesson</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="reference internal" href="README.html">Second Analysis Steps</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="lb-git.html">Using git to develop LHCb software</a></li>
+<li class="toctree-l2"><a class="reference internal" href="building-decays.html">Building your own decay</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="building-decays-part0.html">The Selection Framework</a></li>
+<li class="toctree-l3"><a class="reference internal" href="building-decays-part1.html">A Historical Approach</a></li>
+<li class="toctree-l3"><a class="reference internal" href="building-decays-part2.html">Modern Selection Framework</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="fixing-errors.html">What to do when something fails</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rerun-stripping.html">Run a different stripping line on simulated data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="switch-mass-hypo.html">Replace a mass hypothesis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="filter-in-trees.html">Reuse particles from a decay tree</a></li>
+<li class="toctree-l2"><a class="reference internal" href="simulation.html">The simulation framework</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="simulation-intro.html">What is Gauss?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="simulation-running-gauss.html">Which option files to use and how to run Gauss</a></li>
+<li class="toctree-l3"><a class="reference internal" href="simulation-running-gauss.html#running-gauss-and-create-a-generator-only-sample">Running Gauss and create a generator-only sample</a></li>
+<li class="toctree-l3"><a class="reference internal" href="simulation-running-gauss.html#make-an-ntuple">Make an nTuple</a></li>
+<li class="toctree-l3"><a class="reference internal" href="simulation-dkfiles.html">Controlling the decay: DecFiles</a></li>
+<li class="toctree-l3"><a class="reference internal" href="simulation-gencuts.html">Modifying the decay</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="simulation-gencuts.html#adding-a-decay-channel">Adding a decay channel</a></li>
+<li class="toctree-l4"><a class="reference internal" href="simulation-gencuts.html#generator-level-cuts">Generator level cuts</a></li>
+<li class="toctree-l4"><a class="reference internal" href="simulation-gencuts.html#removing-the-generator-cuts">Removing the generator cuts</a></li>
+<li class="toctree-l4"><a class="reference internal" href="simulation-gencuts.html#modifying-the-cut-tool">Modifying the cut tool</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="simulation-advanced-dkfiles.html">Advanced: Modifying the decay</a></li>
+<li class="toctree-l3"><a class="reference internal" href="simulation-advanced-dkfiles.html#multi-body-decays">3+ multi-body decays</a></li>
+<li class="toctree-l3"><a class="reference internal" href="simulation-advanced-dkfiles.html#cocktail-decays">Cocktail decays</a></li>
+<li class="toctree-l3"><a class="reference internal" href="simulation-advanced-dkfiles.html#final-state-radiation">Final state radiation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="simulation-advanced-dkfiles.html#changing-particle-masses-lifetimes-widths">Changing particle masses / lifetimes/ widths</a></li>
+<li class="toctree-l3"><a class="reference internal" href="simulation-fastsim.html">Why fast simulation is crucial</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="simulation-fastsim.html#speeding-up-the-detector-simulation">Speeding up the detector simulation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="simulation-fastsim.html#speeding-up-the-generation">Speeding up the generation</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="hlt-intro.html">HLT intro</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="hlt-intro.html#add-trigger-information-to-your-ntuple">Add trigger information to your ntuple</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hlt-intro.html#exploring-a-tck-list-of-trigger-lines">Exploring a TCK: List of trigger lines</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hlt-intro.html#add-trigger-information-to-your-ntuple-continued">Add trigger information to your ntuple, continued</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hlt-intro.html#add-tistos-information-to-your-ntuple">Add TISTOS information to your ntuple</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hlt-intro.html#exploring-a-tck-properties-of-trigger-lines">Exploring a TCK: Properties of trigger lines</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="tistos-diy.html">TisTos DIY</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ganga-scripting.html">Scripting Ganga</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="ganga-scripting.html#defining-jobs-with-scripts">Defining jobs with scripts</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ganga-scripting.html#adding-helpers-functions">Adding helpers functions</a></li>
+</ul>
+</li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Managing files in Ganga</a></li>
+<li class="toctree-l2"><a class="reference internal" href="analysis-automation-snakemake.html">Analysis automation with snakemake</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="analysis-automation-snakemake.html#motivation">Motivation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="analysis-automation-snakemake.html#documentation-and-installation">Documentation and installation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="analysis-automation-snakemake.html#tutorial">Tutorial</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="analysis-automation-snakemake.html#usage-and-basic-behaviour">Usage and basic behaviour</a></li>
+<li class="toctree-l4"><a class="reference internal" href="analysis-automation-snakemake.html#sub-labels">Sub-labels</a></li>
+<li class="toctree-l4"><a class="reference internal" href="analysis-automation-snakemake.html#run-and-shell">Run and shell</a></li>
+<li class="toctree-l4"><a class="reference internal" href="analysis-automation-snakemake.html#config-files">Config files</a></li>
+<li class="toctree-l4"><a class="reference internal" href="analysis-automation-snakemake.html#includes">Includes</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../self-guided-lessons/README.html">Self guided lessons</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../self-guided-lessons/htcondor.html">Batch submission using HTCondor</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../self-guided-lessons/htcondor-first-job.html">Submitting a simple job</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../self-guided-lessons/htcondor-first-job.html#tracking-your-jobs">Tracking your jobs</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../self-guided-lessons/htcondor-more-options.html">More submit file options</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../self-guided-lessons/htcondor-more-options.html#input-files">Input files</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../self-guided-lessons/htcondor-more-options.html#output-files">Output files</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../self-guided-lessons/htcondor-more-options.html#arguments">Arguments</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../self-guided-lessons/htcondor-more-options.html#resources-and-requirements">Resources and Requirements</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../self-guided-lessons/htcondor-more-options.html#notifications">Notifications</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../self-guided-lessons/htcondor-queue.html">Using the queue command</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../self-guided-lessons/htcondor-queue.html#more-on-variables">More on variables</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../self-guided-lessons/htcondor-queue.html#other-ways-to-queue">Other ways to queue</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../self-guided-lessons/htcondor-queue.html#mixing-options-and-variables">Mixing options and variables</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../self-guided-lessons/htcondor.html#system-architecture">System architecture</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../self-guided-lessons/htcondor.html#other-useful-resources">Other useful resources</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../self-guided-lessons/local-grid-proxy.html">Creating a grid proxy without LbScripts</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../self-guided-lessons/local-grid-proxy.html#installation">Installation</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../self-guided-lessons/local-grid-proxy.html#macos-with-homebrew">macOS with homebrew</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../self-guided-lessons/local-grid-proxy.html#ubuntu">Ubuntu</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../self-guided-lessons/local-grid-proxy.html#centos">CentOS</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../self-guided-lessons/local-grid-proxy.html#arch-linux">Arch Linux</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../self-guided-lessons/local-grid-proxy.html#getting-the-required-files-and-certificates">Getting the required files and certificates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../self-guided-lessons/local-grid-proxy.html#creating-a-proxy">Creating a proxy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../self-guided-lessons/local-grid-proxy.html#managing-the-proxy">Managing the proxy</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../CONTRIBUTING.html">Contributing</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../CONTRIBUTING.html#getting-started">Getting Started</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../CONTRIBUTING.html#dependencies">Dependencies</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../CONDUCT.html">Contributor Code of Conduct</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../LICENSE.html">Instructional Material</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../LICENSE.html#software">Software</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">External links:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://hsf-training.github.io/analysis-essentials/">Analysis essentials</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">LHCb Starterkit Lessons</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="README.html">Second Analysis Steps</a> &raquo;</li>
+        
+      <li>Managing files in Ganga</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            
+              <a href="https://github.com/lhcb/starterkit-lessons/blob/master/second-analysis-steps/managing-files-with-ganga.md" class="fa fa-github"> Edit on GitHub</a>
+            
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  
+<style>
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast,
+.nboutput.nblast {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast + .nbinput {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
+</style>
+<div class="section" id="managing-files-in-ganga">
+<h1>Managing files in Ganga<a class="headerlink" href="#managing-files-in-ganga" title="Permalink to this headline">¶</a></h1>
+<div class="panel panel-objectives docutils container">
+<div class="panel-header open docutils container">
+<p id="learning-objectives"><i class="fa fa-line-chart"></i> Learning Objectives</p>
+</div>
+<div class="panel-body docutils container">
+<ul class="simple">
+<li><p>Choose whether job output is saved locally or on the Grid</p></li>
+<li><p>Choose where to look for job input files</p></li>
+<li><p>Move files from any grid site to CERN, for analysis using EOS</p></li>
+</ul>
+</div>
+</div>
+<!--
+Ganga - Tasks, DiracFile and LocalFile, alternative to MassStorageFile with 
+replication to CERN
+Dirac - Replicating to CERN for use with EOS
+Dirac CLI - downloading LFNs, finding where an LFN is replicated, finding what 
+grid sites are available
+EOS - xrdfs local usage
+--><p>Ganga allows you to define a job and have it run anywhere: on your local machine,
+on the <a class="reference external" href="https://information-technology.web.cern.ch/services/batch">batch system</a>, or on the Grid.
+This is very convenient as you don’t need to worry about the specifics of each
+platform.</p>
+<p>Ganga treats files in a similar way to jobs, in that you only need to change
+the object you’re using to tell Ganga to use local files, files on the Grid, or
+files on EOS.
+In this lesson, we’ll see how you can efficiently manage input and output files
+using Ganga.</p>
+<div class="panel panel-callout docutils container">
+<div class="panel-header open docutils container">
+<p id="ganga-versions"><i class="fa fa-info-circle"></i> Ganga versions</p>
+</div>
+<div class="panel-body docutils container">
+<p>It is generally advised to use the latest available version of Ganga. Functionality is not removed and there are no compatibility issues between versions (it is just python!). If you
+encounter problems, you should first search <a class="reference external" href="https://groups.cern.ch/group/lhcb-distributed-analysis/default.aspx">the archives of the
+<code class="docutils literal notranslate"><span class="pre">lhcb-distributed-analysis</span></code> mailing list</a>. If you don’t find an
+answer, you can talk to the Ganga developers directly on the <a class="reference external" href="https://github.com/ganga-devs/ganga">GitHub issues
+page for Ganga</a>, on the <a class="reference external" href="https://mattermost.web.cern.ch/lhcb/channels/distributed-analysis">~distributed-analysis</a> mattermost channel, or by sending an email to
+<a class="reference external" href="mailto:lhcb-distributed-analysis&#37;&#52;&#48;cern&#46;ch"><code class="docutils literal notranslate"><span class="pre">lhcb-distributed-analysis</span></code></a>.</p>
+</div>
+</div>
+<div class="panel panel-callout docutils container">
+<div class="panel-header open docutils container">
+<p id="making-a-fresh-start"><i class="fa fa-info-circle"></i> Making a fresh start</p>
+</div>
+<div class="panel-body docutils container">
+<p>To make sure there will be no pre-existing files from of Ganga to interfere,
+we will move them to a backup location.</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ <span class="nb">cd</span> ~
+$ mkdir ganga-backup
+<span class="c1"># See what&#39;s in your home directory that&#39;s related to Ganga</span>
+$ ls -la <span class="p">|</span> grep -i ganga
+<span class="c1"># Then move everything</span>
+$ mv gangadir .gangarc* .ganga.log .ganga.py .ipython-ganga ganga-backup
+</pre></div>
+</div>
+<p>You can move this back after the lesson if you want to restore your old
+settings and data.</p>
+</div>
+</div>
+<p>We’ll be doing everything in Ganga, so let’s start it up.</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ ganga
+</pre></div>
+</div>
+<p>If it’s your first time starting Ganga, you’ll be asked if you want to create a
+default <code class="docutils literal notranslate"><span class="pre">.gangarc</span></code> file with the default settings.</p>
+<blockquote>
+<div><p>Would you like to create default config file <code class="docutils literal notranslate"><span class="pre">~/.gangarc</span></code> with standard
+settings ([y]/n) ?</p>
+</div></blockquote>
+<p>Answer with <code class="docutils literal notranslate"><span class="pre">y</span></code>. The <code class="docutils literal notranslate"><span class="pre">.gangarc</span></code> file defines the configuration of Ganga, and
+the defaults are normally good enough.</p>
+<p>You’ll then be dropped in a <a class="reference external" href="https://ipython.org/ipython-doc/3/interactive/tutorial.html">IPython shell</a>.
+We will create a job that runs a Python script that accepts a path to an input
+text file as an argument, and saves a file that contains the text of the file
+reversed. For example, it would save a file containing ‘!dlrow olleH’ if it was
+given a file containing ‘Hello world!’ as input.</p>
+<p><a class="reference download internal" download="" href="../_downloads/9d7edaf957a05879dfab52d5a04a2009/reverse.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">the</span> <span class="pre">script</span></code></a> to lxplus and set it to be executable.
+You can execute these commands inside Ganga, if you like, by prefixing them
+with a <code class="docutils literal notranslate"><span class="pre">!</span></code>.</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ wget https://raw.githubusercontent.com/lhcb/starterkit-lessons/master/second-analysis-steps/code/01-managing-files-with-ganga/reverse.py
+$ chmod +x reverse.py
+$ ./reverse.py
+Usage: reverse.py &lt;file&gt;
+</pre></div>
+</div>
+<p>In Ganga, create a <code class="docutils literal notranslate"><span class="pre">Job</span></code> object with a descriptive name and take a look at it.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">j</span> <span class="o">=</span> <span class="n">Job</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;Reverser&#39;</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">j</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>You’ll see that Ganga has created a <code class="docutils literal notranslate"><span class="pre">Job</span></code> which will execute the <code class="docutils literal notranslate"><span class="pre">echo</span></code>
+command, passing the list of arguments <code class="docutils literal notranslate"><span class="pre">['Hello</span> <span class="pre">World']</span></code>. Each element of this
+list will be passed as a positional argument to the <code class="docutils literal notranslate"><span class="pre">echo</span></code> command.</p>
+<p>We’ll replace the command name and the arguments, so that our <code class="docutils literal notranslate"><span class="pre">reverse.py</span></code>
+script is run with a text file as input.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">j</span><span class="o">.</span><span class="n">application</span><span class="o">.</span><span class="n">exe</span> <span class="o">=</span> <span class="n">File</span><span class="p">(</span><span class="s1">&#39;reverse.py&#39;</span><span class="p">)</span>
+<span class="n">j</span><span class="o">.</span><span class="n">application</span><span class="o">.</span><span class="n">args</span> <span class="o">=</span> <span class="p">[</span><span class="n">File</span><span class="p">(</span><span class="s1">&#39;input.txt&#39;</span><span class="p">)]</span>
+</pre></div>
+</div>
+<p>We haven’t made <code class="docutils literal notranslate"><span class="pre">input.txt</span></code>, so let’s make it by executing a couple of shell
+commands inside Ganga.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>!echo -e &quot;$(date)\nHello world!\nI am $USER!&quot; &gt; input.txt
+!cat input.txt
+</pre></div>
+</div>
+<p>Before submission, we just need to tell Ganga what to do with the output. The
+script saves the output to a file called like the input, but with <code class="docutils literal notranslate"><span class="pre">-reversed</span></code>
+appended before the file extension (<code class="docutils literal notranslate"><span class="pre">.txt</span></code> in this case), so we tell Ganga
+explicitly to move this file to the local job output directory.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">j</span><span class="o">.</span><span class="n">outputfiles</span> <span class="o">=</span> <span class="p">[</span><span class="n">LocalFile</span><span class="p">(</span><span class="s1">&#39;input-reversed.txt&#39;</span><span class="p">)]</span>
+</pre></div>
+</div>
+<p>Now we can submit the job.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">j</span><span class="o">.</span><span class="n">submit</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>By default, jobs run on the machine you’re running Ganga on, as their <code class="docutils literal notranslate"><span class="pre">backend</span></code>
+property is set to an instance of the <code class="docutils literal notranslate"><span class="pre">Local</span></code> backend.</p>
+<p>The job will finish very quickly, and we can inspect the output files.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">j</span><span class="o">.</span><span class="n">peek</span><span class="p">()</span>
+<span class="n">j</span><span class="o">.</span><span class="n">peek</span><span class="p">(</span><span class="s1">&#39;input-reversed.txt&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>There are a couple of file-related things to take note of in what we just did:</p>
+<ol class="simple">
+<li><p>The <code class="docutils literal notranslate"><span class="pre">File</span></code> object is used to define local files that should be available in
+the ‘working directory’ of the job (wherever it executes). We need both the
+script and the input text file to be in the working directory, so both of
+the paths to the files on our local machine are wrapped in <code class="docutils literal notranslate"><span class="pre">File</span></code>.</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">LocalFile</span></code> object is used to define what files in the working directory
+of the job should be saved in the local job output directory, in this case
+the file with <code class="docutils literal notranslate"><span class="pre">-reversed</span></code> in it.</p></li>
+</ol>
+<p>Note that there are several files in the job output directory, seen with
+<code class="docutils literal notranslate"><span class="pre">j.peek()</span></code>, that we didn’t explicitly ask for, most notably <code class="docutils literal notranslate"><span class="pre">stdout</span></code> and
+<code class="docutils literal notranslate"><span class="pre">stderr</span></code>. These two files are essentially the logs of the job, and Ganga always
+saves them in the local job output directory as they’re almost always useful.<br />For Gaudi jobs, Ganga will also automatically download the <code class="docutils literal notranslate"><span class="pre">summary.xml</span></code> file,
+which contains useful information about algorithm counters.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">DiracFile</span><span class="p">(</span><span class="s1">&#39;input.txt&#39;</span><span class="p">,</span> <span class="n">localDir</span><span class="o">=</span><span class="s1">&#39;.&#39;</span><span class="p">)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="n">uploadSE</span><span class="o">=</span><span class="s1">&#39;CERN-USER&#39;</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">lfn</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="panel panel-callout docutils container">
+<div class="panel-header open docutils container">
+<p id="couldn't-upload-file---this-file-guid-already-exists"><i class="fa fa-info-circle"></i> Couldn’t upload file - This file GUID already exists</p>
+</div>
+<div class="panel-body docutils container">
+<p>All files on the grid are required to have a unique identifier (GUID) which is normally generated from the file’s content and is independent of its filename.
+As a result, if you try to upload a file which already exists you receive an error.</p>
+<p>If this happens, and you have a reason to not use the pre-existing file, the simplest solution is to make the file unique in some way, in this case we add the date and time to the top line of the text file.</p>
+</div>
+</div>
+<p>Grid files that are replicated at CERN are directly accessible via EOS. We can
+see that our file’s on EOS by looking at the LFN Ganga gave us. We just need to
+add the prefix <code class="docutils literal notranslate"><span class="pre">/eos/lhcb/grid/user</span></code> to the LFN.</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>eos ls /eos/lhcb/grid/user//lhcb/user/a/apearce/GangaFiles_22.24_Wednesday_18_May_2016
+</pre></div>
+</div>
+<div class="panel panel-callout docutils container">
+<div class="panel-header open docutils container">
+<p id="using-massstoragefile"><i class="fa fa-info-circle"></i> Using MassStorageFile</p>
+</div>
+<div class="panel-body docutils container">
+<p>The <code class="docutils literal notranslate"><span class="pre">MassStorageFile</span></code> object uploads job output directly to EOS. However,
+using <code class="docutils literal notranslate"><span class="pre">MassStorageFile</span></code> for this purpose is actively discouraged by the Ganga
+developers as it is highly inefficient: a file made on the Grid will first be
+downloaded to the machine running Ganga, and then uploaded to EOS.</p>
+<p>Instead, always use <code class="docutils literal notranslate"><span class="pre">DiracFile</span></code> for large outputs, and then replicate them to
+<code class="docutils literal notranslate"><span class="pre">CERN-USER</span></code> if you want to be able to access them on EOS.</p>
+</div>
+</div>
+<p>If you have any <code class="docutils literal notranslate"><span class="pre">DiracFile</span></code>, you can ask for it to be replicated to a grid site
+it’s not currently available at.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">replicate</span><span class="p">(</span><span class="s1">&#39;RAL-USER&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="panel panel-callout docutils container">
+<div class="panel-header open docutils container">
+<p id="automating-replication-to-cern"><i class="fa fa-info-circle"></i> Automating replication to CERN</p>
+</div>
+<div class="panel-body docutils container">
+<p>If you have a job with subjobs, you can automate this to replicate all output
+files to CERN, so that you can run your analysis directly on the files on
+EOS.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">j</span> <span class="o">=</span> <span class="n">jobs</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">sj</span> <span class="ow">in</span> <span class="n">j</span><span class="o">.</span><span class="n">subjobs</span><span class="p">:</span>
+  <span class="c1"># Get all output files which are DiracFile objects</span>
+  <span class="k">for</span> <span class="n">df</span> <span class="ow">in</span> <span class="n">sj</span><span class="o">.</span><span class="n">outputfiles</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">DiracFile</span><span class="p">):</span>
+    <span class="c1"># No need to replicate if it&#39;s already at CERN</span>
+    <span class="k">if</span> <span class="s1">&#39;CERN-USER&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">locations</span><span class="p">:</span>
+      <span class="n">df</span><span class="o">.</span><span class="n">replicate</span><span class="p">(</span><span class="s1">&#39;CERN-USER&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>After you did this your files will go into “/eos/lhcb/grid/lhcb/{u}/{user}/”+LFN.</p>
+<p>You could make a function from this and put it in your <code class="docutils literal notranslate"><span class="pre">.ganga.py</span></code> file, whose
+contents is available in any Ganga session.</p>
+</div>
+</div>
+<p>You can download a <code class="docutils literal notranslate"><span class="pre">DiracFile</span></code> locally using the <code class="docutils literal notranslate"><span class="pre">get</span></code> method. If you already
+know an LFN, you can use this to quickly download it locally to play around
+with it. All you need to do is prefix the LFN with <code class="docutils literal notranslate"><span class="pre">LFN:</span></code>, and Ganga will
+assume that the file already exists on the Grid somewhere (whereas before it
+assumed the file was local).</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>df2 = DiracFile(&#39;LFN:&#39; + df.lfn)
+# The directory used for the download must exist first
+!mkdir foo
+dfr2.localDir = &quot;foo&quot;
+dfr2.get()
+!cat foo/input.txt
+</pre></div>
+</div>
+<p>We can tell Ganga to upload the job output to the Grid automatically.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Clone the job</span>
+<span class="n">j2</span> <span class="o">=</span> <span class="n">Job</span><span class="p">(</span><span class="n">j</span><span class="p">)</span>
+<span class="n">j2</span><span class="o">.</span><span class="n">outputfiles</span> <span class="o">=</span> <span class="p">[</span><span class="n">DiracFile</span><span class="p">(</span><span class="s1">&#39;*-reversed.txt&#39;</span><span class="p">)]</span>
+<span class="n">j2</span><span class="o">.</span><span class="n">submit</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Here we use a ‘pattern’ to tell Ganga that any file ending in <code class="docutils literal notranslate"><span class="pre">*-reversed.txt</span></code>
+should be uploaded to Grid storage. Both <code class="docutils literal notranslate"><span class="pre">DiracFile</span></code> and <code class="docutils literal notranslate"><span class="pre">LocalFile</span></code> support
+these patterns.</p>
+<p>To download the output, we use <code class="docutils literal notranslate"><span class="pre">.get</span></code> as usual.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">j2</span><span class="o">.</span><span class="n">outputfiles</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">DiracFile</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Being able to manipulate files with Ganga can be very useful. Particularly for
+Gaudi-based jobs where:</p>
+<ol class="simple">
+<li><p>We often specify large sets of <code class="docutils literal notranslate"><span class="pre">DiracFiles</span></code> as input, from the bookkeeping,
+but often want to download a file or two locally when testing options;</p></li>
+<li><p>We want to duplicate a large number of output LFNs to <code class="docutils literal notranslate"><span class="pre">CERN-USER</span></code> so that we
+can use them directly with EOS and XRootD commands;</p></li>
+<li><p>We want to job output to be download locally automatically when the job
+completes.</p></li>
+</ol>
+<div class="panel panel-callout docutils container">
+<div class="panel-header open docutils container">
+<p id="defining-inputfiles"><i class="fa fa-info-circle"></i> Defining inputfiles</p>
+</div>
+<div class="panel-body docutils container">
+<p>The <code class="docutils literal notranslate"><span class="pre">inputfiles</span></code> attribute of a <code class="docutils literal notranslate"><span class="pre">Job</span></code> object works in a similar way to
+<code class="docutils literal notranslate"><span class="pre">outputfile</span></code>. In our example, the reverser script that the <code class="docutils literal notranslate"><span class="pre">Executable</span></code>
+application uses doesn’t know how to handle things specified as <code class="docutils literal notranslate"><span class="pre">inputdata</span></code>,
+so we had to use <code class="docutils literal notranslate"><span class="pre">File</span></code> when defining the arguments.</p>
+<p>For LHCb applications, you will almost always define the <code class="docutils literal notranslate"><span class="pre">inputdata</span></code> list
+using either <code class="docutils literal notranslate"><span class="pre">LocalFile</span></code> or <code class="docutils literal notranslate"><span class="pre">DiracFile</span></code> objects. Which one you will use just
+depends on where the input files are.</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="analysis-automation-snakemake.html" class="btn btn-neutral float-right" title="Analysis automation with snakemake" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="ganga-scripting.html" class="btn btn-neutral float-left" title="Scripting Ganga" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015-2019, LHCb Starterkit
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

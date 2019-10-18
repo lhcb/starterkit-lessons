@@ -1,0 +1,545 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>The LHCb data flow &mdash; LHCb Starterkit Lessons  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="../_static/panels.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/panels.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/starterkit.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Changes to the data flow in Run 2" href="run-2-data-flow.html" />
+    <link rel="prev" title="Physics at LHCb" href="physics-at-lhcb.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> LHCb Starterkit Lessons
+          
+
+          
+            
+            <img src="../_static/starterkit.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="README.html">First Analysis Steps</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="prerequisites.html">Pre-workshop checklist</a></li>
+<li class="toctree-l2"><a class="reference internal" href="introduction-to-course.html">Goals of the course</a></li>
+<li class="toctree-l2"><a class="reference internal" href="physics-at-lhcb.html">Physics at LHCb</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="physics-at-lhcb.html#the-reconstruction">The reconstruction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="physics-at-lhcb.html#building-decay-candidates">Building decay candidates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="physics-at-lhcb.html#building-more-complex-decays">Building more complex decays</a></li>
+</ul>
+</li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">The LHCb data flow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="run-2-data-flow.html">Changes to the data flow in Run 2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="davinci.html">An introduction to LHCb Software</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bookkeeping.html">Finding data in the Bookkeeping</a></li>
+<li class="toctree-l2"><a class="reference internal" href="files-from-grid.html">Downloading a file from the grid</a></li>
+<li class="toctree-l2"><a class="reference internal" href="interactive-dst.html">Interactively exploring a DST</a></li>
+<li class="toctree-l2"><a class="reference internal" href="minimal-dv-job.html">Running a minimal DaVinci job locally</a></li>
+<li class="toctree-l2"><a class="reference internal" href="loki-functors.html">Fun with LoKi Functors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="add-tupletools.html">TupleTools and branches</a></li>
+<li class="toctree-l2"><a class="reference internal" href="decay-tree-fitter.html">How do I use DecayTreeFitter?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="davinci-grid.html">Running DaVinci on the grid</a></li>
+<li class="toctree-l2"><a class="reference internal" href="split-jobs.html">Splitting a job into subjobs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ganga-data.html">More Ganga</a></li>
+<li class="toctree-l2"><a class="reference internal" href="eos-storage.html">Storing large files on EOS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lhcb-dev.html">Developing LHCb Software</a></li>
+<li class="toctree-l2"><a class="reference internal" href="asking-questions.html">Asking good questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ecgd.html">Early career, gender and diversity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="contributing-lesson.html">Contribute to this lesson</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../second-analysis-steps/README.html">Second Analysis Steps</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../second-analysis-steps/lb-git.html">Using git to develop LHCb software</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../second-analysis-steps/building-decays.html">Building your own decay</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../second-analysis-steps/building-decays-part0.html">The Selection Framework</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../second-analysis-steps/building-decays-part1.html">A Historical Approach</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../second-analysis-steps/building-decays-part2.html">Modern Selection Framework</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../second-analysis-steps/fixing-errors.html">What to do when something fails</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../second-analysis-steps/rerun-stripping.html">Run a different stripping line on simulated data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../second-analysis-steps/switch-mass-hypo.html">Replace a mass hypothesis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../second-analysis-steps/filter-in-trees.html">Reuse particles from a decay tree</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../second-analysis-steps/simulation.html">The simulation framework</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../second-analysis-steps/simulation-intro.html">What is Gauss?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../second-analysis-steps/simulation-running-gauss.html">Which option files to use and how to run Gauss</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../second-analysis-steps/simulation-running-gauss.html#running-gauss-and-create-a-generator-only-sample">Running Gauss and create a generator-only sample</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../second-analysis-steps/simulation-running-gauss.html#make-an-ntuple">Make an nTuple</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../second-analysis-steps/simulation-dkfiles.html">Controlling the decay: DecFiles</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../second-analysis-steps/simulation-gencuts.html">Modifying the decay</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../second-analysis-steps/simulation-gencuts.html#adding-a-decay-channel">Adding a decay channel</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../second-analysis-steps/simulation-gencuts.html#generator-level-cuts">Generator level cuts</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../second-analysis-steps/simulation-gencuts.html#removing-the-generator-cuts">Removing the generator cuts</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../second-analysis-steps/simulation-gencuts.html#modifying-the-cut-tool">Modifying the cut tool</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../second-analysis-steps/simulation-advanced-dkfiles.html">Advanced: Modifying the decay</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../second-analysis-steps/simulation-advanced-dkfiles.html#multi-body-decays">3+ multi-body decays</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../second-analysis-steps/simulation-advanced-dkfiles.html#cocktail-decays">Cocktail decays</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../second-analysis-steps/simulation-advanced-dkfiles.html#final-state-radiation">Final state radiation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../second-analysis-steps/simulation-advanced-dkfiles.html#changing-particle-masses-lifetimes-widths">Changing particle masses / lifetimes/ widths</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../second-analysis-steps/simulation-fastsim.html">Why fast simulation is crucial</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../second-analysis-steps/simulation-fastsim.html#speeding-up-the-detector-simulation">Speeding up the detector simulation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../second-analysis-steps/simulation-fastsim.html#speeding-up-the-generation">Speeding up the generation</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../second-analysis-steps/hlt-intro.html">HLT intro</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../second-analysis-steps/hlt-intro.html#add-trigger-information-to-your-ntuple">Add trigger information to your ntuple</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../second-analysis-steps/hlt-intro.html#exploring-a-tck-list-of-trigger-lines">Exploring a TCK: List of trigger lines</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../second-analysis-steps/hlt-intro.html#add-trigger-information-to-your-ntuple-continued">Add trigger information to your ntuple, continued</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../second-analysis-steps/hlt-intro.html#add-tistos-information-to-your-ntuple">Add TISTOS information to your ntuple</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../second-analysis-steps/hlt-intro.html#exploring-a-tck-properties-of-trigger-lines">Exploring a TCK: Properties of trigger lines</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../second-analysis-steps/tistos-diy.html">TisTos DIY</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../second-analysis-steps/ganga-scripting.html">Scripting Ganga</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../second-analysis-steps/ganga-scripting.html#defining-jobs-with-scripts">Defining jobs with scripts</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../second-analysis-steps/ganga-scripting.html#adding-helpers-functions">Adding helpers functions</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../second-analysis-steps/managing-files-with-ganga.html">Managing files in Ganga</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../second-analysis-steps/analysis-automation-snakemake.html">Analysis automation with snakemake</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../second-analysis-steps/analysis-automation-snakemake.html#motivation">Motivation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../second-analysis-steps/analysis-automation-snakemake.html#documentation-and-installation">Documentation and installation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../second-analysis-steps/analysis-automation-snakemake.html#tutorial">Tutorial</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../second-analysis-steps/analysis-automation-snakemake.html#usage-and-basic-behaviour">Usage and basic behaviour</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../second-analysis-steps/analysis-automation-snakemake.html#sub-labels">Sub-labels</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../second-analysis-steps/analysis-automation-snakemake.html#run-and-shell">Run and shell</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../second-analysis-steps/analysis-automation-snakemake.html#config-files">Config files</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../second-analysis-steps/analysis-automation-snakemake.html#includes">Includes</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../self-guided-lessons/README.html">Self guided lessons</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../self-guided-lessons/htcondor.html">Batch submission using HTCondor</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../self-guided-lessons/htcondor-first-job.html">Submitting a simple job</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../self-guided-lessons/htcondor-first-job.html#tracking-your-jobs">Tracking your jobs</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../self-guided-lessons/htcondor-more-options.html">More submit file options</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../self-guided-lessons/htcondor-more-options.html#input-files">Input files</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../self-guided-lessons/htcondor-more-options.html#output-files">Output files</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../self-guided-lessons/htcondor-more-options.html#arguments">Arguments</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../self-guided-lessons/htcondor-more-options.html#resources-and-requirements">Resources and Requirements</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../self-guided-lessons/htcondor-more-options.html#notifications">Notifications</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../self-guided-lessons/htcondor-queue.html">Using the queue command</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../self-guided-lessons/htcondor-queue.html#more-on-variables">More on variables</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../self-guided-lessons/htcondor-queue.html#other-ways-to-queue">Other ways to queue</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../self-guided-lessons/htcondor-queue.html#mixing-options-and-variables">Mixing options and variables</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../self-guided-lessons/htcondor.html#system-architecture">System architecture</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../self-guided-lessons/htcondor.html#other-useful-resources">Other useful resources</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../self-guided-lessons/local-grid-proxy.html">Creating a grid proxy without LbScripts</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../self-guided-lessons/local-grid-proxy.html#installation">Installation</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../self-guided-lessons/local-grid-proxy.html#macos-with-homebrew">macOS with homebrew</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../self-guided-lessons/local-grid-proxy.html#ubuntu">Ubuntu</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../self-guided-lessons/local-grid-proxy.html#centos">CentOS</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../self-guided-lessons/local-grid-proxy.html#arch-linux">Arch Linux</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../self-guided-lessons/local-grid-proxy.html#getting-the-required-files-and-certificates">Getting the required files and certificates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../self-guided-lessons/local-grid-proxy.html#creating-a-proxy">Creating a proxy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../self-guided-lessons/local-grid-proxy.html#managing-the-proxy">Managing the proxy</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../CONTRIBUTING.html">Contributing</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../CONTRIBUTING.html#getting-started">Getting Started</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../CONTRIBUTING.html#dependencies">Dependencies</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../CONDUCT.html">Contributor Code of Conduct</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../LICENSE.html">Instructional Material</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../LICENSE.html#software">Software</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">External links:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://hsf-training.github.io/analysis-essentials/">Analysis essentials</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">LHCb Starterkit Lessons</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="README.html">First Analysis Steps</a> &raquo;</li>
+        
+      <li>The LHCb data flow</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            
+              <a href="https://github.com/lhcb/starterkit-lessons/blob/master/first-analysis-steps/dataflow.md" class="fa fa-github"> Edit on GitHub</a>
+            
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  
+<style>
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast,
+.nboutput.nblast {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast + .nbinput {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
+</style>
+<div class="section" id="the-lhcb-data-flow">
+<h1>The LHCb data flow<a class="headerlink" href="#the-lhcb-data-flow" title="Permalink to this headline">¶</a></h1>
+<div class="panel panel-objectives docutils container">
+<div class="panel-header open docutils container">
+<p id="learning-objectives"><i class="fa fa-line-chart"></i> Learning Objectives</p>
+</div>
+<div class="panel-body docutils container">
+<ul class="simple">
+<li><p>Understand the LHCb data flow</p></li>
+<li><p>Learn the key concepts on the stripping</p></li>
+</ul>
+</div>
+</div>
+<p>The Large Hadron Collider provides proton-proton collisions to LHCb 40 million
+times a second.
+This results in a <em>huge</em> amount of data. In fact, if we were to store all the data coming in to LHCb, we would be recording ~ 1 TB <em>every second</em>.</p>
+<p>That’s too much data for us to be able to keep all of it, the price of storage
+is just too high, so instead we need to <em>filter</em> the data and try to keep only
+the events which contain something interesting.
+This raises its own problems:</p>
+<ul class="simple">
+<li><p>How do we filter and process the recorded data quickly and accurately?</p></li>
+<li><p>How do we manage all the complex tasks required to work with collision data?</p></li>
+<li><p>How do we organize all the data of a single bunch crossing in a flexible way?</p></li>
+<li><p>How do we configure our software flexibly without having to recompile it?</p></li>
+<li><p>Can you think of more?</p></li>
+</ul>
+<p>These questions arise mostly due to two key points: the data must be processed
+very quickly because it’s arriving very quickly, and the data is complex so
+there’s a lot that can be done with it. In the last lesson we saw how many
+steps it took just to reconstruct a single decay, but there are thousands of
+possibilities that we might be interested in! Being able to perform such
+combinations in a flexible manner is then very important.</p>
+<p>Collisions recorded by the LHCb detector go through a specific data flow
+designed to maximise the data-taking efficiency and data quality.
+This consists of several steps, each one being controlled by an ‘application’
+that processes the data event-by-event, using the data from the previous step
+and creating the results ready for the next.
+These steps are as follows:</p>
+<ol class="simple">
+<li><p>Data from the detector are filtered through the <em>trigger</em>, which consists
+of the L0, implemented in hardware, and the high level trigger (HLT),
+implemented in software. The application responsible for the software trigger
+is Moore, discussed in the <a class="reference internal" href="../second-analysis-steps/hlt-intro.html"><span class="doc">trigger lesson</span></a>
+in second-analysis-steps.</p></li>
+<li><p>Triggered, raw data are reconstructed to transform the detector hits into
+objects such as tracks and clusters. This is done by the Brunel
+application. The objects are stored into an output file in a ‘DST’ format.</p></li>
+<li><p>The reconstructed DST files are suitable for analysis, but they are not
+accessible to users due to computing restrictions. Data are filtered
+further through a set of selections called the <em>stripping</em>, controlled by
+the DaVinci application which write out data either in the DST or ‘µDST’
+(micro-DST) format. To save disk space and to speed up access for analysts, the
+output files are grouped into <em>streams</em> which contain similar selections.
+By grouping all of the fully hadronic charm selections together, for
+example, analysts interested in that type of physics don’t waste time running
+over the output of the dimuon selections.</p></li>
+</ol>
+<div class="panel panel-callout docutils container">
+<div class="panel-header open docutils container">
+<p id="the-output-format"><i class="fa fa-info-circle"></i> The output format</p>
+</div>
+<div class="panel-body docutils container">
+<p>A DST file is a ROOT file which contains the full event information, such as
+reconstructed objects and raw data. Each event typically takes around 150kB of
+disk space in the DST format.
+The µDST format was designed to save space by storing only the
+information concerning the build <em>candidates</em> (that is, the objects used
+to construct particle decays like tracks); the raw event, which takes
+around 50kB per event, is discarded.</p>
+</div>
+</div>
+<ol class="simple">
+<li><p>Users can run their own analysis tools to extract variables for their
+analysis with the DaVinci application. The processing is slightly different
+between DST and µDST, since some calculations need the other tracks in the
+event (not only the signal), which are not available in the latter format.</p></li>
+</ol>
+<p>We also produced lots of simulated events, often called Monte Carlo data, and
+this is processed in a very similar way to real data.
+This similarity is very beneficial, as the simulated data is subject to the
+same deficiencies as in the processing of real data.
+There are two simulation steps which replace the proton-proton collisions and
+the detector response:</p>
+<ol class="simple">
+<li><p>The simulation of proton-proton collisions, and the hadronisation and decay
+of the resulting particles, are ultimately controlled by the Gauss
+application. Gauss is responsible for calling the various Monte Carlo
+generators that are supported such as Pythia (the default in LHCb) and POWHEG,
+and for controlling EvtGen and Geant4. EvtGen is used to describe the decays of
+simulated particles, whilst Geant4 is used to simulate the propagation and
+interaction of particles through and with the detector.</p></li>
+<li><p>The simulated hits made in the virtual detector are converted to signals
+that mimic the real detector by the Boole application. The output of Boole
+is designed to closely match the output of the real detector, and so the
+simulated data can then be passed through the usual data processing chain
+described above, beginning with the trigger.</p></li>
+</ol>
+<p>So, the data flow and the associated applications look like this:</p>
+<p><a class="reference download internal" download="" href="../_downloads/1ae972630d9c6096cdbbaf92559ec14d/lhcb_data_flow.png"><code class="xref download docutils literal notranslate"><img alt="&quot;The flow of real and simulated data during Run 1 of the LHC&quot;" src="../_images/lhcb_data_flow.png" /></code></a></p>
+<p>Knowing this flow is essential in selecting your data! Different application
+versions can produce very different physics, so it’s very useful to know how
+each application has manipulated the data you want to use.</p>
+<div class="panel panel-challenge docutils container">
+<div class="panel-header open docutils container">
+<p id="why-are-there-multiple-applications?"><i class="fa fa-square-o"></i> Why are there multiple applications?</p>
+</div>
+<div class="panel-body docutils container">
+<p>It’s often simpler to create and visualise a single, monolithic program that
+does <em>everything</em>, but that’s not how the data flow is set up in LHCb. Why not?
+What are the advantages of splitting up the software per task? What are the
+disadvantages?</p>
+</div>
+</div>
+<p>With the exception of a few specific studies, it is only the DaVinci
+application that is run by users, everything else is run ‘centrally’ either on
+the computing farm next to the detector or on the Grid.</p>
+<p>The reconstruction, Brunel, is rarely performed as it is very computationally
+intensive.
+It is only done when the data are taken and when a new reconstruction
+configuration is available.
+The stripping can be performed more often, since it runs on reconstructed data.</p>
+<p>Stripping ‘campaigns’, when the stripping selections are centrally run, are
+identified by a version as <code class="docutils literal notranslate"><span class="pre">SXrYpZ</span></code>:</p>
+<ul class="simple">
+<li><p>The digit <code class="docutils literal notranslate"><span class="pre">X</span></code> marks the <em>major</em> stripping version. This marks all major
+<em>restrippings</em>, in which the full list of selections are processed.</p></li>
+<li><p>The digit <code class="docutils literal notranslate"><span class="pre">Y</span></code> is the release version, which was used during Run 1 to mark
+the <em>data type</em>, which corresponds to the year the data were taken: <code class="docutils literal notranslate"><span class="pre">0</span></code> was
+used for 2012 and <code class="docutils literal notranslate"><span class="pre">1</span></code> for 2011. The latest stripping for Run 1 data is called
+<code class="docutils literal notranslate"><span class="pre">S21r0p1</span></code> for 2012 and <code class="docutils literal notranslate"><span class="pre">S21r1p2</span></code> for 2011.</p></li>
+<li><p>The digit <code class="docutils literal notranslate"><span class="pre">Z</span></code> marks the <em>patch</em> version, which correspond to <em>incremental
+strippings</em>; campaigns in which only a handful of selections are run, either
+to fix bugs or to add a small number of new ones.</p></li>
+</ul>
+<p>Knowing the reconstruction and stripping versions is often the most important
+part in choosing your data, because the selections generally always change
+between major stripping versions, and variables can look very different between
+reconstruction versions.</p>
+<p>The list of stripping selection largely defines the reconstructed decays that
+are available to you, but the list is very long as there’s a lot we can do with
+our data. If you don’t know the stripping line you need, it’s usually best to
+ask the stripping coordinators of the working group you’ll be presenting your
+work to. To learn more about the stripping, the best resource is the <a class="reference external" href="https://twiki.cern.ch/twiki/bin/view/LHCb/LHCbStripping">stripping
+page on the LHCb
+TWiki</a>.
+In it we can find:</p>
+<ul class="simple">
+<li><p>The status of the current stripping, e.g. for <a class="reference external" href="http://lhcbproject.web.cern.ch/lhcbproject/lbdirac/Reprocessing/stats-re-stripping28.html">Stripping <code class="docutils literal notranslate"><span class="pre">S28</span></code></a>.</p></li>
+<li><p>The configuration of all past stripping campaign, e.g. for <a class="reference external" href="http://lhcbproject.web.cern.ch/lhcbproject/lbdirac/Reprocessing/stats-re-stripping-fall14.html">Stripping <code class="docutils literal notranslate"><span class="pre">S21r1</span></code></a>.</p></li>
+</ul>
+<p>Additionally, the information on all strippings can be found in the <a class="reference external" href="http://lhcbdoc.web.cern.ch/lhcbdoc/stripping/">stripping
+project
+website</a>,
+where you can see all the algorithms run and cuts applied in each <em>line</em>.
+For example, if we wanted to understand the
+<code class="docutils literal notranslate"><span class="pre">D2hhPromptDst2D2KKLine</span></code> line, which we will use in the
+<a class="reference internal" href="interactive-dst.html"><span class="doc">exploring a DST</span></a> lesson later on, we would go
+<a class="reference external" href="http://lhcbdoc.web.cern.ch/lhcbdoc/stripping/config/stripping28/charm/strippingd2hhpromptdst2d2kkline.html">here</a>.</p>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="run-2-data-flow.html" class="btn btn-neutral float-right" title="Changes to the data flow in Run 2" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="physics-at-lhcb.html" class="btn btn-neutral float-left" title="Physics at LHCb" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015-2019, LHCb Starterkit
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

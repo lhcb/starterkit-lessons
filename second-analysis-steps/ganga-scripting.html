@@ -1,0 +1,679 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Scripting Ganga &mdash; LHCb Starterkit Lessons  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="../_static/panels.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/panels.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/starterkit.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Managing files in Ganga" href="managing-files-with-ganga.html" />
+    <link rel="prev" title="TisTos DIY" href="tistos-diy.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> LHCb Starterkit Lessons
+          
+
+          
+            
+            <img src="../_static/starterkit.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../first-analysis-steps/README.html">First Analysis Steps</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../first-analysis-steps/prerequisites.html">Pre-workshop checklist</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../first-analysis-steps/introduction-to-course.html">Goals of the course</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../first-analysis-steps/physics-at-lhcb.html">Physics at LHCb</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../first-analysis-steps/physics-at-lhcb.html#the-reconstruction">The reconstruction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../first-analysis-steps/physics-at-lhcb.html#building-decay-candidates">Building decay candidates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../first-analysis-steps/physics-at-lhcb.html#building-more-complex-decays">Building more complex decays</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../first-analysis-steps/dataflow.html">The LHCb data flow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../first-analysis-steps/run-2-data-flow.html">Changes to the data flow in Run 2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../first-analysis-steps/davinci.html">An introduction to LHCb Software</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../first-analysis-steps/bookkeeping.html">Finding data in the Bookkeeping</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../first-analysis-steps/files-from-grid.html">Downloading a file from the grid</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../first-analysis-steps/interactive-dst.html">Interactively exploring a DST</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../first-analysis-steps/minimal-dv-job.html">Running a minimal DaVinci job locally</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../first-analysis-steps/loki-functors.html">Fun with LoKi Functors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../first-analysis-steps/add-tupletools.html">TupleTools and branches</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../first-analysis-steps/decay-tree-fitter.html">How do I use DecayTreeFitter?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../first-analysis-steps/davinci-grid.html">Running DaVinci on the grid</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../first-analysis-steps/split-jobs.html">Splitting a job into subjobs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../first-analysis-steps/ganga-data.html">More Ganga</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../first-analysis-steps/eos-storage.html">Storing large files on EOS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../first-analysis-steps/lhcb-dev.html">Developing LHCb Software</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../first-analysis-steps/asking-questions.html">Asking good questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../first-analysis-steps/ecgd.html">Early career, gender and diversity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../first-analysis-steps/contributing-lesson.html">Contribute to this lesson</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="reference internal" href="README.html">Second Analysis Steps</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="lb-git.html">Using git to develop LHCb software</a></li>
+<li class="toctree-l2"><a class="reference internal" href="building-decays.html">Building your own decay</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="building-decays-part0.html">The Selection Framework</a></li>
+<li class="toctree-l3"><a class="reference internal" href="building-decays-part1.html">A Historical Approach</a></li>
+<li class="toctree-l3"><a class="reference internal" href="building-decays-part2.html">Modern Selection Framework</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="fixing-errors.html">What to do when something fails</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rerun-stripping.html">Run a different stripping line on simulated data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="switch-mass-hypo.html">Replace a mass hypothesis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="filter-in-trees.html">Reuse particles from a decay tree</a></li>
+<li class="toctree-l2"><a class="reference internal" href="simulation.html">The simulation framework</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="simulation-intro.html">What is Gauss?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="simulation-running-gauss.html">Which option files to use and how to run Gauss</a></li>
+<li class="toctree-l3"><a class="reference internal" href="simulation-running-gauss.html#running-gauss-and-create-a-generator-only-sample">Running Gauss and create a generator-only sample</a></li>
+<li class="toctree-l3"><a class="reference internal" href="simulation-running-gauss.html#make-an-ntuple">Make an nTuple</a></li>
+<li class="toctree-l3"><a class="reference internal" href="simulation-dkfiles.html">Controlling the decay: DecFiles</a></li>
+<li class="toctree-l3"><a class="reference internal" href="simulation-gencuts.html">Modifying the decay</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="simulation-gencuts.html#adding-a-decay-channel">Adding a decay channel</a></li>
+<li class="toctree-l4"><a class="reference internal" href="simulation-gencuts.html#generator-level-cuts">Generator level cuts</a></li>
+<li class="toctree-l4"><a class="reference internal" href="simulation-gencuts.html#removing-the-generator-cuts">Removing the generator cuts</a></li>
+<li class="toctree-l4"><a class="reference internal" href="simulation-gencuts.html#modifying-the-cut-tool">Modifying the cut tool</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="simulation-advanced-dkfiles.html">Advanced: Modifying the decay</a></li>
+<li class="toctree-l3"><a class="reference internal" href="simulation-advanced-dkfiles.html#multi-body-decays">3+ multi-body decays</a></li>
+<li class="toctree-l3"><a class="reference internal" href="simulation-advanced-dkfiles.html#cocktail-decays">Cocktail decays</a></li>
+<li class="toctree-l3"><a class="reference internal" href="simulation-advanced-dkfiles.html#final-state-radiation">Final state radiation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="simulation-advanced-dkfiles.html#changing-particle-masses-lifetimes-widths">Changing particle masses / lifetimes/ widths</a></li>
+<li class="toctree-l3"><a class="reference internal" href="simulation-fastsim.html">Why fast simulation is crucial</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="simulation-fastsim.html#speeding-up-the-detector-simulation">Speeding up the detector simulation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="simulation-fastsim.html#speeding-up-the-generation">Speeding up the generation</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="hlt-intro.html">HLT intro</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="hlt-intro.html#add-trigger-information-to-your-ntuple">Add trigger information to your ntuple</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hlt-intro.html#exploring-a-tck-list-of-trigger-lines">Exploring a TCK: List of trigger lines</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hlt-intro.html#add-trigger-information-to-your-ntuple-continued">Add trigger information to your ntuple, continued</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hlt-intro.html#add-tistos-information-to-your-ntuple">Add TISTOS information to your ntuple</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hlt-intro.html#exploring-a-tck-properties-of-trigger-lines">Exploring a TCK: Properties of trigger lines</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="tistos-diy.html">TisTos DIY</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Scripting Ganga</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#defining-jobs-with-scripts">Defining jobs with scripts</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#adding-helpers-functions">Adding helpers functions</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="managing-files-with-ganga.html">Managing files in Ganga</a></li>
+<li class="toctree-l2"><a class="reference internal" href="analysis-automation-snakemake.html">Analysis automation with snakemake</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="analysis-automation-snakemake.html#motivation">Motivation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="analysis-automation-snakemake.html#documentation-and-installation">Documentation and installation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="analysis-automation-snakemake.html#tutorial">Tutorial</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="analysis-automation-snakemake.html#usage-and-basic-behaviour">Usage and basic behaviour</a></li>
+<li class="toctree-l4"><a class="reference internal" href="analysis-automation-snakemake.html#sub-labels">Sub-labels</a></li>
+<li class="toctree-l4"><a class="reference internal" href="analysis-automation-snakemake.html#run-and-shell">Run and shell</a></li>
+<li class="toctree-l4"><a class="reference internal" href="analysis-automation-snakemake.html#config-files">Config files</a></li>
+<li class="toctree-l4"><a class="reference internal" href="analysis-automation-snakemake.html#includes">Includes</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../self-guided-lessons/README.html">Self guided lessons</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../self-guided-lessons/htcondor.html">Batch submission using HTCondor</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../self-guided-lessons/htcondor-first-job.html">Submitting a simple job</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../self-guided-lessons/htcondor-first-job.html#tracking-your-jobs">Tracking your jobs</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../self-guided-lessons/htcondor-more-options.html">More submit file options</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../self-guided-lessons/htcondor-more-options.html#input-files">Input files</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../self-guided-lessons/htcondor-more-options.html#output-files">Output files</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../self-guided-lessons/htcondor-more-options.html#arguments">Arguments</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../self-guided-lessons/htcondor-more-options.html#resources-and-requirements">Resources and Requirements</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../self-guided-lessons/htcondor-more-options.html#notifications">Notifications</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../self-guided-lessons/htcondor-queue.html">Using the queue command</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../self-guided-lessons/htcondor-queue.html#more-on-variables">More on variables</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../self-guided-lessons/htcondor-queue.html#other-ways-to-queue">Other ways to queue</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../self-guided-lessons/htcondor-queue.html#mixing-options-and-variables">Mixing options and variables</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../self-guided-lessons/htcondor.html#system-architecture">System architecture</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../self-guided-lessons/htcondor.html#other-useful-resources">Other useful resources</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../self-guided-lessons/local-grid-proxy.html">Creating a grid proxy without LbScripts</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../self-guided-lessons/local-grid-proxy.html#installation">Installation</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../self-guided-lessons/local-grid-proxy.html#macos-with-homebrew">macOS with homebrew</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../self-guided-lessons/local-grid-proxy.html#ubuntu">Ubuntu</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../self-guided-lessons/local-grid-proxy.html#centos">CentOS</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../self-guided-lessons/local-grid-proxy.html#arch-linux">Arch Linux</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../self-guided-lessons/local-grid-proxy.html#getting-the-required-files-and-certificates">Getting the required files and certificates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../self-guided-lessons/local-grid-proxy.html#creating-a-proxy">Creating a proxy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../self-guided-lessons/local-grid-proxy.html#managing-the-proxy">Managing the proxy</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../CONTRIBUTING.html">Contributing</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../CONTRIBUTING.html#getting-started">Getting Started</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../CONTRIBUTING.html#dependencies">Dependencies</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../CONDUCT.html">Contributor Code of Conduct</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../LICENSE.html">Instructional Material</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../LICENSE.html#software">Software</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">External links:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://hsf-training.github.io/analysis-essentials/">Analysis essentials</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">LHCb Starterkit Lessons</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="README.html">Second Analysis Steps</a> &raquo;</li>
+        
+      <li>Scripting Ganga</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            
+              <a href="https://github.com/lhcb/starterkit-lessons/blob/master/second-analysis-steps/ganga-scripting.md" class="fa fa-github"> Edit on GitHub</a>
+            
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  
+<style>
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast,
+.nboutput.nblast {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast + .nbinput {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
+</style>
+<div class="section" id="scripting-ganga">
+<h1>Scripting Ganga<a class="headerlink" href="#scripting-ganga" title="Permalink to this headline">¶</a></h1>
+<p>We have already started using Ganga, such as when <a class="reference internal" href="../first-analysis-steps/davinci-grid.html"><span class="doc">submitting jobs to the
+Grid</span></a> and
+<a class="reference internal" href="../first-analysis-steps/ganga-data.html"><span class="doc">using datasets from the bookkeeping</span></a>, for
+creating jobs; but there’s a lot more you can do with it.</p>
+<p>Part of Ganga’s power comes from it being written in Python. When you run
+<code class="docutils literal notranslate"><span class="pre">ganga</span></code>, you’re given an IPython prompt where you input Python code that’s executed when you hit <code class="docutils literal notranslate"><span class="pre">&lt;enter&gt;</span></code>.
+The idea of running Python code extends outside of Ganga, where we can write
+scripts that Ganga will execute when starting up. This lesson will focus on
+writing job definition scripts, and exploring how we can define utility
+functions that will be available across all of our Ganga sessions.</p>
+<div class="section" id="defining-jobs-with-scripts">
+<h2>Defining jobs with scripts<a class="headerlink" href="#defining-jobs-with-scripts" title="Permalink to this headline">¶</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">ganga</span></code> executable is similar to the <code class="docutils literal notranslate"><span class="pre">python</span></code> and <code class="docutils literal notranslate"><span class="pre">ipython</span></code> executables in
+a couple of ways.
+If you just run <code class="docutils literal notranslate"><span class="pre">ganga</span></code>, you are dropped into a prompt, but you can also supply
+the path to a Python script that will be executed.
+Let’s start with a small script, saving it in a file called <code class="docutils literal notranslate"><span class="pre">create_job.py</span></code>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">greeting</span> <span class="o">=</span> <span class="s1">&#39;Hello!&#39;</span>
+<span class="k">print</span> <span class="n">greeting</span>
+</pre></div>
+</div>
+<p>Run it:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ ganga create_job.py
+
+*** Welcome to Ganga ***
+Version: X.Y.Z
+…
+Hello!
+…
+</pre></div>
+</div>
+<p>Sensible enough. Just like <code class="docutils literal notranslate"><span class="pre">python</span></code> and <code class="docutils literal notranslate"><span class="pre">ipython</span></code>, we can pass the <code class="docutils literal notranslate"><span class="pre">-i</span></code> flag
+before the file path to tell Ganga to give us a prompt after it’s finished
+executing the script:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ ganga -i create_job.py
+
+*** Welcome to Ganga ***
+Version: X.Y.Z
+…
+Hello!
+
+Ganga In <span class="o">[</span><span class="m">1</span><span class="o">]</span>: greeting
+Ganga Out <span class="o">[</span><span class="m">1</span><span class="o">]</span>: <span class="s1">&#39;Hello!&#39;</span>
+
+Ganga In <span class="o">[</span><span class="m">2</span><span class="o">]</span>:
+</pre></div>
+</div>
+<p>Notice that the variable we defined in the script, <code class="docutils literal notranslate"><span class="pre">greeting</span></code>, is available in
+the interactive session.
+The idea of doing some work in a script and then manipulating the result
+interactively can be quite powerful.</p>
+<p>One workflow that you might find useful is to create a script that defines a
+job, because this can often take a few lines to do, and typing them out every
+time is boring.
+Let’s modify <code class="docutils literal notranslate"><span class="pre">create_job.py</span></code> to do that.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Note: Ganga makes objects like `Job` available in your script automagically</span>
+<span class="n">j</span> <span class="o">=</span> <span class="n">Job</span><span class="p">()</span>
+<span class="n">j</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;My job&#39;</span>
+</pre></div>
+</div>
+<p>This example is quite boring, but it captures the idea. You’ll want to
+extend this, changing the <code class="docutils literal notranslate"><span class="pre">application</span></code> property to a <code class="docutils literal notranslate"><span class="pre">GaudiExec</span></code> instance,
+for example, as covered in <a class="reference internal" href="../first-analysis-steps/davinci-grid.html"><span class="doc">a previous
+lesson</span></a>.</p>
+<p>Now we can run this and interact with the job as the <code class="docutils literal notranslate"><span class="pre">j</span></code> variable:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ ganga -i create_job.py
+
+*** Welcome to Ganga ***
+Version: X.Y.Z
+…
+
+Ganga In <span class="o">[</span><span class="m">1</span><span class="o">]</span>: j
+Ganga Out <span class="o">[</span><span class="m">1</span><span class="o">]</span>:
+Job <span class="o">(</span>
+  <span class="nv">comment</span> <span class="o">=</span> ,
+  <span class="nv">parallel_submit</span> <span class="o">=</span> False,
+  …
+<span class="o">)</span>
+
+Ganga In <span class="o">[</span><span class="m">2</span><span class="o">]</span>:
+</pre></div>
+</div>
+<p>We often want to construct a set of very similar jobs that differ only by their
+input data, for example running the same DaVinci application over 2015 and 2016
+data and for magnet up and magnet down configurations.
+We need to then <em>parameterise</em> our script, and one way of doing this is passing
+arguments to it by the command line.
+You can inspect arguments from a Python script by using the <code class="docutils literal notranslate"><span class="pre">argv</span></code>
+property on the <code class="docutils literal notranslate"><span class="pre">sys</span></code> module:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sys</span>
+<span class="k">print</span> <span class="n">sys</span><span class="o">.</span><span class="n">argv</span>
+</pre></div>
+</div>
+<p>Add that to your <code class="docutils literal notranslate"><span class="pre">create_job.py</span></code> script, and run <code class="docutils literal notranslate"><span class="pre">ganga</span></code> again, this time
+passing some arguments:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ ganga -i create_job.py -v <span class="m">123</span> --hello<span class="o">=</span>world
+
+*** Welcome to Ganga ***
+Version: X.Y.Z
+…
+
+<span class="o">[</span><span class="s1">&#39;create_job.py&#39;</span>, <span class="s1">&#39;-v&#39;</span>, <span class="s1">&#39;123&#39;</span>, <span class="s1">&#39;--hello=world&#39;</span><span class="o">]</span>
+
+Ganga In <span class="o">[</span><span class="m">1</span><span class="o">]</span>: j
+</pre></div>
+</div>
+<p>Our script sees <code class="docutils literal notranslate"><span class="pre">sys.argv</span></code> as the list of the arguments that come after <code class="docutils literal notranslate"><span class="pre">ganga</span>&#160; <span class="pre">-i</span></code>.
+To parameterise our script for year and magnet polarity, we could check this
+list to find one of <code class="docutils literal notranslate"><span class="pre">2015</span></code> or <code class="docutils literal notranslate"><span class="pre">2016</span></code> and one of <code class="docutils literal notranslate"><span class="pre">Up</span></code> or <code class="docutils literal notranslate"><span class="pre">Down</span></code>, for example,
+but instead we’ll opt to use the excellent <a class="reference external" href="https://docs.python.org/2/library/argparse.html"><code class="docutils literal notranslate"><span class="pre">argparse</span></code> module</a>, which
+comes with Python, to parse the command-line arguments for us.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">argparse</span>
+
+<span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s2">&quot;Make my DaVinci job.&quot;</span><span class="p">)</span>
+<span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;year&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span> <span class="n">choices</span><span class="o">=</span><span class="p">[</span><span class="mi">2015</span><span class="p">,</span> <span class="mi">2016</span><span class="p">],</span>
+                    <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Year of data-taking to run over&#39;</span><span class="p">)</span>
+<span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;polarity&#39;</span><span class="p">,</span> <span class="n">choices</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Up&#39;</span><span class="p">,</span> <span class="s1">&#39;Down&#39;</span><span class="p">],</span>
+                    <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Polarity of data-taking to run over&#39;</span><span class="p">)</span>
+<span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;--test&#39;</span><span class="p">,</span> <span class="n">action</span><span class="o">=</span><span class="s1">&#39;store_true&#39;</span><span class="p">,</span>
+                    <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Run over one file locally&#39;</span><span class="p">)</span>
+<span class="n">args</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">()</span>
+
+<span class="n">year</span> <span class="o">=</span> <span class="n">args</span><span class="o">.</span><span class="n">year</span>
+<span class="n">polarity</span> <span class="o">=</span> <span class="n">args</span><span class="o">.</span><span class="n">polarity</span>
+<span class="n">test</span> <span class="o">=</span> <span class="n">args</span><span class="o">.</span><span class="n">test</span>
+</pre></div>
+</div>
+<p>Nicely, <code class="docutils literal notranslate"><span class="pre">argparse</span></code> gives us a useful <code class="docutils literal notranslate"><span class="pre">--help</span></code> argument for free:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ ganga -i create_job.py --help
+
+*** Welcome to Ganga ***
+Version: X.Y.Z
+…
+usage: create_job.py <span class="o">[</span>-h<span class="o">]</span> <span class="o">[</span>--test<span class="o">]</span> <span class="o">{</span><span class="m">2015</span>,2016<span class="o">}</span> <span class="o">{</span>Up,Down<span class="o">}</span>
+
+Make my DaVinci job.
+
+positional arguments:
+  <span class="o">{</span><span class="m">2015</span>,2016<span class="o">}</span>  Year of data-taking to run over
+  <span class="o">{</span>Up,Down<span class="o">}</span>    Polarity of data-taking to run over
+
+optional arguments:
+  -h, --help   show this <span class="nb">help</span> message and <span class="nb">exit</span>
+  --test       Run over one file locally
+
+Ganga In <span class="o">[</span><span class="m">1</span><span class="o">]</span>:
+</pre></div>
+</div>
+<p>This help will also be printed if we don’t supply all of the required arguments
+(the year and the magnet polarity), along with a message telling us what’s
+missing.</p>
+<div class="panel panel-callout docutils container">
+<div class="panel-header open docutils container">
+<p id="getting-to-grips-with-argparse"><i class="fa fa-info-circle"></i> Getting to grips with argparse</p>
+</div>
+<div class="panel-body docutils container">
+<p>The <code class="docutils literal notranslate"><span class="pre">argparse</span></code> module can do a lot, being able to parse complex sets of
+arguments with much difficultly. It’s a useful tool to know in general, so we
+recommend that you check out the <a class="reference external" href="https://docs.python.org/2/library/argparse.html">documentation</a> to learn more.</p>
+</div>
+</div>
+<p>When we do supply all the necessary arguments, the values are then available in
+the <code class="docutils literal notranslate"><span class="pre">year</span></code>, <code class="docutils literal notranslate"><span class="pre">polarity</span></code>, and <code class="docutils literal notranslate"><span class="pre">test</span></code> variables:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ ganga -i create_job.py <span class="m">2015</span> Down
+
+*** Welcome to Ganga ***
+Version: X.Y.Z
+…
+
+Ganga In <span class="o">[</span><span class="m">1</span><span class="o">]</span>: print year, polarity, <span class="nb">test</span>
+<span class="m">2015</span> Down False
+</pre></div>
+</div>
+<p>Once you’ve reached this level, a whole world of possibilities opens up! Here
+are a few things you might proceed to do with these parameters in your script:</p>
+<ul class="simple">
+<li><p>Fetch the corresponding dataset using a <code class="docutils literal notranslate"><span class="pre">BKQuery</span></code>;</p></li>
+<li><p>Give your <code class="docutils literal notranslate"><span class="pre">Job</span></code> object a specific name, e.g. <code class="docutils literal notranslate"><span class="pre">j.name</span> <span class="pre">=</span>&#160; <span class="pre">'Ntuples_{0}_{1}.format(year,</span> <span class="pre">polarity)'</span></code>;</p></li>
+<li><p>Give data-specific options files to the <code class="docutils literal notranslate"><span class="pre">application</span></code> object, e.g. if you
+have one options file per year defining <code class="docutils literal notranslate"><span class="pre">DaVinci().DataType</span></code>.</p></li>
+</ul>
+<p>Of course, you can add as many arguments as you think might be useful.
+Above we added the <code class="docutils literal notranslate"><span class="pre">--test</span></code> flag as an example: if this is <code class="docutils literal notranslate"><span class="pre">True</span></code>, you could
+run the application over only a single data file, and run the job locally
+rather than on the Grid (setting <code class="docutils literal notranslate"><span class="pre">j.backend</span></code> appropriately).</p>
+</div>
+<div class="section" id="adding-helpers-functions">
+<h2>Adding helpers functions<a class="headerlink" href="#adding-helpers-functions" title="Permalink to this headline">¶</a></h2>
+<p>We’ve seen above how giving a script to <code class="docutils literal notranslate"><span class="pre">ganga</span></code> makes the variables defined in
+those scripts available interactively.
+But what if you have, or would like to have, some set of your own custom helper
+methods defined in <em>every</em> session? It would be annoying to have to run <code class="docutils literal notranslate"><span class="pre">ganga</span>&#160; <span class="pre">my_helpers.py</span></code> every time! Luckily, the <code class="docutils literal notranslate"><span class="pre">ganga.py</span></code> file comes to the rescue.</p>
+<p>When Ganga starts, it looks for a file in your home directory (<code class="docutils literal notranslate"><span class="pre">echo</span> <span class="pre">$HOME</span></code>)
+called <code class="docutils literal notranslate"><span class="pre">.ganga.py</span></code> (note the starting period in the filename). If it finds such
+a file, it executes it in the context of the Ganga session, meaning the code in
+the file has access to Ganga objects like <code class="docutils literal notranslate"><span class="pre">Job</span></code>, <code class="docutils literal notranslate"><span class="pre">jobs</span></code>, and so on.
+To demonstrate the behaviour, we can put a <code class="docutils literal notranslate"><span class="pre">print</span></code> statement on our
+<code class="docutils literal notranslate"><span class="pre">~/.ganga.py</span></code> file:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">print</span> <span class="s1">&#39;Yo!&#39;</span>
+</pre></div>
+</div>
+<p>Then run <code class="docutils literal notranslate"><span class="pre">ganga</span></code> (no arguments needed):</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ ganga
+
+*** Welcome to Ganga ***
+Version: X.Y.Z
+…
+Yo!
+…
+</pre></div>
+</div>
+<p>Neat. The general idea for this file is two-fold:</p>
+<ol class="simple">
+<li><p>Add commands that you always want executed when Ganga starts, e.g. <code class="docutils literal notranslate"><span class="pre">print</span>&#160; <span class="pre">jobs.select(status='running')</span></code>; and</p></li>
+<li><p>Define functions for commonly-performed tasks.</p></li>
+</ol>
+<p>The latter is particularly interesting. Do you often find yourself creating a
+file that contains all the output LFNs of your job? Write a helper!</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">write_lfns</span><span class="p">(</span><span class="n">j</span><span class="p">,</span> <span class="n">filename</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Write LFNs of all DiracFiles of all completed subjobs to fname.&quot;&quot;&quot;</span>
+    <span class="c1"># Treat a job with subjobs the same as a job with no subjobs</span>
+    <span class="n">sjobs</span> <span class="o">=</span> <span class="n">j</span><span class="o">.</span><span class="n">subjobs</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">sjobs</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">sjobs</span> <span class="o">=</span> <span class="p">[</span><span class="n">j</span><span class="p">]</span>
+
+    <span class="n">lfns</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">sj</span> <span class="ow">in</span> <span class="n">sjobs</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">sj</span><span class="o">.</span><span class="n">status</span> <span class="o">!=</span> <span class="s1">&#39;completed&#39;</span><span class="p">:</span>
+            <span class="k">print</span> <span class="s1">&#39;Skipping #{0}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">sj</span><span class="o">.</span><span class="n">id</span><span class="p">)</span>
+            <span class="k">continue</span>
+        <span class="k">for</span> <span class="n">df</span> <span class="ow">in</span> <span class="n">sj</span><span class="o">.</span><span class="n">outputfiles</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">DiracFile</span><span class="p">):</span>
+            <span class="n">lfns</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">lfn</span><span class="p">)</span>
+
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="n">f</span><span class="o">.</span><span class="n">writelfns</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">lfns</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>How about downloading and merging the ROOT output of a job’s subjobs? Write a helper!</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">merge_root_output</span><span class="p">(</span><span class="n">j</span><span class="p">,</span> <span class="n">input_tree_name</span><span class="p">,</span> <span class="n">merged_filepath</span><span class="p">):</span>
+    <span class="c1"># Treat a job with subjobs the same as a job with no subjobs</span>
+    <span class="n">sjobs</span> <span class="o">=</span> <span class="n">j</span><span class="o">.</span><span class="n">subjobs</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">sjobs</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">sjobs</span> <span class="o">=</span> <span class="p">[</span><span class="n">j</span><span class="p">]</span>
+
+    <span class="n">access_urls</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">sj</span> <span class="ow">in</span> <span class="n">sjobs</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">sj</span><span class="o">.</span><span class="n">status</span> <span class="o">!=</span> <span class="s1">&#39;completed&#39;</span><span class="p">:</span>
+            <span class="k">print</span> <span class="s1">&#39;Skipping #{0}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">sj</span><span class="o">.</span><span class="n">id</span><span class="p">)</span>
+            <span class="k">continue</span>
+        <span class="k">for</span> <span class="n">df</span> <span class="ow">in</span> <span class="n">sj</span><span class="o">.</span><span class="n">outputfiles</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">DiracFile</span><span class="p">):</span>
+            <span class="n">access_urls</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">accessURL</span><span class="p">())</span>
+
+    <span class="n">tchain</span> <span class="o">=</span> <span class="n">ROOT</span><span class="o">.</span><span class="n">TChain</span><span class="p">(</span><span class="n">input_tree_name</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">url</span> <span class="ow">in</span> <span class="n">access_urls</span><span class="p">:</span>
+        <span class="n">tchain</span><span class="o">.</span><span class="n">Add</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+    <span class="n">tchain</span><span class="o">.</span><span class="n">Merge</span><span class="p">(</span><span class="n">merged_filepath</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Because of the way a <a class="reference external" href="https://root.cern.ch/doc/master/classTChain.html">ROOT <code class="docutils literal notranslate"><span class="pre">TChain</span></code></a> works, the subjobs output won’t be
+downloaded, so you only need enough disk space for the merged file.</p>
+<div class="panel panel-callout docutils container">
+<div class="panel-header open docutils container">
+<p id="using-root-in-ganga"><i class="fa fa-info-circle"></i> Using ROOT in Ganga</p>
+</div>
+<div class="panel-body docutils container">
+<p>By default, ROOT is not available in a Ganga session:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">Ganga</span> <span class="n">In</span> <span class="p">[</span><span class="mi">1</span><span class="p">]:</span> <span class="kn">import</span> <span class="nn">ROOT</span>
+<span class="n">ERROR</span>    <span class="n">No</span> <span class="n">module</span> <span class="n">named</span> <span class="n">ROOT</span>
+</pre></div>
+</div>
+<p>To remedy this, you can start Ganga inside an environment where ROOT <em>is</em>
+available:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ lb-run ROOT ganga
+</pre></div>
+</div>
+</div>
+</div>
+<p>Once you have your helpers defined, use them in Ganga as you would any other Python function.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">Ganga</span> <span class="n">In</span> <span class="p">[</span><span class="mi">1</span><span class="p">]:</span> <span class="n">j</span> <span class="o">=</span> <span class="n">jobs</span><span class="p">(</span><span class="mi">123</span><span class="p">)</span>
+
+<span class="n">Ganga</span> <span class="n">In</span> <span class="p">[</span><span class="mi">2</span><span class="p">]:</span> <span class="n">write_lfns</span><span class="p">(</span><span class="n">j</span><span class="p">,</span> <span class="s1">&#39;{0}.lfns&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">j</span><span class="o">.</span><span class="n">name</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>Here are some other common operations that you might want helpers for:</p>
+<ul class="simple">
+<li><p>Deleting all LFNs created by a job;</p></li>
+<li><p>Resetting the <code class="docutils literal notranslate"><span class="pre">backend</span></code> of all subjobs which are marked as <code class="docutils literal notranslate"><span class="pre">failed</span></code>;</p></li>
+<li><p>Replicating all LFNs to a specific Grid site.</p></li>
+</ul>
+<p>What other tasks can you think of?</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="managing-files-with-ganga.html" class="btn btn-neutral float-right" title="Managing files in Ganga" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="tistos-diy.html" class="btn btn-neutral float-left" title="TisTos DIY" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015-2019, LHCb Starterkit
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

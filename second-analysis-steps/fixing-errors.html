@@ -1,0 +1,651 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>What to do when something fails &mdash; LHCb Starterkit Lessons  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="../_static/panels.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/panels.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/starterkit.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Run a different stripping line on simulated data" href="rerun-stripping.html" />
+    <link rel="prev" title="Modern Selection Framework" href="building-decays-part2.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> LHCb Starterkit Lessons
+          
+
+          
+            
+            <img src="../_static/starterkit.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../first-analysis-steps/README.html">First Analysis Steps</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../first-analysis-steps/prerequisites.html">Pre-workshop checklist</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../first-analysis-steps/introduction-to-course.html">Goals of the course</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../first-analysis-steps/physics-at-lhcb.html">Physics at LHCb</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../first-analysis-steps/physics-at-lhcb.html#the-reconstruction">The reconstruction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../first-analysis-steps/physics-at-lhcb.html#building-decay-candidates">Building decay candidates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../first-analysis-steps/physics-at-lhcb.html#building-more-complex-decays">Building more complex decays</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../first-analysis-steps/dataflow.html">The LHCb data flow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../first-analysis-steps/run-2-data-flow.html">Changes to the data flow in Run 2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../first-analysis-steps/davinci.html">An introduction to LHCb Software</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../first-analysis-steps/bookkeeping.html">Finding data in the Bookkeeping</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../first-analysis-steps/files-from-grid.html">Downloading a file from the grid</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../first-analysis-steps/interactive-dst.html">Interactively exploring a DST</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../first-analysis-steps/minimal-dv-job.html">Running a minimal DaVinci job locally</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../first-analysis-steps/loki-functors.html">Fun with LoKi Functors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../first-analysis-steps/add-tupletools.html">TupleTools and branches</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../first-analysis-steps/decay-tree-fitter.html">How do I use DecayTreeFitter?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../first-analysis-steps/davinci-grid.html">Running DaVinci on the grid</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../first-analysis-steps/split-jobs.html">Splitting a job into subjobs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../first-analysis-steps/ganga-data.html">More Ganga</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../first-analysis-steps/eos-storage.html">Storing large files on EOS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../first-analysis-steps/lhcb-dev.html">Developing LHCb Software</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../first-analysis-steps/asking-questions.html">Asking good questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../first-analysis-steps/ecgd.html">Early career, gender and diversity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../first-analysis-steps/contributing-lesson.html">Contribute to this lesson</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="reference internal" href="README.html">Second Analysis Steps</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="lb-git.html">Using git to develop LHCb software</a></li>
+<li class="toctree-l2"><a class="reference internal" href="building-decays.html">Building your own decay</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="building-decays-part0.html">The Selection Framework</a></li>
+<li class="toctree-l3"><a class="reference internal" href="building-decays-part1.html">A Historical Approach</a></li>
+<li class="toctree-l3"><a class="reference internal" href="building-decays-part2.html">Modern Selection Framework</a></li>
+</ul>
+</li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">What to do when something fails</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rerun-stripping.html">Run a different stripping line on simulated data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="switch-mass-hypo.html">Replace a mass hypothesis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="filter-in-trees.html">Reuse particles from a decay tree</a></li>
+<li class="toctree-l2"><a class="reference internal" href="simulation.html">The simulation framework</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="simulation-intro.html">What is Gauss?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="simulation-running-gauss.html">Which option files to use and how to run Gauss</a></li>
+<li class="toctree-l3"><a class="reference internal" href="simulation-running-gauss.html#running-gauss-and-create-a-generator-only-sample">Running Gauss and create a generator-only sample</a></li>
+<li class="toctree-l3"><a class="reference internal" href="simulation-running-gauss.html#make-an-ntuple">Make an nTuple</a></li>
+<li class="toctree-l3"><a class="reference internal" href="simulation-dkfiles.html">Controlling the decay: DecFiles</a></li>
+<li class="toctree-l3"><a class="reference internal" href="simulation-gencuts.html">Modifying the decay</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="simulation-gencuts.html#adding-a-decay-channel">Adding a decay channel</a></li>
+<li class="toctree-l4"><a class="reference internal" href="simulation-gencuts.html#generator-level-cuts">Generator level cuts</a></li>
+<li class="toctree-l4"><a class="reference internal" href="simulation-gencuts.html#removing-the-generator-cuts">Removing the generator cuts</a></li>
+<li class="toctree-l4"><a class="reference internal" href="simulation-gencuts.html#modifying-the-cut-tool">Modifying the cut tool</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="simulation-advanced-dkfiles.html">Advanced: Modifying the decay</a></li>
+<li class="toctree-l3"><a class="reference internal" href="simulation-advanced-dkfiles.html#multi-body-decays">3+ multi-body decays</a></li>
+<li class="toctree-l3"><a class="reference internal" href="simulation-advanced-dkfiles.html#cocktail-decays">Cocktail decays</a></li>
+<li class="toctree-l3"><a class="reference internal" href="simulation-advanced-dkfiles.html#final-state-radiation">Final state radiation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="simulation-advanced-dkfiles.html#changing-particle-masses-lifetimes-widths">Changing particle masses / lifetimes/ widths</a></li>
+<li class="toctree-l3"><a class="reference internal" href="simulation-fastsim.html">Why fast simulation is crucial</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="simulation-fastsim.html#speeding-up-the-detector-simulation">Speeding up the detector simulation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="simulation-fastsim.html#speeding-up-the-generation">Speeding up the generation</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="hlt-intro.html">HLT intro</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="hlt-intro.html#add-trigger-information-to-your-ntuple">Add trigger information to your ntuple</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hlt-intro.html#exploring-a-tck-list-of-trigger-lines">Exploring a TCK: List of trigger lines</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hlt-intro.html#add-trigger-information-to-your-ntuple-continued">Add trigger information to your ntuple, continued</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hlt-intro.html#add-tistos-information-to-your-ntuple">Add TISTOS information to your ntuple</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hlt-intro.html#exploring-a-tck-properties-of-trigger-lines">Exploring a TCK: Properties of trigger lines</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="tistos-diy.html">TisTos DIY</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ganga-scripting.html">Scripting Ganga</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="ganga-scripting.html#defining-jobs-with-scripts">Defining jobs with scripts</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ganga-scripting.html#adding-helpers-functions">Adding helpers functions</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="managing-files-with-ganga.html">Managing files in Ganga</a></li>
+<li class="toctree-l2"><a class="reference internal" href="analysis-automation-snakemake.html">Analysis automation with snakemake</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="analysis-automation-snakemake.html#motivation">Motivation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="analysis-automation-snakemake.html#documentation-and-installation">Documentation and installation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="analysis-automation-snakemake.html#tutorial">Tutorial</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="analysis-automation-snakemake.html#usage-and-basic-behaviour">Usage and basic behaviour</a></li>
+<li class="toctree-l4"><a class="reference internal" href="analysis-automation-snakemake.html#sub-labels">Sub-labels</a></li>
+<li class="toctree-l4"><a class="reference internal" href="analysis-automation-snakemake.html#run-and-shell">Run and shell</a></li>
+<li class="toctree-l4"><a class="reference internal" href="analysis-automation-snakemake.html#config-files">Config files</a></li>
+<li class="toctree-l4"><a class="reference internal" href="analysis-automation-snakemake.html#includes">Includes</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../self-guided-lessons/README.html">Self guided lessons</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../self-guided-lessons/htcondor.html">Batch submission using HTCondor</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../self-guided-lessons/htcondor-first-job.html">Submitting a simple job</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../self-guided-lessons/htcondor-first-job.html#tracking-your-jobs">Tracking your jobs</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../self-guided-lessons/htcondor-more-options.html">More submit file options</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../self-guided-lessons/htcondor-more-options.html#input-files">Input files</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../self-guided-lessons/htcondor-more-options.html#output-files">Output files</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../self-guided-lessons/htcondor-more-options.html#arguments">Arguments</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../self-guided-lessons/htcondor-more-options.html#resources-and-requirements">Resources and Requirements</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../self-guided-lessons/htcondor-more-options.html#notifications">Notifications</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../self-guided-lessons/htcondor-queue.html">Using the queue command</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../self-guided-lessons/htcondor-queue.html#more-on-variables">More on variables</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../self-guided-lessons/htcondor-queue.html#other-ways-to-queue">Other ways to queue</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../self-guided-lessons/htcondor-queue.html#mixing-options-and-variables">Mixing options and variables</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../self-guided-lessons/htcondor.html#system-architecture">System architecture</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../self-guided-lessons/htcondor.html#other-useful-resources">Other useful resources</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../self-guided-lessons/local-grid-proxy.html">Creating a grid proxy without LbScripts</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../self-guided-lessons/local-grid-proxy.html#installation">Installation</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../self-guided-lessons/local-grid-proxy.html#macos-with-homebrew">macOS with homebrew</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../self-guided-lessons/local-grid-proxy.html#ubuntu">Ubuntu</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../self-guided-lessons/local-grid-proxy.html#centos">CentOS</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../self-guided-lessons/local-grid-proxy.html#arch-linux">Arch Linux</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../self-guided-lessons/local-grid-proxy.html#getting-the-required-files-and-certificates">Getting the required files and certificates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../self-guided-lessons/local-grid-proxy.html#creating-a-proxy">Creating a proxy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../self-guided-lessons/local-grid-proxy.html#managing-the-proxy">Managing the proxy</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../CONTRIBUTING.html">Contributing</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../CONTRIBUTING.html#getting-started">Getting Started</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../CONTRIBUTING.html#dependencies">Dependencies</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../CONDUCT.html">Contributor Code of Conduct</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../LICENSE.html">Instructional Material</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../LICENSE.html#software">Software</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">External links:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://hsf-training.github.io/analysis-essentials/">Analysis essentials</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">LHCb Starterkit Lessons</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="README.html">Second Analysis Steps</a> &raquo;</li>
+        
+      <li>What to do when something fails</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            
+              <a href="https://github.com/lhcb/starterkit-lessons/blob/master/second-analysis-steps/fixing-errors.md" class="fa fa-github"> Edit on GitHub</a>
+            
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  
+<style>
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast,
+.nboutput.nblast {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast + .nbinput {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
+</style>
+<div class="section" id="what-to-do-when-something-fails">
+<h1>What to do when something fails<a class="headerlink" href="#what-to-do-when-something-fails" title="Permalink to this headline">¶</a></h1>
+<div class="panel panel-objectives docutils container">
+<div class="panel-header open docutils container">
+<p id="learning-objectives"><i class="fa fa-line-chart"></i> Learning Objectives</p>
+</div>
+<div class="panel-body docutils container">
+<ul class="simple">
+<li><p>Learn how to read the logs to know where things are breaking</p></li>
+<li><p>Learn how to get a glimpse of where algorithms are writing in the TES</p></li>
+</ul>
+</div>
+</div>
+<p>When chaining complex workflows (building particles, combining them, etc) we find that our ntuple is not written while we don’t have any errors.
+The first step is to look at the logs.
+Let’s first go back at what we learned <a class="reference internal" href="building-decays-part0.html"><span class="doc">when building our own decays</span></a> and rerun again (saving the output to a log file!).</p>
+<p>We can scroll through the log until we find our selections, where we will see something like this:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Sel_D0            SUCCESS Number of counters : 10
+ |    Counter                                      |     #     |    sum     | mean/eff^* | rms/err^*  |     min     |     max     |
+ | &quot;# D0 -&gt; K-  K+ &quot;                               |      1000 |         95 |   0.095000 |    0.29661 |      0.0000 |      2.0000 |
+ | &quot;# D~0 -&gt; K+  K- &quot;                              |      1000 |         95 |   0.095000 |    0.29661 |      0.0000 |      2.0000 |
+ | &quot;# K+&quot;                                          |      1000 |        723 |    0.72300 |    0.89122 |      0.0000 |      6.0000 |
+ | &quot;# K-&quot;                                          |      1000 |        691 |    0.69100 |    0.85995 |      0.0000 |      6.0000 |
+ | &quot;# Phys/StdAllLooseKaons&quot;                       |      1000 |      20491 |     20.491 |     13.579 |      1.0000 |      90.000 |
+ | &quot;# input particles&quot;                             |      1000 |      20491 |     20.491 |     13.579 |      1.0000 |      90.000 |
+ | &quot;# selected&quot;                                    |      1000 |        190 |    0.19000 |    0.59321 |      0.0000 |      4.0000 |
+ |*&quot;#accept&quot;                                       |      1000 |         94 |(  9.40000 +- 0.922843 )%|   -------   |   -------   |
+ |*&quot;#pass combcut&quot;                                 |      1308 |        234 |(  17.8899 +- 1.05974  )%|   -------   |   -------   |
+ |*&quot;#pass mother cut&quot;                              |       234 |        190 |(  81.1966 +- 2.55434  )%|   -------   |   -------   |
+SelFilterPhys_S...SUCCESS Number of counters : 1
+ |    Counter                                      |     #     |    sum     | mean/eff^* | rms/err^*  |     min     |     max     |
+ |*&quot;#passed&quot;                                       |        94 |         94 |(  100.000 +- 1.06383  )%|   -------   |   -------   |
+Sel_Dstar         SUCCESS Number of counters : 14
+ |    Counter                                      |     #     |    sum     | mean/eff^* | rms/err^*  |     min     |     max     |
+ | &quot;# D*(2010)+ -&gt; D0  pi+ &quot;                       |        94 |         30 |    0.31915 |    0.48844 |      0.0000 |      2.0000 |
+ | &quot;# D*(2010)- -&gt; D~0  pi- &quot;                      |        94 |         31 |    0.32979 |    0.51340 |      0.0000 |      2.0000 |
+ | &quot;# D0&quot;                                          |        94 |         95 |     1.0106 |    0.10259 |      1.0000 |      2.0000 |
+ | &quot;# D~0&quot;                                         |        94 |         95 |     1.0106 |    0.10259 |      1.0000 |      2.0000 |
+ | &quot;# Phys/Sel_D0&quot;                                 |        94 |        190 |     2.0213 |    0.20518 |      2.0000 |      4.0000 |
+ | &quot;# Phys/StdAllNoPIDsPions&quot;                      |        94 |       3699 |     39.351 |     19.111 |      7.0000 |      95.000 |
+ | &quot;# input particles&quot;                             |        94 |       3889 |     41.372 |     19.174 |      9.0000 |      99.000 |
+ | &quot;# pi+&quot;                                         |        94 |       1767 |     18.798 |     8.8949 |      3.0000 |      42.000 |
+ | &quot;# pi-&quot;                                         |        94 |       1743 |     18.543 |     9.4381 |      3.0000 |      49.000 |
+ | &quot;# selected&quot;                                    |        94 |         61 |    0.64894 |    0.55940 |      0.0000 |      2.0000 |
+ |*&quot;#accept&quot;                                       |        94 |         57 |(  60.6383 +- 5.03902  )%|   -------   |   -------   |
+ |*&quot;#pass combcut&quot;                                 |      3601 |        843 |(  23.4102 +- 0.705629 )%|   -------   |   -------   |
+ |*&quot;#pass mother cut&quot;                              |       843 |         61 |(  7.23606 +- 0.892333 )%|   -------   |   -------   |
+ | &quot;Error from IParticleCombiner, skip the combinat|         5 |          5 |     1.0000 |     0.0000 |      1.0000 |      1.0000 |
+</pre></div>
+</div>
+<p>Here we have information of the input containers, types of particles, etc, with all the counters corresponding to our run on 1000 events.</p>
+<div class="panel panel-challenge docutils container">
+<div class="panel-header open docutils container">
+<p id="understanding-the-log"><i class="fa fa-square-o"></i> Understanding the log</p>
+</div>
+<div class="panel-body docutils container">
+<p>How many excited D* mesons do we expect in our ntuple? Can you check it?
+Can you change some cuts and see how the counters change? Try to free the D* mass window requirement and see if you get more of those.</p>
+</div>
+</div>
+<p>Now, let’s make the particle builder fail silently and see if we can debug this.
+For example, imagine we forgot to add the Kaons as inputs in <code class="docutils literal notranslate"><span class="pre">Sel_D0</span></code>, and instead by mistake added the Pions:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">d0_sel</span> <span class="o">=</span> <span class="n">Selection</span><span class="p">(</span><span class="s1">&#39;Sel_D0&#39;</span><span class="p">,</span>
+                   <span class="n">Algorithm</span><span class="o">=</span><span class="n">d0</span><span class="p">,</span>
+                   <span class="n">RequiredSelections</span><span class="o">=</span><span class="p">[</span><span class="n">Pions</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>Then we get</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Sel_D0            SUCCESS Number of counters : 10
+ |    Counter                                      |     #     |    sum     | mean/eff^* | rms/err^*  |     min     |     max     |
+ | &quot;# D0 -&gt; K-  K+ &quot;                               |      1000 |          0 |     0.0000 |     0.0000 |      0.0000 |      0.0000 |
+ | &quot;# D~0 -&gt; K+  K- &quot;                              |      1000 |          0 |     0.0000 |     0.0000 |      0.0000 |      0.0000 |
+ | &quot;# K+&quot;                                          |      1000 |          0 |     0.0000 |     0.0000 |      0.0000 |      0.0000 |
+ | &quot;# K-&quot;                                          |      1000 |          0 |     0.0000 |     0.0000 |      0.0000 |      0.0000 |
+ | &quot;# Phys/StdAllNoPIDsPions&quot;                      |      1000 |      38848 |     38.848 |     21.700 |      1.0000 |      128.00 |
+ | &quot;# input particles&quot;                             |      1000 |      38848 |     38.848 |     21.700 |      1.0000 |      128.00 |
+ | &quot;# selected&quot;                                    |      1000 |          0 |     0.0000 |     0.0000 |      0.0000 |      0.0000 |
+ |*&quot;#accept&quot;                                       |      1000 |          0 |(  0.00000 +- 0.100000 )%|   -------   |   -------   |
+ | &quot;#pass combcut&quot;                                 |         0 |          0 |     0.0000 |     0.0000 | 1.7977e+308 |-1.7977e+308 |
+ | &quot;#pass mother cut&quot;                              |         0 |          0 |     0.0000 |     0.0000 | 1.7977e+308 |-1.7977e+308 |
+</pre></div>
+</div>
+<p>It’s easy to see we have 0 input kaons and we can see we only get input pions!</p>
+<p>Another problem: we messed up with a cut, for example in building the <span class="math notranslate nohighlight">\( D^* \)</span>,</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">dstar_mother</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="s2">&quot;(abs(M-MAXTREE(&#39;D0&#39;==ABSID,M)-145.42) &lt; 10*MeV)&quot;</span>
+    <span class="s1">&#39;&amp; (VFASPF(VCHI2/VDOF) &lt; 0)&#39;</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>Running this, we get</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Sel_Dstar         SUCCESS Number of counters : 14
+ |    Counter                                      |     #     |    sum     | mean/eff^* | rms/err^*  |     min     |     max     |
+ | &quot;# D*(2010)+ -&gt; D0  pi+ &quot;                       |        94 |          0 |     0.0000 |     0.0000 |      0.0000 |      0.0000 |
+ | &quot;# D*(2010)- -&gt; D~0  pi- &quot;                      |        94 |          0 |     0.0000 |     0.0000 |      0.0000 |      0.0000 |
+ | &quot;# D0&quot;                                          |        94 |         95 |     1.0106 |    0.10259 |      1.0000 |      2.0000 |
+ | &quot;# D~0&quot;                                         |        94 |         95 |     1.0106 |    0.10259 |      1.0000 |      2.0000 |
+ | &quot;# Phys/Sel_D0&quot;                                 |        94 |        190 |     2.0213 |    0.20518 |      2.0000 |      4.0000 |
+ | &quot;# Phys/StdAllNoPIDsPions&quot;                      |        94 |       3699 |     39.351 |     19.111 |      7.0000 |      95.000 |
+ | &quot;# input particles&quot;                             |        94 |       3889 |     41.372 |     19.174 |      9.0000 |      99.000 |
+ | &quot;# pi+&quot;                                         |        94 |       1767 |     18.798 |     8.8949 |      3.0000 |      42.000 |
+ | &quot;# pi-&quot;                                         |        94 |       1743 |     18.543 |     9.4381 |      3.0000 |      49.000 |
+ | &quot;# selected&quot;                                    |        94 |          0 |     0.0000 |     0.0000 |      0.0000 |      0.0000 |
+ |*&quot;#accept&quot;                                       |        94 |          0 |(  0.00000 +- 1.06383  )%|   -------   |   -------   |
+ |*&quot;#pass combcut&quot;                                 |      3601 |        843 |(  23.4102 +- 0.705629 )%|   -------   |   -------   |
+ |*&quot;#pass mother cut&quot;                              |       843 |          0 |(  0.00000 +- 0.118624 )%|   -------   |   -------   |
+ | &quot;Error from IParticleCombiner, skip the combinat|         5 |          5 |     1.0000 |     0.0000 |      1.0000 |      1.0000 |
+</pre></div>
+</div>
+<p>And we would get suspicious about the <code class="docutils literal notranslate"><span class="pre">MotherCut</span></code>…</p>
+<p>The final trick is to use the <code class="docutils literal notranslate"><span class="pre">StoreExplorerAlg</span></code>, which shows us the state of the TES in the middle of execution.
+We can configure it very easily and insert it in the DaVinci sequence to see what is happening.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">Configurables</span> <span class="kn">import</span> <span class="n">StoreExplorerAlg</span>
+
+<span class="n">DaVinci</span><span class="p">()</span><span class="o">.</span><span class="n">UserAlgorithms</span> <span class="o">+=</span> <span class="p">[</span><span class="n">StoreExplorerAlg</span><span class="p">(</span><span class="s2">&quot;Before&quot;</span><span class="p">),</span>
+                             <span class="n">dstar_seq</span><span class="o">.</span><span class="n">sequence</span><span class="p">(),</span>
+                             <span class="n">StoreExplorerAlg</span><span class="p">(</span><span class="s2">&quot;After&quot;</span><span class="p">)]</span>
+</pre></div>
+</div>
+<p>And then run it:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>EventSelector     SUCCESS Reading Event record 1. Record number within stream 1: 1
+...
+Before               INFO ========= /Event[0x2f009e70@EventDataSvc]:
+Before               INFO +--&gt; /Event [Address: CLID=0x1 Type=0x2]  DataObject
+Before               INFO | +--&gt; /Gen [Address: CLID=0x1 Type=0x2]  (Unloaded) 
+Before               INFO | +--&gt; /PrevPrev [Address: CLID=0x1 Type=0x2]  (Unloaded) 
+Before               INFO | +--&gt; /Prev [Address: CLID=0x1 Type=0x2]  (Unloaded) 
+Before               INFO | +--&gt; /Next [Address: CLID=0x1 Type=0x2]  (Unloaded) 
+Before               INFO | +--&gt; /NextNext [Address: CLID=0x1 Type=0x2]  (Unloaded) 
+Before               INFO | +--&gt; /MC [Address: CLID=0x1 Type=0x2]  (Unloaded) 
+Before               INFO | +--&gt; /Link [Address: CLID=0x1 Type=0x2]  (Unloaded) 
+Before               INFO | +--&gt; /pSim [Address: CLID=0x1 Type=0x2]  (Unloaded) 
+Before               INFO | +--&gt; /Rec [Address: CLID=0x1 Type=0x2]  DataObject
+Before               INFO | | +--&gt; /Header [Address: CLID=0x69 Type=0x2]  LHCb::RecHeader
+Before               INFO | | +--&gt; /Status [Address: CLID=0x1389 Type=0x2]  (Unloaded) 
+Before               INFO | | +--&gt; /Summary [Address: CLID=0x6a Type=0x2]  (Unloaded) 
+Before               INFO | | +--&gt; /ProtoP [No Address]  DataObject
+Before               INFO | | | +--&gt; /Charged [No Address]  KeyedContainer&lt;LHCb::ProtoPartic [0x1d]
+Before               INFO | | +--&gt; /Muon [No Address]  DataObject
+Before               INFO | | | +--&gt; /MuonPID [No Address]  KeyedContainer&lt;LHCb::MuonPID,Con [0x17]
+Before               INFO | | +--&gt; /Track [No Address]  DataObject
+Before               INFO | | | +--&gt; /Best [No Address]  KeyedContainer&lt;LHCb::Track,Conta [0x45]
+Before               INFO | | | +--&gt; /FittedHLT1VeloTracks [No Address]  KeyedContainer&lt;LHCb::Track,Conta [0x20]
+Before               INFO | | +--&gt; /Rich [No Address]  DataObject
+Before               INFO | | | +--&gt; /PIDs [No Address]  KeyedContainer&lt;LHCb::RichPID,Con [0x18]
+Before               INFO | | +--&gt; /Vertex [No Address]  DataObject
+Before               INFO | |   +--&gt; /Primary [No Address]  KeyedContainer&lt;LHCb::RecVertex,C [0x3]
+Before               INFO | +--&gt; /Calo [Address: CLID=0x1 Type=0x2]  (Unloaded) 
+Before               INFO | +--&gt; /Unstripped [Address: CLID=0x1 Type=0x2]  (Unloaded) 
+Before               INFO | +--&gt; /HC [Address: CLID=0x1 Type=0x2]  (Unloaded) 
+Before               INFO | +--&gt; /Tracker [Address: CLID=0x1 Type=0x2]  (Unloaded) 
+Before               INFO | +--&gt; /Velo [Address: CLID=0x1 Type=0x2]  (Unloaded) 
+Before               INFO | +--&gt; /Muon [Address: CLID=0x1 Type=0x2]  (Unloaded) 
+Before               INFO | +--&gt; /Rich [Address: CLID=0x1 Type=0x2]  (Unloaded) 
+Before               INFO | +--&gt; /Trigger [Address: CLID=0x1 Type=0x2]  DataObject
+Before               INFO | | +--&gt; /RawEvent [Address: CLID=0x3ea Type=0x2]  LHCb::RawEvent
+Before               INFO | +--&gt; /pRec [Address: CLID=0x1 Type=0x2]  DataObject
+Before               INFO | | +--&gt; /Track [Address: CLID=0x1 Type=0x2]  DataObject
+Before               INFO | | | +--&gt; /Best [Address: CLID=0x60e Type=0x2]  LHCb::PackedTracks
+Before               INFO | | | +--&gt; /FittedHLT1VeloTracks [Address: CLID=0x60e Type=0x2]  LHCb::PackedTracks
+Before               INFO | | | +--&gt; /Muon [Address: CLID=0x60e Type=0x2]  (Unloaded) 
+Before               INFO | | +--&gt; /Rich [Address: CLID=0x1 Type=0x2]  DataObject
+Before               INFO | | | +--&gt; /PIDs [Address: CLID=0x619 Type=0x2]  LHCb::PackedRichPIDs
+Before               INFO | | +--&gt; /Muon [Address: CLID=0x1 Type=0x2]  DataObject
+Before               INFO | | | +--&gt; /MuonPID [Address: CLID=0x623 Type=0x2]  LHCb::PackedMuonPIDs
+Before               INFO | | +--&gt; /Calo [Address: CLID=0x1 Type=0x2]  (Unloaded) 
+Before               INFO | | +--&gt; /ProtoP [Address: CLID=0x1 Type=0x2]  DataObject
+Before               INFO | | | +--&gt; /Charged [Address: CLID=0x610 Type=0x2]  LHCb::PackedProtoParticles
+Before               INFO | | | +--&gt; /Neutrals [Address: CLID=0x610 Type=0x2]  (Unloaded) 
+Before               INFO | | +--&gt; /Vertex [Address: CLID=0x1 Type=0x2]  DataObject
+Before               INFO | | | +--&gt; /Primary [Address: CLID=0x611 Type=0x2]  LHCb::PackedRecVertices
+Before               INFO | |   +--&gt; /V0 [Address: CLID=0x612 Type=0x2]  (Unloaded) 
+Before               INFO | +--&gt; /Turbo [Address: CLID=0x1 Type=0x2]  (Unloaded) 
+Before               INFO | +--&gt; /Strip [Address: CLID=0x1 Type=0x2]  (Unloaded) 
+Before               INFO | +--&gt; /AllStreams [Address: CLID=0x1 Type=0x2]  (Unloaded) 
+Before               INFO | +--&gt; /DAQ [No Address]  DataObject
+Before               INFO | | +--&gt; /ODIN [No Address]  LHCb::ODIN
+Before               INFO   +--&gt; /Phys [No Address]  DataObject
+Before               INFO   | +--&gt; /StdAllLooseKaons [No Address]  DataObject
+Before               INFO   | | +--&gt; /Particles [No Address]  KeyedContainer&lt;LHCb::Particle,Co [0x9]
+Before               INFO   | | +--&gt; /decayVertices [No Address]  KeyedContainer&lt;LHCb::Vertex,Cont [0]
+Before               INFO   | | +--&gt; /Particle2VertexRelations [No Address]  LHCb::Relation1D&lt;LHCb::Particle,
+Before               INFO   | | +--&gt; /_RefitPVs [No Address]  KeyedContainer&lt;LHCb::RecVertex,C [0]
+Before               INFO   | +--&gt; /Sel_D0 [No Address]  DataObject
+Before               INFO   | | +--&gt; /Particles [No Address]  KeyedContainer&lt;LHCb::Particle,Co [0]
+Before               INFO     +--&gt; /TupleDstToD0pi_D0ToKK [No Address]  DataObject
+Before               INFO       +--&gt; /Particles [No Address]  KeyedContainer&lt;LHCb::Particle,Co [0]
+After                INFO ========= /Event[0x2f009e70@EventDataSvc]:
+After                INFO +--&gt; /Event [Address: CLID=0x1 Type=0x2]  DataObject
+After                INFO | +--&gt; /Gen [Address: CLID=0x1 Type=0x2]  (Unloaded) 
+After                INFO | +--&gt; /PrevPrev [Address: CLID=0x1 Type=0x2]  (Unloaded) 
+After                INFO | +--&gt; /Prev [Address: CLID=0x1 Type=0x2]  (Unloaded) 
+After                INFO | +--&gt; /Next [Address: CLID=0x1 Type=0x2]  (Unloaded) 
+After                INFO | +--&gt; /NextNext [Address: CLID=0x1 Type=0x2]  (Unloaded) 
+After                INFO | +--&gt; /MC [Address: CLID=0x1 Type=0x2]  (Unloaded) 
+After                INFO | +--&gt; /Link [Address: CLID=0x1 Type=0x2]  (Unloaded) 
+After                INFO | +--&gt; /pSim [Address: CLID=0x1 Type=0x2]  (Unloaded) 
+After                INFO | +--&gt; /Rec [Address: CLID=0x1 Type=0x2]  DataObject
+After                INFO | | +--&gt; /Header [Address: CLID=0x69 Type=0x2]  LHCb::RecHeader
+After                INFO | | +--&gt; /Status [Address: CLID=0x1389 Type=0x2]  (Unloaded) 
+After                INFO | | +--&gt; /Summary [Address: CLID=0x6a Type=0x2]  (Unloaded) 
+After                INFO | | +--&gt; /ProtoP [No Address]  DataObject
+After                INFO | | | +--&gt; /Charged [No Address]  KeyedContainer&lt;LHCb::ProtoPartic [0x1d]
+After                INFO | | +--&gt; /Muon [No Address]  DataObject
+After                INFO | | | +--&gt; /MuonPID [No Address]  KeyedContainer&lt;LHCb::MuonPID,Con [0x17]
+After                INFO | | +--&gt; /Track [No Address]  DataObject
+After                INFO | | | +--&gt; /Best [No Address]  KeyedContainer&lt;LHCb::Track,Conta [0x45]
+After                INFO | | | +--&gt; /FittedHLT1VeloTracks [No Address]  KeyedContainer&lt;LHCb::Track,Conta [0x20]
+After                INFO | | +--&gt; /Rich [No Address]  DataObject
+After                INFO | | | +--&gt; /PIDs [No Address]  KeyedContainer&lt;LHCb::RichPID,Con [0x18]
+After                INFO | | +--&gt; /Vertex [No Address]  DataObject
+After                INFO | |   +--&gt; /Primary [No Address]  KeyedContainer&lt;LHCb::RecVertex,C [0x3]
+After                INFO | +--&gt; /Calo [Address: CLID=0x1 Type=0x2]  (Unloaded) 
+After                INFO | +--&gt; /Unstripped [Address: CLID=0x1 Type=0x2]  (Unloaded) 
+After                INFO | +--&gt; /HC [Address: CLID=0x1 Type=0x2]  (Unloaded) 
+After                INFO | +--&gt; /Tracker [Address: CLID=0x1 Type=0x2]  (Unloaded) 
+After                INFO | +--&gt; /Velo [Address: CLID=0x1 Type=0x2]  (Unloaded) 
+After                INFO | +--&gt; /Muon [Address: CLID=0x1 Type=0x2]  (Unloaded) 
+After                INFO | +--&gt; /Rich [Address: CLID=0x1 Type=0x2]  (Unloaded) 
+After                INFO | +--&gt; /Trigger [Address: CLID=0x1 Type=0x2]  DataObject
+After                INFO | | +--&gt; /RawEvent [Address: CLID=0x3ea Type=0x2]  LHCb::RawEvent
+After                INFO | +--&gt; /pRec [Address: CLID=0x1 Type=0x2]  DataObject
+After                INFO | | +--&gt; /Track [Address: CLID=0x1 Type=0x2]  DataObject
+After                INFO | | | +--&gt; /Best [Address: CLID=0x60e Type=0x2]  LHCb::PackedTracks
+After                INFO | | | +--&gt; /FittedHLT1VeloTracks [Address: CLID=0x60e Type=0x2]  LHCb::PackedTracks
+After                INFO | | | +--&gt; /Muon [Address: CLID=0x60e Type=0x2]  (Unloaded) 
+After                INFO | | +--&gt; /Rich [Address: CLID=0x1 Type=0x2]  DataObject
+After                INFO | | | +--&gt; /PIDs [Address: CLID=0x619 Type=0x2]  LHCb::PackedRichPIDs
+After                INFO | | +--&gt; /Muon [Address: CLID=0x1 Type=0x2]  DataObject
+After                INFO | | | +--&gt; /MuonPID [Address: CLID=0x623 Type=0x2]  LHCb::PackedMuonPIDs
+After                INFO | | +--&gt; /Calo [Address: CLID=0x1 Type=0x2]  (Unloaded) 
+After                INFO | | +--&gt; /ProtoP [Address: CLID=0x1 Type=0x2]  DataObject
+After                INFO | | | +--&gt; /Charged [Address: CLID=0x610 Type=0x2]  LHCb::PackedProtoParticles
+After                INFO | | | +--&gt; /Neutrals [Address: CLID=0x610 Type=0x2]  (Unloaded) 
+After                INFO | | +--&gt; /Vertex [Address: CLID=0x1 Type=0x2]  DataObject
+After                INFO | | | +--&gt; /Primary [Address: CLID=0x611 Type=0x2]  LHCb::PackedRecVertices
+After                INFO | |   +--&gt; /V0 [Address: CLID=0x612 Type=0x2]  (Unloaded) 
+After                INFO | +--&gt; /Turbo [Address: CLID=0x1 Type=0x2]  (Unloaded) 
+After                INFO | +--&gt; /Strip [Address: CLID=0x1 Type=0x2]  (Unloaded) 
+After                INFO | +--&gt; /AllStreams [Address: CLID=0x1 Type=0x2]  (Unloaded) 
+After                INFO | +--&gt; /DAQ [No Address]  DataObject
+After                INFO | | +--&gt; /ODIN [No Address]  LHCb::ODIN
+After                INFO   +--&gt; /Phys [No Address]  DataObject
+After                INFO   | +--&gt; /StdAllLooseKaons [No Address]  DataObject
+After                INFO   | | +--&gt; /Particles [No Address]  KeyedContainer&lt;LHCb::Particle,Co [0x9]
+After                INFO   | | +--&gt; /decayVertices [No Address]  KeyedContainer&lt;LHCb::Vertex,Cont [0]
+After                INFO   | | +--&gt; /Particle2VertexRelations [No Address]  LHCb::Relation1D&lt;LHCb::Particle,
+After                INFO   | | +--&gt; /_RefitPVs [No Address]  KeyedContainer&lt;LHCb::RecVertex,C [0]
+After                INFO   | +--&gt; /Sel_D0 [No Address]  DataObject
+After                INFO   | | +--&gt; /Particles [No Address]  KeyedContainer&lt;LHCb::Particle,Co [0]
+After                INFO     +--&gt; /TupleDstToD0pi_D0ToKK [No Address]  DataObject
+After                INFO       +--&gt; /Particles [No Address]  KeyedContainer&lt;LHCb::Particle,Co [0]
+</pre></div>
+</div>
+<p>Here we can see where our decays are being put and we can debug problems with inputs and outputs.
+It can also be useful to know where things are written for accessing them interactively, if we want to further explore and debug.</p>
+<div class="panel panel-callout docutils container">
+<div class="panel-header open docutils container">
+<p id="configuring-the-algorithm"><i class="fa fa-info-circle"></i> Configuring the algorithm</p>
+</div>
+<div class="panel-body docutils container">
+<p>The <code class="docutils literal notranslate"><span class="pre">StoreExplorerAlg</span></code> has the same print frequency as <code class="docutils literal notranslate"><span class="pre">DaVinci</span></code>, but it can be configured by modifying <code class="docutils literal notranslate"><span class="pre">PrintFreq</span></code> (fraction of events that are printed) or <code class="docutils literal notranslate"><span class="pre">PrintEvt</span></code>.
+Have a look at the <a class="reference external" href="https://lhcb-doxygen.web.cern.ch/lhcb-doxygen/davinci/latest/d2/d3b/class_store_explorer_alg.html">class Doxygen</a> to see what they do.</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="rerun-stripping.html" class="btn btn-neutral float-right" title="Run a different stripping line on simulated data" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="building-decays-part2.html" class="btn btn-neutral float-left" title="Modern Selection Framework" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015-2019, LHCb Starterkit
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
