@@ -9,7 +9,7 @@ If you have any problems or questions, you can [send an email to `lhcb-starterki
 
 Before starting, you should be familiar with using a shell, like `bash`, and with programming in Python.
 
-The [analysis essentials course](https://lhcb.github.io/analysis-essentials/index.html) has an introduction to these topics, as does the [Software Carpentry workshop](https://software-carpentry.org/lessons/), which includes many other useful computing tools.
+The [analysis essentials course](https://hsf-training.github.io/analysis-essentials/) has an introduction to these topics, as does the [Software Carpentry workshop](https://software-carpentry.org/lessons/), which includes many other useful computing tools.
 
 {% endprereq %}
 
