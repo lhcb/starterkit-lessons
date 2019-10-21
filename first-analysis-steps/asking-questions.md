@@ -30,6 +30,13 @@ For more general questions [Stack Overflow](https://stackoverflow.com/) and
 
 {% callout "LHCb Q&A" %}
 
+A broad range of LHCb-related terms, abrreviations and definitions can be found in the unofficial [LHCb Glossary](https://lhcb.github.io/glossary/).
+Feel free to [contribute](https://github.com/lhcb/glossary).  
+
+{% endcallout %} 
+
+{% callout "LHCb glossary" %}
+
 Another experimental alternative to the mailing lists is the [LHCb Questions and 
 Answers website](https://lhcbqa.web.cern.ch/lhcbqa/).
 It works like [Stack overflow](https://stackoverflow.com/), but focuses on LHCb-specific questions.
