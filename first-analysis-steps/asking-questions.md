@@ -30,7 +30,7 @@ For more general questions [Stack Overflow](https://stackoverflow.com/) and
 
 {% callout "LHCb glossary" %}
 
-A broad range of LHCb-related terms, abrreviations and definitions can be found in the unofficial [LHCb Glossary](https://lhcb.github.io/glossary/).
+A broad range of LHCb-related terms, abbreviations and definitions can be found in the official [LHCb Glossary](https://lhcb.github.io/glossary/) linked from the main experiment page.
 Feel free to [contribute](https://github.com/lhcb/glossary).  
 
 {% endcallout %} 
