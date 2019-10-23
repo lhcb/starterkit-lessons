@@ -54,9 +54,26 @@ dtt.Dstar.ConsD.UpdateDaughters = True
 {% callout "DecayTreeFitter and LoKi functors" %}
 
 Alternatively, many of the operations described above can be done by using the 
-`DecayTreeFitter` via LoKi functors, see the [DaVinci 
-tutorial](https://twiki.cern.ch/twiki/bin/view/LHCb/DaVinciTutorial9b) for 
-details.
+`DecayTreeFitter` via LoKi functors using `DTF_FUN` functor in `LoKi::Hybrid::TupleTool`.
+The advantage of this method is that it allows to customize the output variables as shown below.
+```python
+LoKi_DTFFun = dtt.Dstar.addTupleTool("LoKi::Hybrid::TupleTool/LoKi_DTFFun")
+LoKi_DTFFun.Variables = {
+    "DTFFun_Dstart_P"   : "DTF_FUN(P, True, 'D0')",
+    "DTFFun_Dstar_PT"   : "DTF_FUN(PT, True, 'D0')",
+    "DTFFun_Dstar_M"    : "DTF_FUN(M, True, 'D0')",
+    "DTFFun_DTF_CHI2"   : "DTF_CHI2(True, 'D0')",
+    "DTFFun_DTF_NDOF"   : "DTF_NDOF(True, 'D0')",
+    "DTFFun_D0_M"       : "DTF_FUN(CHILD(M,  'D*(2010)+ ->^D0 pi+'), True, 'D0')",
+    "DTFFun_D0_PE"      : "DTF_FUN(CHILD(E,  'D*(2010)+ ->^D0 pi+'), True, 'D0')",
+    "DTFFun_D0_PX"      : "DTF_FUN(CHILD(PX, 'D*(2010)+ ->^D0 pi+'), True, 'D0')",
+    "DTFFun_D0_PY"      : "DTF_FUN(CHILD(PY, 'D*(2010)+ ->^D0 pi+'), True, 'D0')",
+    "DTFFun_D0_PZ"      : "DTF_FUN(CHILD(PZ, 'D*(2010)+ ->^D0 pi+'), True, 'D0')"
+}
+```
+The first argument of `DTF_FUN` is the LoKi functor that defines the output variable. The second (boolean) argument defines if *primary-vertex constraint* is required or not. The third argument is optional and specifies a particle or list of particles to be mass-constrained. The quality of the fit can be accessed by `DTF_CHI2` functor.
+
+The `DecayTreeFitter` implementation described above has a disadvantage that it will re-run the fit for every variable requested by `DTF_FUN`. A more efficient way to use LoKi-based `DecayTreeFitter` can be done using `LoKi__Hybrid__Dict2Tuple` tool as described in [DaVinci tutorial](https://twiki.cern.ch/twiki/bin/view/LHCb/DaVinciTutorial9b).
 
 {% endcallout %} 
 
