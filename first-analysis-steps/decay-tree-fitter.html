@@ -391,9 +391,27 @@ Since in many cases this information might be useful, there is an option to stor
 </div>
 <div class="panel-body docutils container">
 <p>Alternatively, many of the operations described above can be done by using the
-<code class="docutils literal notranslate"><span class="pre">DecayTreeFitter</span></code> via LoKi functors, see the <a class="reference external" href="https://twiki.cern.ch/twiki/bin/view/LHCb/DaVinciTutorial9b">DaVinci
-tutorial</a> for
-details.</p>
+<code class="docutils literal notranslate"><span class="pre">DecayTreeFitter</span></code> via LoKi functors using <code class="docutils literal notranslate"><span class="pre">DTF_FUN</span></code> functor in <code class="docutils literal notranslate"><span class="pre">LoKi::Hybrid::TupleTool</span></code>.
+The advantage of this method is that it allows to customize the output variables as shown below.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LoKi_DTFFun</span> <span class="o">=</span> <span class="n">dtt</span><span class="o">.</span><span class="n">Dstar</span><span class="o">.</span><span class="n">addTupleTool</span><span class="p">(</span><span class="s2">&quot;LoKi::Hybrid::TupleTool/LoKi_DTFFun&quot;</span><span class="p">)</span>
+<span class="n">LoKi_DTFFun</span><span class="o">.</span><span class="n">Variables</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;DTFFun_Dstart_P&quot;</span>   <span class="p">:</span> <span class="s2">&quot;DTF_FUN(P, True, &#39;D0&#39;)&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;DTFFun_Dstar_PT&quot;</span>   <span class="p">:</span> <span class="s2">&quot;DTF_FUN(PT, True, &#39;D0&#39;)&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;DTFFun_Dstar_M&quot;</span>    <span class="p">:</span> <span class="s2">&quot;DTF_FUN(M, True, &#39;D0&#39;)&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;DTFFun_DTF_CHI2&quot;</span>   <span class="p">:</span> <span class="s2">&quot;DTF_CHI2(True, &#39;D0&#39;)&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;DTFFun_DTF_NDOF&quot;</span>   <span class="p">:</span> <span class="s2">&quot;DTF_NDOF(True, &#39;D0&#39;)&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;DTFFun_D0_M&quot;</span>       <span class="p">:</span> <span class="s2">&quot;DTF_FUN(CHILD(M,  &#39;D*(2010)+ -&gt;^D0 pi+&#39;), True, &#39;D0&#39;)&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;DTFFun_D0_PE&quot;</span>      <span class="p">:</span> <span class="s2">&quot;DTF_FUN(CHILD(E,  &#39;D*(2010)+ -&gt;^D0 pi+&#39;), True, &#39;D0&#39;)&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;DTFFun_D0_PX&quot;</span>      <span class="p">:</span> <span class="s2">&quot;DTF_FUN(CHILD(PX, &#39;D*(2010)+ -&gt;^D0 pi+&#39;), True, &#39;D0&#39;)&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;DTFFun_D0_PY&quot;</span>      <span class="p">:</span> <span class="s2">&quot;DTF_FUN(CHILD(PY, &#39;D*(2010)+ -&gt;^D0 pi+&#39;), True, &#39;D0&#39;)&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;DTFFun_D0_PZ&quot;</span>      <span class="p">:</span> <span class="s2">&quot;DTF_FUN(CHILD(PZ, &#39;D*(2010)+ -&gt;^D0 pi+&#39;), True, &#39;D0&#39;)&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>The first argument of <code class="docutils literal notranslate"><span class="pre">DTF_FUN</span></code> is the LoKi functor that defines the output variable. The second (boolean) argument defines if <em>primary-vertex constraint</em> is required or not.
+The third argument is optional and specifies a particle or list of particles to be mass-constrained. In the case of multiple mass constraints this argument should look like <code class="docutils literal notranslate"><span class="pre">strings(['particle1','particle2'])</span></code>.
+The quality of the fit can be accessed by <code class="docutils literal notranslate"><span class="pre">DTF_CHI2</span></code> functor.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">DecayTreeFitter</span></code> implementation described above has a disadvantage that it will re-run the fit for every variable requested by <code class="docutils literal notranslate"><span class="pre">DTF_FUN</span></code>. A more efficient and <em><strong>strongly recommended way</strong></em> to use LoKi-based <code class="docutils literal notranslate"><span class="pre">DecayTreeFitter</span></code> can be done using <code class="docutils literal notranslate"><span class="pre">LoKi__Hybrid__Dict2Tuple</span></code> tool as described in <a class="reference external" href="https://twiki.cern.ch/twiki/bin/view/LHCb/DaVinciTutorial9b">DaVinci tutorial</a>.</p>
 </div>
 </div>
 <div class="panel panel-callout docutils container">
