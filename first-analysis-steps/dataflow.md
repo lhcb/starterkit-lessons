@@ -63,6 +63,8 @@ The µDST format was designed to save space by storing only the
 information concerning the build _candidates_ (that is, the objects used 
 to construct particle decays like tracks); the raw event, which takes 
 around 50kB per event, is discarded.
+
+The overview of most important file formats used in LHCb can be found [here](http://lhcbdoc.web.cern.ch/lhcbdoc/gauss/doc/FileTypes.php).
     
 {% endcallout %} 
 
