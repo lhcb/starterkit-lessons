@@ -51,7 +51,7 @@ $ lb-run DaVinci/v45r1 ipython -i first.py 00070793_00000001_7.AllStreams.dst
 Get the first candidate in the `D2hhPromptDst2D2KKLine` line:
 
 ```python
-advnace('D2hhPromptDst2D2KKLine')
+advance('D2hhPromptDst2D2KKLine')
 cands = evt['/Event/AllStreams/Phys/D2hhPromptDst2D2KKLine/Particles']
 cand = cands[0]
 ```
