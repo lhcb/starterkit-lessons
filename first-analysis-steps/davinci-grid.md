@@ -15,7 +15,7 @@ job](minimal-dv-job) and run it on the grid.
 `ganga` is a program which you can use to interact with your grid
 jobs. 
 
-Before creating your first `ganga` job, open the script `ntuple-options.py`, obtained in the [previous lesson](minimal-dv-job), and comment out the lines taking the local input data: we will now use the data stored on grid.
+Before creating your first `ganga` job, open the script `ntuple_options.py`, obtained in the [previous lesson](minimal-dv-job), and comment out the lines taking the local input data: we will now use the data stored on grid.
 
 Also, you need to know the path to your data from Bookkeeping.
 In our case the path is:
@@ -43,7 +43,7 @@ To create your first `ganga` job, type the following:
 j = Job(name='First ganga job')
 myApp = prepareGaudiExec('DaVinci','v45r1', myPath='.')
 j.application = myApp
-j.application.options = ['ntuple-options.py']
+j.application.options = ['ntuple_options.py']
 j.application.platform = 'x86_64-centos7-gcc8-opt'
 bkPath = '/MC/2016/Beam6500GeV-2016-MagDown-Nu1.6-25ns-Pythia8/Sim09c/Trig0x6138160F/Reco16/Turbo03/Stripping28r1NoPrescalingFlagged/27163002/ALLSTREAMS.DST'
 data  = BKQuery(bkPath, dqflag=['OK']).getDataset()
