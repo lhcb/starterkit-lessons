@@ -72,7 +72,8 @@ LoKi_DTFFun.Variables = {
 }
 ```
 The first argument of `DTF_FUN` is the LoKi functor that defines the output variable. The second (boolean) argument defines if *primary-vertex constraint* is required or not. 
-The third argument is optional and specifies a particle or list of particles to be mass-constrained. The quality of the fit can be accessed by `DTF_CHI2` functor. In the case of multiple mass constraints this argumets should look like `strings(['particle1','particle2'])`.
+The third argument is optional and specifies a particle or list of particles to be mass-constrained. In the case of multiple mass constraints this argument should look like `strings(['particle1','particle2'])`. 
+The quality of the fit can be accessed by `DTF_CHI2` functor. 
 
 The `DecayTreeFitter` implementation described above has a disadvantage that it will re-run the fit for every variable requested by `DTF_FUN`. A more efficient and ***strongly recommended way*** to use LoKi-based `DecayTreeFitter` can be done using `LoKi__Hybrid__Dict2Tuple` tool as described in [DaVinci tutorial](https://twiki.cern.ch/twiki/bin/view/LHCb/DaVinciTutorial9b).
 
