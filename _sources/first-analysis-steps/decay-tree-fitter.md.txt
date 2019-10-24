@@ -64,11 +64,11 @@ LoKi_DTFFun.Variables = {
     "DTFFun_Dstar_M"    : "DTF_FUN(M, True, 'D0')",
     "DTFFun_DTF_CHI2"   : "DTF_CHI2(True, 'D0')",
     "DTFFun_DTF_NDOF"   : "DTF_NDOF(True, 'D0')",
-    "DTFFun_D0_M"       : "DTF_FUN(CHILD(M,  'D*(2010)+ ->^D0 pi+'), True, 'D0')",
-    "DTFFun_D0_PE"      : "DTF_FUN(CHILD(E,  'D*(2010)+ ->^D0 pi+'), True, 'D0')",
-    "DTFFun_D0_PX"      : "DTF_FUN(CHILD(PX, 'D*(2010)+ ->^D0 pi+'), True, 'D0')",
-    "DTFFun_D0_PY"      : "DTF_FUN(CHILD(PY, 'D*(2010)+ ->^D0 pi+'), True, 'D0')",
-    "DTFFun_D0_PZ"      : "DTF_FUN(CHILD(PZ, 'D*(2010)+ ->^D0 pi+'), True, 'D0')"
+    "DTFFun_D0_M"       : "DTF_FUN(CHILD(M,  '[D*(2010)+ ->^D0 pi+]CC'), True, 'D0')",
+    "DTFFun_D0_PE"      : "DTF_FUN(CHILD(E,  '[D*(2010)+ ->^D0 pi+]CC'), True, 'D0')",
+    "DTFFun_D0_PX"      : "DTF_FUN(CHILD(PX, '[D*(2010)+ ->^D0 pi+]CC'), True, 'D0')",
+    "DTFFun_D0_PY"      : "DTF_FUN(CHILD(PY, '[D*(2010)+ ->^D0 pi+]CC'), True, 'D0')",
+    "DTFFun_D0_PZ"      : "DTF_FUN(CHILD(PZ, '[D*(2010)+ ->^D0 pi+]CC'), True, 'D0')"
 }
 ```
 The first argument of `DTF_FUN` is the LoKi functor that defines the output variable. The second (boolean) argument defines if *primary-vertex constraint* is required or not. 
