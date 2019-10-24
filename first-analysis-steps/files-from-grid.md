@@ -53,7 +53,9 @@ $ xrdcp root://eosuser.cern.ch//eos/user/l/lhcbsk/data-sets/00070793_00000001_7.
 {% endcallout %} 
 
 Since these files tend to be quite large, you might want to use your AFS work 
-directory instead of your AFS user directory to store files.
+directory instead of your AFS user directory to store files (if you want to increase 
+your AFS user and work spaces quota, you can follow the instructions on [CERN Resources Portal](https://resources.web.cern.ch/resources/Help/?kbid=067040) - you can get up to 10GB of space 
+for your AFS user directory and up to 100GB for your workspace).
 
 {% callout "Alternative: read files remotely instead of downloading them" %}
 
