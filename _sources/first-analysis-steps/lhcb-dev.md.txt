@@ -299,7 +299,8 @@ replacing `DaVinci` with the project name of your choice. Next, initialise
 and compile it:
 
 ```bash
-lb-project-init make
+lb-project-init
+make
 ```
 
 optionally followed by `make test` to run the tests and/or `make install` to
