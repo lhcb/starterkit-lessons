@@ -51,6 +51,8 @@ To avoid filling up the filespace, it is wise to put the large files produced by
 j.outputfiles = [DiracFile('*.root'), LocalFile('stdout')]
 ```
 The `DiracFile` will be stored in your user area on the grid (with up to 2TB personal capacity). The wildcard means that any root file produced by your job will stay on the grid. `LocalFile` downloads the file to your `gangadir`, in this case the one called `stdout`.
+
+
 You can access your files stored on the grid with the `accessURL()` function as before. 
 For example, to access the location of the output `.root` file of a specific subjob, one can use 
 
