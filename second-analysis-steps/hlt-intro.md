@@ -128,7 +128,8 @@ To get a list of all available TCKs one can use TCKsh which is a python shell wi
 functions to explore TCKs, do
 
 ```
-$ lb-run Moore/latest TCKsh
+# Use the latest available Run 2 Moore release
+$ lb-run -c best Moore/v28r3p1 TCKsh
 > listConfigurations()
 ```
 
@@ -254,7 +255,7 @@ print Moore()
 
 Try to run it with
 ```
-$ lb-run Moore/prod gaudirun.py runMoore.py | tee log.txt
+$ lb-run -c best Moore/v28r3p1 gaudirun.py runMoore.py | tee log.txt
 ```
 
 The property split defines if HLT1, HLT2 or both are run. In the example above both are run.
@@ -324,7 +325,7 @@ print Moore()
 
 Run with
 ```
-$ lb-run Moore/v28r2 gaudirun.py runMoore_hlt1_tck.py | tee log_hlt1_tck.txt
+$ lb-run -c best Moore/v28r3p1 gaudirun.py runMoore_hlt1_tck.py | tee log_hlt1_tck.txt
 ```
 
 To run HLT2 on the output data of the first stage, use the following script:
@@ -368,8 +369,8 @@ As a hands on, we will change the prescale of a line with a high rate and then r
 First setup a Moore lb-dev project from the nightlies.
 
 ```
-$ lb-dev Moore/prod
-$ cd MooreDev_prod
+$ lb-dev -c x86_64-centos7-gcc62-opt Moore/v28r3p1
+$ cd MooreDev_v28r3p1
 $ git lb-use Hlt
 $ git lb-checkout Hlt/2018-patches Hlt/HltSettings
 $ git lb-checkout Hlt/2018-patches Hlt/Hlt2Lines
