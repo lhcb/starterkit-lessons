@@ -313,13 +313,13 @@
 /* CSS overrides for sphinx_rtd_theme */
 
 /* 24px margin */
-.nbinput.nblast,
-.nboutput.nblast {
+.nbinput.nblast.container,
+.nboutput.nblast.container {
     margin-bottom: 19px;  /* padding has already 5px */
 }
 
 /* ... except between code cells! */
-.nblast + .nbinput {
+.nblast.container + .nbinput.container {
     margin-top: -19px;
 }
 
@@ -398,7 +398,7 @@ For example, to resubmit a failed subjob, you would run</p>
 <p>This will resubmit all failed subjobs.</p>
 <p>If you want to do something more complex with each subjob, a regular <code class="docutils literal notranslate"><span class="pre">for</span></code>-loop can be used as well:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="n">jobs</span><span class="p">(</span><span class="mi">787</span><span class="p">)</span><span class="o">.</span><span class="n">subjobs</span><span class="p">:</span>
-    <span class="k">print</span><span class="p">(</span><span class="n">j</span><span class="o">.</span><span class="n">id</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">j</span><span class="o">.</span><span class="n">id</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>It’s possible that some of your subjobs will be stuck in a certain state (submitting/completing/…).

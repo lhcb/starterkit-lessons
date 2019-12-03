@@ -313,13 +313,13 @@
 /* CSS overrides for sphinx_rtd_theme */
 
 /* 24px margin */
-.nbinput.nblast,
-.nboutput.nblast {
+.nbinput.nblast.container,
+.nboutput.nblast.container {
     margin-bottom: 19px;  /* padding has already 5px */
 }
 
 /* ... except between code cells! */
-.nblast + .nbinput {
+.nblast.container + .nbinput.container {
     margin-top: -19px;
 }
 
@@ -373,8 +373,8 @@ filter</a>.</p>
 </pre></div>
 </div>
 <p>Now we can proceed with the configuration of the fitter. We are going to constrain the D0 to have originated from the primary vertex. We want all the output available, so we set the <code class="docutils literal notranslate"><span class="pre">verbose</span></code> option. Finally we want to apply the mass constraint to the D0:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">dtt</span><span class="o">.</span><span class="n">Dstar</span><span class="o">.</span><span class="n">ConsD</span><span class="o">.</span><span class="n">constrainToOriginVertex</span> <span class="o">=</span> <span class="bp">True</span>
-<span class="n">dtt</span><span class="o">.</span><span class="n">Dstar</span><span class="o">.</span><span class="n">ConsD</span><span class="o">.</span><span class="n">Verbose</span> <span class="o">=</span> <span class="bp">True</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">dtt</span><span class="o">.</span><span class="n">Dstar</span><span class="o">.</span><span class="n">ConsD</span><span class="o">.</span><span class="n">constrainToOriginVertex</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="n">dtt</span><span class="o">.</span><span class="n">Dstar</span><span class="o">.</span><span class="n">ConsD</span><span class="o">.</span><span class="n">Verbose</span> <span class="o">=</span> <span class="kc">True</span>
 <span class="n">dtt</span><span class="o">.</span><span class="n">Dstar</span><span class="o">.</span><span class="n">ConsD</span><span class="o">.</span><span class="n">daughtersToConstrain</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;D0&#39;</span><span class="p">]</span>
 </pre></div>
 </div>
@@ -382,7 +382,7 @@ filter</a>.</p>
 <p>When using the <code class="docutils literal notranslate"><span class="pre">TupleToolDecayTreeFitter</span></code> in a <code class="docutils literal notranslate"><span class="pre">DecayTreeTuple</span></code>, all the variables created by the other TupleTools are not affected by the change, but some new variables are created, one set per <code class="docutils literal notranslate"><span class="pre">DecayTreeFitter</span></code> instance. Depending on whether the <code class="docutils literal notranslate"><span class="pre">Verbose</span></code> option is specified, the new variables are created for the head particle only or for the head particle and its daughters too.</p>
 <p>If the daughters are not stable particles and decay further, the daughters of the daughters have no new variables associated to them by default.
 Since in many cases this information might be useful, there is an option to store the information from those tracks</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">dtt</span><span class="o">.</span><span class="n">Dstar</span><span class="o">.</span><span class="n">ConsD</span><span class="o">.</span><span class="n">UpdateDaughters</span> <span class="o">=</span> <span class="bp">True</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">dtt</span><span class="o">.</span><span class="n">Dstar</span><span class="o">.</span><span class="n">ConsD</span><span class="o">.</span><span class="n">UpdateDaughters</span> <span class="o">=</span> <span class="kc">True</span>
 </pre></div>
 </div>
 <div class="panel panel-callout docutils container">
@@ -481,8 +481,8 @@ So, let’s restrict the range we look at to something that makes sense.</p>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">DecayTreeFitter</span></code> can be told to change some of the hypotheses in the decay tree. This is very useful if you want to slightly change which decays you want to look at. As an example let’s say we want to examine the decay of the D0 into K- pi+ instead of K- K+. For this we add a second fitter, giving it a new name <code class="docutils literal notranslate"><span class="pre">ConsDKpi</span></code>:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">dtt</span><span class="o">.</span><span class="n">Dstar</span><span class="o">.</span><span class="n">addTupleTool</span><span class="p">(</span><span class="s1">&#39;TupleToolDecayTreeFitter/ConsDKpi&#39;</span><span class="p">)</span>
-<span class="n">dtt</span><span class="o">.</span><span class="n">Dstar</span><span class="o">.</span><span class="n">ConsDKpi</span><span class="o">.</span><span class="n">constrainToOriginVertex</span> <span class="o">=</span> <span class="bp">True</span>
-<span class="n">dtt</span><span class="o">.</span><span class="n">Dstar</span><span class="o">.</span><span class="n">ConsDKpi</span><span class="o">.</span><span class="n">Verbose</span> <span class="o">=</span> <span class="bp">True</span>
+<span class="n">dtt</span><span class="o">.</span><span class="n">Dstar</span><span class="o">.</span><span class="n">ConsDKpi</span><span class="o">.</span><span class="n">constrainToOriginVertex</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="n">dtt</span><span class="o">.</span><span class="n">Dstar</span><span class="o">.</span><span class="n">ConsDKpi</span><span class="o">.</span><span class="n">Verbose</span> <span class="o">=</span> <span class="kc">True</span>
 <span class="n">dtt</span><span class="o">.</span><span class="n">Dstar</span><span class="o">.</span><span class="n">ConsDKpi</span><span class="o">.</span><span class="n">daughtersToConstrain</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;D0&#39;</span><span class="p">]</span>
 </pre></div>
 </div>

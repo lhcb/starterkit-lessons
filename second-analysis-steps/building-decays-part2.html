@@ -315,13 +315,13 @@
 /* CSS overrides for sphinx_rtd_theme */
 
 /* 24px margin */
-.nbinput.nblast,
-.nboutput.nblast {
+.nbinput.nblast.container,
+.nboutput.nblast.container {
     margin-bottom: 19px;  /* padding has already 5px */
 }
 
 /* ... except between code cells! */
-.nblast + .nbinput {
+.nblast.container + .nbinput.container {
     margin-top: -19px;
 }
 
@@ -352,7 +352,7 @@ For this reason, the Selection Framework offers a more streamlined set of <code 
 <p>This two-step process for building the <code class="docutils literal notranslate"><span class="pre">Selection</span></code> (creating an algorithm and building a selection with it) can be simplified by using a helper function in the <code class="docutils literal notranslate"><span class="pre">PhysConf.Selections</span></code> module, called <code class="docutils literal notranslate"><span class="pre">SimpleSelection</span></code>.
 It gets a selection name, the algorithm type we want to run, the inputs and any other parameters that need to be passed to the algorithm (as keyword arguments), and returns a <code class="docutils literal notranslate"><span class="pre">Selection</span></code> object build in the same two-step way.
 With that in mind, we can rewrite the previous two pieces of code as</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">GaudiConfUtils.ConfigurableGenerators</span> <span class="kn">as</span> <span class="nn">ConfigurableGenerators</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">GaudiConfUtils.ConfigurableGenerators</span> <span class="k">as</span> <span class="nn">ConfigurableGenerators</span>
 <span class="kn">from</span> <span class="nn">PhysConf.Selections</span> <span class="kn">import</span> <span class="n">SimpleSelection</span>
 <span class="n">d0_sel</span> <span class="o">=</span> <span class="n">SimpleSelection</span><span class="p">(</span>
     <span class="s1">&#39;Sel_D0&#39;</span><span class="p">,</span>
@@ -427,7 +427,7 @@ With it, the example from the Starterkit <a class="reference internal" href="../
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">line</span> <span class="o">=</span> <span class="s1">&#39;D2hhPromptDst2D2KKLine&#39;</span>
 <span class="n">strip_sel</span> <span class="o">=</span> <span class="n">StrippingSelection</span><span class="p">(</span><span class="s2">&quot;Strip_sel&quot;</span><span class="p">,</span>
                                <span class="s2">&quot;HLT_PASS(&#39;StrippingD2hhPromptDst2D2KKLineDecision&#39;)&quot;</span><span class="p">)</span>
-<span class="n">strip_input</span> <span class="o">=</span> <span class="n">AutomaticData</span><span class="p">(</span><span class="s1">&#39;Phys/{0}/Particles&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">line</span><span class="p">))</span>
+<span class="n">strip_input</span> <span class="o">=</span> <span class="n">AutomaticData</span><span class="p">(</span><span class="s1">&#39;Phys/</span><span class="si">{0}</span><span class="s1">/Particles&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">line</span><span class="p">))</span>
 <span class="n">tuple_sel</span> <span class="o">=</span> <span class="n">TupleSelection</span><span class="p">(</span><span class="s1">&#39;Tuple_sel&#39;</span><span class="p">,</span>
                            <span class="p">[</span><span class="n">strip_sel</span><span class="p">,</span> <span class="n">strip_input</span><span class="p">],</span>
                            <span class="n">Decay</span><span class="o">=</span><span class="s1">&#39;[D*(2010)+ -&gt; (D0 -&gt; K- K+) pi+]CC&#39;</span><span class="p">)</span>

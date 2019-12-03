@@ -313,13 +313,13 @@
 /* CSS overrides for sphinx_rtd_theme */
 
 /* 24px margin */
-.nbinput.nblast,
-.nboutput.nblast {
+.nbinput.nblast.container,
+.nboutput.nblast.container {
     margin-bottom: 19px;  /* padding has already 5px */
 }
 
 /* ... except between code cells! */
-.nblast + .nbinput {
+.nblast.container + .nbinput.container {
     margin-top: -19px;
 }
 
@@ -373,7 +373,7 @@ For example, if we want to fill the tracking information of our particles, we ca
 </pre></div>
 </div>
 <p>Some tools can be configured. For example, if we wanted further information from the tracks, such as the number of degrees of freedom of the track fit, we would have to turn on the verbose mode of the tool:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">track_tool</span><span class="o">.</span><span class="n">Verbose</span> <span class="o">=</span> <span class="bp">True</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">track_tool</span><span class="o">.</span><span class="n">Verbose</span> <span class="o">=</span> <span class="kc">True</span>
 </pre></div>
 </div>
 <p>If we don’t need to configure the tool or we want to use the defaults, there’s no need for storing the returned tool in a variable.
@@ -419,7 +419,7 @@ decay descriptor and branches in just one line!
 Note this may not be available in some older versions of `DaVinci’,
 but <a class="reference external" href="https://gitlab.cern.ch/snippets/147">this snippet</a> will add it to an older version.
 With that out of the way, you can simply use</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">dtt</span><span class="o">.</span><span class="n">setDescriptorTemplate</span><span class="p">(</span><span class="s1">&#39;${Dstar}[D*(2010)+ -&gt; ${D0}(D0 -&gt; ${Kminus}K- ${Kplus}K+) ${pisoft}pi+]CC&#39;</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">dtt</span><span class="o">.</span><span class="n">setDescriptorTemplate</span><span class="p">(</span><span class="s1">&#39;$</span><span class="si">{Dstar}</span><span class="s1">[D*(2010)+ -&gt; $</span><span class="si">{D0}</span><span class="s1">(D0 -&gt; $</span><span class="si">{Kminus}</span><span class="s1">K- $</span><span class="si">{Kplus}</span><span class="s1">K+) $</span><span class="si">{pisoft}</span><span class="s1">pi+]CC&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>This will set up both <code class="docutils literal notranslate"><span class="pre">dtt.Decay</span></code> and <code class="docutils literal notranslate"><span class="pre">Branches</span></code> for you.</p>

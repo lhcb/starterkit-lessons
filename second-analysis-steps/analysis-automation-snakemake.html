@@ -313,13 +313,13 @@
 /* CSS overrides for sphinx_rtd_theme */
 
 /* 24px margin */
-.nbinput.nblast,
-.nboutput.nblast {
+.nbinput.nblast.container,
+.nboutput.nblast.container {
     margin-bottom: 19px;  /* padding has already 5px */
 }
 
 /* ... except between code cells! */
-.nblast + .nbinput {
+.nblast.container + .nbinput.container {
     margin-top: -19px;
 }
 
@@ -425,14 +425,14 @@ Just those that you want to monitor or that are used by a subsequent step as inp
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">rule</span> <span class="n">merge_files</span><span class="p">:</span>
     <span class="nb">input</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;input_1.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;input_2.txt&#39;</span><span class="p">]</span>
     <span class="n">output</span><span class="p">:</span> <span class="s1">&#39;output.txt&#39;</span>
-    <span class="n">shell</span><span class="p">:</span> <span class="s1">&#39;cat {input[0]} &gt; {output} &amp;&amp; cat {input[1]} &gt;&gt; {output}&#39;</span>
+    <span class="n">shell</span><span class="p">:</span> <span class="s1">&#39;cat </span><span class="si">{input[0]}</span><span class="s1"> &gt; </span><span class="si">{output}</span><span class="s1"> &amp;&amp; cat </span><span class="si">{input[1]}</span><span class="s1"> &gt;&gt; </span><span class="si">{output}</span><span class="s1">&#39;</span>
 </pre></div>
 </div>
 <p>Input and output can also be parametrised using wildcards:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">rule</span> <span class="n">copy_and_echo</span><span class="p">:</span>
-    <span class="nb">input</span><span class="p">:</span> <span class="s1">&#39;input/{filename}.txt&#39;</span>
-    <span class="n">output</span><span class="p">:</span> <span class="s1">&#39;output/{filename}.txt&#39;</span>
-    <span class="n">shell</span><span class="p">:</span> <span class="s1">&#39;echo {wildcards.filename} &amp;&amp; cp {input} {output}&#39;</span>
+    <span class="nb">input</span><span class="p">:</span> <span class="s1">&#39;input/</span><span class="si">{filename}</span><span class="s1">.txt&#39;</span>
+    <span class="n">output</span><span class="p">:</span> <span class="s1">&#39;output/</span><span class="si">{filename}</span><span class="s1">.txt&#39;</span>
+    <span class="n">shell</span><span class="p">:</span> <span class="s1">&#39;echo </span><span class="si">{wildcards.filename}</span><span class="s1"> &amp;&amp; cp </span><span class="si">{input}</span><span class="s1"> </span><span class="si">{output}</span><span class="s1">&#39;</span>
 </pre></div>
 </div>
 <p>If you then make another rule with <code class="docutils literal notranslate"><span class="pre">output/a_file.txt</span></code> and <code class="docutils literal notranslate"><span class="pre">output/another_file.txt</span></code> as inputs they will be automatically created by the <code class="docutils literal notranslate"><span class="pre">copy_and_echo</span></code> rule.</p>
@@ -550,7 +550,7 @@ Note that if you put your code into the inputs snakemake will detect when your c
         <span class="n">data</span> <span class="o">=</span> <span class="s1">&#39;mydata.root&#39;</span><span class="p">,</span>
         <span class="n">extra</span> <span class="o">=</span> <span class="s1">&#39;some_extra_info.txt&#39;</span><span class="p">,</span>
     <span class="n">output</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;output.txt&#39;</span><span class="p">]</span>
-    <span class="n">shell</span><span class="p">:</span> <span class="s1">&#39;python {input.exe} {input.data} --extra {input.extra} &gt; {output}&#39;</span>
+    <span class="n">shell</span><span class="p">:</span> <span class="s1">&#39;python </span><span class="si">{input.exe}</span><span class="s1"> </span><span class="si">{input.data}</span><span class="s1"> --extra </span><span class="si">{input.extra}</span><span class="s1"> &gt; </span><span class="si">{output}</span><span class="s1">&#39;</span>
 </pre></div>
 </div>
 <p>So this will effectively launch the command:</p>
@@ -590,7 +590,7 @@ This is useful, in particular if you have to launch the same shell command on mo
     <span class="n">output</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;plot1.pdf&#39;</span><span class="p">,</span> <span class="s1">&#39;plot2.pdf&#39;</span><span class="p">]</span>
     <span class="n">run</span><span class="p">:</span>
         <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="nb">input</span><span class="o">.</span><span class="n">data</span><span class="p">:</span>
-            <span class="n">shell</span><span class="p">(</span><span class="s1">&#39;./{input.code} </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">f</span><span class="p">)</span>
+            <span class="n">shell</span><span class="p">(</span><span class="s1">&#39;./</span><span class="si">{input.code}</span><span class="s1"> </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">f</span><span class="p">)</span>
 </pre></div>
 </div>
 <div class="panel panel-challenge docutils container">
@@ -631,7 +631,7 @@ This can be done in snakemake using config files written in <a class="reference 
     <span class="n">output</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;plot1.pdf&#39;</span><span class="p">,</span> <span class="s1">&#39;plot2.pdf&#39;</span><span class="p">]</span>
     <span class="n">run</span><span class="p">:</span>
         <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="nb">input</span><span class="p">:</span>
-            <span class="n">shell</span><span class="p">(</span><span class="s1">&#39;./{input.code} </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">f</span><span class="p">)</span>
+            <span class="n">shell</span><span class="p">(</span><span class="s1">&#39;./</span><span class="si">{input.code}</span><span class="s1"> </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">f</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>The config dictionary can be used anywhere, also inside the shell command or even outside a rule.</p>

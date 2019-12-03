@@ -313,13 +313,13 @@
 /* CSS overrides for sphinx_rtd_theme */
 
 /* 24px margin */
-.nbinput.nblast,
-.nboutput.nblast {
+.nbinput.nblast.container,
+.nboutput.nblast.container {
     margin-bottom: 19px;  /* padding has already 5px */
 }
 
 /* ... except between code cells! */
-.nblast + .nbinput {
+.nblast.container + .nbinput.container {
     margin-top: -19px;
 }
 
@@ -354,12 +354,12 @@
 <span class="n">Ganga</span> <span class="n">Out</span> <span class="p">[</span><span class="mi">4</span><span class="p">]:</span> 
  <span class="n">LHCbDataset</span> <span class="p">(</span>
    <span class="n">depth</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
-   <span class="n">treat_as_inputfiles</span> <span class="o">=</span> <span class="bp">False</span><span class="p">,</span>
-   <span class="n">persistency</span> <span class="o">=</span> <span class="bp">None</span><span class="p">,</span>
+   <span class="n">treat_as_inputfiles</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+   <span class="n">persistency</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
    <span class="n">files</span> <span class="o">=</span> <span class="p">[</span><span class="mi">3717</span> <span class="n">Entries</span> <span class="n">of</span> <span class="nb">type</span> <span class="s1">&#39;DiracFile&#39;</span><span class="p">]</span> <span class="p">,</span>
    <span class="n">XMLCatalogueSlice</span> <span class="o">=</span>    <span class="n">LocalFile</span> <span class="p">(</span>
      <span class="n">namePattern</span> <span class="o">=</span> <span class="p">,</span>
-     <span class="n">compressed</span> <span class="o">=</span> <span class="bp">False</span><span class="p">,</span>
+     <span class="n">compressed</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
      <span class="n">localDir</span> <span class="o">=</span> 
    <span class="p">)</span> 
  <span class="p">)</span>

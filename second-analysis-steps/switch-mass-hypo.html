@@ -313,13 +313,13 @@
 /* CSS overrides for sphinx_rtd_theme */
 
 /* 24px margin */
-.nbinput.nblast,
-.nboutput.nblast {
+.nbinput.nblast.container,
+.nboutput.nblast.container {
     margin-bottom: 19px;  /* padding has already 5px */
 }
 
 /* ... except between code cells! */
-.nblast + .nbinput {
+.nblast.container + .nbinput.container {
     margin-top: -19px;
 }
 
@@ -386,7 +386,7 @@ to look for new decay modes.</p>
 <span class="c1"># Stream and stripping line we want to use</span>
 <span class="n">stream</span> <span class="o">=</span> <span class="s1">&#39;AllStreams&#39;</span>
 <span class="n">line</span> <span class="o">=</span> <span class="s1">&#39;D2hhPromptDst2D2KKLine&#39;</span>
-<span class="n">tesLoc</span> <span class="o">=</span> <span class="s1">&#39;/Event/{0}/Phys/{1}/Particles&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">stream</span><span class="p">,</span> <span class="n">line</span><span class="p">)</span>
+<span class="n">tesLoc</span> <span class="o">=</span> <span class="s1">&#39;/Event/</span><span class="si">{0}</span><span class="s1">/Phys/</span><span class="si">{1}</span><span class="s1">/Particles&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">stream</span><span class="p">,</span> <span class="n">line</span><span class="p">)</span>
 
 <span class="c1"># get the selection(s) created by the stripping</span>
 <span class="n">strippingSels</span> <span class="o">=</span> <span class="p">[</span><span class="n">DataOnDemand</span><span class="p">(</span><span class="n">Location</span><span class="o">=</span><span class="n">tesLoc</span><span class="p">)]</span>

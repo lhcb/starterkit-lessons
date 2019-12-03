@@ -315,13 +315,13 @@
 /* CSS overrides for sphinx_rtd_theme */
 
 /* 24px margin */
-.nbinput.nblast,
-.nboutput.nblast {
+.nbinput.nblast.container,
+.nboutput.nblast.container {
     margin-bottom: 19px;  /* padding has already 5px */
 }
 
 /* ... except between code cells! */
-.nblast + .nbinput {
+.nblast.container + .nbinput.container {
     margin-top: -19px;
 }
 
@@ -370,7 +370,7 @@ Get your <a class="reference internal" href="../first-analysis-steps/loki-functo
 We can simply open them using the <code class="docutils literal notranslate"><span class="pre">root</span></code> protocol thanks to the fact that they are replicated at CERN:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">GaudiConf</span> <span class="kn">import</span> <span class="n">IOHelper</span>
 <span class="n">IOHelper</span><span class="p">()</span><span class="o">.</span><span class="n">inputFiles</span><span class="p">([(</span><span class="s1">&#39;root://eoslhcb.cern.ch//eos/lhcb/grid/prod/lhcb/MC/2016/ALLSTREAMS.DST/00062514/0000/00062514_00000008_7.AllStreams.dst&#39;</span><span class="p">)],</span>
-                      <span class="n">clear</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+                      <span class="n">clear</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>The starting code for this exercise can be found <a class="reference download internal" download="" href="../_downloads/34667cd65e485926565df4755e0c4f2b/00.start.py"><code class="xref download docutils literal notranslate"><span class="pre">here</span></code></a>.</p>

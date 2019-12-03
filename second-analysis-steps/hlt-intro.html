@@ -313,13 +313,13 @@
 /* CSS overrides for sphinx_rtd_theme */
 
 /* 24px margin */
-.nbinput.nblast,
-.nboutput.nblast {
+.nbinput.nblast.container,
+.nboutput.nblast.container {
     margin-bottom: 19px;  /* padding has already 5px */
 }
 
 /* ... except between code cells! */
-.nblast + .nbinput {
+.nblast.container + .nbinput.container {
     margin-top: -19px;
 }
 
@@ -382,7 +382,7 @@ line which goes to mdst.</p>
 <span class="n">stripping_line</span> <span class="o">=</span> <span class="s2">&quot;B2DMuNuX_D0&quot;</span>
 
 <span class="kn">from</span> <span class="nn">PhysConf.Selections</span> <span class="kn">import</span> <span class="n">AutomaticData</span><span class="p">,</span> <span class="n">SelectionSequence</span><span class="p">,</span> <span class="n">TupleSelection</span>
-<span class="n">my_particles_KPi</span> <span class="o">=</span> <span class="n">AutomaticData</span><span class="p">(</span> <span class="s2">&quot;/Event/{}/Phys/{}/Particles&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">stream</span><span class="p">,</span> <span class="n">stripping_line</span><span class="p">)</span> <span class="p">)</span>
+<span class="n">my_particles_KPi</span> <span class="o">=</span> <span class="n">AutomaticData</span><span class="p">(</span> <span class="s2">&quot;/Event/</span><span class="si">{}</span><span class="s2">/Phys/</span><span class="si">{}</span><span class="s2">/Particles&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">stream</span><span class="p">,</span> <span class="n">stripping_line</span><span class="p">)</span> <span class="p">)</span>
 
 <span class="n">tupsel_KPi</span> <span class="o">=</span> <span class="n">TupleSelection</span> <span class="p">(</span>
     <span class="s1">&#39;D0_Kpi&#39;</span> <span class="p">,</span> 
@@ -402,14 +402,14 @@ line which goes to mdst.</p>
 <span class="n">tupsel_KPi</span><span class="o">.</span><span class="n">addTupleTool</span><span class="p">(</span><span class="s2">&quot;TupleToolEventInfo&quot;</span><span class="p">)</span>
 <span class="c1"># 2. To get information about trigger decisions</span>
 <span class="n">ttt</span> <span class="o">=</span> <span class="n">tupsel_KPi</span><span class="o">.</span><span class="n">addTupleTool</span><span class="p">(</span><span class="s2">&quot;TupleToolTrigger&quot;</span><span class="p">)</span>
-<span class="n">ttt</span><span class="o">.</span><span class="n">Verbose</span> <span class="o">=</span> <span class="bp">True</span> <span class="c1">#Needed to get trigger decisions</span>
+<span class="n">ttt</span><span class="o">.</span><span class="n">Verbose</span> <span class="o">=</span> <span class="kc">True</span> <span class="c1">#Needed to get trigger decisions</span>
 
 <span class="n">DaVinci</span><span class="p">()</span><span class="o">.</span><span class="n">UserAlgorithms</span> <span class="o">=</span> <span class="p">[</span><span class="n">SelectionSequence</span><span class="p">(</span> <span class="s1">&#39;SEQ_KPi&#39;</span> <span class="p">,</span> <span class="n">tupsel_KPi</span> <span class="p">)</span><span class="o">.</span><span class="n">sequence</span><span class="p">()]</span>
 <span class="n">DaVinci</span><span class="p">()</span><span class="o">.</span><span class="n">DataType</span> <span class="o">=</span> <span class="s2">&quot;2018&quot;</span>
 <span class="n">CondDB</span><span class="p">(</span><span class="n">LatestGlobalTagByDataType</span><span class="o">=</span><span class="n">DaVinci</span><span class="p">()</span><span class="o">.</span><span class="n">DataType</span><span class="p">)</span>
-<span class="n">DaVinci</span><span class="p">()</span><span class="o">.</span><span class="n">Simulation</span> <span class="o">=</span> <span class="bp">False</span>
+<span class="n">DaVinci</span><span class="p">()</span><span class="o">.</span><span class="n">Simulation</span> <span class="o">=</span> <span class="kc">False</span>
 <span class="n">DaVinci</span><span class="p">()</span><span class="o">.</span><span class="n">InputType</span> <span class="o">=</span> <span class="s1">&#39;DST&#39;</span>
-<span class="n">DaVinci</span><span class="p">()</span><span class="o">.</span><span class="n">Lumi</span> <span class="o">=</span> <span class="bp">False</span>
+<span class="n">DaVinci</span><span class="p">()</span><span class="o">.</span><span class="n">Lumi</span> <span class="o">=</span> <span class="kc">False</span>
 
 <span class="n">DaVinci</span><span class="p">()</span><span class="o">.</span><span class="n">TupleFile</span> <span class="o">=</span> <span class="s2">&quot;ntuple.root&quot;</span>
 <span class="n">DaVinci</span><span class="p">()</span><span class="o">.</span><span class="n">EvtMax</span> <span class="o">=</span> <span class="mi">1000</span>
@@ -425,13 +425,13 @@ line which goes to mdst.</p>
 <span class="kn">from</span> <span class="nn">GaudiConf</span> <span class="kn">import</span> <span class="n">IOHelper</span>
 <span class="n">IOHelper</span><span class="p">()</span><span class="o">.</span><span class="n">inputFiles</span><span class="p">([</span>
     <span class="s1">&#39;root://eoslhcb.cern.ch//eos/lhcb/grid/prod/lhcb/LHCb/Collision18/SEMILEPTONIC.DST/00075559/0000/00075559_00002816_1.semileptonic.dst&#39;</span>
-<span class="p">],</span> <span class="n">clear</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<span class="p">],</span> <span class="n">clear</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>The important line are</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">tupsel_KPi</span><span class="o">.</span><span class="n">addTupleTool</span><span class="p">(</span><span class="s2">&quot;TupleToolEventInfo&quot;</span><span class="p">)</span>
 <span class="n">ttt</span> <span class="o">=</span> <span class="n">tupsel_KPi</span><span class="o">.</span><span class="n">addTupleTool</span><span class="p">(</span><span class="s2">&quot;TupleToolTrigger&quot;</span><span class="p">)</span>
-<span class="n">ttt</span><span class="o">.</span><span class="n">Verbose</span> <span class="o">=</span> <span class="bp">True</span> <span class="c1">#Needed to get trigger decisions</span>
+<span class="n">ttt</span><span class="o">.</span><span class="n">Verbose</span> <span class="o">=</span> <span class="kc">True</span> <span class="c1">#Needed to get trigger decisions</span>
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">TupleToolEventInfo</span></code> adds basic information about the event to your ntuple. Normally it is added by default. You will find two branches Hlt1TCK and Hlt2TCK. <code class="docutils literal notranslate"><span class="pre">TupleToolTrigger</span></code> adds the decisions of trigger lines. You will only find branches called L0Global, Hlt1Global and Hlt2Global. We first have to find out which trigger lines were available for these data.</p>
@@ -461,7 +461,8 @@ with 2.</p>
 <h2>Exploring a TCK: List of trigger lines<a class="headerlink" href="#exploring-a-tck-list-of-trigger-lines" title="Permalink to this headline">¶</a></h2>
 <p>To get a list of all available TCKs one can use TCKsh which is a python shell with predefined
 functions to explore TCKs, do</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ lb-run Moore/latest TCKsh
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span># Use the latest available Run 2 Moore release
+$ lb-run -c best Moore/v28r3p1 TCKsh
 &gt; listConfigurations()
 </pre></div>
 </div>
@@ -517,7 +518,7 @@ functions to explore TCKs, do</p>
 <p>For a simple trigger candidate (e.g. Track), more than around 70% (depending on the subdetector) of the online reconstructed trigger candidate hits need to be contained within the set of all the hits from all offline reconstructed signal parts. For a composite candidate, the combination of all individual trigger candidates is compared to the set of offline candidates.</p>
 <p>To add TISTOS information to your ntuple do</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">tttt</span> <span class="o">=</span> <span class="n">tupsel_KPi</span><span class="o">.</span><span class="n">addTupleTool</span><span class="p">(</span><span class="s2">&quot;TupleToolTISTOS&quot;</span><span class="p">)</span>
-<span class="n">tttt</span><span class="o">.</span><span class="n">Verbose</span> <span class="o">=</span> <span class="bp">True</span> <span class="c1">#To decisions from all trigger stages</span>
+<span class="n">tttt</span><span class="o">.</span><span class="n">Verbose</span> <span class="o">=</span> <span class="kc">True</span> <span class="c1">#To decisions from all trigger stages</span>
 <span class="n">tttt</span><span class="o">.</span><span class="n">TriggerList</span> <span class="o">=</span> <span class="n">triggerList</span>
 </pre></div>
 </div>
@@ -586,7 +587,7 @@ print Moore()
 
 Try to run it with
 ```
-$ lb-run Moore/prod gaudirun.py runMoore.py | tee log.txt
+$ lb-run -c best Moore/v28r3p1 gaudirun.py runMoore.py | tee log.txt
 ```
 
 The property split defines if HLT1, HLT2 or both are run. In the example above both are run.
@@ -656,7 +657,7 @@ print Moore()
 
 Run with
 ```
-$ lb-run Moore/v28r2 gaudirun.py runMoore_hlt1_tck.py | tee log_hlt1_tck.txt
+$ lb-run -c best Moore/v28r3p1 gaudirun.py runMoore_hlt1_tck.py | tee log_hlt1_tck.txt
 ```
 
 To run HLT2 on the output data of the first stage, use the following script:
@@ -700,8 +701,8 @@ As a hands on, we will change the prescale of a line with a high rate and then r
 First setup a Moore lb-dev project from the nightlies.
 
 ```
-$ lb-dev Moore/prod
-$ cd MooreDev_prod
+$ lb-dev -c x86_64-centos7-gcc62-opt Moore/v28r3p1
+$ cd MooreDev_v28r3p1
 $ git lb-use Hlt
 $ git lb-checkout Hlt/2018-patches Hlt/HltSettings
 $ git lb-checkout Hlt/2018-patches Hlt/Hlt2Lines

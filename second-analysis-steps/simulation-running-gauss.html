@@ -315,13 +315,13 @@
 /* CSS overrides for sphinx_rtd_theme */
 
 /* 24px margin */
-.nbinput.nblast,
-.nboutput.nblast {
+.nbinput.nblast.container,
+.nboutput.nblast.container {
     margin-bottom: 19px;  /* padding has already 5px */
 }
 
 /* ... except between code cells! */
-.nblast + .nbinput {
+.nblast.container + .nbinput.container {
     margin-top: -19px;
 }
 
@@ -471,12 +471,12 @@ A larger input file containing 50,000 generated events for event-type can be fou
 <span class="c1"># Use the local input data</span>
 <span class="n">IOHelper</span><span class="p">()</span><span class="o">.</span><span class="n">inputFiles</span><span class="p">([</span>
     <span class="n">datafile</span>
-<span class="p">],</span> <span class="n">clear</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<span class="p">],</span> <span class="n">clear</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
 <span class="c1"># Configure DaVinci</span>
 <span class="n">DaVinci</span><span class="p">()</span><span class="o">.</span><span class="n">TupleFile</span> <span class="o">=</span> <span class="s2">&quot;DVntuple.root&quot;</span>
-<span class="n">DaVinci</span><span class="p">()</span><span class="o">.</span><span class="n">Simulation</span> <span class="o">=</span> <span class="bp">True</span>
-<span class="n">DaVinci</span><span class="p">()</span><span class="o">.</span><span class="n">Lumi</span> <span class="o">=</span> <span class="bp">False</span>
+<span class="n">DaVinci</span><span class="p">()</span><span class="o">.</span><span class="n">Simulation</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="n">DaVinci</span><span class="p">()</span><span class="o">.</span><span class="n">Lumi</span> <span class="o">=</span> <span class="kc">False</span>
 <span class="n">DaVinci</span><span class="p">()</span><span class="o">.</span><span class="n">DataType</span> <span class="o">=</span> <span class="s1">&#39;2016&#39;</span>
 <span class="n">DaVinci</span><span class="p">()</span><span class="o">.</span><span class="n">InputType</span> <span class="o">=</span> <span class="s1">&#39;DIGI&#39;</span>
 <span class="n">DaVinci</span><span class="p">()</span><span class="o">.</span><span class="n">UserAlgorithms</span> <span class="o">=</span> <span class="p">[</span><span class="n">mctuple</span><span class="p">]</span>
@@ -511,7 +511,7 @@ A larger input file containing 50,000 generated events for event-type can be fou
 
     <span class="kn">from</span> <span class="nn">Configurables</span> <span class="kn">import</span> <span class="n">EventClockSvc</span><span class="p">,</span> <span class="n">CondDB</span>
     <span class="n">EventClockSvc</span> <span class="p">(</span> <span class="n">EventTimeDecoder</span> <span class="o">=</span> <span class="s2">&quot;FakeEventTime&quot;</span> <span class="p">)</span>
-    <span class="n">CondDB</span>  <span class="p">(</span> <span class="n">IgnoreHeartBeat</span> <span class="o">=</span> <span class="bp">True</span> <span class="p">)</span>
+    <span class="n">CondDB</span>  <span class="p">(</span> <span class="n">IgnoreHeartBeat</span> <span class="o">=</span> <span class="kc">True</span> <span class="p">)</span>
 
 <span class="n">appendPostConfigAction</span><span class="p">(</span> <span class="n">doIt</span> <span class="p">)</span>
 </pre></div>

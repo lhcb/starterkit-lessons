@@ -313,13 +313,13 @@
 /* CSS overrides for sphinx_rtd_theme */
 
 /* 24px margin */
-.nbinput.nblast,
-.nboutput.nblast {
+.nbinput.nblast.container,
+.nboutput.nblast.container {
     margin-bottom: 19px;  /* padding has already 5px */
 }
 
 /* ... except between code cells! */
-.nblast + .nbinput {
+.nblast.container + .nbinput.container {
     margin-top: -19px;
 }
 
@@ -422,7 +422,7 @@ Usage: reverse.py &lt;file&gt;
 </div>
 <p>In Ganga, create a <code class="docutils literal notranslate"><span class="pre">Job</span></code> object with a descriptive name and take a look at it.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">j</span> <span class="o">=</span> <span class="n">Job</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;Reverser&#39;</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="n">j</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">j</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>You’ll see that Ganga has created a <code class="docutils literal notranslate"><span class="pre">Job</span></code> which will execute the <code class="docutils literal notranslate"><span class="pre">echo</span></code>
@@ -475,7 +475,7 @@ saves them in the local job output directory as they’re almost always useful.<
 which contains useful information about algorithm counters.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">DiracFile</span><span class="p">(</span><span class="s1">&#39;input.txt&#39;</span><span class="p">,</span> <span class="n">localDir</span><span class="o">=</span><span class="s1">&#39;.&#39;</span><span class="p">)</span>
 <span class="n">df</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="n">uploadSE</span><span class="o">=</span><span class="s1">&#39;CERN-USER&#39;</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">lfn</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">lfn</span><span class="p">)</span>
 </pre></div>
 </div>
 <div class="panel panel-callout docutils container">

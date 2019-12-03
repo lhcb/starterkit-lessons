@@ -313,13 +313,13 @@
 /* CSS overrides for sphinx_rtd_theme */
 
 /* 24px margin */
-.nbinput.nblast,
-.nboutput.nblast {
+.nbinput.nblast.container,
+.nboutput.nblast.container {
     margin-bottom: 19px;  /* padding has already 5px */
 }
 
 /* ... except between code cells! */
-.nblast + .nbinput {
+.nblast.container + .nbinput.container {
     margin-top: -19px;
 }
 
@@ -381,7 +381,7 @@ file we will call <code class="docutils literal notranslate"><span class="pre">n
 
 <span class="c1"># Create an ntuple to capture D*+ decays from the StrippingLine line</span>
 <span class="n">dtt</span> <span class="o">=</span> <span class="n">DecayTreeTuple</span><span class="p">(</span><span class="s1">&#39;TupleDstToD0pi_D0ToKK&#39;</span><span class="p">)</span>
-<span class="n">dtt</span><span class="o">.</span><span class="n">Inputs</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;/Event/{0}/Phys/{1}/Particles&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">stream</span><span class="p">,</span> <span class="n">line</span><span class="p">)]</span>
+<span class="n">dtt</span><span class="o">.</span><span class="n">Inputs</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;/Event/</span><span class="si">{0}</span><span class="s1">/Phys/</span><span class="si">{1}</span><span class="s1">/Particles&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">stream</span><span class="p">,</span> <span class="n">line</span><span class="p">)]</span>
 <span class="n">dtt</span><span class="o">.</span><span class="n">Decay</span> <span class="o">=</span> <span class="s1">&#39;[D*(2010)+ -&gt; (D0 -&gt; K- K+) pi+]CC&#39;</span>
 </pre></div>
 </div>
@@ -426,7 +426,7 @@ necessary for us.</p>
 <span class="n">DaVinci</span><span class="p">()</span><span class="o">.</span><span class="n">TupleFile</span> <span class="o">=</span> <span class="s1">&#39;DVntuple.root&#39;</span>
 <span class="n">DaVinci</span><span class="p">()</span><span class="o">.</span><span class="n">PrintFreq</span> <span class="o">=</span> <span class="mi">1000</span>
 <span class="n">DaVinci</span><span class="p">()</span><span class="o">.</span><span class="n">DataType</span> <span class="o">=</span> <span class="s1">&#39;2016&#39;</span>
-<span class="n">DaVinci</span><span class="p">()</span><span class="o">.</span><span class="n">Simulation</span> <span class="o">=</span> <span class="bp">True</span>
+<span class="n">DaVinci</span><span class="p">()</span><span class="o">.</span><span class="n">Simulation</span> <span class="o">=</span> <span class="kc">True</span>
 <span class="c1"># Only ask for luminosity information when not using simulated data</span>
 <span class="n">DaVinci</span><span class="p">()</span><span class="o">.</span><span class="n">Lumi</span> <span class="o">=</span> <span class="ow">not</span> <span class="n">DaVinci</span><span class="p">()</span><span class="o">.</span><span class="n">Simulation</span>
 <span class="n">DaVinci</span><span class="p">()</span><span class="o">.</span><span class="n">EvtMax</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
@@ -507,7 +507,7 @@ define that as our input data.</p>
 <span class="c1"># Use the local input data</span>
 <span class="n">IOHelper</span><span class="p">()</span><span class="o">.</span><span class="n">inputFiles</span><span class="p">([</span>
     <span class="s1">&#39;./00070793_00000001_7.AllStreams.dst&#39;</span>
-<span class="p">],</span> <span class="n">clear</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<span class="p">],</span> <span class="n">clear</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>This says to use the <code class="docutils literal notranslate"><span class="pre">.dst</span></code> file that is in the same directory as the options
@@ -549,9 +549,9 @@ it work when it is used with a stripping line that goes to a µDST:</p>
 <code class="docutils literal notranslate"><span class="pre">/Event/$STREAM</span></code></p></li>
 </ol>
 <p>In context, the changes look like</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">dtt</span><span class="o">.</span><span class="n">Inputs</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Phys/{0}/Particles&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">line</span><span class="p">)]</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">dtt</span><span class="o">.</span><span class="n">Inputs</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Phys/</span><span class="si">{0}</span><span class="s1">/Particles&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">line</span><span class="p">)]</span>
 <span class="c1"># ...</span>
-<span class="n">DaVinci</span><span class="p">()</span><span class="o">.</span><span class="n">RootInTES</span> <span class="o">=</span> <span class="s1">&#39;/Event/{0}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">stream</span><span class="p">)</span>
+<span class="n">DaVinci</span><span class="p">()</span><span class="o">.</span><span class="n">RootInTES</span> <span class="o">=</span> <span class="s1">&#39;/Event/</span><span class="si">{0}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">stream</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>

@@ -313,13 +313,13 @@
 /* CSS overrides for sphinx_rtd_theme */
 
 /* 24px margin */
-.nbinput.nblast,
-.nboutput.nblast {
+.nbinput.nblast.container,
+.nboutput.nblast.container {
     margin-bottom: 19px;  /* padding has already 5px */
 }
 
 /* ... except between code cells! */
-.nblast + .nbinput {
+.nblast.container + .nbinput.container {
     margin-top: -19px;
 }
 
@@ -354,7 +354,7 @@
 <span class="s1">&#39;LFN:/lhcb/MC/2016/ALLSTREAMS.DST/00070793/0000/00070793_00000003_7.AllStreams.dst&#39;</span><span class="p">,</span>
 <span class="s1">&#39;LFN:/lhcb/MC/2016/ALLSTREAMS.DST/00070793/0000/00070793_00000004_7.AllStreams.dst&#39;</span><span class="p">,</span>
 <span class="o">...</span>
-<span class="p">],</span> <span class="n">clear</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<span class="p">],</span> <span class="n">clear</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>which is just a collection of <strong>L</strong>ogical <strong>F</strong>ile <strong>N</strong>ames on the grid.</p>
@@ -422,9 +422,9 @@ XML catalog such that it can access them remotely.</p>
 
     <span class="n">files</span> <span class="o">=</span> <span class="n">FILES</span><span class="p">[:</span><span class="n">n_files</span><span class="p">]</span>
     <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">files</span><span class="p">:</span>
-        <span class="k">print</span><span class="p">(</span><span class="s1">&#39;Getting file {0}.&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">f</span><span class="p">))</span>
-        <span class="n">call</span><span class="p">(</span><span class="s1">&#39;dirac-dms-get-file {0}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">f</span><span class="p">),</span> <span class="n">shell</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
-    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;Done getting {0} files.&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">n_files</span><span class="p">))</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Getting file </span><span class="si">{0}</span><span class="s1">.&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">f</span><span class="p">))</span>
+        <span class="n">call</span><span class="p">(</span><span class="s1">&#39;dirac-dms-get-file </span><span class="si">{0}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">f</span><span class="p">),</span> <span class="n">shell</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Done getting </span><span class="si">{0}</span><span class="s1"> files.&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">n_files</span><span class="p">))</span>
 </pre></div>
 </div>
 <p>Save it as <code class="docutils literal notranslate"><span class="pre">getEvents.py</span></code> and use it via <code class="docutils literal notranslate"><span class="pre">lb-run</span> <span class="pre">LHCbDIRAC</span> <span class="pre">python</span> <span class="pre">getEvents.py</span> <span class="pre">[n]</span></code>. If you specify <code class="docutils literal notranslate"><span class="pre">n</span></code>, the script will only get the first n files from the grid.</p>
@@ -436,7 +436,7 @@ XML catalog such that it can access them remotely.</p>
 <p><code class="docutils literal notranslate"><span class="pre">dirac-dms-get-file</span></code> (and the other <code class="docutils literal notranslate"><span class="pre">dirac-dms-*</span></code> scripts) is actually able to
 extract the LFNs from any file
 and download them for you. So a simple</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span> <span class="n">lb</span><span class="o">-</span><span class="n">run</span> <span class="n">LHCbDIRAC</span> <span class="n">dirac</span><span class="o">-</span><span class="n">dms</span><span class="o">-</span><span class="n">get</span><span class="o">-</span><span class="nb">file</span> <span class="o">--</span><span class="n">File</span><span class="o">=</span><span class="n">MC_2016_27163002_Beam6500GeV2016MagDownNu1</span><span class="o">.</span><span class="mi">625</span><span class="n">nsPythia8_Sim09c_Trig0x6138160F_Reco16_Turbo03_Stripping28r1NoPrescalingFlagged_ALLSTREAMS</span><span class="o">.</span><span class="n">DST</span><span class="o">.</span><span class="n">py</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span> <span class="n">lb</span><span class="o">-</span><span class="n">run</span> <span class="n">LHCbDIRAC</span> <span class="n">dirac</span><span class="o">-</span><span class="n">dms</span><span class="o">-</span><span class="n">get</span><span class="o">-</span><span class="n">file</span> <span class="o">--</span><span class="n">File</span><span class="o">=</span><span class="n">MC_2016_27163002_Beam6500GeV2016MagDownNu1</span><span class="o">.</span><span class="mi">625</span><span class="n">nsPythia8_Sim09c_Trig0x6138160F_Reco16_Turbo03_Stripping28r1NoPrescalingFlagged_ALLSTREAMS</span><span class="o">.</span><span class="n">DST</span><span class="o">.</span><span class="n">py</span>
 </pre></div>
 </div>
 <p>would do to download them all!</p>

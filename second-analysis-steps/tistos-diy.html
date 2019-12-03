@@ -313,13 +313,13 @@
 /* CSS overrides for sphinx_rtd_theme */
 
 /* 24px margin */
-.nbinput.nblast,
-.nboutput.nblast {
+.nbinput.nblast.container,
+.nboutput.nblast.container {
     margin-bottom: 19px;  /* padding has already 5px */
 }
 
 /* ... except between code cells! */
-.nblast + .nbinput {
+.nblast.container + .nbinput.container {
     margin-top: -19px;
 }
 
@@ -393,7 +393,7 @@ decision. This can be done using the <code class="docutils literal notranslate">
 <code class="docutils literal notranslate"><span class="pre">DecReport</span></code>. Note that all names in the reports end with <code class="docutils literal notranslate"><span class="pre">Decision</span></code>.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">reports</span> <span class="o">=</span> <span class="n">evt</span><span class="p">[</span><span class="s1">&#39;Hlt1/DecReports&#39;</span><span class="p">]</span>
 <span class="n">report</span> <span class="o">=</span> <span class="n">reports</span><span class="o">.</span><span class="n">decReport</span><span class="p">(</span><span class="s1">&#39;Hlt1TrackAllL0Decision&#39;</span><span class="p">)</span>
-<span class="k">print</span> <span class="n">report</span><span class="o">.</span><span class="n">decision</span><span class="p">()</span>
+<span class="nb">print</span> <span class="n">report</span><span class="o">.</span><span class="n">decision</span><span class="p">()</span>
 </pre></div>
 </div>
 <p>The HLT1 selections that are most efficient for hadronic charm and beauty decays
@@ -411,7 +411,7 @@ SmartRefs, which can be dereferenced using their “data” method. Let’s have
 at a SelReport for a TrackMVA selection.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">reports</span> <span class="o">=</span> <span class="n">evt</span><span class="p">[</span><span class="s1">&#39;Hlt1/SelReports&#39;</span><span class="p">]</span>
 <span class="n">report</span> <span class="o">=</span> <span class="n">reports</span><span class="o">.</span><span class="n">selReport</span><span class="p">(</span><span class="s1">&#39;Hlt1TrackMVADecision&#39;</span><span class="p">)</span>
-<span class="k">print</span> <span class="n">report</span>
+<span class="nb">print</span> <span class="n">report</span>
 <span class="n">report</span><span class="o">.</span><span class="n">substructure</span><span class="p">()</span><span class="o">.</span><span class="n">size</span><span class="p">()</span>
 <span class="n">report</span><span class="o">.</span><span class="n">substructure</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">substructure</span><span class="p">()</span><span class="o">.</span><span class="n">size</span><span class="p">()</span>
 <span class="n">report</span><span class="o">.</span><span class="n">substructure</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">substructure</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span>

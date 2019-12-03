@@ -313,13 +313,13 @@
 /* CSS overrides for sphinx_rtd_theme */
 
 /* 24px margin */
-.nbinput.nblast,
-.nboutput.nblast {
+.nbinput.nblast.container,
+.nboutput.nblast.container {
     margin-bottom: 19px;  /* padding has already 5px */
 }
 
 /* ... except between code cells! */
-.nblast + .nbinput {
+.nblast.container + .nbinput.container {
     margin-top: -19px;
 }
 
@@ -352,7 +352,7 @@ If you just run <code class="docutils literal notranslate"><span class="pre">gan
 the path to a Python script that will be executed.
 Let’s start with a small script, saving it in a file called <code class="docutils literal notranslate"><span class="pre">create_job.py</span></code>:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">greeting</span> <span class="o">=</span> <span class="s1">&#39;Hello!&#39;</span>
-<span class="k">print</span> <span class="n">greeting</span>
+<span class="nb">print</span> <span class="n">greeting</span>
 </pre></div>
 </div>
 <p>Run it:</p>
@@ -424,7 +424,7 @@ arguments to it by the command line.
 You can inspect arguments from a Python script by using the <code class="docutils literal notranslate"><span class="pre">argv</span></code>
 property on the <code class="docutils literal notranslate"><span class="pre">sys</span></code> module:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sys</span>
-<span class="k">print</span> <span class="n">sys</span><span class="o">.</span><span class="n">argv</span>
+<span class="nb">print</span> <span class="n">sys</span><span class="o">.</span><span class="n">argv</span>
 </pre></div>
 </div>
 <p>Add that to your <code class="docutils literal notranslate"><span class="pre">create_job.py</span></code> script, and run <code class="docutils literal notranslate"><span class="pre">ganga</span></code> again, this time
@@ -532,7 +532,7 @@ a file, it executes it in the context of the Ganga session, meaning the code in
 the file has access to Ganga objects like <code class="docutils literal notranslate"><span class="pre">Job</span></code>, <code class="docutils literal notranslate"><span class="pre">jobs</span></code>, and so on.
 To demonstrate the behaviour, we can put a <code class="docutils literal notranslate"><span class="pre">print</span></code> statement on our
 <code class="docutils literal notranslate"><span class="pre">~/.ganga.py</span></code> file:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">print</span> <span class="s1">&#39;Yo!&#39;</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span> <span class="s1">&#39;Yo!&#39;</span>
 </pre></div>
 </div>
 <p>Then run <code class="docutils literal notranslate"><span class="pre">ganga</span></code> (no arguments needed):</p>
@@ -562,7 +562,7 @@ file that contains all the output LFNs of your job? Write a helper!</p>
     <span class="n">lfns</span> <span class="o">=</span> <span class="p">[]</span>
     <span class="k">for</span> <span class="n">sj</span> <span class="ow">in</span> <span class="n">sjobs</span><span class="p">:</span>
         <span class="k">if</span> <span class="n">sj</span><span class="o">.</span><span class="n">status</span> <span class="o">!=</span> <span class="s1">&#39;completed&#39;</span><span class="p">:</span>
-            <span class="k">print</span> <span class="s1">&#39;Skipping #{0}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">sj</span><span class="o">.</span><span class="n">id</span><span class="p">)</span>
+            <span class="nb">print</span> <span class="s1">&#39;Skipping #</span><span class="si">{0}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">sj</span><span class="o">.</span><span class="n">id</span><span class="p">)</span>
             <span class="k">continue</span>
         <span class="k">for</span> <span class="n">df</span> <span class="ow">in</span> <span class="n">sj</span><span class="o">.</span><span class="n">outputfiles</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">DiracFile</span><span class="p">):</span>
             <span class="n">lfns</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">lfn</span><span class="p">)</span>
@@ -581,7 +581,7 @@ file that contains all the output LFNs of your job? Write a helper!</p>
     <span class="n">access_urls</span> <span class="o">=</span> <span class="p">[]</span>
     <span class="k">for</span> <span class="n">sj</span> <span class="ow">in</span> <span class="n">sjobs</span><span class="p">:</span>
         <span class="k">if</span> <span class="n">sj</span><span class="o">.</span><span class="n">status</span> <span class="o">!=</span> <span class="s1">&#39;completed&#39;</span><span class="p">:</span>
-            <span class="k">print</span> <span class="s1">&#39;Skipping #{0}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">sj</span><span class="o">.</span><span class="n">id</span><span class="p">)</span>
+            <span class="nb">print</span> <span class="s1">&#39;Skipping #</span><span class="si">{0}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">sj</span><span class="o">.</span><span class="n">id</span><span class="p">)</span>
             <span class="k">continue</span>
         <span class="k">for</span> <span class="n">df</span> <span class="ow">in</span> <span class="n">sj</span><span class="o">.</span><span class="n">outputfiles</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">DiracFile</span><span class="p">):</span>
             <span class="n">access_urls</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">accessURL</span><span class="p">())</span>
@@ -614,7 +614,7 @@ available:</p>
 <p>Once you have your helpers defined, use them in Ganga as you would any other Python function.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">Ganga</span> <span class="n">In</span> <span class="p">[</span><span class="mi">1</span><span class="p">]:</span> <span class="n">j</span> <span class="o">=</span> <span class="n">jobs</span><span class="p">(</span><span class="mi">123</span><span class="p">)</span>
 
-<span class="n">Ganga</span> <span class="n">In</span> <span class="p">[</span><span class="mi">2</span><span class="p">]:</span> <span class="n">write_lfns</span><span class="p">(</span><span class="n">j</span><span class="p">,</span> <span class="s1">&#39;{0}.lfns&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">j</span><span class="o">.</span><span class="n">name</span><span class="p">))</span>
+<span class="n">Ganga</span> <span class="n">In</span> <span class="p">[</span><span class="mi">2</span><span class="p">]:</span> <span class="n">write_lfns</span><span class="p">(</span><span class="n">j</span><span class="p">,</span> <span class="s1">&#39;</span><span class="si">{0}</span><span class="s1">.lfns&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">j</span><span class="o">.</span><span class="n">name</span><span class="p">))</span>
 </pre></div>
 </div>
 <p>Here are some other common operations that you might want helpers for:</p>

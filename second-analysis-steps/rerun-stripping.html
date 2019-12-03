@@ -313,13 +313,13 @@
 /* CSS overrides for sphinx_rtd_theme */
 
 /* 24px margin */
-.nbinput.nblast,
-.nboutput.nblast {
+.nbinput.nblast.container,
+.nboutput.nblast.container {
     margin-bottom: 19px;  /* padding has already 5px */
 }
 
 /* ... except between code cells! */
-.nblast + .nbinput {
+.nblast.container + .nbinput.container {
     margin-top: -19px;
 }
 
@@ -398,14 +398,14 @@ The file in the minimal DaVinci example can be copied using this command:</p>
 </ul>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">sc</span> <span class="o">=</span> <span class="n">StrippingConf</span><span class="p">(</span><span class="n">Streams</span><span class="o">=</span><span class="p">[</span><span class="n">custom_stream</span><span class="p">],</span>
                    <span class="n">MaxCandidates</span><span class="o">=</span><span class="mi">2000</span><span class="p">,</span>
-                   <span class="n">AcceptBadEvents</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span>
+                   <span class="n">AcceptBadEvents</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
                    <span class="n">BadEventSelection</span><span class="o">=</span><span class="n">filterBadEvents</span><span class="p">)</span>
 </pre></div>
 </div>
 <ul class="simple">
 <li><p>Updating the path for <code class="docutils literal notranslate"><span class="pre">dtt.Inputs</span></code>: the output is now placed directly in <code class="docutils literal notranslate"><span class="pre">Phys</span></code></p></li>
 </ul>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">dtt</span><span class="o">.</span><span class="n">Inputs</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;/Event/Phys/{0}/Particles&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">line</span><span class="p">)]</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">dtt</span><span class="o">.</span><span class="n">Inputs</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;/Event/Phys/</span><span class="si">{0}</span><span class="s1">/Particles&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">line</span><span class="p">)]</span>
 </pre></div>
 </div>
 <ul class="simple">

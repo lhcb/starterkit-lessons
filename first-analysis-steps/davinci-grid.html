@@ -313,13 +313,13 @@
 /* CSS overrides for sphinx_rtd_theme */
 
 /* 24px margin */
-.nbinput.nblast,
-.nboutput.nblast {
+.nbinput.nblast.container,
+.nboutput.nblast.container {
     margin-bottom: 19px;  /* padding has already 5px */
 }
 
 /* ... except between code cells! */
-.nblast + .nbinput {
+.nblast.container + .nbinput.container {
     margin-top: -19px;
 }
 
@@ -463,7 +463,7 @@ interested in. For concretness we will assume you are interested in
 a job with jobid 787 in this example.</p>
 <p>Once your job has finished its status will be <code class="docutils literal notranslate"><span class="pre">completed</span></code>. Check this
 by typing <code class="docutils literal notranslate"><span class="pre">jobs</span></code> or by printing out the status of one particular job:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">print</span> <span class="s1">&#39;Status of my job:&#39;</span><span class="p">,</span> <span class="n">jobs</span><span class="p">(</span><span class="mi">787</span><span class="p">)</span><span class="o">.</span><span class="n">status</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span> <span class="s1">&#39;Status of my job:&#39;</span><span class="p">,</span> <span class="n">jobs</span><span class="p">(</span><span class="mi">787</span><span class="p">)</span><span class="o">.</span><span class="n">status</span>
 </pre></div>
 </div>
 <p>The next thing to do is to find the output of your job. Two things can
@@ -477,7 +477,7 @@ rest will remain on the grid. Log files will almost always be downloaded.</p>
 <p>To find where the files <code class="docutils literal notranslate"><span class="pre">ganga</span></code> downloaded are you can check the <code class="docutils literal notranslate"><span class="pre">outputdir</span></code>
 property of your job.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">output</span> <span class="o">=</span> <span class="n">jobs</span><span class="p">(</span><span class="mi">787</span><span class="p">)</span><span class="o">.</span><span class="n">outputdir</span>
-<span class="k">print</span> <span class="s1">&#39;Job output stored in:&#39;</span><span class="p">,</span> <span class="n">output</span>
+<span class="nb">print</span> <span class="s1">&#39;Job output stored in:&#39;</span><span class="p">,</span> <span class="n">output</span>
 </pre></div>
 </div>
 <p>Take a look at the contents of this directory.

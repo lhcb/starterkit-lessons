@@ -313,13 +313,13 @@
 /* CSS overrides for sphinx_rtd_theme */
 
 /* 24px margin */
-.nbinput.nblast,
-.nboutput.nblast {
+.nbinput.nblast.container,
+.nboutput.nblast.container {
     margin-bottom: 19px;  /* padding has already 5px */
 }
 
 /* ... except between code cells! */
-.nblast + .nbinput {
+.nblast.container + .nbinput.container {
     margin-top: -19px;
 }
 
@@ -356,7 +356,7 @@ To do that, we have to extract the <span class="math notranslate nohighlight">\(
 
 <span class="n">stream</span> <span class="o">=</span> <span class="s1">&#39;AllStreams&#39;</span>
 <span class="n">line</span> <span class="o">=</span> <span class="s1">&#39;D2hhPromptDst2D2KKLine&#39;</span>
-<span class="n">tesLoc</span> <span class="o">=</span> <span class="s1">&#39;/Event/{0}/Phys/{1}/Particles&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">stream</span><span class="p">,</span> <span class="n">line</span><span class="p">)</span>
+<span class="n">tesLoc</span> <span class="o">=</span> <span class="s1">&#39;/Event/</span><span class="si">{0}</span><span class="s1">/Phys/</span><span class="si">{1}</span><span class="s1">/Particles&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">stream</span><span class="p">,</span> <span class="n">line</span><span class="p">)</span>
 
 <span class="n">kaons_from_d0</span> <span class="o">=</span> <span class="n">FilterInTrees</span><span class="p">(</span><span class="s1">&#39;kaons_from_d0_filter&#39;</span><span class="p">,</span> <span class="n">Code</span><span class="o">=</span><span class="s2">&quot;(&#39;K+&#39; == ABSID)&quot;</span><span class="p">)</span>
 <span class="n">kaons_from_d0_sel</span> <span class="o">=</span> <span class="n">Selection</span><span class="p">(</span><span class="s2">&quot;kaons_from_d0_sel&quot;</span><span class="p">,</span>
