@@ -20,7 +20,7 @@ produce a ROOT ntuple.
 {% endobjectives %} 
 
 With some stripped data located, it's useful to store the information on the
-selected  les inside an ntuple.
+selected particles inside an ntuple.
 This allows for quick, local analysis with [ROOT](https://root.cern.ch/),
 rather than always searching through a DST that contains lots of things we're
 not interested in.
