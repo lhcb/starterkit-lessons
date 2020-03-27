@@ -35,10 +35,9 @@ Feel free to [contribute](https://github.com/lhcb/glossary).
 
 {% endcallout %} 
 
-{% callout "LHCb Q&A" %}
+{% callout "LHCb FAQ" %}
 
-Another experimental alternative to the mailing lists is the [LHCb Questions and 
-Answers website](https://lhcbqa.web.cern.ch/lhcbqa/).
+Another experimental alternative to the mailing lists is the [LHCb Discourse website](https://lhcb-talk.web.cern.ch/).
 It works like [Stack overflow](https://stackoverflow.com/), but focuses on LHCb-specific questions.
 You can post your question there and you should usually receive an answer within a few hours or days.
 
