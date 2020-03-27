@@ -20,7 +20,7 @@ produce a ROOT ntuple.
 {% endobjectives %} 
 
 With some stripped data located, it's useful to store the information on the
-selected particles inside an ntuple.
+selected  les inside an ntuple.
 This allows for quick, local analysis with [ROOT](https://root.cern.ch/),
 rather than always searching through a DST that contains lots of things we're
 not interested in.
@@ -75,7 +75,7 @@ negatively charged kaon and one positively charged track of any species.
 More information the decay descriptor syntax can be found on the [LoKi decay
 finders TWiki
 page](https://twiki.cern.ch/twiki/bin/view/LHCb/FAQ/LoKiNewDecayFinders).
-The complete list of allowed particle names can be found [here](https://gitlab.cern.ch/lhcb-conddb/DDDB/-/blob/master/param/ParticleTable.txt) 
+The complete list of allowed particle names can be found [here](https://gitlab.cern.ch/lhcb-conddb/DDDB/-/blob/master/param/ParticleTable.txt).
 
 {% endcallout %} 
 
