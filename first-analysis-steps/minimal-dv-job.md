@@ -75,7 +75,7 @@ negatively charged kaon and one positively charged track of any species.
 More information the decay descriptor syntax can be found on the [LoKi decay
 finders TWiki
 page](https://twiki.cern.ch/twiki/bin/view/LHCb/FAQ/LoKiNewDecayFinders).
-The complete list of allowed particle names can be found [here](https://gitlab.cern.ch/lhcb-conddb/DDDB/-/blob/master/param/ParticleTable.txt).
+The complete list of allowed particle names is defined in the detector description database (DDDB) which can be [browsed on GitLab](https://gitlab.cern.ch/lhcb-conddb/DDDB/-/blob/master/param/ParticleTable.txt).
 
 {% endcallout %} 
 
