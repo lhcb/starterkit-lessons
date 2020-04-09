@@ -44,6 +44,19 @@ curl -L https://cern.ch/go/Z8Nk | bash
 source ~/.bashrc
 ```
 
+If you get an error like,
+```bash
+ERROR: Failed to find LCG view at: /cvmfs/sft.cern.ch.lcg/views/LCG_93python3/x86_64-centos7-gcc8-opt/setup.sh
+```
+you may need to change platforms with
+```bash
+lb-set-platform x86_64-centos7-gcc7-opt
+```
+or
+```bash
+LbLogin -c x86_64-centos7-gcc7-opt
+```
+and try again.
 {% endcallout %}
 
 You can now check if Snakemake is working by using `snakemake --help`.
