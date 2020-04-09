@@ -57,6 +57,25 @@ or
 LbLogin -c x86_64-centos7-gcc7-opt
 ```
 and try again.
+
+You will also need to use the new `LbEnv` method of setting the user environment, not `LbLogin`.
+You can read more about `LbEnv` [here](https://twiki.cern.ch/twiki/bin/view/LHCb/LbEnv),
+but the essentials are as follows:
+
+1. Tell lxplus not to use the default group login by running:
+```bash
+touch ~/.nogrouplogin
+```
+2. Create an alias to set `LbEnv` by adding the following line to your `~/.bashrc`:
+```bash
+alias LbEnv="source /cvmfs/lhcb.cern.ch/lib/LbEnv"
+```
+3. Log out of lxplus.
+4. Every time you log in to lxplus, call `LbEnv` to set the environment.
+
+Useful tips for moving from `LbLogin` to `LbEnv`,
+such as how to change the current platform,
+can be found [here](https://twiki.cern.ch/twiki/bin/view/LHCb/FromLbLoginToLbEnv).
 {% endcallout %}
 
 You can now check if Snakemake is working by using `snakemake --help`.
