@@ -76,6 +76,7 @@ alias LbEnv="source /cvmfs/lhcb.cern.ch/lib/LbEnv"
 Useful tips for moving from `LbLogin` to `LbEnv`,
 such as how to change the current platform,
 can be found [here](https://twiki.cern.ch/twiki/bin/view/LHCb/FromLbLoginToLbEnv).
+
 {% endcallout %}
 
 You can now check if Snakemake is working by using `snakemake --help`.
