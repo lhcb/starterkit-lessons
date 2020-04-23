@@ -228,7 +228,7 @@ Congratulations!
 {% callout "Nightlies" %}
 
 It is advisable to test new developments on the so-called [nightly
-builds](https://lhcb-nightlies.cern.ch). Each project is built overnight
+builds](https://lhcb-nightlies.web.cern.ch). Each project is built overnight
 (hence the name), and all pending merge requests are applied. You can use a
 nightly build version of a project with:
 
@@ -248,7 +248,7 @@ If that is successful, they run some reference jobs and compare the output of
 the new build with a reference file.  The results of the nightly builds can
 be found here.
 
-* [Nightly builds summaries](https://lhcb-nightlies.cern.ch)
+* [Nightly builds summaries](https://lhcb-nightlies.web.cern.ch)
 
 If the aim of the commit was to change the ouput, e.g. because you increased
 the track reconstruction efficiency by a factor of two, mention it in the
