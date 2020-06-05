@@ -136,7 +136,7 @@ modify and build.  So let's check out one of the existing LHCb packages! These
 are stored in the [LHCb Git repositories](https://gitlab.cern.ch/lhcb).
 
 In order to obtain the source code of the package you want to work on, we'll
-use the [Git4LHCb](https://twiki.cern.ch/twiki/bin/view/LHCb/Git4LHCb) scripts.
+use the [Git4LHCb](http://lhcb-core-doc.web.cern.ch/lhcb-core-doc/GitForLHCbUsers.html) scripts.
 These are a set of aliases, starting with `git lb-`, that are designed to make
 developing LHCb software easier.  For example, if you want to write a custom
 stripping selection, execute the following in the `DaVinciDev` directory:
