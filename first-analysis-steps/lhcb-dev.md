@@ -193,8 +193,8 @@ setup](#initial-setup).
 
 If you have made changes that you'd like to be integrated into the official
 LHCb repositories, you can use `git lb-push` to push it to a new branch in the
-central git repository. But please read the instructions in the [TWiki
-page](https://twiki.cern.ch/twiki/bin/view/LHCb/Git4LHCb#Using_Git_for_LHCb_development)
+central git repository. But please read the [instructions 
+page](http://lhcb-core-doc.web.cern.ch/lhcb-core-doc/GitForLHCbUsers.html#using-git-for-lhcb-development)
 first.
 
 Depending on the project, you may be required to document your changes in the
