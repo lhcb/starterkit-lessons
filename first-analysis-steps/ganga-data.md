@@ -67,8 +67,6 @@ jobs(787).backend.getOutputDataAccessURLs()
 
 Small files are downloaded as standard: `.root`, logfiles etc. Files that are expected to be large (with extensions `.dst` etc) are by default kept on the grid as Dirac files. In general, you are encouraged to keep your large files on the grid to avoid moving large amounts of data around through your work area. 
 
-More information on the `DiracFile` usage is provided in the [next lesson](eos-storage).
-
 
 {% callout "Getting help with ganga" %}
 
