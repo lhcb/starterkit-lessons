@@ -6,7 +6,9 @@
 
 {% endobjectives %} 
 
-On `lxplus` EOS is mount under `/eos` .
+EOS is a large area of disk space provided by CERN for users. See [here](http://information-technology.web.cern.ch/services/eos-service) for more information.
+
+On `lxplus` EOS is mounted with a fuse mount under `/eos` .
 If you list the contents of the `/eos` directory you should see various experiments areas, and the user area:
 
 ```
@@ -32,8 +34,10 @@ Files stored on EOS can be open in `ROOT` the usual way:
 $ root /eos/lhcb/user/a/another/myfavouritefile.root
 ```
 
-You may also use the following path which is independent of the EOS mount (the mount is in general not very reliable):
+You may also use the following path which is independent of the EOS mount:
 
 ```bash
 $ root root://eoslhcb.cern.ch//eos/lhcb/user/a/another/myfavouritefile.root
 ```
+
+In general the fuse mount of EOS is not very reliable and it is not recommended to use it for moving or accessing large numbers of files. Instead you can use the [eos commands](http://eos-docs.web.cern.ch/eos-docs/clicommands.html), for example `eos cp`, or the [xrootd protocol](https://xrootd.slac.stanford.edu/doc/xrdcl-docs/www/xrdcldocs.html#x1-40003), for example `xrdcp`.
