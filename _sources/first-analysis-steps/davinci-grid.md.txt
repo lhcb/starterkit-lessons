@@ -37,6 +37,13 @@ looks very much like an `ipython` session. `ganga` is built on top of
 `ipython` so you can type anything that is legal `python` in addition
 to some special commands provided by `ganga`.
 
+
+{% callout "Help in Ganga" %}
+
+As with any python session you can get help on any object or method with `help`. For example `help(Job)` gives you all the information about the Ganga `Job` object.
+
+{% endcallout %}
+
 To create your first `ganga` job, type the following:
 
 ```python

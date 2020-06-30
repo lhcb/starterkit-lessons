@@ -1,8 +1,7 @@
 
 
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8">
   
@@ -12,12 +11,20 @@
   
 
   
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/panels.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/starterkit.css" type="text/css" />
+
+  
   
   
   
 
   
-  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
@@ -27,18 +34,12 @@
         <script src="../_static/language_data.js"></script>
         <script src="../_static/panels.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
         <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
     
     <script type="text/javascript" src="../_static/js/theme.js"></script>
 
     
-
-  
-  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/panels.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/starterkit.css" type="text/css" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Developing LHCb Software" href="lhcb-dev.html" />
@@ -56,7 +57,7 @@
           
 
           
-            <a href="../index.html" class="icon icon-home"> LHCb Starterkit Lessons
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> LHCb Starterkit Lessons
           
 
           
@@ -82,6 +83,7 @@
           
         </div>
 
+        
         <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
           
             
@@ -246,6 +248,7 @@
             
           
         </div>
+        
       </div>
     </nav>
 
@@ -284,7 +287,7 @@
 
   <ul class="wy-breadcrumbs">
     
-      <li><a href="../index.html">Docs</a> &raquo;</li>
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
         
           <li><a href="README.html">First Analysis Steps</a> &raquo;</li>
         
@@ -341,77 +344,12 @@
 </div>
 <div class="panel-body docutils container">
 <ul class="simple">
-<li><p>Run a ganga job which puts output onto EOS</p></li>
-<li><p>Open and view the files on EOS</p></li>
+<li><p>Open and view files on EOS</p></li>
 </ul>
 </div>
 </div>
-<p>During a real analysis the output of your jobs will quickly grow
-beyond what fits onto your AFS space. CERN provides you with 2TB of
-space on a set of hard drives called the <a class="reference external" href="https://information-technology.web.cern.ch/services/eos-service">EOS
-service</a> and
-a grid storage quota of 2TB.</p>
-<p>To retrieve a job outputfile, one can use two types of files:</p>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">LocalFile</span></code>: the standard one with the output file directly downloaded to
-the <code class="docutils literal notranslate"><span class="pre">gangadir</span></code>.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">DiracFile</span></code>: the output file is stored directly on the grid and be accessed
-through the XRootD protocol.</p></li>
-</ul>
-<p>In this lesson, we will focus on the use of <code class="docutils literal notranslate"><span class="pre">DiracFile</span></code> in <code class="docutils literal notranslate"><span class="pre">ganga</span></code> to manage big
-output files.</p>
-<p>We can reuse what has been done to run <a class="reference internal" href="davinci-grid.html"><span class="doc">a DaVinci job on the
-grid</span></a> and adapt the <code class="docutils literal notranslate"><span class="pre">j.outputfiles</span></code> part.</p>
-<p>To add the DiracFile in the configuration of the job we just need:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">j</span> <span class="o">=</span> <span class="n">Job</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;First ganga job&#39;</span><span class="p">)</span>
-<span class="n">myApp</span> <span class="o">=</span> <span class="n">GaudiExec</span><span class="p">()</span>
-<span class="n">myApp</span><span class="o">.</span><span class="n">directory</span> <span class="o">=</span> <span class="s2">&quot;./DaVinciDev_v45r1&quot;</span>
-<span class="n">j</span><span class="o">.</span><span class="n">application</span> <span class="o">=</span> <span class="n">myApp</span>
-<span class="n">j</span><span class="o">.</span><span class="n">application</span><span class="o">.</span><span class="n">options</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;ntuple-options.py&#39;</span><span class="p">]</span>
-<span class="n">j</span><span class="o">.</span><span class="n">application</span><span class="o">.</span><span class="n">platform</span> <span class="o">=</span> <span class="s1">&#39;x86_64-centos7-gcc8-opt&#39;</span>
-<span class="n">bkPath</span> <span class="o">=</span> <span class="s1">&#39;/MC/2016/Beam6500GeV-2016-MagDown-Nu1.6-25ns-Pythia8/Sim09c/Trig0x6138160F/Reco16/Turbo03/Stripping28r1NoPrescalingFlagged/27163002/ALLSTREAMS.DST&#39;</span>
-<span class="n">data</span>  <span class="o">=</span> <span class="n">BKQuery</span><span class="p">(</span><span class="n">bkPath</span><span class="p">,</span> <span class="n">dqflag</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;OK&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">getDataset</span><span class="p">()</span>
-<span class="n">j</span><span class="o">.</span><span class="n">inputdata</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">2</span><span class="p">]</span>     <span class="c1"># access only the first 2 files of data</span>
-<span class="n">j</span><span class="o">.</span><span class="n">backend</span> <span class="o">=</span> <span class="n">Dirac</span><span class="p">()</span>
-<span class="n">j</span><span class="o">.</span><span class="n">outputfiles</span> <span class="o">=</span> <span class="p">[</span>
-    <span class="n">DiracFile</span><span class="p">(</span><span class="s1">&#39;DVntuple.root&#39;</span><span class="p">)</span>
-<span class="p">]</span>
-<span class="n">j</span><span class="o">.</span><span class="n">splitter</span> <span class="o">=</span> <span class="n">SplitByFiles</span><span class="p">(</span><span class="n">filesPerJob</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
-<span class="n">j</span><span class="o">.</span><span class="n">submit</span><span class="p">()</span>
-</pre></div>
-</div>
-<p>When the job is completed, no output is dowloaded but some interesting
-information are provided by typing <code class="docutils literal notranslate"><span class="pre">j.outputfiles[0]</span></code>:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">DiracFile</span><span class="p">(</span><span class="n">namePattern</span><span class="o">=</span><span class="s1">&#39;DVntuple.root&#39;</span><span class="p">,</span>
-          <span class="n">lfn</span><span class="o">=</span><span class="s1">&#39;/lhcb/user/a/another/2018_11/146255/146255492/DVntuple.root&#39;</span><span class="p">,</span>
-          <span class="n">localDir</span><span class="o">=</span><span class="s1">&#39;/afs/cern.ch/user/a/another/gangadir/workspace/another/LocalXML/129/output&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-<p>Apart from the <code class="docutils literal notranslate"><span class="pre">namePattern</span></code> which was set during the configuration of the job,
-we can retrieve the <code class="docutils literal notranslate"><span class="pre">localDir</span></code> which is the path in your gangadir to the output
-of the job and its <code class="docutils literal notranslate"><span class="pre">lfn</span></code> which stands for Logical File Name.</p>
-<p>This LFN can then be given as an argument in order to download the file. But
-more important in most of the cases, you don’t even need to download the file
-thanks to the <code class="docutils literal notranslate"><span class="pre">accessURL</span></code> function which will give you the URL of your output
-file by typing <code class="docutils literal notranslate"><span class="pre">j.outputfiles[0].accessURL()</span></code>:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="s1">&#39;root://eoslhcb.cern.ch//eos/lhcb/grid/user/lhcb/user/a/another/2018_11/146255/146255492/DVntuple.root&#39;</span><span class="p">]</span>
-</pre></div>
-</div>
-<p>This URL can be directly used in your ROOT script with the help of the XRootD
-protocol as follows:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">TFile</span><span class="p">::</span><span class="n">Open</span><span class="p">(</span><span class="s2">&quot;root://eoslhcb.cern.ch//eos/lhcb/grid/user/lhcb/user/a/another/2018_11/146255/146255492/DVntuple.root&quot;</span><span class="p">)</span>  
-</pre></div>
-</div>
-<div class="panel panel-callout docutils container">
-<div class="panel-header open docutils container">
-<p id="use-of-the-xrootd-protocol-"><i class="fa fa-info-circle"></i> Use of the XRootD protocol </p>
-</div>
-<div class="panel-body docutils container">
-<p>In order to access files on every grid site with the XRootD protocol, be sure
-to have a valid proxy using <code class="docutils literal notranslate"><span class="pre">lhcb-proxy-init</span></code>.</p>
-</div>
-</div>
-<p>On <code class="docutils literal notranslate"><span class="pre">lxplus</span></code> EOS is mount under <code class="docutils literal notranslate"><span class="pre">/eos</span></code> .
+<p>EOS is a large area of disk space provided by CERN for users. See <a class="reference external" href="http://information-technology.web.cern.ch/services/eos-service">here</a> for more information.</p>
+<p>On <code class="docutils literal notranslate"><span class="pre">lxplus</span></code> EOS is mounted with a fuse mount under <code class="docutils literal notranslate"><span class="pre">/eos</span></code> .
 If you list the contents of the <code class="docutils literal notranslate"><span class="pre">/eos</span></code> directory you should see various experiments areas, and the user area:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>lhcb ship user
 </pre></div>
@@ -435,10 +373,11 @@ If you list the contents of the <code class="docutils literal notranslate"><span
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ root /eos/lhcb/user/a/another/myfavouritefile.root
 </pre></div>
 </div>
-<p>You may also use the following path which is independent of the EOS mount (the mount is in general not very reliable):</p>
+<p>You may also use the following path which is independent of the EOS mount:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ root root://eoslhcb.cern.ch//eos/lhcb/user/a/another/myfavouritefile.root
 </pre></div>
 </div>
+<p>In general the fuse mount of EOS is not very reliable and it is not recommended to use it for moving or accessing large numbers of files. Instead you can use the <a class="reference external" href="http://eos-docs.web.cern.ch/eos-docs/clicommands.html">eos commands</a>, for example <code class="docutils literal notranslate"><span class="pre">eos</span> <span class="pre">cp</span></code>, or the <a class="reference external" href="https://xrootd.slac.stanford.edu/doc/xrdcl-docs/www/xrdcldocs.html#x1-40003">xrootd protocol</a>, for example <code class="docutils literal notranslate"><span class="pre">xrdcp</span></code>.</p>
 </div>
 
 
@@ -461,11 +400,19 @@ If you list the contents of the <code class="docutils literal notranslate"><span
 
   <div role="contentinfo">
     <p>
+        
         &copy; Copyright 2015-2019, LHCb Starterkit
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
 
@@ -476,7 +423,6 @@ If you list the contents of the <code class="docutils literal notranslate"><span
 
   </div>
   
-
 
   <script type="text/javascript">
       jQuery(function () {
