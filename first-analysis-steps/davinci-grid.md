@@ -9,13 +9,14 @@
 
 {% endobjectives %} 
 
+In certain cases, submitting an [Analysis Production](analysis-productions) may not be the best option.
 This lesson will teach you how to take our [minimal DaVinci
-job](minimal-dv-job) and run it on the grid.
+job](minimal-dv-job) and run it on the grid yourself.
 
 `ganga` is a program which you can use to interact with your grid
 jobs. 
 
-Before creating your first `ganga` job, open the script `ntuple_options.py`, obtained in the [previous lesson](minimal-dv-job), and comment out the lines taking the local input data: we will now use the data stored on grid.
+Before creating your first `ganga` job, open the script `ntuple_options.py`, obtained in an [earlier lesson](minimal-dv-job), and comment out the lines taking the local input data: we will now use the data stored on grid.
 
 Also, you need to know the path to your data from Bookkeeping.
 In our case the path is:
