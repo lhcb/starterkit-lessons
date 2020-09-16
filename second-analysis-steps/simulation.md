@@ -23,18 +23,16 @@ and a collection of useful links can be found on the project's website: http://l
 
 {% callout "Setup" %}
 
-Before we continue, please set up a Gauss v49r12 `lb-dev`:
-* Change your `CMTCONFIG` using this command: `LbLogin -c x86_64-slc6-gcc49-opt`.
-* Set up Gauss: `lb-dev Gauss/v49r12`
-* `cd ./GaussDev_v49r12`
+Before we continue, please set up a Gauss v49r17 `lb-dev`:
+* Set up Gauss: `lb-dev Gauss/v49r17`
+* `cd ./GaussDev_v49r17`
 * Get the `DecFiles` package for later: `git lb-clone-pkg Gen/DecFiles`
 * Build it: `make`
 
 Or simply copy and paste the following lines:
 ```shell
-LbLogin -c x86_64-slc6-gcc49-opt
-lb-dev Gauss/v49r12
-cd ./GaussDev_v49r12
+lb-dev Gauss/v49r17
+cd ./GaussDev_v49r17
 git lb-clone-pkg Gen/DecFiles
 make
 ```
