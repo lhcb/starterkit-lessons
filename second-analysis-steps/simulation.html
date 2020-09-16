@@ -372,18 +372,16 @@ and a collection of useful links can be found on the project’s website: http:/
 <p id="setup"><i class="fa fa-info-circle"></i> Setup</p>
 </div>
 <div class="panel-body docutils container">
-<p>Before we continue, please set up a Gauss v49r12 <code class="docutils literal notranslate"><span class="pre">lb-dev</span></code>:</p>
+<p>Before we continue, please set up a Gauss v49r17 <code class="docutils literal notranslate"><span class="pre">lb-dev</span></code>:</p>
 <ul class="simple">
-<li><p>Change your <code class="docutils literal notranslate"><span class="pre">CMTCONFIG</span></code> using this command: <code class="docutils literal notranslate"><span class="pre">LbLogin</span> <span class="pre">-c</span> <span class="pre">x86_64-slc6-gcc49-opt</span></code>.</p></li>
-<li><p>Set up Gauss: <code class="docutils literal notranslate"><span class="pre">lb-dev</span> <span class="pre">Gauss/v49r12</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">./GaussDev_v49r12</span></code></p></li>
+<li><p>Set up Gauss: <code class="docutils literal notranslate"><span class="pre">lb-dev</span> <span class="pre">Gauss/v49r17</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">./GaussDev_v49r17</span></code></p></li>
 <li><p>Get the <code class="docutils literal notranslate"><span class="pre">DecFiles</span></code> package for later: <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">lb-clone-pkg</span> <span class="pre">Gen/DecFiles</span></code></p></li>
 <li><p>Build it: <code class="docutils literal notranslate"><span class="pre">make</span></code></p></li>
 </ul>
 <p>Or simply copy and paste the following lines:</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>LbLogin -c x86_64-slc6-gcc49-opt
-lb-dev Gauss/v49r12
-<span class="nb">cd</span> ./GaussDev_v49r12
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>lb-dev Gauss/v49r17
+<span class="nb">cd</span> ./GaussDev_v49r17
 git lb-clone-pkg Gen/DecFiles
 make
 </pre></div>
