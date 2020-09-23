@@ -41,13 +41,3 @@ dtt.Dstar.ConsDKpi.Substitutions = {
 
 # Configure DaVinci
 DaVinci().UserAlgorithms += [dtt]
-DaVinci().InputType = 'DST'
-DaVinci().TupleFile = 'DVntuple.root'
-DaVinci().PrintFreq = 1000
-DaVinci().DataType = '2016'
-DaVinci().Simulation = True
-# Only ask for luminosity information when not using simulated data
-DaVinci().Lumi = not DaVinci().Simulation
-DaVinci().EvtMax = -1
-DaVinci().CondDBtag = 'sim-20161124-2-vc-md100'
-DaVinci().DDDBtag = 'dddb-20150724'
