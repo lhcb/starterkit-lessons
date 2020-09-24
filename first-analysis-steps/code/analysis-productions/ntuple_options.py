@@ -1,6 +1,6 @@
 from Configurables import (
     DaVinci,
-    DecayTreeTuple
+    DecayTreeTuple,
 )
 from DecayTreeTuple.Configuration import *
 
