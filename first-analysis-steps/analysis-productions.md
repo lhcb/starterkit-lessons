@@ -30,10 +30,16 @@ To view more information about any one of these jobs, you can click on it to exp
 
 ![An AP job viewed in DIRAC](img/DIRAC_AP_annotated.png)
 
-The top section shows the summary of important information, like the locations of the input and output files. We can view the ntuples created by this job using the location from the 'output pattern' field. Copy the string starting from `/eos/lhcb/grid/...` (ie. without the `root://eoslhcb.cern.ch/` at the start). You can then open these files in root by opening an lxplus terminal, and entering a command like:
+The top section shows the summary of important information, like the locations of the input and output files. We can view the ntuples created by this job using the location from the 'output pattern' field. Let's start by listing the available files by running the following command in an lxplus terminal:
 
 ```bash
-root -l /eos/lhcb/grid/prod/lhcb/MC/2018/BSNTUPLE_MC.ROOT/00110974/0000/*.root
+xrdfs root://eoslhcb.cern.ch/ ls /eos/lhcb/grid/prod/lhcb/MC/2018/BSNTUPLE_MC.ROOT/00110974/0000/
+```
+
+This will display a list of `.root` ntuples being stored on the grid. Choose one of them, and open it with:
+
+```bash
+root -l root://eoslhcb.cern.ch//eos/lhcb/grid/prod/lhcb/MC/2018/BSNTUPLE_MC.ROOT/00110974/0000/00110974_00000001_1.bsntuple_mc.root
 ```
 
 You can now view these files by running `TBrowser b` inside of ROOT (or with your another method of your choice).
