@@ -42,7 +42,7 @@ To view the files that were used to create these ntuples, you can click on the '
 
 ## Creating your own production
 
-For practice, we will now go through the steps of creating a production. It should be noted that this process may change slightly, and the most up-to-date information is to be found on the well-documented [Analysis Productions GitLab page](https://gitlab.cern.ch/lhcb-datapkg/AnalysisProductions).
+For practice, we will now go through the steps of creating a simple production. For details about more advanced usage, see the [Analysis Productions README](https://gitlab.cern.ch/lhcb-datapkg/AnalysisProductions).
 
 Start by creating a folder to work in, and into it clone the [Analysis Productions repository](https://gitlab.cern.ch/lhcb-datapkg/AnalysisProductions).
 
