@@ -65,7 +65,7 @@ mkdir D02HH_Starterkit
 
 Let's enter that new directory (`cd D02HH_Starterkit`), and start adding the files we'll need. First is the DaVinci options file. If you have the options file you created during the previous lessons, copy it here, and open it with your text editor of choice. There are a couple of things to change - first, you can remove the lines about using the local input data (that's everything to do with `IOHelper()`), since we're going to be using remotely hosted data instead. Also, because the Analysis Productions system is able to automatically configure parts of jobs, you can also remove these lines:
 
-```
+```python
 DaVinci().InputType = 'DST'
 DaVinci().TupleFile = 'DVntuple.root'
 DaVinci().PrintFreq = 1000
