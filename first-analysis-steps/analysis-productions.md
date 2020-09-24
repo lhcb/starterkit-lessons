@@ -112,7 +112,7 @@ For a full list of the available options, and information on their allowed value
 
 {% challenge "Add a magnet-up job" %}
 
-Currently, this will create ntuples for 2016 magnet-down MC data only. See if you can add to your `info.yaml` file to create a job for 2016 magnet-up data as well. *Hint:* you will need to find the location of the correct `.DST` file using bookkeeping.
+Currently, this will create ntuples for 2016 magnet-down MC data only. See if you can add to your `info.yaml` file to create a job for 2016 magnet-up data as well. *Hint:* the location of the correct `.DST` file can be found using bookkeeping.
 
 {% solution "Solutions" %}
 
