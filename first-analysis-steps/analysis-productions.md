@@ -122,7 +122,7 @@ Since we're making use of the `defaults` job name, we need to add very little to
 
 {% endchallenge %}
 
-For good practice, the final thing we should add is readme. This is a markdown file that will be used to document the information about your production in a more human-readable format. Create a file `README.md`, and add some pertinent information. If you're not sure what to add, try looking at some existing productions to get an idea.
+For good practice, the final thing we should add is a README. This is a markdown file that will be used to document the information about your production in a more human-readable format. Create a file `README.md`, and add some pertinent information. If you're not sure what to add, try looking at some existing productions to get an idea.
 
 ### Testing your production locally
 
@@ -218,4 +218,3 @@ You should try to reach out to anyone else who may also want to use these ntuple
 In addition, the Analysis Productions coordinator(s) may also have some feedback on your additions/changes.
 
 {% endcallout %}
-
