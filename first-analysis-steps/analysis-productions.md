@@ -114,7 +114,7 @@ Here, the unindented lines are the names of jobs (although `defaults` has a spec
 * **output**: the name of the output `.root` ntuples. These will get registered in bookkeeping as well.
 * **input**: the bookkeeping path of the data you're running over. This is what you located during the [bookkeeping lesson](bookkeeping), and is unique to the 2016 magnet-down job, so it doesn't belong under `defaults`.
 
-For a full list of the available options, and information on their allowed values, in the [AP documentation](https://gitlab.cern.ch/lhcb-datapkg/AnalysisProductions/-/blob/master/README.md).
+For a full list of the available options, and information on their allowed values, see the [Analysis Productions README](https://gitlab.cern.ch/lhcb-datapkg/AnalysisProductions).
 
 {% challenge "Add a magnet-up job" %}
 
