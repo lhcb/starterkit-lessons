@@ -60,10 +60,10 @@ git checkout -b ${USER}/starterkit-practice
 Now we need to create a folder to store all the things we're going to add for our new production. For this practice production, we'll continue with the `$ D^{0} \to K^{-}K^{+} $` decays used in the previous few lessons, so we should name the folder appropriately:
 
 ```bash
-mkdir D02HH_Starterkit
+mkdir D02HH_Practice
 ```
 
-Let's enter that new directory (`cd D02HH_Starterkit`), and start adding the files we'll need. First is the DaVinci options file. If you have the options file you created during the previous lessons, copy it here, and open it with your text editor of choice. There are a couple of things to change - first, you can remove the lines about using the local input data (that's everything to do with `IOHelper()`), since we're going to be using remotely hosted data instead. Also, because the Analysis Productions system is able to automatically configure parts of jobs, you can also remove these lines:
+Let's enter that new directory (`cd D02HH_Practice`), and start adding the files we'll need. First is the DaVinci options file. If you have the options file you created during the previous lessons, copy it here, and open it with your text editor of choice. There are a couple of things to change - first, you can remove the lines about using the local input data (that's everything to do with `IOHelper()`), since we're going to be using remotely hosted data instead. Also, because the Analysis Productions system is able to automatically configure parts of jobs, you can also remove these lines:
 
 ```python
 DaVinci().InputType = 'DST'
@@ -149,10 +149,10 @@ Commands:
   parse-log  Read a Gaudi log file and extract information
 ```
 
-This command `lb-ap` will allow us to perform a number of different tests. Let's start with `lb-ap list`, which will display all of the productions. Hopefully you should see your new production (`D02HH_Starterkit`) on this list! You can also use this to list all of the jobs within a given production, by running `lb-ap list D02HH_Starterkit`. If you added a second job for magnet-up earlier, the output of this command should look like this:
+This command `lb-ap` will allow us to perform a number of different tests. Let's start with `lb-ap list`, which will display all of the productions. Hopefully you should see your new production (`D02HH_Practice`) on this list! You can also use this to list all of the jobs within a given production, by running `lb-ap list D02HH_Practice`. If you added a second job for magnet-up earlier, the output of this command should look like this:
 
 ```
-The available jobs for D02HH_Starterkit are: 
+The available jobs for D02HH_Practice are: 
 * 2016_MagDown_PromptMC_D02KK
 * 2016_MagUp_PromptMC_D02KK
 ```
@@ -160,7 +160,7 @@ The available jobs for D02HH_Starterkit are:
 The most important test is if the production actually runs successfully, and creates the desired ntuples. The `lb-ap` command is used for this as well. To test the magnet-down job, run this command:
 
 ```bash
-lb-ap test D02HH_Starterkit 2016_MagDown_PromptMC_D02KK
+lb-ap test D02HH_Practice 2016_MagDown_PromptMC_D02KK
 ```
 
 This will automatically run DaVinci, using the data and options files you specified in `info.yaml`. You should see the output from DaVinci similar to what you saw when you ran it manually in an earlier lesson, followed by a completion message that tells you the location of the output files created by the test.
