@@ -110,6 +110,7 @@ Here, the unindented lines are the names of jobs (although `defaults` has a spec
 * **wg**: the working group this production is a part of. Since this is a `$ D^{0} \to K^{-}K^{+} $` decay, we'll set this to `Charm`.
 * **inform**: optionally, you can enter your email address to receive updates on the status of your jobs.
 * **automatically_configure**: setting this to `yes` is what allowed us to remove all of those configuration lines from the options file. This is very useful when creating productions that use multiple years, or both data and MC.
+* **turbo**: Setting this to `yes` indicates `automatically_configure` should configure the application for reading turbo data.
 * **options**: the list of options files to use. Behind the scenes, these will get passed to DaVinci.
 * **output**: the name of the output `.root` ntuples. These will get registered in bookkeeping as well.
 * **input**: the bookkeeping path of the data you're running over. This is what you located during the [bookkeeping lesson](bookkeeping), and is unique to the 2016 magnet-down job, so it doesn't belong under `defaults`.
