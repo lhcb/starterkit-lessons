@@ -132,8 +132,6 @@ For good practice, the final thing we should add is a README. This is a markdown
 
 ### Testing your production locally
 
-**TEMPORARY:** need to use the "unstable" LbEnv. `echo testing > ~/.lbenv_flavour` & re-log-in to lxplus.
-
 Now we've got both of the files we need, we should test the production to make sure it works as expected. All of this will be done using the `lb-ap` command. Navigate up one level to the base directory of the respository (`AnalysisProductions`), and run `lb-ap`, which should display the following:
 
 ```
