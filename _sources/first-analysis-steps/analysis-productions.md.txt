@@ -93,6 +93,7 @@ defaults:
     application: DaVinci/v45r5
     wg: Charm
     automatically_configure: yes
+    turbo: no
     inform:
         - your.email.here@cern.ch
     options:
