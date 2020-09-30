@@ -43,7 +43,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Splitting a job into subjobs" href="split-jobs.html" />
-    <link rel="prev" title="How do I use DecayTreeFitter?" href="decay-tree-fitter.html" /> 
+    <link rel="prev" title="Analysis Productions" href="analysis-productions.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -112,6 +112,15 @@
 <li class="toctree-l2"><a class="reference internal" href="loki-functors.html">Fun with LoKi Functors</a></li>
 <li class="toctree-l2"><a class="reference internal" href="add-tupletools.html">TupleTools and branches</a></li>
 <li class="toctree-l2"><a class="reference internal" href="decay-tree-fitter.html">How do I use DecayTreeFitter?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="analysis-productions.html">Analysis Productions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="analysis-productions.html#monitoring-productions">Monitoring productions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="analysis-productions.html#creating-your-own-production">Creating your own production</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="analysis-productions.html#testing-your-production-locally">Testing your production locally</a></li>
+<li class="toctree-l4"><a class="reference internal" href="analysis-productions.html#creating-a-merge-request">Creating a merge request</a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Running DaVinci on the grid</a></li>
 <li class="toctree-l2"><a class="reference internal" href="split-jobs.html">Splitting a job into subjobs</a></li>
 <li class="toctree-l2"><a class="reference internal" href="ganga-data.html">More Ganga</a></li>
@@ -351,11 +360,12 @@
 </ul>
 </div>
 </div>
-<p>This lesson will teach you how to take our <a class="reference internal" href="minimal-dv-job.html"><span class="doc">minimal DaVinci
-job</span></a> and run it on the grid.</p>
+<p>In certain cases, submitting an <a class="reference internal" href="analysis-productions.html"><span class="doc">Analysis Production</span></a> may not be the best option.
+This lesson will teach you how to take our <a class="reference internal" href="minimal-dv-job.html"><span class="doc">minimal DaVinci
+job</span></a> and run it on the grid yourself.</p>
 <p><code class="docutils literal notranslate"><span class="pre">ganga</span></code> is a program which you can use to interact with your grid
 jobs.</p>
-<p>Before creating your first <code class="docutils literal notranslate"><span class="pre">ganga</span></code> job, open the script <code class="docutils literal notranslate"><span class="pre">ntuple_options.py</span></code>, obtained in the <a class="reference internal" href="minimal-dv-job.html"><span class="doc">previous lesson</span></a>, and comment out the lines taking the local input data: we will now use the data stored on grid.</p>
+<p>Before creating your first <code class="docutils literal notranslate"><span class="pre">ganga</span></code> job, open the script <code class="docutils literal notranslate"><span class="pre">ntuple_options.py</span></code>, obtained in an <a class="reference internal" href="minimal-dv-job.html"><span class="doc">earlier lesson</span></a>, and comment out the lines taking the local input data: we will now use the data stored on grid.</p>
 <p>Also, you need to know the path to your data from Bookkeeping.
 In our case the path is:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>/MC/2016/Beam6500GeV-2016-MagDown-Nu1.6-25ns-Pythia8/Sim09c/Trig0x6138160F/Reco16/Turbo03/Stripping28r1NoPrescalingFlagged/27163002/ALLSTREAMS.DST
@@ -535,7 +545,7 @@ FAQ</a></p>
         <a href="split-jobs.html" class="btn btn-neutral float-right" title="Splitting a job into subjobs" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="decay-tree-fitter.html" class="btn btn-neutral float-left" title="How do I use DecayTreeFitter?" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="analysis-productions.html" class="btn btn-neutral float-left" title="Analysis Productions" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

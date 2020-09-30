@@ -1,0 +1,602 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Analysis Productions &mdash; LHCb Starterkit Lessons  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/panels.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/starterkit.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+        <script src="../_static/panels.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Running DaVinci on the grid" href="davinci-grid.html" />
+    <link rel="prev" title="How do I use DecayTreeFitter?" href="decay-tree-fitter.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> LHCb Starterkit Lessons
+          
+
+          
+            
+            <img src="../_static/starterkit.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="README.html">First Analysis Steps</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="prerequisites.html">Pre-workshop checklist</a></li>
+<li class="toctree-l2"><a class="reference internal" href="introduction-to-course.html">Goals of the course</a></li>
+<li class="toctree-l2"><a class="reference internal" href="physics-at-lhcb.html">Physics at LHCb</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="physics-at-lhcb.html#the-reconstruction">The reconstruction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="physics-at-lhcb.html#building-decay-candidates">Building decay candidates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="physics-at-lhcb.html#building-more-complex-decays">Building more complex decays</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="dataflow.html">The LHCb data flow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="run-2-data-flow.html">Changes to the data flow in Run 2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="davinci.html">An introduction to LHCb Software</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bookkeeping.html">Finding data in the Bookkeeping</a></li>
+<li class="toctree-l2"><a class="reference internal" href="files-from-grid.html">Downloading a file from the grid</a></li>
+<li class="toctree-l2"><a class="reference internal" href="interactive-dst.html">Interactively exploring a DST</a></li>
+<li class="toctree-l2"><a class="reference internal" href="minimal-dv-job.html">Running a minimal DaVinci job locally</a></li>
+<li class="toctree-l2"><a class="reference internal" href="loki-functors.html">Fun with LoKi Functors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="add-tupletools.html">TupleTools and branches</a></li>
+<li class="toctree-l2"><a class="reference internal" href="decay-tree-fitter.html">How do I use DecayTreeFitter?</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Analysis Productions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#monitoring-productions">Monitoring productions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#creating-your-own-production">Creating your own production</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#testing-your-production-locally">Testing your production locally</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#creating-a-merge-request">Creating a merge request</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="davinci-grid.html">Running DaVinci on the grid</a></li>
+<li class="toctree-l2"><a class="reference internal" href="split-jobs.html">Splitting a job into subjobs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ganga-data.html">More Ganga</a></li>
+<li class="toctree-l2"><a class="reference internal" href="eos-storage.html">Storing large files on EOS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lhcb-dev.html">Developing LHCb Software</a></li>
+<li class="toctree-l2"><a class="reference internal" href="asking-questions.html">Asking good questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ecgd.html">Early career, gender and diversity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="contributing-lesson.html">Contribute to this lesson</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../second-analysis-steps/README.html">Second Analysis Steps</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../second-analysis-steps/lb-git.html">Using git to develop LHCb software</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../second-analysis-steps/building-decays.html">Building your own decay</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../second-analysis-steps/building-decays-part0.html">The Selection Framework</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../second-analysis-steps/building-decays-part1.html">A Historical Approach</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../second-analysis-steps/building-decays-part2.html">Modern Selection Framework</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../second-analysis-steps/fixing-errors.html">What to do when something fails</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../second-analysis-steps/rerun-stripping.html">Run a different stripping line on simulated data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../second-analysis-steps/switch-mass-hypo.html">Replace a mass hypothesis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../second-analysis-steps/filter-in-trees.html">Reuse particles from a decay tree</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../second-analysis-steps/simulation.html">The simulation framework</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../second-analysis-steps/simulation-intro.html">What is Gauss?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../second-analysis-steps/simulation-running-gauss.html">Which option files to use and how to run Gauss</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../second-analysis-steps/simulation-running-gauss.html#running-gauss-and-create-a-generator-only-sample">Running Gauss and create a generator-only sample</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../second-analysis-steps/simulation-running-gauss.html#make-an-ntuple">Make an nTuple</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../second-analysis-steps/simulation-dkfiles.html">Controlling the decay: DecFiles</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../second-analysis-steps/simulation-gencuts.html">Modifying the decay</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../second-analysis-steps/simulation-gencuts.html#adding-a-decay-channel">Adding a decay channel</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../second-analysis-steps/simulation-gencuts.html#generator-level-cuts">Generator level cuts</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../second-analysis-steps/simulation-gencuts.html#removing-the-generator-cuts">Removing the generator cuts</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../second-analysis-steps/simulation-gencuts.html#modifying-the-cut-tool">Modifying the cut tool</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../second-analysis-steps/simulation-advanced-dkfiles.html">Advanced: Modifying the decay</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../second-analysis-steps/simulation-advanced-dkfiles.html#multi-body-decays">3+ multi-body decays</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../second-analysis-steps/simulation-advanced-dkfiles.html#cocktail-decays">Cocktail decays</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../second-analysis-steps/simulation-advanced-dkfiles.html#final-state-radiation">Final state radiation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../second-analysis-steps/simulation-advanced-dkfiles.html#changing-particle-masses-lifetimes-widths">Changing particle masses / lifetimes/ widths</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../second-analysis-steps/simulation-fastsim.html">Why fast simulation is crucial</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../second-analysis-steps/simulation-fastsim.html#speeding-up-the-detector-simulation">Speeding up the detector simulation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../second-analysis-steps/simulation-fastsim.html#speeding-up-the-generation">Speeding up the generation</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../second-analysis-steps/hlt-intro.html">HLT intro</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../second-analysis-steps/hlt-intro.html#add-trigger-information-to-your-ntuple">Add trigger information to your ntuple</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../second-analysis-steps/hlt-intro.html#exploring-a-tck-list-of-trigger-lines">Exploring a TCK: List of trigger lines</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../second-analysis-steps/hlt-intro.html#add-trigger-information-to-your-ntuple-continued">Add trigger information to your ntuple, continued</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../second-analysis-steps/hlt-intro.html#add-tistos-information-to-your-ntuple">Add TISTOS information to your ntuple</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../second-analysis-steps/hlt-intro.html#exploring-a-tck-properties-of-trigger-lines">Exploring a TCK: Properties of trigger lines</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../second-analysis-steps/tistos-diy.html">TisTos DIY</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../second-analysis-steps/ganga-scripting.html">Scripting Ganga</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../second-analysis-steps/ganga-scripting.html#defining-jobs-with-scripts">Defining jobs with scripts</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../second-analysis-steps/ganga-scripting.html#adding-helpers-functions">Adding helpers functions</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../second-analysis-steps/managing-files-with-ganga.html">Managing files in Ganga</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../second-analysis-steps/analysis-automation-snakemake.html">Analysis automation with snakemake</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../second-analysis-steps/analysis-automation-snakemake.html#motivation">Motivation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../second-analysis-steps/analysis-automation-snakemake.html#documentation-and-installation">Documentation and installation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../second-analysis-steps/analysis-automation-snakemake.html#tutorial">Tutorial</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../second-analysis-steps/analysis-automation-snakemake.html#usage-and-basic-behaviour">Usage and basic behaviour</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../second-analysis-steps/analysis-automation-snakemake.html#sub-labels">Sub-labels</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../second-analysis-steps/analysis-automation-snakemake.html#run-and-shell">Run and shell</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../second-analysis-steps/analysis-automation-snakemake.html#config-files">Config files</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../second-analysis-steps/analysis-automation-snakemake.html#includes">Includes</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../self-guided-lessons/README.html">Self guided lessons</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../self-guided-lessons/htcondor.html">Batch submission using HTCondor</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../self-guided-lessons/htcondor-first-job.html">Submitting a simple job</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../self-guided-lessons/htcondor-first-job.html#tracking-your-jobs">Tracking your jobs</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../self-guided-lessons/htcondor-more-options.html">More submit file options</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../self-guided-lessons/htcondor-more-options.html#input-files">Input files</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../self-guided-lessons/htcondor-more-options.html#output-files">Output files</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../self-guided-lessons/htcondor-more-options.html#arguments">Arguments</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../self-guided-lessons/htcondor-more-options.html#resources-and-requirements">Resources and Requirements</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../self-guided-lessons/htcondor-more-options.html#notifications">Notifications</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../self-guided-lessons/htcondor-queue.html">Using the queue command</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../self-guided-lessons/htcondor-queue.html#more-on-variables">More on variables</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../self-guided-lessons/htcondor-queue.html#other-ways-to-queue">Other ways to queue</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../self-guided-lessons/htcondor-queue.html#mixing-options-and-variables">Mixing options and variables</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../self-guided-lessons/htcondor.html#system-architecture">System architecture</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../self-guided-lessons/htcondor.html#other-useful-resources">Other useful resources</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../self-guided-lessons/local-grid-proxy.html">Creating a grid proxy without LbScripts</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../self-guided-lessons/local-grid-proxy.html#installation">Installation</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../self-guided-lessons/local-grid-proxy.html#macos-with-homebrew">macOS with homebrew</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../self-guided-lessons/local-grid-proxy.html#ubuntu">Ubuntu</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../self-guided-lessons/local-grid-proxy.html#centos">CentOS</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../self-guided-lessons/local-grid-proxy.html#arch-linux">Arch Linux</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../self-guided-lessons/local-grid-proxy.html#getting-the-required-files-and-certificates">Getting the required files and certificates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../self-guided-lessons/local-grid-proxy.html#creating-a-proxy">Creating a proxy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../self-guided-lessons/local-grid-proxy.html#managing-the-proxy">Managing the proxy</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../CONTRIBUTING.html">Contributing</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../CONTRIBUTING.html#getting-started">Getting Started</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../CONTRIBUTING.html#dependencies">Dependencies</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../CONDUCT.html">Contributor Code of Conduct</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../LICENSE.html">Instructional Material</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../LICENSE.html#software">Software</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">External links:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://hsf-training.github.io/analysis-essentials/">Analysis essentials</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://cern.ch/lhcb-core-doc/">LHCb Core documentation</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">LHCb Starterkit Lessons</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="README.html">First Analysis Steps</a> &raquo;</li>
+        
+      <li>Analysis Productions</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            
+              <a href="https://github.com/lhcb/starterkit-lessons/blob/master/first-analysis-steps/analysis-productions.md" class="fa fa-github"> Edit on GitHub</a>
+            
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  
+<style>
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast.container,
+.nboutput.nblast.container {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast.container + .nbinput.container {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
+</style>
+<div class="section" id="analysis-productions">
+<h1>Analysis Productions<a class="headerlink" href="#analysis-productions" title="Permalink to this headline">¶</a></h1>
+<div class="panel panel-objectives docutils container">
+<div class="panel-header open docutils container">
+<p id="learning-objectives"><i class="fa fa-line-chart"></i> Learning Objectives</p>
+</div>
+<div class="panel-body docutils container">
+<ul class="simple">
+<li><p>Understand the reasons to use Analysis Productions</p></li>
+<li><p>Look at some pre-existing productions</p></li>
+<li><p>Create your own production</p></li>
+</ul>
+</div>
+</div>
+<p>Running DaVinci locally can be great for testing an options file, but is rarely appropriate for creating the full set of ROOT ntuples needed for an analysis. Historically, people would submit their jobs to the grid: one can send off a large number of DaVinci jobs to be handled by batch computing resources (in certain cases, this is still useful - see the <a class="reference internal" href="davinci-grid.html"><span class="doc">next lesson</span></a> for how to do this). However, this still has some drawbacks, in particular:</p>
+<ul class="simple">
+<li><p>Large datasets (especially in run 3) would require a long period of monitoring your grid jobs</p></li>
+<li><p>Computing resources can be wasted if multiple analyses are independently producing similar ntuples</p></li>
+<li><p>Ntuples can be lost, or removed when analysists leave, which can be an issue for <a class="reference external" href="https://twiki.cern.ch/twiki/bin/view/LHCb/AnalysisPreservationReproducibility">analysis preservation</a></p></li>
+</ul>
+<p>It is the goal of <a class="reference external" href="https://gitlab.cern.ch/lhcb-datapkg/AnalysisProductions/">Analysis Productions</a> to centralise and automate much of the process of making ntuples, and to keep a record of how datasets were produced. Moving into run 3, this will usually be the preferred way to create ntuples for your analysis.</p>
+<div class="section" id="monitoring-productions">
+<h2>Monitoring productions<a class="headerlink" href="#monitoring-productions" title="Permalink to this headline">¶</a></h2>
+<p>Before we get into the how-to, let’s first take a look at the end result of a real production. Open the <a class="reference external" href="https://lhcb-portal-dirac.cern.ch/DIRAC/">DIRAC web interface</a>, and navigate to <code class="docutils literal notranslate"><span class="pre">Applications/Analysis</span> <span class="pre">Productions</span></code>. You should see a new menu appear, showing a list of working groups (‘B2CC’, ‘SL’, etc.). Under <code class="docutils literal notranslate"><span class="pre">SL</span></code> (the semi-leptonic working group), navigate to <code class="docutils literal notranslate"><span class="pre">AnaProd-RDs/v0r0p1735460</span></code>. This production has been named <code class="docutils literal notranslate"><span class="pre">RDs</span></code>, and <code class="docutils literal notranslate"><span class="pre">v0r0p1735460</span></code> is the version of the code used to run the jobs it contains.</p>
+<p>Each of these rows corresponds to a job belonging to this production, and displays:</p>
+<ul class="simple">
+<li><p>Its unique ID number of that batch of jobs (left, eg. <code class="docutils literal notranslate"><span class="pre">69615</span></code>)</p></li>
+<li><p>Its name (centre, eg. <code class="docutils literal notranslate"><span class="pre">MC_13266069_2018_MagUp</span></code>)</p></li>
+<li><p>Its status (right)</p></li>
+</ul>
+<p>To view more information about any one of these jobs, you can click on it to expand it. The below image shows one such job, with a couple of particularly useful elements highlighted in magenta.</p>
+<p><img alt="An AP job viewed in DIRAC" src="../_images/DIRAC_AP_annotated.png" /></p>
+<p>The top section shows the summary of important information, like the locations of the input and output files. We can view the ntuples created by this job using the location from the ‘output pattern’ field. Let’s start by listing the available files by running the following command in an lxplus terminal:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>xrdfs root://eoslhcb.cern.ch/ ls /eos/lhcb/grid/prod/lhcb/MC/2018/BSNTUPLE_MC.ROOT/00110974/0000/
+</pre></div>
+</div>
+<p>This will display a list of <code class="docutils literal notranslate"><span class="pre">.root</span></code> ntuples being stored on the grid. Choose one of them, and open it with:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>root -l root://eoslhcb.cern.ch//eos/lhcb/grid/prod/lhcb/MC/2018/BSNTUPLE_MC.ROOT/00110974/0000/00110974_00000001_1.bsntuple_mc.root
+</pre></div>
+</div>
+<p>You can now view these files by running <code class="docutils literal notranslate"><span class="pre">TBrowser</span> <span class="pre">b</span></code> inside of ROOT (or with your another method of your choice).</p>
+<p>To view the files that were used to create these ntuples, you can click on the ‘View on GitLab’ button. This will show you the version of the Analysis Production code that was run for this job. On GitLab, open the folder named <code class="docutils literal notranslate"><span class="pre">RDs</span></code> (the name of this production), and take a look around. You should find a few separate <code class="docutils literal notranslate"><span class="pre">.py</span></code> options files, as well as an <code class="docutils literal notranslate"><span class="pre">info.yaml</span></code> (more on this later).</p>
+</div>
+<div class="section" id="creating-your-own-production">
+<h2>Creating your own production<a class="headerlink" href="#creating-your-own-production" title="Permalink to this headline">¶</a></h2>
+<p>For practice, we will now go through the steps of creating a simple production. For details about more advanced usage, see the <a class="reference external" href="https://gitlab.cern.ch/lhcb-datapkg/AnalysisProductions">Analysis Productions README</a>.</p>
+<p>Start by creating a folder to work in, and into it clone the <a class="reference external" href="https://gitlab.cern.ch/lhcb-datapkg/AnalysisProductions">Analysis Productions repository</a>.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git clone ssh://git@gitlab.cern.ch:7999/lhcb-datapkg/AnalysisProductions.git
+<span class="nb">cd</span> AnalysisProductions
+</pre></div>
+</div>
+<p>Before making any edits, you should create a branch for your changes, and switch to it:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git checkout -b <span class="si">${</span><span class="nv">USER</span><span class="si">}</span>/starterkit-practice
+</pre></div>
+</div>
+<p>Now we need to create a folder to store all the things we’re going to add for our new production. For this practice production, we’ll continue with the <span class="math notranslate nohighlight">\( D^{0} \to K^{-}K^{+} \)</span> decays used in the previous few lessons, so we should name the folder appropriately:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mkdir D02HH_Practice
+</pre></div>
+</div>
+<p>Let’s enter that new directory (<code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">D02HH_Practice</span></code>), and start adding the files we’ll need. First is the DaVinci options file. If you have the options file you created during the previous lessons, copy it here, and open it with your text editor of choice. There are a couple of things to change - first, you can remove the lines about using the local input data (that’s everything to do with <code class="docutils literal notranslate"><span class="pre">IOHelper()</span></code>), since we’re going to be using remotely hosted data instead. Also, because the Analysis Productions system is able to automatically configure parts of jobs, you can also remove these lines:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">DaVinci</span><span class="p">()</span><span class="o">.</span><span class="n">InputType</span> <span class="o">=</span> <span class="s1">&#39;DST&#39;</span>
+<span class="n">DaVinci</span><span class="p">()</span><span class="o">.</span><span class="n">TupleFile</span> <span class="o">=</span> <span class="s1">&#39;DVntuple.root&#39;</span>
+<span class="n">DaVinci</span><span class="p">()</span><span class="o">.</span><span class="n">PrintFreq</span> <span class="o">=</span> <span class="mi">1000</span>
+<span class="n">DaVinci</span><span class="p">()</span><span class="o">.</span><span class="n">DataType</span> <span class="o">=</span> <span class="s1">&#39;2016&#39;</span>
+<span class="n">DaVinci</span><span class="p">()</span><span class="o">.</span><span class="n">Simulation</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="c1"># Only ask for luminosity information when not using simulated data</span>
+<span class="n">DaVinci</span><span class="p">()</span><span class="o">.</span><span class="n">Lumi</span> <span class="o">=</span> <span class="ow">not</span> <span class="n">DaVinci</span><span class="p">()</span><span class="o">.</span><span class="n">Simulation</span>
+<span class="n">DaVinci</span><span class="p">()</span><span class="o">.</span><span class="n">EvtMax</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+<span class="n">DaVinci</span><span class="p">()</span><span class="o">.</span><span class="n">CondDBtag</span> <span class="o">=</span> <span class="s1">&#39;sim-20161124-2-vc-md100&#39;</span>
+<span class="n">DaVinci</span><span class="p">()</span><span class="o">.</span><span class="n">DDDBtag</span> <span class="o">=</span> <span class="s1">&#39;dddb-20150724&#39;</span>
+</pre></div>
+</div>
+<p>If you don’t have your options file from earlier available, or are having trouble, you can <a class="reference download internal" download="" href="../_downloads/26f133d9caf2ef72e73893756d498eaf/ntuple_options.py"><code class="xref download docutils literal notranslate"><span class="pre">use</span> <span class="pre">this</span> <span class="pre">options</span> <span class="pre">file</span></code></a>.</p>
+<p>The next file needed is a <code class="docutils literal notranslate"><span class="pre">.yaml</span></code> file, which will be used to configure the jobs. Create a new file named <code class="docutils literal notranslate"><span class="pre">info.yaml</span></code>, and add the following to it:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">defaults</span><span class="p">:</span>
+    <span class="nt">application</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">DaVinci/v45r5</span>
+    <span class="nt">wg</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Charm</span>
+    <span class="nt">automatically_configure</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">yes</span>
+    <span class="nt">inform</span><span class="p">:</span>
+        <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">your.email.here@cern.ch</span>
+    <span class="nt">options</span><span class="p">:</span>
+        <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">ntuple_options.py</span>
+    <span class="nt">output</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">D02KK.ROOT</span>
+
+<span class="nt">2016_MagDown_PromptMC_D02KK</span><span class="p">:</span>
+    <span class="nt">input</span><span class="p">:</span>
+        <span class="nt">bk_query</span><span class="p">:</span> <span class="s">&quot;/MC/2016/Beam6500GeV-2016-MagDown-Nu1.6-25ns-Pythia8/Sim09c/Trig0x6138160F/Reco16/Turbo03/Stripping28r1NoPrescalingFlagged/27163002/ALLSTREAMS.DST&quot;</span>
+</pre></div>
+</div>
+<p>Here, the unindented lines are the names of jobs (although <code class="docutils literal notranslate"><span class="pre">defaults</span></code> has a special function), and the indented lines are the options we’re applying to those jobs. Using this file will create one job called <code class="docutils literal notranslate"><span class="pre">2016_MagDown_PromptMC_D02KK</span></code>, that will read in data from the provided bookkeeping path. All the options applied under <code class="docutils literal notranslate"><span class="pre">defaults</span></code> are automatically applied to all other jobs - very useful for avoiding repetition. The options we’re using here are:</p>
+<ul class="simple">
+<li><p><strong>application</strong>: the version of DaVinci to use. Here we choose v45r5, the latest for Run 2 at the time of writing.</p></li>
+<li><p><strong>wg</strong>: the working group this production is a part of. Since this is a <span class="math notranslate nohighlight">\( D^{0} \to K^{-}K^{+} \)</span> decay, we’ll set this to <code class="docutils literal notranslate"><span class="pre">Charm</span></code>.</p></li>
+<li><p><strong>inform</strong>: optionally, you can enter your email address to receive updates on the status of your jobs.</p></li>
+<li><p><strong>automatically_configure</strong>: setting this to <code class="docutils literal notranslate"><span class="pre">yes</span></code> is what allowed us to remove all of those configuration lines from the options file. This is very useful when creating productions that use multiple years, or both data and MC.</p></li>
+<li><p><strong>turbo</strong>: Setting this to <code class="docutils literal notranslate"><span class="pre">yes</span></code> indicates <code class="docutils literal notranslate"><span class="pre">automatically_configure</span></code> should configure the application for reading turbo data.</p></li>
+<li><p><strong>options</strong>: the list of options files to use. Behind the scenes, these will get passed to DaVinci.</p></li>
+<li><p><strong>output</strong>: the name of the output <code class="docutils literal notranslate"><span class="pre">.root</span></code> ntuples. These will get registered in bookkeeping as well.</p></li>
+<li><p><strong>input</strong>: the bookkeeping path of the data you’re running over. This is what you located during the <a class="reference internal" href="bookkeeping.html"><span class="doc">bookkeeping lesson</span></a>, and is unique to the 2016 magnet-down job, so it doesn’t belong under <code class="docutils literal notranslate"><span class="pre">defaults</span></code>.</p></li>
+</ul>
+<p>For a full list of the available options, and information on their allowed values, see the <a class="reference external" href="https://gitlab.cern.ch/lhcb-datapkg/AnalysisProductions">Analysis Productions README</a>.</p>
+<div class="panel panel-challenge docutils container">
+<div class="panel-header open docutils container">
+<p id="add-a-magnet-up-job"><i class="fa fa-square-o"></i> Add a magnet-up job</p>
+</div>
+<div class="panel-body docutils container">
+<p>Currently, this will create ntuples for 2016 magnet-down MC data only. See if you can add to your <code class="docutils literal notranslate"><span class="pre">info.yaml</span></code> file to create a job for 2016 magnet-up data as well. <em>Hint:</em> the location of the correct <code class="docutils literal notranslate"><span class="pre">.DST</span></code> file can be found using bookkeeping.</p>
+<div class="panel panel-solution docutils container">
+<div class="panel-header docutils container">
+<p id="solutions"><i class="fa fa-check-square-o"></i> Solutions</p>
+</div>
+<div class="panel-body docutils container">
+<p>Since we’re making use of the <code class="docutils literal notranslate"><span class="pre">defaults</span></code> job name, we need to add very little to add this new job. One can simply copy the final 3 lines to create a new job, rename it to something like <code class="docutils literal notranslate"><span class="pre">2016_MagUp_PromptMC_D02KK</span></code>, and add the appropriate bookkeeping path. An example of this can be found <a class="reference download internal" download="" href="../_downloads/27028a16a46572fec57089b46a40fd04/info.yaml"><code class="xref download docutils literal notranslate"><span class="pre">here</span></code></a>.</p>
+</div>
+</div>
+</div>
+</div>
+<p>For good practice, the final thing we should add is a README. This is a markdown file that will be used to document the information about your production in a more human-readable format. Create a file <code class="docutils literal notranslate"><span class="pre">README.md</span></code>, and add some pertinent information. If you’re not sure what to add, try looking at some existing productions to get an idea.</p>
+<div class="section" id="testing-your-production-locally">
+<h3>Testing your production locally<a class="headerlink" href="#testing-your-production-locally" title="Permalink to this headline">¶</a></h3>
+<p>Now we’ve got both of the files we need, we should test the production to make sure it works as expected. All of this will be done using the <code class="docutils literal notranslate"><span class="pre">lb-ap</span></code> command. Navigate up one level to the base directory of the respository (<code class="docutils literal notranslate"><span class="pre">AnalysisProductions</span></code>), and run <code class="docutils literal notranslate"><span class="pre">lb-ap</span></code>, which should display the following:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Usage: lb-ap [OPTIONS] COMMAND [ARGS]...
+
+  Command line tool for the LHCb AnalysisProductions
+
+Options:
+  --version
+  --help     Show this message and exit.
+
+Commands:
+  list       List the available production folders by running lb-ap list...
+  render     Render the info.yaml for a given production
+  validate   Validate the configuration for a given production
+  test       Execute a job locally
+  debug      Start an interactive session inside the job&#39;s environment
+  reproduce  Reproduce an existing online test locally
+  parse-log  Read a Gaudi log file and extract information
+</pre></div>
+</div>
+<p>This command <code class="docutils literal notranslate"><span class="pre">lb-ap</span></code> will allow us to perform a number of different tests. Let’s start with <code class="docutils literal notranslate"><span class="pre">lb-ap</span> <span class="pre">list</span></code>, which will display all of the productions. Hopefully you should see your new production (<code class="docutils literal notranslate"><span class="pre">D02HH_Practice</span></code>) on this list! You can also use this to list all of the jobs within a given production, by running <code class="docutils literal notranslate"><span class="pre">lb-ap</span> <span class="pre">list</span> <span class="pre">D02HH_Practice</span></code>. If you added a second job for magnet-up earlier, the output of this command should look like this:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>The available jobs for D02HH_Practice are: 
+* 2016_MagDown_PromptMC_D02KK
+* 2016_MagUp_PromptMC_D02KK
+</pre></div>
+</div>
+<p>The most important test is if the production actually runs successfully, and creates the desired ntuples. The <code class="docutils literal notranslate"><span class="pre">lb-ap</span></code> command is used for this as well. To test the magnet-down job, run this command:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>lb-ap <span class="nb">test</span> D02HH_Practice 2016_MagDown_PromptMC_D02KK
+</pre></div>
+</div>
+<p>This will automatically run DaVinci, using the data and options files you specified in <code class="docutils literal notranslate"><span class="pre">info.yaml</span></code>. You should see the output from DaVinci similar to what you saw when you ran it manually in an earlier lesson, followed by a completion message that tells you the location of the output files created by the test.</p>
+<p>You should find that a <code class="docutils literal notranslate"><span class="pre">local-tests</span></code> directory has been created, and inside it are a record of any local tests you’ve run. Navigate to the <code class="docutils literal notranslate"><span class="pre">output</span></code> folder of your test, and check what files have been created. There are assorted log files, as well as a <code class="docutils literal notranslate"><span class="pre">.ROOT</span></code> file called something like <code class="docutils literal notranslate"><span class="pre">00012345_00006789_1.CHARM_PROMPTMC_D02KK.ROOT</span></code>.</p>
+<p>Let’s open this <code class="docutils literal notranslate"><span class="pre">.root</span></code> file and check if everything worked correctly. Similar to what we did earlier, run <code class="docutils literal notranslate"><span class="pre">root</span> <span class="pre">-l</span> <span class="pre">00012345_00006789_1.CHARM_PROMPTMC_D02KK.ROOT</span></code> to open ROOT with that ntuple loaded, and view the contents by running <code class="docutils literal notranslate"><span class="pre">TBrowser</span> <span class="pre">b</span></code> (or otherwise). Take a little time to look around, and make sure everything’s in order.</p>
+<div class="panel panel-callout docutils container">
+<div class="panel-header open docutils container">
+<p id="useful-resources"><i class="fa fa-info-circle"></i> Useful resources</p>
+</div>
+<div class="panel-body docutils container">
+<p>If you encounter problems while creating a real production, here are a few good places to ask for help:</p>
+<p>For issues with options files, try the <a class="reference external" href="https://mattermost.web.cern.ch/lhcb/channels/davinci">DaVinci Mattermost channel</a> or the <a class="reference external" href="mailto:lhcb-davinci&#37;&#52;&#48;cern&#46;ch">lhcb-davinci mailing list</a></p>
+<p>For issues with <code class="docutils literal notranslate"><span class="pre">info.yaml</span></code> files, or anything else to do with the Analysis Productions framework, try the <a class="reference external" href="https://mattermost.web.cern.ch/lhcb/channels/dpa-wp2-analysis-productions">Analysis Productions Mattermost channel</a>, or contact the Analysis Productions coordinator(s) (see <a class="reference external" href="http://lhcb-dpa.web.cern.ch/lhcb-dpa/">here</a> to find out who they are).</p>
+</div>
+</div>
+</div>
+<div class="section" id="creating-a-merge-request">
+<h3>Creating a merge request<a class="headerlink" href="#creating-a-merge-request" title="Permalink to this headline">¶</a></h3>
+<p>Now that we’ve tested all of our changes and are sure that everything’s working as intended, we can prepare to submit them to the main repository by creating a merge request. Start by commiting the changes:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git add ntuple_options.py
+git add info.yaml
+git add README.md
+git commit -m <span class="s2">&quot;Add D02KK MC production for starterkit&quot;</span>
+</pre></div>
+</div>
+<p>And then push the changes with</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git push origin <span class="si">${</span><span class="nv">USER</span><span class="si">}</span>/starterkit-practice
+</pre></div>
+</div>
+<p>Once this has completed, it should give you a link to create a merge request for your new branch. Open it in a browser, and give it a suitable name &amp; description - in the description, please make sure to say that this is part of the Starterkit lesson! Then you can submit your merge request.</p>
+<p>Since this is only for practice, your request won’t actually be merged, but some tests will still be run automatically. To view these, go to the Pipelines tab of your merge request, and open it by clicking the pipeline number (eg. “#1958388”). At the bottom, you will see a <code class="docutils literal notranslate"><span class="pre">test</span></code> job - click on this, and it will show you the output of the test jobs. These will take a little time to complete, so it may still be in progress. The first few lines should look something like:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Running with gitlab_runner_api 0.1.dev42+g457dbd5
+INFO:Creating new pipeline for ID 1958388
+ALWAYS:Results will be available at https://lhcb-analysis-productions.web.cern.ch/1958388/
+</pre></div>
+</div>
+<p>You can open that link in your browser to view the status of the test jobs (example <a class="reference external" href="https://lhcb-analysis-productions.web.cern.ch/1958388/">here</a>). After a few minutes, these should have completed - all being well, you’ve now succesfully submitted your first production!</p>
+<div class="panel panel-callout docutils container">
+<div class="panel-header open docutils container">
+<p id="next-steps-for-real-productions"><i class="fa fa-info-circle"></i> Next steps for real productions</p>
+</div>
+<div class="panel-body docutils container">
+<p>As mentioned earlier, your test productions for this lesson won’t be merged since this is only for practice purposes. If this were a real production, there would be some extra steps to take before merging.</p>
+<p>You should try to reach out to anyone else who may also want to use these ntuples, and see if they’d like to add or change anything. This is usually done through your working group (either by email, or for new productions, by presenting at a WG meeting). For this, you can start by getting in touch with your WG conveners (see <a class="reference external" href="https://lhcb-conv.web.cern.ch/Physics_history_&amp;_Sub-structure.html">here</a> to find out who they are).</p>
+<p>In addition, the Analysis Productions coordinator(s) may also have some feedback on your additions/changes.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="davinci-grid.html" class="btn btn-neutral float-right" title="Running DaVinci on the grid" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="decay-tree-fitter.html" class="btn btn-neutral float-left" title="How do I use DecayTreeFitter?" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2015-2019, LHCb Starterkit
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
