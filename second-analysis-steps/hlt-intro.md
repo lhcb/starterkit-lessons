@@ -91,7 +91,7 @@ DaVinci().EventPreFilters = [LoKi_Filters(
 ).sequencer('PreFilter')]
 
 
-# file from lb-run -c best LHCbDirac/prod dirac-dms-lfn-accessURL --Protocol=xroot /lhcb/LHCb/Collision18/SEMILEPTONIC.DST/00075559/0000/00075559_00002816_1.semileptonic.dst
+# file from lb-dirac dirac-dms-lfn-accessURL --Protocol=xroot /lhcb/LHCb/Collision18/SEMILEPTONIC.DST/00075559/0000/00075559_00002816_1.semileptonic.dst
 from GaudiConf import IOHelper
 IOHelper().inputFiles([
     'root://eoslhcb.cern.ch//eos/lhcb/grid/prod/lhcb/LHCb/Collision18/SEMILEPTONIC.DST/00075559/0000/00075559_00002816_1.semileptonic.dst'
