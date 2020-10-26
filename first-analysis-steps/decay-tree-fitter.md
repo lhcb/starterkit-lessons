@@ -129,7 +129,7 @@ tv__tree->Draw("Dstar_ConsD_M[0]>>h(200,2000,2030)","","");
 ```
 and we get the final kinematically refitted Dstar mass:
 
-![Dstar refitted best PVmg/DstarRefitBest.png)
+![Dstar refitted best PV](img/DstarRefitBest.png)
 
 Finally, let's check how the D0 mass constraint has played out.
 
