@@ -153,7 +153,7 @@ Once your job has finished its status will be `completed`. Check this
 by typing `jobs` or by printing out the status of one particular job:
 
 ```python
-print 'Status of my job:', jobs(787).status
+print('Status of my job:', jobs(787).status)
 ```
 
 The next thing to do is to find the output of your job. Two things can
@@ -170,7 +170,7 @@ property of your job.
 
 ```python
 output = jobs(787).outputdir
-print 'Job output stored in:', output
+print('Job output stored in:', output)
 ```
 
 Take a look at the contents of this directory.
