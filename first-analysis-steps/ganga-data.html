@@ -365,20 +365,28 @@
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">Ganga</span> <span class="n">In</span> <span class="p">[</span><span class="mi">3</span><span class="p">]:</span> <span class="n">j</span><span class="o">.</span><span class="n">inputdata</span> <span class="o">=</span> <span class="n">BKQuery</span><span class="p">(</span><span class="s1">&#39;/LHCb/Collision12/Beam4000GeV-VeloClosed-MagUp/Real Data/Reco14/Stripping21r0p1a/90000000/SEMILEPTONIC.DST&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">getDataset</span><span class="p">()</span>
 <span class="n">Ganga</span> <span class="n">In</span> <span class="p">[</span><span class="mi">4</span><span class="p">]:</span> <span class="n">j</span><span class="o">.</span><span class="n">inputdata</span>
 <span class="n">Ganga</span> <span class="n">Out</span> <span class="p">[</span><span class="mi">4</span><span class="p">]:</span> 
- <span class="n">LHCbDataset</span> <span class="p">(</span>
-   <span class="n">depth</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
-   <span class="n">treat_as_inputfiles</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+ <span class="n">LHCbCompressedDataset</span> <span class="p">(</span>
+  <span class="n">files</span> <span class="o">=</span> <span class="p">[</span> <span class="n">LHCbCompressedFileSet</span> <span class="p">(</span>
+   <span class="n">lfn_prefix</span> <span class="o">=</span> <span class="s1">&#39;/lhcb/LHCb/Collision12/SEMILEPTONIC.DST&#39;</span><span class="p">,</span>
+   <span class="n">suffixes</span> <span class="o">=</span> <span class="p">[</span><span class="mi">3716</span> <span class="n">Entries</span> <span class="n">of</span> <span class="nb">type</span> <span class="s1">&#39;str&#39;</span><span class="p">]</span>
+ <span class="p">)]</span>  <span class="p">,</span>
    <span class="n">persistency</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-   <span class="n">files</span> <span class="o">=</span> <span class="p">[</span><span class="mi">3717</span> <span class="n">Entries</span> <span class="n">of</span> <span class="nb">type</span> <span class="s1">&#39;DiracFile&#39;</span><span class="p">]</span> <span class="p">,</span>
+   <span class="n">depth</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
    <span class="n">XMLCatalogueSlice</span> <span class="o">=</span>    <span class="n">LocalFile</span> <span class="p">(</span>
      <span class="n">namePattern</span> <span class="o">=</span> <span class="p">,</span>
-     <span class="n">compressed</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
-     <span class="n">localDir</span> <span class="o">=</span> 
-   <span class="p">)</span> 
+     <span class="n">localDir</span> <span class="o">=</span> <span class="p">,</span>
+     <span class="n">compressed</span> <span class="o">=</span> <span class="kc">False</span>
+   <span class="p">)</span> <span class="p">,</span>
+   <span class="n">credential_requirements</span> <span class="o">=</span>    <span class="n">DiracProxy</span> <span class="p">(</span>
+     <span class="n">group</span> <span class="o">=</span> <span class="n">lhcb_user</span><span class="p">,</span>
+     <span class="n">encodeDefaultProxyFileName</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+     <span class="n">dirac_env</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+     <span class="n">validTime</span> <span class="o">=</span> <span class="kc">None</span>
+   <span class="p">)</span>
  <span class="p">)</span>
 </pre></div>
 </div>
-<p>This is a list of <code class="docutils literal notranslate"><span class="pre">DiracFile</span></code>, the Ganga object for files stored on the grid. We can access one locally via the <code class="docutils literal notranslate"><span class="pre">accessURL</span></code>:</p>
+<p>This is a container acting as a list of <code class="docutils literal notranslate"><span class="pre">DiracFile</span></code>s, the Ganga object for files stored on the grid. Each of these <code class="docutils literal notranslate"><span class="pre">DiracFile</span></code> objects are accessible by using the brackets, as if we try to access an element from a list. This we can then use to access one of the files locally via the <code class="docutils literal notranslate"><span class="pre">accessURL</span></code> method:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">Ganga</span> <span class="n">In</span> <span class="p">[</span><span class="mi">5</span><span class="p">]:</span> <span class="n">j</span><span class="o">.</span><span class="n">inputdata</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">accessURL</span><span class="p">()</span>
 <span class="n">Ganga</span> <span class="n">Out</span> <span class="p">[</span><span class="mi">5</span><span class="p">]:</span> <span class="p">[</span><span class="s1">&#39;root://bw32-4.grid.sara.nl:1094/pnfs/grid.sara.nl/data/lhcb/LHCb/Collision12/SEMILEPTONIC.DST/00051179/0000/00051179_00006978_1.semileptonic.dst&#39;</span><span class="p">]</span>
 </pre></div>
