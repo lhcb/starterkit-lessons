@@ -120,10 +120,7 @@ def advance(decision):
         appMgr.run(1)
 
         if not evt['/Event/Rec/Header']:
-            
-            
-            
-            ('Reached end of input files')
+            print ('Reached end of input files')
             break
 
         n += 1
