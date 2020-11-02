@@ -16,19 +16,27 @@ As you already saw in the [previous lesson](davinci-grid), the input data can be
 Ganga In [3]: j.inputdata = BKQuery('/LHCb/Collision12/Beam4000GeV-VeloClosed-MagUp/Real Data/Reco14/Stripping21r0p1a/90000000/SEMILEPTONIC.DST').getDataset()
 Ganga In [4]: j.inputdata
 Ganga Out [4]: 
- LHCbDataset (
-   depth = 0,
-   treat_as_inputfiles = False,
+ LHCbCompressedDataset (
+  files = [ LHCbCompressedFileSet (
+   lfn_prefix = '/lhcb/LHCb/Collision12/SEMILEPTONIC.DST',
+   suffixes = [3716 Entries of type 'str']
+ )]  ,
    persistency = None,
-   files = [3717 Entries of type 'DiracFile'] ,
+   depth = 0,
    XMLCatalogueSlice =    LocalFile (
      namePattern = ,
-     compressed = False,
-     localDir = 
-   ) 
+     localDir = ,
+     compressed = False
+   ) ,
+   credential_requirements =    DiracProxy (
+     group = lhcb_user,
+     encodeDefaultProxyFileName = False,
+     dirac_env = None,
+     validTime = None
+   )
  )
 ```
-This is a list of `DiracFile`, the Ganga object for files stored on the grid. We can access one locally via the `accessURL`:
+This is a container acting as a list of `DiracFile`s, the Ganga object for files stored on the grid. Each of these `DiracFile` objects are accessible by using the brackets, as if we try to access an element from a list. This we can then use to access one of the files locally via the `accessURL` method:
 ```python
 Ganga In [5]: j.inputdata[0].accessURL()
 Ganga Out [5]: ['root://bw32-4.grid.sara.nl:1094/pnfs/grid.sara.nl/data/lhcb/LHCb/Collision12/SEMILEPTONIC.DST/00051179/0000/00051179_00006978_1.semileptonic.dst']
