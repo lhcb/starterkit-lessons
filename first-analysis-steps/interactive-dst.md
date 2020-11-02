@@ -61,7 +61,7 @@ inside the python session:
 
 ```python
 tracks = evt['/Event/Rec/Track/Best']
-print tracks[0]
+print (tracks[0])
 ```
 
 The next question is, how do you know what TES locations that could
@@ -120,7 +120,10 @@ def advance(decision):
         appMgr.run(1)
 
         if not evt['/Event/Rec/Header']:
-            print 'Reached end of input files'
+            
+            
+            
+            ('Reached end of input files')
             break
 
         n += 1
@@ -155,14 +158,14 @@ The candidates built for you can now be found at `/Event/AllStreams/Phys/D2hhPro
 
 ```python
 cands = evt['/Event/AllStreams/Phys/{0}/Particles'.format(line)]
-print cands.size()
+print (cands.size())
 ```
 
 This tells you how many candidates there are in this event and you can access the first
 one with:
 
 ```python
-print cands[0]
+print (cands[0])
 ```
 
 Which will print out some information about the [Particle](https://lhcb-doxygen.web.cern.ch/lhcb-doxygen/davinci/latest/d0/d13/class_l_h_cb_1_1_particle.html). In our case a `$ D^{* +} $` ([particle ID number](http://pdg.lbl.gov/2019/reviews/rpp2018-rev-monte-carlo-numbering.pdf) 413). You can access its daughters with
