@@ -155,7 +155,7 @@ The candidates built for you can now be found at `/Event/AllStreams/Phys/D2hhPro
 
 ```python
 cands = evt['/Event/AllStreams/Phys/{0}/Particles'.format(line)]
-print (cands.size())
+print(cands.size())
 ```
 
 This tells you how many candidates there are in this event and you can access the first
