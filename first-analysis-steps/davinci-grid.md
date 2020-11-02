@@ -49,7 +49,7 @@ To create your first `ganga` job, type the following:
 
 ```python
 j = Job(name='First ganga job')
-myApp = prepareGaudiExec('DaVinci','v45r1', myPath='.')
+myApp = prepareGaudiExec('DaVinci','v45r6', myPath='.')
 j.application = myApp
 j.application.options = ['ntuple_options.py']
 j.application.platform = 'x86_64-centos7-gcc8-opt'
@@ -70,12 +70,12 @@ processing different files simultaneously. More details about the splitter are g
 
 {% callout "DaVinciDev folder" %}
 
-When you create a job using `prepareGaudiExec('DaVinci','v45r1', myPath='.')`
+When you create a job using `prepareGaudiExec('DaVinci','v45r6', myPath='.')`
 you get the following message:
 ```
-INFO     Set up App Env at: ./DaVinciDev_v45r1
+INFO     Set up App Env at: ./DaVinciDev_v45r6
 ```
-`ganga` has created a folder with a local copy of the DaVinci v45r1 release.
+`ganga` has created a folder with a local copy of the DaVinci v45r6 release.
 The content of it will be sent to the grid to ensure your job runs with 
 exactly this configuration.
 We will use this folder for the following jobs and you will learn more about
@@ -85,7 +85,7 @@ this in the [Developing LHCb Software](lhcb-dev) lesson.
 
 Now you have created your first job, however it has not started
 running yet. To submit it type `j.submit()`. Now `ganga` will do the
-equivalent of `lb-run DaVinci/v45r1`, prepare your job and then
+equivalent of `lb-run DaVinci/v45r6`, prepare your job and then
 ship it off to the grid.
 
 {% callout "Picking up a right platform" %}
@@ -93,16 +93,16 @@ ship it off to the grid.
 The default platform on most lxplus machines is `x86_64-centos7-gcc8-opt` with gcc compiler version 8.
 However some older DaVinci version are not compiled for `x86_64-centos7-gcc8-opt`.
 
-The list of platforms available for a certain DaVinci version (let's try the DaVinci version we are using `v45r1`), can be viewed by
+The list of platforms available for a certain DaVinci version (let's try the DaVinci version we are using `v45r6`), can be viewed by
 ```bash
-$ lb-sdb-query listPlatforms DaVinci v45r1
+$ lb-sdb-query listPlatforms DaVinci v45r6
 ```
 The default compiler platform for GaudiExec applications is `x86_64-slc6-gcc62-opt`.
-So for some DaVinci versions, including the latest `DaVinci v45r1` a few additional actions are needed to set up your ganga job properly.
+So for some DaVinci versions, including the latest `DaVinci v45r6` a few additional actions are needed to set up your ganga job properly.
 
 When setting up your ganga job, add the following line after declaring the `j.application`:
 ```python
-j.application.platform = 'x86_64-centos7-gcc8-opt'
+j.application.platform = 'x86_64-centos7-gcc9-opt'
 ```
 
 {% endcallout %}
@@ -117,7 +117,7 @@ Place the following in a file called [first-job.py](code/davinci-grid/first-job.
 ```python
 j = Job(name='First ganga job')
 myApp = GaudiExec()
-myApp.directory = "./DaVinciDev_v45r1"
+myApp.directory = "./DaVinciDev_v45r6"
 j.application = myApp
 j.application.options = ['ntuple_options.py']
 j.application.platform = 'x86_64-centos7-gcc8-opt'
@@ -190,7 +190,7 @@ To look at the `root` file produced by the job start a new terminal, and
 type:
 
 ```bash
-$ lb-run DaVinci/v45r1 $SHELL
+$ lb-run DaVinci/v45r6 $SHELL
 $ root -l path/to/the/job/output
 ```
 

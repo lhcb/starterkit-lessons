@@ -53,7 +53,7 @@ left off [exploring a DST interactively](interactive-dst).
 First open the DST as we did previously:
 
 ```bash
-$ lb-run --ext=ipython DaVinci/v45r1 ipython -i explore.py 00070793_00000001_7.AllStreams.dst
+$ lb-run --ext=ipython DaVinci/v45r6 ipython -i explore.py 00070793_00000001_7.AllStreams.dst
 ```
 
 Get the first candidate in the `D2hhPromptDst2D2KKLine` line:

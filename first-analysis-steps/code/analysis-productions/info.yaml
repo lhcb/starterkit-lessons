@@ -1,5 +1,5 @@
 defaults:
-    application: DaVinci/v45r5
+    application: DaVinci/v45r6
     wg: Charm
     automatically_configure: yes
     turbo: no
