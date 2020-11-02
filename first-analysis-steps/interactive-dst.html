@@ -404,7 +404,7 @@ which is accessible via the <code class="docutils literal notranslate"><span cla
 look at the properties of some tracks for the first event by typing
 inside the python session:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">tracks</span> <span class="o">=</span> <span class="n">evt</span><span class="p">[</span><span class="s1">&#39;/Event/Rec/Track/Best&#39;</span><span class="p">]</span>
-<span class="nb">print</span> <span class="n">tracks</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">tracks</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
 </pre></div>
 </div>
 <p>The next question is, how do you know what TES locations that could
@@ -458,7 +458,7 @@ the stripping decision was positive:</p>
         <span class="n">appMgr</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
 
         <span class="k">if</span> <span class="ow">not</span> <span class="n">evt</span><span class="p">[</span><span class="s1">&#39;/Event/Rec/Header&#39;</span><span class="p">]:</span>
-            <span class="nb">print</span> <span class="s1">&#39;Reached end of input files&#39;</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Reached end of input files&#39;</span><span class="p">)</span>
             <span class="k">break</span>
 
         <span class="n">n</span> <span class="o">+=</span> <span class="mi">1</span>
@@ -490,12 +490,12 @@ DST until we reach an event which contains a candidate:</p>
 </div>
 <p>The candidates built for you can now be found at <code class="docutils literal notranslate"><span class="pre">/Event/AllStreams/Phys/D2hhPromptDst2D2KKLine/Particles</span></code>:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">cands</span> <span class="o">=</span> <span class="n">evt</span><span class="p">[</span><span class="s1">&#39;/Event/AllStreams/Phys/</span><span class="si">{0}</span><span class="s1">/Particles&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">line</span><span class="p">)]</span>
-<span class="nb">print</span> <span class="n">cands</span><span class="o">.</span><span class="n">size</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">cands</span><span class="o">.</span><span class="n">size</span><span class="p">())</span>
 </pre></div>
 </div>
 <p>This tells you how many candidates there are in this event and you can access the first
 one with:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span> <span class="n">cands</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">cands</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
 </pre></div>
 </div>
 <p>Which will print out some information about the <a class="reference external" href="https://lhcb-doxygen.web.cern.ch/lhcb-doxygen/davinci/latest/d0/d13/class_l_h_cb_1_1_particle.html">Particle</a>. In our case a <span class="math notranslate nohighlight">\( D^{* +} \)</span> (<a class="reference external" href="http://pdg.lbl.gov/2019/reviews/rpp2018-rev-monte-carlo-numbering.pdf">particle ID number</a> 413). You can access its daughters with
