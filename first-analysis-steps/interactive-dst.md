@@ -61,7 +61,7 @@ inside the python session:
 
 ```python
 tracks = evt['/Event/Rec/Track/Best']
-print (tracks[0])
+print(tracks[0])
 ```
 
 The next question is, how do you know what TES locations that could
