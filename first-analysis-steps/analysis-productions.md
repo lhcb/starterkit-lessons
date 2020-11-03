@@ -6,7 +6,7 @@
 * Look at some pre-existing productions
 * Create your own production
 
-{% endobjectives %} 
+{% endobjectives %}
 
 Running DaVinci locally can be great for testing an options file, but is rarely appropriate for creating the full set of ROOT ntuples needed for an analysis. Historically, people would submit their jobs to the grid: one can send off a large number of DaVinci jobs to be handled by batch computing resources (in certain cases, this is still useful - see the [next lesson](davinci-grid) for how to do this). However, this still has some drawbacks, in particular:
 
@@ -158,7 +158,7 @@ Commands:
 This command `lb-ap` will allow us to perform a number of different tests. Let's start with `lb-ap list`, which will display all of the productions. Hopefully you should see your new production (`D02HH_Practice`) on this list! You can also use this to list all of the jobs within a given production, by running `lb-ap list D02HH_Practice`. If you added a second job for magnet-up earlier, the output of this command should look like this:
 
 ```
-The available jobs for D02HH_Practice are: 
+The available jobs for D02HH_Practice are:
 * 2016_MagDown_PromptMC_D02KK
 * 2016_MagUp_PromptMC_D02KK
 ```
@@ -219,7 +219,7 @@ You can open that link in your browser to view the status of the test jobs (exam
 
 As mentioned earlier, your test productions for this lesson won't be merged since this is only for practice purposes. If this were a real production, there would be some extra steps to take before merging.
 
-You should try to reach out to anyone else who may also want to use these ntuples, and see if they'd like to add or change anything. This is usually done through your working group (either by email, or for new productions, by presenting at a WG meeting). For this, you can start by getting in touch with your WG conveners (see [here](https://lhcb-conv.web.cern.ch/Physics_history_&_Sub-structure.html) to find out who they are).
+You should try to reach out to anyone else who may also want to use these ntuples, and see if they'd like to add or change anything. This is usually done through your working group (either by email, or for new productions, by presenting at a WG meeting). For this, you can start by getting in touch with your WG conveners (see [here](http://lhcb.web.cern.ch/lhcb_page/collaboration/organization/lhcb-conv/Physics_history_and_Sub-structure.html) to find out who they are).
 
 In addition, the Analysis Productions coordinator(s) may also have some feedback on your additions/changes.
 
