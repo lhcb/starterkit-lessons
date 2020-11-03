@@ -15,15 +15,16 @@ produce a ROOT ntuple.
 
 * Run a DaVinci job over a local DST
 * Inspect the ntuple output
-* Set up the job to run in Ganga
 
 {% endobjectives %} 
 
 With some stripped data located, it's useful to store the information on the
 selected particles inside an ntuple.
-This allows for quick, local analysis with [ROOT](https://root.cern.ch/),
-rather than always searching through a DST that contains lots of things we're
-not interested in.
+A DST can only be read properly using the LHCb software stack and contains lots of
+things we're not interested in. An ntuple contains just the data we need, and
+allows for quick, local analysis with [ROOT](https://root.cern.ch/) or a
+compatible reader library like
+[Uproot](https://github.com/scikit-hep/uproot4).
 
 As well as being the application that runs the stripping,
 [DaVinci](http://lhcbdoc.web.cern.ch/lhcbdoc/davinci/)
@@ -53,12 +54,12 @@ dtt.Decay = '[D*(2010)+ -> (D0 -> K- K+) pi+]CC'
 ```
 
 This imports the `DecayTreeTuple` class, and then creates an object called
-`dtt` representing our ntuple.
+`dtt` representing our ntuple-creating algorithm.
 Once DaVinci has run, the resulting ntuple will be saved in a folder within the
 output ROOT file called `TupleDstToD0pi_D0ToKpi`.
 
 The `Inputs` attribute specifies where `DecayTreeTuple` should look for
-particles, and here we want it to look at the output of the stripping line
+particles in the TES, and here we want it to look at the output of the stripping line
 we're interested in.
 
 As stripping lines can save many decays to a DST, the `Decay` attribute
@@ -111,7 +112,7 @@ Nicely, a lot of the attributes of the `DaVinci` object are self-explanatory:
 defines how often DaVinci should print its status; `DataType` is the year of
 data-taking the data corresponds to, which we get from looking at the
 bookkeeping path used to get the input DST; `Simulation` should be `True` when
-using Monte Carlo data, `Lumi` defines whether to store information on the
+using Monte Carlo data; `Lumi` defines whether to store information on the
 integrated luminosity the input data corresponds to; and `EvtMax` defines how
 many events to run over, where a value of `-1` means "all events".
 
