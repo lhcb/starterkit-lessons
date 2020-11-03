@@ -3,7 +3,7 @@
 from starterkit_ci.sphinx_config import *  # NOQA
 
 project = 'LHCb Starterkit Lessons'
-copyright = '2015-2019, LHCb Starterkit'
+copyright = '2015-2020, LHCb Starterkit'
 author = 'LHCb Starterkit'
 html_logo = 'starterkit.png'
 
@@ -25,8 +25,6 @@ html_static_path += [
 ]
 
 linkcheck_ignore += [
-    # FIXME: The URLs have changed
-    r'https://research\.cs\.wisc\.edu/htcondor/.*',
 ]
 
 starterkit_ci_redirects['first-analysis-steps/index.html'] = 'https://lhcb.github.io/starterkit-lessons/first-analysis-steps/README.html'
@@ -34,7 +32,7 @@ starterkit_ci_redirects['second-analysis-steps/index.html'] = 'https://lhcb.gith
 
 
 def starterkit_ci_setup(app):
-    app.add_stylesheet('starterkit.css')
+    app.add_css_file('starterkit.css')
 
 
 setup.extra_setup_funcs += [starterkit_ci_setup]
