@@ -5,7 +5,7 @@
 * Learn how to work with and modify LHCb software projects and packages
 * Learn how to find and search the source code and its documentation
 
-{% endobjectives %} 
+{% endobjectives %}
 
 {% prereq "Prerequisites" %}
 
@@ -14,48 +14,48 @@ similar to what has been
 [taught](https://hsf-training.github.io/analysis-essentials/git) during the
 Starterkit.
 
-{% endprereq %} 
+{% endprereq %}
 
 In this lesson, we'll show you a complete workflow for developing the LHCb
-software using the `git` version control system.  At LHCb, we use GitLab to
-manage our git repositories.  Among other features, GitLab allows you to browse
-the source code for each project, and to review new changes (called *merge
+software using the Git version control system.  At LHCb, we use GitLab to
+manage our Git repositories.  Among other features, GitLab allows you to browse
+the source code for each project, and to review proposed changes (called *merge
 requests*) in a convenient web interface.  You can find the CERN GitLab
-instance at https://gitlab.cern.ch.
+instance at [https://gitlab.cern.ch](https://gitlab.cern.ch).
 
 In principle, there are multiple ways of interacting with the LHCb software
 repositories:
 
- 1. A vanilla git workflow using only the standard git commands.  This requires
- you to `clone` and compile an entire LHCb project at a time.
- 1. An LHCb-specific workflow using a set of `lb-*` subcommands.  This allows
- you to check out individual packages inside a project, and streamlines the
- modification of a few packages at a time.  (This is closer to the previously
- used `getpack` command.)
+1. A vanilla Git workflow using only the standard Git commands.  This requires
+   you to `clone` and compile an entire LHCb project at a time.
+1. An LHCb-specific workflow using a set of `lb-*` Git subcommands.  This allows
+   you to check out individual packages inside a project, and streamlines the
+   modification of a few packages at a time.  (This is closer to the previously
+   used `getpack` command.)
 
 Here, we want to focus on the second workflow. The first workflow will be
 discussed briefly at the [bottom](#working-with-a-full-project-checkout) of
-this page. Note that, although the lb-git commands are much easier for small
+this page. Note that, although the `git lb-*` commands are much easier for small
 changes to existing packages where recompiling an entire project would be
-cumbersome, for any serious development the usage of vanilla git is much more
+cumbersome, for any serious development the usage of vanilla Git is much more
 stable. Please consider using it if you can spare the compilation time.
 
 {% callout "Initial setup" %}
 
 Before jumping in by creating a project in GitLab, you should make sure that
-your local git configuration and your settings on GitLab are sufficiently set
+your local Git configuration and your settings on GitLab are sufficiently set
 up.
 
- - Your name and email address should be set up in your local `git`
-configuration.  To ensure that this is the case, run
-```
-git config --global user.name "Your Name"
-git config --global user.email "Your Name <your.name@cern.ch>"
-```
-and put in your information.
+ - Your name and email address should be set up in your local Git
+   configuration.  To ensure that this is the case, run
+   ```
+   git config --global user.name "Your Name"
+   git config --global user.email "Your Name <your.name@cern.ch>"
+   ```
+   and put in your information.
 
- - Next, connect to https://gitlab.cern.ch and log in with your CERN 
-   credentials. Visit https://gitlab.cern.ch/profile/keys and add an SSH key.
+ - Next, visit [https://gitlab.cern.ch/profile/keys](https://gitlab.cern.ch/profile/keys)
+   (logging in with your CERN credentials) and add an SSH key.
 
  - Finally, run this LHCb-specific configuration command:
    ```
@@ -63,9 +63,9 @@ and put in your information.
    ```
    This makes sure the LHCb commands use the ssh protocol instead of https.
 
-{% endcallout %} 
+{% endcallout %}
 
-This lesson introduces you the commands:
+This lesson introduces the commands:
 
  - `lb-dev` for setting up a new development environment
  - `git lb-use` and `git lb-checkout` for downloading LHCb software packages
@@ -74,13 +74,13 @@ If you want to make changes to a software package, you will need to set up a
 development environment. `lb-dev` is your friend here:
 
 ```bash
-lb-dev --name DaVinciDev DaVinci/v45r1
+lb-dev --name DaVinciDev DaVinci/v45r5
 ```
 
 The output should look similar to this:
 
 ```
-Successfully created the local project DaVinciDev in .
+Successfully created the local project DaVinciDev for x86_64-centos7-gcc9-opt in .
 
 To start working:
 
@@ -97,39 +97,68 @@ and optionally (CMake only)
 
   > make install
 
-You can customize the configuration by editing the files 'build.conf' and
-'CMakeLists.txt' (see https://cern.ch/gaudi/CMake for details).
+To build for another platform call
+
+  > make platform=<platform id>
+
+You can customize the configuration by editing the files 'build.conf' and 'CMakeLists.txt'
+(see https://twiki.cern.ch/twiki/bin/view/LHCb/GaudiCMakeConfiguration for details).
 ```
 
 {% callout "lb-dev created local projects are Git repositories" %}
 
-When `lb-dev` creates the local project directory and create the initial
-files there, it also calls `git init` and commits to the local Git repository
-the first version of the files (try with `git log` in there).
+When `lb-dev` creates the local project directory and creates the initial
+files there, it also calls `git init` and commits the first version of
+the files to the local Git repository (try running `git log` in there).
 
-You can then use git to keep track of your development, and share your code
+You can then use Git to keep track of your development, and share your code
 with others (for example with a [new project in
 gitlab.cern.ch](https://gitlab.cern.ch/projects/new)).
 
-{% endcallout %} 
+You can even create a new project in GitLab without leaving the terminal!
+Just define the git remote and a new project will be created as soon as you push.
+
+```
+git remote add ssh://git@gitlab.cern.ch:7999/<username>/<project-name>.git
+git push -u origin master
+```
+
+{% endcallout %}
 
 Follow those instructions to compile the software:
 
 ```bash
 cd DaVinciDev
-git lb-use DaVinci
 make
 ```
 
-Once that's done, you can do
+Once that's done, let's try it out:
+
+```bash
+./run gaudirun.py
+```
+
+We just successfully ran the simplest possible Gaudi job with `gaudirun.py`!
+The `./run` script runs the command that follows in the project "runtime"
+environment where the right varialbes are set.
+It works similar to `lb-run`, without the need to specify a package and version.
+
+{% discussion "Obtain a shell with the runtime environment" %}
+
+Sometimes it is convenient to get a shell with the runtime environment
+so that you don't need to prefix commands with `./run` all the time.
+To do this, simply run
 
 ```bash
 ./run bash -l
 ```
 
-inside the directory. This will (similar to `lb-run`) give you a new bash
-session with the right environment variables set, from which you can run
-project-specific commands such as `gaudirun.py`.
+While useful, it is generally advised to stick to prefixing commands with
+`./run` (or `lb-run`). This way the command starts in the same reproducible
+environment every time and there's less risk of getting to an inconsistent
+state.
+
+{% enddiscussion %}
 
 Your new development environment won't be very useful without any software to
 modify and build.  So let's check out one of the existing LHCb packages! These
@@ -137,22 +166,29 @@ are stored in the [LHCb Git repositories](https://gitlab.cern.ch/lhcb).
 
 In order to obtain the source code of the package you want to work on, we'll
 use the [Git4LHCb](http://lhcb-core-doc.web.cern.ch/lhcb-core-doc/GitForLHCbUsers.html) scripts.
-These are a set of aliases, starting with `git lb-`, that are designed to make
+These are a set of subcommands, starting with `git lb-`, that are designed to make
 developing LHCb software easier.  For example, if you want to write a custom
 stripping selection, execute the following in the `DaVinciDev` directory:
 
 ```bash
 git lb-use Stripping
-git lb-checkout Stripping/master Phys/StrippingSelections
-make configure
+git lb-checkout Stripping/run2-patches Phys/StrippingSelections
 ```
 
-Under the hood, `git lb-use` will add the
+{% discussion "What if `git` asks for my password?" %}
+
+Make sure you succesfully completed the instructions under [initial
+setup](#initial-setup).
+
+{% enddiscussion %}
+
+Under the hood, `git lb-use` will add and fetch the
 [`Stripping`](https://gitlab.cern.ch/lhcb/Stripping) repository as a remote in
-git – check this with `git remote -v`!  `git lb-checkout` will then perform a
-*partial* checkout of the master branch of the Stripping repository, only
-adding the files under
-[`Phys/StrippingSelections`](https://gitlab.cern.ch/lhcb/Stripping/tree/master/Phys/StrippingSelections).
+Git – check this with `git remote -v`!  `git lb-checkout` will then perform a
+*partial* checkout of the `run2-patches` branch of the Stripping repository, only
+adding the files under the
+[`Phys/StrippingSelections`](https://gitlab.cern.ch/lhcb/Stripping/tree/run2-patches/Phys/StrippingSelections).
+directory.
 
 {% callout "Which project to use in `git lb-use`?" %}
 
@@ -162,47 +198,44 @@ Moreover you can call `git lb-use` several times for different remote
 projects in the same local project:
 
 ```bash
-lb-dev --name DaVinciDev DaVinci/v45r1
+lb-dev --name DaVinciDev DaVinci/v45r5
 cd DaVinciDev
 git lb-use Analysis
 git lb-use Stripping
 git lb-use DaVinci
 ```
 
-Not that in order for this to work, projects you specify in `lb-use` may not
-depend on the project you specify in `lb-dev`. In other words, the top-level
+Note that in order for this to work, projects you specify in `lb-use` must
+be dependencies of the project you specify in `lb-dev`. In other words, the top-level
 project should be at the top of the [dependency
-chain](https://lhcb-comp.web.cern.ch/lhcb-comp/).
+chain](http://lhcb.web.cern.ch/computing/).
 
-{% endcallout %} 
+{% endcallout %}
 
-You can now modify the `StrippingSelections` package and run `make purge &&
-make` to build it with your changes.  You can test your changes with the
-`./run` script.  It works similar to `lb-run`, without the need to specify a
-package and version:
+After checking out new packages, always remember to make them known to your
+local project with `make configure` (sometimes it might be necessary to fully
+clean up the build with `make purge`):
+
+```bash
+make configure
+```
+
+You can now modify the `StrippingSelections` package and run `make` to build
+it with your changes. You can test your changes with the `./run` script.
+
 ```bash
 ./run gaudirun.py options.py
 ```
 
-{% callout "What if `git` asks for my password?" %}
-
-Make sure you succesfully completed the instructions under [initial
-setup](#initial-setup).
-
-{% endcallout %} 
-
 If you have made changes that you'd like to be integrated into the official
 LHCb repositories, you can use `git lb-push` to push it to a new branch in the
-central git repository. But please read the [instructions 
+central Git repository. But please read the [instructions
 page](http://lhcb-core-doc.web.cern.ch/lhcb-core-doc/GitForLHCbUsers.html#using-git-for-lhcb-development)
 first.
 
-Depending on the project, you may be required to document your changes in the
-release notes which are found in `doc/release.notes`.
-
-Note that no-one has permission to push directly to the `master` branch of any project.
-In order to get your changes merged there from the branch to which you `lb-push`ed, you need to create a merge request, so the project maintainer can inspect your code.
-This can be done on the [project repository web page](https://gitlab.cern.ch/lhcb/Stripping/merge_requests/new), for example.
+Note that no one has permission to push directly to the official protected branches (e.g. `master` or `run2-patches`) of LHCb projects.
+To get your changes merged there from the branch to which you `lb-push`-ed, you need to create a merge request (MR), so the project maintainer can check your code.
+This can be done on the [project repository web page](https://gitlab.cern.ch/lhcb/Stripping/-/merge_requests/new), for example.
 
 {% callout "Quick link to create a merge request" %}
 
@@ -218,55 +251,46 @@ remote:
 You can use the URL in the message to quickly create a merge request for the
 changes you just pushed.
 
-{% endcallout %} 
+{% endcallout %}
 
-When your merge request is approved (which can be after some additional commits
-on your part), your changes are part of the `master` branch of the respective
-project, and your contributions are officially part of the LHCb software stack.
+When your merge request is approved and merged (which can be after some additional commits on your part), your changes are part of an official branch of the respective project, and your contributions are part of the LHCb software stack.
 Congratulations!
 
 {% callout "Nightlies" %}
 
-It is advisable to test new developments on the so-called [nightly
-builds](https://lhcb-nightlies.web.cern.ch). Each project is built overnight
-(hence the name), and all pending merge requests are applied. You can use a
-nightly build version of a project with:
+Typically before being approved every merge request will be tested in the so-called [nightly builds](https://lhcb-nightlies.web.cern.ch).
+The nightly build infrastructure allows for building and testing the entire stack of LHCb physics projects, either overnight (in standard slots such as `lhcb-run2-patches`) or on demand (using `/ci-test` in GitLab discussions).
+The relevant maintainers will help with the exact workflow (e.g. who schedules the testing), which varies a bit depending on the project.
 
-```bash
-lb-dev --nightly lhcb-head DaVinci/HEAD
-```
-
-A more detailed description of the command is found here:
-
- * [SoftwareEnvTools](https://twiki.cern.ch/twiki/bin/view/LHCb/SoftwareEnvTools)
-
-Sometimes mistakes happen and the committed code is either not compiling or
-does not do what it is supposed to do.  Therefore the nightly tests are
-performed. They first try to build the full software stack.
-
-If that is successful, they run some reference jobs and compare the output of
-the new build with a reference file.  The results of the nightly builds can
-be found here.
-
-* [Nightly builds summaries](https://lhcb-nightlies.web.cern.ch)
+The automatic builds and tests can show compilation problems (e.g. new warnings) and unintended consequences of the proposed changes. 
+To achieve the latter, they run some reference jobs and compare the output of the new build with a reference file.
 
 If the aim of the commit was to change the ouput, e.g. because you increased
 the track reconstruction efficiency by a factor of two, mention it in the
-merge request description, such that the manager of the affected project can
+merge request description, such that the maintainers of the affected project can
 update the reference file.
 
-{% endcallout %} 
+Often it is useful to work directly from nightly builds (e.g. to debug an issue on another platform).
+You can use a nightly build version of a project with:
+
+```bash
+lb-dev -c x86_64-centos7-gcc9-opt --nightly lhcb-run2-patches DaVinci/run2-patches
+```
+
+A more detailed description of the command is found at [SoftwareEnvTools](https://twiki.cern.ch/twiki/bin/view/LHCb/SoftwareEnvTools).
+
+{% endcallout %}
 
 If you want to take a look the source code, without checking it out, you can
 easily access the repository through the [GitLab web
 interface](https://gitlab.cern.ch/lhcb). This website also provides search
 functionality, but the output is not always easy to read, especially if it
-returns many hits. To search a project much quicker, you can use `Lbglimpse`.
+returns many hits. To search a project much quicker, you can use `lb-glimpse`.
 It allows you to search for a given string in the source code of a particular
-LHCb project.
+LHCb project (and all its dependencies).
 
 ```bash
-Lbglimpse "PVRefitter" DaVinci v45r1
+lb-glimpse "PVRefitter" DaVinci/v45r5
 ```
 This works with every LHCb project and released version. Since it's a shell
 command, you can easily process the output using `less`, `grep`, and other
@@ -274,19 +298,21 @@ tools.
 
 To get an idea of how a certain component of the LHCb software works, you can
 also access the doxygen documentation. One set of doxygen web pages is
-generated for several related projects, and is linked in all the projects web
+generated for several related projects, and is linked from the projects web
 sites, like [for DaVinci](http://lhcbdoc.web.cern.ch/lhcbdoc/davinci/).
-See also the [LHCb Computing web page](http://lhcb.web.cern.ch/lhcb/computing/) for a
+For example, the doxygen documentation for DaVinci v45r5 is
+[here](https://lhcb-doxygen.web.cern.ch/lhcb-doxygen/davinci/v45r5/index.html).
+See also the [LHCb Computing web page](https://lhcb.web.cern.ch/computing/) for a
 list of projects.
 
 {% callout "Working with a full project checkout" %}
 
-The `lb-git` commands are not strictly necessary, but they're very convenient
+The `git lb-*` commands are not strictly necessary, but they're very convenient
 if you just want to quickly edit one package. Otherwise you'd have to build
 the entire project in which the package is residing, instead of using the
 precompiled version. However, if you develop across multiple packages, or
 want to use more sophisticated `git` commands, nothing prevents you from
-checking out an entire project – just don't be surprised if it takes O(hours)
+checking out an entire project – just don't be surprised if it takes hours
 to compile!
 
 To check out a project, run the following:
@@ -305,6 +331,9 @@ make
 
 optionally followed by `make test` to run the tests and/or `make install` to
 install it to the `InstallArea` directory. That's all! You now have a vanilla
-git repository containing all the source files of the project.
+Git repository containing all the source files of the project.
+You can find out more about working with full projects at the
+[Git4LHCb](http://lhcb-core-doc.web.cern.ch/lhcb-core-doc/GitForLHCbUsers.html)
+page.
 
-{% endcallout %} 
+{% endcallout %}
