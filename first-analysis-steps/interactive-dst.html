@@ -418,7 +418,7 @@ we saw <code class="docutils literal notranslate"><span class="pre">evt.dump()</
 <code class="docutils literal notranslate"><span class="pre">/Event/Rec/Track/Best</span></code>.</p>
 <p>We can use the directory-like structure of the TES to walk through the
 hierachy from the root node.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">root</span> <span class="o">=</span> <span class="n">TES</span><span class="p">[</span><span class="s1">&#39;/Event&#39;</span><span class="p">]</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">root</span> <span class="o">=</span> <span class="n">evt</span><span class="p">[</span><span class="s1">&#39;/Event&#39;</span><span class="p">]</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">evt</span><span class="o">.</span><span class="n">leaves</span><span class="p">(</span><span class="n">root</span><span class="p">)</span>
 <span class="go">&lt;ROOT.vector&lt;IRegistry*&gt; object at 0x11d1deb0</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">root_children</span> <span class="o">=</span> <span class="n">evt</span><span class="o">.</span><span class="n">leaves</span><span class="p">()</span>
