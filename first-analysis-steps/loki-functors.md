@@ -9,9 +9,17 @@
 
 {% endobjectives %} 
 
+Probably most of you have seen somewhere in a Stripping line, a trigger line or a DaVinci options file an expression like this:
+
+```python
+'(PT > 750*MeV) & (P > 4000*MeV) & (MIPCHI2DV(PRIMARY) > 4)'.
+```
+
+Usually these strings represent so-called *LoKi functors*. In this lesson we will explore why they exist, how one can use them interactively and some of the technical details behind them.
+
 LoKi functors are designed to flexibly compute and compare properties of the 
 current decay, from simple quantities such as the transverse momentum of a 
-particle to complicated ones like helicity angles.
+particle or the impact parameter with respect to the primary vertex to even more complicated ones like helicity angles in a multi-body decay.
 Internally, functors are implemented as C++ classes that take an object of type `TYPE1` and return another of `TYPE2`.
 They can be used both in C++ and in Python code, and can be combined with each other using logical operations.
 
@@ -36,7 +44,7 @@ According to `TYPE1`, there are many types of functors, the most important of wh
 
 Things like `LHCb::Particle` are C++ classes that usually represent some 
 physical object. You will interact with the C++ objects directly very rarely, 
-if ever.
+if ever, also due to the existence of LoKi functors.
 
 {% endcallout %} 
 
