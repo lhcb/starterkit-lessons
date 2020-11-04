@@ -82,7 +82,7 @@ We can use the directory-like structure of the TES to walk through the
 hierachy from the root node.
 
 ```python
->>> root = TES['/Event']
+>>> root = evt['/Event']
 >>> evt.leaves(root)
 <ROOT.vector<IRegistry*> object at 0x11d1deb0
 >>> root_children = evt.leaves()
