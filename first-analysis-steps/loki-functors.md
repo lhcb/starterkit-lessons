@@ -21,7 +21,7 @@ LoKi functors are designed to flexibly compute and compare properties of the
 current decay, from simple quantities such as the transverse momentum of a 
 particle or the impact parameter with respect to the primary vertex to even more complicated ones like helicity angles in a multi-body decay.
 Internally, functors are implemented as C++ classes that take an object of type `TYPE1` and return another of `TYPE2`.
-They can be used both in C++ and in Python code, and can be combined with each other using logical operations.
+They can be used both in C++ and in Python code, and can be combined with each other using logical operations. 
 
 According to `TYPE2` there are 3 types of functors:
 
@@ -64,7 +64,9 @@ cands = evt['/Event/AllStreams/Phys/D2hhPromptDst2D2KKLine/Particles']
 cand = cands[0]
 ```
 
-We can now try to get very simple properties of the `$ D^{* +} $` candidate. Let's start from the components of its momentum.
+The object `cand `, loaded from the DST, is of type `LHCb::Particle` and we are looking at its representation via python bindings. 
+We can do `help(cand)` to find out which functions are available.
+We can try to get very simple properties of the `$ D^{* +} $` candidate. Let's start from the components of its momentum.
 This can be done calling the function `momentum()` for our candidate in the following way:
 ```python
 p_x = cand.momentum().X()
