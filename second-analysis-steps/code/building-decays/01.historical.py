@@ -15,7 +15,7 @@ from PhysConf.Selections import Selection
 from PhysConf.Selections import SelectionSequence
 
 # Build the D0 from the pions and kaons
-d0_daughters = {
+d0_decay_products = {
     'K-': '(PT > 750*MeV) & (P > 4000*MeV) & (MIPCHI2DV(PRIMARY) > 4)',
     'K+': '(PT > 750*MeV) & (P > 4000*MeV) & (MIPCHI2DV(PRIMARY) > 4)'
 }
@@ -29,7 +29,7 @@ d0_mother = (
 
 d0 = CombineParticles('Combine_D0',
                       DecayDescriptor='[D0 -> K- K+]cc',
-                      DaughtersCuts=d0_daughters,
+                      DaughtersCuts=d0_decay_products,
                       CombinationCut=d0_comb,
                       MotherCut=d0_mother)
 
@@ -39,7 +39,7 @@ d0_sel = Selection(
     RequiredSelections=[Kaons]
 )
 
-dstar_daughters = {'pi+': '(TRCHI2DOF < 3) & (PT > 100*MeV)'}
+dstar_decay_products = {'pi+': '(TRCHI2DOF < 3) & (PT > 100*MeV)'}
 dstar_comb = "(ADAMASS('D*(2010)+') < 400*MeV)"
 dstar_mother = (
     "(abs(M-MAXTREE('D0'==ABSID,M)-145.42) < 10*MeV)"
@@ -49,7 +49,7 @@ dstar_mother = (
 dstar = CombineParticles(
     'Combine_Dstar',
     DecayDescriptor='[D*(2010)+ -> D0 pi+]cc',
-    DaughtersCuts=dstar_daughters,
+    DaughtersCuts=dstar_decay_products,
     CombinationCut=dstar_comb,
     MotherCut=dstar_mother
 )

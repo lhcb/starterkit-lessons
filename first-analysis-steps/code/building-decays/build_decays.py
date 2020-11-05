@@ -36,7 +36,7 @@ d0_sel = Selection('Sel_D0',
 
 dstar_decay_products = {'pi+': '(TRCHI2DOF < 3) & (PT > 100*MeV)'}
 dstar_comb = "(ADAMASS('D*(2010)+') < 400*MeV)"
-dstar_mother = (
+dstar_vertex = (
     "(abs(M-MAXTREE('D0'==ABSID,M)-145.42) < 10*MeV)"
     '& (VFASPF(VCHI2/VDOF)< 9)'
 )
@@ -47,7 +47,7 @@ dstar_sel = SimpleSelection(
     DecayDescriptor='[D*(2010)+ -> D0 pi+]cc',
     DaughtersCuts=dstar_decay_products,
     CombinationCut=dstar_comb,
-    MotherCut=dstar_mother
+    MotherCut=dstar_vertex
 )
 
 dstar_seq = SelectionSequence('Dstar_Seq', TopSelection=dstar_sel)
