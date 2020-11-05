@@ -164,14 +164,16 @@ modify and build.  So let's check out one of the existing LHCb packages! These
 are stored in the [LHCb Git repositories](https://gitlab.cern.ch/lhcb).
 
 In order to obtain the source code of the package you want to work on, we'll
-use the [Git4LHCb](http://lhcb-core-doc.web.cern.ch/lhcb-core-doc/GitForLHCbUsers.html) scripts.
+use the method described at the [Git4LHCb](http://lhcb-core-doc.web.cern.ch/lhcb-core-doc/GitForLHCbUsers.html) page.
 These are a set of subcommands, starting with `git lb-`, that are designed to make
-developing LHCb software easier.  For example, if you want to write a custom
-stripping selection, execute the following in the `DaVinciDev` directory:
+developing LHCb software easier.
+For example, if you want to modify a `TupleTool`
+(which you discovered in the [TupleTools and branches](add-tupletools) lesson),
+start by executing the following in the `DaVinciDev` directory:
 
 ```bash
-git lb-use Stripping
-git lb-checkout Stripping/run2-patches Phys/StrippingSelections
+git lb-use Analysis
+git lb-checkout Analysis/run2-patches Phys/DecayTreeTuple
 ```
 
 {% discussion "What if `git` asks for my password?" %}
@@ -182,11 +184,11 @@ setup](#initial-setup).
 {% enddiscussion %}
 
 Under the hood, `git lb-use` will add and fetch the
-[`Stripping`](https://gitlab.cern.ch/lhcb/Stripping) repository as a remote in
+[`Analysis`](https://gitlab.cern.ch/lhcb/Analysis) repository as a remote in
 Git – check this with `git remote -v`!  `git lb-checkout` will then perform a
-*partial* checkout of the `run2-patches` branch of the Stripping repository, only
+*partial* checkout of the `run2-patches` branch of the Analysis repository, only
 adding the files under the
-[`Phys/StrippingSelections`](https://gitlab.cern.ch/lhcb/Stripping/tree/run2-patches/Phys/StrippingSelections).
+[`Phys/DecayTreeTuple`](https://gitlab.cern.ch/lhcb/Analysis/tree/run2-patches/Phys/DecayTreeTuple).
 directory.
 
 {% callout "Which project to use in `git lb-use`?" %}
@@ -219,11 +221,11 @@ clean up the build with `make purge`):
 make configure
 ```
 
-You can now modify the `StrippingSelections` package and run `make` to build
+You can now modify the `Phys/DecayTreeTuple` package and run `make` to build
 it with your changes. You can test your changes with the `./run` script.
 
 ```bash
-./run gaudirun.py options.py
+./run gaudirun.py ntuple_options.py
 ```
 
 If you have made changes that you'd like to be integrated into the official
@@ -234,7 +236,7 @@ first.
 
 Note that no one has permission to push directly to the official protected branches (e.g. `master` or `run2-patches`) of LHCb projects.
 To get your changes merged there from the branch to which you `lb-push`-ed, you need to create a merge request (MR), so the project maintainer can check your code.
-This can be done on the [project repository web page](https://gitlab.cern.ch/lhcb/Stripping/-/merge_requests/new), for example.
+This can be done on the [project repository web page](https://gitlab.cern.ch/lhcb/Analysis/-/merge_requests/new), for example.
 
 {% callout "Quick link to create a merge request" %}
 
@@ -243,7 +245,7 @@ When pushing to a branch in a project in GitLab you will see a message like:
 ```
 remote:
 remote: Create merge request for my-branch:
-remote:   https://gitlab.cern.ch/lhcb/Stripping/merge_requests/new?merge_request%5Bsource_branch%5D=my-branch
+remote:   https://gitlab.cern.ch/lhcb/Analysis/merge_requests/new?merge_request%5Bsource_branch%5D=my-branch
 remote:
 ```
 
