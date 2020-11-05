@@ -360,9 +360,14 @@
 </ul>
 </div>
 </div>
+<p>Probably most of you have seen somewhere in a Stripping line, a trigger line or a DaVinci options file an expression like this:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;(PT &gt; 750*MeV) &amp; (P &gt; 4000*MeV) &amp; (MIPCHI2DV(PRIMARY) &gt; 4)&#39;</span><span class="o">.</span>
+</pre></div>
+</div>
+<p>Usually these strings represent so-called <em>LoKi functors</em>. In this lesson we will explore why they exist, how one can use them interactively and some of the technical details behind them.</p>
 <p>LoKi functors are designed to flexibly compute and compare properties of the
 current decay, from simple quantities such as the transverse momentum of a
-particle to complicated ones like helicity angles.
+particle or the impact parameter with respect to the primary vertex to even more complicated ones like helicity angles in a multi-body decay.
 Internally, functors are implemented as C++ classes that take an object of type <code class="docutils literal notranslate"><span class="pre">TYPE1</span></code> and return another of <code class="docutils literal notranslate"><span class="pre">TYPE2</span></code>.
 They can be used both in C++ and in Python code, and can be combined with each other using logical operations.</p>
 <p>According to <code class="docutils literal notranslate"><span class="pre">TYPE2</span></code> there are 3 types of functors:</p>
@@ -388,7 +393,7 @@ They can be used both in C++ and in Python code, and can be combined with each o
 <div class="panel-body docutils container">
 <p>Things like <code class="docutils literal notranslate"><span class="pre">LHCb::Particle</span></code> are C++ classes that usually represent some
 physical object. You will interact with the C++ objects directly very rarely,
-if ever.</p>
+if ever, also due to the existence of LoKi functors.</p>
 </div>
 </div>
 <p>To understand what we can do with LoKi functors, we will pick up from where we
@@ -403,7 +408,9 @@ First open the DST as we did previously:</p>
 <span class="n">cand</span> <span class="o">=</span> <span class="n">cands</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 </pre></div>
 </div>
-<p>We can now try to get very simple properties of the <span class="math notranslate nohighlight">\( D^{* +} \)</span> candidate. Let’s start from the components of its momentum.
+<p>The object <code class="docutils literal notranslate"><span class="pre">cand</span> </code>, loaded from the DST, is of type <code class="docutils literal notranslate"><span class="pre">LHCb::Particle</span></code> and we are looking at its representation via python bindings.
+We can do <code class="docutils literal notranslate"><span class="pre">help(cand)</span></code> to find out which functions are available.
+We can try to get very simple properties of the <span class="math notranslate nohighlight">\( D^{* +} \)</span> candidate. Let’s start from the components of its momentum.
 This can be done calling the function <code class="docutils literal notranslate"><span class="pre">momentum()</span></code> for our candidate in the following way:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">p_x</span> <span class="o">=</span> <span class="n">cand</span><span class="o">.</span><span class="n">momentum</span><span class="p">()</span><span class="o">.</span><span class="n">X</span><span class="p">()</span>
 <span class="n">p_y</span> <span class="o">=</span> <span class="n">cand</span><span class="o">.</span><span class="n">momentum</span><span class="p">()</span><span class="o">.</span><span class="n">Y</span><span class="p">()</span>
@@ -605,7 +612,7 @@ the Python interpreter tries to combine the two cuts straight away, before we ha
 <p>the result is that our <code class="docutils literal notranslate"><span class="pre">PT</span></code> cut vanishes!
 If we use the <code class="docutils literal notranslate"><span class="pre">|</span></code> operator (“bitwise OR”) then LoKi correctly builds a functor representing the <code class="docutils literal notranslate"><span class="pre">OR</span></code> of our cuts:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">In</span> <span class="p">[</span><span class="mi">2</span><span class="p">]:</span> <span class="p">((</span><span class="n">M</span><span class="o">&gt;</span><span class="mi">1200</span><span class="p">)</span> <span class="o">|</span> <span class="p">(</span><span class="n">PT</span> <span class="o">&gt;</span> <span class="mi">500</span><span class="p">))</span>
-<span class="n">Out</span><span class="p">[</span><span class="mi">2</span><span class="p">]:</span>  <span class="p">(</span> <span class="p">(</span><span class="n">M</span><span class="o">&gt;</span><span class="mi">1200</span><span class="p">)</span> <span class="o">||</span> <span class="p">(</span><span class="n">PT</span><span class="o">&gt;</span><span class="mi">500</span><span class="p">)</span> <span class="p">)</span>
+<span class="n">Out</span><span class="p">[</span><span class="mi">2</span><span class="p">]:</span>  <span class="p">(</span> <span class="p">(</span><span class="n">M</span><span class="o">&gt;</span><span class="mi">1200</span><span class="p">)</span> <span class="o">|</span> <span class="p">(</span><span class="n">PT</span><span class="o">&gt;</span><span class="mi">500</span><span class="p">)</span> <span class="p">)</span>
 </pre></div>
 </div>
 <p>This is why you should <strong>always</strong> use <code class="docutils literal notranslate"><span class="pre">&amp;</span></code> and <code class="docutils literal notranslate"><span class="pre">|</span></code> when combining LoKi functors, and <strong>never</strong> use <code class="docutils literal notranslate"><span class="pre">and</span></code> and <code class="docutils literal notranslate"><span class="pre">or</span></code>.</p>
@@ -693,7 +700,7 @@ It helps writing CPU-efficient functors and thus is very important when building
 </div>
 <div class="panel-body docutils container">
 <p>Have a look at the stripping line
-<a class="reference external" href="http://lhcbdoc.web.cern.ch/lhcbdoc/stripping/config/stripping28/charm/strippingd2hhpromptdst2d2kkline.html">D2hhPromptDst2D2KKLine</a> which is used in our example. Open a <code class="docutils literal notranslate"><span class="pre">CombineParticles/D2hhPromptDst2D2KKLine</span></code> section, and explain which requirements are coded in the ‘MotherCut’, ‘DaughterCuts’ and ‘CombinationCut’ sections.
+<a class="reference external" href="http://lhcbdoc.web.cern.ch/lhcbdoc/stripping/config/stripping28r1/charm/strippingd2hhpromptdst2d2kkline.html">D2hhPromptDst2D2KKLine</a> which is used in our example. Open a <code class="docutils literal notranslate"><span class="pre">CombineParticles/D2hhPromptDst2D2KKLine</span></code> section, and explain which requirements are coded in the ‘MotherCut’, ‘DaughterCuts’ and ‘CombinationCut’ sections.
 (More details about <code class="docutils literal notranslate"><span class="pre">CombineParticles</span></code> algorithm are explained in the <a class="reference internal" href="../second-analysis-steps/building-decays-part1.html"><span class="doc">lesson of second analysis steps</span></a>.)</p>
 </div>
 </div>
