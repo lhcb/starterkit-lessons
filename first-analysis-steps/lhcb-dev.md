@@ -74,7 +74,7 @@ If you want to make changes to a software package, you will need to set up a
 development environment. `lb-dev` is your friend here:
 
 ```bash
-lb-dev --name DaVinciDev DaVinci/v45r5
+lb-dev --name DaVinciDev DaVinci/v45r1
 ```
 
 The output should look similar to this:
@@ -198,7 +198,7 @@ Moreover you can call `git lb-use` several times for different remote
 projects in the same local project:
 
 ```bash
-lb-dev --name DaVinciDev DaVinci/v45r5
+lb-dev --name DaVinciDev DaVinci/v45r1
 cd DaVinciDev
 git lb-use Analysis
 git lb-use Stripping
@@ -290,7 +290,7 @@ It allows you to search for a given string in the source code of a particular
 LHCb project (and all its dependencies).
 
 ```bash
-lb-glimpse "PVRefitter" DaVinci/v45r5
+lb-glimpse "PVRefitter" DaVinci/v45r1
 ```
 This works with every LHCb project and released version. Since it's a shell
 command, you can easily process the output using `less`, `grep`, and other
@@ -300,8 +300,8 @@ To get an idea of how a certain component of the LHCb software works, you can
 also access the doxygen documentation. One set of doxygen web pages is
 generated for several related projects, and is linked from the projects web
 sites, like [for DaVinci](http://lhcbdoc.web.cern.ch/lhcbdoc/davinci/).
-For example, the doxygen documentation for DaVinci v45r5 is
-[here](https://lhcb-doxygen.web.cern.ch/lhcb-doxygen/davinci/v45r5/index.html).
+For example, the doxygen documentation for DaVinci v45r1 is
+[here](https://lhcb-doxygen.web.cern.ch/lhcb-doxygen/davinci/v45r1/index.html).
 See also the [LHCb Computing web page](https://lhcb.web.cern.ch/computing/) for a
 list of projects.
 
