@@ -30,8 +30,7 @@ repositories:
    you to `clone` and compile an entire LHCb project at a time.
 1. An LHCb-specific workflow using a set of `lb-*` Git subcommands.  This allows
    you to check out individual packages inside a project, and streamlines the
-   modification of a few packages at a time.  (This is closer to the previously
-   used `getpack` command.)
+   modification of a few packages at a time.
 
 Here, we want to focus on the second workflow. The first workflow will be
 discussed briefly at the [bottom](#working-with-a-full-project-checkout) of
