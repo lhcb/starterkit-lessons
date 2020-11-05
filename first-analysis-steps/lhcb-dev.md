@@ -314,7 +314,8 @@ the entire project in which the package is residing, instead of using the
 precompiled version. However, if you develop across multiple packages, or
 want to use more sophisticated `git` commands, nothing prevents you from
 checking out an entire project – just don't be surprised if it takes hours
-to compile!
+to compile on lxplus! Note that repeated compilation will be much faster
+and using a dedicated multi-core machine can speed things up a lot.
 
 To check out a project, run the following:
 
