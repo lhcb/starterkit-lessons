@@ -276,7 +276,7 @@ the result is that our `PT` cut vanishes!
 If we use the `|` operator ("bitwise OR") then LoKi correctly builds a functor representing the `OR` of our cuts:
 ```python
 In [2]: ((M>1200) | (PT > 500))
-Out[2]:  ( (M>1200) || (PT>500) )
+Out[2]:  ( (M>1200) | (PT>500) )
 ```
 This is why you should **always** use `&` and `|` when combining LoKi functors, and **never** use `and` and `or`.
 
@@ -366,7 +366,7 @@ in_range(1860, CHILD(M, 1), 1870)(cand)
 {% callout "Understanding the cuts in the stripping lines" %}
 
 Have a look at the stripping line 
-[D2hhPromptDst2D2KKLine](http://lhcbdoc.web.cern.ch/lhcbdoc/stripping/config/stripping28/charm/strippingd2hhpromptdst2d2kkline.html) which is used in our example. Open a `CombineParticles/D2hhPromptDst2D2KKLine` section, and explain which requirements are coded in the 'MotherCut', 'DaughterCuts' and 'CombinationCut' sections. 
+[D2hhPromptDst2D2KKLine](http://lhcbdoc.web.cern.ch/lhcbdoc/stripping/config/stripping28r1/charm/strippingd2hhpromptdst2d2kkline.html) which is used in our example. Open a `CombineParticles/D2hhPromptDst2D2KKLine` section, and explain which requirements are coded in the 'MotherCut', 'DaughterCuts' and 'CombinationCut' sections. 
 (More details about `CombineParticles` algorithm are explained in the [lesson of second analysis steps](/second-analysis-steps/building-decays-part1.md).)
 
 {% endcallout %} 
