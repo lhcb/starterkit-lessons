@@ -22,9 +22,9 @@ d0_sel = SimpleSelection(
     ConfigurableGenerators.CombineParticles,
     [Kaons],
     DecayDescriptor='[D0 -> K- K+]cc',
-    DaughtersCuts=d0_daughters,
+    DaughtersCuts=d0_decay_products,
     CombinationCut=d0_comb,
-    MotherCut=d0_mother
+    MotherCut=d0_vertex
 )
 ```
 
@@ -57,9 +57,9 @@ While `SimpleSelection` will allow us to do anything we would do with `Selection
         'Sel_D0',
         [Kaons],
         DecayDescriptor='[D0 -> K- K+]cc',
-        DaughtersCuts=d0_daughters,
+        DaughtersCuts=d0_decay_products,
         CombinationCut=d0_comb,
-        MotherCut=d0_mother
+        MotherCut=d0_vertex
     )
     ```
 

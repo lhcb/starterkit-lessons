@@ -420,7 +420,7 @@ selection criteria. Optionally, one can specify also a <code class="docutils lit
 that allows us to make imports, preprocess functors, etc (more on this in
 the <a class="reference internal" href="../first-analysis-steps/loki-functors.html"><span class="doc">LoKi functors</span></a> lesson).
 For example:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">d0_daughters</span> <span class="o">=</span> <span class="p">{</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">d0_decay_products</span> <span class="o">=</span> <span class="p">{</span>
   <span class="s1">&#39;K-&#39;</span><span class="p">:</span> <span class="s1">&#39;(PT &gt; 750*MeV) &amp; (P &gt; 4000*MeV) &amp; (MIPCHI2DV(PRIMARY) &gt; 4)&#39;</span><span class="p">,</span>
   <span class="s1">&#39;K+&#39;</span><span class="p">:</span> <span class="s1">&#39;(PT &gt; 750*MeV) &amp; (P &gt; 4000*MeV) &amp; (MIPCHI2DV(PRIMARY) &gt; 4)&#39;</span>
 <span class="p">}</span>
@@ -434,7 +434,7 @@ For example:</p>
 </li>
 <li><p><code class="docutils literal notranslate"><span class="pre">MotherCut</span></code> is a selection LoKi particle functor that acts on the particle produced by the vertex fit (the <em>parent</em>) from the input particles, which allows to apply cuts on those variables that require a vertex, for example:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># We can split long selections across multiple lines</span>
-<span class="n">d0_mother</span> <span class="o">=</span> <span class="p">(</span>
+<span class="n">d0_vertex</span> <span class="o">=</span> <span class="p">(</span>
   <span class="s1">&#39;(VFASPF(VCHI2/VDOF)&lt; 9)&#39;</span>
   <span class="s1">&#39;&amp; (BPVDIRA &gt; 0.9997)&#39;</span>
   <span class="s2">&quot;&amp; (ADMASS(&#39;D0&#39;) &lt; 70*MeV)&quot;</span>
@@ -448,9 +448,9 @@ For example:</p>
 <span class="n">d0</span> <span class="o">=</span> <span class="n">CombineParticles</span><span class="p">(</span>
     <span class="s1">&#39;Combine_D0&#39;</span><span class="p">,</span>
     <span class="n">DecayDescriptor</span><span class="o">=</span><span class="s1">&#39;[D0 -&gt; K- K+]cc&#39;</span><span class="p">,</span>
-    <span class="n">DaughtersCuts</span><span class="o">=</span><span class="n">d0_daughters</span><span class="p">,</span>
+    <span class="n">DaughtersCuts</span><span class="o">=</span><span class="n">d0_decay_products</span><span class="p">,</span>
     <span class="n">CombinationCut</span><span class="o">=</span><span class="n">d0_comb</span><span class="p">,</span>
-    <span class="n">MotherCut</span><span class="o">=</span><span class="n">d0_mother</span>
+    <span class="n">MotherCut</span><span class="o">=</span><span class="n">d0_vertex</span>
 <span class="p">)</span>
 </pre></div>
 </div>
@@ -478,9 +478,9 @@ For example:</p>
 This can be simplified using a <code class="docutils literal notranslate"><span class="pre">SimpleSelection</span></code> object, which will be discussed in the next lesson.</p>
 <p>For the time being, let’s finish building our candidates.
 Now we can use another <code class="docutils literal notranslate"><span class="pre">CombineParticles</span></code> to build the <span class="math notranslate nohighlight">\( D^\ast \)</span> with pions and the <span class="math notranslate nohighlight">\( D^0 \)</span>‘s as inputs, and applying a filtering only on the soft pion:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">dstar_daughters</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;pi+&#39;</span><span class="p">:</span> <span class="s1">&#39;(TRCHI2DOF &lt; 3) &amp; (PT &gt; 100*MeV)&#39;</span><span class="p">}</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">dstar_decay_products</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;pi+&#39;</span><span class="p">:</span> <span class="s1">&#39;(TRCHI2DOF &lt; 3) &amp; (PT &gt; 100*MeV)&#39;</span><span class="p">}</span>
 <span class="n">dstar_comb</span> <span class="o">=</span> <span class="s2">&quot;(ADAMASS(&#39;D*(2010)+&#39;) &lt; 400*MeV)&quot;</span>
-<span class="n">dstar_mother</span> <span class="o">=</span> <span class="p">(</span>
+<span class="n">dstar_vertex</span> <span class="o">=</span> <span class="p">(</span>
     <span class="s2">&quot;(abs(M-MAXTREE(&#39;D0&#39;==ABSID,M)-145.42) &lt; 10*MeV)&quot;</span>
     <span class="s1">&#39;&amp; (VFASPF(VCHI2/VDOF)&lt; 9)&#39;</span>
 <span class="p">)</span>
@@ -488,9 +488,9 @@ Now we can use another <code class="docutils literal notranslate"><span class="p
 <span class="n">dstar</span> <span class="o">=</span> <span class="n">CombineParticles</span><span class="p">(</span>
     <span class="s1">&#39;Combine_Dstar&#39;</span><span class="p">,</span>
     <span class="n">DecayDescriptor</span><span class="o">=</span><span class="s1">&#39;[D*(2010)+ -&gt; D0 pi+]cc&#39;</span><span class="p">,</span>
-    <span class="n">DaughtersCuts</span><span class="o">=</span><span class="n">dstar_daughters</span><span class="p">,</span>
+    <span class="n">DaughtersCuts</span><span class="o">=</span><span class="n">dstar_decay_products</span><span class="p">,</span>
     <span class="n">CombinationCut</span><span class="o">=</span><span class="n">dstar_comb</span><span class="p">,</span>
-    <span class="n">MotherCut</span><span class="o">=</span><span class="n">dstar_mother</span>
+    <span class="n">MotherCut</span><span class="o">=</span><span class="n">dstar_vertex</span>
 <span class="p">)</span>
 
 <span class="n">dstar_sel</span> <span class="o">=</span> <span class="n">Selection</span><span class="p">(</span>

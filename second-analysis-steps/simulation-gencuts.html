@@ -390,7 +390,7 @@ Enddecay
 </div>
 <div class="section" id="generator-level-cuts">
 <h2>Generator level cuts<a class="headerlink" href="#generator-level-cuts" title="Permalink to this headline">¶</a></h2>
-<p>Detector simulation is computationally expensive, and event generation is comparatively fast. Cuts at generator level save a huge amount of CPU and disk space (which means you can have more actually useful events) almost for free. At generator level you can only cut on pre-resolution quantities, so normally you want the generator cuts to be 100% efficient for selected events (within epsilon). The default example is to immediately remove events where the daughters are far outside the LHCb acceptance.
+<p>Detector simulation is computationally expensive, and event generation is comparatively fast. Cuts at generator level save a huge amount of CPU and disk space (which means you can have more actually useful events) almost for free. At generator level you can only cut on pre-resolution quantities, so normally you want the generator cuts to be 100% efficient for selected events (within epsilon). The default example is to immediately remove events where the decay products are far outside the LHCb acceptance.
 This is implemented in “DaugthersInLHCb”, aka “DecProdCut” in the NickName. This requires that each “stable charged particle” is in a loose region around the LHCb acceptance (10-400 mrad in Theta).
 Cut tools need to be implemented in C++ and reside in the package <code class="docutils literal notranslate"><span class="pre">Gen/GenCuts</span></code>.</p>
 </div>

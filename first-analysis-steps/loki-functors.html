@@ -404,26 +404,26 @@ First open the DST as we did previously:</p>
 </div>
 <p>Get the first candidate in the <code class="docutils literal notranslate"><span class="pre">D2hhPromptDst2D2KKLine</span></code> line:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">advance</span><span class="p">(</span><span class="s1">&#39;D2hhPromptDst2D2KKLine&#39;</span><span class="p">)</span>
-<span class="n">cands</span> <span class="o">=</span> <span class="n">evt</span><span class="p">[</span><span class="s1">&#39;/Event/AllStreams/Phys/D2hhPromptDst2D2KKLine/Particles&#39;</span><span class="p">]</span>
-<span class="n">cand</span> <span class="o">=</span> <span class="n">cands</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">candidates</span> <span class="o">=</span> <span class="n">evt</span><span class="p">[</span><span class="s1">&#39;/Event/AllStreams/Phys/D2hhPromptDst2D2KKLine/Particles&#39;</span><span class="p">]</span>
+<span class="n">candidate</span> <span class="o">=</span> <span class="n">candidates</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 </pre></div>
 </div>
-<p>The object <code class="docutils literal notranslate"><span class="pre">cand</span> </code>, loaded from the DST, is of type <code class="docutils literal notranslate"><span class="pre">LHCb::Particle</span></code> and we are looking at its representation via python bindings.
-We can do <code class="docutils literal notranslate"><span class="pre">help(cand)</span></code> to find out which functions are available.
+<p>The object <code class="docutils literal notranslate"><span class="pre">candidate</span> </code>, loaded from the DST, is of type <code class="docutils literal notranslate"><span class="pre">LHCb::Particle</span></code> and we are looking at its representation via python bindings.
+We can do <code class="docutils literal notranslate"><span class="pre">help(candidate)</span></code> to find out which functions are available.
 We can try to get very simple properties of the <span class="math notranslate nohighlight">\( D^{* +} \)</span> candidate. Let’s start from the components of its momentum.
 This can be done calling the function <code class="docutils literal notranslate"><span class="pre">momentum()</span></code> for our candidate in the following way:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">p_x</span> <span class="o">=</span> <span class="n">cand</span><span class="o">.</span><span class="n">momentum</span><span class="p">()</span><span class="o">.</span><span class="n">X</span><span class="p">()</span>
-<span class="n">p_y</span> <span class="o">=</span> <span class="n">cand</span><span class="o">.</span><span class="n">momentum</span><span class="p">()</span><span class="o">.</span><span class="n">Y</span><span class="p">()</span>
-<span class="n">p_z</span> <span class="o">=</span> <span class="n">cand</span><span class="o">.</span><span class="n">momentum</span><span class="p">()</span><span class="o">.</span><span class="n">Z</span><span class="p">()</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">p_x</span> <span class="o">=</span> <span class="n">candidate</span><span class="o">.</span><span class="n">momentum</span><span class="p">()</span><span class="o">.</span><span class="n">X</span><span class="p">()</span>
+<span class="n">p_y</span> <span class="o">=</span> <span class="n">candidate</span><span class="o">.</span><span class="n">momentum</span><span class="p">()</span><span class="o">.</span><span class="n">Y</span><span class="p">()</span>
+<span class="n">p_z</span> <span class="o">=</span> <span class="n">candidate</span><span class="o">.</span><span class="n">momentum</span><span class="p">()</span><span class="o">.</span><span class="n">Z</span><span class="p">()</span>
 <span class="nb">print</span> <span class="n">p_x</span><span class="p">,</span> <span class="n">p_y</span><span class="p">,</span> <span class="n">p_z</span>
 </pre></div>
 </div>
 <p>This is inconvenient when <a class="reference internal" href="minimal-dv-job.html"><span class="doc">running DaVinci with Python options files</span></a>: there’s no way of calling the <code class="docutils literal notranslate"><span class="pre">momentum()</span></code> method.
 Instead, we can use the corresponding LoKi particle functors:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">LoKiPhys.decorators</span> <span class="kn">import</span> <span class="n">PX</span><span class="p">,</span> <span class="n">PY</span><span class="p">,</span> <span class="n">PZ</span>
-<span class="nb">print</span> <span class="n">PX</span><span class="p">(</span><span class="n">cand</span><span class="p">)</span>
-<span class="nb">print</span> <span class="n">PY</span><span class="p">(</span><span class="n">cand</span><span class="p">)</span>
-<span class="nb">print</span> <span class="n">PZ</span><span class="p">(</span><span class="n">cand</span><span class="p">)</span>
+<span class="nb">print</span> <span class="n">PX</span><span class="p">(</span><span class="n">candidate</span><span class="p">)</span>
+<span class="nb">print</span> <span class="n">PY</span><span class="p">(</span><span class="n">candidate</span><span class="p">)</span>
+<span class="nb">print</span> <span class="n">PZ</span><span class="p">(</span><span class="n">candidate</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>You will see an error when loading the functors:</p>
@@ -441,18 +441,18 @@ will be no warnings.</p>
 <p id="does-it-make-sense?"><i class="fa fa-square-o"></i> Does it make sense?</p>
 </div>
 <div class="panel-body docutils container">
-<p>Compare the output of <code class="docutils literal notranslate"><span class="pre">PX</span></code> functor with the result of calling the function <code class="docutils literal notranslate"><span class="pre">cand.momentum().X()</span></code>.</p>
+<p>Compare the output of <code class="docutils literal notranslate"><span class="pre">PX</span></code> functor with the result of calling the function <code class="docutils literal notranslate"><span class="pre">candidate.momentum().X()</span></code>.</p>
 </div>
 </div>
 <p>Math operations are also allowed:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">p_components_sum</span> <span class="o">=</span> <span class="n">PX</span> <span class="o">+</span> <span class="n">PY</span> <span class="o">+</span> <span class="n">PZ</span>
-<span class="n">p_components_sum</span><span class="p">(</span><span class="n">cand</span><span class="p">)</span>
+<span class="n">p_components_sum</span><span class="p">(</span><span class="n">candidate</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>There exist specific LoKi functors for all the most important properties of the particle. For example, the transverse momentum and mass:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">LoKiPhys.decorators</span> <span class="kn">import</span> <span class="n">PT</span><span class="p">,</span> <span class="n">M</span>
-<span class="nb">print</span> <span class="n">PT</span><span class="p">(</span><span class="n">cand</span><span class="p">)</span>
-<span class="nb">print</span> <span class="n">M</span><span class="p">(</span><span class="n">cand</span><span class="p">)</span>
+<span class="nb">print</span> <span class="n">PT</span><span class="p">(</span><span class="n">candidate</span><span class="p">)</span>
+<span class="nb">print</span> <span class="n">M</span><span class="p">(</span><span class="n">candidate</span><span class="p">)</span>
 </pre></div>
 </div>
 <div class="panel panel-challenge docutils container">
@@ -471,7 +471,7 @@ will be no warnings.</p>
 <div class="panel-body docutils container">
 <p>By the <a class="reference external" href="https://lhcb-comp.web.cern.ch/lhcb-comp/Support/Conventions/units.pdf">convention</a>, the LHCb default units are MeV, millimeters and nanoseconds. It is easy to print the values of interest in other units:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">LoKiPhys.decorators</span> <span class="kn">import</span> <span class="n">GeV</span>
-<span class="nb">print</span> <span class="n">PT</span><span class="p">(</span><span class="n">cand</span><span class="p">)</span><span class="o">/</span><span class="n">GeV</span>
+<span class="nb">print</span> <span class="n">PT</span><span class="p">(</span><span class="n">candidate</span><span class="p">)</span><span class="o">/</span><span class="n">GeV</span>
 </pre></div>
 </div>
 </div>
@@ -479,7 +479,7 @@ will be no warnings.</p>
 <p>If we want to get the properties of the <span class="math notranslate nohighlight">\( D^{* +} \)</span> vertex, for example its fit
 quality (<span class="math notranslate nohighlight">\( \chi^2 \)</span>), we need to pass a vertex object to the vertex functor.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">LoKiPhys.decorators</span> <span class="kn">import</span> <span class="n">VCHI2</span>
-<span class="nb">print</span> <span class="n">VCHI2</span><span class="p">(</span><span class="n">cand</span><span class="o">.</span><span class="n">endVertex</span><span class="p">())</span>
+<span class="nb">print</span> <span class="n">VCHI2</span><span class="p">(</span><span class="n">candidate</span><span class="o">.</span><span class="n">endVertex</span><span class="p">())</span>
 </pre></div>
 </div>
 <p>Again, this is inconvenient when <a class="reference internal" href="minimal-dv-job.html"><span class="doc">running DaVinci with Python options
@@ -489,7 +489,7 @@ Instead, we can use the <code class="docutils literal notranslate"><span class="
 vertex functors as if they were particle functors (note how the functor is
 built by combining two functors).</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">LoKiPhys.decorators</span> <span class="kn">import</span> <span class="n">VFASPF</span>
-<span class="n">VCHI2</span><span class="p">(</span><span class="n">cand</span><span class="o">.</span><span class="n">endVertex</span><span class="p">())</span> <span class="o">==</span> <span class="n">VFASPF</span><span class="p">(</span><span class="n">VCHI2</span><span class="p">)(</span><span class="n">cand</span><span class="p">)</span>
+<span class="n">VCHI2</span><span class="p">(</span><span class="n">candidate</span><span class="o">.</span><span class="n">endVertex</span><span class="p">())</span> <span class="o">==</span> <span class="n">VFASPF</span><span class="p">(</span><span class="n">VCHI2</span><span class="p">)(</span><span class="n">candidate</span><span class="p">)</span>
 </pre></div>
 </div>
 <div class="panel panel-challenge docutils container">
@@ -497,7 +497,7 @@ built by combining two functors).</p>
 <p id="functions-of-functions-of-functions-of…"><i class="fa fa-square-o"></i> Functions of functions of functions of…</p>
 </div>
 <div class="panel-body docutils container">
-<p>Make sure you understand what <code class="docutils literal notranslate"><span class="pre">VFASPF(VCHI2)(cand)</span></code> means. It may help to play
+<p>Make sure you understand what <code class="docutils literal notranslate"><span class="pre">VFASPF(VCHI2)(candidate)</span></code> means. It may help to play
 around in Python, creating a function that takes another function as an
 argument, for example:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">create_greeting</span><span class="p">(</span><span class="n">salutation</span><span class="p">):</span>
@@ -519,12 +519,12 @@ In <code class="docutils literal notranslate"><span class="pre">GaudiPython</spa
     <span class="n">interface</span><span class="o">=</span><span class="s1">&#39;IRelatedPVFinder&#39;</span>
 <span class="p">)</span>
 <span class="n">pvs</span> <span class="o">=</span> <span class="n">evt</span><span class="p">[</span><span class="s1">&#39;/Event/Rec/Vertex/Primary&#39;</span><span class="p">]</span>
-<span class="n">best_pv</span> <span class="o">=</span> <span class="n">pv_finder_tool</span><span class="o">.</span><span class="n">relatedPV</span><span class="p">(</span><span class="n">cand</span><span class="p">,</span> <span class="n">pvs</span><span class="p">)</span>
+<span class="n">best_pv</span> <span class="o">=</span> <span class="n">pv_finder_tool</span><span class="o">.</span><span class="n">relatedPV</span><span class="p">(</span><span class="n">candidate</span><span class="p">,</span> <span class="n">pvs</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Now, we can get the cosine of the direction angle for the candidate given the primary vertex:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">LoKiPhys.decorators</span> <span class="kn">import</span> <span class="n">DIRA</span>
-<span class="nb">print</span> <span class="n">DIRA</span><span class="p">(</span><span class="n">best_pv</span><span class="p">)(</span><span class="n">cand</span><span class="p">)</span>
+<span class="nb">print</span> <span class="n">DIRA</span><span class="p">(</span><span class="n">best_pv</span><span class="p">)(</span><span class="n">candidate</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Given that this is a very common operation, we have the possibility of using, in the context of a <code class="docutils literal notranslate"><span class="pre">DaVinci</span></code> application (Stripping, for example), a special set of functors, starting with the <code class="docutils literal notranslate"><span class="pre">BPV</span></code> prefix (for Best PV), which will get the PV for us.
@@ -537,7 +537,7 @@ Some functors also end with the suffix <code class="docutils literal notranslate
 </div>
 <p>Now, we evaluate the quality of impact parameter of the candidate, given the primary vertex, and using the provided calculator:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">LoKiPhys.decorators</span> <span class="kn">import</span> <span class="n">IPCHI2</span>
-<span class="nb">print</span> <span class="n">IPCHI2</span><span class="p">(</span><span class="n">best_pv</span><span class="p">,</span> <span class="n">ipTool</span><span class="p">)(</span><span class="n">cand</span><span class="p">)</span>
+<span class="nb">print</span> <span class="n">IPCHI2</span><span class="p">(</span><span class="n">best_pv</span><span class="p">,</span> <span class="n">ipTool</span><span class="p">)(</span><span class="n">candidate</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>In the context of <code class="docutils literal notranslate"><span class="pre">DaVinci</span></code> application, e.g. the Stripping, the things become much simplier since the calculator instances are loaded automatically, and the syntax for calling the <code class="docutils literal notranslate"><span class="pre">IPCHI2</span></code> functor becomes <code class="docutils literal notranslate"><span class="pre">IPCHI2(best_pv,geo())(cand)</span></code>, where <code class="docutils literal notranslate"><span class="pre">geo()</span></code> is the geometry calculator tool.</p>
@@ -554,7 +554,7 @@ The list can be overwhelming, so it’s also worth checking a more curated selec
 </div>
 </div>
 <p>So far we’ve only looked at the properties of the head of the decay (that is,
-the <span class="math notranslate nohighlight">\( D^{* +} \)</span>), but what if we want to get information about its daughters? As
+the <span class="math notranslate nohighlight">\( D^{* +} \)</span>), but what if we want to get information about its decay products? As
 an example, let’s get the largest transverse momentum of the final state
 particles.
 A simple solution would be to navigate the tree and calculate the maximum
@@ -575,7 +575,7 @@ A simple solution would be to navigate the tree and calculate the maximum
             <span class="n">tracks</span> <span class="o">+=</span> <span class="n">find_tracks</span><span class="p">(</span><span class="n">child</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">tracks</span>
 
-<span class="n">max_pt</span> <span class="o">=</span> <span class="nb">max</span><span class="p">([</span><span class="n">PT</span><span class="p">(</span><span class="n">child</span><span class="p">)</span> <span class="k">for</span> <span class="n">child</span> <span class="ow">in</span> <span class="n">find_tracks</span><span class="p">(</span><span class="n">cand</span><span class="p">)])</span>
+<span class="n">max_pt</span> <span class="o">=</span> <span class="nb">max</span><span class="p">([</span><span class="n">PT</span><span class="p">(</span><span class="n">child</span><span class="p">)</span> <span class="k">for</span> <span class="n">child</span> <span class="ow">in</span> <span class="n">find_tracks</span><span class="p">(</span><span class="n">candidate</span><span class="p">)])</span>
 </pre></div>
 </div>
 <div class="panel panel-callout docutils container">
@@ -591,7 +591,7 @@ is made general using the <code class="docutils literal notranslate"><span class
 <p>However, LoKi offers functions for performing such operations, namely <code class="docutils literal notranslate"><span class="pre">MAXTREE</span></code> and <code class="docutils literal notranslate"><span class="pre">MINTREE</span></code>, which get as parameters the selection criteria, the functor to calculate and a default value.
 In our example,</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">LoKiPhys.decorators</span> <span class="kn">import</span> <span class="n">MAXTREE</span><span class="p">,</span> <span class="n">ISBASIC</span><span class="p">,</span> <span class="n">HASTRACK</span>
-<span class="n">MAXTREE</span><span class="p">(</span><span class="n">ISBASIC</span> <span class="o">&amp;</span> <span class="n">HASTRACK</span><span class="p">,</span> <span class="n">PT</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)(</span><span class="n">cand</span><span class="p">)</span> <span class="o">==</span> <span class="n">max_pt</span>
+<span class="n">MAXTREE</span><span class="p">(</span><span class="n">ISBASIC</span> <span class="o">&amp;</span> <span class="n">HASTRACK</span><span class="p">,</span> <span class="n">PT</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)(</span><span class="n">candidate</span><span class="p">)</span> <span class="o">==</span> <span class="n">max_pt</span>
 </pre></div>
 </div>
 <p>In this example, we have used two selection functors, <code class="docutils literal notranslate"><span class="pre">ISBASIC</span></code> and <code class="docutils literal notranslate"><span class="pre">HASTRACK</span></code>, which return true if the particle doesn’t have children and is made up by a track, respectively.
@@ -620,8 +620,8 @@ If we use the <code class="docutils literal notranslate"><span class="pre">|</sp
 </div>
 <p>Similarly, the <code class="docutils literal notranslate"><span class="pre">SUMTREE</span></code> functor allows us to accumulate quantities for those children that pass a certain selection:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">LoKiPhys.decorators</span> <span class="kn">import</span> <span class="n">SUMTREE</span><span class="p">,</span> <span class="n">ABSID</span>
-<span class="nb">print</span> <span class="n">SUMTREE</span><span class="p">(</span><span class="mi">321</span> <span class="o">==</span> <span class="n">ABSID</span><span class="p">,</span> <span class="n">PT</span><span class="p">)(</span><span class="n">cand</span><span class="p">)</span>
-<span class="nb">print</span> <span class="n">SUMTREE</span><span class="p">(</span><span class="s1">&#39;K+&#39;</span> <span class="o">==</span> <span class="n">ABSID</span><span class="p">,</span> <span class="n">PT</span><span class="p">)(</span><span class="n">cand</span><span class="p">)</span>
+<span class="nb">print</span> <span class="n">SUMTREE</span><span class="p">(</span><span class="mi">321</span> <span class="o">==</span> <span class="n">ABSID</span><span class="p">,</span> <span class="n">PT</span><span class="p">)(</span><span class="n">candidate</span><span class="p">)</span>
+<span class="nb">print</span> <span class="n">SUMTREE</span><span class="p">(</span><span class="s1">&#39;K+&#39;</span> <span class="o">==</span> <span class="n">ABSID</span><span class="p">,</span> <span class="n">PT</span><span class="p">)(</span><span class="n">candidate</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>In this case, we have summed the transverse momentum of the charged kaons in the tree.
@@ -632,7 +632,7 @@ If you would like to consider only the kaons of one specific charge in the selec
 property of a single child of the particle.
 To specify which child we want, its order is used, so we need to know how the candidate was built.
 For example, from</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>In [10]: cand.daughtersVector()
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>In [10]: candidate.daughtersVector()
 Out[10]:
 
  0 |-&gt;D0                           M/PT/E/PX/PY/PZ: 1.8653/ 2.5848/ 31.32/ 2.508/-0.6267/ 31.15 [GeV]  #  0 
@@ -663,7 +663,7 @@ Therefore, to access the mass of the <span class="math notranslate nohighlight">
 </div>
 <p>In the similar way, we may access properties of child of the child: for example, a kaon from the <span class="math notranslate nohighlight">\( D^{0} \)</span> decay:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">LoKiPhys.decorators</span> <span class="kn">import</span> <span class="n">CHILD</span>
-<span class="n">mass_kaon</span> <span class="o">=</span> <span class="n">CHILD</span><span class="p">(</span><span class="n">CHILD</span><span class="p">(</span><span class="n">M</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span><span class="mi">1</span><span class="p">)(</span><span class="n">cand</span><span class="p">)</span>
+<span class="n">mass_kaon</span> <span class="o">=</span> <span class="n">CHILD</span><span class="p">(</span><span class="n">CHILD</span><span class="p">(</span><span class="n">M</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span><span class="mi">1</span><span class="p">)(</span><span class="n">candidate</span><span class="p">)</span>
 </pre></div>
 </div>
 <div class="panel panel-challenge docutils container">
@@ -672,7 +672,7 @@ Therefore, to access the mass of the <span class="math notranslate nohighlight">
 </div>
 <div class="panel-body docutils container">
 <p>For the particles having tracks, we may exploit track functors to get the corresponding track properties. For instance, the track quality is given by functor <code class="docutils literal notranslate"><span class="pre">TRCHI2</span></code>.</p>
-<p>What happens if we call <code class="docutils literal notranslate"><span class="pre">TRCHI2(cand)</span></code>? Explain the result.</p>
+<p>What happens if we call <code class="docutils literal notranslate"><span class="pre">TRCHI2(candidate)</span></code>? Explain the result.</p>
 <p>Evaluate the track quality for the first and second kaon, also independently of that retrieve (in a single line) the worst of two.</p>
 <p>Then, evaluate the probability that each kaon is really a kaon (<code class="docutils literal notranslate"><span class="pre">PROBNNk</span></code>) or rather a misidentified pion (<code class="docutils literal notranslate"><span class="pre">PROBNNpi</span></code>).</p>
 </div>
@@ -690,8 +690,8 @@ of the given <em>function</em> functor (that is, the functor that returns a <cod
 is within the given lower and upper limit.
 It helps writing CPU-efficient functors and thus is very important when building time-critical software like trigger or stripping lines.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">LoKiCore.functions</span> <span class="kn">import</span> <span class="n">in_range</span>
-<span class="n">in_range</span><span class="p">(</span><span class="mi">2000</span><span class="p">,</span> <span class="n">M</span><span class="p">,</span> <span class="mi">2014</span><span class="p">)(</span><span class="n">cand</span><span class="p">)</span>
-<span class="n">in_range</span><span class="p">(</span><span class="mi">1860</span><span class="p">,</span> <span class="n">CHILD</span><span class="p">(</span><span class="n">M</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="mi">1870</span><span class="p">)(</span><span class="n">cand</span><span class="p">)</span>
+<span class="n">in_range</span><span class="p">(</span><span class="mi">2000</span><span class="p">,</span> <span class="n">M</span><span class="p">,</span> <span class="mi">2014</span><span class="p">)(</span><span class="n">candidate</span><span class="p">)</span>
+<span class="n">in_range</span><span class="p">(</span><span class="mi">1860</span><span class="p">,</span> <span class="n">CHILD</span><span class="p">(</span><span class="n">M</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="mi">1870</span><span class="p">)(</span><span class="n">candidate</span><span class="p">)</span>
 </pre></div>
 </div>
 <div class="panel panel-callout docutils container">
@@ -720,7 +720,7 @@ the most important of these are:</p>
 </ul>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">LoKiCore.functions</span> <span class="kn">import</span> <span class="n">dump1</span>
 <span class="n">debug_p_components_sum</span> <span class="o">=</span> <span class="n">dump1</span><span class="p">(</span><span class="n">p_components_sum</span><span class="p">)</span>
-<span class="n">debug_p_components_sum</span><span class="p">(</span><span class="n">cand</span><span class="p">)</span>
+<span class="n">debug_p_components_sum</span><span class="p">(</span><span class="n">candidate</span><span class="p">)</span>
 </pre></div>
 </div>
 <ul class="simple">
@@ -728,7 +728,7 @@ the most important of these are:</p>
 </ul>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">LoKiCore.functions</span> <span class="kn">import</span> <span class="n">monitor</span>
 <span class="n">monitor_p_components_sum</span> <span class="o">=</span> <span class="n">monitor</span><span class="p">(</span><span class="n">p_components_sum</span><span class="p">)</span>
-<span class="n">monitor_p_components_sum</span><span class="p">(</span><span class="n">cand</span><span class="p">)</span>
+<span class="n">monitor_p_components_sum</span><span class="p">(</span><span class="n">candidate</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
