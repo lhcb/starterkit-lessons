@@ -9,11 +9,19 @@
 
 {% endobjectives %} 
 
+Probably most of you have seen somewhere in a Stripping line, a trigger line or a DaVinci options file an expression like this:
+
+```python
+'(PT > 750*MeV) & (P > 4000*MeV) & (MIPCHI2DV(PRIMARY) > 4)'.
+```
+
+Usually these strings represent so-called *LoKi functors*. In this lesson we will explore why they exist, how one can use them interactively and some of the technical details behind them.
+
 LoKi functors are designed to flexibly compute and compare properties of the 
 current decay, from simple quantities such as the transverse momentum of a 
-particle to complicated ones like helicity angles.
+particle or the impact parameter with respect to the primary vertex to even more complicated ones like helicity angles in a multi-body decay.
 Internally, functors are implemented as C++ classes that take an object of type `TYPE1` and return another of `TYPE2`.
-They can be used both in C++ and in Python code, and can be combined with each other using logical operations.
+They can be used both in C++ and in Python code, and can be combined with each other using logical operations. 
 
 According to `TYPE2` there are 3 types of functors:
 
@@ -36,7 +44,7 @@ According to `TYPE1`, there are many types of functors, the most important of wh
 
 Things like `LHCb::Particle` are C++ classes that usually represent some 
 physical object. You will interact with the C++ objects directly very rarely, 
-if ever.
+if ever, also due to the existence of LoKi functors.
 
 {% endcallout %} 
 
@@ -56,7 +64,9 @@ cands = evt['/Event/AllStreams/Phys/D2hhPromptDst2D2KKLine/Particles']
 cand = cands[0]
 ```
 
-We can now try to get very simple properties of the `$ D^{* +} $` candidate. Let's start from the components of its momentum.
+The object `cand `, loaded from the DST, is of type `LHCb::Particle` and we are looking at its representation via python bindings. 
+We can do `help(cand)` to find out which functions are available.
+We can try to get very simple properties of the `$ D^{* +} $` candidate. Let's start from the components of its momentum.
 This can be done calling the function `momentum()` for our candidate in the following way:
 ```python
 p_x = cand.momentum().X()
@@ -266,7 +276,7 @@ the result is that our `PT` cut vanishes!
 If we use the `|` operator ("bitwise OR") then LoKi correctly builds a functor representing the `OR` of our cuts:
 ```python
 In [2]: ((M>1200) | (PT > 500))
-Out[2]:  ( (M>1200) || (PT>500) )
+Out[2]:  ( (M>1200) | (PT>500) )
 ```
 This is why you should **always** use `&` and `|` when combining LoKi functors, and **never** use `and` and `or`.
 
@@ -356,7 +366,7 @@ in_range(1860, CHILD(M, 1), 1870)(cand)
 {% callout "Understanding the cuts in the stripping lines" %}
 
 Have a look at the stripping line 
-[D2hhPromptDst2D2KKLine](http://lhcbdoc.web.cern.ch/lhcbdoc/stripping/config/stripping28/charm/strippingd2hhpromptdst2d2kkline.html) which is used in our example. Open a `CombineParticles/D2hhPromptDst2D2KKLine` section, and explain which requirements are coded in the 'MotherCut', 'DaughterCuts' and 'CombinationCut' sections. 
+[D2hhPromptDst2D2KKLine](http://lhcbdoc.web.cern.ch/lhcbdoc/stripping/config/stripping28r1/charm/strippingd2hhpromptdst2d2kkline.html) which is used in our example. Open a `CombineParticles/D2hhPromptDst2D2KKLine` section, and explain which requirements are coded in the 'MotherCut', 'DaughterCuts' and 'CombinationCut' sections. 
 (More details about `CombineParticles` algorithm are explained in the [lesson of second analysis steps](/second-analysis-steps/building-decays-part1.md).)
 
 {% endcallout %} 
