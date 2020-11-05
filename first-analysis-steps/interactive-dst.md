@@ -165,30 +165,30 @@ DST until we reach an event which contains a candidate:
 The candidates built for you can now be found at `/Event/AllStreams/Phys/D2hhPromptDst2D2KKLine/Particles`:
 
 ```python
->>> cands = evt['/Event/AllStreams/Phys/{}/Particles'.format(line)]
->>> print(cands.size())
+>>> candidates = evt['/Event/AllStreams/Phys/{}/Particles'.format(line)]
+>>> print(candidates.size())
 ```
 
 This tells you how many candidates there are in this event and you can access the first
 one with:
 
 ```python
->>> print(cands[0])
+>>> print(candidates[0])
 ```
 
-Which will print out some information about the [Particle](https://lhcb-doxygen.web.cern.ch/lhcb-doxygen/davinci/latest/d0/d13/class_l_h_cb_1_1_particle.html). In our case a `$ D^{* +} $` ([particle ID number](http://pdg.lbl.gov/2019/reviews/rpp2018-rev-monte-carlo-numbering.pdf) 413). You can access its daughters with
-`cands[0].daughtersVector()[0]` and `cands[0].daughtersVector()[1]`,
+Which will print out some information about the [Particle](https://lhcb-doxygen.web.cern.ch/lhcb-doxygen/davinci/latest/d0/d13/class_l_h_cb_1_1_particle.html). In our case a `$ D^{* +} $` ([particle ID number](http://pdg.lbl.gov/2019/reviews/rpp2018-rev-monte-carlo-numbering.pdf) 413). You can access its decay products with
+`candidates[0].daughtersVector()[0]` and `candidates[0].daughtersVector()[1]`,
 which will be a `$ D^{0} $` and a `$ \pi^{+} $`.
 
 There is a useful tool for printing out decay trees, which you can
-pass the top level particle to and it will print out the daughters etc:
+pass the top level particle to and it will print out the full decay tree etc:
 
 ```python
 >>> print_decay = appMgr.toolsvc().create(
 ...   'PrintDecayTreeTool', interface='IPrintDecayTreeTool'
 ... )
 ...
->>> print_decay.printTree(cands[0])
+>>> print_decay.printTree(candidates[0])
 ```
 
 With our candidates in hand, it would be nice to be able to retrieve and

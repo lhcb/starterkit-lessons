@@ -60,18 +60,18 @@ Get the first candidate in the `D2hhPromptDst2D2KKLine` line:
 
 ```python
 advance('D2hhPromptDst2D2KKLine')
-cands = evt['/Event/AllStreams/Phys/D2hhPromptDst2D2KKLine/Particles']
-cand = cands[0]
+candidates = evt['/Event/AllStreams/Phys/D2hhPromptDst2D2KKLine/Particles']
+candidate = candidates[0]
 ```
 
-The object `cand `, loaded from the DST, is of type `LHCb::Particle` and we are looking at its representation via python bindings. 
-We can do `help(cand)` to find out which functions are available.
+The object `candidate `, loaded from the DST, is of type `LHCb::Particle` and we are looking at its representation via python bindings. 
+We can do `help(candidate)` to find out which functions are available.
 We can try to get very simple properties of the `$ D^{* +} $` candidate. Let's start from the components of its momentum.
 This can be done calling the function `momentum()` for our candidate in the following way:
 ```python
-p_x = cand.momentum().X()
-p_y = cand.momentum().Y()
-p_z = cand.momentum().Z()
+p_x = candidate.momentum().X()
+p_y = candidate.momentum().Y()
+p_z = candidate.momentum().Z()
 print p_x, p_y, p_z
 ```
 
@@ -80,9 +80,9 @@ Instead, we can use the corresponding LoKi particle functors:
 
 ```python
 from LoKiPhys.decorators import PX, PY, PZ
-print PX(cand)
-print PY(cand)
-print PZ(cand)
+print PX(candidate)
+print PY(candidate)
+print PZ(candidate)
 ```
 
 You will see an error when loading the functors:
@@ -98,22 +98,22 @@ will be no warnings.
 
 {% challenge "Does it make sense?" %}
 
-Compare the output of `PX` functor with the result of calling the function `cand.momentum().X()`. 
+Compare the output of `PX` functor with the result of calling the function `candidate.momentum().X()`. 
 
 {% endchallenge %} 
 
 Math operations are also allowed:
 ```python
 p_components_sum = PX + PY + PZ
-p_components_sum(cand)
+p_components_sum(candidate)
 ```
 
 There exist specific LoKi functors for all the most important properties of the particle. For example, the transverse momentum and mass:
 
 ```python
 from LoKiPhys.decorators import PT, M
-print PT(cand)
-print M(cand)
+print PT(candidate)
+print M(candidate)
 ```
 
 {% challenge "Some practice" %}
@@ -129,7 +129,7 @@ Now, retrieve the transverse momentum and invariant mass (you will probably need
 By the [convention](https://lhcb-comp.web.cern.ch/lhcb-comp/Support/Conventions/units.pdf), the LHCb default units are MeV, millimeters and nanoseconds. It is easy to print the values of interest in other units:
 ```python
 from LoKiPhys.decorators import GeV
-print PT(cand)/GeV
+print PT(candidate)/GeV
 ```
 
 {% endcallout %} 
@@ -139,7 +139,7 @@ quality (`$ \chi^2 $`), we need to pass a vertex object to the vertex functor.
 
 ```python
 from LoKiPhys.decorators import VCHI2
-print VCHI2(cand.endVertex())
+print VCHI2(candidate.endVertex())
 ```
 
 Again, this is inconvenient when [running DaVinci with Python options 
@@ -151,12 +151,12 @@ built by combining two functors).
 
 ```python
 from LoKiPhys.decorators import VFASPF
-VCHI2(cand.endVertex()) == VFASPF(VCHI2)(cand)
+VCHI2(candidate.endVertex()) == VFASPF(VCHI2)(candidate)
 ```
 
 {% challenge "Functions of functions of functions of…" %}
 
-Make sure you understand what `VFASPF(VCHI2)(cand)` means. It may help to play 
+Make sure you understand what `VFASPF(VCHI2)(candidate)` means. It may help to play 
 around in Python, creating a function that takes another function as an 
 argument, for example:
 ```python
@@ -181,12 +181,12 @@ pv_finder_tool = appMgr.toolsvc().create(
     interface='IRelatedPVFinder'
 )
 pvs = evt['/Event/Rec/Vertex/Primary']
-best_pv = pv_finder_tool.relatedPV(cand, pvs)
+best_pv = pv_finder_tool.relatedPV(candidate, pvs)
 ```
 Now, we can get the cosine of the direction angle for the candidate given the primary vertex: 
 ```python
 from LoKiPhys.decorators import DIRA
-print DIRA(best_pv)(cand)
+print DIRA(best_pv)(candidate)
 ```
 
 Given that this is a very common operation, we have the possibility of using, in the context of a `DaVinci` application (Stripping, for example), a special set of functors, starting with the `BPV` prefix (for Best PV), which will get the PV for us.
@@ -201,7 +201,7 @@ ipTool = gbl.LoKi.Vertices.ImpactParamTool(distCal)
 Now, we evaluate the quality of impact parameter of the candidate, given the primary vertex, and using the provided calculator:
 ```python
 from LoKiPhys.decorators import IPCHI2
-print IPCHI2(best_pv, ipTool)(cand)
+print IPCHI2(best_pv, ipTool)(candidate)
 ```
 
 In the context of `DaVinci` application, e.g. the Stripping, the things become much simplier since the calculator instances are loaded automatically, and the syntax for calling the `IPCHI2` functor becomes `IPCHI2(best_pv,geo())(cand)`, where `geo()` is the geometry calculator tool.
@@ -217,7 +217,7 @@ The list can be overwhelming, so it's also worth checking a more curated selecti
 {% endcallout %} 
 
 So far we've only looked at the properties of the head of the decay (that is, 
-the `$ D^{* +} $`), but what if we want to get information about its daughters? As 
+the `$ D^{* +} $`), but what if we want to get information about its decay products? As 
 an example, let's get the largest transverse momentum of the final state 
 particles.
 A simple solution would be to navigate the tree and calculate the maximum 
@@ -240,7 +240,7 @@ def find_tracks(particle):
             tracks += find_tracks(child)
     return tracks
 
-max_pt = max([PT(child) for child in find_tracks(cand)])
+max_pt = max([PT(child) for child in find_tracks(candidate)])
 ```
 {% callout "A note about the try/except" %}
 
@@ -256,7 +256,7 @@ In our example,
 
 ```python
 from LoKiPhys.decorators import MAXTREE, ISBASIC, HASTRACK
-MAXTREE(ISBASIC & HASTRACK, PT, -1)(cand) == max_pt
+MAXTREE(ISBASIC & HASTRACK, PT, -1)(candidate) == max_pt
 ```
 
 In this example, we have used two selection functors, `ISBASIC` and `HASTRACK`, which return true if the particle doesn't have children and is made up by a track, respectively.
@@ -285,8 +285,8 @@ This is why you should **always** use `&` and `|` when combining LoKi functors, 
 Similarly, the `SUMTREE` functor allows us to accumulate quantities for those children that pass a certain selection:
 ```python
 from LoKiPhys.decorators import SUMTREE, ABSID
-print SUMTREE(321 == ABSID, PT)(cand)
-print SUMTREE('K+' == ABSID, PT)(cand)
+print SUMTREE(321 == ABSID, PT)(candidate)
+print SUMTREE('K+' == ABSID, PT)(candidate)
 ```
 In this case, we have summed the transverse momentum of the charged kaons in the tree.
 Note the usage of the `ABSID` functor, which selects particles from the decay 
@@ -298,7 +298,7 @@ property of a single child of the particle.
 To specify which child we want, its order is used, so we need to know how the candidate was built.
 For example, from
 ```
-In [10]: cand.daughtersVector()
+In [10]: candidate.daughtersVector()
 Out[10]:
 
  0 |->D0                           M/PT/E/PX/PY/PZ: 1.8653/ 2.5848/ 31.32/ 2.508/-0.6267/ 31.15 [GeV]  #  0 
@@ -329,14 +329,14 @@ Evaluate the quality of the D0 decay vertex.
 In the similar way, we may access properties of child of the child: for example, a kaon from the `$ D^{0} $` decay:
 ```python
 from LoKiPhys.decorators import CHILD
-mass_kaon = CHILD(CHILD(M, 1),1)(cand)
+mass_kaon = CHILD(CHILD(M, 1),1)(candidate)
 ```
 
 {% challenge "Tracks and PID" %}
 
 For the particles having tracks, we may exploit track functors to get the corresponding track properties. For instance, the track quality is given by functor `TRCHI2`.
 
-What happens if we call `TRCHI2(cand)`? Explain the result.
+What happens if we call `TRCHI2(candidate)`? Explain the result.
 
 Evaluate the track quality for the first and second kaon, also independently of that retrieve (in a single line) the worst of two.
 
@@ -360,8 +360,8 @@ It helps writing CPU-efficient functors and thus is very important when building
 
 ```python
 from LoKiCore.functions import in_range
-in_range(2000, M, 2014)(cand)
-in_range(1860, CHILD(M, 1), 1870)(cand)
+in_range(2000, M, 2014)(candidate)
+in_range(1860, CHILD(M, 1), 1870)(candidate)
 ```
 {% callout "Understanding the cuts in the stripping lines" %}
 
@@ -386,13 +386,13 @@ the most important of these are:
   ```python
   from LoKiCore.functions import dump1
   debug_p_components_sum = dump1(p_components_sum)
-  debug_p_components_sum(cand)
+  debug_p_components_sum(candidate)
   ```
  - `monitor` which prints the input the functor string and returns the calculated functor value,
   ```python
   from LoKiCore.functions import monitor
   monitor_p_components_sum = monitor(p_components_sum)
-  monitor_p_components_sum(cand)
+  monitor_p_components_sum(candidate)
   ```
 
 {% endcallout %} 

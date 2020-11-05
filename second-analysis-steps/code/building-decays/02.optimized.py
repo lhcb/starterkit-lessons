@@ -15,7 +15,7 @@ from PhysConf.Selections import CombineSelection, FilterSelection
 from PhysConf.Selections import SelectionSequence
 
 # Build the D0 from the kaons
-d0_daughters = {
+d0_decay_products = {
     'K-': '(PT > 750*MeV) & (P > 4000*MeV) & (MIPCHI2DV(PRIMARY) > 4)',
     'K+': '(PT > 750*MeV) & (P > 4000*MeV) & (MIPCHI2DV(PRIMARY) > 4)'
 }
@@ -31,7 +31,7 @@ d0_sel = CombineSelection(
     'Sel_D0',
     [Kaons],
     DecayDescriptor='[D0 -> K- K+]cc',
-    DaughtersCuts=d0_daughters,
+    DaughtersCuts=d0_decay_products,
     CombinationCut=d0_comb,
     MotherCut=d0_mother,
 )

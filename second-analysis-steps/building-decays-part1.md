@@ -70,7 +70,7 @@ This algorithm performs the combinatorics for us according to a given decay desc
    For example:
 
     ```python
-    d0_daughters = {
+    d0_decay_products = {
       'K-': '(PT > 750*MeV) & (P > 4000*MeV) & (MIPCHI2DV(PRIMARY) > 4)',
       'K+': '(PT > 750*MeV) & (P > 4000*MeV) & (MIPCHI2DV(PRIMARY) > 4)'
     }
@@ -86,7 +86,7 @@ This algorithm performs the combinatorics for us according to a given decay desc
 
     ```python
     # We can split long selections across multiple lines
-    d0_mother = (
+    d0_vertex = (
       '(VFASPF(VCHI2/VDOF)< 9)'
       '& (BPVDIRA > 0.9997)'
       "& (ADMASS('D0') < 70*MeV)"
@@ -99,9 +99,9 @@ from Configurables import CombineParticles
 d0 = CombineParticles(
     'Combine_D0',
     DecayDescriptor='[D0 -> K- K+]cc',
-    DaughtersCuts=d0_daughters,
+    DaughtersCuts=d0_decay_products,
     CombinationCut=d0_comb,
-    MotherCut=d0_mother
+    MotherCut=d0_vertex
 )
 ```
 
@@ -130,9 +130,9 @@ For the time being, let's finish building our candidates.
 Now we can use another `CombineParticles` to build the `$ D^\ast $` with pions and the `$ D^0 $`'s as inputs, and applying a filtering only on the soft pion:
 
 ```python
-dstar_daughters = {'pi+': '(TRCHI2DOF < 3) & (PT > 100*MeV)'}
+dstar_decay_products = {'pi+': '(TRCHI2DOF < 3) & (PT > 100*MeV)'}
 dstar_comb = "(ADAMASS('D*(2010)+') < 400*MeV)"
-dstar_mother = (
+dstar_vertex = (
     "(abs(M-MAXTREE('D0'==ABSID,M)-145.42) < 10*MeV)"
     '& (VFASPF(VCHI2/VDOF)< 9)'
 )
@@ -140,9 +140,9 @@ dstar_mother = (
 dstar = CombineParticles(
     'Combine_Dstar',
     DecayDescriptor='[D*(2010)+ -> D0 pi+]cc',
-    DaughtersCuts=dstar_daughters,
+    DaughtersCuts=dstar_decay_products,
     CombinationCut=dstar_comb,
-    MotherCut=dstar_mother
+    MotherCut=dstar_vertex
 )
 
 dstar_sel = Selection(
