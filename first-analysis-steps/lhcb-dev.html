@@ -370,26 +370,25 @@ Starterkit.</p>
 </div>
 </div>
 <p>In this lesson, we’ll show you a complete workflow for developing the LHCb
-software using the <code class="docutils literal notranslate"><span class="pre">git</span></code> version control system.  At LHCb, we use GitLab to
-manage our git repositories.  Among other features, GitLab allows you to browse
-the source code for each project, and to review new changes (called <em>merge
+software using the Git version control system.  At LHCb, we use GitLab to
+manage our Git repositories.  Among other features, GitLab allows you to browse
+the source code for each project, and to review proposed changes (called <em>merge
 requests</em>) in a convenient web interface.  You can find the CERN GitLab
-instance at https://gitlab.cern.ch.</p>
+instance at <a class="reference external" href="https://gitlab.cern.ch">https://gitlab.cern.ch</a>.</p>
 <p>In principle, there are multiple ways of interacting with the LHCb software
 repositories:</p>
 <ol class="simple">
-<li><p>A vanilla git workflow using only the standard git commands.  This requires
+<li><p>A vanilla Git workflow using only the standard Git commands.  This requires
 you to <code class="docutils literal notranslate"><span class="pre">clone</span></code> and compile an entire LHCb project at a time.</p></li>
-<li><p>An LHCb-specific workflow using a set of <code class="docutils literal notranslate"><span class="pre">lb-*</span></code> subcommands.  This allows
+<li><p>An LHCb-specific workflow using a set of <code class="docutils literal notranslate"><span class="pre">lb-*</span></code> Git subcommands.  This allows
 you to check out individual packages inside a project, and streamlines the
-modification of a few packages at a time.  (This is closer to the previously
-used <code class="docutils literal notranslate"><span class="pre">getpack</span></code> command.)</p></li>
+modification of a few packages at a time.</p></li>
 </ol>
 <p>Here, we want to focus on the second workflow. The first workflow will be
 discussed briefly at the <a class="reference external" href="#working-with-a-full-project-checkout">bottom</a> of
-this page. Note that, although the lb-git commands are much easier for small
+this page. Note that, although the <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">lb-*</span></code> commands are much easier for small
 changes to existing packages where recompiling an entire project would be
-cumbersome, for any serious development the usage of vanilla git is much more
+cumbersome, for any serious development the usage of vanilla Git is much more
 stable. Please consider using it if you can spare the compilation time.</p>
 <div class="panel panel-callout docutils container">
 <div class="panel-header open docutils container">
@@ -397,20 +396,19 @@ stable. Please consider using it if you can spare the compilation time.</p>
 </div>
 <div class="panel-body docutils container">
 <p>Before jumping in by creating a project in GitLab, you should make sure that
-your local git configuration and your settings on GitLab are sufficiently set
+your local Git configuration and your settings on GitLab are sufficiently set
 up.</p>
-<ul class="simple">
-<li><p>Your name and email address should be set up in your local <code class="docutils literal notranslate"><span class="pre">git</span></code>
-configuration.  To ensure that this is the case, run</p></li>
-</ul>
+<ul>
+<li><p>Your name and email address should be set up in your local Git
+configuration.  To ensure that this is the case, run</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>git config --global user.name &quot;Your Name&quot;
 git config --global user.email &quot;Your Name &lt;your.name@cern.ch&gt;&quot;
 </pre></div>
 </div>
 <p>and put in your information.</p>
-<ul>
-<li><p>Next, connect to https://gitlab.cern.ch and log in with your CERN
-credentials. Visit https://gitlab.cern.ch/profile/keys and add an SSH key.</p></li>
+</li>
+<li><p>Next, visit <a class="reference external" href="https://gitlab.cern.ch/profile/keys">https://gitlab.cern.ch/profile/keys</a>
+(logging in with your CERN credentials) and add an SSH key.</p></li>
 <li><p>Finally, run this LHCb-specific configuration command:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>git config --global lb-use.protocol ssh
 </pre></div>
@@ -420,7 +418,7 @@ credentials. Visit https://gitlab.cern.ch/profile/keys and add an SSH key.</p></
 </ul>
 </div>
 </div>
-<p>This lesson introduces you the commands:</p>
+<p>This lesson introduces the commands:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">lb-dev</span></code> for setting up a new development environment</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">lb-use</span></code> and <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">lb-checkout</span></code> for downloading LHCb software packages</p></li>
@@ -431,7 +429,7 @@ development environment. <code class="docutils literal notranslate"><span class=
 </pre></div>
 </div>
 <p>The output should look similar to this:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Successfully created the local project DaVinciDev in .
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Successfully created the local project DaVinciDev for x86_64-centos7-gcc9-opt in .
 
 To start working:
 
@@ -448,8 +446,12 @@ and optionally (CMake only)
 
   &gt; make install
 
-You can customize the configuration by editing the files &#39;build.conf&#39; and
-&#39;CMakeLists.txt&#39; (see https://cern.ch/gaudi/CMake for details).
+To build for another platform call
+
+  &gt; make platform=&lt;platform id&gt;
+
+You can customize the configuration by editing the files &#39;build.conf&#39; and &#39;CMakeLists.txt&#39;
+(see https://twiki.cern.ch/twiki/bin/view/LHCb/GaudiCMakeConfiguration for details).
 </pre></div>
 </div>
 <div class="panel panel-callout docutils container">
@@ -457,46 +459,80 @@ You can customize the configuration by editing the files &#39;build.conf&#39; an
 <p id="lb-dev-created-local-projects-are-git-repositories"><i class="fa fa-info-circle"></i> lb-dev created local projects are Git repositories</p>
 </div>
 <div class="panel-body docutils container">
-<p>When <code class="docutils literal notranslate"><span class="pre">lb-dev</span></code> creates the local project directory and create the initial
-files there, it also calls <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">init</span></code> and commits to the local Git repository
-the first version of the files (try with <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">log</span></code> in there).</p>
-<p>You can then use git to keep track of your development, and share your code
+<p>When <code class="docutils literal notranslate"><span class="pre">lb-dev</span></code> creates the local project directory and creates the initial
+files there, it also calls <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">init</span></code> and commits the first version of
+the files to the local Git repository (try running <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">log</span></code> in there).</p>
+<p>You can then use Git to keep track of your development, and share your code
 with others (for example with a <a class="reference external" href="https://gitlab.cern.ch/projects/new">new project in
 gitlab.cern.ch</a>).</p>
+<p>You can even create a new project in GitLab without leaving the terminal!
+Just define the git remote and a new project will be created as soon as you push.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>git remote add ssh://git@gitlab.cern.ch:7999/&lt;username&gt;/&lt;project-name&gt;.git
+git push -u origin master
+</pre></div>
+</div>
 </div>
 </div>
 <p>Follow those instructions to compile the software:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> DaVinciDev
-git lb-use DaVinci
 make
 </pre></div>
 </div>
-<p>Once that’s done, you can do</p>
+<p>Once that’s done, let’s try it out:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>./run gaudirun.py
+</pre></div>
+</div>
+<p>We just successfully ran the simplest possible Gaudi job with <code class="docutils literal notranslate"><span class="pre">gaudirun.py</span></code>!
+The <code class="docutils literal notranslate"><span class="pre">./run</span></code> script runs the command that follows in the project “runtime”
+environment where the right varialbes are set.
+It works similar to <code class="docutils literal notranslate"><span class="pre">lb-run</span></code>, without the need to specify a package and version.</p>
+<div class="panel panel-discussion docutils container">
+<div class="panel-header docutils container">
+<p id="obtain-a-shell-with-the-runtime-environment"><i class="fa fa-bell"></i> Obtain a shell with the runtime environment</p>
+</div>
+<div class="panel-body docutils container">
+<p>Sometimes it is convenient to get a shell with the runtime environment
+so that you don’t need to prefix commands with <code class="docutils literal notranslate"><span class="pre">./run</span></code> all the time.
+To do this, simply run</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>./run bash -l
 </pre></div>
 </div>
-<p>inside the directory. This will (similar to <code class="docutils literal notranslate"><span class="pre">lb-run</span></code>) give you a new bash
-session with the right environment variables set, from which you can run
-project-specific commands such as <code class="docutils literal notranslate"><span class="pre">gaudirun.py</span></code>.</p>
+<p>While useful, it is generally advised to stick to prefixing commands with
+<code class="docutils literal notranslate"><span class="pre">./run</span></code> (or <code class="docutils literal notranslate"><span class="pre">lb-run</span></code>). This way the command starts in the same reproducible
+environment every time and there’s less risk of getting to an inconsistent
+state.</p>
+</div>
+</div>
 <p>Your new development environment won’t be very useful without any software to
 modify and build.  So let’s check out one of the existing LHCb packages! These
 are stored in the <a class="reference external" href="https://gitlab.cern.ch/lhcb">LHCb Git repositories</a>.</p>
 <p>In order to obtain the source code of the package you want to work on, we’ll
-use the <a class="reference external" href="http://lhcb-core-doc.web.cern.ch/lhcb-core-doc/GitForLHCbUsers.html">Git4LHCb</a> scripts.
-These are a set of aliases, starting with <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">lb-</span></code>, that are designed to make
-developing LHCb software easier.  For example, if you want to write a custom
-stripping selection, execute the following in the <code class="docutils literal notranslate"><span class="pre">DaVinciDev</span></code> directory:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git lb-use Stripping
-git lb-checkout Stripping/master Phys/StrippingSelections
-make configure
+use the method described at the <a class="reference external" href="http://lhcb-core-doc.web.cern.ch/lhcb-core-doc/GitForLHCbUsers.html">Git4LHCb</a> page.
+These are a set of subcommands, starting with <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">lb-</span></code>, that are designed to make
+developing LHCb software easier.
+For example, if you want to modify a <code class="docutils literal notranslate"><span class="pre">TupleTool</span></code>
+(which you discovered in the <a class="reference internal" href="add-tupletools.html"><span class="doc">TupleTools and branches</span></a> lesson),
+start by executing the following in the <code class="docutils literal notranslate"><span class="pre">DaVinciDev</span></code> directory:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git lb-use Analysis
+git lb-checkout Analysis/run2-patches Phys/DecayTreeTuple
 </pre></div>
 </div>
-<p>Under the hood, <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">lb-use</span></code> will add the
-<a class="reference external" href="https://gitlab.cern.ch/lhcb/Stripping"><code class="docutils literal notranslate"><span class="pre">Stripping</span></code></a> repository as a remote in
-git – check this with <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">remote</span> <span class="pre">-v</span></code>!  <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">lb-checkout</span></code> will then perform a
-<em>partial</em> checkout of the master branch of the Stripping repository, only
-adding the files under
-<a class="reference external" href="https://gitlab.cern.ch/lhcb/Stripping/tree/master/Phys/StrippingSelections"><code class="docutils literal notranslate"><span class="pre">Phys/StrippingSelections</span></code></a>.</p>
+<div class="panel panel-discussion docutils container">
+<div class="panel-header docutils container">
+<p id="what-if-git-asks-for-my-password?"><i class="fa fa-bell"></i> What if git asks for my password?</p>
+</div>
+<div class="panel-body docutils container">
+<p>Make sure you succesfully completed the instructions under <a class="reference external" href="#initial-setup">initial
+setup</a>.</p>
+</div>
+</div>
+<p>Under the hood, <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">lb-use</span></code> will add and fetch the
+<a class="reference external" href="https://gitlab.cern.ch/lhcb/Analysis"><code class="docutils literal notranslate"><span class="pre">Analysis</span></code></a> repository as a remote in
+Git – check this with <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">remote</span> <span class="pre">-v</span></code>!  <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">lb-checkout</span></code> will then perform a
+<em>partial</em> checkout of the <code class="docutils literal notranslate"><span class="pre">run2-patches</span></code> branch of the Analysis repository, only
+adding the files under the
+<a class="reference external" href="https://gitlab.cern.ch/lhcb/Analysis/tree/run2-patches/Phys/DecayTreeTuple"><code class="docutils literal notranslate"><span class="pre">Phys/DecayTreeTuple</span></code></a>.
+directory.</p>
 <div class="panel panel-callout docutils container">
 <div class="panel-header open docutils container">
 <p id="which-project-to-use-in-git-lb-use?"><i class="fa fa-info-circle"></i> Which project to use in git lb-use?</p>
@@ -513,37 +549,31 @@ git lb-use Stripping
 git lb-use DaVinci
 </pre></div>
 </div>
-<p>Not that in order for this to work, projects you specify in <code class="docutils literal notranslate"><span class="pre">lb-use</span></code> may not
-depend on the project you specify in <code class="docutils literal notranslate"><span class="pre">lb-dev</span></code>. In other words, the top-level
-project should be at the top of the <a class="reference external" href="https://lhcb-comp.web.cern.ch/lhcb-comp/">dependency
+<p>Note that in order for this to work, projects you specify in <code class="docutils literal notranslate"><span class="pre">lb-use</span></code> must
+be dependencies of the project you specify in <code class="docutils literal notranslate"><span class="pre">lb-dev</span></code>. In other words, the top-level
+project should be at the top of the <a class="reference external" href="http://lhcb.web.cern.ch/computing/">dependency
 chain</a>.</p>
 </div>
 </div>
-<p>You can now modify the <code class="docutils literal notranslate"><span class="pre">StrippingSelections</span></code> package and run <code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">purge</span> <span class="pre">&amp;&amp;</span> <span class="pre">make</span></code> to build it with your changes.  You can test your changes with the
-<code class="docutils literal notranslate"><span class="pre">./run</span></code> script.  It works similar to <code class="docutils literal notranslate"><span class="pre">lb-run</span></code>, without the need to specify a
-package and version:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>./run gaudirun.py options.py
+<p>After checking out new packages, always remember to make them known to your
+local project with <code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">configure</span></code> (sometimes it might be necessary to fully
+clean up the build with <code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">purge</span></code>):</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>make configure
 </pre></div>
 </div>
-<div class="panel panel-callout docutils container">
-<div class="panel-header open docutils container">
-<p id="what-if-git-asks-for-my-password?"><i class="fa fa-info-circle"></i> What if git asks for my password?</p>
-</div>
-<div class="panel-body docutils container">
-<p>Make sure you succesfully completed the instructions under <a class="reference external" href="#initial-setup">initial
-setup</a>.</p>
-</div>
+<p>You can now modify the <code class="docutils literal notranslate"><span class="pre">Phys/DecayTreeTuple</span></code> package and run <code class="docutils literal notranslate"><span class="pre">make</span></code> to build
+it with your changes. You can test your changes with the <code class="docutils literal notranslate"><span class="pre">./run</span></code> script.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>./run gaudirun.py ntuple_options.py
+</pre></div>
 </div>
 <p>If you have made changes that you’d like to be integrated into the official
 LHCb repositories, you can use <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">lb-push</span></code> to push it to a new branch in the
-central git repository. But please read the <a class="reference external" href="http://lhcb-core-doc.web.cern.ch/lhcb-core-doc/GitForLHCbUsers.html#using-git-for-lhcb-development">instructions
+central Git repository. But please read the <a class="reference external" href="http://lhcb-core-doc.web.cern.ch/lhcb-core-doc/GitForLHCbUsers.html#using-git-for-lhcb-development">instructions
 page</a>
 first.</p>
-<p>Depending on the project, you may be required to document your changes in the
-release notes which are found in <code class="docutils literal notranslate"><span class="pre">doc/release.notes</span></code>.</p>
-<p>Note that no-one has permission to push directly to the <code class="docutils literal notranslate"><span class="pre">master</span></code> branch of any project.
-In order to get your changes merged there from the branch to which you <code class="docutils literal notranslate"><span class="pre">lb-push</span></code>ed, you need to create a merge request, so the project maintainer can inspect your code.
-This can be done on the <a class="reference external" href="https://gitlab.cern.ch/lhcb/Stripping/merge_requests/new">project repository web page</a>, for example.</p>
+<p>Note that no one has permission to push directly to the official protected branches (e.g. <code class="docutils literal notranslate"><span class="pre">master</span></code> or <code class="docutils literal notranslate"><span class="pre">run2-patches</span></code>) of LHCb projects.
+To get your changes merged there from the branch to which you <code class="docutils literal notranslate"><span class="pre">lb-push</span></code>-ed, you need to create a merge request (MR), so the project maintainer can check your code.
+This can be done on the <a class="reference external" href="https://gitlab.cern.ch/lhcb/Analysis/-/merge_requests/new">project repository web page</a>, for example.</p>
 <div class="panel panel-callout docutils container">
 <div class="panel-header open docutils container">
 <p id="quick-link-to-create-a-merge-request"><i class="fa fa-info-circle"></i> Quick link to create a merge request</p>
@@ -552,7 +582,7 @@ This can be done on the <a class="reference external" href="https://gitlab.cern.
 <p>When pushing to a branch in a project in GitLab you will see a message like:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>remote:
 remote: Create merge request for my-branch:
-remote:   https://gitlab.cern.ch/lhcb/Stripping/merge_requests/new?merge_request%5Bsource_branch%5D=my-branch
+remote:   https://gitlab.cern.ch/lhcb/Analysis/merge_requests/new?merge_request%5Bsource_branch%5D=my-branch
 remote:
 </pre></div>
 </div>
@@ -560,49 +590,38 @@ remote:
 changes you just pushed.</p>
 </div>
 </div>
-<p>When your merge request is approved (which can be after some additional commits
-on your part), your changes are part of the <code class="docutils literal notranslate"><span class="pre">master</span></code> branch of the respective
-project, and your contributions are officially part of the LHCb software stack.
+<p>When your merge request is approved and merged (which can be after some additional commits on your part), your changes are part of an official branch of the respective project, and your contributions are part of the LHCb software stack.
 Congratulations!</p>
 <div class="panel panel-callout docutils container">
 <div class="panel-header open docutils container">
 <p id="nightlies"><i class="fa fa-info-circle"></i> Nightlies</p>
 </div>
 <div class="panel-body docutils container">
-<p>It is advisable to test new developments on the so-called <a class="reference external" href="https://lhcb-nightlies.web.cern.ch">nightly
-builds</a>. Each project is built overnight
-(hence the name), and all pending merge requests are applied. You can use a
-nightly build version of a project with:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>lb-dev --nightly lhcb-head DaVinci/HEAD
-</pre></div>
-</div>
-<p>A more detailed description of the command is found here:</p>
-<ul class="simple">
-<li><p><a class="reference external" href="https://twiki.cern.ch/twiki/bin/view/LHCb/SoftwareEnvTools">SoftwareEnvTools</a></p></li>
-</ul>
-<p>Sometimes mistakes happen and the committed code is either not compiling or
-does not do what it is supposed to do.  Therefore the nightly tests are
-performed. They first try to build the full software stack.</p>
-<p>If that is successful, they run some reference jobs and compare the output of
-the new build with a reference file.  The results of the nightly builds can
-be found here.</p>
-<ul class="simple">
-<li><p><a class="reference external" href="https://lhcb-nightlies.web.cern.ch">Nightly builds summaries</a></p></li>
-</ul>
+<p>Typically before being approved every merge request will be tested in the so-called <a class="reference external" href="https://lhcb-nightlies.web.cern.ch">nightly builds</a>.
+The nightly build infrastructure allows for building and testing the entire stack of LHCb physics projects, either overnight (in standard slots such as <code class="docutils literal notranslate"><span class="pre">lhcb-run2-patches</span></code>) or on demand (using <code class="docutils literal notranslate"><span class="pre">/ci-test</span></code> in GitLab discussions).
+The relevant maintainers will help with the exact workflow (e.g. who schedules the testing), which varies a bit depending on the project.</p>
+<p>The automatic builds and tests can show compilation problems (e.g. new warnings) and unintended consequences of the proposed changes.
+To achieve the latter, they run some reference jobs and compare the output of the new build with a reference file.</p>
 <p>If the aim of the commit was to change the ouput, e.g. because you increased
 the track reconstruction efficiency by a factor of two, mention it in the
-merge request description, such that the manager of the affected project can
+merge request description, such that the maintainers of the affected project can
 update the reference file.</p>
+<p>Often it is useful to work directly from nightly builds (e.g. to debug an issue on another platform).
+You can use a nightly build version of a project with:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>lb-dev -c x86_64-centos7-gcc9-opt --nightly lhcb-run2-patches DaVinci/run2-patches
+</pre></div>
+</div>
+<p>A more detailed description of the command is found at <a class="reference external" href="https://twiki.cern.ch/twiki/bin/view/LHCb/SoftwareEnvTools">SoftwareEnvTools</a>.</p>
 </div>
 </div>
 <p>If you want to take a look the source code, without checking it out, you can
 easily access the repository through the <a class="reference external" href="https://gitlab.cern.ch/lhcb">GitLab web
 interface</a>. This website also provides search
 functionality, but the output is not always easy to read, especially if it
-returns many hits. To search a project much quicker, you can use <code class="docutils literal notranslate"><span class="pre">Lbglimpse</span></code>.
+returns many hits. To search a project much quicker, you can use <code class="docutils literal notranslate"><span class="pre">lb-glimpse</span></code>.
 It allows you to search for a given string in the source code of a particular
-LHCb project.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>Lbglimpse <span class="s2">&quot;PVRefitter&quot;</span> DaVinci v45r1
+LHCb project (and all its dependencies).</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>lb-glimpse <span class="s2">&quot;PVRefitter&quot;</span> DaVinci/v45r1
 </pre></div>
 </div>
 <p>This works with every LHCb project and released version. Since it’s a shell
@@ -610,22 +629,25 @@ command, you can easily process the output using <code class="docutils literal n
 tools.</p>
 <p>To get an idea of how a certain component of the LHCb software works, you can
 also access the doxygen documentation. One set of doxygen web pages is
-generated for several related projects, and is linked in all the projects web
+generated for several related projects, and is linked from the projects web
 sites, like <a class="reference external" href="http://lhcbdoc.web.cern.ch/lhcbdoc/davinci/">for DaVinci</a>.
-See also the <a class="reference external" href="http://lhcb.web.cern.ch/lhcb/computing/">LHCb Computing web page</a> for a
+For example, the doxygen documentation for DaVinci v45r1 is
+<a class="reference external" href="https://lhcb-doxygen.web.cern.ch/lhcb-doxygen/davinci/v45r1/index.html">here</a>.
+See also the <a class="reference external" href="https://lhcb.web.cern.ch/computing/">LHCb Computing web page</a> for a
 list of projects.</p>
 <div class="panel panel-callout docutils container">
 <div class="panel-header open docutils container">
 <p id="working-with-a-full-project-checkout"><i class="fa fa-info-circle"></i> Working with a full project checkout</p>
 </div>
 <div class="panel-body docutils container">
-<p>The <code class="docutils literal notranslate"><span class="pre">lb-git</span></code> commands are not strictly necessary, but they’re very convenient
+<p>The <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">lb-*</span></code> commands are not strictly necessary, but they’re very convenient
 if you just want to quickly edit one package. Otherwise you’d have to build
 the entire project in which the package is residing, instead of using the
 precompiled version. However, if you develop across multiple packages, or
 want to use more sophisticated <code class="docutils literal notranslate"><span class="pre">git</span></code> commands, nothing prevents you from
-checking out an entire project – just don’t be surprised if it takes O(hours)
-to compile!</p>
+checking out an entire project – just don’t be surprised if it takes hours
+to compile on lxplus! Note that repeated compilation will be much faster
+and using a dedicated multi-core machine can speed things up a lot.</p>
 <p>To check out a project, run the following:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git clone https://:@gitlab.cern.ch:8443/lhcb/DaVinci.git
 </pre></div>
@@ -638,7 +660,10 @@ make
 </div>
 <p>optionally followed by <code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">test</span></code> to run the tests and/or <code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">install</span></code> to
 install it to the <code class="docutils literal notranslate"><span class="pre">InstallArea</span></code> directory. That’s all! You now have a vanilla
-git repository containing all the source files of the project.</p>
+Git repository containing all the source files of the project.
+You can find out more about working with full projects at the
+<a class="reference external" href="http://lhcb-core-doc.web.cern.ch/lhcb-core-doc/GitForLHCbUsers.html">Git4LHCb</a>
+page.</p>
 </div>
 </div>
 </div>
@@ -664,7 +689,7 @@ git repository containing all the source files of the project.</p>
   <div role="contentinfo">
     <p>
         
-        &copy; Copyright 2015-2019, LHCb Starterkit
+        &copy; Copyright 2015-2020, LHCb Starterkit
 
     </p>
   </div>
