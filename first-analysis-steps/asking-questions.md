@@ -92,7 +92,7 @@ When asking your question, mention which of these steps you have tried. It
 will help demonstrate that you are not lazy and put in some effort. If you
 learned something from trying this, mention it!
 
-The begining of your email should explain what you are trying to do and
+The beginning of your email should explain what you are trying to do and
 why, as well as where the problem occurs. Often it is useful to describe
 the big goal, and not the particular step you are stuck with.
 
