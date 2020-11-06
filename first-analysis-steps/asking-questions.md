@@ -7,7 +7,7 @@
 
 {% endobjectives %} 
 
-Eentually you will get stuck when trying to do something.
+Eventually you will get stuck when trying to do something.
 This lesson is about how to get help with getting unstuck.
 
 People love helping others. Below some tips on how to improve
