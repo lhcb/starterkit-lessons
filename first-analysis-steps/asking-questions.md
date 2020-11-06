@@ -49,7 +49,7 @@ If you are struggling with a good title, write it last! Having
 written the rest of your email will give you a better idea of what
 the one sentence summary is.
 
-{% callout "Grammar and spelling" %}
+{% callout "Gramar and spelling" %}
 
 This is a no brainer. You want to make a good impression:
 someone who made an effort and values other people's time.
@@ -66,7 +66,7 @@ an air of arrogance. People are hostile towards people who seem unwilling
 to think for themselves or did not do their homework before asking their
 question.
 
-{% callout "Volunteers" %}
+{% callout "Volunters" %}
 
 Remember people are volunteering their time to help you. They have busy
 lives and there are a lot of questions. So they filter ruthlessly. Make
@@ -92,7 +92,7 @@ When asking your question, mention which of these steps you have tried. It
 will help demonstrate that you are not lazy and put in some effort. If you
 learned something from trying this, mention it!
 
-The beginning of your email should explain what you are trying to do and
+The begining of your email should explain what you are trying to do and
 why, as well as where the problem occurs. Often it is useful to describe
 the big goal, and not the particular step you are stuck with.
 
@@ -102,7 +102,7 @@ program. Try and make a minimal example that demonstrates the problem. Stack
 Overflow has a good guide on creating a [minimal, complete, and verifiable
 example](https://stackoverflow.com/help/mcve).
 
-You have to be precise. Do not simply dump all possible information that
+You ave to be precise. Do not simply dump all possible information that
 might be relevant. Vague questions receive vague answers. Being precise is
 useful for at least three reasons. One: being seen to invest effort in simplifying
 the question makes it more likely you'll get an answer, Two: simplifying
@@ -114,7 +114,7 @@ you manage to solve your problem, tell the mailing list.
 
 {% callout "Love letters also known as private replies" %}
 
-Please do not reply to questions privately. We are trying to solve a technical
+Plese do not reply to questions privately. We are trying to solve a technical
 issue, not writing lover letters. If you take the discussion
 off the mailing list future generations will just see the question and no
 solution. You will also miss out on help from others that did not chime
@@ -125,8 +125,8 @@ in to your first question but might be able to help later on.
 Once the problem is solved post a final message saying that the problem is
 solved and what the solution is.
 
-A lot of the material in this topic was taken from the following, excellent
-guides to asking good questions:
+A lot of the material in this topic was taken from the folowing, excellent
+guides to asking god questions:
 
  * [How To Ask Questions The Smart Way](http://www.catb.org/esr/faqs/smart-questions.html) by
    Eric Raymond
