@@ -52,7 +52,7 @@ j = Job(name='First ganga job')
 myApp = prepareGaudiExec('DaVinci','v45r6', myPath='.')
 j.application = myApp
 j.application.options = ['ntuple_options.py']
-j.application.platform = 'x86_64-centos7-gcc8-opt'
+j.application.platform = 'x86_64-centos7-gcc9-opt'
 bkPath = '/MC/2016/Beam6500GeV-2016-MagDown-Nu1.6-25ns-Pythia8/Sim09c/Trig0x6138160F/Reco16/Turbo03/Stripping28r1NoPrescalingFlagged/27163002/ALLSTREAMS.DST'
 data  = BKQuery(bkPath, dqflag=['OK']).getDataset()
 j.inputdata = data[0:2]     # access only the first 2 files of data
@@ -90,8 +90,8 @@ ship it off to the grid.
 
 {% callout "Picking up a right platform" %}
 
-The default platform on most lxplus machines is `x86_64-centos7-gcc8-opt` with gcc compiler version 8.
-However some older DaVinci version are not compiled for `x86_64-centos7-gcc8-opt`.
+The default platform on most lxplus machines is `x86_64-centos7-gcc9-opt` with gcc compiler version 8.
+However some older DaVinci version are not compiled for `x86_64-centos7-gcc9-opt`.
 
 The list of platforms available for a certain DaVinci version (let's try the DaVinci version we are using `v45r6`), can be viewed by
 ```bash
@@ -120,7 +120,7 @@ myApp = GaudiExec()
 myApp.directory = "./DaVinciDev_v45r6"
 j.application = myApp
 j.application.options = ['ntuple_options.py']
-j.application.platform = 'x86_64-centos7-gcc8-opt'
+j.application.platform = 'x86_64-centos7-gcc9-opt'
 bkPath = '/MC/2016/Beam6500GeV-2016-MagDown-Nu1.6-25ns-Pythia8/Sim09c/Trig0x6138160F/Reco16/Turbo03/Stripping28r1NoPrescalingFlagged/27163002/ALLSTREAMS.DST'
 data  = BKQuery(bkPath, dqflag=['OK']).getDataset()
 j.inputdata = data[0:2]
