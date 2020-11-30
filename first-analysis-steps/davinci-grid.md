@@ -90,17 +90,17 @@ ship it off to the grid.
 
 {% callout "Picking up a right platform" %}
 
-The default platform on most lxplus machines is `x86_64-centos7-gcc9-opt` with gcc compiler version 8.
+The default platform on lxplus is `x86_64-centos7-gcc9-opt`, which uses GCC compiler version 9.
 However some older DaVinci version are not compiled for `x86_64-centos7-gcc9-opt`.
 
 The list of platforms available for a certain DaVinci version (let's try the DaVinci version we are using `v45r6`), can be viewed by
 ```bash
 $ lb-sdb-query listPlatforms DaVinci v45r6
 ```
-The default compiler platform for GaudiExec applications is `x86_64-slc6-gcc62-opt`.
-So for some DaVinci versions, including the latest `DaVinci v45r6` a few additional actions are needed to set up your ganga job properly.
+The default compiler platform for `GaudiExec` applications is `x86_64-centos7-gcc8-opt`.
+For some DaVinci versions, including the latest `DaVinci v45r6`, we must specify the platform explicitly to make sure we use one that is compatible with our project and version.
 
-When setting up your ganga job, add the following line after declaring the `j.application`:
+When setting up your ganga job, add the following line after declaring the `j.application` to define the platform to use:
 ```python
 j.application.platform = 'x86_64-centos7-gcc9-opt'
 ```
