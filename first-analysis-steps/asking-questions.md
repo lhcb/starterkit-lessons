@@ -40,6 +40,8 @@ Feel free to [contribute](https://github.com/lhcb/glossary).
 Another experimental alternative to the mailing lists is the [LHCb Discourse website](https://lhcb-talk.web.cern.ch/).
 It works like [Stack overflow](https://stackoverflow.com/), but focuses on LHCb-specific questions.
 You can post your question there and you should usually receive an answer within a few hours or days.
+You can also check for known issues related to the data taking at the
+[Run2OperationSummary](https://twiki.cern.ch/twiki/bin/viewauth/LHCbInternal/Run2OperationSummary) TWiki.
 
 {% endcallout %} 
 
@@ -114,7 +116,7 @@ you manage to solve your problem, tell the mailing list.
 
 {% callout "Love letters also known as private replies" %}
 
-Plese do not reply to questions privately. We are trying to solve a technical
+Please do not reply to questions privately. We are trying to solve a technical
 issue, not writing lover letters. If you take the discussion
 off the mailing list future generations will just see the question and no
 solution. You will also miss out on help from others that did not chime
