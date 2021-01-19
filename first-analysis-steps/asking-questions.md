@@ -117,7 +117,7 @@ you manage to solve your problem, tell the mailing list.
 {% callout "Love letters also known as private replies" %}
 
 Please do not reply to questions privately. We are trying to solve a technical
-issue, not writing lover letters. If you take the discussion
+issue, not writing love letters. If you take the discussion
 off the mailing list future generations will just see the question and no
 solution. You will also miss out on help from others that did not chime
 in to your first question but might be able to help later on.
