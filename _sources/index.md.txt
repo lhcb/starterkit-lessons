@@ -27,4 +27,5 @@ If you'd just like to learn about how to use the LHCb software, [read on](first-
 
     Analysis essentials <https://hsf-training.github.io/analysis-essentials/>
     LHCb Core documentation <https://cern.ch/lhcb-core-doc/>
+    LHCb glossary <https://lhcb.github.io/glossary/>
 ```
