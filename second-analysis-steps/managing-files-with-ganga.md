@@ -209,26 +209,40 @@ it's not currently available at.
 df.replicate('RAL-USER')
 ```
 
-{% callout "Automating replication to CERN" %}
+{% callout "Accessing DiracFiles remotely" %}
 
-If you have a job with subjobs, you can automate this to replicate all output 
-files to CERN, so that you can run your analysis directly on the files on 
-EOS.
+A DiracFile can be accessed remotely if you have a valid grid proxy.
 
-```python
-j = jobs(...)
-for sj in j.subjobs:
-  # Get all output files which are DiracFile objects
-  for df in sj.outputfiles.get(DiracFile):
-    # No need to replicate if it's already at CERN
-    if 'CERN-USER' not in df.locations:
-      df.replicate('CERN-USER')
+You need to find the `accessURL` (also known as the Physical File Name or `PFN`)
+which tells you the location of your file. The `LFN` (Logical File Name) is the 
+record of the file in the Dirac database.
+
+To get the `accessURL` you can use the `LHCbDirac` command line option with an LFN:
+
+```
+lb-dirac dirac-dms-accessURL /path/to/some/LFN.root
 ```
 
-After you did this your files will go into "/eos/lhcb/grid/lhcb/{u}/{user}/"+LFN.
+In Ganga you can get a PFN with the helper function in the GPI
 
-You could make a function from this and put it in your `.ganga.py` file, whose 
-contents is available in any Ganga session.
+```python
+Ganga In [1]: getAccessURLs(['/lhcb/MC/2018/LDST/00086797/0000/00086797_00000775_5.ldst'])                                                                                                   
+Ganga Out [1]: ['root://x509up_u29047@eoslhcb.cern.ch//eos/lhcb/grid/prod/lhcb/MC/2018/LDST/00086797/0000/00086797_00000775_5.ldst']
+```
+
+If you have many LFNs you want to find PFNs for it is quickest to put them all in a list
+to pass to the function rather than looping individually.
+
+If you want to find the accessURLs for all of your outputdata for a given job then you can do
+
+```python
+j.backend.getOutputDataAccessURLs()
+```
+which will return a list of the PFNs for any DiracFile object created in your job output.
+
+These PFNs can then be opened directly with ROOT if a root file. They can also be used in the 
+LHCb applications in case you want to test your DaVinci options interactively with a DST from
+the bookkeeping.
 
 {% endcallout %}
 
