@@ -220,7 +220,7 @@ record of the file in the Dirac database.
 To get the `accessURL` you can use the `LHCbDirac` command line option with an LFN:
 
 ```
-lb-dirac dirac-dms-accessURL /path/to/some/LFN.root
+lb-dirac dirac-dms-lfn-accessURL /path/to/some/LFN.root
 ```
 
 In Ganga you can get a PFN with the helper function in the GPI
@@ -243,6 +243,38 @@ which will return a list of the PFNs for any DiracFile object created in your jo
 These PFNs can then be opened directly with ROOT if a root file. They can also be used in the 
 LHCb applications in case you want to test your DaVinci options interactively with a DST from
 the bookkeeping.
+
+You could make a function to write these PFNs to a text file:
+
+```python
+def exportAccessURLs(jobNo, filePattern = '', outName = ''):
+    """
+    A function to write the accessURLs of a job to a file:
+    exportAccessURLs(jobNo, filePattern = '', outName = '')
+    Note: '.txt' automatically appended to outName
+    """
+    
+    j = jobs(jobNo)
+    outFileName = str(jobNo)+"_accessURLs.txt"
+    if outName:
+        outFileName = outName+".txt"
+    thefile = open(outFileName, 'w')
+    ds = j.backend.getOutputDataAccessURLs()
+    outds = []
+    if not filePattern == '':
+        for _url in ds:
+            if filePattern in _url:
+                outds.append(_url)
+    else:
+        outds = ds
+    for _f in outds:
+        thefile.write("%s\n" % _f)
+    thefile.close()
+```
+If you put this in a file `~/.ganga.py` then Ganga will load the function
+into the GPI when it starts, making it available for use in your ganga session.
+You can define other helper functions in `~/.ganga.py` as well.
+
 
 {% endcallout %}
 
