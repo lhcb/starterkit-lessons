@@ -51,6 +51,8 @@ The location of the `gangadir` can be changed in the configuration file
 '~/.gangarc'. Just search for the `gangadir` attribute and change it to where 
 you like (on the CERN AFS the `work` area is a popular choice).
 
+It is not recommended to have your `gangadir` on the FUSE mounted `EOS` area on lxplus. The connection may be slow and unreliable which will cause problems when running ganga.
+
 {% endcallout %} 
 
 To avoid filling up the filespace, it is wise to put the large files produced by your job somewhere with lots of storage - the grid. You can do so by setting the `outputfiles` attribute:
