@@ -406,6 +406,7 @@
 <p>The location of the <code class="docutils literal notranslate"><span class="pre">gangadir</span></code> can be changed in the configuration file
 ‘~/.gangarc’. Just search for the <code class="docutils literal notranslate"><span class="pre">gangadir</span></code> attribute and change it to where
 you like (on the CERN AFS the <code class="docutils literal notranslate"><span class="pre">work</span></code> area is a popular choice).</p>
+<p>It is not recommended to have your <code class="docutils literal notranslate"><span class="pre">gangadir</span></code> on the FUSE mounted <code class="docutils literal notranslate"><span class="pre">EOS</span></code> area on lxplus. The connection may be slow and unreliable which will cause problems when running ganga.</p>
 </div>
 </div>
 <p>To avoid filling up the filespace, it is wise to put the large files produced by your job somewhere with lots of storage - the grid. You can do so by setting the <code class="docutils literal notranslate"><span class="pre">outputfiles</span></code> attribute:</p>
