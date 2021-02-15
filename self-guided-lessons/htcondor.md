@@ -1,5 +1,16 @@
 # Batch submission using HTCondor
 
+{% callout "LHCb fair-usage of Grid resources" %}
+
+LHCb has a policy document on the [fair-usage of Grid computing resources](https://twiki.cern.ch/twiki/pub/LHCb/LHCbNationalComputingBoard/LHCb_Grid_usage_policy.pdf), which explains how job resource accounting information are monitored by DIRAC. This enables the fair-usage policy to be enforced automatically at the job submission stage, but only if those jobs were submitted using DIRAC (i.e. via `ganga`). By submitting jobs to the Grid this way, you can be sure that you are using the resources fairly. 
+
+Computing nodes used in the CERN LXBATCH system are effectively part of LHCb Grid resources, and so the fair-usage policy applies. However, using HTCondor to submit jobs to these nodes (e.g. on lxplus) will not take the fair-usage policy into account, and so should not be used!
+
+You may still like to read this tutorial, as your home institute may have its own HTCondor batch system.
+
+{% endcallout %}
+
+
 {% objectives "Learning Objectives" %}
 
 * Understand some of the basic concepts of batch computing services
