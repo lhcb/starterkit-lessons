@@ -36,8 +36,6 @@
         <script src="../_static/doctools.js"></script>
         <script src="../_static/panels.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-        <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
     
     <script type="text/javascript" src="../_static/js/theme.js"></script>
 
@@ -352,6 +350,16 @@
 </style>
 <div class="section" id="batch-submission-using-htcondor">
 <h1>Batch submission using HTCondor<a class="headerlink" href="#batch-submission-using-htcondor" title="Permalink to this headline">¶</a></h1>
+<div class="panel panel-callout docutils container">
+<div class="panel-header open docutils container">
+<p id="lhcb-fair-usage-of-grid-resources"><i class="fa fa-info-circle"></i> LHCb fair-usage of Grid resources</p>
+</div>
+<div class="panel-body docutils container">
+<p>LHCb has a policy document on the <a class="reference external" href="https://twiki.cern.ch/twiki/pub/LHCb/LHCbNationalComputingBoard/LHCb_Grid_usage_policy.pdf">fair-usage of Grid computing resources</a>, which explains how job resource accounting information are monitored by DIRAC. This enables the fair-usage policy to be enforced automatically at the job submission stage, but only if those jobs were submitted using DIRAC (i.e. via <code class="docutils literal notranslate"><span class="pre">ganga</span></code>). By submitting jobs to the Grid this way, you can be sure that you are using the resources fairly.</p>
+<p>Computing nodes used in the CERN LXBATCH system are effectively part of LHCb Grid resources. However, using HTCondor to submit jobs to these nodes (e.g. on lxplus) will not take the fair-usage policy into account, and so should not be used!</p>
+<p>You may still like to read this tutorial, as your home institute may have its own HTCondor batch system.</p>
+</div>
+</div>
 <div class="panel panel-objectives docutils container">
 <div class="panel-header open docutils container">
 <p id="learning-objectives"><i class="fa fa-line-chart"></i> Learning Objectives</p>
