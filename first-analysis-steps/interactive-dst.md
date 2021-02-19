@@ -54,7 +54,7 @@ Place this into a file called `explore.py` and run the following
 command in a new terminal:
 
 ```bash
-$ lb-run --ext=ipython DaVinci/v45r1 ipython -i explore.py 00070793_00000001_7.AllStreams.dst
+$ lb-run --ext=ipython DaVinci/v45r6 ipython -i explore.py 00070793_00000001_7.AllStreams.dst
 ```
 
 This will configure the application, initialise it, and put you in a Python
