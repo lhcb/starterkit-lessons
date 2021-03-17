@@ -85,6 +85,14 @@ For example, if we want to store the proper time information of the D0, we would
 dtt.D0.addTupleTool('TupleToolPropertime')
 ```
 
+Note that `TupleToolPropertime` requires there to be a PV in the event, otherwise it throws an error. You should add a PV checker before your tupling algorithm
+
+
+```python
+from Configurables import CheckPV
+DaVinci().UserAlgorithms += [CheckPV(), dtt]
+```
+
 {% callout "Do I really have to type my decay descriptor that many times?" %}
 
 No! You can use the `dtt.setDescriptorTemplate()` method to set up your 
