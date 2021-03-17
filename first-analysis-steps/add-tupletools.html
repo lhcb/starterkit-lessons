@@ -427,6 +427,11 @@ For example, if we want to store the proper time information of the D0, we would
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">dtt</span><span class="o">.</span><span class="n">D0</span><span class="o">.</span><span class="n">addTupleTool</span><span class="p">(</span><span class="s1">&#39;TupleToolPropertime&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
+<p>Note that <code class="docutils literal notranslate"><span class="pre">TupleToolPropertime</span></code> requires there to be a PV in the event, otherwise it throws an error. You should add a PV checker before your tupling algorithm</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">Configurables</span> <span class="kn">import</span> <span class="n">CheckPV</span>
+<span class="n">DaVinci</span><span class="p">()</span><span class="o">.</span><span class="n">UserAlgorithms</span> <span class="o">+=</span> <span class="p">[</span><span class="n">CheckPV</span><span class="p">(),</span> <span class="n">dtt</span><span class="p">]</span>
+</pre></div>
+</div>
 <div class="panel panel-callout docutils container">
 <div class="panel-header open docutils container">
 <p id="do-i-really-have-to-type-my-decay-descriptor-that-many-times?"><i class="fa fa-info-circle"></i> Do I really have to type my decay descriptor that many times?</p>
