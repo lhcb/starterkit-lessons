@@ -23,7 +23,7 @@ Gauss is the LHCb simulation framework which manages the creation of simulated e
 
 ## Choosing your Gauss Version
 
-Each release of Gauss v49 represents a different release of Sim09. You may want to run an older version of Gauss to verify something in a pre-existing MC dataset or for any number of other reasons. Here is a table matching each release to each Sim09 realease:
+Each release of Gauss v49 represents a different release of Sim09. You may want to run an older version of Gauss to verify something in a pre-existing MC dataset or for any number of other reasons. Here is a table matching each Gauss v49 release to each Sim09 version:
 
 | Sim09 Version | Original Gauss Releases |
 | -- | -- |
@@ -44,4 +44,4 @@ Whilst these act as guidelines, to find the version of Gauss used for a specific
 `lb-dirac dirac-bookkeeping-production-information <prodID>`.
 Here `<prodID>` represents your production number, this is a 5 or 6 digit number. If you don't know this, it can be found by using this command:
 `lb-dirac dirac-bookkeeping-decays-path <Dec Number>`.
-Here the production ID will be the last number given in each line. Note that you may need to use ProdID-1 for flagged samples or ProdID-2 for filtered samples since the generation, filtering and stripping are done in different steps
+Here the production ID will be the last number given in each line. Note that you may need to use ProdID-1 for flagged samples or ProdID-2 for filtered samples since the generation, filtering and stripping are done in different steps.
