@@ -23,16 +23,16 @@ and a collection of useful links can be found on the project's website: http://l
 
 {% callout "Setup" %}
 
-Before we continue, please set up a Gauss v49r17 `lb-dev`:
-* Set up Gauss: `lb-dev Gauss/v49r17`
-* `cd ./GaussDev_v49r17`
+Before we continue, please set up a Gauss v49r21 `lb-dev`:
+* Set up Gauss: `lb-dev Gauss/v49r21`
+* `cd ./GaussDev_v49r21`
 * Get the `DecFiles` package for later: `git lb-clone-pkg Gen/DecFiles`
 * Build it: `make`
 
 Or simply copy and paste the following lines:
 ```shell
-lb-dev Gauss/v49r17
-cd ./GaussDev_v49r17
+lb-dev Gauss/v49r21
+cd ./GaussDev_v49r21
 git lb-clone-pkg Gen/DecFiles
 make
 ```
