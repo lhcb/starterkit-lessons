@@ -23,8 +23,9 @@ and a collection of useful links can be found on the project's website: http://l
 
 {% callout "Setup" %}
 
-Before we continue, please set up a Gauss v49r21 `lb-dev`:
+Before we continue, please use these steps to set up Gauss v49r21:
 * Set up Gauss: `lb-dev Gauss/v49r21`
+    * Doing this may produce warnings and info, but this should be ignored. 
 * `cd ./GaussDev_v49r21`
 * Get the `DecFiles` package for later: `git lb-clone-pkg Gen/DecFiles`
 * Build it: `make`
@@ -37,6 +38,8 @@ git lb-clone-pkg Gen/DecFiles
 make
 ```
 This configures a build environment for that latest `Sim09` version of Gauss.
+
+There is a chance the step creating the dec files repository didn't work on systems outside of lxplus, if this is the case, you may need to run `git config --global lb-use.protocol ssh` first 
 
 {% endcallout %}
 
