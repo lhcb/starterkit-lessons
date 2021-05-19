@@ -40,6 +40,10 @@ Each release of Gauss v49 represents a different release of Sim09. You may want 
 
 Any Gauss release not listed here corresponds to the lower of the Sim09 versions it is between (e.g. Gauss v49r9 is Sim09c)
 
+
+Once in a few years, major Sim versions are released, which involve newer versions of GEANT4, Pythia8 and other software, as well as major fixes to the detector description. Prior to production release, an extensive testing is performed by the Simulation group. The next major release is Sim10 (Gauss versions above v52) which is currently under validation. It will be used for both Run 1-2 and upgrade simulations in the future. The current Sim09 also supports production for upgrade. Sim versions suitable for upgrade simulations are marked with "Up" label, e.g. Sim10-Up08.
+
+
 Whilst these act as guidelines, to find the version of Gauss used for a specific production you can run this command:
 `lb-dirac dirac-bookkeeping-production-information <prodID>`.
 Here `<prodID>` represents your production number, this is a 5 or 6 digit number. If you don't know this, it can be found by using this command:
