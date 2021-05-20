@@ -1,6 +1,6 @@
 # Advanced Dirac
 
-At this point we have used Ganga for a number of things related to Davinci and basic file management. However, Ganga is a much more flexible tool that. Using `Python` and `IPython` we can set up more complicated workflows that manage much of your analysis for you!
+At this point we have used Ganga for a number of things related to DaVinci and basic file management. However, Ganga is a much more flexible tool than that. Using `Python` and `IPython` we can set up more complicated workflows that manage much of your analysis for you!
 
 {% objectives "Learning Objectives" %}
 
@@ -18,8 +18,8 @@ This tutorial will be based on a couple of python files. Please download the fol
 
 The first and most important package to introduce is GangaTasks. This package is designed to stop busy analysts from spending more time managing GRID jobs than working on physics. It has the following core features.
 
-* Automatically submit jobs and keeps a certain ammount running at all times.
-* Automatically create new jobs based on previous jobs in a chain.
+* Automatically submits jobs and keeps a certain ammount running at all times.
+* Automatically creates new jobs based on previous jobs in a chain.
 * Automatically resubmits jobs up to a threshold number of resubmits (default=5).
 
 So as you can imagine, Tasks is a powerful tool...time to play with it!
@@ -72,7 +72,7 @@ lb-conda default python distro.py $MYENV $1
 
 {% callout ".env v .arg" %} 
 
-it is important to note that the subjob splitter and the unit splitter have the be on separate job parameters (in this case .env and .arg) Otherwise the last splitter called will overwrite the changes of the first. You will still end up with the correct ammount of jobs but they will be running the wrong parameters! To inspect what parameters your jobs are running with you can use the usual Ganga syntax of
+It is important to note that the subjob splitter and the unit splitter have to be on separate job parameters (in this case .env and .arg). Otherwise, the last splitter called will overwrite the changes of the first. You will still end up with the correct ammount of jobs but they will be running the wrong parameters! To inspect what parameters your jobs are running with you can use the usual Ganga syntax of
 ```
 jobs(job_num) 
 ```
@@ -97,7 +97,7 @@ trf2.application.exe = File('my_other_script.sh')
 trf2.inputfiles = [LocalFile("compare.py")]
 trf2.outputfiles = [LocalFile("*.png")]
 
-#specify transform dependancies
+#specify transform dependencies
 task_chain = TaskChainInput()
 task_chain.input_trf_id = trf1.getID()
 trf2.addInputData(task_chain)
@@ -111,7 +111,7 @@ t.appendTransform(trf2)
 As you can see the new additions are very similar to what we have seen before. However, there is an exception. The following code
 
 ```
-#specify transform dependancies
+#specify transform dependencies
 task_chain = TaskChainInput()
 task_chain.input_trf_id = trf1.getID()
 trf2.addInputData(task_chain)
