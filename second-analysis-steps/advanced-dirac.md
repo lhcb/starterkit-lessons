@@ -70,7 +70,7 @@ lb-conda default python distro.py $MYENV $1
 
 ``` 
 
-{% callout ".env v arg" %} 
+{% callout ".env v .arg" %} 
 
 it is important to note that the subjob splitter and the unit splitter have the be on separate job parameters (in this case .env and .arg) Otherwise the last splitter called will overwrite the changes of the first. You will still end up with the correct ammount of jobs but they will be running the wrong parameters! To inspect what parameters your jobs are running with you can use the usual Ganga syntax of
 ```
@@ -109,12 +109,14 @@ t.appendTransform(trf2)
 ```
 
 As you can see the new additions are very similar to what we have seen before. However, there is an exception. The following code
+
 ```
 #specify transform dependancies
 task_chain = TaskChainInput()
 task_chain.input_trf_id = trf1.getID()
 trf2.addInputData(task_chain)
-``
+```
+
 lets us chain tasks together where the ID of the first transform is a requirement to trigger the next. You can add the ID of multiple transforms to this task chain if a transform has more than one dependance. We also need to define a second `.sh` script to manage the transform. This is again a short file to ensure python can access all the necessary modules for the task.
 
 ```
@@ -125,6 +127,7 @@ cat __GangaInputData.txt__
 lb-conda default python compare.py
 
 ```
+
 Now you can submit this task again and monitor the results. `cat __GangaInputData.txt__` is included so you can inspect which files are passed between transforms.
 
 {% callout "Units Changing Order" %} 
