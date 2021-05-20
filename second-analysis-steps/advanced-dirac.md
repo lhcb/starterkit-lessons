@@ -1,13 +1,35 @@
-# for the advanced dirac lesson
+# Advanced Dirac
 
-We have already started using Ganga, such as when [submitting jobs to the 
-Grid](../first-analysis-steps/davinci-grid.md) and 
-[using datasets from the bookkeeping](../first-analysis-steps/ganga-data.md), for
-creating jobs; but there's a lot more you can do with it.
+At this point we have used Ganga for a number of things related to
+Davinci and basic file management. However, Ganga is a much more
+flexible tool that. Using `Python` and `IPython` we can set up more
+complicated workflows that manage much of your analysis for you!
 
-Part of Ganga's power comes from it being written in Python. When you run
-`ganga`, you're given an IPython prompt where you input Python code that's executed when you hit `<enter>`.
-The idea of running Python code extends outside of Ganga, where we can write
-scripts that Ganga will execute when starting up. This lesson will focus on
-writing job definition scripts, and exploring how we can define utility
-functions that will be available across all of our Ganga sessions.
+{% objectives " Learning Objectives" %}
+
+* Learn core concepts of the GangaTasks package
+* Understand advanced ganga features for job management
+* Apply these to real analysis issues and define a simple workflow
+
+{% endobjectives %}
+
+{% callout "Pre-Requisites" %} 
+
+This later part of this tutorial will be based off the 
+D^{* +} \to  D^{0}(\to K^{-}K^{+})\pi^{+} MC options file so make 
+sure you have it to hand!
+
+{% endcallout %}
+
+The first and most important package to introduce is GangaTasks. This 
+package is designed to help busy analysts from spending more time 
+managing GRID jobs than working on physics. It has the following
+core features.
+
+* Automatically submit jobs and keep a certain ammount running at all
+times.
+* Automatically create new jobs based on previous jobs in a chain.
+* Automatically resubmit jobs up to a threshold number of resubmits!
+
+So as you can imagine, tasks is a powerful tool...time to play with it
+!
