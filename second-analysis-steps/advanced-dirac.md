@@ -117,7 +117,7 @@ task_chain.input_trf_id = trf1.getID()
 trf2.addInputData(task_chain)
 ```
 
-lets us chain tasks together where the ID of the first transform is a requirement to trigger the next. You can add the ID of multiple transforms to this task chain if a transform has more than one dependance. We also need to define a second `.sh` script to manage the transform. This is again a short file to ensure python can access all the necessary modules for the task.
+lets us chain tasks together where the ID of the first Transform is a requirement to trigger the next. You can add the ID of multiple Transforms to this task chain if a Transform has more than one dependance. We also need to define a second `.sh` script to manage the Transform. This is again a short file to ensure python can access all the necessary modules for the task.
 
 ```
 #!/bin/bash
@@ -128,13 +128,15 @@ lb-conda default python compare.py
 
 ```
 
-Now you can submit this task again and monitor the results. `cat __GangaInputData.txt__` is included so you can inspect which files are passed between transforms.
+Now you can submit this task again and monitor the results. `cat __GangaInputData.txt__` is included so you can inspect which files are passed between Transforms.
 
 {% callout "Units Changing Order" %} 
 
-You should notice when running this script that the unit `U:0` that generates the gaussian is not the unit that makes the histograms. This should be `U:2`. This is because units are tied to their Transforms so `U:0` of the second Transform is simply the second to run. For a full breakdown of what units are running each step, with what data, you can use
+You should notice when running this script that the unit `U:0` that generates the gaussian is not the unit that makes the histograms. This should be `U:2`. This is because units are tied to their Transforms so `U:0` of the second Transform is simply the first to run. For a full breakdown of what units are running each step, with what data, you can use
+
 ```
 tasks(task_num).overview()
 ```
+
 to see a full breakdown.
 {% endcallout %}
