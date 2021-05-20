@@ -106,3 +106,13 @@ The format is:
 ```
 #                    GEANTID    PDGID  CHARGE   MASS(GeV)      TLIFE(s)                    EVTGENNAME    PYTHIAID    MAXWIDTH
 ```
+
+
+## Finding Constants Used in an Existing MC Sample (Masses/Lifetimes/etc)
+
+If you have a pre-existing MC sample and you want to find constants which have been used in its generation (typically the lifetime or masses of generated particles), The method to do this has two steps
+
+1. Find the database tag (dddb) used in the generation of your sample. Instructions for doing this can be found [earlier in this gitbook](https://lhcb.github.io/starterkit-lessons/first-analysis-steps/minimal-dv-job.html).
+2. go to https://gitlab.cern.ch/lhcb-conddb/DDDB/-/blob/master/param/ParticleTable.txt replace and change the branch to be the same as your dddb tag.
+
+You will now see every constant associated with every particle which could have been used in your decay.

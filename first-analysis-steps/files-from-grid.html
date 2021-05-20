@@ -13,6 +13,8 @@
   
   <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../_static/panels.css" type="text/css" />
   <link rel="stylesheet" href="../_static/starterkit.css" type="text/css" />
 
@@ -31,6 +33,7 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
         <script src="../_static/jquery.js"></script>
         <script src="../_static/underscore.js"></script>
         <script src="../_static/doctools.js"></script>
@@ -161,6 +164,7 @@
 <li class="toctree-l3"><a class="reference internal" href="../second-analysis-steps/simulation-advanced-dkfiles.html#cocktail-decays">Cocktail decays</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../second-analysis-steps/simulation-advanced-dkfiles.html#final-state-radiation">Final state radiation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../second-analysis-steps/simulation-advanced-dkfiles.html#changing-particle-masses-lifetimes-widths">Changing particle masses / lifetimes/ widths</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../second-analysis-steps/simulation-advanced-dkfiles.html#finding-constants-used-in-an-existing-mc-sample-masses-lifetimes-etc">Finding Constants Used in an Existing MC Sample (Masses/Lifetimes/etc)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../second-analysis-steps/simulation-fastsim.html">Why fast simulation is crucial</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="../second-analysis-steps/simulation-fastsim.html#speeding-up-the-detector-simulation">Speeding up the detector simulation</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../second-analysis-steps/simulation-fastsim.html#speeding-up-the-generation">Speeding up the generation</a></li>
@@ -452,7 +456,7 @@ XML catalog such that it can access them remotely.</p>
 <p><code class="docutils literal notranslate"><span class="pre">dirac-dms-get-file</span></code> (and the other <code class="docutils literal notranslate"><span class="pre">dirac-dms-*</span></code> scripts) is actually able to
 extract the LFNs from any file
 and download them for you. So a simple</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span> <span class="n">lb</span><span class="o">-</span><span class="n">dirac</span> <span class="n">dirac</span><span class="o">-</span><span class="n">dms</span><span class="o">-</span><span class="n">get</span><span class="o">-</span><span class="n">file</span> <span class="o">--</span><span class="n">File</span><span class="o">=</span><span class="n">MC_2016_27163002_Beam6500GeV2016MagDownNu1</span><span class="o">.</span><span class="mi">625</span><span class="n">nsPythia8_Sim09c_Trig0x6138160F_Reco16_Turbo03_Stripping28r1NoPrescalingFlagged_ALLSTREAMS</span><span class="o">.</span><span class="n">DST</span><span class="o">.</span><span class="n">py</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span> <span class="n">lb</span><span class="o">-</span><span class="n">dirac</span> <span class="n">dirac</span><span class="o">-</span><span class="n">dms</span><span class="o">-</span><span class="n">get</span><span class="o">-</span><span class="n">file</span> <span class="o">--</span><span class="n">File</span><span class="o">=</span><span class="n">MC_2016_27163002_Beam6500GeV2016MagDownNu1</span><span class="mf">.625</span><span class="n">nsPythia8_Sim09c_Trig0x6138160F_Reco16_Turbo03_Stripping28r1NoPrescalingFlagged_ALLSTREAMS</span><span class="o">.</span><span class="n">DST</span><span class="o">.</span><span class="n">py</span>
 </pre></div>
 </div>
 <p>would do to download them all!</p>

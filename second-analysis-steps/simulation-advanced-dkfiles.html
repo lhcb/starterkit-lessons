@@ -13,6 +13,8 @@
   
   <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../_static/panels.css" type="text/css" />
   <link rel="stylesheet" href="../_static/starterkit.css" type="text/css" />
 
@@ -31,6 +33,7 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
         <script src="../_static/jquery.js"></script>
         <script src="../_static/underscore.js"></script>
         <script src="../_static/doctools.js"></script>
@@ -161,6 +164,7 @@
 <li class="toctree-l3"><a class="reference internal" href="#cocktail-decays">Cocktail decays</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#final-state-radiation">Final state radiation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#changing-particle-masses-lifetimes-widths">Changing particle masses / lifetimes/ widths</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#finding-constants-used-in-an-existing-mc-sample-masses-lifetimes-etc">Finding Constants Used in an Existing MC Sample (Masses/Lifetimes/etc)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="simulation-fastsim.html">Why fast simulation is crucial</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="simulation-fastsim.html#speeding-up-the-detector-simulation">Speeding up the detector simulation</a></li>
 <li class="toctree-l4"><a class="reference internal" href="simulation-fastsim.html#speeding-up-the-generation">Speeding up the generation</a></li>
@@ -464,6 +468,15 @@ This can be done with python code inserted in the header:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>#                    GEANTID    PDGID  CHARGE   MASS(GeV)      TLIFE(s)                    EVTGENNAME    PYTHIAID    MAXWIDTH
 </pre></div>
 </div>
+</div>
+<div class="section" id="finding-constants-used-in-an-existing-mc-sample-masses-lifetimes-etc">
+<h1>Finding Constants Used in an Existing MC Sample (Masses/Lifetimes/etc)<a class="headerlink" href="#finding-constants-used-in-an-existing-mc-sample-masses-lifetimes-etc" title="Permalink to this headline">¶</a></h1>
+<p>If you have a pre-existing MC sample and you want to find constants which have been used in its generation (typically the lifetime or masses of generated particles), The method to do this has two steps</p>
+<ol class="simple">
+<li><p>Find the database tag (dddb) used in the generation of your sample. Instructions for doing this can be found <a class="reference external" href="https://lhcb.github.io/starterkit-lessons/first-analysis-steps/minimal-dv-job.html">earlier in this gitbook</a>.</p></li>
+<li><p>go to https://gitlab.cern.ch/lhcb-conddb/DDDB/-/blob/master/param/ParticleTable.txt replace and change the branch to be the same as your dddb tag.</p></li>
+</ol>
+<p>You will now see every constant associated with every particle which could have been used in your decay.</p>
 </div>
 
 
