@@ -39,13 +39,13 @@ The basic `lb-conda` environment can be entered with the command `lb-conda defau
 
 More infomation on using `lb-conda` can be found [here](https://gitlab.cern.ch/lhcb-core/lbcondawrappers/-/blob/master/README.md).
 
+<!--
 ```bash
 python3 -m pip install --user snakemake
 # Depending on your PATH variable you may also need to use:
 alias snakemake='python3 -m snakemake'
 ```
 
-<!--
 {% callout "Installing on lxplus" %}
 
 Unfortunately most LHCb software only supports Python 2 and doesn't provide a Python 3 installation.
@@ -360,9 +360,9 @@ As well as executing rules snakemake is also able to produce _reports_. These ar
 ```python
 rule myRule:
 	input:
- 	SomeFile.root
+ 		SomeFile.root
 	output:
- 	report(Output.pdf) # this will now be included in the report
+ 		report(Output.pdf) # this will now be included in the report
 	shell:
   python RuleForExecution.py {input}
 ```
