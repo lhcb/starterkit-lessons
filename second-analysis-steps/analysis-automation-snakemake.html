@@ -4,8 +4,7 @@
 <html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8" />
-  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
+  
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
   <title>Analysis automation with snakemake &mdash; LHCb Starterkit Lessons  documentation</title>
@@ -191,13 +190,14 @@
 <li class="toctree-l2"><a class="reference internal" href="managing-files-with-ganga.html">Managing files in Ganga</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Analysis automation with snakemake</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#motivation">Motivation</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#documentation-and-installation">Documentation and installation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#documentation-and-environments">Documentation and environments</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#tutorial">Tutorial</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#usage-and-basic-behaviour">Usage and basic behaviour</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#sub-labels">Sub-labels</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#run-and-shell">Run and shell</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#config-files">Config files</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#includes">Includes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#reports">Reports</a></li>
 </ul>
 </li>
 </ul>
@@ -354,7 +354,7 @@
     text-align: unset;
 }
 </style>
-<section id="analysis-automation-with-snakemake">
+<div class="section" id="analysis-automation-with-snakemake">
 <h1>Analysis automation with snakemake<a class="headerlink" href="#analysis-automation-with-snakemake" title="Permalink to this headline">¶</a></h1>
 <div class="panel panel-objectives docutils container">
 <div class="panel-header open docutils container">
@@ -367,7 +367,7 @@
 </ul>
 </div>
 </div>
-<section id="motivation">
+<div class="section" id="motivation">
 <h2>Motivation<a class="headerlink" href="#motivation" title="Permalink to this headline">¶</a></h2>
 <blockquote>
 <div><p>“The Snakemake workflow management system is a tool to create reproducible and scalable data analyses”</p>
@@ -392,33 +392,44 @@
 </ul>
 </li>
 </ul>
-</section>
-<section id="documentation-and-installation">
-<h2>Documentation and installation<a class="headerlink" href="#documentation-and-installation" title="Permalink to this headline">¶</a></h2>
-<p>You can find full documentation for Snakemake <a class="reference external" href="https://snakemake.readthedocs.io/en/stable/index.html">at this link</a>, you can also ask any questions you have on the <a class="reference external" href="https://mattermost.web.cern.ch/lhcb/channels/reproducible">~reproducible</a> channel on mattermost.</p>
-<p>Snakemake requires Python 3, if you already have this available it can be easily installed using pip:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python3 -m pip install --user snakemake
-<span class="c1"># Depending on your PATH variable you may also need to use:</span>
-<span class="nb">alias</span> <span class="nv">snakemake</span><span class="o">=</span><span class="s1">&#39;python3 -m snakemake&#39;</span>
-</pre></div>
 </div>
+<div class="section" id="documentation-and-environments">
+<h2>Documentation and environments<a class="headerlink" href="#documentation-and-environments" title="Permalink to this headline">¶</a></h2>
+<p>You can find full documentation for Snakemake <a class="reference external" href="https://snakemake.readthedocs.io/en/stable/index.html">at this link</a>, you can also ask any questions you have on the <a class="reference external" href="https://mattermost.web.cern.ch/lhcb/channels/reproducible">~reproducible</a> channel on mattermost.</p>
+<p>Snakemake is best-run at LHCb using the <code class="docutils literal notranslate"><span class="pre">lb-conda</span></code> environment. This environment comes with very recent versions of ROOT, python, cmake, g++, snakemake, etc ready to use. To have access to <code class="docutils literal notranslate"><span class="pre">lb-conda</span></code> you must first have sourced <code class="docutils literal notranslate"><span class="pre">lb-env</span></code>. This is done by default on lxplus, otherwise it is done with <code class="docutils literal notranslate"><span class="pre">source</span> <span class="pre">/cvmfs/lhcb.cern.ch/lib/LbEnv</span></code>. In general it is recommended that if you are running non-lhcb software (e.g. code you’ve written yourself for your analysis) it should be done with <code class="docutils literal notranslate"><span class="pre">lb-conda</span></code>.</p>
 <div class="panel panel-callout docutils container">
 <div class="panel-header open docutils container">
-<p id="installing-on-lxplus"><i class="fa fa-info-circle"></i> Installing on lxplus</p>
+<p id="accessing-the-lb-conda-environment"><i class="fa fa-info-circle"></i> accessing the lb-conda environment</p>
 </div>
 <div class="panel-body docutils container">
-<p>Unfortunately most LHCb software only supports Python 2 and doesn’t provide a Python 3 installation.
-When running on lxplus we recommend using the LCG Python 3 distribution and creating a function in your <code class="docutils literal notranslate"><span class="pre">.bashrc</span></code> to launch Snakemake so that it doesn’t affect other LHCb applications.
-This can be done using <a class="reference external" href="https://github.com/lhcb/starterkit-lessons/blob/master/second-analysis-steps/code/snakemake/install_snake.sh">this script</a> by running:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>curl -L https://cern.ch/go/Z8Nk <span class="p">|</span> bash
-<span class="nb">source</span> ~/.bashrc
-</pre></div>
+<p>The basic <code class="docutils literal notranslate"><span class="pre">lb-conda</span></code> environment can be entered with the command <code class="docutils literal notranslate"><span class="pre">lb-conda</span> <span class="pre">default</span></code>, this will enter you into an interactive bash shell. There are a few other way in which <code class="docutils literal notranslate"><span class="pre">lb-conda</span></code> can be used.</p>
+<p><code class="docutils literal notranslate"><span class="pre">lb-conda</span> <span class="pre">default</span> <span class="pre">foo</span></code> will run a specific <code class="docutils literal notranslate"><span class="pre">foo</span></code> command (e.g. a python program) within the <code class="docutils literal notranslate"><span class="pre">lb-conda</span></code> environment and then exit. This is similar in effect to the old <code class="docutils literal notranslate"><span class="pre">lb-run</span></code>-style command.</p>
+<p><code class="docutils literal notranslate"><span class="pre">lb-conda</span> <span class="pre">default</span> <span class="pre">bash</span> <span class="pre">-c</span> <span class="pre">'bash</span> <span class="pre">--rcfile</span> <span class="pre">~/.bashrc'</span></code> will enter the <code class="docutils literal notranslate"><span class="pre">lb-conda</span></code> environment as before but will also source your <code class="docutils literal notranslate"><span class="pre">.bashrc</span></code> file (be careful to avoid conflicts if doing this).</p>
 </div>
 </div>
+<p>More infomation on using <code class="docutils literal notranslate"><span class="pre">lb-conda</span></code> can be found <a class="reference external" href="https://gitlab.cern.ch/lhcb-core/lbcondawrappers/-/blob/master/README.md">here</a>.</p>
+<!--
+```bash
+python3 -m pip install --user snakemake
+# Depending on your PATH variable you may also need to use:
+alias snakemake='python3 -m snakemake'
+```
+
+{% callout "Installing on lxplus" %}
+
+Unfortunately most LHCb software only supports Python 2 and doesn't provide a Python 3 installation.
+When running on lxplus we recommend using the LCG Python 3 distribution and creating a function in your `.bashrc` to launch Snakemake so that it doesn't affect other LHCb applications.
+This can be done using [this script](https://github.com/lhcb/starterkit-lessons/blob/master/second-analysis-steps/code/snakemake/install_snake.sh) by running:
+
+```bash
+curl -L https://cern.ch/go/Z8Nk | bash
+source ~/.bashrc
+```
+
+{% endcallout %}
+--><p>You can now check if Snakemake is working by using <code class="docutils literal notranslate"><span class="pre">snakemake</span> <span class="pre">--help</span></code>.</p>
 </div>
-<p>You can now check if Snakemake is working by using <code class="docutils literal notranslate"><span class="pre">snakemake</span> <span class="pre">--help</span></code>.</p>
-</section>
-<section id="tutorial">
+<div class="section" id="tutorial">
 <h2>Tutorial<a class="headerlink" href="#tutorial" title="Permalink to this headline">¶</a></h2>
 <p>Snakemake allows you to create a set of rules, each one defining a “step” of your analysis.
 The rules need to be written in a file called <code class="docutils literal notranslate"><span class="pre">Snakefile</span></code>.
@@ -488,7 +499,7 @@ ciao a tutti
 </div>
 </div>
 </div>
-<section id="usage-and-basic-behaviour">
+<div class="section" id="usage-and-basic-behaviour">
 <h3>Usage and basic behaviour<a class="headerlink" href="#usage-and-basic-behaviour" title="Permalink to this headline">¶</a></h3>
 <p>And now that your <code class="docutils literal notranslate"><span class="pre">Snakefile</span></code> is done it’s time to run! Just type</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>snakemake rulename_or_filename
@@ -562,8 +573,8 @@ Note that if you put your code into the inputs snakemake will detect when your c
 <p>In the previous example try deleting one of the intermediate files, rerun snakemake and see what happens</p>
 </div>
 </div>
-</section>
-<section id="sub-labels">
+</div>
+<div class="section" id="sub-labels">
 <h3>Sub-labels<a class="headerlink" href="#sub-labels" title="Permalink to this headline">¶</a></h3>
 <p>Inside the pre-defined tags you can add custom subtags as in this example.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">rule</span> <span class="n">run_some_py_script</span><span class="p">:</span>
@@ -588,8 +599,8 @@ Note that if you put your code into the inputs snakemake will detect when your c
 <p>Add your python script to the inputs than make some modifications to it, rerun snakemake and see what happens.</p>
 </div>
 </div>
-</section>
-<section id="run-and-shell">
+</div>
+<div class="section" id="run-and-shell">
 <h3>Run and shell<a class="headerlink" href="#run-and-shell" title="Permalink to this headline">¶</a></h3>
 <p>You have two ways to specify commands. One is <code class="docutils literal notranslate"><span class="pre">shell</span></code> that assumes shell commands as shown before.
 The other is <code class="docutils literal notranslate"><span class="pre">run</span></code> that instead directly takes python code (Careful it’s python3!).</p>
@@ -632,8 +643,8 @@ Although it’s fine if you have done it a different way.</p>
 </div>
 </div>
 </div>
-</section>
-<section id="config-files">
+</div>
+<div class="section" id="config-files">
 <h3>Config files<a class="headerlink" href="#config-files" title="Permalink to this headline">¶</a></h3>
 <p>Often you want to run the same rule on different sample or with different options for your scripts.
 This can be done in snakemake using config files written in <a class="reference external" href="https://learn.getgrav.org/advanced/yaml">yaml</a>.</p>
@@ -665,8 +676,8 @@ This can be done in snakemake using config files written in <a class="reference 
 <p>Put the inputs of your script into a config file</p>
 </div>
 </div>
-</section>
-<section id="includes">
+</div>
+<div class="section" id="includes">
 <h3>Includes<a class="headerlink" href="#includes" title="Permalink to this headline">¶</a></h3>
 <p>The Snakefile can quickly grow to a monster with tens of rules. For this reason it’s possible to split them into more files and then include them into the Snakefile. For example you might have a <code class="docutils literal notranslate"><span class="pre">fit_rules.snake</span></code> and <code class="docutils literal notranslate"><span class="pre">efficiency_rules.snake</span></code> and then your Snakefile will look like this:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">include</span><span class="p">:</span> <span class="o">/</span><span class="n">path</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">fit_rules</span><span class="o">.</span><span class="n">snake</span>
@@ -690,9 +701,37 @@ This can be done in snakemake using config files written in <a class="reference 
 </div>
 </div>
 </div>
-</section>
-</section>
-</section>
+</div>
+<div class="section" id="reports">
+<h3>Reports<a class="headerlink" href="#reports" title="Permalink to this headline">¶</a></h3>
+<p>As well as executing rules snakemake is also able to produce <em>reports</em>. These are html files and can contain information such as a diagramisation of your DAG as well as statistics about the run time of your rules and summaries of your outputs. To include a file in the report simply add the <code class="docutils literal notranslate"><span class="pre">report</span></code> flag to it e.g.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">rule</span> <span class="n">myRule</span><span class="p">:</span>
+	<span class="nb">input</span><span class="p">:</span>
+ 		<span class="n">SomeFile</span><span class="o">.</span><span class="n">root</span>
+	<span class="n">output</span><span class="p">:</span>
+ 		<span class="n">report</span><span class="p">(</span><span class="n">Output</span><span class="o">.</span><span class="n">pdf</span><span class="p">)</span> <span class="c1"># this will now be included in the report</span>
+	<span class="n">shell</span><span class="p">:</span>
+  		<span class="n">python</span> <span class="n">RuleForExecution</span><span class="o">.</span><span class="n">py</span> <span class="p">{</span><span class="nb">input</span><span class="p">}</span>
+</pre></div>
+</div>
+<p>N.B. the reporting feature does not work with files already marked as <code class="docutils literal notranslate"><span class="pre">temp</span></code></p>
+<p>To produce the report you first run the <code class="docutils literal notranslate"><span class="pre">snakemake</span></code> command as you normally would.
+Then run the exact same command again adding the <code class="docutils literal notranslate"><span class="pre">--report</span></code> flag as the first argument to your snakemake command.</p>
+<p>A command such as <code class="docutils literal notranslate"><span class="pre">snakemake</span> <span class="pre">--report</span> <span class="pre">report.html</span></code> will produce a report containing everything.
+By constrast <code class="docutils literal notranslate"><span class="pre">snakemake</span> <span class="pre">fig1.pdf</span> <span class="pre">--report</span> <span class="pre">report-short.html</span></code> will produce a short report of just that one target.</p>
+<p>Some screenshots of what a report may look like are shown below. Information in the report includes: a graph showing the DAG of the completed jobs, each node of this graph can be clicked to show the rule in more detail; the time taken to run each job; and a summary of all the produced files.</p>
+<p>Ideally every plot which is included in an ana note would have a report explaining how it was made.</p>
+<p><a class="reference download internal" download="" href="../_downloads/234661660f5f74e72a197742d2f34ce2/Reporting_DAG.png"><code class="xref download docutils literal notranslate"><img alt="Reporting DAG" src="../_images/Reporting_DAG.png" /></code></a>
+<a class="reference download internal" download="" href="../_downloads/911c2db1f7b37e78f4e9ae6f36a1183f/Reporting_stats.png"><code class="xref download docutils literal notranslate"><img alt="Reporting stats" src="../_images/Reporting_stats.png" /></code></a>
+<a class="reference download internal" download="" href="../_downloads/ee94699c6efb7cf6cdc97fecb8fe480b/Reporting_rule.png"><code class="xref download docutils literal notranslate"><img alt="Reporting rule" src="../_images/Reporting_rule.png" /></code></a></p>
+<p>For more information on using reports as well as more examples, see the snakemake documentation <a class="reference external" href="https://snakemake.readthedocs.io/en/stable/snakefiles/reporting.html">here</a>.</p>
+<!-- TODO add this section once the linked page is finished
+### Workflow preservation
+
+https://lhcb-dpa.web.cern.ch/lhcb-dpa/wp6/workflow-preservation.html
+--></div>
+</div>
+</div>
 
 
            </div>

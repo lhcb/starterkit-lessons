@@ -21,12 +21,25 @@
   * Standardise your scripts
     * Bonus: Standardised scripts can sometimes be used across analyses!
 
-## Documentation and installation
+## Documentation and environments
 
 You can find full documentation for Snakemake [at this link](https://snakemake.readthedocs.io/en/stable/index.html), you can also ask any questions you have on the [~reproducible](https://mattermost.web.cern.ch/lhcb/channels/reproducible) channel on mattermost.
 
-Snakemake requires Python 3, if you already have this available it can be easily installed using pip:
+Snakemake is best-run at LHCb using the `lb-conda` environment. This environment comes with very recent versions of ROOT, python, cmake, g++, snakemake, etc ready to use. To have access to `lb-conda` you must first have sourced `lb-env`. This is done by default on lxplus, otherwise it is done with `source /cvmfs/lhcb.cern.ch/lib/LbEnv`. In general it is recommended that if you are running non-lhcb software (e.g. code you've written yourself for your analysis) it should be done with `lb-conda`.
 
+{% callout "accessing the `lb-conda` environment" %}
+
+The basic `lb-conda` environment can be entered with the command `lb-conda default`, this will enter you into an interactive bash shell. There are a few other way in which `lb-conda` can be used.
+
+`lb-conda default foo` will run a specific `foo` command (e.g. a python program) within the `lb-conda` environment and then exit. This is similar in effect to the old `lb-run`-style command.
+
+`lb-conda default bash -c 'bash --rcfile ~/.bashrc'` will enter the `lb-conda` environment as before but will also source your `.bashrc` file (be careful to avoid conflicts if doing this).
+
+{% endcallout %}
+
+More infomation on using `lb-conda` can be found [here](https://gitlab.cern.ch/lhcb-core/lbcondawrappers/-/blob/master/README.md).
+
+<!--
 ```bash
 python3 -m pip install --user snakemake
 # Depending on your PATH variable you may also need to use:
@@ -45,7 +58,7 @@ source ~/.bashrc
 ```
 
 {% endcallout %}
-
+-->
 You can now check if Snakemake is working by using `snakemake --help`.
 
 ## Tutorial
@@ -339,3 +352,43 @@ You can find a solution in the `more_complete_solution` folder, which you can fi
 {% endsolution %}
 
 {% endchallenge %}
+
+### Reports
+
+As well as executing rules snakemake is also able to produce _reports_. These are html files and can contain information such as a diagramisation of your DAG as well as statistics about the run time of your rules and summaries of your outputs. To include a file in the report simply add the `report` flag to it e.g.
+
+```python
+rule myRule:
+	input:
+ 		SomeFile.root
+	output:
+ 		report(Output.pdf) # this will now be included in the report
+	shell:
+  		python RuleForExecution.py {input}
+```
+
+N.B. the reporting feature does not work with files already marked as `temp`
+
+To produce the report you first run the `snakemake` command as you normally would.
+Then run the exact same command again adding the `--report` flag as the first argument to your snakemake command.
+
+A command such as `snakemake --report report.html` will produce a report containing everything.
+By constrast `snakemake fig1.pdf --report report-short.html` will produce a short report of just that one target.
+
+Some screenshots of what a report may look like are shown below. Information in the report includes: a graph showing the DAG of the completed jobs, each node of this graph can be clicked to show the rule in more detail; the time taken to run each job; and a summary of all the produced files.
+
+Ideally every plot which is included in an ana note would have a report explaining how it was made.
+
+[![Reporting DAG](img/Reporting_DAG.png)](img/Reporting_DAG.png)
+[![Reporting stats](img/Reporting_stats.png)](img/Reporting_stats.png)
+[![Reporting rule](img/Reporting_rule.png)](img/Reporting_rule.png)
+
+
+
+For more information on using reports as well as more examples, see the snakemake documentation [here](https://snakemake.readthedocs.io/en/stable/snakefiles/reporting.html).
+
+<!-- TODO add this section once the linked page is finished
+### Workflow preservation
+
+https://lhcb-dpa.web.cern.ch/lhcb-dpa/wp6/workflow-preservation.html
+-->

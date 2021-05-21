@@ -4,8 +4,7 @@
 <html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8" />
-  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
+  
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
   <title>What is Gauss? &mdash; LHCb Starterkit Lessons  documentation</title>
@@ -191,13 +190,14 @@
 <li class="toctree-l2"><a class="reference internal" href="managing-files-with-ganga.html">Managing files in Ganga</a></li>
 <li class="toctree-l2"><a class="reference internal" href="analysis-automation-snakemake.html">Analysis automation with snakemake</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="analysis-automation-snakemake.html#motivation">Motivation</a></li>
-<li class="toctree-l3"><a class="reference internal" href="analysis-automation-snakemake.html#documentation-and-installation">Documentation and installation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="analysis-automation-snakemake.html#documentation-and-environments">Documentation and environments</a></li>
 <li class="toctree-l3"><a class="reference internal" href="analysis-automation-snakemake.html#tutorial">Tutorial</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="analysis-automation-snakemake.html#usage-and-basic-behaviour">Usage and basic behaviour</a></li>
 <li class="toctree-l4"><a class="reference internal" href="analysis-automation-snakemake.html#sub-labels">Sub-labels</a></li>
 <li class="toctree-l4"><a class="reference internal" href="analysis-automation-snakemake.html#run-and-shell">Run and shell</a></li>
 <li class="toctree-l4"><a class="reference internal" href="analysis-automation-snakemake.html#config-files">Config files</a></li>
 <li class="toctree-l4"><a class="reference internal" href="analysis-automation-snakemake.html#includes">Includes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="analysis-automation-snakemake.html#reports">Reports</a></li>
 </ul>
 </li>
 </ul>
@@ -366,7 +366,7 @@
 </ul>
 </div>
 </div>
-<section id="what-is-gauss">
+<div class="section" id="what-is-gauss">
 <h1>What is Gauss?<a class="headerlink" href="#what-is-gauss" title="Permalink to this headline">¶</a></h1>
 <p>Gauss is the LHCb simulation framework which manages the creation of simulated events by interfacing to multiple external applications. Most commonly, an event is created via the following procedure:</p>
 <ol class="simple">
@@ -387,8 +387,8 @@
 </ol>
 </div>
 </div>
-</section>
-<section id="choosing-your-gauss-version">
+</div>
+<div class="section" id="choosing-your-gauss-version">
 <h1>Choosing your Gauss Version<a class="headerlink" href="#choosing-your-gauss-version" title="Permalink to this headline">¶</a></h1>
 <p>Each release of Gauss v49 represents a different release of Sim09. You may want to run an older version of Gauss to verify something in a pre-existing MC dataset or for any number of other reasons. Here is a table matching each Gauss v49 release to each Sim09 version:</p>
 <p>| Sim09 Version | Original Gauss Releases |
@@ -410,7 +410,7 @@
 Here <code class="docutils literal notranslate"><span class="pre">&lt;prodID&gt;</span></code> represents your production number, this is a 5 or 6 digit number. If you don’t know this, it can be found by using this command:
 <code class="docutils literal notranslate"><span class="pre">lb-dirac</span> <span class="pre">dirac-bookkeeping-decays-path</span> <span class="pre">&lt;Dec</span> <span class="pre">Number&gt;</span></code>.
 Here the production ID will be the last number given in each line. Note that you may need to use ProdID-1 for flagged samples or ProdID-2 for filtered samples since the generation, filtering and stripping are done in different steps.</p>
-</section>
+</div>
 
 
            </div>

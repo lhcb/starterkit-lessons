@@ -4,8 +4,7 @@
 <html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8" />
-  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
+  
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
   <title>Which option files to use and how to run Gauss &mdash; LHCb Starterkit Lessons  documentation</title>
@@ -193,13 +192,14 @@
 <li class="toctree-l2"><a class="reference internal" href="managing-files-with-ganga.html">Managing files in Ganga</a></li>
 <li class="toctree-l2"><a class="reference internal" href="analysis-automation-snakemake.html">Analysis automation with snakemake</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="analysis-automation-snakemake.html#motivation">Motivation</a></li>
-<li class="toctree-l3"><a class="reference internal" href="analysis-automation-snakemake.html#documentation-and-installation">Documentation and installation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="analysis-automation-snakemake.html#documentation-and-environments">Documentation and environments</a></li>
 <li class="toctree-l3"><a class="reference internal" href="analysis-automation-snakemake.html#tutorial">Tutorial</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="analysis-automation-snakemake.html#usage-and-basic-behaviour">Usage and basic behaviour</a></li>
 <li class="toctree-l4"><a class="reference internal" href="analysis-automation-snakemake.html#sub-labels">Sub-labels</a></li>
 <li class="toctree-l4"><a class="reference internal" href="analysis-automation-snakemake.html#run-and-shell">Run and shell</a></li>
 <li class="toctree-l4"><a class="reference internal" href="analysis-automation-snakemake.html#config-files">Config files</a></li>
 <li class="toctree-l4"><a class="reference internal" href="analysis-automation-snakemake.html#includes">Includes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="analysis-automation-snakemake.html#reports">Reports</a></li>
 </ul>
 </li>
 </ul>
@@ -369,7 +369,7 @@
 </ul>
 </div>
 </div>
-<section id="which-option-files-to-use-and-how-to-run-gauss">
+<div class="section" id="which-option-files-to-use-and-how-to-run-gauss">
 <h1>Which option files to use and how to run Gauss<a class="headerlink" href="#which-option-files-to-use-and-how-to-run-gauss" title="Permalink to this headline">¶</a></h1>
 <p>Imagine you need to know the option files and software versions used for a simulated sample you have found in the bookkeeping, e.g.</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>/MC/2016/Beam6500GeV-2016-MagDown-Nu1.6-25ns-Pythia8/Sim09c/Trig0x6138160F/Reco16/Turbo03/Stripping28r1Filtered/27163003/D2HMUNUSTREAM.STRIP.DST
@@ -387,8 +387,8 @@
 produces the sample using Pythia 8 while <code class="docutils literal notranslate"><span class="pre">'$LBPYTHIA8ROOT/options/Pythia8.py'</span>&#160; <span class="pre">'$DECFILESROOT/options/{eventnumber}.py'</span></code> uses Pythia 6.</p>
 </div>
 </div>
-</section>
-<section id="running-gauss-and-create-a-generator-only-sample">
+</div>
+<div class="section" id="running-gauss-and-create-a-generator-only-sample">
 <h1>Running Gauss and create a generator-only sample<a class="headerlink" href="#running-gauss-and-create-a-generator-only-sample" title="Permalink to this headline">¶</a></h1>
 <p>The production system handles the necessary settings for initial event- and runnumber and the used database tags. In a private production, you need to set these yourself in an additional options file, containing, for example:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">Gauss.Configuration</span> <span class="kn">import</span> <span class="n">GenInit</span>
@@ -446,8 +446,8 @@ produces the sample using Pythia 8 while <code class="docutils literal notransla
 </div>
 </div>
 <p>See if you can generate a generator level only sample for event type <code class="docutils literal notranslate"><span class="pre">27175000</span></code> ( <span class="math notranslate nohighlight">\( D^{*+} \to D^{0}(\to K^{+}K^{-}\mu^{+}\mu^{-})\pi^{+} \)</span> )</p>
-</section>
-<section id="make-an-ntuple">
+</div>
+<div class="section" id="make-an-ntuple">
 <h1>Make an nTuple<a class="headerlink" href="#make-an-ntuple" title="Permalink to this headline">¶</a></h1>
 <p>The <code class="docutils literal notranslate"><span class="pre">.xgen</span></code> file can be processed into something more usable (copied together from <a class="reference external" href="https://gitlab.cern.ch/lhcb-datapkg/Gen/DecFiles/blob/master/CONTRIBUTING.md#">here</a>).
 A larger input file containing 50,000 generated events for event-type can be found on EOS: <code class="docutils literal notranslate"><span class="pre">root://eosuser.cern.ch//eos/user/l/lhcbsk/sim-lesson-2019/Gauss-27175000-50000ev-20190515.xgen</span></code>.</p>
@@ -540,7 +540,7 @@ A larger input file containing 50,000 generated events for event-type can be fou
 <span class="n">appendPostConfigAction</span><span class="p">(</span> <span class="n">doIt</span> <span class="p">)</span>
 </pre></div>
 </div>
-</section>
+</div>
 
 
            </div>

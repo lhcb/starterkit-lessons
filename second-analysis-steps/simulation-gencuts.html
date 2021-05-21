@@ -4,8 +4,7 @@
 <html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8" />
-  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
+  
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
   <title>Modifying the decay &mdash; LHCb Starterkit Lessons  documentation</title>
@@ -193,13 +192,14 @@
 <li class="toctree-l2"><a class="reference internal" href="managing-files-with-ganga.html">Managing files in Ganga</a></li>
 <li class="toctree-l2"><a class="reference internal" href="analysis-automation-snakemake.html">Analysis automation with snakemake</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="analysis-automation-snakemake.html#motivation">Motivation</a></li>
-<li class="toctree-l3"><a class="reference internal" href="analysis-automation-snakemake.html#documentation-and-installation">Documentation and installation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="analysis-automation-snakemake.html#documentation-and-environments">Documentation and environments</a></li>
 <li class="toctree-l3"><a class="reference internal" href="analysis-automation-snakemake.html#tutorial">Tutorial</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="analysis-automation-snakemake.html#usage-and-basic-behaviour">Usage and basic behaviour</a></li>
 <li class="toctree-l4"><a class="reference internal" href="analysis-automation-snakemake.html#sub-labels">Sub-labels</a></li>
 <li class="toctree-l4"><a class="reference internal" href="analysis-automation-snakemake.html#run-and-shell">Run and shell</a></li>
 <li class="toctree-l4"><a class="reference internal" href="analysis-automation-snakemake.html#config-files">Config files</a></li>
 <li class="toctree-l4"><a class="reference internal" href="analysis-automation-snakemake.html#includes">Includes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="analysis-automation-snakemake.html#reports">Reports</a></li>
 </ul>
 </li>
 </ul>
@@ -370,9 +370,9 @@
 </ul>
 </div>
 </div>
-<section id="modifying-the-decay">
+<div class="section" id="modifying-the-decay">
 <h1>Modifying the decay<a class="headerlink" href="#modifying-the-decay" title="Permalink to this headline">¶</a></h1>
-<section id="adding-a-decay-channel">
+<div class="section" id="adding-a-decay-channel">
 <h2>Adding a decay channel<a class="headerlink" href="#adding-a-decay-channel" title="Permalink to this headline">¶</a></h2>
 <p>In order to make our decay model more realistic we can add in known resonances. E.g. instead of solely relying on phase-space, we can add in the prominent <span class="math notranslate nohighlight">\( \Phi\to K^{+}K^{-} \)</span> resonance to hopefully. In the decfile, we can another line to the decay channels of the <span class="math notranslate nohighlight">\( D^0 \)</span>:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>Decay MyD0                                                                                                                                                                                                                                                 
@@ -398,14 +398,14 @@ Enddecay
 </pre></div>
 </div>
 <p>After changing the decfile, you have to rerun <code class="docutils literal notranslate"><span class="pre">make</span></code>. Try out the modified decfile with Gauss, you should see a large spike in <span class="math notranslate nohighlight">\( m(K^+K^-) \)</span>.</p>
-</section>
-<section id="generator-level-cuts">
+</div>
+<div class="section" id="generator-level-cuts">
 <h2>Generator level cuts<a class="headerlink" href="#generator-level-cuts" title="Permalink to this headline">¶</a></h2>
 <p>Detector simulation is computationally expensive, and event generation is comparatively fast. Cuts at generator level save a huge amount of CPU and disk space (which means you can have more actually useful events) almost for free. At generator level you can only cut on pre-resolution quantities, so normally you want the generator cuts to be 100% efficient for selected events (within epsilon). The default example is to immediately remove events where the decay products are far outside the LHCb acceptance.
 This is implemented in “DaugthersInLHCb”, aka “DecProdCut” in the NickName. This requires that each “stable charged particle” is in a loose region around the LHCb acceptance (10-400 mrad in Theta).
 Cut tools need to be implemented in C++ and reside in the package <code class="docutils literal notranslate"><span class="pre">Gen/GenCuts</span></code>.</p>
-</section>
-<section id="removing-the-generator-cuts">
+</div>
+<div class="section" id="removing-the-generator-cuts">
 <h2>Removing the generator cuts<a class="headerlink" href="#removing-the-generator-cuts" title="Permalink to this headline">¶</a></h2>
 <p>The absolute efficiencies for generator cuts can be obtained from the respective <a class="reference external" href="http://lhcbdoc.web.cern.ch/lhcbdoc/STATISTICS/SIM09STAT/index.shtml">website</a> or the produced <code class="docutils literal notranslate"><span class="pre">GeneratorLog.xml</span></code> file, which contains:</p>
 <div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;efficiency</span> <span class="na">name =</span> <span class="s">&quot;generator level cut&quot;</span><span class="nt">&gt;</span>
@@ -428,8 +428,8 @@ Cut tools need to be implemented in C++ and reside in the package <code class="d
 <p>which must be included after <code class="docutils literal notranslate"><span class="pre">27163003.py</span></code> is sourced (e.g. in <code class="docutils literal notranslate"><span class="pre">Gauss-Job.py</span></code>). You can convince yourself that this alters the observed
 distributions and leads to a generator level cut efficiency of 100%. A large sample can be found on EOS: <code class="docutils literal notranslate"><span class="pre">root://eosuser.cern.ch//eos/user/l/lhcbsk/sim-lesson-2019/Gauss-27175000-modified-50000ev-20190515.xgen</span></code> (includes additional resonance added above).
 Have a look at the pseudorapidity distribution of the head particle. This illustrates another default behavior of the generation of signal decays in Gauss: The generated events’ z-axis if inverted if the selected signal particle’s momentum along that axis is negative.</p>
-</section>
-<section id="modifying-the-cut-tool">
+</div>
+<div class="section" id="modifying-the-cut-tool">
 <h2>Modifying the cut tool<a class="headerlink" href="#modifying-the-cut-tool" title="Permalink to this headline">¶</a></h2>
 <p>If you need to modify the cut tool, you generally can pick between multiple options with increasing complexity and time until in production:</p>
 <ol class="simple">
@@ -479,8 +479,8 @@ For some ideas on which kind of cuts to apply, you can have a look here: https:/
 Hence, any modification that changes the produced events usually requires the release of a new DecFile including a new event-type or a new simulation sub-version so events end up in a different bookkeeping location.</p>
 </div>
 </div>
-</section>
-</section>
+</div>
+</div>
 
 
            </div>

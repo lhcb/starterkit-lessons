@@ -4,8 +4,7 @@
 <html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8" />
-  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
+  
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
   <title>Fun with LoKi Functors &mdash; LHCb Starterkit Lessons  documentation</title>
@@ -193,13 +192,14 @@
 <li class="toctree-l2"><a class="reference internal" href="../second-analysis-steps/managing-files-with-ganga.html">Managing files in Ganga</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../second-analysis-steps/analysis-automation-snakemake.html">Analysis automation with snakemake</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../second-analysis-steps/analysis-automation-snakemake.html#motivation">Motivation</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../second-analysis-steps/analysis-automation-snakemake.html#documentation-and-installation">Documentation and installation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../second-analysis-steps/analysis-automation-snakemake.html#documentation-and-environments">Documentation and environments</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../second-analysis-steps/analysis-automation-snakemake.html#tutorial">Tutorial</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="../second-analysis-steps/analysis-automation-snakemake.html#usage-and-basic-behaviour">Usage and basic behaviour</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../second-analysis-steps/analysis-automation-snakemake.html#sub-labels">Sub-labels</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../second-analysis-steps/analysis-automation-snakemake.html#run-and-shell">Run and shell</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../second-analysis-steps/analysis-automation-snakemake.html#config-files">Config files</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../second-analysis-steps/analysis-automation-snakemake.html#includes">Includes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../second-analysis-steps/analysis-automation-snakemake.html#reports">Reports</a></li>
 </ul>
 </li>
 </ul>
@@ -356,7 +356,7 @@
     text-align: unset;
 }
 </style>
-<section id="fun-with-loki-functors">
+<div class="section" id="fun-with-loki-functors">
 <h1>Fun with LoKi Functors<a class="headerlink" href="#fun-with-loki-functors" title="Permalink to this headline">¶</a></h1>
 <div class="panel panel-objectives docutils container">
 <div class="panel-header open docutils container">
@@ -614,14 +614,14 @@ We can see that they do the same thing as <code class="docutils literal notransl
 <div class="panel-body docutils container">
 <p>You might have noticed above we used the <code class="docutils literal notranslate"><span class="pre">&amp;</span></code> operator (bitwise AND) to
 combine the <code class="docutils literal notranslate"><span class="pre">ISBASIC</span></code> and <code class="docutils literal notranslate"><span class="pre">HASTRACK</span></code> cuts above.
-This is because Python doesn’t allow LoKi to override the behaviour of <code class="docutils literal notranslate"><span class="pre">and</span></code> and <code class="docutils literal notranslate"><span class="pre">or</span></code> (”logical AND/OR”), so if we use them
+This is because Python doesn’t allow LoKi to override the behaviour of <code class="docutils literal notranslate"><span class="pre">and</span></code> and <code class="docutils literal notranslate"><span class="pre">or</span></code> (“logical AND/OR”), so if we use them
 the Python interpreter tries to combine the two cuts straight away, before we have even passed in our candidate:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">In</span> <span class="p">[</span><span class="mi">1</span><span class="p">]:</span> <span class="p">((</span><span class="n">M</span><span class="o">&gt;</span><span class="mi">1200</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span><span class="n">PT</span> <span class="o">&gt;</span> <span class="mi">500</span><span class="p">))</span>
 <span class="n">Out</span><span class="p">[</span><span class="mi">1</span><span class="p">]:</span>  <span class="p">(</span><span class="n">M</span><span class="o">&gt;</span><span class="mi">1200</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>the result is that our <code class="docutils literal notranslate"><span class="pre">PT</span></code> cut vanishes!
-If we use the <code class="docutils literal notranslate"><span class="pre">|</span></code> operator (”bitwise OR”) then LoKi correctly builds a functor representing the <code class="docutils literal notranslate"><span class="pre">OR</span></code> of our cuts:</p>
+If we use the <code class="docutils literal notranslate"><span class="pre">|</span></code> operator (“bitwise OR”) then LoKi correctly builds a functor representing the <code class="docutils literal notranslate"><span class="pre">OR</span></code> of our cuts:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">In</span> <span class="p">[</span><span class="mi">2</span><span class="p">]:</span> <span class="p">((</span><span class="n">M</span><span class="o">&gt;</span><span class="mi">1200</span><span class="p">)</span> <span class="o">|</span> <span class="p">(</span><span class="n">PT</span> <span class="o">&gt;</span> <span class="mi">500</span><span class="p">))</span>
 <span class="n">Out</span><span class="p">[</span><span class="mi">2</span><span class="p">]:</span>  <span class="p">(</span> <span class="p">(</span><span class="n">M</span><span class="o">&gt;</span><span class="mi">1200</span><span class="p">)</span> <span class="o">|</span> <span class="p">(</span><span class="n">PT</span><span class="o">&gt;</span><span class="mi">500</span><span class="p">)</span> <span class="p">)</span>
 </pre></div>
@@ -744,7 +744,7 @@ the most important of these are:</p>
 </div>
 </div>
 </div>
-</section>
+</div>
 
 
            </div>

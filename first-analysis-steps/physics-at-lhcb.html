@@ -4,8 +4,7 @@
 <html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8" />
-  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
+  
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
   <title>Physics at LHCb &mdash; LHCb Starterkit Lessons  documentation</title>
@@ -193,13 +192,14 @@
 <li class="toctree-l2"><a class="reference internal" href="../second-analysis-steps/managing-files-with-ganga.html">Managing files in Ganga</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../second-analysis-steps/analysis-automation-snakemake.html">Analysis automation with snakemake</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../second-analysis-steps/analysis-automation-snakemake.html#motivation">Motivation</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../second-analysis-steps/analysis-automation-snakemake.html#documentation-and-installation">Documentation and installation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../second-analysis-steps/analysis-automation-snakemake.html#documentation-and-environments">Documentation and environments</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../second-analysis-steps/analysis-automation-snakemake.html#tutorial">Tutorial</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="../second-analysis-steps/analysis-automation-snakemake.html#usage-and-basic-behaviour">Usage and basic behaviour</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../second-analysis-steps/analysis-automation-snakemake.html#sub-labels">Sub-labels</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../second-analysis-steps/analysis-automation-snakemake.html#run-and-shell">Run and shell</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../second-analysis-steps/analysis-automation-snakemake.html#config-files">Config files</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../second-analysis-steps/analysis-automation-snakemake.html#includes">Includes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../second-analysis-steps/analysis-automation-snakemake.html#reports">Reports</a></li>
 </ul>
 </li>
 </ul>
@@ -356,7 +356,7 @@
     text-align: unset;
 }
 </style>
-<section id="physics-at-lhcb">
+<div class="section" id="physics-at-lhcb">
 <h1>Physics at LHCb<a class="headerlink" href="#physics-at-lhcb" title="Permalink to this headline">¶</a></h1>
 <div class="panel panel-objectives docutils container">
 <div class="panel-header open docutils container">
@@ -396,7 +396,7 @@ formed as combinations of these ‘stable’ particles[^1]:</p>
 <p>Many properties of these objects, such as their momentum and charge, are
 intrinsic, but we have to infer them based on the signals they create
 in the detector as they traverse through it.</p>
-<section id="the-reconstruction">
+<div class="section" id="the-reconstruction">
 <h2>The reconstruction<a class="headerlink" href="#the-reconstruction" title="Permalink to this headline">¶</a></h2>
 <p>The properties of particles produced in collisions are known to Nature, but we
 must reconstruct those properties based on the readout of the detector.
@@ -419,8 +419,8 @@ recommended that you become familiar with at least the aspects of the
 reconstruction that are relevant to your analysis. For now, we only need to
 understand tracks and vertices, and how decays can be reconstructed and
 selected from these.</p>
-</section>
-<section id="building-decay-candidates">
+</div>
+<div class="section" id="building-decay-candidates">
 <h2>Building decay candidates<a class="headerlink" href="#building-decay-candidates" title="Permalink to this headline">¶</a></h2>
 <p>All objects created by the reconstruction contain contributions from detector
 effects, such as resolution. In addition, not all created objects may
@@ -469,8 +469,8 @@ following plot, created using simulated toy data.</p>
 and fit the total model to this histogram. The relative normalisations of the
 components can be used to deduce the fraction of the sample which contains true
 decays, within some uncertainty.</p>
-</section>
-<section id="building-more-complex-decays">
+</div>
+<div class="section" id="building-more-complex-decays">
 <h2>Building more complex decays<a class="headerlink" href="#building-more-complex-decays" title="Permalink to this headline">¶</a></h2>
 <p>With a set of <span class="math notranslate nohighlight">\( J/\psi \)</span> candidates, we could build more complex decay chains
 such as <span class="math notranslate nohighlight">\( B_{s}^{0} \to J/\psi\phi(1020) \)</span>.
@@ -490,8 +490,8 @@ candidates. This course will show you how to extract the candidates and their
 properties that are relevant for your analysis.</p>
 <p>[^1]: Other ‘stable’ particles under this definition include neutrons <span class="math notranslate nohighlight">\( n \)</span> and the long-lived neutral kaon weak eigenstate <span class="math notranslate nohighlight">\( K_{\mathrm{L}}^{0} \)</span>, but these are not part of standard reconstruction output.</p>
 <p>[^2]: ‘Candidate’ because, again, we never know anything with complete certainty; this could be combination of muons that just happen to pass our selection criteria.</p>
-</section>
-</section>
+</div>
+</div>
 
 
            </div>
