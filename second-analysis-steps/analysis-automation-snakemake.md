@@ -374,12 +374,16 @@ Then run the exact same command again adding the `--report` flag as the first ar
 
 Some screenshots of what a report may look like are shown below. Information in the report includes: a graph showing the DAG of the completed jobs, each node of this graph can be clicked to show the rule in more detail; the time taken to run each job; and a summary of all the produced files.
 
-<!-- TODO add screenshots here -->
+[![Reporting DAG](img/Reporting_DAG.png)](img/Reporting_DAG.png)
+[![Reporting stats](img/Reporting_stats.png)](img/Reporting_stats.png)
+[![Reporting rule](img/Reporting_rule.png)](img/Reporting_rule.png)
+
 
 
 For more information on using reports as well as more examples, see the snakemake documentation [here](https://snakemake.readthedocs.io/en/stable/snakefiles/reporting.html).
 
+<!-- TODO add this section once the linked page is finished
 ### Workflow preservation
 
 https://lhcb-dpa.web.cern.ch/lhcb-dpa/wp6/workflow-preservation.html
-<!-- TODO add this properly -->
+-->
