@@ -362,12 +362,20 @@ rule myRule:
 	input:
  		SomeFile.root
 	output:
- 		report(Output.pdf) # this will now be included in the report
+ 		report(Output.root) # this will now be included in the report
 	shell:
-  python RuleForExecution.py {input}
+  		python RuleForExecution.py {input}
 ```
 
-To produce the report you now add the `--report` flag to your snakemake command
+N.B. the reporting feature does not work with files already marked as `temp`
+
+To produce the report you first run the `snakemake` command as you normally would.
+Then run the exact same command again adding the `--report` flag as the first argument to your snakemake command.
+
+Some screenshots of what a report may look like are shown below. Information in the report includes: a graph showing the DAG of the completed jobs, each node of this graph can be clicked to show the rule in more detail; the time taken to run each job; and a summary of all the produced files.
+
+<!-- TODO add screenshots here -->
+
 
 For more information on using reports as well as more examples, see the snakemake documentation [here](https://snakemake.readthedocs.io/en/stable/snakefiles/reporting.html).
 
