@@ -372,7 +372,12 @@ N.B. the reporting feature does not work with files already marked as `temp`
 To produce the report you first run the `snakemake` command as you normally would.
 Then run the exact same command again adding the `--report` flag as the first argument to your snakemake command.
 
+A command such as `snakemake --report report.html` will produce a report containing everything.
+By constrast `snakemake fig1.pdf --report report-short.html` will produce a short report of just that one target.
+
 Some screenshots of what a report may look like are shown below. Information in the report includes: a graph showing the DAG of the completed jobs, each node of this graph can be clicked to show the rule in more detail; the time taken to run each job; and a summary of all the produced files.
+
+Ideally every plot which is included in an ana note would have a report explaining how it was made.
 
 [![Reporting DAG](img/Reporting_DAG.png)](img/Reporting_DAG.png)
 [![Reporting stats](img/Reporting_stats.png)](img/Reporting_stats.png)
