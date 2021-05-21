@@ -39,7 +39,7 @@ make
 ```
 This configures a build environment for that latest `Sim09` version of Gauss.
 
-There is a chance the step creating the dec files repository didn't work on systems outside of lxplus, if this is the case, you may need to run `git config --global lb-use.protocol ssh` first 
+There is a chance the step creating the dec files repository didn't work on systems outside of lxplus, if this is the case, you may need to run `git config --global lb-use.protocol ssh` first .
 
 {% endcallout %}
 
