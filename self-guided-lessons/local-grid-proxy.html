@@ -4,7 +4,8 @@
 <html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8" />
-  
+  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
   <title>Creating a grid proxy without LbScripts &mdash; LHCb Starterkit Lessons  documentation</title>
@@ -352,7 +353,7 @@
     text-align: unset;
 }
 </style>
-<div class="section" id="creating-a-grid-proxy-without-lbscripts">
+<section id="creating-a-grid-proxy-without-lbscripts">
 <h1>Creating a grid proxy without LbScripts<a class="headerlink" href="#creating-a-grid-proxy-without-lbscripts" title="Permalink to this headline">¶</a></h1>
 <p>On the grid VOMS (Virtual Organization Membership Service) is used to provide authentication when accessing grid resources.
 This works by using your certificate to create a local proxy credential which can then be used by applications for a limited time.</p>
@@ -360,35 +361,35 @@ This works by using your certificate to create a local proxy credential which ca
 It is sometimes useful however, to create a grid proxy when LbScripts is unavailable.
 The most commonly use for this is to be able to access data at grid sites using XRootD.
 Fortunately VOMS can be easily installed and used without requiring the full LHCb environment.</p>
-<div class="section" id="installation">
+<section id="installation">
 <h2>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
 <p>The VOMS client can be installed in the following ways, if your operating system isn’t listed see <a class="reference external" href="https://github.com/italiangrid/voms-clients">here</a> (and consider <a class="reference internal" href="../CONTRIBUTING.html"><span class="doc">making a pull request</span></a> to update this guide).</p>
-<div class="section" id="macos-with-homebrew">
+<section id="macos-with-homebrew">
 <h3>macOS with <a class="reference external" href="https://brew.sh">homebrew</a><a class="headerlink" href="#macos-with-homebrew" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>brew cask install java
 brew install voms
 </pre></div>
 </div>
-</div>
-<div class="section" id="ubuntu">
+</section>
+<section id="ubuntu">
 <h3>Ubuntu<a class="headerlink" href="#ubuntu" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo apt-get install voms-clients
 </pre></div>
 </div>
-</div>
-<div class="section" id="centos">
+</section>
+<section id="centos">
 <h3>CentOS<a class="headerlink" href="#centos" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo yum install epel-release
 sudo yum install voms-clients
 </pre></div>
 </div>
-</div>
-<div class="section" id="arch-linux">
+</section>
+<section id="arch-linux">
 <h3>Arch Linux<a class="headerlink" href="#arch-linux" title="Permalink to this headline">¶</a></h3>
 <p>Install <a class="reference external" href="https://aur.archlinux.org/packages/voms/">voms from the AUR</a>.</p>
-</div>
-</div>
-<div class="section" id="getting-the-required-files-and-certificates">
+</section>
+</section>
+<section id="getting-the-required-files-and-certificates">
 <h2>Getting the required files and certificates<a class="headerlink" href="#getting-the-required-files-and-certificates" title="Permalink to this headline">¶</a></h2>
 <p>In order to create a proxy you must have a copy of your personal grid certificate, assuming this is already set up on lxplus this can be copied using:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>scp -r lxplus.cern.ch:.globus/ ~/.globus
@@ -401,8 +402,8 @@ If not, they can be copied from lxplus to <code class="docutils literal notransl
 </pre></div>
 </div>
 <p>Note these will need updating occasionally by rerunning the above commands.</p>
-</div>
-<div class="section" id="creating-a-proxy">
+</section>
+<section id="creating-a-proxy">
 <h2>Creating a proxy<a class="headerlink" href="#creating-a-proxy" title="Permalink to this headline">¶</a></h2>
 <p>Once the voms have been installed and the files have been copied a grid certificate with a 168 hour (1 week) validity can be created using:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span> <span class="nv">X509_CERT_DIR</span><span class="o">=</span><span class="s2">&quot;</span><span class="nv">$HOME</span><span class="s2">/grid-security/certificates&quot;</span>
@@ -417,13 +418,13 @@ This can be setup by appending the following to <code class="docutils literal no
 <span class="nb">alias</span> lhcb-proxy-init<span class="o">=</span><span class="s1">&#39;voms-proxy-init -voms &quot;lhcb:/lhcb/Role=user&quot; -vomses &quot;$HOME/grid-security/vomses&quot; -r --valid 168:00 -cert &quot;$HOME/.globus/usercert.pem&quot; -key &quot;$HOME/.globus/userkey.pem&quot;&#39;</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="managing-the-proxy">
+</section>
+<section id="managing-the-proxy">
 <h2>Managing the proxy<a class="headerlink" href="#managing-the-proxy" title="Permalink to this headline">¶</a></h2>
 <p>The status of the current proxy can be checked using <code class="docutils literal notranslate"><span class="pre">voms-proxy-info</span></code>.</p>
 <p>The current proxy can be deleted using <code class="docutils literal notranslate"><span class="pre">voms-proxy-destroy</span></code>.</p>
-</div>
-</div>
+</section>
+</section>
 
 
            </div>

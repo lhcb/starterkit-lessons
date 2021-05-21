@@ -4,7 +4,8 @@
 <html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8" />
-  
+  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
   <title>Analysis Productions &mdash; LHCb Starterkit Lessons  documentation</title>
@@ -354,7 +355,7 @@
     text-align: unset;
 }
 </style>
-<div class="section" id="analysis-productions">
+<section id="analysis-productions">
 <h1>Analysis Productions<a class="headerlink" href="#analysis-productions" title="Permalink to this headline">¶</a></h1>
 <div class="panel panel-objectives docutils container">
 <div class="panel-header open docutils container">
@@ -375,9 +376,9 @@
 <li><p>Ntuples can be lost, or removed when analysists leave, which can be an issue for <a class="reference external" href="https://twiki.cern.ch/twiki/bin/view/LHCb/AnalysisPreservationReproducibility">analysis preservation</a></p></li>
 </ul>
 <p>It is the goal of <a class="reference external" href="https://gitlab.cern.ch/lhcb-datapkg/AnalysisProductions/">Analysis Productions</a> to centralise and automate much of the process of making ntuples, and to keep a record of how datasets were produced. Moving into run 3, this will usually be the preferred way to create ntuples for your analysis.</p>
-<div class="section" id="monitoring-productions">
+<section id="monitoring-productions">
 <h2>Monitoring productions<a class="headerlink" href="#monitoring-productions" title="Permalink to this headline">¶</a></h2>
-<p>Before we get into the how-to, let’s first take a look at the end result of a real production. Open the <a class="reference external" href="https://lhcb-portal-dirac.cern.ch/DIRAC/">DIRAC web interface</a>, and navigate to <code class="docutils literal notranslate"><span class="pre">Applications/Analysis</span> <span class="pre">Productions</span></code>. You should see a new menu appear, showing a list of working groups (‘B2CC’, ‘SL’, etc.). Under <code class="docutils literal notranslate"><span class="pre">SL</span></code> (the semi-leptonic working group), navigate to <code class="docutils literal notranslate"><span class="pre">AnaProd-RDs/v0r0p1735460</span></code>. This production has been named <code class="docutils literal notranslate"><span class="pre">RDs</span></code>, and <code class="docutils literal notranslate"><span class="pre">v0r0p1735460</span></code> is the version of the code used to run the jobs it contains.</p>
+<p>Before we get into the how-to, let’s first take a look at the end result of a real production. Open the <a class="reference external" href="https://lhcb-portal-dirac.cern.ch/DIRAC/">DIRAC web interface</a>, and navigate to <code class="docutils literal notranslate"><span class="pre">Applications/Analysis</span> <span class="pre">Productions</span></code>. You should see a new menu appear, showing a list of working groups (’B2CC’, ‘SL’, etc.). Under <code class="docutils literal notranslate"><span class="pre">SL</span></code> (the semi-leptonic working group), navigate to <code class="docutils literal notranslate"><span class="pre">AnaProd-RDs/v0r0p1735460</span></code>. This production has been named <code class="docutils literal notranslate"><span class="pre">RDs</span></code>, and <code class="docutils literal notranslate"><span class="pre">v0r0p1735460</span></code> is the version of the code used to run the jobs it contains.</p>
 <p>Each of these rows corresponds to a job belonging to this production, and displays:</p>
 <ul class="simple">
 <li><p>Its unique ID number of that batch of jobs (left, eg. <code class="docutils literal notranslate"><span class="pre">69615</span></code>)</p></li>
@@ -396,8 +397,8 @@
 </div>
 <p>You can now view these files by running <code class="docutils literal notranslate"><span class="pre">TBrowser</span> <span class="pre">b</span></code> inside of ROOT (or with your another method of your choice).</p>
 <p>To view the files that were used to create these ntuples, you can click on the ‘View on GitLab’ button. This will show you the version of the Analysis Production code that was run for this job. On GitLab, open the folder named <code class="docutils literal notranslate"><span class="pre">RDs</span></code> (the name of this production), and take a look around. You should find a few separate <code class="docutils literal notranslate"><span class="pre">.py</span></code> options files, as well as an <code class="docutils literal notranslate"><span class="pre">info.yaml</span></code> (more on this later).</p>
-</div>
-<div class="section" id="creating-your-own-production">
+</section>
+<section id="creating-your-own-production">
 <h2>Creating your own production<a class="headerlink" href="#creating-your-own-production" title="Permalink to this headline">¶</a></h2>
 <p>For practice, we will now go through the steps of creating a simple production. For details about more advanced usage, see the <a class="reference external" href="https://gitlab.cern.ch/lhcb-datapkg/AnalysisProductions">Analysis Productions README</a>.</p>
 <p>Start by creating a folder to work in, and into it clone the <a class="reference external" href="https://gitlab.cern.ch/lhcb-datapkg/AnalysisProductions">Analysis Productions repository</a>.</p>
@@ -473,7 +474,7 @@
 </div>
 </div>
 <p>For good practice, the final thing we should add is a README. This is a markdown file that will be used to document the information about your production in a more human-readable format. Create a file <code class="docutils literal notranslate"><span class="pre">README.md</span></code>, and add some pertinent information. If you’re not sure what to add, try looking at some existing productions to get an idea.</p>
-<div class="section" id="testing-your-production-locally">
+<section id="testing-your-production-locally">
 <h3>Testing your production locally<a class="headerlink" href="#testing-your-production-locally" title="Permalink to this headline">¶</a></h3>
 <p>Now we’ve got both of the files we need, we should test the production to make sure it works as expected. All of this will be done using the <code class="docutils literal notranslate"><span class="pre">lb-ap</span></code> command. Navigate up one level to the base directory of the respository (<code class="docutils literal notranslate"><span class="pre">AnalysisProductions</span></code>), and run <code class="docutils literal notranslate"><span class="pre">lb-ap</span></code>, which should display the following:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Usage: lb-ap [OPTIONS] COMMAND [ARGS]...
@@ -517,8 +518,8 @@ Commands:
 <p>For issues with <code class="docutils literal notranslate"><span class="pre">info.yaml</span></code> files, or anything else to do with the Analysis Productions framework, try the <a class="reference external" href="https://mattermost.web.cern.ch/lhcb/channels/dpa-wp2-analysis-productions">Analysis Productions Mattermost channel</a>, or contact the Analysis Productions coordinator(s) (see <a class="reference external" href="http://lhcb-dpa.web.cern.ch/lhcb-dpa/">here</a> to find out who they are).</p>
 </div>
 </div>
-</div>
-<div class="section" id="creating-a-merge-request">
+</section>
+<section id="creating-a-merge-request">
 <h3>Creating a merge request<a class="headerlink" href="#creating-a-merge-request" title="Permalink to this headline">¶</a></h3>
 <p>Now that we’ve tested all of our changes and are sure that everything’s working as intended, we can prepare to submit them to the main repository by creating a merge request. Start by commiting the changes:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git add ntuple_options.py
@@ -549,9 +550,9 @@ ALWAYS:Results will be available at https://lhcb-analysis-productions.web.cern.c
 <p>In addition, the Analysis Productions coordinator(s) may also have some feedback on your additions/changes.</p>
 </div>
 </div>
-</div>
-</div>
-</div>
+</section>
+</section>
+</section>
 
 
            </div>

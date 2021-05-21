@@ -4,7 +4,8 @@
 <html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8" />
-  
+  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
   <title>The simulation framework &mdash; LHCb Starterkit Lessons  documentation</title>
@@ -352,7 +353,7 @@
     text-align: unset;
 }
 </style>
-<div class="section" id="the-simulation-framework">
+<section id="the-simulation-framework">
 <h1>The simulation framework<a class="headerlink" href="#the-simulation-framework" title="Permalink to this headline">¶</a></h1>
 <div class="panel panel-prereq docutils container">
 <div class="panel-header open docutils container">
@@ -388,21 +389,26 @@ and a collection of useful links can be found on the project’s website: http:/
 <p id="setup"><i class="fa fa-info-circle"></i> Setup</p>
 </div>
 <div class="panel-body docutils container">
-<p>Before we continue, please set up a Gauss v49r17 <code class="docutils literal notranslate"><span class="pre">lb-dev</span></code>:</p>
+<p>Before we continue, please use these steps to set up Gauss v49r21:</p>
 <ul class="simple">
-<li><p>Set up Gauss: <code class="docutils literal notranslate"><span class="pre">lb-dev</span> <span class="pre">Gauss/v49r17</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">./GaussDev_v49r17</span></code></p></li>
+<li><p>Set up Gauss: <code class="docutils literal notranslate"><span class="pre">lb-dev</span> <span class="pre">Gauss/v49r21</span></code></p>
+<ul>
+<li><p>Doing this may produce warnings and info, but this should be ignored.</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">./GaussDev_v49r21</span></code></p></li>
 <li><p>Get the <code class="docutils literal notranslate"><span class="pre">DecFiles</span></code> package for later: <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">lb-clone-pkg</span> <span class="pre">Gen/DecFiles</span></code></p></li>
 <li><p>Build it: <code class="docutils literal notranslate"><span class="pre">make</span></code></p></li>
 </ul>
 <p>Or simply copy and paste the following lines:</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>lb-dev Gauss/v49r17
-<span class="nb">cd</span> ./GaussDev_v49r17
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>lb-dev Gauss/v49r21
+<span class="nb">cd</span> ./GaussDev_v49r21
 git lb-clone-pkg Gen/DecFiles
 make
 </pre></div>
 </div>
 <p>This configures a build environment for that latest <code class="docutils literal notranslate"><span class="pre">Sim09</span></code> version of Gauss.</p>
+<p>There is a chance the step creating the dec files repository didn’t work on systems outside of lxplus, if this is the case, you may need to run <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">config</span> <span class="pre">--global</span> <span class="pre">lb-use.protocol</span> <span class="pre">ssh</span></code> first .</p>
 </div>
 </div>
 <div class="toctree-wrapper compound">
@@ -441,7 +447,7 @@ make
 </li>
 </ul>
 </div>
-</div>
+</section>
 
 
            </div>

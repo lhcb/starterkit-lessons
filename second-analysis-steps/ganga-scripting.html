@@ -4,7 +4,8 @@
 <html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8" />
-  
+  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
   <title>Scripting Ganga &mdash; LHCb Starterkit Lessons  documentation</title>
@@ -352,7 +353,7 @@
     text-align: unset;
 }
 </style>
-<div class="section" id="scripting-ganga">
+<section id="scripting-ganga">
 <h1>Scripting Ganga<a class="headerlink" href="#scripting-ganga" title="Permalink to this headline">¶</a></h1>
 <p>We have already started using Ganga, such as when <a class="reference internal" href="../first-analysis-steps/davinci-grid.html"><span class="doc">submitting jobs to the
 Grid</span></a> and
@@ -364,7 +365,7 @@ The idea of running Python code extends outside of Ganga, where we can write
 scripts that Ganga will execute when starting up. This lesson will focus on
 writing job definition scripts, and exploring how we can define utility
 functions that will be available across all of our Ganga sessions.</p>
-<div class="section" id="defining-jobs-with-scripts">
+<section id="defining-jobs-with-scripts">
 <h2>Defining jobs with scripts<a class="headerlink" href="#defining-jobs-with-scripts" title="Permalink to this headline">¶</a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">ganga</span></code> executable is similar to the <code class="docutils literal notranslate"><span class="pre">python</span></code> and <code class="docutils literal notranslate"><span class="pre">ipython</span></code> executables in
 a couple of ways.
@@ -539,8 +540,8 @@ have one options file per year defining <code class="docutils literal notranslat
 Above we added the <code class="docutils literal notranslate"><span class="pre">--test</span></code> flag as an example: if this is <code class="docutils literal notranslate"><span class="pre">True</span></code>, you could
 run the application over only a single data file, and run the job locally
 rather than on the Grid (setting <code class="docutils literal notranslate"><span class="pre">j.backend</span></code> appropriately).</p>
-</div>
-<div class="section" id="adding-helpers-functions">
+</section>
+<section id="adding-helpers-functions">
 <h2>Adding helpers functions<a class="headerlink" href="#adding-helpers-functions" title="Permalink to this headline">¶</a></h2>
 <p>We’ve seen above how giving a script to <code class="docutils literal notranslate"><span class="pre">ganga</span></code> makes the variables defined in
 those scripts available interactively.
@@ -644,8 +645,8 @@ available:</p>
 <li><p>Replicating all LFNs to a specific Grid site.</p></li>
 </ul>
 <p>What other tasks can you think of?</p>
-</div>
-</div>
+</section>
+</section>
 
 
            </div>
