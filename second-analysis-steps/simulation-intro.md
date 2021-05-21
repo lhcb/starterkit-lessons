@@ -38,7 +38,7 @@ Each release of Gauss v49 represents a different release of Sim09. You may want 
 | Sim09j | v49r18 |
 | Sim09k | v49r20 |
 
-Any Gauss release not listed here corresponds to the lower of the Sim09 versions it is between (e.g. Gauss v49r9 is Sim09c)
+Any Gauss release not listed here corresponds to the lower of the Sim09 versions it is between (e.g. Gauss v49r9 is Sim09c).
 
 
 Once in a few years, major Sim versions are released, which involve newer versions of GEANT4, Pythia8 and other software, as well as major fixes to the detector description. Prior to production release, an extensive testing is performed by the Simulation group. The next major release is Sim10 (Gauss versions above v52) which is currently under validation. It will be used for both Run 1-2 and upgrade simulations in the future. The current Sim09 also supports production for upgrade. Sim versions suitable for upgrade simulations are marked with "Up" label, e.g. Sim10-Up08.
