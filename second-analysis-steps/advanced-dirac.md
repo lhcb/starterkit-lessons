@@ -80,7 +80,7 @@ lb-conda default python distro.py $MYENV $1
 
 {% callout ".env v .arg" %} 
 
-It is important to note that the subjob splitter and the unit splitter have to be on separate job parameters (in this case .env and .arg). Otherwise, the last splitter called will overwrite the changes of the first. You will still end up with the correct ammount of jobs but they will be running the wrong parameters! To inspect what parameters your jobs are running with you can use the usual Ganga syntax of
+It is important to note that the subjob splitter and the Unit splitter have to be on separate job parameters (in this case .env and .arg). Otherwise, the last splitter called will overwrite the changes of the first. You will still end up with the correct ammount of jobs but they will be running the wrong parameters! To inspect what parameters your jobs are running with you can use the usual Ganga syntax of
 ```
 jobs(job_num) 
 ```
@@ -88,9 +88,9 @@ to quicky inspect what was submitted.
 
 {% endcallout %}
 
-Run this the same way you would any ganga script using.
+Run this the same way you would any Ganga submission script using.
 ```
-ganga -i gangaTasks.py
+ganga -i submit.py
 ```
 
 You can inspect your Task by looking at `tasks` in the ganga `IPython` window. Do not worry if nothing happens, the `tasks` monitor only refreshes every 30 real seconds! If everything has gone as intended shortly you will have some data files in your local gangadir relating to the generators. How do we add the second transform?
@@ -140,41 +140,39 @@ Now you can submit this task again and monitor the results. `cat __GangaInputDat
 
 {% callout "Units Changing Order" %} 
 
-You should notice when running this script that the unit `U:0` that generates the gaussian is not the unit that makes the histograms. This should be `U:2`. This is because units are tied to their Transforms so `U:0` of the second Transform is simply the first to run. For a full breakdown of what units are running each step, with what data, you can use
+You should notice when running this script that the Unit `U:0` that generates the gaussian distribution is not the Unit that makes the histograms. This should be `U:2`. This is because Units are tied to their Transforms so `U:0` of the second Transform is simply the first Unit of that Transform to run. For a full breakdown of what Units are running each step, with what data, you can use
 
 ```
 tasks(task_num).overview()
 ```
 
-to see a full breakdown.
-
 {% endcallout %}
 
 ###Alternative Backends - DIRAC (Python [bugged](https://github.com/ganga-devs/ganga/pull/1896))
 
-However so far we have only run Tasks on the local host. Naturally this will not be appropriate for many of the jobs you will need to do. So firstly lets get our python scripts running on `DIRAC` rather than `Localhost`. First we need to ensure that our `DIRAC` submission can access lb-conda. This is done using `Tags` which allow us to configure the behind the scenes of our job. As such we need to add the following snippet to our code
+So far we have only run Tasks on the `Localhost`. Naturally this will not be appropriate for many of the jobs you will need to do. So firstly lets get our python scripts running on `DIRAC` rather than `Localhost`. First we need to ensure that our `DIRAC` submission can access lb-conda. This is done using `Tags` which allow us to configure the behind the scenes of `DIRAC`. As such we need to add the following snippet to our code.
 
 ```
 trf1.backend = Dirac()
 trf1.backend.diracOpts = '[j.setTag(["/cvmfs/lhcbdev.cern.ch/"])]'
 ```
 
-This is because when the transform generates a `DIRAC` job it creates a`job()` object called `j` for each Unit. Further to this we need to include the following in the relevant `.sh` executable
+This is because when the Transform generates a `DIRAC` job it creates a`job()` object called `j` for each Unit. Further to this we need to include the following in the relevant `.sh` executable.
 
 ```
 source /cvmfs/lhcb.cern.ch/lib/LbEnv
 ```
 
-since any sites that are not at CERN will not source this by default.
+Since any sites that are not at CERN will not source this by default.
 
 ###Alternative Backends - DIRAC (DaVinci)
 
 As you can also imagine it is useful to be able to include DaVinci jobs as Transforms in certain analysis chains. As mentioned earlier Transforms have the following advantages over traditional jobs.
 
 * Tasks will resubmit failed subjobs automatically.
-* You can chain your tuples into other Transforms which enable GRID based processing of Tuples.
+* You can chain your Tuples into other Transforms before downloading them.
 
-However, Transforms comes with a couple of caveats to achieve this. The first is that you should use a pre-built version of `DaVinci`. You cannot use `prepareGaudiExec()`  as this will be called for each Unit you have running DaVinci and fail. Similarly, you should ensure that the transform platform `trf.application.platform` matches your build. An example of a DaVinci implementation is shown below.
+However, Transforms comes with a couple of caveats to achieve this. The first is that you should use a pre-built version of `DaVinci`. You cannot use `prepareGaudiExec()` as this will be called for each Unit you have running DaVinci and fail. Similarly, you should ensure that the Transform platform `trf.application.platform` matches your build. An example of a DaVinci implementation is shown below.
 
 ```
 trf1 = CoreTransform()
@@ -194,7 +192,7 @@ For more details of how to prepare DaVinci jobs for GRID submission please refer
 
 ###Alternative Backends - Condor
 
-Transforms can also be set to run on the `Condor` backend. For those of you familiar with Condor you should recognise the `requirements` object that allows you to set requirements for host selection. These include `opsys`, `arch`, `memory` and others and can be inspected directly through the `IPython` interface. Changes to the choice of HTCondor universe can also be made by directly by changing the contents of `backend.universe`. An example of using the Condor backend is as follows.
+Transforms can also be set to run on the Condor backend. For those of you familiar with Condor you should recognise the `requirements` object that allows you to set requirements for host selection. These include `opsys`, `arch`, `memory` and others and can be inspected directly through the `IPython` interface. Changes to the choice of Condor universe can also be made by directly by changing the contents of `backend.universe`. An example of using the Condor backend is as follows.
 
 ```
 trf1.backend = Condor()
@@ -204,6 +202,6 @@ trf1.backend.requirements.memory = 1200
 
 {% callout "Learning More?" %} 
 
-At this point you should be a confident user of the Ganga `IPython` shell. To learn more about other features and classes available to you please refer to the [Ganga Documentation](https://ganga.readthedocs.io/en/latest/UserGuide/index.html).
+At this point you should be a confident using the Ganga `IPython` shell to submit more advanced jobs. To learn more about other features and classes available to you please refer to the [Ganga Documentation](https://ganga.readthedocs.io/en/latest/UserGuide/index.html).
 
 {% endcallout %}
