@@ -16,6 +16,8 @@ This tutorial will be based on a couple of python files. Please download the fol
 
 {% endcallout %}
 
+###GangaTasks
+
 The first and most important package to introduce is GangaTasks. This package is designed to stop busy analysts from spending more time managing GRID jobs than working on physics. It has the following core features.
 
 * Automatically submits jobs and keeps a certain ammount running at all times.
@@ -139,5 +141,51 @@ tasks(task_num).overview()
 ```
 
 to see a full breakdown.
+
+{% endcallout %}
+
+###Alternative Backends - DIRAC ([bugged](https://github.com/ganga-devs/ganga/pull/1896))
+
+However so far we have only run Tasks on the local host. Naturally this will not be appropriate for many of the jobs you will need to do. So firstly lets get our python scripts running on `DIRAC` rather than `Localhost`. First we need to ensure that our `DIRAC` submission can access lb-conda. This is done using `Tags` which allow us to configure the behind the scenes of our job. As such we need to add the following snippet to our code
+
+```
+trf1.backend = Dirac()
+trf1.backend.diracOpts = '[j.setTag(["/cvmfs/lhcbdev.cern.ch/"])]'
+```
+
+This is because when the transform generates a `DIRAC` job it creates a`job()` object called `j` for each Unit. Further to this we need to include
+
+```
+source /cvmfs/lhcb.cern.ch/lib/LbEnv
+```
+
+since any sites that are not at CERN will not source this by default.
+
+As you can also imagine it is useful to be able to include DaVinci jobs as Transforms in certain analysis chains. As mentioned earlier Transforms have the following advantages over traditional jobs.
+
+*Tasks will resubmit failed subjobs automatically.
+*You can chain your tuples into other Transforms which enable GRID based processing of Tuples.
+
+However, Transforms comes with a couple of caveats to achieve this. The first is that you should use a pre-built version of `DaVinci`. You cannot use `prepareGaudiExec()`  as this will be called for each Unit you have running DaVinci and fail. Similarly, you should ensure that the transform platform `trf.application.platform` matches your build. An example of a DaVinci implementation is shown below.
+
+```
+trf1 = CoreTransform()
+trf1.application = GaudiExec()
+trf1.application.directory = "./DaVinciDev"
+trf1.application.platform = "x86_64-centos7-gcc8-opt"
+trf1.application.options = [options]
+trf1.outputfiles = [DiracFile('*root')]
+data = BKQuery(bkPath, dqflag="All").getDataset()
+trf1.addInputData(data)
+trf1.submit_with_threads = True
+trf1.splitter = SplitByFiles(filesPerJob=5)
+trf1.backend = Dirac()
+```
+
+For more details of how to prepare DaVinci jobs for GRID submission please refer to the [Running DaVinci on the GRID](../first-analysis-steps/davinci-grid.md) lesson.
+
+{% callout "Learning More?" %} 
+
+At this point you should be a confident user of the Ganga `IPython` shell. To learn more about other features and classes available to you please refer to the [Ganga Documentation](https://ganga.readthedocs.io/en/latest/UserGuide/index.html).
 
 {% endcallout %}
