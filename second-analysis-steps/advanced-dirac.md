@@ -116,7 +116,7 @@ trf2.splitter.files_per_subjob = 3
 t.appendTransform(trf2)
 ```
 
-As you can see the new additions are very similar to what we have seen before. However, there is an exception. The following code
+As you can see the new additions are very similar to what we have seen before. However, there are a couple of exceptions. The following code
 
 ```
 #specify transform dependencies
@@ -125,7 +125,9 @@ task_chain.input_trf_id = trf1.getID()
 trf2.addInputData(task_chain)
 ```
 
-lets us chain tasks together where the ID of the first Transform is a requirement to trigger the next. You can add the ID of multiple Transforms to this task chain if a Transform has more than one dependance. We also need to define a second `.sh` script to manage the Transform. This is again a short file to ensure python can access all the necessary modules for the task.
+lets us chain tasks together where the ID of the first Transform is a requirement to trigger the next. You can add the ID of multiple Transforms to this task chain if a Transform has more than one dependance. We also introduce the `GangaDatasetSplitter()`. This is a generic splitter that splits apart a job based on a list of filenames - in this case stored in `__GangaInputData__`. For data stored on the GRID it is preferable to use `SplitByFiles()`. This splitter object also carries your GRID proxy and several other utilites such as flags to `ignoremissing` that an analyst can use to improve the stability of dependant Transforms. The most common usage for this splitter is in DaVinci jobs as we will see later. 
+
+We also need to define a second `.sh` script to manage the Transform. This is again a short file to ensure python can access all the necessary modules for the task.
 
 ```
 #!/bin/bash
