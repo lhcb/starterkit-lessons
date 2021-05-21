@@ -362,7 +362,7 @@ rule myRule:
 	input:
  		SomeFile.root
 	output:
- 		report(Output.root) # this will now be included in the report
+ 		report(Output.pdf) # this will now be included in the report
 	shell:
   		python RuleForExecution.py {input}
 ```
