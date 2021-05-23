@@ -4,8 +4,7 @@
 <html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8" />
-  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
+  
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
   <title>Using the queue command &mdash; LHCb Starterkit Lessons  documentation</title>
@@ -357,7 +356,7 @@
     text-align: unset;
 }
 </style>
-<section id="using-the-queue-command">
+<div class="section" id="using-the-queue-command">
 <h1>Using the queue command<a class="headerlink" href="#using-the-queue-command" title="Permalink to this headline">¶</a></h1>
 <div class="panel panel-objectives docutils container">
 <div class="panel-header open docutils container">
@@ -454,7 +453,7 @@ queue 4
 </div>
 </div>
 </div>
-<section id="more-on-variables">
+<div class="section" id="more-on-variables">
 <h2>More on variables<a class="headerlink" href="#more-on-variables" title="Permalink to this headline">¶</a></h2>
 <p>As you’ve seen above, the variables that HTCondor automatically defines provide a lot of potential for the automisation of large numbers of jobs. To expand on this, you are also able to define your own variables within your submit file using very similar syntax. Among other things, this is particularly useful for avoiding repetition - in the example above, the input and output file names had to be written in two places. Equivalent functionality can be achieved by using:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>INPUTFN = data.txt
@@ -466,8 +465,8 @@ transfer_input_files = my_script.py, input/$(INPUTFN)
 transfer_output_files = $(OUTPUTFN)
 </pre></div>
 </div>
-</section>
-<section id="other-ways-to-queue">
+</div>
+<div class="section" id="other-ways-to-queue">
 <h2>Other ways to queue<a class="headerlink" href="#other-ways-to-queue" title="Permalink to this headline">¶</a></h2>
 <p>The above syntax for queuing multiple jobs is very simple and convenient for jobs with sequential enumeration starting from zero, but this isn’t always the case. Fortunately, the queue command is extremely flexible and has many alternative choices of syntax. This part of the lesson showcases some of these options and how to use them. For more information and other examples, you can visit <a class="reference external" href="https://research.cs.wisc.edu/htcondor/manual/v8.5/2_5Submitting_Job.html#SECTION00352000000000000000">the documentation for the queue command</a>.</p>
 <ul class="simple">
@@ -495,13 +494,13 @@ down,00083879
 <li><p><strong>Files or directories from a filesystem</strong>: <code class="docutils literal notranslate"><span class="pre">queue</span> <span class="pre">[&lt;int</span> <span class="pre">expr&gt;]</span> <span class="pre">[&lt;varname&gt;]</span> <span class="pre">matching</span> <span class="pre">[files</span> <span class="pre">|</span> <span class="pre">dirs]</span> <span class="pre">[slice]</span> <span class="pre">&lt;list</span> <span class="pre">of</span> <span class="pre">items</span> <span class="pre">with</span> <span class="pre">file</span> <span class="pre">globbing&gt;</span></code></p></li>
 </ul>
 <p>This method of creating a list of input files is particularly convenient because it doesn’t require you to manually list entries, or to define exactly how many files there are, as the previous methods have. Here, you can use wildcards to get HTCondor to automatically construct the list for you. For example, if you had a set of input <code class="docutils literal notranslate"><span class="pre">.dat</span></code> files and wanted to create a separate job for each one, you could use the command <code class="docutils literal notranslate"><span class="pre">queue</span> <span class="pre">INPUTFN</span> <span class="pre">matching</span> <span class="pre">files</span> <span class="pre">*.dat</span></code>.</p>
-</section>
-<section id="mixing-options-and-variables">
+</div>
+<div class="section" id="mixing-options-and-variables">
 <h2>Mixing options and variables<a class="headerlink" href="#mixing-options-and-variables" title="Permalink to this headline">¶</a></h2>
 <p>It may have become apparent by now that options and variables behave in a very similar way within a submit file - you provide parameters to an option (e.g. <code class="docutils literal notranslate"><span class="pre">transfer_input_files</span> <span class="pre">=</span> <span class="pre">input.dat</span></code>) using the same syntax as you use to provide a value to a variable (e.g. <code class="docutils literal notranslate"><span class="pre">MyCustomVar</span> <span class="pre">=</span> <span class="pre">25</span></code>). You can think of options as being specific variables that HTCondor looks at to determine how to create and schedule your jobs.</p>
 <p>This observation allows for some additional flexibility when using the queue command - when specifying a variable name, you can choose to use the name of an already-defined submit file option for convenience. For example, you could use <code class="docutils literal notranslate"><span class="pre">queue</span> <span class="pre">arguments</span> <span class="pre">in</span> <span class="pre">(-a</span> <span class="pre">200,-a</span> <span class="pre">300,-a</span> <span class="pre">400)</span></code> to automatically create 3 jobs with different arguments.</p>
-</section>
-</section>
+</div>
+</div>
 
 
            </div>

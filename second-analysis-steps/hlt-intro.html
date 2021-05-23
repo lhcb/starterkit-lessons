@@ -4,8 +4,7 @@
 <html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8" />
-  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
+  
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
   <title>HLT intro &mdash; LHCb Starterkit Lessons  documentation</title>
@@ -355,7 +354,7 @@
     text-align: unset;
 }
 </style>
-<section id="hlt-intro">
+<div class="section" id="hlt-intro">
 <h1>HLT intro<a class="headerlink" href="#hlt-intro" title="Permalink to this headline">¶</a></h1>
 <div class="panel panel-objectives docutils container">
 <div class="panel-header open docutils container">
@@ -395,7 +394,7 @@ less data are written to tape and no CPU intensive offline processing is needed.
 The output of the Turbo stream is almost identical to the output of a Stripping
 line which goes to mdst.</p>
 <p>For Run 3 LHCb is removing the hardware trigger and the first stage of the software trigger will run at 30 MHz. The HLT is being developed in the <a class="reference external" href="https://twiki.cern.ch/twiki/bin/viewauth/LHCb/RealTimeAnalysis">Real-Time-Analysis project</a>.</p>
-<section id="add-trigger-information-to-your-ntuple">
+<div class="section" id="add-trigger-information-to-your-ntuple">
 <h2>Add trigger information to your ntuple<a class="headerlink" href="#add-trigger-information-to-your-ntuple" title="Permalink to this headline">¶</a></h2>
 <p>In this section and the following, we will explain how to find out which trigger lines selected my signal.</p>
 <p>Copy the following DaVinci script to get an ntuple.</p>
@@ -479,8 +478,8 @@ with 2.</p>
 <p>Find out what the hexadecimal presentation of the Hlt1 and Hlt2 TCK is.</p>
 </div>
 </div>
-</section>
-<section id="exploring-a-tck-list-of-trigger-lines">
+</div>
+<div class="section" id="exploring-a-tck-list-of-trigger-lines">
 <h2>Exploring a TCK: List of trigger lines<a class="headerlink" href="#exploring-a-tck-list-of-trigger-lines" title="Permalink to this headline">¶</a></h2>
 <p>To get a list of all available TCKs one can use TCKsh which is a python shell with predefined
 functions to explore TCKs, do</p>
@@ -499,8 +498,8 @@ $ lb-run -c best Moore/v28r3p1 TCKsh
 <p>What are the names of the topological trigger lines in Run 1 and Run 2?</p>
 </div>
 </div>
-</section>
-<section id="add-trigger-information-to-your-ntuple-continued">
+</div>
+<div class="section" id="add-trigger-information-to-your-ntuple-continued">
 <h2>Add trigger information to your ntuple, continued<a class="headerlink" href="#add-trigger-information-to-your-ntuple-continued" title="Permalink to this headline">¶</a></h2>
 <p>Once you have a list of trigger lines, you can add this to <code class="docutils literal notranslate"><span class="pre">TupleToolTrigger</span></code>:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">triggerList</span> <span class="o">=</span> <span class="p">[</span>
@@ -529,8 +528,8 @@ $ lb-run -c best Moore/v28r3p1 TCKsh
 </pre></div>
 </div>
 <p>Be aware you have to append <code class="docutils literal notranslate"><span class="pre">Decision</span></code> to the name of the trigger line.</p>
-</section>
-<section id="add-tistos-information-to-your-ntuple">
+</div>
+<div class="section" id="add-tistos-information-to-your-ntuple">
 <h2>Add TISTOS information to your ntuple<a class="headerlink" href="#add-tistos-information-to-your-ntuple" title="Permalink to this headline">¶</a></h2>
 <p>For analysis purposes it is important to know if your signal candidate was part of the trigger decision or not as one has different efficiencies for both categories. The following categories exist [ <a class="reference external" href="https://cds.cern.ch/record/1701134/files/LHCb-PUB-2014-039.pdf">LHCb-PUB-2014-039</a> ]:</p>
 <ol class="simple">
@@ -553,8 +552,8 @@ $ lb-run -c best Moore/v28r3p1 TCKsh
 <p>Explain why a single particle cannot be TOS on the Hlt1TwoTrackMVA line.</p>
 </div>
 </div>
-</section>
-<section id="exploring-a-tck-properties-of-trigger-lines">
+</div>
+<div class="section" id="exploring-a-tck-properties-of-trigger-lines">
 <h2>Exploring a TCK: Properties of trigger lines<a class="headerlink" href="#exploring-a-tck-properties-of-trigger-lines" title="Permalink to this headline">¶</a></h2>
 <p>If you want to get an overview of an Hlt line and its algorithms, you can do</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&gt; dump(&lt;TCK&gt;, lines = &lt;line_names_regex&gt;, file=&quot;output.txt&quot;)
@@ -756,8 +755,8 @@ We encourage people to check it out and give feedback on the [issues page](https
 2. Make it a Turbo line (You have to set the property Turbo to true and the name of the line has to end with Turbo).
 3. Run a rate test to determine the rate of the line, [instructions](https://twiki.cern.ch/twiki/bin/view/LHCb/MooreRateTestExamples) are found here.
 
-{% endchallenge %} --></section>
-</section>
+{% endchallenge %} --></div>
+</div>
 
 
            </div>

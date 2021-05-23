@@ -51,27 +51,16 @@ Each release of Gauss v49 represents a different release of Sim09. You may want 
 -->
 
 | Sim09 Version | Original Gauss Releases |
-
 | -- | -- |
-
 | Sim09b | v49r5 |
-
 | Sim09c | v49r8 |
-
 | Sim09d | v49r10 |
-
 | Sim09e | v49r11 |
-
 | Sim09f | v49r12 |
-
 | Sim09g | v49r13 |
-
 | Sim09h | v49r14 |
-
 | Sim09i | v49r17 |
-
 | Sim09j | v49r18 |
-
 | Sim09k | v49r20 |
 
 Any Gauss release not listed here corresponds to the lower of the Sim09 versions it is between (e.g. Gauss v49r9 is Sim09c).

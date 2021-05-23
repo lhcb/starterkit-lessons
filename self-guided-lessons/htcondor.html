@@ -4,8 +4,7 @@
 <html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8" />
-  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
+  
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
   <title>Batch submission using HTCondor &mdash; LHCb Starterkit Lessons  documentation</title>
@@ -355,7 +354,7 @@
     text-align: unset;
 }
 </style>
-<section id="batch-submission-using-htcondor">
+<div class="section" id="batch-submission-using-htcondor">
 <h1>Batch submission using HTCondor<a class="headerlink" href="#batch-submission-using-htcondor" title="Permalink to this headline">¶</a></h1>
 <div class="panel panel-callout docutils container">
 <div class="panel-header open docutils container">
@@ -412,13 +411,13 @@
 </li>
 </ul>
 </div>
-<section id="system-architecture">
+<div class="section" id="system-architecture">
 <h2>System architecture<a class="headerlink" href="#system-architecture" title="Permalink to this headline">¶</a></h2>
 <p>When you connect to lxplus, you have read/write access to both the AFS and EOS filesystems, as well as read-only access to CVMFS for accessing experiment software. Worker notes in the batch system have the same permissions, which is what allows them to read input files from, and write output files to, your user areas.</p>
 <p>Each worker node has its own remote storage space, which is limited to 20GB. When a job starts, the executable is copied to this storage area, usually along with any input data files required. Any files created by the script should be created there as well, where they can later be transferred back to your user area. When a job completes, the worker node cleans out its storage area, so it’s important to tell HTCondor to transfer any output files you want to keep.</p>
 <p>See <a class="reference external" href="https://batchdocs.web.cern.ch/batchdocs/concepts/dataflow.html">here</a> for a more detailed explanation (and a helpful diagram).</p>
-</section>
-<section id="other-useful-resources">
+</div>
+<div class="section" id="other-useful-resources">
 <h2>Other useful resources<a class="headerlink" href="#other-useful-resources" title="Permalink to this headline">¶</a></h2>
 <p>While putting this lesson together, the following guides, tutorials, and pages proved highly useful, and may be useful to you as well if you need more information:</p>
 <ul class="simple">
@@ -428,8 +427,8 @@
 <li><p><a class="reference external" href="https://mattermost.web.cern.ch/lhcb">Mattermost</a> - you can join the ‘condor’ and ‘Distributed Analysis’ channels</p></li>
 <li><p><a class="reference external" href="mailto:lhcb-distributed-analysis&#37;&#52;&#48;cern&#46;ch">lhcb-distributed-analysis<span>&#64;</span>cern<span>&#46;</span>ch</a> mailing list</p></li>
 </ul>
-</section>
-</section>
+</div>
+</div>
 
 
            </div>

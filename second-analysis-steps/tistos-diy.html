@@ -4,8 +4,7 @@
 <html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8" />
-  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
+  
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
   <title>TisTos DIY &mdash; LHCb Starterkit Lessons  documentation</title>
@@ -357,7 +356,7 @@
     text-align: unset;
 }
 </style>
-<section id="tistos-diy">
+<div class="section" id="tistos-diy">
 <h1>TisTos DIY<a class="headerlink" href="#tistos-diy" title="Permalink to this headline">¶</a></h1>
 <div class="panel panel-objectives docutils container">
 <div class="panel-header open docutils container">
@@ -426,7 +425,7 @@ in Run 2 are called Hlt1TrackMVA and Hlt1TwoTrackMVA. Use the advance function
 to find an event that was accepted by either of these trigger selections.</p>
 <p>The DecReports only contains the decisions for each line, 1 or 0. The
 candidates themselves are stored in the
-SelReports (”Hlt{1,2}/SelReports”). Get the HLT1 SelReports from the event store
+SelReports (“Hlt{1,2}/SelReports”). Get the HLT1 SelReports from the event store
 and retrieve the one for one of the TrackMVA selections using the selReport function,
 analogously to how the DecReport was retrieved above.</p>
 <p>The SelReports store candidates in a tree of sub-structures, which can be
@@ -564,7 +563,7 @@ overlap — as defined for Tis and Tos — is between 1% and 70%.</p>
 these, an LHCb software tool has been created that calculates the overlaps and
 classifies candidates with respect to trigger selection. This tool is called
 TriggerTisTos and it implements the ITriggerTisTos interface.</p>
-</section>
+</div>
 
 
            </div>
