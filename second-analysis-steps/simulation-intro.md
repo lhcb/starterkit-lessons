@@ -24,7 +24,7 @@ Gauss is the LHCb simulation framework which manages the creation of simulated e
 ## Choosing your Gauss Version
 
 Each release of Gauss v49 represents a different release of Sim09. You may want to run an older version of Gauss to verify something in a pre-existing MC dataset or for any number of other reasons. Here is a table matching each Gauss v49 release to each Sim09 version:
-
+<!--
 .. list-table:: Sim09 Version - Gauss Correspondance
    :widths: 25 25
    :header-rows: 1
@@ -48,21 +48,31 @@ Each release of Gauss v49 represents a different release of Sim09. You may want 
      - v49r18
    * - Sim09k
      - v49r20
-
-<!--
-| Sim09 Version | Original Gauss Releases |
-| -- | -- |
-| Sim09b | v49r5 |
-| Sim09c | v49r8 |
-| Sim09d | v49r10 |
-| Sim09e | v49r11 |
-| Sim09f | v49r12 |
-| Sim09g | v49r13 |
-| Sim09h | v49r14 |
-| Sim09i | v49r17 |
-| Sim09j | v49r18 |
-| Sim09k | v49r20 |
 -->
+
+| Sim09 Version | Original Gauss Releases |
+
+| -- | -- |
+
+| Sim09b | v49r5 |
+
+| Sim09c | v49r8 |
+
+| Sim09d | v49r10 |
+
+| Sim09e | v49r11 |
+
+| Sim09f | v49r12 |
+
+| Sim09g | v49r13 |
+
+| Sim09h | v49r14 |
+
+| Sim09i | v49r17 |
+
+| Sim09j | v49r18 |
+
+| Sim09k | v49r20 |
 
 Any Gauss release not listed here corresponds to the lower of the Sim09 versions it is between (e.g. Gauss v49r9 is Sim09c).
 
