@@ -4,9 +4,9 @@ At this point we have used Ganga for a number of things related to DaVinci and b
 
 {% objectives "Learning Objectives" %}
 
-* Learn core concepts of the GangaTasks package
-* Understand advanced Ganga features for job management
-* Apply these to real analysis issues and define a simple workflow
+* Learn core concepts of the GangaTasks package.
+* Understand advanced Ganga features for job management.
+* Apply these to real analysis issues and define a simple workflow.
 
 {% endobjectives %}
 
