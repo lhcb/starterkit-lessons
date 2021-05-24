@@ -34,5 +34,6 @@ Before starting, you should be familiar with the [first analysis steps](/first-a
     tistos-diy.md
     ganga-scripting.md
     managing-files-with-ganga.md
+    advanced-dirac.md
     analysis-automation-snakemake.md
 ```

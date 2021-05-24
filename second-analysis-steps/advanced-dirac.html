@@ -1,0 +1,613 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Advanced Dirac &mdash; LHCb Starterkit Lessons  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/panels.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/starterkit.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/panels.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Analysis automation with snakemake" href="analysis-automation-snakemake.html" />
+    <link rel="prev" title="Managing files in Ganga" href="managing-files-with-ganga.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> LHCb Starterkit Lessons
+          
+
+          
+            
+            <img src="../_static/starterkit.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../first-analysis-steps/README.html">First Analysis Steps</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../first-analysis-steps/prerequisites.html">Pre-workshop checklist</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../first-analysis-steps/introduction-to-course.html">Goals of the course</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../first-analysis-steps/physics-at-lhcb.html">Physics at LHCb</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../first-analysis-steps/physics-at-lhcb.html#the-reconstruction">The reconstruction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../first-analysis-steps/physics-at-lhcb.html#building-decay-candidates">Building decay candidates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../first-analysis-steps/physics-at-lhcb.html#building-more-complex-decays">Building more complex decays</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../first-analysis-steps/dataflow.html">The LHCb data flow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../first-analysis-steps/run-2-data-flow.html">Changes to the data flow in Run 2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../first-analysis-steps/davinci.html">An introduction to LHCb Software</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../first-analysis-steps/bookkeeping.html">Finding data in the Bookkeeping</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../first-analysis-steps/files-from-grid.html">Downloading a file from the grid</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../first-analysis-steps/interactive-dst.html">Interactively exploring a DST</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../first-analysis-steps/minimal-dv-job.html">Running a minimal DaVinci job locally</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../first-analysis-steps/loki-functors.html">Fun with LoKi Functors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../first-analysis-steps/add-tupletools.html">TupleTools and branches</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../first-analysis-steps/decay-tree-fitter.html">How do I use DecayTreeFitter?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../first-analysis-steps/analysis-productions.html">Analysis Productions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../first-analysis-steps/analysis-productions.html#monitoring-productions">Monitoring productions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../first-analysis-steps/analysis-productions.html#creating-your-own-production">Creating your own production</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../first-analysis-steps/analysis-productions.html#testing-your-production-locally">Testing your production locally</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../first-analysis-steps/analysis-productions.html#creating-a-merge-request">Creating a merge request</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../first-analysis-steps/davinci-grid.html">Running DaVinci on the grid</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../first-analysis-steps/split-jobs.html">Splitting a job into subjobs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../first-analysis-steps/ganga-data.html">More Ganga</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../first-analysis-steps/eos-storage.html">Storing large files on EOS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../first-analysis-steps/lhcb-dev.html">Developing LHCb Software</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../first-analysis-steps/asking-questions.html">Asking good questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../first-analysis-steps/ecgd.html">Early career, gender and diversity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../first-analysis-steps/contributing-lesson.html">Contribute to this lesson</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="reference internal" href="README.html">Second Analysis Steps</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="lb-git.html">Using git to develop LHCb software</a></li>
+<li class="toctree-l2"><a class="reference internal" href="building-decays.html">Building your own decay</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="building-decays-part0.html">The Selection Framework</a></li>
+<li class="toctree-l3"><a class="reference internal" href="building-decays-part1.html">A Historical Approach</a></li>
+<li class="toctree-l3"><a class="reference internal" href="building-decays-part2.html">Modern Selection Framework</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="fixing-errors.html">What to do when something fails</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rerun-stripping.html">Run a different stripping line on simulated data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="switch-mass-hypo.html">Replace a mass hypothesis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="filter-in-trees.html">Reuse particles from a decay tree</a></li>
+<li class="toctree-l2"><a class="reference internal" href="simulation.html">The simulation framework</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="simulation-intro.html">What is Gauss?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="simulation-intro.html#choosing-your-gauss-version">Choosing your Gauss Version</a></li>
+<li class="toctree-l3"><a class="reference internal" href="simulation-running-gauss.html">Which option files to use and how to run Gauss</a></li>
+<li class="toctree-l3"><a class="reference internal" href="simulation-running-gauss.html#running-gauss-and-create-a-generator-only-sample">Running Gauss and create a generator-only sample</a></li>
+<li class="toctree-l3"><a class="reference internal" href="simulation-running-gauss.html#make-an-ntuple">Make an nTuple</a></li>
+<li class="toctree-l3"><a class="reference internal" href="simulation-dkfiles.html">Controlling the decay: DecFiles</a></li>
+<li class="toctree-l3"><a class="reference internal" href="simulation-gencuts.html">Modifying the decay</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="simulation-gencuts.html#adding-a-decay-channel">Adding a decay channel</a></li>
+<li class="toctree-l4"><a class="reference internal" href="simulation-gencuts.html#generator-level-cuts">Generator level cuts</a></li>
+<li class="toctree-l4"><a class="reference internal" href="simulation-gencuts.html#removing-the-generator-cuts">Removing the generator cuts</a></li>
+<li class="toctree-l4"><a class="reference internal" href="simulation-gencuts.html#modifying-the-cut-tool">Modifying the cut tool</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="simulation-advanced-dkfiles.html">Advanced: Modifying the decay</a></li>
+<li class="toctree-l3"><a class="reference internal" href="simulation-advanced-dkfiles.html#multi-body-decays">3+ multi-body decays</a></li>
+<li class="toctree-l3"><a class="reference internal" href="simulation-advanced-dkfiles.html#cocktail-decays">Cocktail decays</a></li>
+<li class="toctree-l3"><a class="reference internal" href="simulation-advanced-dkfiles.html#final-state-radiation">Final state radiation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="simulation-advanced-dkfiles.html#changing-particle-masses-lifetimes-widths">Changing particle masses / lifetimes/ widths</a></li>
+<li class="toctree-l3"><a class="reference internal" href="simulation-advanced-dkfiles.html#finding-constants-used-in-an-existing-mc-sample-masses-lifetimes-etc">Finding Constants Used in an Existing MC Sample (Masses/Lifetimes/etc)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="simulation-fastsim.html">Why fast simulation is crucial</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="simulation-fastsim.html#speeding-up-the-detector-simulation">Speeding up the detector simulation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="simulation-fastsim.html#speeding-up-the-generation">Speeding up the generation</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="hlt-intro.html">HLT intro</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="hlt-intro.html#add-trigger-information-to-your-ntuple">Add trigger information to your ntuple</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hlt-intro.html#exploring-a-tck-list-of-trigger-lines">Exploring a TCK: List of trigger lines</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hlt-intro.html#add-trigger-information-to-your-ntuple-continued">Add trigger information to your ntuple, continued</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hlt-intro.html#add-tistos-information-to-your-ntuple">Add TISTOS information to your ntuple</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hlt-intro.html#exploring-a-tck-properties-of-trigger-lines">Exploring a TCK: Properties of trigger lines</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="tistos-diy.html">TisTos DIY</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ganga-scripting.html">Scripting Ganga</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="ganga-scripting.html#defining-jobs-with-scripts">Defining jobs with scripts</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ganga-scripting.html#adding-helpers-functions">Adding helpers functions</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="managing-files-with-ganga.html">Managing files in Ganga</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Advanced Dirac</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#gangatasks">GangaTasks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#alternative-backends-dirac-python-bugged">Alternative Backends - DIRAC (Python bugged)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#alternative-backends-dirac-davinci">Alternative Backends - DIRAC (DaVinci)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#alternative-backends-condor">Alternative Backends - Condor</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="analysis-automation-snakemake.html">Analysis automation with snakemake</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="analysis-automation-snakemake.html#motivation">Motivation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="analysis-automation-snakemake.html#documentation-and-environments">Documentation and environments</a></li>
+<li class="toctree-l3"><a class="reference internal" href="analysis-automation-snakemake.html#tutorial">Tutorial</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="analysis-automation-snakemake.html#usage-and-basic-behaviour">Usage and basic behaviour</a></li>
+<li class="toctree-l4"><a class="reference internal" href="analysis-automation-snakemake.html#sub-labels">Sub-labels</a></li>
+<li class="toctree-l4"><a class="reference internal" href="analysis-automation-snakemake.html#run-and-shell">Run and shell</a></li>
+<li class="toctree-l4"><a class="reference internal" href="analysis-automation-snakemake.html#config-files">Config files</a></li>
+<li class="toctree-l4"><a class="reference internal" href="analysis-automation-snakemake.html#includes">Includes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="analysis-automation-snakemake.html#reports">Reports</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../self-guided-lessons/README.html">Self guided lessons</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../self-guided-lessons/htcondor.html">Batch submission using HTCondor</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../self-guided-lessons/htcondor-first-job.html">Submitting a simple job</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../self-guided-lessons/htcondor-first-job.html#tracking-your-jobs">Tracking your jobs</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../self-guided-lessons/htcondor-more-options.html">More submit file options</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../self-guided-lessons/htcondor-more-options.html#input-files">Input files</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../self-guided-lessons/htcondor-more-options.html#output-files">Output files</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../self-guided-lessons/htcondor-more-options.html#arguments">Arguments</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../self-guided-lessons/htcondor-more-options.html#resources-and-requirements">Resources and Requirements</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../self-guided-lessons/htcondor-more-options.html#notifications">Notifications</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../self-guided-lessons/htcondor-queue.html">Using the queue command</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../self-guided-lessons/htcondor-queue.html#more-on-variables">More on variables</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../self-guided-lessons/htcondor-queue.html#other-ways-to-queue">Other ways to queue</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../self-guided-lessons/htcondor-queue.html#mixing-options-and-variables">Mixing options and variables</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../self-guided-lessons/htcondor.html#system-architecture">System architecture</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../self-guided-lessons/htcondor.html#other-useful-resources">Other useful resources</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../self-guided-lessons/local-grid-proxy.html">Creating a grid proxy without LbScripts</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../self-guided-lessons/local-grid-proxy.html#installation">Installation</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../self-guided-lessons/local-grid-proxy.html#macos-with-homebrew">macOS with homebrew</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../self-guided-lessons/local-grid-proxy.html#ubuntu">Ubuntu</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../self-guided-lessons/local-grid-proxy.html#centos">CentOS</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../self-guided-lessons/local-grid-proxy.html#arch-linux">Arch Linux</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../self-guided-lessons/local-grid-proxy.html#getting-the-required-files-and-certificates">Getting the required files and certificates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../self-guided-lessons/local-grid-proxy.html#creating-a-proxy">Creating a proxy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../self-guided-lessons/local-grid-proxy.html#managing-the-proxy">Managing the proxy</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../CONTRIBUTING.html">Contributing</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../CONTRIBUTING.html#getting-started">Getting Started</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../CONTRIBUTING.html#dependencies">Dependencies</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../CONDUCT.html">Contributor Code of Conduct</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../LICENSE.html">Instructional Material</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../LICENSE.html#software">Software</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">External links:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://hsf-training.github.io/analysis-essentials/">Analysis essentials</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://cern.ch/lhcb-core-doc/">LHCb Core documentation</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://lhcb.github.io/glossary/">LHCb glossary</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">LHCb Starterkit Lessons</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="README.html">Second Analysis Steps</a> &raquo;</li>
+        
+      <li>Advanced Dirac</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            
+              <a href="https://github.com/lhcb/starterkit-lessons/blob/master/second-analysis-steps/advanced-dirac.md" class="fa fa-github"> Edit on GitHub</a>
+            
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  
+<style>
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast.container,
+.nboutput.nblast.container {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast.container + .nbinput.container {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
+</style>
+<section id="advanced-dirac">
+<h1>Advanced Dirac<a class="headerlink" href="#advanced-dirac" title="Permalink to this headline">¶</a></h1>
+<p>At this point we have used Ganga for a number of things related to DaVinci and basic file management. However, Ganga is a much more flexible tool than that. Using <code class="docutils literal notranslate"><span class="pre">Python</span></code> and <code class="docutils literal notranslate"><span class="pre">IPython</span></code> we can set up more complicated workflows that manage much of your analysis for you!</p>
+<div class="panel panel-objectives docutils container">
+<div class="panel-header open docutils container">
+<p id="learning-objectives"><i class="fa fa-line-chart"></i> Learning Objectives</p>
+</div>
+<div class="panel-body docutils container">
+<ul class="simple">
+<li><p>Learn core concepts of the GangaTasks package.</p></li>
+<li><p>Understand advanced Ganga features for job management.</p></li>
+<li><p>Apply these to real analysis issues and define a simple workflow.</p></li>
+</ul>
+</div>
+</div>
+<div class="panel panel-callout docutils container">
+<div class="panel-header open docutils container">
+<p id="pre-requisites"><i class="fa fa-info-circle"></i> Pre-Requisites</p>
+</div>
+<div class="panel-body docutils container">
+<p>This tutorial will be based on a couple of python files. Please download the following files and place them in a working directory on lxplus. <a class="reference download internal" download="" href="../_downloads/5711c729663d226cacf6d37f666d3d71/distro.py"><code class="xref download docutils literal notranslate"><span class="pre">distro.py</span></code></a>, <a class="reference download internal" download="" href="../_downloads/e56394fd732ea83599674bf4203e4f0a/compare.py"><code class="xref download docutils literal notranslate"><span class="pre">compare.py</span></code></a></p>
+</div>
+</div>
+<section id="gangatasks">
+<h2>GangaTasks<a class="headerlink" href="#gangatasks" title="Permalink to this headline">¶</a></h2>
+<p>The first and most important package to introduce is GangaTasks. This package is designed to stop busy analysts from spending more time managing GRID jobs than working on physics. It has the following core features.</p>
+<ul class="simple">
+<li><p>Automatically submits jobs and keeps a certain ammount running at all times.</p></li>
+<li><p>Automatically creates new jobs based on previous jobs in a chain.</p></li>
+<li><p>Automatically resubmits jobs up to a threshold number of resubmits (default=5).</p></li>
+</ul>
+<p>So as you can imagine, Tasks is a powerful tool…time to play with it!</p>
+<div class="panel panel-callout docutils container">
+<div class="panel-header open docutils container">
+<p id="caveat"><i class="fa fa-info-circle"></i> Caveat</p>
+</div>
+<div class="panel-body docutils container">
+<p>For Tasks to automatically resubmit and manage your job flow you need to have an active Ganga session open. This can be easily done via <code class="docutils literal notranslate"><span class="pre">tmux</span></code> and <code class="docutils literal notranslate"><span class="pre">screens</span></code> as to not disturb your local working.</p>
+</div>
+</div>
+<p>Currently you should have two files saved in a test folder - <code class="docutils literal notranslate"><span class="pre">distro.py</span></code> and <code class="docutils literal notranslate"><span class="pre">compare.py</span></code>. The first of these is an extremely simple distribution generator making one of three distributions (Gaussian, Normal, Poisson). The second lets you compare datasets in  histogram. So to get these stages running automatically lets get the generator working with Tasks in a <code class="docutils literal notranslate"><span class="pre">submit.py</span></code> file.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># First create the overall Task</span>
+<span class="n">t</span> <span class="o">=</span> <span class="n">CoreTask</span><span class="p">()</span>
+
+<span class="c1"># Now create the Transform</span>
+<span class="n">trf1</span> <span class="o">=</span> <span class="n">CoreTransform</span><span class="p">()</span>
+<span class="n">trf1</span><span class="o">.</span><span class="n">application</span> <span class="o">=</span> <span class="n">Executable</span><span class="p">()</span>
+<span class="n">trf1</span><span class="o">.</span><span class="n">application</span><span class="o">.</span><span class="n">exe</span> <span class="o">=</span> <span class="n">File</span><span class="p">(</span><span class="s1">&#39;my_script.sh&#39;</span><span class="p">)</span>
+<span class="n">trf1</span><span class="o">.</span><span class="n">inputfiles</span> <span class="o">=</span> <span class="p">[</span><span class="n">LocalFile</span><span class="p">(</span><span class="s2">&quot;distro.py&quot;</span><span class="p">)]</span>
+<span class="n">trf1</span><span class="o">.</span><span class="n">outputfiles</span> <span class="o">=</span> <span class="p">[</span><span class="n">LocalFile</span><span class="p">(</span><span class="s2">&quot;*.txt&quot;</span><span class="p">)]</span>
+<span class="n">trf1</span><span class="o">.</span><span class="n">backend</span> <span class="o">=</span> <span class="n">Local</span><span class="p">()</span>
+
+<span class="c1"># change the environment  object for each Unit/Master Job</span>
+<span class="n">trf1</span><span class="o">.</span><span class="n">unit_splitter</span> <span class="o">=</span> <span class="n">GenericSplitter</span><span class="p">()</span>
+<span class="n">trf1</span><span class="o">.</span><span class="n">unit_splitter</span><span class="o">.</span><span class="n">attribute</span> <span class="o">=</span> <span class="s2">&quot;application.env&quot;</span>
+<span class="n">trf1</span><span class="o">.</span><span class="n">unit_splitter</span><span class="o">.</span><span class="n">values</span> <span class="o">=</span> <span class="p">[{</span><span class="s1">&#39;MYENV&#39;</span><span class="p">:</span><span class="s1">&#39;slow_gaussian&#39;</span><span class="p">},</span> <span class="p">{</span><span class="s1">&#39;MYENV&#39;</span><span class="p">:</span><span class="s1">&#39;poisson&#39;</span><span class="p">},</span> <span class="p">{</span><span class="s1">&#39;MYENV&#39;</span><span class="p">:</span><span class="s1">&#39;flat&#39;</span><span class="p">}]</span>
+
+<span class="c1">#change the argument object for each subjob in the Unit</span>
+<span class="n">trf1</span><span class="o">.</span><span class="n">splitter</span> <span class="o">=</span> <span class="n">GenericSplitter</span><span class="p">()</span>
+<span class="n">trf1</span><span class="o">.</span><span class="n">splitter</span><span class="o">.</span><span class="n">attribute</span> <span class="o">=</span> <span class="s1">&#39;application.args&#39;</span>
+<span class="n">trf1</span><span class="o">.</span><span class="n">splitter</span><span class="o">.</span><span class="n">values</span> <span class="o">=</span> <span class="p">[</span><span class="o">*</span><span class="nb">range</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span><span class="mi">1000</span><span class="p">,</span><span class="mi">100</span><span class="p">)]</span>
+
+<span class="c1"># Append the transform</span>
+<span class="n">t</span><span class="o">.</span><span class="n">appendTransform</span><span class="p">(</span><span class="n">trf1</span><span class="p">)</span>
+
+<span class="c1"># set the maximum number of active jobs to have running (allows for throttling)</span>
+<span class="n">t</span><span class="o">.</span><span class="n">float</span> <span class="o">=</span> <span class="mi">100</span>
+
+<span class="c1"># run the Task</span>
+<span class="n">t</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>There is a lot happening here so we can break it down. <code class="docutils literal notranslate"><span class="pre">t</span></code> is our <code class="docutils literal notranslate"><span class="pre">CoreTask()</span></code> object that will manage all our individual processes. Each distinct process is called a <code class="docutils literal notranslate"><span class="pre">Transform</span></code> and these can be further broken down into <code class="docutils literal notranslate"><span class="pre">Units</span></code> that are generally general configurations of <code class="docutils literal notranslate"><span class="pre">Transforms</span></code> and <code class="docutils literal notranslate"><span class="pre">subjobs</span></code> that are unique.</p>
+<p>Hence, we are defining a <code class="docutils literal notranslate"><span class="pre">Task</span></code> to generate three different distributions (gaussian, poisson, flat) over a range of events. Here we take advantage of pythons <code class="docutils literal notranslate"><span class="pre">*</span></code> operator to unpack the <code class="docutils literal notranslate"><span class="pre">range</span></code> into an array. The final thing to note is that we are calling a bash script called <code class="docutils literal notranslate"><span class="pre">my_script.sh</span></code>. We need to define this in order to run python in the appropriate environment. This takes the form.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>!/bin/bash
+
+#run the python script that you uploaded
+lb-conda default python distro.py $MYENV $1
+</pre></div>
+</div>
+<div class="panel panel-callout docutils container">
+<div class="panel-header open docutils container">
+<p id=".env-v-.arg"><i class="fa fa-info-circle"></i> .env v .arg</p>
+</div>
+<div class="panel-body docutils container">
+<p>It is important to note that the subjob splitter and the Unit splitter have to be on separate job parameters (in this case .env and .arg). Otherwise, the last splitter called will overwrite the changes of the first. You will still end up with the correct ammount of jobs but they will be running the wrong parameters! To inspect what parameters your jobs are running with you can use the usual Ganga syntax of</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>jobs(job_num) 
+</pre></div>
+</div>
+<p>to quicky inspect what was submitted.</p>
+</div>
+</div>
+<p>Run this the same way you would any Ganga submission script using.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ganga -i submit.py
+</pre></div>
+</div>
+<p>You can inspect your Task by looking at <code class="docutils literal notranslate"><span class="pre">tasks</span></code> in the ganga <code class="docutils literal notranslate"><span class="pre">IPython</span></code> window. Do not worry if nothing happens, the <code class="docutils literal notranslate"><span class="pre">tasks</span></code> monitor only refreshes every 30 real seconds! If everything has gone as intended shortly you will have some data files in your local gangadir relating to the generators. How do we add the second transform?</p>
+<p>To add the second transform we need to append the following to the Ganga submission script before the run command.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create the second transform</span>
+<span class="n">trf2</span> <span class="o">=</span> <span class="n">CoreTransform</span><span class="p">()</span>
+<span class="n">trf2</span><span class="o">.</span><span class="n">application</span> <span class="o">=</span> <span class="n">Executable</span><span class="p">()</span>
+<span class="n">trf2</span><span class="o">.</span><span class="n">application</span><span class="o">.</span><span class="n">exe</span> <span class="o">=</span> <span class="n">File</span><span class="p">(</span><span class="s1">&#39;my_other_script.sh&#39;</span><span class="p">)</span>
+<span class="n">trf2</span><span class="o">.</span><span class="n">inputfiles</span> <span class="o">=</span> <span class="p">[</span><span class="n">LocalFile</span><span class="p">(</span><span class="s2">&quot;compare.py&quot;</span><span class="p">)]</span>
+<span class="n">trf2</span><span class="o">.</span><span class="n">outputfiles</span> <span class="o">=</span> <span class="p">[</span><span class="n">LocalFile</span><span class="p">(</span><span class="s2">&quot;*.png&quot;</span><span class="p">)]</span>
+
+<span class="c1">#specify transform dependencies</span>
+<span class="n">task_chain</span> <span class="o">=</span> <span class="n">TaskChainInput</span><span class="p">()</span>
+<span class="n">task_chain</span><span class="o">.</span><span class="n">input_trf_id</span> <span class="o">=</span> <span class="n">trf1</span><span class="o">.</span><span class="n">getID</span><span class="p">()</span>
+<span class="n">trf2</span><span class="o">.</span><span class="n">addInputData</span><span class="p">(</span><span class="n">task_chain</span><span class="p">)</span>
+
+<span class="n">trf2</span><span class="o">.</span><span class="n">splitter</span> <span class="o">=</span> <span class="n">GangaDatasetSplitter</span><span class="p">()</span>
+<span class="n">trf2</span><span class="o">.</span><span class="n">splitter</span><span class="o">.</span><span class="n">files_per_subjob</span> <span class="o">=</span> <span class="mi">3</span>
+
+<span class="n">t</span><span class="o">.</span><span class="n">appendTransform</span><span class="p">(</span><span class="n">trf2</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>As you can see the new additions are very similar to what we have seen before. However, there are a couple of exceptions. The following code</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#specify transform dependencies</span>
+<span class="n">task_chain</span> <span class="o">=</span> <span class="n">TaskChainInput</span><span class="p">()</span>
+<span class="n">task_chain</span><span class="o">.</span><span class="n">input_trf_id</span> <span class="o">=</span> <span class="n">trf1</span><span class="o">.</span><span class="n">getID</span><span class="p">()</span>
+<span class="n">trf2</span><span class="o">.</span><span class="n">addInputData</span><span class="p">(</span><span class="n">task_chain</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>lets us chain tasks together where the ID of the first Transform is a requirement to trigger the next. You can add the ID of multiple Transforms to this task chain if a Transform has more than one dependance. We also introduce the <code class="docutils literal notranslate"><span class="pre">GangaDatasetSplitter()</span></code>. This is a generic splitter that splits apart a job based on a list of filenames - in this case stored in <code class="docutils literal notranslate"><span class="pre">__GangaInputData__</span></code>. For data stored on the GRID it is preferable to use <code class="docutils literal notranslate"><span class="pre">SplitByFiles()</span></code>. This splitter object also carries your GRID proxy and several other utilites such as flags to <code class="docutils literal notranslate"><span class="pre">ignoremissing</span></code> that an analyst can use to improve the stability of dependant Transforms. The most common usage for this splitter is in DaVinci jobs as we will see later.</p>
+<p>We also need to define a second <code class="docutils literal notranslate"><span class="pre">.sh</span></code> script to manage the Transform. This is again a short file to ensure python can access all the necessary modules for the task.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>#!/bin/bash
+
+cat __GangaInputData.txt__
+
+lb-conda default python compare.py
+</pre></div>
+</div>
+<p>Now you can submit this task again and monitor the results. <code class="docutils literal notranslate"><span class="pre">cat</span> <span class="pre">__GangaInputData.txt__</span></code> is included so you can inspect which files are passed between Transforms.</p>
+<div class="panel panel-callout docutils container">
+<div class="panel-header open docutils container">
+<p id="units-changing-order"><i class="fa fa-info-circle"></i> Units Changing Order</p>
+</div>
+<div class="panel-body docutils container">
+<p>You should notice when running this script that the Unit <code class="docutils literal notranslate"><span class="pre">U:0</span></code> that generates the gaussian distribution is not the Unit that makes the histograms. This should be <code class="docutils literal notranslate"><span class="pre">U:2</span></code>. This is because Units are tied to their Transforms so <code class="docutils literal notranslate"><span class="pre">U:0</span></code> of the second Transform is simply the first Unit of that Transform to run. For a full breakdown of what Units are running each step, with what data, you can use</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>tasks(task_num).overview()
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="alternative-backends-dirac-python-bugged">
+<h2>Alternative Backends - DIRAC (Python <a class="reference external" href="https://github.com/ganga-devs/ganga/pull/1896">bugged</a>)<a class="headerlink" href="#alternative-backends-dirac-python-bugged" title="Permalink to this headline">¶</a></h2>
+<p>So far we have only run Tasks on the <code class="docutils literal notranslate"><span class="pre">Localhost</span></code>. Naturally this will not be appropriate for many of the jobs you will need to do. So firstly lets get our python scripts running on <code class="docutils literal notranslate"><span class="pre">DIRAC</span></code> rather than <code class="docutils literal notranslate"><span class="pre">Localhost</span></code>. First we need to ensure that our <code class="docutils literal notranslate"><span class="pre">DIRAC</span></code> submission can access lb-conda. This is done using <code class="docutils literal notranslate"><span class="pre">Tags</span></code> which allow us to configure the behind the scenes of <code class="docutils literal notranslate"><span class="pre">DIRAC</span></code>. As such we need to add the following snippet to our code.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">trf1</span><span class="o">.</span><span class="n">backend</span> <span class="o">=</span> <span class="n">Dirac</span><span class="p">()</span>
+<span class="n">trf1</span><span class="o">.</span><span class="n">backend</span><span class="o">.</span><span class="n">diracOpts</span> <span class="o">=</span> <span class="s1">&#39;[j.setTag([&quot;/cvmfs/lhcbdev.cern.ch/&quot;])]&#39;</span>
+</pre></div>
+</div>
+<p>This is because when the Transform generates a <code class="docutils literal notranslate"><span class="pre">DIRAC</span></code> job it creates a<code class="docutils literal notranslate"><span class="pre">job()</span></code> object called <code class="docutils literal notranslate"><span class="pre">j</span></code> for each Unit. Further to this we need to include the following in the relevant <code class="docutils literal notranslate"><span class="pre">.sh</span></code> executable.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>source /cvmfs/lhcb.cern.ch/lib/LbEnv
+</pre></div>
+</div>
+<p>Since any sites that are not at CERN will not source this by default.</p>
+</section>
+<section id="alternative-backends-dirac-davinci">
+<h2>Alternative Backends - DIRAC (DaVinci)<a class="headerlink" href="#alternative-backends-dirac-davinci" title="Permalink to this headline">¶</a></h2>
+<p>As you can also imagine it is useful to be able to include DaVinci jobs as Transforms in certain analysis chains. As mentioned earlier Transforms have the following advantages over traditional jobs.</p>
+<ul class="simple">
+<li><p>Tasks will resubmit failed subjobs automatically.</p></li>
+<li><p>You can chain your Tuples into other Transforms before downloading them.</p></li>
+</ul>
+<p>However, Transforms comes with a couple of caveats to achieve this. The first is that you should use a pre-built version of <code class="docutils literal notranslate"><span class="pre">DaVinci</span></code>. You cannot use <code class="docutils literal notranslate"><span class="pre">prepareGaudiExec()</span></code> as this will be called for each Unit you have running DaVinci and fail. Similarly, you should ensure that the Transform platform <code class="docutils literal notranslate"><span class="pre">trf.application.platform</span></code> matches your build. An example of a DaVinci implementation is shown below.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">trf1</span> <span class="o">=</span> <span class="n">CoreTransform</span><span class="p">()</span>
+<span class="n">trf1</span><span class="o">.</span><span class="n">application</span> <span class="o">=</span> <span class="n">GaudiExec</span><span class="p">()</span>
+<span class="n">trf1</span><span class="o">.</span><span class="n">application</span><span class="o">.</span><span class="n">directory</span> <span class="o">=</span> <span class="s2">&quot;./DaVinciDev&quot;</span>
+<span class="n">trf1</span><span class="o">.</span><span class="n">application</span><span class="o">.</span><span class="n">platform</span> <span class="o">=</span> <span class="s2">&quot;x86_64-centos7-gcc8-opt&quot;</span>
+<span class="n">trf1</span><span class="o">.</span><span class="n">application</span><span class="o">.</span><span class="n">options</span> <span class="o">=</span> <span class="p">[</span><span class="n">options</span><span class="p">]</span>
+<span class="n">trf1</span><span class="o">.</span><span class="n">outputfiles</span> <span class="o">=</span> <span class="p">[</span><span class="n">DiracFile</span><span class="p">(</span><span class="s1">&#39;*root&#39;</span><span class="p">)]</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">BKQuery</span><span class="p">(</span><span class="n">bkPath</span><span class="p">,</span> <span class="n">dqflag</span><span class="o">=</span><span class="s2">&quot;All&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">getDataset</span><span class="p">()</span>
+<span class="n">trf1</span><span class="o">.</span><span class="n">addInputData</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="n">trf1</span><span class="o">.</span><span class="n">submit_with_threads</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="n">trf1</span><span class="o">.</span><span class="n">splitter</span> <span class="o">=</span> <span class="n">SplitByFiles</span><span class="p">(</span><span class="n">filesPerJob</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">trf1</span><span class="o">.</span><span class="n">backend</span> <span class="o">=</span> <span class="n">Dirac</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>For more details of how to prepare DaVinci jobs for GRID submission please refer to the <a class="reference internal" href="../first-analysis-steps/davinci-grid.html"><span class="doc">Running DaVinci on the GRID</span></a> lesson.</p>
+</section>
+<section id="alternative-backends-condor">
+<h2>Alternative Backends - Condor<a class="headerlink" href="#alternative-backends-condor" title="Permalink to this headline">¶</a></h2>
+<p>Transforms can also be set to run on the Condor backend. For those of you familiar with Condor you should recognise the <code class="docutils literal notranslate"><span class="pre">requirements</span></code> object that allows you to set requirements for host selection. These include <code class="docutils literal notranslate"><span class="pre">opsys</span></code>, <code class="docutils literal notranslate"><span class="pre">arch</span></code>, <code class="docutils literal notranslate"><span class="pre">memory</span></code> and others and can be inspected directly through the <code class="docutils literal notranslate"><span class="pre">IPython</span></code> interface. Changes to the choice of Condor universe can also be made by directly by changing the contents of <code class="docutils literal notranslate"><span class="pre">backend.universe</span></code>. An example of using the Condor backend is as follows.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">trf1</span><span class="o">.</span><span class="n">backend</span> <span class="o">=</span> <span class="n">Condor</span><span class="p">()</span>
+<span class="n">trf1</span><span class="o">.</span><span class="n">backend</span><span class="o">.</span><span class="n">getenv</span> <span class="o">=</span> <span class="s2">&quot;True&quot;</span>  <span class="c1"># send the environment to the host</span>
+<span class="n">trf1</span><span class="o">.</span><span class="n">backend</span><span class="o">.</span><span class="n">requirements</span><span class="o">.</span><span class="n">memory</span> <span class="o">=</span> <span class="mi">1200</span>
+</pre></div>
+</div>
+<div class="panel panel-callout docutils container">
+<div class="panel-header open docutils container">
+<p id="learning-more?"><i class="fa fa-info-circle"></i> Learning More?</p>
+</div>
+<div class="panel-body docutils container">
+<p>At this point you should be a confident using the Ganga <code class="docutils literal notranslate"><span class="pre">IPython</span></code> shell to submit more advanced jobs. To learn more about other features and classes available to you please refer to the <a class="reference external" href="https://ganga.readthedocs.io/en/latest/UserGuide/index.html">Ganga Documentation</a>.</p>
+</div>
+</div>
+</section>
+</section>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="analysis-automation-snakemake.html" class="btn btn-neutral float-right" title="Analysis automation with snakemake" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="managing-files-with-ganga.html" class="btn btn-neutral float-left" title="Managing files in Ganga" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2015-2020, LHCb Starterkit.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
