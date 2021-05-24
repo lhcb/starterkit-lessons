@@ -443,8 +443,8 @@ Just those that you want to monitor or that are used by a subsequent step as inp
 </ul>
 <p>The basic rule is:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">rule</span> <span class="n">myname</span><span class="p">:</span>
-    <span class="nb">input</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;myinput1&#39;</span><span class="p">,</span> <span class="s1">&#39;myinput2&#39;</span><span class="p">]</span>
-    <span class="n">output</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;myoutput&#39;</span><span class="p">]</span>
+    <span class="nb">input</span><span class="p">:</span> <span class="s1">&#39;myinput1&#39;</span><span class="p">,</span> <span class="s1">&#39;myinput2&#39;</span>
+    <span class="n">output</span><span class="p">:</span> <span class="s1">&#39;myoutput&#39;</span>
     <span class="n">shell</span><span class="p">:</span> <span class="s1">&#39;Some command to go from in to out&#39;</span>
 </pre></div>
 </div>
@@ -457,7 +457,7 @@ Just those that you want to monitor or that are used by a subsequent step as inp
 </div>
 <p>You can even avoid typos by substituting variables instead of typing the filenames twice:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">rule</span> <span class="n">merge_files</span><span class="p">:</span>
-    <span class="nb">input</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;input_1.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;input_2.txt&#39;</span><span class="p">]</span>
+    <span class="nb">input</span><span class="p">:</span> <span class="s1">&#39;input_1.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;input_2.txt&#39;</span>
     <span class="n">output</span><span class="p">:</span> <span class="s1">&#39;output.txt&#39;</span>
     <span class="n">shell</span><span class="p">:</span> <span class="s1">&#39;cat </span><span class="si">{input[0]}</span><span class="s1"> &gt; </span><span class="si">{output}</span><span class="s1"> &amp;&amp; cat </span><span class="si">{input[1]}</span><span class="s1"> &gt;&gt; </span><span class="si">{output}</span><span class="s1">&#39;</span>
 </pre></div>
@@ -471,7 +471,7 @@ Just those that you want to monitor or that are used by a subsequent step as inp
 </div>
 <p>If you then make another rule with <code class="docutils literal notranslate"><span class="pre">output/a_file.txt</span></code> and <code class="docutils literal notranslate"><span class="pre">output/another_file.txt</span></code> as inputs they will be automatically created by the <code class="docutils literal notranslate"><span class="pre">copy_and_echo</span></code> rule.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">rule</span> <span class="nb">all</span><span class="p">:</span>
-     <span class="nb">input</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;output/a_file.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;output/another_file.txt&#39;</span><span class="p">]</span>
+     <span class="nb">input</span><span class="p">:</span> <span class="s1">&#39;output/a_file.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;output/another_file.txt&#39;</span>
 </pre></div>
 </div>
 <p>This allows for rules to be reusable, for example to make a rule that can be used to process data with from different years or polarities.</p>
@@ -479,9 +479,23 @@ Just those that you want to monitor or that are used by a subsequent step as inp
 <ul class="simple">
 <li><p>Inputs and outputs can be of any type</p></li>
 <li><p>You can provide python code after the tags. e.g. <code class="docutils literal notranslate"><span class="pre">input:</span> <span class="pre">glob(&quot;*.root&quot;)</span></code></p></li>
-<li><p>If a single file is input or output you are allowed to omit the brackets</p></li>
+<li><p>Python functions can also be used as an input</p></li>
+<li><p>If a single file is used as an input/output, one can ommit the index when refering to the input/output.</p></li>
 <li><p>Wildcards must always be present in the output of a rule (else it wouldn’t be possible to know what they should be)</p></li>
 </ul>
+<p>Snakemake can also take an output of the previous rule as an input:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">rule</span> <span class="n">create_file</span><span class="p">:</span>
+    <span class="n">output</span><span class="p">:</span> <span class="s1">&#39;test_file.txt&#39;</span>
+    <span class="n">shell</span><span class="p">:</span> 
+       <span class="s1">&#39;echo test &gt; </span><span class="si">{output}</span><span class="s1">&#39;</span>
+
+<span class="n">rule</span> <span class="n">copy_file</span><span class="p">:</span>
+    <span class="nb">input</span><span class="p">:</span> <span class="n">rules</span><span class="o">.</span><span class="n">create_file</span><span class="o">.</span><span class="n">output</span>
+    <span class="n">output</span><span class="p">:</span> <span class="s1">&#39;copied_test.txt&#39;</span>
+    <span class="n">shell</span><span class="p">:</span>
+       <span class="s1">&#39;cp </span><span class="si">{input}</span><span class="s1"> </span><span class="si">{output}</span><span class="s1">&#39;</span>
+</pre></div>
+</div>
 <div class="panel panel-challenge docutils container">
 <div class="panel-header open docutils container">
 <p id="write-a-snakefile-with-a-single-rule"><i class="fa fa-square-o"></i> Write a snakefile with a single rule</p>
@@ -503,7 +517,7 @@ ciao a tutti
 <section id="usage-and-basic-behaviour">
 <h3>Usage and basic behaviour<a class="headerlink" href="#usage-and-basic-behaviour" title="Permalink to this headline">¶</a></h3>
 <p>And now that your <code class="docutils literal notranslate"><span class="pre">Snakefile</span></code> is done it’s time to run! Just type</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>snakemake rulename_or_filename
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>snakemake rulename_or_filename --cores <span class="m">1</span>
 </pre></div>
 </div>
 <p>This will:</p>
@@ -514,9 +528,10 @@ ciao a tutti
 <li><p>If inputs do not exist or have changed snakemake will check if there is an other rule that produces them → Go back to 1)</p></li>
 </ul>
 </li>
-<li><p>Run the command you defined in <code class="docutils literal notranslate"><span class="pre">rulename_or_filename</span></code> (or the rule that generates the filename that is given)</p></li>
+<li><p>Run the command you defined in <code class="docutils literal notranslate"><span class="pre">rulename_or_filename</span></code> (or the rule that generates the filename that is given) usin 1 core</p></li>
 <li><p>Check that the output was actually produced.</p></li>
 </ol>
+<p>Note, that one must specify the number of cores being used in snakemake.</p>
 <p>Comments, which rules are run:</p>
 <ul class="simple">
 <li><p>If want to run a chain of rules only up to a certain point just put the name of the rule up to which you want to run on the snakemake command.</p></li>
@@ -547,7 +562,7 @@ cat output/Luca/myaddress.txt &gt; output/Luca/data.txt <span class="o">&amp;&am
 </div>
 <div class="panel-body docutils container">
 <p>Following on from the previous challenge use wildcards to make it so that any name can be used, such as “Fred”</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>snakemake output/Fred/data.txt
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>snakemake output/Fred/data.txt --cores <span class="m">1</span>
 </pre></div>
 </div>
 <div class="panel panel-solution docutils container">
@@ -562,9 +577,10 @@ cat output/Luca/myaddress.txt &gt; output/Luca/data.txt <span class="o">&amp;&am
 </div>
 <p>Comments, partial running:</p>
 <ul class="simple">
-<li><p>If part of the input is already present and not modified present the corresponding rule will not run
+<li><p>If part of the input is already present and not modified the corresponding rule will not run
 Note that if you put your code into the inputs snakemake will detect when your code changes and automatically rerun the corresponding rule!</p></li>
 <li><p>If you want to force running all rules even if part of the output is present use <code class="docutils literal notranslate"><span class="pre">snakemake</span> <span class="pre">--forceall</span></code></p></li>
+<li><p>If you want to check the snakemake rules chain without actually running them use <code class="docutils literal notranslate"><span class="pre">snakemake</span> <span class="pre">-n</span></code></p></li>
 </ul>
 <div class="panel panel-challenge docutils container">
 <div class="panel-header open docutils container">
@@ -572,6 +588,20 @@ Note that if you put your code into the inputs snakemake will detect when your c
 </div>
 <div class="panel-body docutils container">
 <p>In the previous example try deleting one of the intermediate files, rerun snakemake and see what happens</p>
+</div>
+</div>
+<div class="panel panel-callout docutils container">
+<div class="panel-header open docutils container">
+<p id="snakemake-utility-functions"><i class="fa fa-info-circle"></i> snakemake utility functions</p>
+</div>
+<div class="panel-body docutils container">
+<p>Snakemake provides a lot of utils functions, some of the most common ones are described here.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">expand</span></code> : returns a python list that is filled according to the possible wildcards values.
+For example, an python expression <code class="docutils literal notranslate"><span class="pre">['output/{}/file.txt'.format(name)</span> <span class="pre">for</span> <span class="pre">name</span> <span class="pre">in</span> <span class="pre">names]</span></code> can be replaced with <code class="docutils literal notranslate"><span class="pre">expand('output/{name}/file.txt',</span> <span class="pre">name</span> <span class="pre">=</span> <span class="pre">names)</span></code> in the inputs.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">temp</span></code>: specifies that the output file is temporary. For example, <code class="docutils literal notranslate"><span class="pre">temp('file.root')</span></code> will be deleted as the last rule that uses it as an input has finished.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">directory</span></code>: specifies that the output is a directory rather than a file. For example, <code class="docutils literal notranslate"><span class="pre">directory('output/plots')</span></code>. Snakemake 6+ will not create this directory automatically, as it happens with the output files. One way around it is to have a <code class="docutils literal notranslate"><span class="pre">mkdir</span></code> in the <code class="docutils literal notranslate"><span class="pre">shell</span></code> before excuting the main command or having a special rule that creates all necessary directories. Note, that when the snakemake rule falls all outputs are being deleted including the directories.</p></li>
+</ul>
 </div>
 </div>
 </section>
@@ -583,7 +613,7 @@ Note that if you put your code into the inputs snakemake will detect when your c
         <span class="n">exe</span> <span class="o">=</span> <span class="s1">&#39;myscript.py&#39;</span><span class="p">,</span>
         <span class="n">data</span> <span class="o">=</span> <span class="s1">&#39;mydata.root&#39;</span><span class="p">,</span>
         <span class="n">extra</span> <span class="o">=</span> <span class="s1">&#39;some_extra_info.txt&#39;</span><span class="p">,</span>
-    <span class="n">output</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;output.txt&#39;</span><span class="p">]</span>
+    <span class="n">output</span><span class="p">:</span> <span class="s1">&#39;output.txt&#39;</span>
     <span class="n">shell</span><span class="p">:</span> <span class="s1">&#39;python </span><span class="si">{input.exe}</span><span class="s1"> </span><span class="si">{input.data}</span><span class="s1"> --extra </span><span class="si">{input.extra}</span><span class="s1"> &gt; </span><span class="si">{output}</span><span class="s1">&#39;</span>
 </pre></div>
 </div>
@@ -620,13 +650,16 @@ This is useful, in particular if you have to launch the same shell command on mo
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">rule</span> <span class="n">dosomething_pysh</span><span class="p">:</span>
     <span class="nb">input</span><span class="p">:</span>
         <span class="n">code</span> <span class="o">=</span> <span class="s1">&#39;mycode.exe&#39;</span><span class="p">,</span>
-        <span class="n">data</span> <span class="o">=</span> <span class="p">[</span> <span class="s1">&#39;data1.root&#39;</span><span class="p">,</span> <span class="s1">&#39;data2.root&#39;</span> <span class="p">]</span>
-    <span class="n">output</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;plot1.pdf&#39;</span><span class="p">,</span> <span class="s1">&#39;plot2.pdf&#39;</span><span class="p">]</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;data1.root&#39;</span><span class="p">,</span> <span class="s1">&#39;data2.root&#39;</span><span class="p">]</span>
+    <span class="n">output</span><span class="p">:</span> <span class="s1">&#39;plot1.pdf&#39;</span><span class="p">,</span> <span class="s1">&#39;plot2.pdf&#39;</span>
     <span class="n">run</span><span class="p">:</span>
         <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="nb">input</span><span class="o">.</span><span class="n">data</span><span class="p">:</span>
             <span class="n">shell</span><span class="p">(</span><span class="s1">&#39;./</span><span class="si">{input.code}</span><span class="s1"> </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">f</span><span class="p">)</span>
 </pre></div>
 </div>
+<p>Note the list brackets in the <code class="docutils literal notranslate"><span class="pre">output.data</span></code> to highlight the fact that the data output is a list.
+If the brackets were absent, snakemake would not allow this rule to run, assuming that the <code class="docutils literal notranslate"><span class="pre">&quot;data2.root&quot;</span></code> is the next positional output.
+In snakemake positional inputs/outputs have to be positioned before the keyword (labeled) inputs/outputs.</p>
 <div class="panel panel-challenge docutils container">
 <div class="panel-header open docutils container">
 <p id="use-run-instead-of-shell"><i class="fa fa-square-o"></i> Use run instead of shell</p>

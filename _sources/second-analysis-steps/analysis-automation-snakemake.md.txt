@@ -76,8 +76,8 @@ The basic rule is:
 
 ```python
 rule myname:
-    input: ['myinput1', 'myinput2']
-    output: ['myoutput']
+    input: 'myinput1', 'myinput2'
+    output: 'myoutput'
     shell: 'Some command to go from in to out'
 ```
 
@@ -94,7 +94,7 @@ You can even avoid typos by substituting variables instead of typing the filenam
 
 ```python
 rule merge_files:
-    input: ['input_1.txt', 'input_2.txt']
+    input: 'input_1.txt', 'input_2.txt'
     output: 'output.txt'
     shell: 'cat {input[0]} > {output} && cat {input[1]} >> {output}'
 ```
@@ -112,18 +112,34 @@ If you then make another rule with `output/a_file.txt` and `output/another_file.
 
 ```python
 rule all:
-     input: ['output/a_file.txt', 'output/another_file.txt']
+     input: 'output/a_file.txt', 'output/another_file.txt'
 ```
 
 This allows for rules to be reusable, for example to make a rule that can be used to process data with from different years or polarities.
 
 Notice that:
 
-  * Inputs and outputs can be of any type
-  * You can provide python code after the tags. e.g. `input: glob("*.root")`
-  * If a single file is input or output you are allowed to omit the brackets
-  * Wildcards must always be present in the output of a rule (else it wouldn't be possible to know what they should be)
+* Inputs and outputs can be of any type
+* You can provide python code after the tags. e.g. `input: glob("*.root")`
+* Python functions can also be used as an input
+* If a single file is used as an input/output, one can ommit the index when refering to the input/output.
+* Wildcards must always be present in the output of a rule (else it wouldn't be possible to know what they should be)
+ 
+Snakemake can also take an output of the previous rule as an input:
 
+```python
+rule create_file:
+    output: 'test_file.txt'
+    shell: 
+       'echo test > {output}'
+
+rule copy_file:
+    input: rules.create_file.output
+    output: 'copied_test.txt'
+    shell:
+       'cp {input} {output}'
+```
+ 
 {% challenge "Write a snakefile with a single rule" %}
 
 
@@ -150,21 +166,23 @@ ciao a tutti
 And now that your `Snakefile` is done it's time to run! Just type
 
 ```bash
-snakemake rulename_or_filename
+snakemake rulename_or_filename --cores 1
 ```
 
+ 
 This will:
-  1. Check that the inputs exist
-      * If inputs exists &rarr; 2)
-      * If inputs do not exist or have changed snakemake will check if there is an other rule that produces them &rarr; Go back to 1)
-  2. Run the command you defined in `rulename_or_filename` (or the rule that generates the filename that is given)
-  3. Check that the output was actually produced.
+1. Check that the inputs exist
+   * If inputs exists &rarr; 2)
+   * If inputs do not exist or have changed snakemake will check if there is an other rule that produces them &rarr; Go back to 1)
+2. Run the command you defined in `rulename_or_filename` (or the rule that generates the filename that is given) usin 1 core
+3. Check that the output was actually produced.
+
+Note, that one must specify the number of cores being used in snakemake. 
 
 Comments, which rules are run:
-
-  * If want to run a chain of rules only up to a certain point just put the name of the rule up to which you want to run on the snakemake command.
-  * If you want a rule to be "standalone" just do not give its input/outputs as outputs/inputs of any other rule
-  * It is normal practice to put as a first rule a dummy rule that only takes as inputs all the "final" outputs you want to be created by any other rule. In this way when you run just `snakemake` with no label it will run all rules (in the correct order).
+* If want to run a chain of rules only up to a certain point just put the name of the rule up to which you want to run on the snakemake command.
+* If you want a rule to be "standalone" just do not give its input/outputs as outputs/inputs of any other rule
+* It is normal practice to put as a first rule a dummy rule that only takes as inputs all the "final" outputs you want to be created by any other rule. In this way when you run just `snakemake` with no label it will run all rules (in the correct order).
 
 {% challenge "Make a snakefile with at least 3 rules connected to each other and run them in one go" %}
 
@@ -195,7 +213,7 @@ _But it does not have to be this, any other task is fine, be creative!_
 Following on from the previous challenge use wildcards to make it so that any name can be used, such as “Fred”
 
 ```bash
-snakemake output/Fred/data.txt
+snakemake output/Fred/data.txt --cores 1
 ```
 
 {% solution "Solution" %}
@@ -209,15 +227,29 @@ See `Snakefile` in the `simple_solution` folder [here](https://github.com/lhcb/s
 
 Comments, partial running:
 
-* If part of the input is already present and not modified present the corresponding rule will not run
+* If part of the input is already present and not modified the corresponding rule will not run
 Note that if you put your code into the inputs snakemake will detect when your code changes and automatically rerun the corresponding rule!
 * If you want to force running all rules even if part of the output is present use `snakemake --forceall`
+* If you want to check the snakemake rules chain without actually running them use `snakemake -n`
 
 {% challenge "Explore the snakemake behaviour" %}
 
 In the previous example try deleting one of the intermediate files, rerun snakemake and see what happens
 
 {% endchallenge %}
+
+
+
+{% callout "snakemake utility functions" %}
+
+
+Snakemake provides a lot of utils functions, some of the most common ones are described here.
+* `expand` : returns a python list that is filled according to the possible wildcards values. 
+For example, an python expression `['output/{}/file.txt'.format(name) for name in names]` can be replaced with `expand('output/{name}/file.txt', name = names)` in the inputs.
+* `temp`: specifies that the output file is temporary. For example, `temp('file.root')` will be deleted as the last rule that uses it as an input has finished.
+* `directory`: specifies that the output is a directory rather than a file. For example, `directory('output/plots')`. Snakemake 6+ will not create this directory automatically, as it happens with the output files. One way around it is to have a `mkdir` in the `shell` before excuting the main command or having a special rule that creates all necessary directories. Note, that when the snakemake rule falls all outputs are being deleted including the directories. 
+
+{% endcallout %}
 
 ### Sub-labels
 
@@ -229,7 +261,7 @@ rule run_some_py_script:
         exe = 'myscript.py',
         data = 'mydata.root',
         extra = 'some_extra_info.txt',
-    output: ['output.txt']
+    output: 'output.txt'
     shell: 'python {input.exe} {input.data} --extra {input.extra} > {output}'
 ```
 
@@ -273,13 +305,16 @@ This is useful, in particular if you have to launch the same shell command on mo
 rule dosomething_pysh:
     input:
         code = 'mycode.exe',
-        data = [ 'data1.root', 'data2.root' ]
-    output: ['plot1.pdf', 'plot2.pdf']
+        data = ['data1.root', 'data2.root']
+    output: 'plot1.pdf', 'plot2.pdf'
     run:
         for f in input.data:
             shell('./{input.code} %s' % f)
 ```
-
+Note the list brackets in the `output.data` to highlight the fact that the data output is a list. 
+If the brackets were absent, snakemake would not allow this rule to run, assuming that the `"data2.root"` is the next positional output. 
+In snakemake positional inputs/outputs have to be positioned before the keyword (labeled) inputs/outputs.
+ 
 {% challenge "Use run instead of shell" %}
 
 Rewrite your previous file using a python script to run the search and use `run` to run on both phones and addresses in the same rule
@@ -382,8 +417,6 @@ Ideally every plot which is included in an ana note would have a report explaini
 [![Reporting DAG](img/Reporting_DAG.png)](img/Reporting_DAG.png)
 [![Reporting stats](img/Reporting_stats.png)](img/Reporting_stats.png)
 [![Reporting rule](img/Reporting_rule.png)](img/Reporting_rule.png)
-
-
 
 For more information on using reports as well as more examples, see the snakemake documentation [here](https://snakemake.readthedocs.io/en/stable/snakefiles/reporting.html).
 
