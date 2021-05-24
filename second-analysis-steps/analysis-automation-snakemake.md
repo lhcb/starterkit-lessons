@@ -350,7 +350,7 @@ rule dosomething_pysh:
     input: 
         code = 'mycode.exe',
         data = config['data'],
-    output: ['plot1.pdf', 'plot2.pdf'
+    output: ['plot1.pdf', 'plot2.pdf']
     run:
         for f in input:
             shell('./{input.code} %s' % f)
