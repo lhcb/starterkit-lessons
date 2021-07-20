@@ -31,6 +31,7 @@ Before starting, you should be familiar with the [first analysis steps](/first-a
     filter-in-trees.md
     simulation.md
     hlt-intro.md
+    moore-trigger.md
     tistos-diy.md
     ganga-scripting.md
     managing-files-with-ganga.md
