@@ -24,9 +24,9 @@ html_static_path += [
     f'_static',
 ]
 
+# Links to be ignored by the CI check
 linkcheck_ignore += [
-    r'https://groups\.cern\.ch/group/lhcb-distributed-analysis/default\.aspx',
-    'https://information-technology.web.cern.ch/services/batch',
+    r'https://groups\.cern\.ch/group/lhcb-distributed-analysis/default\.aspx'  # 403 error, requires a login
 ]
 
 starterkit_ci_redirects['first-analysis-steps/index.html'] = 'https://lhcb.github.io/starterkit-lessons/first-analysis-steps/README.html'
