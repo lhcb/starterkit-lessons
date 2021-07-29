@@ -25,6 +25,8 @@ html_static_path += [
 ]
 
 linkcheck_ignore += [
+    r'https://groups\.cern\.ch/group/lhcb-distributed-analysis/default\.aspx',
+    'https://information-technology.web.cern.ch/services/batch',
 ]
 
 starterkit_ci_redirects['first-analysis-steps/index.html'] = 'https://lhcb.github.io/starterkit-lessons/first-analysis-steps/README.html'
