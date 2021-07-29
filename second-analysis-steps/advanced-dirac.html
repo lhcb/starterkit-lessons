@@ -4,8 +4,7 @@
 <html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8" />
-  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
+  
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
   <title>Advanced Dirac &mdash; LHCb Starterkit Lessons  documentation</title>
@@ -95,7 +94,7 @@
               
             
             
-              <p class="caption"><span class="caption-text">Contents:</span></p>
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../first-analysis-steps/README.html">First Analysis Steps</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../first-analysis-steps/prerequisites.html">Pre-workshop checklist</a></li>
@@ -262,7 +261,7 @@
 </ul>
 </li>
 </ul>
-<p class="caption"><span class="caption-text">External links:</span></p>
+<p class="caption" role="heading"><span class="caption-text">External links:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference external" href="https://hsf-training.github.io/analysis-essentials/">Analysis essentials</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://cern.ch/lhcb-core-doc/">LHCb Core documentation</a></li>
@@ -362,7 +361,7 @@
     text-align: unset;
 }
 </style>
-<section id="advanced-dirac">
+<div class="section" id="advanced-dirac">
 <h1>Advanced Dirac<a class="headerlink" href="#advanced-dirac" title="Permalink to this headline">¶</a></h1>
 <p>At this point we have used Ganga for a number of things related to DaVinci and basic file management. However, Ganga is a much more flexible tool than that. Using <code class="docutils literal notranslate"><span class="pre">Python</span></code> and <code class="docutils literal notranslate"><span class="pre">IPython</span></code> we can set up more complicated workflows that manage much of your analysis for you!</p>
 <div class="panel panel-objectives docutils container">
@@ -385,7 +384,7 @@
 <p>This tutorial will be based on a couple of python files. Please download the following files and place them in a working directory on lxplus. <a class="reference download internal" download="" href="../_downloads/5711c729663d226cacf6d37f666d3d71/distro.py"><code class="xref download docutils literal notranslate"><span class="pre">distro.py</span></code></a>, <a class="reference download internal" download="" href="../_downloads/e56394fd732ea83599674bf4203e4f0a/compare.py"><code class="xref download docutils literal notranslate"><span class="pre">compare.py</span></code></a></p>
 </div>
 </div>
-<section id="gangatasks">
+<div class="section" id="gangatasks">
 <h2>GangaTasks<a class="headerlink" href="#gangatasks" title="Permalink to this headline">¶</a></h2>
 <p>The first and most important package to introduce is GangaTasks. This package is designed to stop busy analysts from spending more time managing GRID jobs than working on physics. It has the following core features.</p>
 <ul class="simple">
@@ -506,8 +505,8 @@ lb-conda default python compare.py
 </div>
 </div>
 </div>
-</section>
-<section id="alternative-backends-dirac-python-bugged">
+</div>
+<div class="section" id="alternative-backends-dirac-python-bugged">
 <h2>Alternative Backends - DIRAC (Python <a class="reference external" href="https://github.com/ganga-devs/ganga/pull/1896">bugged</a>)<a class="headerlink" href="#alternative-backends-dirac-python-bugged" title="Permalink to this headline">¶</a></h2>
 <p>So far we have only run Tasks on the <code class="docutils literal notranslate"><span class="pre">Localhost</span></code>. Naturally this will not be appropriate for many of the jobs you will need to do. So firstly lets get our python scripts running on <code class="docutils literal notranslate"><span class="pre">DIRAC</span></code> rather than <code class="docutils literal notranslate"><span class="pre">Localhost</span></code>. First we need to ensure that our <code class="docutils literal notranslate"><span class="pre">DIRAC</span></code> submission can access lb-conda. This is done using <code class="docutils literal notranslate"><span class="pre">Tags</span></code> which allow us to configure the behind the scenes of <code class="docutils literal notranslate"><span class="pre">DIRAC</span></code>. As such we need to add the following snippet to our code.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">trf1</span><span class="o">.</span><span class="n">backend</span> <span class="o">=</span> <span class="n">Dirac</span><span class="p">()</span>
@@ -519,8 +518,8 @@ lb-conda default python compare.py
 </pre></div>
 </div>
 <p>Since any sites that are not at CERN will not source this by default.</p>
-</section>
-<section id="alternative-backends-dirac-davinci">
+</div>
+<div class="section" id="alternative-backends-dirac-davinci">
 <h2>Alternative Backends - DIRAC (DaVinci)<a class="headerlink" href="#alternative-backends-dirac-davinci" title="Permalink to this headline">¶</a></h2>
 <p>As you can also imagine it is useful to be able to include DaVinci jobs as Transforms in certain analysis chains. As mentioned earlier Transforms have the following advantages over traditional jobs.</p>
 <ul class="simple">
@@ -542,8 +541,8 @@ lb-conda default python compare.py
 </pre></div>
 </div>
 <p>For more details of how to prepare DaVinci jobs for GRID submission please refer to the <a class="reference internal" href="../first-analysis-steps/davinci-grid.html"><span class="doc">Running DaVinci on the GRID</span></a> lesson.</p>
-</section>
-<section id="alternative-backends-condor">
+</div>
+<div class="section" id="alternative-backends-condor">
 <h2>Alternative Backends - Condor<a class="headerlink" href="#alternative-backends-condor" title="Permalink to this headline">¶</a></h2>
 <p>Transforms can also be set to run on the Condor backend. For those of you familiar with Condor you should recognise the <code class="docutils literal notranslate"><span class="pre">requirements</span></code> object that allows you to set requirements for host selection. These include <code class="docutils literal notranslate"><span class="pre">opsys</span></code>, <code class="docutils literal notranslate"><span class="pre">arch</span></code>, <code class="docutils literal notranslate"><span class="pre">memory</span></code> and others and can be inspected directly through the <code class="docutils literal notranslate"><span class="pre">IPython</span></code> interface. Changes to the choice of Condor universe can also be made by directly by changing the contents of <code class="docutils literal notranslate"><span class="pre">backend.universe</span></code>. An example of using the Condor backend is as follows.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">trf1</span><span class="o">.</span><span class="n">backend</span> <span class="o">=</span> <span class="n">Condor</span><span class="p">()</span>
@@ -559,8 +558,8 @@ lb-conda default python compare.py
 <p>At this point you should be a confident using the Ganga <code class="docutils literal notranslate"><span class="pre">IPython</span></code> shell to submit more advanced jobs. To learn more about other features and classes available to you please refer to the <a class="reference external" href="https://ganga.readthedocs.io/en/latest/UserGuide/index.html">Ganga Documentation</a>.</p>
 </div>
 </div>
-</section>
-</section>
+</div>
+</div>
 
 
            </div>

@@ -4,8 +4,7 @@
 <html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8" />
-  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
+  
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
   <title>Controlling the decay: DecFiles &mdash; LHCb Starterkit Lessons  documentation</title>
@@ -95,7 +94,7 @@
               
             
             
-              <p class="caption"><span class="caption-text">Contents:</span></p>
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../first-analysis-steps/README.html">First Analysis Steps</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../first-analysis-steps/prerequisites.html">Pre-workshop checklist</a></li>
@@ -262,7 +261,7 @@
 </ul>
 </li>
 </ul>
-<p class="caption"><span class="caption-text">External links:</span></p>
+<p class="caption" role="heading"><span class="caption-text">External links:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference external" href="https://hsf-training.github.io/analysis-essentials/">Analysis essentials</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://cern.ch/lhcb-core-doc/">LHCb Core documentation</a></li>
@@ -374,7 +373,7 @@
 </ul>
 </div>
 </div>
-<section id="controlling-the-decay-decfiles">
+<div class="section" id="controlling-the-decay-decfiles">
 <h1>Controlling the decay: DecFiles<a class="headerlink" href="#controlling-the-decay-decfiles" title="Permalink to this headline">¶</a></h1>
 <p>The <code class="docutils literal notranslate"><span class="pre">DecFile</span></code> controls the decay itself (i.e. what <code class="docutils literal notranslate"><span class="pre">EvtGen</span></code> does) as well as provide any event-type specific configuration (e.g. generator cuts).
 They exist in the <code class="docutils literal notranslate"><span class="pre">Gen/DecFile</span></code> package which we have already checked out and built in the beginning and are given as <code class="docutils literal notranslate"><span class="pre">.dec</span></code> files in <code class="docutils literal notranslate"><span class="pre">Gen/DecFiles/dkfiles</span></code>.
@@ -427,7 +426,7 @@ The “Cuts” field specifies which one of a predetermined set of cut tools are
 <p>The bottom part of the decay file specifies the decay itself:
 This DecFile defines a signal <code class="docutils literal notranslate"><span class="pre">D*+</span></code> which decays 100% to <code class="docutils literal notranslate"><span class="pre">D0</span></code> <code class="docutils literal notranslate"><span class="pre">pi+</span></code>, and the D0 in turn decays 100% into <code class="docutils literal notranslate"><span class="pre">K+</span></code>, <code class="docutils literal notranslate"><span class="pre">K-</span></code>, <code class="docutils literal notranslate"><span class="pre">mu+</span></code> and <code class="docutils literal notranslate"><span class="pre">mu-</span></code>. Important is the definition of “MyD0”. If the decay was to “D0” rather than “MyD0”, the D0 would decay via all of the decay modes implemented in DECAY.DEC.
 The final part of each decay is the actual physics model used - in this case “VSS”, the generic matrix element for vector to scaler-scaler transitions, and “PHSP”, which is phase space only (matrix element = constant). Note that with PHSP, the decay products are completely unpolarized - for anything other than (spin0) to (spin0 spin0) this will get the angular momentum wrong!</p>
-</section>
+</div>
 
 
            </div>
