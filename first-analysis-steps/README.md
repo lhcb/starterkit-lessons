@@ -30,12 +30,9 @@ The [analysis essentials course](https://hsf-training.github.io/analysis-essenti
     minimal-dv-job.md
     thor-functors.md
     loki-functors.md
-    add-tupletools.md
-    decay-tree-fitter.md
+    tupletools-and-decaytreefitter.md
     analysis-productions.md
-    davinci-grid.md
-    split-jobs.md
-    ganga-data.md
+    ganga.md
     eos-storage.md
     lhcb-dev.md
     asking-questions.md

@@ -1,8 +1,7 @@
 # Scripting Ganga
 
 We have already started using Ganga, such as when [submitting jobs to the 
-Grid](../first-analysis-steps/davinci-grid.md) and 
-[using datasets from the bookkeeping](../first-analysis-steps/ganga-data.md), for
+Grid and using datasets from the bookkeeping](../first-analysis-steps/ganga.md), for
 creating jobs; but there's a lot more you can do with it.
 
 Part of Ganga's power comes from it being written in Python. When you run
@@ -75,7 +74,7 @@ j.name = 'My job'
 This example is quite boring, but it captures the idea. You'll want to
 extend this, changing the `application` property to a `GaudiExec` instance,
 for example, as covered in [a previous
-lesson](../first-analysis-steps/davinci-grid.md).
+lesson](../first-analysis-steps/ganga.md).
 
 Now we can run this and interact with the job as the `j` variable:
 

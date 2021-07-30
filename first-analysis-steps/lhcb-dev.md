@@ -168,7 +168,7 @@ use the method described at the [Git4LHCb](http://lhcb-core-doc.web.cern.ch/lhcb
 These are a set of subcommands, starting with `git lb-`, that are designed to make
 developing LHCb software easier.
 For example, if you want to modify a `TupleTool`
-(which you discovered in the [TupleTools and branches](add-tupletools) lesson),
+(which you discovered in the [TupleTools and branches](tupletools-and-decaytreefitter) lesson),
 start by executing the following in the `DaVinciDev` directory:
 
 ```bash

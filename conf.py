@@ -10,6 +10,7 @@ html_logo = 'starterkit.png'
 exclude_patterns += [
     'first-analysis-steps/code/**',
     'README.md',
+    'retired-lessons/**'
 ]
 
 html_context = {

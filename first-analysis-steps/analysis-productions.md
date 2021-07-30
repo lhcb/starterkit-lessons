@@ -8,7 +8,7 @@
 
 {% endobjectives %}
 
-Running DaVinci locally can be great for testing an options file, but is rarely appropriate for creating the full set of ROOT ntuples needed for an analysis. Historically, people would submit their jobs to the grid: one can send off a large number of DaVinci jobs to be handled by batch computing resources (in certain cases, this is still useful - see the [next lesson](davinci-grid) for how to do this). However, this still has some drawbacks, in particular:
+Running DaVinci locally can be great for testing an options file, but is rarely appropriate for creating the full set of ROOT ntuples needed for an analysis. Historically, people would submit their jobs to the grid: one can send off a large number of DaVinci jobs to be handled by batch computing resources (in certain cases, this is still useful - see the [next lesson](ganga.md) for how to do this). However, this still has some drawbacks, in particular:
 
 * Large datasets (especially in run 3) would require a long period of monitoring your grid jobs
 * Computing resources can be wasted if multiple analyses are independently producing similar ntuples

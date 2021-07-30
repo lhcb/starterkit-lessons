@@ -190,7 +190,7 @@ trf1.splitter = SplitByFiles(filesPerJob=5)
 trf1.backend = Dirac()
 ```
 
-For more details of how to prepare DaVinci jobs for GRID submission please refer to the [Running DaVinci on the GRID](../first-analysis-steps/davinci-grid.md) lesson.
+For more details of how to prepare DaVinci jobs for GRID submission please refer to the [Running DaVinci on the GRID](../first-analysis-steps/ganga.md) lesson.
 
 ### Alternative Backends - Condor
 

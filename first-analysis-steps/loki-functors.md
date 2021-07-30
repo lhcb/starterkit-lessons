@@ -373,7 +373,7 @@ Have a look at the stripping line
 
 
 Additionally, LoKi functors can be used directly inside our `DaVinci` jobs to store specific bits of information in our ntuples without the need for a complicated C++-based algorithms.
-This second option will be discussed in the [TupleTools and branches lesson](add-tupletools).
+This second option will be discussed in the [TupleTools and branches lesson](tupletools-and-decaytreefitter).
 
 {% callout "Debugging LoKi functors" %}
 
