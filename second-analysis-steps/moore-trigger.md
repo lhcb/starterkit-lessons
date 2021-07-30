@@ -1,10 +1,10 @@
-# Moore and Authoring a Trigger Selection 
+# Moore and Authoring a Trigger Selection
 
 {% objectives "Learning Objectives" %}
 
-* To author a trigger selection 
+* To author a trigger selection
 
-{% endobjectives %} 
+{% endobjectives %}
 
 Moore is a set of Python files used to configure Gaudi applications. These files are then passed to `gaudirun.py` which can use them for example to configure a trigger selection.
 
