@@ -28,6 +28,7 @@ The [analysis essentials course](https://hsf-training.github.io/analysis-essenti
     files-from-grid.md
     interactive-dst.md
     minimal-dv-job.md
+    thor-functors.md
     loki-functors.md
     add-tupletools.md
     decay-tree-fitter.md
