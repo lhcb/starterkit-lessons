@@ -289,6 +289,6 @@ depends on where the input files are.
 
 {% endcallout %}
 
-[batch]: https://information-technology.web.cern.ch/services/batch
+[batch]: https://batchdocs.web.cern.ch/
 [ipython-shell]: https://ipython.org/ipython-doc/3/interactive/tutorial.html
 [reverse-script]: code/01-managing-files-with-ganga/reverse.py
