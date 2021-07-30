@@ -18,6 +18,7 @@ If you'd just like to learn about how to use the LHCb software, [read on](first-
     first-analysis-steps/README.md
     second-analysis-steps/README.md
     self-guided-lessons/README.md
+    archived-lessons/README.md
     CONTRIBUTING.md
 
 .. toctree::
