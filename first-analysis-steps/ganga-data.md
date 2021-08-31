@@ -85,4 +85,4 @@ FAQ](https://twiki.cern.ch/twiki/bin/view/LHCb/FAQ/GangaLHCbFAQ)
 
 {% endcallout %} 
 
-[^1]: Merging your files with `hadd` will be significantly faster if you run it with the option telling ROOT to use the same compression level in that output file as is used for the input files. This can be done using the `-fk` option. If running on lxplus you will need to get a newer ROOT version that supports this option by using: `lb-run ROOT hadd -fk output.root input/*.root`
+[^1]: Merging your files with `hadd` will be significantly faster if you run it with the option telling ROOT to use the same compression level in that output file as is used for the input files. This can be done using the `-fk` option. If running on lxplus you will need to get a newer ROOT version that supports this option by using: `lb-conda default hadd -fk output.root input/*.root`
