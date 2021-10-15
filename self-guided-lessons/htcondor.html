@@ -1,80 +1,39 @@
-
-
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" />
-  
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  
   <title>Batch submission using HTCondor &mdash; LHCb Starterkit Lessons  documentation</title>
-  
-
-  
-  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/panels.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/starterkit.css" type="text/css" />
-
-  
-  
-
-  
-  
-
-  
-
-  
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/panels.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/starterkit.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
         <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
         <script src="../_static/jquery.js"></script>
         <script src="../_static/underscore.js"></script>
         <script src="../_static/doctools.js"></script>
         <script src="../_static/panels.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    
-    <script type="text/javascript" src="../_static/js/theme.js"></script>
-
-    
+    <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Submitting a simple job" href="htcondor-first-job.html" />
     <link rel="prev" title="Self guided lessons" href="README.html" /> 
 </head>
 
-<body class="wy-body-for-nav">
-
-   
+<body class="wy-body-for-nav"> 
   <div class="wy-grid-for-nav">
-    
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-          
-
-          
             <a href="../index.html" class="icon icon-home"> LHCb Starterkit Lessons
-          
-
-          
-            
             <img src="../_static/starterkit.png" class="logo" alt="Logo"/>
-          
           </a>
-
-          
-            
-            
-          
-
-          
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
@@ -82,18 +41,7 @@
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
-
-          
-        </div>
-
-        
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../first-analysis-steps/README.html">First Analysis Steps</a><ul>
@@ -268,75 +216,31 @@
 <li class="toctree-l1"><a class="reference external" href="https://lhcb.github.io/glossary/">LHCb glossary</a></li>
 </ul>
 
-            
-          
         </div>
-        
       </div>
     </nav>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../index.html">LHCb Starterkit Lessons</a>
-        
       </nav>
 
-
       <div class="wy-nav-content">
-        
         <div class="rst-content">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
+          <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-    
       <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
-        
           <li><a href="README.html">Self guided lessons</a> &raquo;</li>
-        
       <li>Batch submission using HTCondor</li>
-    
-    
       <li class="wy-breadcrumbs-aside">
-        
-          
-            
               <a href="https://github.com/lhcb/starterkit-lessons/blob/master/self-guided-lessons/htcondor.md" class="fa fa-github"> Edit on GitHub</a>
-            
-          
-        
       </li>
-    
   </ul>
-
-  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
-            
+             
   
 <style>
 /* CSS overrides for sphinx_rtd_theme */
@@ -361,8 +265,8 @@
     text-align: unset;
 }
 </style>
-<div class="section" id="batch-submission-using-htcondor">
-<h1>Batch submission using HTCondor<a class="headerlink" href="#batch-submission-using-htcondor" title="Permalink to this headline">¶</a></h1>
+<section id="batch-submission-using-htcondor">
+<h1>Batch submission using HTCondor<a class="headerlink" href="#batch-submission-using-htcondor" title="Permalink to this headline"></a></h1>
 <div class="panel panel-callout docutils container">
 <div class="panel-header open docutils container">
 <p id="lhcb-fair-usage-of-grid-resources"><i class="fa fa-info-circle"></i> LHCb fair-usage of Grid resources</p>
@@ -418,14 +322,14 @@
 </li>
 </ul>
 </div>
-<div class="section" id="system-architecture">
-<h2>System architecture<a class="headerlink" href="#system-architecture" title="Permalink to this headline">¶</a></h2>
+<section id="system-architecture">
+<h2>System architecture<a class="headerlink" href="#system-architecture" title="Permalink to this headline"></a></h2>
 <p>When you connect to lxplus, you have read/write access to both the AFS and EOS filesystems, as well as read-only access to CVMFS for accessing experiment software. Worker notes in the batch system have the same permissions, which is what allows them to read input files from, and write output files to, your user areas.</p>
 <p>Each worker node has its own remote storage space, which is limited to 20GB. When a job starts, the executable is copied to this storage area, usually along with any input data files required. Any files created by the script should be created there as well, where they can later be transferred back to your user area. When a job completes, the worker node cleans out its storage area, so it’s important to tell HTCondor to transfer any output files you want to keep.</p>
 <p>See <a class="reference external" href="https://batchdocs.web.cern.ch/batchdocs/concepts/dataflow.html">here</a> for a more detailed explanation (and a helpful diagram).</p>
-</div>
-<div class="section" id="other-useful-resources">
-<h2>Other useful resources<a class="headerlink" href="#other-useful-resources" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="other-useful-resources">
+<h2>Other useful resources<a class="headerlink" href="#other-useful-resources" title="Permalink to this headline"></a></h2>
 <p>While putting this lesson together, the following guides, tutorials, and pages proved highly useful, and may be useful to you as well if you need more information:</p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://research.cs.wisc.edu/htcondor/manual/v8.8/">HTCondor v8.8.2 Manual</a> - University of Wisconsin-Madison</p></li>
@@ -434,55 +338,38 @@
 <li><p><a class="reference external" href="https://mattermost.web.cern.ch/lhcb">Mattermost</a> - you can join the ‘condor’ and ‘Distributed Analysis’ channels</p></li>
 <li><p><a class="reference external" href="mailto:lhcb-distributed-analysis&#37;&#52;&#48;cern&#46;ch">lhcb-distributed-analysis<span>&#64;</span>cern<span>&#46;</span>ch</a> mailing list</p></li>
 </ul>
-</div>
-</div>
+</section>
+</section>
 
 
            </div>
-           
           </div>
-          <footer>
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-        <a href="htcondor-first-job.html" class="btn btn-neutral float-right" title="Submitting a simple job" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="README.html" class="btn btn-neutral float-left" title="Self guided lessons" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="htcondor-first-job.html" class="btn btn-neutral float-right" title="Submitting a simple job" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
 
   <div role="contentinfo">
-    <p>
-        &#169; Copyright 2015-2020, LHCb Starterkit.
-
-    </p>
+    <p>&#169; Copyright 2015-2020, LHCb Starterkit.</p>
   </div>
-    
-    
-    
-    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
-    
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
     <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
-    
-    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
 
 </footer>
         </div>
       </div>
-
     </section>
-
   </div>
-  
-
-  <script type="text/javascript">
+  <script>
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
-
-  
-  
-    
-   
+  </script> 
 
 </body>
 </html>
