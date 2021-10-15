@@ -78,6 +78,12 @@ to know.
    use little space, and Turbo++, where you can do many things offline but use 
    a lot of space.
 
+For more details on how the software evolved and currently known issues,
+please check the
+[Run2OperationSummary](https://twiki.cern.ch/twiki/bin/viewauth/LHCbInternal/Run2OperationSummary)
+and [Run2TriggerChangelog](https://twiki.cern.ch/twiki/bin/view/LHCb/Run2TriggerChangelog)
+TWikis.
+
 TurboSP is considered as the primary data flow model for the planned LHCb 
 upgrade in Run 3.
 
