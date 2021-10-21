@@ -95,7 +95,7 @@ However some older DaVinci version are not compiled for `x86_64-centos7-gcc8-opt
 
 The list of platforms available for a certain DaVinci version (let's try the DaVinci version we are using `v45r1`), can be viewed by
 ```bash
-$ lb-sdb-query listPlatforms DaVinci v45r1
+$ lb-run --list-platforms DaVinci v45r1
 ```
 The default compiler platform for GaudiExec applications is `x86_64-slc6-gcc62-opt`.
 So for some DaVinci versions, including the latest `DaVinci v45r1` a few additional actions are needed to set up your ganga job properly.
