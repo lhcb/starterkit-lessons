@@ -53,7 +53,7 @@ Some of this packages are CERN supported, some are projects from the LHCb collab
 * [RooFit](https://root.cern/manual/roofit/) a fitting, fit model defining, plotting and "toy model" generation package supported by CERN ROOT team. Can be used in both C++ and python.
 * [zFit](https://github.com/zfit/zfit) a fitting and fit model defining python module integrated with [scikit-HEP project](https://github.com/scikit-hep) ecosystem.
 
-{% callout %}
+{% endcallout %}
 
 Discussions on the new analysis tools that might be useful for the LHCb community are held in the [work package 4](https://lhcb-dpa.web.cern.ch/lhcb-dpa/wp4/index.html) of the Data Processing and Analysis project (DPA). 
 
