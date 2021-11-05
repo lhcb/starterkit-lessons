@@ -17,6 +17,7 @@ The output of the last stages of the [LHCb dataflow](dataflow), namely stripping
 Selections made at these last stages are also defined by users. 
 Their output is saved to disk and later is used to produce a data file that will contain only the information that interests users.
 This is done using the software package called DaVinci.
+
 {% endcallout %}
 
 After preselecting data either in the stripping, sprucing or triggering step, user can produce a data file, called ntuple by running DaVinci package.
