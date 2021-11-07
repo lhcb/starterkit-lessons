@@ -28,7 +28,7 @@ Each row in the table corresponds to a job belonging to this production, and dis
 * When it was created and last updated
 * The version of the code used to run it
 
-To view more information about any one of these jobs, you can click on it to view a job summary page. The below image shows one such page, with a couple of particularly useful elements highlighted in magenta.
+To view more information about any one of these jobs, you can click on it to view a job summary page. The image below shows one such page, with a couple of particularly useful elements highlighted in magenta.
 
 ![An AP job summary](img/web_production_annotated.png)
 
