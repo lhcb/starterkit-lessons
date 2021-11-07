@@ -10,9 +10,9 @@
 
 Running DaVinci locally can be great for testing an options file, but is rarely appropriate for creating the full set of ROOT ntuples needed for an analysis. Historically, people would submit their jobs to the grid: one can send off a large number of DaVinci jobs to be handled by batch computing resources (in certain cases, this is still useful - see the [next lesson](davinci-grid) for how to do this). However, this still has some drawbacks, in particular:
 
-* Large datasets (especially in run 3) would require a long period of monitoring your grid jobs
-* Computing resources can be wasted if multiple analyses are independently producing similar ntuples
-* Ntuples can be lost, or removed when analysists leave, which can be an issue for [analysis preservation](https://twiki.cern.ch/twiki/bin/view/LHCb/AnalysisPreservationReproducibility)
+* Large datasets (especially in run 3) would require a long period of monitoring your grid jobs.
+* Computing resources can be wasted if multiple analyses are independently producing similar ntuples.
+* Ntuples can be lost, or removed when analysts leave, which can be an issue for [analysis preservation](https://twiki.cern.ch/twiki/bin/view/LHCb/AnalysisPreservationReproducibility).
 
 It is the goal of [Analysis Productions](https://gitlab.cern.ch/lhcb-datapkg/AnalysisProductions/) to centralise and automate much of the process of making ntuples, and to keep a record of how datasets were produced. Moving into run 3, this will usually be the preferred way to create ntuples for your analysis.
 
@@ -86,7 +86,7 @@ The next file needed is a `.yaml` file, which will be used to configure the jobs
 
 ```yaml
 defaults:
-    application: DaVinci/v45r5
+    application: DaVinci/v45r8
     wg: Charm
     automatically_configure: yes
     turbo: no
@@ -199,7 +199,7 @@ And then push the changes with
 git push origin ${USER}/starterkit-practice
 ```
 
-Once this has completed, it should give you a link to create a merge request for your new branch. Open it in a browser, and give it a suitable name & description - in the description, please make sure to say that this is part of the Starterkit lesson! For a real production please ensure you follow the instructions in the merge request description template.Then you can submit your merge request.
+Once this has completed, it should give you a link to create a merge request for your new branch. Open it in a browser, and give it a suitable name & description - in the description, please make sure to say that this is part of the Starterkit lesson! For a real production please ensure you follow the instructions in the merge request description template. Then you can submit your merge request.
 
 Since this is only for practice, your request won't actually be merged, but some tests will still be run automatically. To view these, go to the Pipelines tab of your merge request, and open it by clicking the pipeline number (eg. "#1958388"). At the bottom, you will see a `test` job - click on this, and it will show you the output of the test jobs. These will take a little time to complete, so it may still be in progress. The first few lines should look something like:
 
