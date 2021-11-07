@@ -18,33 +18,29 @@ It is the goal of [Analysis Productions](https://gitlab.cern.ch/lhcb-datapkg/Ana
 
 ## Monitoring productions
 
-Before we get into the how-to, let's first take a look at the end result of a real production. Open the [DIRAC web interface](https://lhcb-portal-dirac.cern.ch/DIRAC/), and navigate to `Applications/Analysis Productions`. You should see a new menu appear, showing a list of working groups ('B2CC', 'SL', etc.). Under `SL` (the semi-leptonic working group), navigate to `AnaProd-RDs/v0r0p1735460`. This production has been named `RDs`, and `v0r0p1735460` is the version of the code used to run the jobs it contains.
+Before we get into the how-to, let's first take a look at the end result of a real production. Open the [Analysis Productions webpage](https://lhcb-analysis-productions-preview.web.cern.ch/), and navigate to `Productions`. You should see a new menu appear, showing a list of productions. Using the search bar on the right you can search for any production of interest, try `b02dkpi` for example. This should return one result and clicking on it should show you a table of jobs belonging to the production.
 
-Each of these rows corresponds to a job belonging to this production, and displays:
+Each row in the table corresponds to a job belonging to this production, and displays:
 
-* Its unique ID number of that batch of jobs (left, eg. `69615`)
-* Its name (centre, eg. `MC_13266069_2018_MagUp`)
-* Its status (right)
+* Its status (e.g. READY, ACTIVE)
+* Some of its tags (e.g. MC/DATA, Run1/Run2)
+* Its name (e.g. 2018_15164022_magup)
+* When it was created and last updated
+* The version of the code used to run it
 
-To view more information about any one of these jobs, you can click on it to expand it. The below image shows one such job, with a couple of particularly useful elements highlighted in magenta.
+To view more information about any one of these jobs, you can click on it to view a job summary page. The below image shows one such page, with a couple of particularly useful elements highlighted in magenta.
 
-![An AP job viewed in DIRAC](img/DIRAC_AP_annotated.png)
+![An AP job summary](img/web_production_annotated.png)
 
-The top section shows the summary of important information, like the locations of the input and output files. We can view the ntuples created by this job using the location from the 'output pattern' field. Let's start by listing the available files by running the following command in an lxplus terminal:
+The top section shows a summary of important information, such as the state of the job, its production version, the total storage required for the output files and the merge request and JIRA task used to submit the production. To view the input scripts used to set up the production click the link to the merge request. The next section lists the tags used to categorise the job and the third section lists the DIRAC production information for the job. Finally, is the Files section which lists the output files for the job. One can use either the PFNs or LFNs to access the output, the PFNs should be visible to all systems with access to the CVMFS.
 
+Let's try accessing one of these files right now by doing:
 ```bash
-xrdfs root://eoslhcb.cern.ch/ ls /eos/lhcb/grid/prod/lhcb/MC/2018/BSNTUPLE_MC.ROOT/00110974/0000/
+root -l root://eoslhcb.cern.ch//eos/lhcb/grid/prod/lhcb/MC/2018/B02DKPI.ROOT/00145105/0000/00145105_00000001_1.b02dkpi.root
 ```
 
-This will display a list of `.root` ntuples being stored on the grid. Choose one of them, and open it with:
+You can now explore this file by doing `TBrowser b` inside of ROOT (or with another method of your choice).
 
-```bash
-root -l root://eoslhcb.cern.ch//eos/lhcb/grid/prod/lhcb/MC/2018/BSNTUPLE_MC.ROOT/00110974/0000/00110974_00000001_1.bsntuple_mc.root
-```
-
-You can now view these files by running `TBrowser b` inside of ROOT (or with your another method of your choice).
-
-To view the files that were used to create these ntuples, you can click on the 'View on GitLab' button. This will show you the version of the Analysis Production code that was run for this job. On GitLab, open the folder named `RDs` (the name of this production), and take a look around. You should find a few separate `.py` options files, as well as an `info.yaml` (more on this later).
 
 ## Creating your own production
 
@@ -185,6 +181,7 @@ For issues with `info.yaml` files, or anything else to do with the Analysis Prod
 
 {% endcallout %}
 
+
 ### Creating a merge request
 
 Now that we've tested all of our changes and are sure that everything's working as intended, we can prepare to submit them to the main repository by creating a merge request. Start by commiting the changes:
@@ -202,7 +199,7 @@ And then push the changes with
 git push origin ${USER}/starterkit-practice
 ```
 
-Once this has completed, it should give you a link to create a merge request for your new branch. Open it in a browser, and give it a suitable name & description - in the description, please make sure to say that this is part of the Starterkit lesson! Then you can submit your merge request.
+Once this has completed, it should give you a link to create a merge request for your new branch. Open it in a browser, and give it a suitable name & description - in the description, please make sure to say that this is part of the Starterkit lesson! For a real production please ensure you follow the instructions in the merge request description template.Then you can submit your merge request.
 
 Since this is only for practice, your request won't actually be merged, but some tests will still be run automatically. To view these, go to the Pipelines tab of your merge request, and open it by clicking the pipeline number (eg. "#1958388"). At the bottom, you will see a `test` job - click on this, and it will show you the output of the test jobs. These will take a little time to complete, so it may still be in progress. The first few lines should look something like:
 
@@ -212,7 +209,7 @@ INFO:Creating new pipeline for ID 1958388
 ALWAYS:Results will be available at https://lhcb-analysis-productions.web.cern.ch/1958388/
 ```
 
-You can open that link in your browser to view the status of the test jobs (example [here](https://lhcb-analysis-productions.web.cern.ch/1958388/)). After a few minutes, these should have completed - all being well, you've now succesfully submitted your first production!
+You can open that link in your browser to view the status of the test jobs (example [here](https://lhcb-analysis-productions.web.cern.ch/3195170/)). After a few minutes, these should have completed - all being well, you've now succesfully submitted your first production!
 
 
 {% callout "Next steps for real productions" %}
