@@ -12,7 +12,7 @@ Running DaVinci locally can be great for testing an options file, but is rarely 
 
 * Large datasets (especially in run 3) would require a long period of monitoring your grid jobs.
 * Computing resources can be wasted if multiple analyses are independently producing similar ntuples.
-* Ntuples can be lost, or removed when analysts leave, which can be an issue for [analysis preservation](https://twiki.cern.ch/twiki/bin/view/LHCb/AnalysisPreservationReproducibility).
+* Ntuples can be lost, or removed when analysts leave, which can be an issue for [analysis preservation](https://lhcb-dpa.web.cern.ch/lhcb-dpa/wp6/index.html).
 
 It is the goal of [Analysis Productions](https://gitlab.cern.ch/lhcb-datapkg/AnalysisProductions/) to centralise and automate much of the process of making ntuples, and to keep a record of how datasets were produced. Moving into run 3, this will usually be the preferred way to create ntuples for your analysis.
 
@@ -209,7 +209,7 @@ INFO:Creating new pipeline for ID 1958388
 ALWAYS:Results will be available at https://lhcb-analysis-productions.web.cern.ch/1958388/
 ```
 
-You can open that link in your browser to view the status of the test jobs (example [here](https://lhcb-analysis-productions.web.cern.ch/3195170/)). After a few minutes, these should have completed - all being well, you've now succesfully submitted your first production!
+You can open that link in your browser to view the status of the test jobs (example [here](https://lhcb-analysis-productions.web.cern.ch/3195170/)). After a few minutes, these should have completed - all being well, you've now successfully submitted your first production!
 
 
 {% callout "Next steps for real productions" %}
