@@ -80,8 +80,8 @@ Small files are downloaded as standard: `.root`, logfiles etc. Files that are ex
 
 {% callout "Getting help with ganga" %}
 
-To find out more take a look at the [Ganga 
-FAQ](https://twiki.cern.ch/twiki/bin/view/LHCb/FAQ/GangaLHCbFAQ)
+Speaking about large files: The [Ganga 
+FAQ](https://twiki.cern.ch/twiki/bin/view/LHCb/FAQ/GangaLHCbFAQ) tells you all about ways to remove unneeded branches from your nTuples, such that you do not waste space. This is also *the* place to find other tips and tricks on using Ganga.
 
 {% endcallout %} 
 
