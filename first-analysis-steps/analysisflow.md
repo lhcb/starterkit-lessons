@@ -2,8 +2,8 @@
 
 {% objectives "Learning Objectives" %}
 
-* Understand basic concepts of Analysis Preservation
-* Learn about key analysis tools that help with preservation 
+* Learn about analysis tools
+* Learn about analysis preservation 
 
 {% endobjectives %}
 
@@ -45,8 +45,8 @@ Analysis code is usually based on the popular high-energy physics software tools
 
 {% callout "Popular data analysis tools in HEP" %}
 
-There are multiple packages that collaborators use in LHCb.
-Some of this packages are CERN supported, some are projects from the LHCb collaborators and some are supported by general community.  
+There are multiple packages that collaboratos use in LHCb.
+Some of this packages are CERN supported, some are projects from the LHCb collaborators and some are supported by external community.  
 
 * [ROOT](https://root.cern/) and it's python twin sister pyROOT are open-source data analysis frameworks used extensively in HEP community. 
 * [scikit-HEP project](https://github.com/scikit-hep) a metaproject for python based particle physics analysis. Consists of multiple useful python modules, some of them are listed here:
@@ -62,7 +62,6 @@ Some of this packages are CERN supported, some are projects from the LHCb collab
 {% endcallout %}
 
 Discussions on the new analysis tools that might be useful for the LHCb community are held in the [work package 4](https://lhcb-dpa.web.cern.ch/lhcb-dpa/wp4/index.html) of the Data Processing and Analysis project (DPA). 
-
 
 ### Analysis Preservation
 
@@ -86,12 +85,14 @@ However, it is not enough to just submit your code.
 It is important to write a set of instructions to execute the steps in the correct sequence.
 You will quickly find yourself, that remembering how to run your own code even a couple of month after it was used for the last time can be really hard. 
 Instructions can be written using [snakemake](https://snakemake.readthedocs.io/en/stable/) and supportive bash scripts.
+
 Snakemake workflow management system allows you to write a pipeline for analysis that will automatically detect the hierarchy of the steps and changes in inputs (both samples and code). 
 One should aim to start implementing the snakemake workflow from the beginning of analysis development.
 Your snakemake workflow then should be committed to the gitlab repository with the final version of the code.
 
 The samples you have produced should also be saved.
 Analysis Productions help you to save a tested version of the DaVinci option files, that will help you to reproduce the ntuples with the same software version, that was specified in the original option files. 
+
 The resulting samples have to be uploaded to your working group eos. 
 
 You should always preserve the package versions of the sofrware that you have being using.
