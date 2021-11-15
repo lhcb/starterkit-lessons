@@ -76,8 +76,8 @@ DaVinci().Simulation = True
 # Only ask for luminosity information when not using simulated data
 DaVinci().Lumi = not DaVinci().Simulation
 DaVinci().EvtMax = -1
-DaVinci().CondDBtag = 'sim-20161124-2-vc-md100'
-DaVinci().DDDBtag = 'dddb-20150724'
+DaVinci().CondDBtag = 'sim-20170721-2-vc-md100'
+DaVinci().DDDBtag = 'dddb-20170721-3'
 ```
 
 If you don't have your options file from earlier available, or are having trouble, you can [use this options file](code/analysis-productions/ntuple_options.py).
