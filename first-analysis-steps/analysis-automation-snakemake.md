@@ -39,26 +39,6 @@ The basic `lb-conda` environment can be entered with the command `lb-conda defau
 
 More infomation on using `lb-conda` can be found [here](https://gitlab.cern.ch/lhcb-core/lbcondawrappers/-/blob/master/README.md).
 
-<!--
-```bash
-python3 -m pip install --user snakemake
-# Depending on your PATH variable you may also need to use:
-alias snakemake='python3 -m snakemake'
-```
-
-{% callout "Installing on lxplus" %}
-
-Unfortunately most LHCb software only supports Python 2 and doesn't provide a Python 3 installation.
-When running on lxplus we recommend using the LCG Python 3 distribution and creating a function in your `.bashrc` to launch Snakemake so that it doesn't affect other LHCb applications.
-This can be done using [this script](https://github.com/lhcb/starterkit-lessons/blob/master/first-analysis-steps/code/snakemake/install_snake.sh) by running:
-
-```bash
-curl -L https://cern.ch/go/Z8Nk | bash
-source ~/.bashrc
-```
-
-{% endcallout %}
--->
 You can now check if Snakemake is working by using `snakemake --help`.
 
 ## Tutorial
