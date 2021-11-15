@@ -199,7 +199,7 @@ snakemake output/Fred/data.txt --cores 1
 {% solution "Solution" %}
 
 
-See `Snakefile` in the `simple_solution` folder [here](https://github.com/lhcb/starterkit-lessons/raw/master/first-analysis-steps/code/snakemake/tutorial.tar).
+See `Snakefile` in the `simple_solution` folder [here](code/snakemake/tutorial.tar).
 
 {% endsolution %}
 
@@ -301,7 +301,7 @@ Rewrite your previous file using a python script to run the search and use `run`
 
 {% solution "Solution" %}
 
-An example solution can be found [here](https://github.com/lhcb/starterkit-lessons/blob/master/first-analysis-steps/code/snakemake/Snakefile).
+An example solution can be found [here](code/snakemake/Snakefile).
 Although it's fine if you have done it a different way.
 
 {% endsolution %}
@@ -362,7 +362,7 @@ Move your rules to other files and include them
 {% solution "Solution" %}
 
 
-You can find a solution in the `more_complete_solution` folder, which you can find [here](https://github.com/lhcb/starterkit-lessons/raw/master/first-analysis-steps/code/snakemake/tutorial.tar).
+You can find a solution in the `more_complete_solution` folder, which you can find [here](code/snakemake/tutorial.tar).
 
 {% endsolution %}
 
