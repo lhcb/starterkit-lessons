@@ -50,7 +50,7 @@ alias snakemake='python3 -m snakemake'
 
 Unfortunately most LHCb software only supports Python 2 and doesn't provide a Python 3 installation.
 When running on lxplus we recommend using the LCG Python 3 distribution and creating a function in your `.bashrc` to launch Snakemake so that it doesn't affect other LHCb applications.
-This can be done using [this script](https://github.com/lhcb/starterkit-lessons/blob/master/second-analysis-steps/code/snakemake/install_snake.sh) by running:
+This can be done using [this script](https://github.com/lhcb/starterkit-lessons/blob/master/first-analysis-steps/code/snakemake/install_snake.sh) by running:
 
 ```bash
 curl -L https://cern.ch/go/Z8Nk | bash
@@ -124,13 +124,13 @@ Notice that:
 * Python functions can also be used as an input
 * If a single file is used as an input/output, one can ommit the index when refering to the input/output.
 * Wildcards must always be present in the output of a rule (else it wouldn't be possible to know what they should be)
- 
+
 Snakemake can also take an output of the previous rule as an input:
 
 ```python
 rule create_file:
     output: 'test_file.txt'
-    shell: 
+    shell:
        'echo test > {output}'
 
 rule copy_file:
@@ -139,14 +139,14 @@ rule copy_file:
     shell:
        'cp {input} {output}'
 ```
- 
+
 {% challenge "Write a snakefile with a single rule" %}
 
 
 To try out download:
 
 ```bash
-$ wget https://github.com/lhcb/starterkit-lessons/raw/master/second-analysis-steps/code/snakemake/tutorial.tar
+$ wget https://github.com/lhcb/starterkit-lessons/raw/master/first-analysis-steps/code/snakemake/tutorial.tar
 $ tar -xvf tutorial.tar
 ```
 
@@ -169,7 +169,7 @@ And now that your `Snakefile` is done it's time to run! Just type
 snakemake rulename_or_filename --cores 1
 ```
 
- 
+
 This will:
 1. Check that the inputs exist
    * If inputs exists &rarr; 2)
@@ -177,7 +177,7 @@ This will:
 2. Run the command you defined in `rulename_or_filename` (or the rule that generates the filename that is given) usin 1 core
 3. Check that the output was actually produced.
 
-Note, that one must specify the number of cores being used in snakemake. 
+Note, that one must specify the number of cores being used in snakemake.
 
 Comments, which rules are run:
 * If want to run a chain of rules only up to a certain point just put the name of the rule up to which you want to run on the snakemake command.
@@ -219,7 +219,7 @@ snakemake output/Fred/data.txt --cores 1
 {% solution "Solution" %}
 
 
-See `Snakefile` in the `simple_solution` folder [here](https://github.com/lhcb/starterkit-lessons/raw/master/second-analysis-steps/code/snakemake/tutorial.tar).
+See `Snakefile` in the `simple_solution` folder [here](https://github.com/lhcb/starterkit-lessons/raw/master/first-analysis-steps/code/snakemake/tutorial.tar).
 
 {% endsolution %}
 
@@ -244,10 +244,10 @@ In the previous example try deleting one of the intermediate files, rerun snakem
 
 
 Snakemake provides a lot of utils functions, some of the most common ones are described here.
-* `expand` : returns a python list that is filled according to the possible wildcards values. 
+* `expand` : returns a python list that is filled according to the possible wildcards values.
 For example, an python expression `['output/{}/file.txt'.format(name) for name in names]` can be replaced with `expand('output/{name}/file.txt', name = names)` in the inputs.
 * `temp`: specifies that the output file is temporary. For example, `temp('file.root')` will be deleted as the last rule that uses it as an input has finished.
-* `directory`: specifies that the output is a directory rather than a file. For example, `directory('output/plots')`. Snakemake 6+ will not create this directory automatically, as it happens with the output files. One way around it is to have a `mkdir` in the `shell` before excuting the main command or having a special rule that creates all necessary directories. Note, that when the snakemake rule falls all outputs are being deleted including the directories. 
+* `directory`: specifies that the output is a directory rather than a file. For example, `directory('output/plots')`. Snakemake 6+ will not create this directory automatically, as it happens with the output files. One way around it is to have a `mkdir` in the `shell` before excuting the main command or having a special rule that creates all necessary directories. Note, that when the snakemake rule falls all outputs are being deleted including the directories.
 
 {% endcallout %}
 
@@ -311,17 +311,17 @@ rule dosomething_pysh:
         for f in input.data:
             shell('./{input.code} %s' % f)
 ```
-Note the list brackets in the `output.data` to highlight the fact that the data output is a list. 
-If the brackets were absent, snakemake would not allow this rule to run, assuming that the `"data2.root"` is the next positional output. 
+Note the list brackets in the `output.data` to highlight the fact that the data output is a list.
+If the brackets were absent, snakemake would not allow this rule to run, assuming that the `"data2.root"` is the next positional output.
 In snakemake positional inputs/outputs have to be positioned before the keyword (labeled) inputs/outputs.
- 
+
 {% challenge "Use run instead of shell" %}
 
 Rewrite your previous file using a python script to run the search and use `run` to run on both phones and addresses in the same rule
 
 {% solution "Solution" %}
 
-An example solution can be found [here](https://github.com/lhcb/starterkit-lessons/blob/master/second-analysis-steps/code/snakemake/Snakefile). 
+An example solution can be found [here](https://github.com/lhcb/starterkit-lessons/blob/master/first-analysis-steps/code/snakemake/Snakefile).
 Although it's fine if you have done it a different way.
 
 {% endsolution %}
@@ -347,7 +347,7 @@ Now in your Snakefile you can load this config file and then its content will be
 configfile: '/path/to/cfg.yaml'
 
 rule dosomething_pysh:
-    input: 
+    input:
         code = 'mycode.exe',
         data = config['data'],
     output: ['plot1.pdf', 'plot2.pdf']
@@ -382,7 +382,7 @@ Move your rules to other files and include them
 {% solution "Solution" %}
 
 
-You can find a solution in the `more_complete_solution` folder, which you can find [here](https://github.com/lhcb/starterkit-lessons/raw/master/second-analysis-steps/code/snakemake/tutorial.tar).
+You can find a solution in the `more_complete_solution` folder, which you can find [here](https://github.com/lhcb/starterkit-lessons/raw/master/first-analysis-steps/code/snakemake/tutorial.tar).
 
 {% endsolution %}
 

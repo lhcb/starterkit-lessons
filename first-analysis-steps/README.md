@@ -20,6 +20,7 @@ The [analysis essentials course](https://hsf-training.github.io/analysis-essenti
 
     prerequisites.md
     introduction-to-course.md
+    analysis-automation-snakemake.md
     physics-at-lhcb.md
     dataflow.md
     run-2-data-flow.md
