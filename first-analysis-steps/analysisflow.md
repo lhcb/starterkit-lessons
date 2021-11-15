@@ -2,8 +2,8 @@
 
 {% objectives "Learning Objectives" %}
 
-* Understand basic concepts of Analysis Preservation
-* Learn about key analysis tools that help with preservation 
+* Learn about analysis tools
+* Learn about analysis preservation 
 
 {% endobjectives %}
 
@@ -40,7 +40,7 @@ Those framework are usually based on the popular high-energy physics software to
 {% callout "Popular data analysis tools in HEP" %}
 
 There are multiple packages that collaboratos use in LHCb.
-Some of this packages are CERN supported, some are projects from the LHCb collaborators and some are supported by general community.  
+Some of this packages are CERN supported, some are projects from the LHCb collaborators and some are supported by external community.  
 
 * [ROOT](https://root.cern/) and it's python twin sister pyROOT are open-source data analysis frameworks used extensively in HEP community. 
 * [scikit-HEP project](https://github.com/scikit-hep) a metaproject for python based particle physics analysis. Consists of multiple usefule python modules, some of them are listed here:
@@ -57,7 +57,7 @@ Some of this packages are CERN supported, some are projects from the LHCb collab
 
 Discussions on the new analysis tools that might be useful for the LHCb community are held in the [work package 4](https://lhcb-dpa.web.cern.ch/lhcb-dpa/wp4/index.html) of the Data Processing and Analysis project (DPA). 
 
-After one gets the necessary samples and writes the necessary amcros and scripts to perform the analysis steps, like applying additional selections, fitting distributions, computing efficiencies and acceptances, etc. After acqiuiring results one has to have their work being review by physics wotking group (PWG) and then by collaboration. 
+After one gets the necessary samples and writes the necessary macros and scripts to perform the analysis steps, like applying additional selections, fitting distributions, computing efficiencies and acceptances, etc. After acqiuiring results one has to have their work being review by physics wotking group (PWG) and then by collaboration. 
 
 One of the requirements of the succesful passing of the review is that your analysis is fully preserved.  
 Scientific integrity means having transparency on each step of the research as well as reproducibility of the results.
@@ -77,7 +77,7 @@ It is important to write a set of instructions to execute the steps in the corre
 You will quickly find yourself, that remembering how to run your own code even couple of month after it was used for the last time can be really hard. 
 Instructions can be written using [snakemake](https://snakemake.readthedocs.io/en/stable/) and supportive bash scripts.
 Snakemake workflow managment system allows you to write a pipeline for analysis that will automatically detect the hierarchy of the steps and changes in inputs (both samples and code). 
-One should aim to start implementing the snakemake workflow from the beginnignof analysis development.
+One should aim to start implementing the snakemake workflow from the beginning of analysis development.
 Your snakemake workflow then should be commited to the gitlab repository with the final verison of the code.
 
 The samples you have produced should also be saved.
