@@ -81,7 +81,7 @@ One should aim to start implementing the snakemake workflow from the beginnignof
 Your snakemake workflow then should be commited to the gitlab repository with the final verison of the code.
 
 The samples you have produced should also be saved.
-Analysis Productions help you to save a tested version of the DaVicni option files, that will help you to reproduce the ntuples with the same software version, that was specificed in the original option files. 
+Analysis Productions help you to save a tested version of the DaVinci option files, that will help you to reproduce the ntuples with the same software version, that was specificed in the original option files. 
 The resulting samples have to be uploaded to your working group eos. 
 
 You should always preserve the package versions of the sofrware that you have being using.
