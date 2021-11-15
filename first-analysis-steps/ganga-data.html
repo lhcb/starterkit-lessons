@@ -346,8 +346,8 @@ Ganga has a shortcut to access the list of all <code class="docutils literal not
 <p id="getting-help-with-ganga"><i class="fa fa-info-circle"></i> Getting help with ganga</p>
 </div>
 <div class="panel-body docutils container">
-<p>To find out more take a look at the <a class="reference external" href="https://twiki.cern.ch/twiki/bin/view/LHCb/FAQ/GangaLHCbFAQ">Ganga
-FAQ</a></p>
+<p>Speaking about large files: The <a class="reference external" href="https://twiki.cern.ch/twiki/bin/view/LHCb/FAQ/GangaLHCbFAQ">Ganga
+FAQ</a> tells you all about ways to remove unneeded branches from your nTuples, such that you do not waste space. This is also <em>the</em> place to find other tips and tricks on using Ganga.</p>
 </div>
 </div>
 <p>[^1]: Merging your files with <code class="docutils literal notranslate"><span class="pre">hadd</span></code> will be significantly faster if you run it with the option telling ROOT to use the same compression level in that output file as is used for the input files. This can be done using the <code class="docutils literal notranslate"><span class="pre">-fk</span></code> option. If running on lxplus you will need to get a newer ROOT version that supports this option by using: <code class="docutils literal notranslate"><span class="pre">lb-conda</span> <span class="pre">default</span> <span class="pre">hadd</span> <span class="pre">-fk</span> <span class="pre">output.root</span> <span class="pre">input/*.root</span></code></p>
