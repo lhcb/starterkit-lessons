@@ -1,4 +1,4 @@
-# The analysis flow and preservation
+# The analysis flow and analysis preservation
 
 {% objectives "Learning Objectives" %}
 
@@ -20,6 +20,8 @@ This is done using the software package called DaVinci.
 
 {% endcallout %}
 
+### Getting data files
+
 After preselecting data either in the stripping, sprucing or triggering step, user can produce a data file, called ntuple by running DaVinci package.
 The ntuple is a data file that contains information about events or candidates in the data sample, like mass of a candidate or trigger decision flags.
 For the data sample information is coming from reconstruction, but for the simulation sample you can request both the reconstructed values of observables/variables or generator-level values.
@@ -34,6 +36,9 @@ We will discuss the concept of analysis preservation a bit later in this lesson.
 Unless you want to run some really unusual ntuple jobs on ganga, you should always go for Analysis Productions. 
 
 In first analysis steps we cover both running DaVinci on [ganga](https://lhcb.github.io/starterkit-lessons/first-analysis-steps/davinci-grid.html) and via [Analysis Productions](https://lhcb.github.io/starterkit-lessons/first-analysis-steps/analysis-productions.html).
+
+
+### Useful high energy physics analysis tools
 
 After getting the ntuples a user usually develops new analysis code or expands an existing code, that their collaborators use. 
 Analysis code is usually based on the popular high-energy physics software tools or on the more general data analysis tools, like [numpy](https://numpy.org/) or [pandas](https://pandas.pydata.org/). 
@@ -57,6 +62,9 @@ Some of this packages are CERN supported, some are projects from the LHCb collab
 {% endcallout %}
 
 Discussions on the new analysis tools that might be useful for the LHCb community are held in the [work package 4](https://lhcb-dpa.web.cern.ch/lhcb-dpa/wp4/index.html) of the Data Processing and Analysis project (DPA). 
+
+
+### Analysis Preservation
 
 After one gets the necessary samples and writes the necessary macros and scripts to perform the analysis steps, like applying additional selections, fitting distributions, computing efficiencies and acceptances, etc. 
 After acquiring results, one has to have their work being review by physics working group (PWG) and then by collaboration. 
@@ -83,7 +91,7 @@ One should aim to start implementing the snakemake workflow from the beginning o
 Your snakemake workflow then should be committed to the gitlab repository with the final version of the code.
 
 The samples you have produced should also be saved.
-Analysis Productions help you to save a tested version of the DaVicni option files, that will help you to reproduce the ntuples with the same software version, that was specified in the original option files. 
+Analysis Productions help you to save a tested version of the DaVinci option files, that will help you to reproduce the ntuples with the same software version, that was specified in the original option files. 
 The resulting samples have to be uploaded to your working group eos. 
 
 You should always preserve the package versions of the sofrware that you have being using.
