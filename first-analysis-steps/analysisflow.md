@@ -7,7 +7,7 @@
 
 {% endobjectives %}
 
-Most LHCb data analyses share similar structure and follow similar procedure pipeline.
+Most LHCb analyses share a similar structure and follow a similar procedure pipeline.
 As a user you often start developing your analysis by retrieving the data and simulation samples that you need.   
 Giving you tools to get those samples is the main goal of the first analysis steps lessons.  
 
