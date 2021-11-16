@@ -29,7 +29,7 @@ The reconstructed values are the ones that passed the entire reconstruction pipe
 This allows to study different reconstruction and detector effects for your analysis.
 
 DaVinci can be run using CERN grid computing system directly via ganga or via Analysis Productions. 
-Using gange will give you more control over the jobs (little scrips and macros you run on the remote machines) and also will allow you to do way more than just running DaVinci. 
+Using ganga will give you more control over the jobs (little scrips and macros you run on the remote machines) and also will allow you to do way more than just running DaVinci. 
 Analysis Productions, however, are more user-friendly and provide
 Analysis Productions are also extremely important for the preservation of your analysis.
 We will discuss the concept of analysis preservation a bit later in this lesson.
