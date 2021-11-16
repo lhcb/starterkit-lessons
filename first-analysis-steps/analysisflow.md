@@ -26,11 +26,12 @@ After preselecting data either in the stripping, sprucing or triggering step, us
 The ntuple is a data file that contains information about events or candidates in the data sample, like mass of a candidate or trigger decision flags.
 For the data sample information is coming from reconstruction, but for the simulation sample you can request both the reconstructed values of observables/variables or generator-level values.
 The reconstructed values are the ones that passed the entire reconstruction pipeline with detector effects included and generator-level values are the original values that the event generator has produced.
+Certain variables, for example, vertex quality or trigger decisions, can only be accessed on the reconstruction level.
 This allows to study different reconstruction and detector effects for your analysis.
 
 DaVinci can be run locally at the lxplus (for small tasks) or at the CERN grid computing system via [ganga](davinci-grid) or via [Analysis Productions](analysis-productions). 
 Using ganga will give you more control over the jobs (little scrips and macros you run on the remote machines) and also will allow you to do way more than just running DaVinci. 
-Analysis Productions, however, are more user-friendly and provide
+Analysis Productions, however, are more user-friendly and provide a set of tests that ensure your jobs will be run as expected with minimal errors. 
 Analysis Productions are also extremely important for the preservation of your analysis.
 We will discuss the concept of analysis preservation a bit later in this lesson.
 Unless you want to run some really unusual ntuple jobs on ganga, you should always go for Analysis Productions. 
@@ -47,6 +48,7 @@ Analysis code is usually based on the popular high-energy physics software tools
 
 There are multiple packages that collaborators use in LHCb.
 Some of this packages are CERN supported, some are projects from the LHCb collaborators and some are supported by external community.  
+This list is by no means exhaustive, so if there are any other tools you use often, please, feel free to add them by contributing to this lesson. 
 
 * [ROOT](https://root.cern/) and its python twin sister pyROOT are open-source data analysis frameworks used extensively in HEP community. 
 * [Scikit-HEP project](https://github.com/scikit-hep), a community project for a Python-based Big Data analysis ecosystem for Particle Physics. Consists of multiple complementary and interoperable Python modules, some of them are listed here:
@@ -59,14 +61,24 @@ Some of this packages are CERN supported, some are projects from the LHCb collab
 * [RooFit](https://root.cern/manual/roofit/) a fitting, fit model defining, plotting and "toy model" generation package supported by CERN ROOT team. Can be used in both C++ and python.
 * [zfit](https://github.com/zfit/zfit) a fitting and fit model defining Python package well integrated withthe [Scikit-HEP project](https://github.com/scikit-hep) analysis ecosystem.
 
+
 {% endcallout %}
 
 Discussions on the new analysis tools that might be useful for the LHCb community are held in the [Work Package 4](https://lhcb-dpa.web.cern.ch/lhcb-dpa/wp4/index.html) of the Data Processing & Analysis project (DPA). 
 
 ### Analysis Preservation
 
-After one gets the necessary samples and writes the necessary macros and scripts to perform the analysis steps, like applying additional selections, fitting distributions, computing efficiencies and acceptances, etc. 
-After acquiring results, one has to have their work being reviewed by [physics working group](http://lhcb.web.cern.ch/lhcb_page/collaboration/organization/lhcb-conv/Physics_history_and_Sub-structure.html) (PWG) and then by the LHCb collaboration. 
+When the samples are ready one can proceed with developing the necessary macros and scripts to perform the analysis steps, like applying additional selections, fitting distributions, computing efficiencies and acceptances, etc. 
+Starting from the ntuples a typical analysis will consist of the following steps: 
+
+1. Defining and applying selections, including kinematic, particle identification, multivariate analysis, signal/background separations by fitting.
+2. Computing and applying callibrations and corrections. 
+Some of the calibrations, like [TrackCalib](https://gitlab.cern.ch/lhcb/Urania/tree/master/TrackCalib) and [PIDCalib2](https://gitlab.cern.ch/lhcb-rta/pidcalib2), are calibrated on the "standard candle" decays and can be used by the users directly. 
+Other corrections, like correcting the kinematics distributions in the simulated samples to match the data ones as good as possible, are usually estimated on per analysis basis.
+3. Computing efficiencies, acceptances and measuring detector resolution effects. 
+4. Putting all the above together to measure the parameter(s) of interest. 
+
+After acquiring the parameter(s) of interest, one has to have their work being reviewed by [physics working group](http://lhcb.web.cern.ch/lhcb_page/collaboration/organization/lhcb-conv/Physics_history_and_Sub-structure.html) (PWG) and then by the LHCb collaboration. 
 
 One of the requirements for the successful review is that your analysis is fully preserved and can be reproduced by another LHCb physicist.  
 Scientific integrity means having transparency on each step of the research as well as reproducibility of the results.
@@ -97,6 +109,6 @@ The ntuples used for your analysis have to be uploaded to the [eos area](eos-sto
 
 You should always preserve the package versions of the sofrware that you have being using.
 Even if it is a commonly used tool like ROOT or numpy.
-This can be done by creating a [docker container](https://www.docker.com/), [conda enviroment](https://github.com/conda-forge/miniforge/#download) or using the [`lb-conda` environment](https://gitlab.cern.ch/lhcb-core/lbcondawrappers/-/blob/master/README.md).
+This can be done by creating a [docker container](https://www.docker.com/), [conda enviroment](https://github.com/conda-forge/miniforge/) or using the [`lb-conda` environment](https://gitlab.cern.ch/lhcb-core/lbcondawrappers/-/blob/master/README.md).
 The latter uses the conda environments installed on [Cern virtual machine file system](https://cernvm.cern.ch/fs/) or CVMFS and is supported by LHCb community. 
 
