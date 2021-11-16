@@ -26,6 +26,7 @@ After preselecting data either in the stripping, sprucing or triggering step, us
 The ntuple is a data file that contains information about events or candidates in the data sample, like mass of a candidate or trigger decision flags.
 For the data sample information is coming from reconstruction, but for the simulation sample you can request both the reconstructed values of observables/variables or generator-level values.
 The reconstructed values are the ones that passed the entire reconstruction pipeline with detector effects included and generator-level values are the original values that the event generator has produced.
+Certain variables, for example, vertex quality or trigger decisions, can only be accessed on the reconstruction level.
 This allows to study different reconstruction and detector effects for your analysis.
 
 DaVinci can be run locally at the lxplus (for small tasks) or at the CERN grid computing system via [ganga](davinci-grid) or via [Analysis Productions](analysis-productions). 
