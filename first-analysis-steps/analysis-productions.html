@@ -283,32 +283,30 @@
 </div>
 <p>Running DaVinci locally can be great for testing an options file, but is rarely appropriate for creating the full set of ROOT ntuples needed for an analysis. Historically, people would submit their jobs to the grid: one can send off a large number of DaVinci jobs to be handled by batch computing resources (in certain cases, this is still useful - see the <a class="reference internal" href="davinci-grid.html"><span class="doc">next lesson</span></a> for how to do this). However, this still has some drawbacks, in particular:</p>
 <ul class="simple">
-<li><p>Large datasets (especially in run 3) would require a long period of monitoring your grid jobs</p></li>
-<li><p>Computing resources can be wasted if multiple analyses are independently producing similar ntuples</p></li>
-<li><p>Ntuples can be lost, or removed when analysists leave, which can be an issue for <a class="reference external" href="https://twiki.cern.ch/twiki/bin/view/LHCb/AnalysisPreservationReproducibility">analysis preservation</a></p></li>
+<li><p>Large datasets (especially in run 3) would require a long period of monitoring your grid jobs.</p></li>
+<li><p>Computing resources can be wasted if multiple analyses are independently producing similar ntuples.</p></li>
+<li><p>Ntuples can be lost, or removed when analysts leave, which can be an issue for <a class="reference external" href="https://lhcb-dpa.web.cern.ch/lhcb-dpa/wp6/index.html">analysis preservation</a>.</p></li>
 </ul>
 <p>It is the goal of <a class="reference external" href="https://gitlab.cern.ch/lhcb-datapkg/AnalysisProductions/">Analysis Productions</a> to centralise and automate much of the process of making ntuples, and to keep a record of how datasets were produced. Moving into run 3, this will usually be the preferred way to create ntuples for your analysis.</p>
 <section id="monitoring-productions">
 <h2>Monitoring productions<a class="headerlink" href="#monitoring-productions" title="Permalink to this headline"></a></h2>
-<p>Before we get into the how-to, let’s first take a look at the end result of a real production. Open the <a class="reference external" href="https://lhcb-portal-dirac.cern.ch/DIRAC/">DIRAC web interface</a>, and navigate to <code class="docutils literal notranslate"><span class="pre">Applications/Analysis</span> <span class="pre">Productions</span></code>. You should see a new menu appear, showing a list of working groups (’B2CC’, ‘SL’, etc.). Under <code class="docutils literal notranslate"><span class="pre">SL</span></code> (the semi-leptonic working group), navigate to <code class="docutils literal notranslate"><span class="pre">AnaProd-RDs/v0r0p1735460</span></code>. This production has been named <code class="docutils literal notranslate"><span class="pre">RDs</span></code>, and <code class="docutils literal notranslate"><span class="pre">v0r0p1735460</span></code> is the version of the code used to run the jobs it contains.</p>
-<p>Each of these rows corresponds to a job belonging to this production, and displays:</p>
+<p>Before we get into the how-to, let’s first take a look at the end result of a real production. Open the <a class="reference external" href="https://lhcb-analysis-productions-preview.web.cern.ch/">Analysis Productions webpage</a>, and navigate to <code class="docutils literal notranslate"><span class="pre">Productions</span></code>. You should see a new menu appear, showing a list of productions. Using the search bar on the right you can search for any production of interest, try <code class="docutils literal notranslate"><span class="pre">b02dkpi</span></code> for example. This should return one result and clicking on it should show you a table of jobs belonging to the production.</p>
+<p>Each row in the table corresponds to a job belonging to this production, and displays:</p>
 <ul class="simple">
-<li><p>Its unique ID number of that batch of jobs (left, eg. <code class="docutils literal notranslate"><span class="pre">69615</span></code>)</p></li>
-<li><p>Its name (centre, eg. <code class="docutils literal notranslate"><span class="pre">MC_13266069_2018_MagUp</span></code>)</p></li>
-<li><p>Its status (right)</p></li>
+<li><p>Its status (e.g. READY, ACTIVE)</p></li>
+<li><p>Some of its tags (e.g. MC/DATA, Run1/Run2)</p></li>
+<li><p>Its name (e.g. 2018_15164022_magup)</p></li>
+<li><p>When it was created and last updated</p></li>
+<li><p>The version of the code used to run it</p></li>
 </ul>
-<p>To view more information about any one of these jobs, you can click on it to expand it. The below image shows one such job, with a couple of particularly useful elements highlighted in magenta.</p>
-<p><img alt="An AP job viewed in DIRAC" src="../_images/DIRAC_AP_annotated.png" /></p>
-<p>The top section shows the summary of important information, like the locations of the input and output files. We can view the ntuples created by this job using the location from the ‘output pattern’ field. Let’s start by listing the available files by running the following command in an lxplus terminal:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>xrdfs root://eoslhcb.cern.ch/ ls /eos/lhcb/grid/prod/lhcb/MC/2018/BSNTUPLE_MC.ROOT/00110974/0000/
+<p>To view more information about any one of these jobs, you can click on it to view a job summary page. The image below shows one such page, with a couple of particularly useful elements highlighted in magenta.</p>
+<p><img alt="An AP job summary" src="../_images/web_production_annotated.png" /></p>
+<p>The top section shows a summary of important information, such as the state of the job, its production version, the total storage required for the output files and the merge request and JIRA task used to submit the production. To view the input scripts used to set up the production click the link to the merge request. The next section lists the tags used to categorise the job and the third section lists the DIRAC production information for the job. Finally, is the Files section which lists the output files for the job. One can use either the PFNs or LFNs to access the output, the PFNs should be visible to all systems with access to the CVMFS.</p>
+<p>Let’s try accessing one of these files right now by doing:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>root -l root://eoslhcb.cern.ch//eos/lhcb/grid/prod/lhcb/MC/2018/B02DKPI.ROOT/00145105/0000/00145105_00000001_1.b02dkpi.root
 </pre></div>
 </div>
-<p>This will display a list of <code class="docutils literal notranslate"><span class="pre">.root</span></code> ntuples being stored on the grid. Choose one of them, and open it with:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>root -l root://eoslhcb.cern.ch//eos/lhcb/grid/prod/lhcb/MC/2018/BSNTUPLE_MC.ROOT/00110974/0000/00110974_00000001_1.bsntuple_mc.root
-</pre></div>
-</div>
-<p>You can now view these files by running <code class="docutils literal notranslate"><span class="pre">TBrowser</span> <span class="pre">b</span></code> inside of ROOT (or with your another method of your choice).</p>
-<p>To view the files that were used to create these ntuples, you can click on the ‘View on GitLab’ button. This will show you the version of the Analysis Production code that was run for this job. On GitLab, open the folder named <code class="docutils literal notranslate"><span class="pre">RDs</span></code> (the name of this production), and take a look around. You should find a few separate <code class="docutils literal notranslate"><span class="pre">.py</span></code> options files, as well as an <code class="docutils literal notranslate"><span class="pre">info.yaml</span></code> (more on this later).</p>
+<p>You can now explore this file by doing <code class="docutils literal notranslate"><span class="pre">TBrowser</span> <span class="pre">b</span></code> inside of ROOT (or with another method of your choice).</p>
 </section>
 <section id="creating-your-own-production">
 <h2>Creating your own production<a class="headerlink" href="#creating-your-own-production" title="Permalink to this headline"></a></h2>
@@ -335,14 +333,14 @@
 <span class="c1"># Only ask for luminosity information when not using simulated data</span>
 <span class="n">DaVinci</span><span class="p">()</span><span class="o">.</span><span class="n">Lumi</span> <span class="o">=</span> <span class="ow">not</span> <span class="n">DaVinci</span><span class="p">()</span><span class="o">.</span><span class="n">Simulation</span>
 <span class="n">DaVinci</span><span class="p">()</span><span class="o">.</span><span class="n">EvtMax</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
-<span class="n">DaVinci</span><span class="p">()</span><span class="o">.</span><span class="n">CondDBtag</span> <span class="o">=</span> <span class="s1">&#39;sim-20161124-2-vc-md100&#39;</span>
-<span class="n">DaVinci</span><span class="p">()</span><span class="o">.</span><span class="n">DDDBtag</span> <span class="o">=</span> <span class="s1">&#39;dddb-20150724&#39;</span>
+<span class="n">DaVinci</span><span class="p">()</span><span class="o">.</span><span class="n">CondDBtag</span> <span class="o">=</span> <span class="s1">&#39;sim-20170721-2-vc-md100&#39;</span>
+<span class="n">DaVinci</span><span class="p">()</span><span class="o">.</span><span class="n">DDDBtag</span> <span class="o">=</span> <span class="s1">&#39;dddb-20170721-3&#39;</span>
 </pre></div>
 </div>
 <p>If you don’t have your options file from earlier available, or are having trouble, you can <a class="reference download internal" download="" href="../_downloads/26f133d9caf2ef72e73893756d498eaf/ntuple_options.py"><code class="xref download docutils literal notranslate"><span class="pre">use</span> <span class="pre">this</span> <span class="pre">options</span> <span class="pre">file</span></code></a>.</p>
 <p>The next file needed is a <code class="docutils literal notranslate"><span class="pre">.yaml</span></code> file, which will be used to configure the jobs. Create a new file named <code class="docutils literal notranslate"><span class="pre">info.yaml</span></code>, and add the following to it:</p>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">defaults</span><span class="p">:</span>
-    <span class="nt">application</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">DaVinci/v45r5</span>
+    <span class="nt">application</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">DaVinci/v45r8</span>
     <span class="nt">wg</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Charm</span>
     <span class="nt">automatically_configure</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">yes</span>
     <span class="nt">turbo</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">no</span>
@@ -444,14 +442,14 @@ git commit -m <span class="s2">&quot;Add D02KK MC production for starterkit&quot
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git push origin <span class="si">${</span><span class="nv">USER</span><span class="si">}</span>/starterkit-practice
 </pre></div>
 </div>
-<p>Once this has completed, it should give you a link to create a merge request for your new branch. Open it in a browser, and give it a suitable name &amp; description - in the description, please make sure to say that this is part of the Starterkit lesson! Then you can submit your merge request.</p>
+<p>Once this has completed, it should give you a link to create a merge request for your new branch. Open it in a browser, and give it a suitable name &amp; description - in the description, please make sure to say that this is part of the Starterkit lesson! For a real production please ensure you follow the instructions in the merge request description template. Then you can submit your merge request.</p>
 <p>Since this is only for practice, your request won’t actually be merged, but some tests will still be run automatically. To view these, go to the Pipelines tab of your merge request, and open it by clicking the pipeline number (eg. “#1958388”). At the bottom, you will see a <code class="docutils literal notranslate"><span class="pre">test</span></code> job - click on this, and it will show you the output of the test jobs. These will take a little time to complete, so it may still be in progress. The first few lines should look something like:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Running with gitlab_runner_api 0.1.dev42+g457dbd5
 INFO:Creating new pipeline for ID 1958388
 ALWAYS:Results will be available at https://lhcb-analysis-productions.web.cern.ch/1958388/
 </pre></div>
 </div>
-<p>You can open that link in your browser to view the status of the test jobs (example <a class="reference external" href="https://lhcb-analysis-productions.web.cern.ch/1958388/">here</a>). After a few minutes, these should have completed - all being well, you’ve now succesfully submitted your first production!</p>
+<p>You can open that link in your browser to view the status of the test jobs (example <a class="reference external" href="https://lhcb-analysis-productions.web.cern.ch/3195170/">here</a>). After a few minutes, these should have completed - all being well, you’ve now successfully submitted your first production!</p>
 <div class="panel panel-callout docutils container">
 <div class="panel-header open docutils container">
 <p id="next-steps-for-real-productions"><i class="fa fa-info-circle"></i> Next steps for real productions</p>
