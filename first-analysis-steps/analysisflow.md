@@ -51,7 +51,7 @@ Some of this packages are CERN supported, some are projects from the LHCb collab
 * [ROOT](https://root.cern/) and its python twin sister pyROOT are open-source data analysis frameworks used extensively in HEP community. 
 * [Scikit-HEP project](https://github.com/scikit-hep), a community project for a Python-based Big Data analysis ecosystem for Particle Physics. Consists of multiple complementary and interoperable Python modules, some of them are listed here:
    - [uproot](https://github.com/scikit-hep/uproot4) a python module that allows to read the root files (that are the output of the DaVinci package). 
-   - [awkward arrays](https://github.com/scikit-hep/awkward-1.0) a python module for the numpy-like particle physics friendly array, that supports nested, variable-sized data arrays.
+   - [awkward-array](https://github.com/scikit-hep/awkward-1.0) a Python module for a friendly manipulation of data structures common in Particle Physics, i.e., nested, variable-sized data, including arbitrary-length lists, records, mixed types, and missing data, using NumPy-like idioms.
    - [boost histogram](https://github.com/scikit-hep/boost-histogram) a python version of the C++14 library [Boost::Histogram](https://www.boost.org/doc/libs/1_77_0/libs/histogram/doc/html/index.html) for histogramming. 
    - [iminuit](https://github.com/scikit-hep/iminuit) a jupyter-friendly python interface for minimization package [Minuit2](https://root.cern.ch/doc/master/Minuit2Page.html).
    - [mplhep](https://github.com/scikit-hep/mplhep) a set of high energy physics helpers for [matplotlib](https://matplotlib.org/).
