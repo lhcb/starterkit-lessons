@@ -15,7 +15,7 @@ Giving you tools to get those samples is the main goal of the first analysis ste
 
 The output of the last stages of the [LHCb data flow](dataflow), namely Stripping (Run 1 and Run 2), Turbo stream (Run 2), Sprucing (Run 3) or Run 3 HLT2 lines can be accessed by user. 
 Selections made at these last stages are also defined by users. 
-Their output is saved to disk and later is used to produce a data file that will contain only the information that interests users.
+Their outputs are saved to disk and later used to produce data files that will contain only the information that interests users.
 This is done using the software package called DaVinci.
 
 {% endcallout %}
