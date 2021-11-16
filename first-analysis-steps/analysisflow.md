@@ -61,7 +61,7 @@ Some of this packages are CERN supported, some are projects from the LHCb collab
 
 {% endcallout %}
 
-Discussions on the new analysis tools that might be useful for the LHCb community are held in the [work package 4](https://lhcb-dpa.web.cern.ch/lhcb-dpa/wp4/index.html) of the Data Processing and Analysis project (DPA). 
+Discussions on the new analysis tools that might be useful for the LHCb community are held in the [Work Package 4](https://lhcb-dpa.web.cern.ch/lhcb-dpa/wp4/index.html) of the Data Processing & Analysis project (DPA). 
 
 ### Analysis Preservation
 
