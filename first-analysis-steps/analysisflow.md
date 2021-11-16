@@ -68,7 +68,7 @@ Discussions on the new analysis tools that might be useful for the LHCb communit
 
 ### Analysis Preservation
 
-When the samples are ready one can proceed with developing the necessary macros and scripts to perform the analysis steps, like applying additional selections, fitting distributions, computing efficiencies and acceptances, etc. 
+When the samples are ready one can proceed with developing the necessary macros and scripts to perform the analysis steps, such as applying additional selections, fitting distributions, computing efficiencies and acceptances, etc. 
 Starting from the ntuples a typical analysis will consist of the following steps: 
 
 1. Defining and applying selections, including kinematic, particle identification, multivariate analysis, signal/background separations by fitting.
