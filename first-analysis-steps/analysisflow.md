@@ -74,7 +74,7 @@ Both LHCb and CERN have guidelines which one should always follow when collectin
 LHCb guidelines are discussed and implemented in the [work package 6](https://lhcb-dpa.web.cern.ch/lhcb-dpa/wp6/index.html) of DPA.
 CERN guideline can be found [here](https://analysispreservation.cern.ch/login?next=/).
 
-First step is to document well-used procedures, techniques and meticulously report the results of the analysis.
+The first step is to document well-used procedures, techniques and meticulously report the results of your analysis.
 This is done by writing a clear and extensive Analysis Note, that is then available to the LHCb collaborators via the [CDS system](https://cds.cern.ch/collection/LHCb%20Analysis%20Notes).
 
 Secondly, your analysis code should be put at a [gitlab](https://gitlab.cern.ch/) repository in your physics working group's area. For example, the code of all recent analyses by the QEE working group can be found  [here](https://gitlab.cern.ch/LHCb-QEE).
