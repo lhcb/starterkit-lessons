@@ -57,7 +57,7 @@ Some of this packages are CERN supported, some are projects from the LHCb collab
    - [mplhep](https://github.com/scikit-hep/mplhep) a set of high energy physics helpers for [matplotlib](https://matplotlib.org/).
    - etc.
 * [RooFit](https://root.cern/manual/roofit/) a fitting, fit model defining, plotting and "toy model" generation package supported by CERN ROOT team. Can be used in both C++ and python.
-* [zFit](https://github.com/zfit/zfit) a fitting and fit model defining python module integrated with [scikit-HEP project](https://github.com/scikit-hep) ecosystem.
+* [zfit](https://github.com/zfit/zfit) a fitting and fit model defining Python package well integrated withthe [Scikit-HEP project](https://github.com/scikit-hep) analysis ecosystem.
 
 {% endcallout %}
 
