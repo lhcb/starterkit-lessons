@@ -48,6 +48,7 @@ Analysis code is usually based on the popular high-energy physics software tools
 
 There are multiple packages that collaborators use in LHCb.
 Some of this packages are CERN supported, some are projects from the LHCb collaborators and some are supported by external community.  
+This list is by no means exhaustive, so if there are any other tools you use often, please, feel free to add them by contributing to this lesson. 
 
 * [ROOT](https://root.cern/) and its python twin sister pyROOT are open-source data analysis frameworks used extensively in HEP community. 
 * [Scikit-HEP project](https://github.com/scikit-hep), a community project for a Python-based Big Data analysis ecosystem for Particle Physics. Consists of multiple complementary and interoperable Python modules, some of them are listed here:
@@ -59,6 +60,7 @@ Some of this packages are CERN supported, some are projects from the LHCb collab
    - etc.
 * [RooFit](https://root.cern/manual/roofit/) a fitting, fit model defining, plotting and "toy model" generation package supported by CERN ROOT team. Can be used in both C++ and python.
 * [zfit](https://github.com/zfit/zfit) a fitting and fit model defining Python package well integrated withthe [Scikit-HEP project](https://github.com/scikit-hep) analysis ecosystem.
+
 
 {% endcallout %}
 
