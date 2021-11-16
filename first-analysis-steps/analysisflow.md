@@ -8,7 +8,7 @@
 {% endobjectives %}
 
 Most LHCb data analyses share similar structure and follow similar procedure pipeline.
-As a user you start developing your analysis from retrieving the data and simulation samples that you need for your research.   
+As a user you often start developing your analysis by retrieving the data and simulation samples that you need.   
 Giving you tools to get those samples is the main goal of the first analysis steps lessons.  
 
 {% callout "Reminder from the data flow lesson" %}
