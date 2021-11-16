@@ -70,7 +70,7 @@ After acquiring results, one has to have their work being reviewed by [physics w
 
 One of the requirements for the successful review is that your analysis is fully preserved and can be reproduced by another LHCb physicist.  
 Scientific integrity means having transparency on each step of the research as well as reproducibility of the results.
-Both LHCb and CERN have guidelines which one should always follow when collecting research usign LHCb or CERN facilities.
+Both LHCb and CERN have guidelines which one should always follow when conducting research usign LHCb or CERN facilities.
 LHCb guidelines are discussed and implemented in the [work package 6](https://lhcb-dpa.web.cern.ch/lhcb-dpa/wp6/index.html) of DPA.
 CERN guideline can be found [here](https://analysispreservation.cern.ch/login?next=/).
 
