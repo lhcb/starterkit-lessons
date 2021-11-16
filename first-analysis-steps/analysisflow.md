@@ -22,7 +22,7 @@ This is done using the software package called DaVinci.
 
 ### Getting data files
 
-After preselecting data either in the stripping, sprucing or triggering step, user can produce a ROOT file called _ntuple_, by running the DaVinci package.
+After preselecting data either in the Stripping, Sprucing or triggering step, users can produce ROOT files containing _ntuples_, running the DaVinci application.
 The ntuple is a data file that contains information about events or candidates in the data sample, like mass of a candidate or trigger decision flags.
 For the data sample information is coming from reconstruction, but for the simulation sample you can request both the reconstructed values of observables/variables or generator-level values.
 The reconstructed values are the ones that passed the entire reconstruction pipeline with detector effects included and generator-level values are the original values that the event generator has produced.
