@@ -65,8 +65,17 @@ Discussions on the new analysis tools that might be useful for the LHCb communit
 
 ### Analysis Preservation
 
-After one gets the necessary samples and writes the necessary macros and scripts to perform the analysis steps, like applying additional selections, fitting distributions, computing efficiencies and acceptances, etc. 
-After acquiring results, one has to have their work being reviewed by [physics working group](http://lhcb.web.cern.ch/lhcb_page/collaboration/organization/lhcb-conv/Physics_history_and_Sub-structure.html) (PWG) and then by the LHCb collaboration. 
+When the samples are ready one can proceed with developing the necessary macros and scripts to perform the analysis steps, like applying additional selections, fitting distributions, computing efficiencies and acceptances, etc. 
+Starting from the ntuples a typical analysis will consist of the following steps: 
+
+1. Defining and applying selections, including kinematic, particle identification, multivariate analysis, signal/background separations by fitting.
+2. Computing and applying callibrations and corrections. 
+Some of the calibrations, like [TrackCalib](https://gitlab.cern.ch/lhcb/Urania/tree/master/TrackCalib) and [PIDCalib2](https://gitlab.cern.ch/lhcb-rta/pidcalib2), are calibrated on the "standard candle" decays and can be used by the users directly. 
+Other corrections, like correcting the kinematics distributions in the simulated samples to match the data ones as good as possible, are usually estimated on per analysis basis.
+3. Computing efficiencies, acceptances and measuring detector resolution effects. 
+4. Putting all the above together to measure the parameter(s) of interest. 
+
+After acquiring the parameter(s) of interest, one has to have their work being reviewed by [physics working group](http://lhcb.web.cern.ch/lhcb_page/collaboration/organization/lhcb-conv/Physics_history_and_Sub-structure.html) (PWG) and then by the LHCb collaboration. 
 
 One of the requirements for the successful review is that your analysis is fully preserved and can be reproduced by another LHCb physicist.  
 Scientific integrity means having transparency on each step of the research as well as reproducibility of the results.
