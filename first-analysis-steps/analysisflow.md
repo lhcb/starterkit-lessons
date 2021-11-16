@@ -93,7 +93,7 @@ Your snakemake workflow should then be committed to the gitlab repository with t
 The samples you have produced should also be saved.
 Analysis Productions help you to save a tested version of the DaVinci option files, that will help you to reproduce the ntuples with the same software version, that was specified in the original option files. 
 
-The resulting samples have to be uploaded to your working group eos. 
+The ntuples used for your analysis have to be uploaded to the [eos area](eos-storage) of your working group. 
 
 You should always preserve the package versions of the sofrware that you have being using.
 Even if it is a commonly used tool like ROOT or numpy.
