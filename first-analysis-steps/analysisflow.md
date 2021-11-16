@@ -83,7 +83,7 @@ A lesson on gitlab can be found [here](https://hsf-training.github.io/analysis-e
 
 However, it is not enough to just submit your code. 
 It is important to write a set of instructions to execute the steps in the correct sequence.
-You will quickly find yourself, that remembering how to run your own code even a couple of month after it was used for the last time can be really hard. 
+You will quickly find yourself, that remembering how to run your own code even a couple of months after it was used for the last time can be really hard. 
 Instructions can be written using [snakemake](https://snakemake.readthedocs.io/en/stable/) and supportive bash scripts.
 
 Snakemake workflow management system allows you to write a pipeline for analysis that will automatically detect the hierarchy of the steps and changes in inputs (both samples and code). 
