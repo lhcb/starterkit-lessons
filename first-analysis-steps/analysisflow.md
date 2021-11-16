@@ -66,7 +66,7 @@ Discussions on the new analysis tools that might be useful for the LHCb communit
 ### Analysis Preservation
 
 After one gets the necessary samples and writes the necessary macros and scripts to perform the analysis steps, like applying additional selections, fitting distributions, computing efficiencies and acceptances, etc. 
-After acquiring results, one has to have their work being review by physics working group (PWG) and then by collaboration. 
+After acquiring results, one has to have their work being reviewed by [physics working group](http://lhcb.web.cern.ch/lhcb_page/collaboration/organization/lhcb-conv/Physics_history_and_Sub-structure.html) (PWG) and then by the LHCb collaboration. 
 
 One of the requirements for the successful review is that your analysis is fully preserved.  
 Scientific integrity means having transparency on each step of the research as well as reproducibility of the results.
