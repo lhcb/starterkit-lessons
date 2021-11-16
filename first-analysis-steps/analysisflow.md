@@ -75,7 +75,7 @@ LHCb guidelines are discussed and implemented in the [work package 6](https://lh
 CERN guideline can be found [here](https://analysispreservation.cern.ch/login?next=/).
 
 First step is to document well-used procedures, techniques and meticulously report the results of the analysis.
-This is done by writing a clear and extensive Analysis Note, that is then available to the collaborators.
+This is done by writing a clear and extensive Analysis Note, that is then available to the LHCb collaborators via the [CDS system](https://cds.cern.ch/collection/LHCb%20Analysis%20Notes).
 
 Secondly, your analysis code should be put at a [gitlab](https://gitlab.cern.ch/) repository in your physics working group's area. For example, the code of all recent analyses by the QEE working group can be found  [here](https://gitlab.cern.ch/LHCb-QEE).
 Gitlab is useful for tracing your own changes and changes of your collaborators too, as well as, tracing possible bugs with gitlab-CI.
