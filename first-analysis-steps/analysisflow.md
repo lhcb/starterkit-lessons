@@ -88,7 +88,7 @@ Instructions can be written using [snakemake](https://snakemake.readthedocs.io/e
 
 Snakemake workflow management system allows you to write a pipeline for analysis that will automatically detect the hierarchy of the steps and changes in inputs (both samples and code). 
 One should aim to start implementing the snakemake workflow from the beginning of analysis development.
-Your snakemake workflow then should be committed to the gitlab repository with the final version of the code.
+Your snakemake workflow should then be committed to the gitlab repository with the final version of your code.
 
 The samples you have produced should also be saved.
 Analysis Productions help you to save a tested version of the DaVinci option files, that will help you to reproduce the ntuples with the same software version, that was specified in the original option files. 
