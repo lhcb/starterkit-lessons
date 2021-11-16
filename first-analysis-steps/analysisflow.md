@@ -28,7 +28,7 @@ For the data sample information is coming from reconstruction, but for the simul
 The reconstructed values are the ones that passed the entire reconstruction pipeline with detector effects included and generator-level values are the original values that the event generator has produced.
 This allows to study different reconstruction and detector effects for your analysis.
 
-DaVinci can be run using CERN grid computing system directly via ganga or via Analysis Productions. 
+DaVinci can be run locally at the lxplus (for small tasks) or at the CERN grid computing system via [ganga](davinci-grid) or via [Analysis Productions](analysis-productions). 
 Using ganga will give you more control over the jobs (little scrips and macros you run on the remote machines) and also will allow you to do way more than just running DaVinci. 
 Analysis Productions, however, are more user-friendly and provide
 Analysis Productions are also extremely important for the preservation of your analysis.
