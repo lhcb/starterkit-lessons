@@ -45,7 +45,7 @@ Analysis code is usually based on the popular high-energy physics software tools
 
 {% callout "Popular data analysis tools in HEP" %}
 
-There are multiple packages that collaboratos use in LHCb.
+There are multiple packages that collaborators use in LHCb.
 Some of this packages are CERN supported, some are projects from the LHCb collaborators and some are supported by external community.  
 
 * [ROOT](https://root.cern/) and its python twin sister pyROOT are open-source data analysis frameworks used extensively in HEP community. 
