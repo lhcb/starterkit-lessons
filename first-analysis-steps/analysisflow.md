@@ -7,35 +7,45 @@
 
 {% endobjectives %}
 
-Most LHCb data analyses share similar structure and follow similar procedure pipeline.
-As a user you start developing your analysis from retrieving the data and simulation samples that you need for your research.   
+Most LHCb analyses share a similar structure and follow a similar procedure pipeline.
+As a user you often start developing your analysis by retrieving the data and simulation samples that you need.   
 Giving you tools to get those samples is the main goal of the first analysis steps lessons.  
 
 {% callout "Reminder from the data flow lesson" %}
 
-The output of the last stages of the [LHCb data flow](dataflow), namely Stripping (Run 1 and Run 2), Turbo stream (Run 2), Sprucing (Run 3) or Run 3 HLT2 lines can be accessed by user. 
+The output of the last stages of the [LHCb data flow](dataflow) - Stripping (Runs 1 and 2), Turbo stream (Run 2), Sprucing (Run 3) or Run 3 HLT2 lines - can be accessed by the user. 
 Selections made at these last stages are also defined by users. 
-Their output is saved to disk and later is used to produce a data file that will contain only the information that interests users.
+Their outputs are saved to disk and later used to produce data files that will contain only the information that interests users.
 This is done using the software package called DaVinci.
 
 {% endcallout %}
 
 ### Getting data files
 
+<<<<<<< HEAD
 After preselecting data either in the stripping, sprucing or triggering step, user can produce a ROOT file, by running the DaVinci package.
 ROOT datafiles usually contain either [TTree](https://root.cern.ch/doc/master/classTTree.html) of [_ntuple_](https://root.cern.ch/doc/v608/classTNtuple.html) data structures with information saved per event or per candidate, like mass of a candidate or trigger decision flags.
 For the data sample information is coming from reconstruction, but for the simulation sample you can request both the reconstructed values of observables/variables or generator-level values.
+=======
+After preselecting data either in the Stripping, Sprucing or triggering step, users can produce ROOT files containing _ntuples_, running the DaVinci application.
+An ntuple is a (often complex) data structure typically stored within a (ROOT) file, which contains information about events or candidates in the data sample, such as the candidate mass or trigger decision flags.
+For data samples the available information is solely that coming from the reconstruction, but for simulation samples you can request both the reconstructed values of observables/variables and the generator-level (truth) values.
+>>>>>>> 2c99fa5e4e3cc705ddbc2f60f4be01ea4a43cbea
 The reconstructed values are the ones that passed the entire reconstruction pipeline with detector effects included and generator-level values are the original values that the event generator has produced.
 Certain variables, for example, vertex quality or trigger decisions, can only be accessed on the reconstruction level.
 This allows to study different reconstruction and detector effects for your analysis.
 
-DaVinci can be run locally at the lxplus (for small tasks) or at the CERN grid computing system via [ganga](davinci-grid) or via [Analysis Productions](analysis-productions). 
-Using ganga will give you more control over the jobs (little scrips and macros you run on the remote machines) and also will allow you to do way more than just running DaVinci. 
+DaVinci can be run locally on `lxplus` (for small tasks) or on the Grid computing system via [Ganga](davinci-grid) or via [Analysis Productions](analysis-productions). 
+Using Ganga will give you more control over the jobs (short scripts and macros you run on the remote machines) and also will allow you to do way more than just running DaVinci. 
 Analysis Productions, however, are more user-friendly and provide a set of tests that ensure your jobs will be run as expected with minimal errors. 
 Analysis Productions can be very useful for the preservation of your analysis.
 We will discuss the concept of analysis preservation a bit later in this lesson.
+<<<<<<< HEAD
+=======
+Unless you want to run some really unusual ntuple jobs with Ganga, you should always go for Analysis Productions. 
+>>>>>>> 2c99fa5e4e3cc705ddbc2f60f4be01ea4a43cbea
 
-In first analysis steps we cover both running DaVinci on [ganga](https://lhcb.github.io/starterkit-lessons/first-analysis-steps/davinci-grid.html) and via [Analysis Productions](https://lhcb.github.io/starterkit-lessons/first-analysis-steps/analysis-productions.html).
+In first analysis steps we cover both running DaVinci on [Ganga](https://lhcb.github.io/starterkit-lessons/first-analysis-steps/davinci-grid.html) and via [Analysis Productions](https://lhcb.github.io/starterkit-lessons/first-analysis-steps/analysis-productions.html).
 
 
 ### Useful high energy physics analysis tools
@@ -67,7 +77,7 @@ Discussions on the new analysis tools that might be useful for the LHCb communit
 
 ### Analysis Preservation
 
-When the samples are ready one can proceed with developing the necessary macros and scripts to perform the analysis steps, like applying additional selections, fitting distributions, computing efficiencies and acceptances, etc. 
+When the samples are ready one can proceed with developing the necessary macros and scripts to perform the analysis steps, such as applying additional selections, fitting distributions, computing efficiencies and acceptances, etc. 
 Starting from the ntuples a typical analysis will consist of the following steps: 
 
 1. Defining and applying selections, including kinematic, particle identification, multivariate analysis, signal/background separations by fitting.
@@ -88,9 +98,9 @@ CERN guideline can be found [here](https://analysispreservation.cern.ch/login?ne
 The first step is to document well-used procedures, techniques and meticulously report the results of your analysis.
 This is done by writing a clear and extensive Analysis Note, that is then available to the LHCb collaborators via the [CDS system](https://cds.cern.ch/collection/LHCb%20Analysis%20Notes).
 
-Secondly, your analysis code should be put at a [gitlab](https://gitlab.cern.ch/) repository in your physics working group's area. For example, the code of all recent analyses by the QEE working group can be found  [here](https://gitlab.cern.ch/LHCb-QEE).
-Gitlab is useful for tracing your own changes and changes of your collaborators too, as well as, tracing possible bugs with gitlab-CI.
-A lesson on gitlab can be found [here](https://hsf-training.github.io/analysis-essentials/git/README.html).
+Secondly, your analysis code should be put in a [GitLab](https://gitlab.cern.ch/) repository in your physics working group's area. For example, the code of all recent analyses by the QEE working group can be found [here](https://gitlab.cern.ch/LHCb-QEE).
+GitLab is useful for tracing your own changes and changes of your collaborators too, as well as, tracing possible bugs with the GitLab CI.
+Refer to [this lesson on GitLab](https://hsf-training.github.io/analysis-essentials/git/README.html) for more.
 
 However, it is not enough to just submit your code. 
 It is important to write a set of instructions to execute the steps in the correct sequence.
@@ -107,7 +117,7 @@ Analysis Productions help you to save a tested version of the DaVinci option fil
 The ntuples used for your analysis have to be uploaded to the [eos area](eos-storage) of your working group. 
 
 You should always preserve the package versions of the sofrware that you have being using.
-Even if it is a commonly used tool like ROOT or numpy.
+Even if it is a commonly used tool such as ROOT or NumPy.
 This can be done by creating a [docker container](https://www.docker.com/), [conda enviroment](https://github.com/conda-forge/miniforge/) or using the [`lb-conda` environment](https://gitlab.cern.ch/lhcb-core/lbcondawrappers/-/blob/master/README.md).
-The latter uses the conda environments installed on [Cern virtual machine file system](https://cernvm.cern.ch/fs/) or CVMFS and is supported by LHCb community. 
+The latter uses the conda environments installed on the [CERN virtual machine file system](https://cernvm.cern.ch/fs/), aka CVMFS, and is supported by the LHCb community. 
 
