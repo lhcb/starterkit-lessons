@@ -108,7 +108,7 @@ Analysis Productions help you to save a tested version of the DaVinci option fil
 The ntuples used for your analysis have to be uploaded to the [eos area](eos-storage) of your working group. 
 
 You should always preserve the package versions of the sofrware that you have being using.
-Even if it is a commonly used tool like ROOT or numpy.
+Even if it is a commonly used tool such as ROOT or NumPy.
 This can be done by creating a [docker container](https://www.docker.com/), [conda enviroment](https://github.com/conda-forge/miniforge/) or using the [`lb-conda` environment](https://gitlab.cern.ch/lhcb-core/lbcondawrappers/-/blob/master/README.md).
 The latter uses the conda environments installed on [Cern virtual machine file system](https://cernvm.cern.ch/fs/) or CVMFS and is supported by LHCb community. 
 
