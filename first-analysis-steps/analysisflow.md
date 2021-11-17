@@ -22,8 +22,8 @@ This is done using the software package called DaVinci.
 
 ### Getting data files
 
-After preselecting data either in the stripping, sprucing or triggering step, user can produce a ROOT file called _ntuple_, by running the DaVinci package.
-The ntuple is a data file that contains information about events or candidates in the data sample, like mass of a candidate or trigger decision flags.
+After preselecting data either in the stripping, sprucing or triggering step, user can produce a ROOT file, by running the DaVinci package.
+ROOT datafiles usually contain either [TTree](https://root.cern.ch/doc/master/classTTree.html) of [_ntuple_](https://root.cern.ch/doc/v608/classTNtuple.html) data structures with information saved per event or per candidate, like mass of a candidate or trigger decision flags.
 For the data sample information is coming from reconstruction, but for the simulation sample you can request both the reconstructed values of observables/variables or generator-level values.
 The reconstructed values are the ones that passed the entire reconstruction pipeline with detector effects included and generator-level values are the original values that the event generator has produced.
 Certain variables, for example, vertex quality or trigger decisions, can only be accessed on the reconstruction level.
