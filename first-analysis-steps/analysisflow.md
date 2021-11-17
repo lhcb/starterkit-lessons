@@ -32,9 +32,8 @@ This allows to study different reconstruction and detector effects for your anal
 DaVinci can be run locally at the lxplus (for small tasks) or at the CERN grid computing system via [ganga](davinci-grid) or via [Analysis Productions](analysis-productions). 
 Using ganga will give you more control over the jobs (little scrips and macros you run on the remote machines) and also will allow you to do way more than just running DaVinci. 
 Analysis Productions, however, are more user-friendly and provide a set of tests that ensure your jobs will be run as expected with minimal errors. 
-Analysis Productions are also extremely important for the preservation of your analysis.
+Analysis Productions can be very useful for the preservation of your analysis.
 We will discuss the concept of analysis preservation a bit later in this lesson.
-Unless you want to run some really unusual ntuple jobs on ganga, you should always go for Analysis Productions. 
 
 In first analysis steps we cover both running DaVinci on [ganga](https://lhcb.github.io/starterkit-lessons/first-analysis-steps/davinci-grid.html) and via [Analysis Productions](https://lhcb.github.io/starterkit-lessons/first-analysis-steps/analysis-productions.html).
 
@@ -102,7 +101,7 @@ Snakemake workflow management system allows you to write a pipeline for analysis
 One should aim to start implementing the snakemake workflow from the beginning of analysis development.
 Your snakemake workflow should then be committed to the gitlab repository with the final version of your code.
 
-The samples you have produced should also be saved.
+The samples you have produced should also be saved. 
 Analysis Productions help you to save a tested version of the DaVinci option files, that will help you to reproduce the ntuples with the same software version, that was specified in the original option files. 
 
 The ntuples used for your analysis have to be uploaded to the [eos area](eos-storage) of your working group. 
