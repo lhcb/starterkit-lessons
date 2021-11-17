@@ -91,7 +91,7 @@ This is done by writing a clear and extensive Analysis Note, that is then availa
 
 Secondly, your analysis code should be put at a [gitlab](https://gitlab.cern.ch/) repository in your physics working group's area. For example, the code of all recent analyses by the QEE working group can be found  [here](https://gitlab.cern.ch/LHCb-QEE).
 Gitlab is useful for tracing your own changes and changes of your collaborators too, as well as, tracing possible bugs with gitlab-CI.
-A lesson on gitlab can be found [here](https://hsf-training.github.io/analysis-essentials/git/README.html).
+Refer to [this lesson on GitLab](https://hsf-training.github.io/analysis-essentials/git/README.html) for more.
 
 However, it is not enough to just submit your code. 
 It is important to write a set of instructions to execute the steps in the correct sequence.
