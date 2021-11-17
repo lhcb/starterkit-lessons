@@ -72,7 +72,7 @@ Starting from the ntuples a typical analysis will consist of the following steps
 
 1. Defining and applying selections, including kinematic, particle identification, multivariate analysis, signal/background separations by fitting.
 2. Computing and applying callibrations and corrections. 
-Some of the calibrations, like [TrackCalib](https://gitlab.cern.ch/lhcb/Urania/tree/master/TrackCalib) and [PIDCalib2](https://gitlab.cern.ch/lhcb-rta/pidcalib2), are calibrated on the "standard candle" decays and can be used by the users directly. 
+Some of the calibrations, like [TrackCalib](https://gitlab.cern.ch/lhcb/Urania/tree/master/TrackCalib) and [PIDCalib2](https://gitlab.cern.ch/lhcb-rta/pidcalib2), are calibrated centrally by collaborators and can be used by the users directly. 
 Other corrections, like correcting the kinematics distributions in the simulated samples to match the data ones as good as possible, are usually estimated on per analysis basis.
 3. Computing efficiencies, acceptances and measuring detector resolution effects. 
 4. Putting all the above together to measure the parameter(s) of interest. 
