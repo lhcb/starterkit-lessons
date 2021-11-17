@@ -110,5 +110,5 @@ The ntuples used for your analysis have to be uploaded to the [eos area](eos-sto
 You should always preserve the package versions of the sofrware that you have being using.
 Even if it is a commonly used tool such as ROOT or NumPy.
 This can be done by creating a [docker container](https://www.docker.com/), [conda enviroment](https://github.com/conda-forge/miniforge/) or using the [`lb-conda` environment](https://gitlab.cern.ch/lhcb-core/lbcondawrappers/-/blob/master/README.md).
-The latter uses the conda environments installed on [Cern virtual machine file system](https://cernvm.cern.ch/fs/) or CVMFS and is supported by LHCb community. 
+The latter uses the conda environments installed on the [CERN virtual machine file system](https://cernvm.cern.ch/fs/), aka CVMFS, and is supported by the LHCb community. 
 
