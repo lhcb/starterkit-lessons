@@ -23,20 +23,20 @@ This is done using the software package called DaVinci.
 ### Getting data files
 
 After preselecting data either in the Stripping, Sprucing or triggering step, users can produce ROOT files containing _ntuples_, running the DaVinci application.
-The ntuple is a data file that contains information about events or candidates in the data sample, like mass of a candidate or trigger decision flags.
-For the data sample information is coming from reconstruction, but for the simulation sample you can request both the reconstructed values of observables/variables or generator-level values.
+An ntuple is a (often complex) data structure typically stored within a (ROOT) file, which contains information about events or candidates in the data sample, such as the candidate mass or trigger decision flags.
+For data samples the available information is solely that coming from the reconstruction, but for simulation samples you can request both the reconstructed values of observables/variables and the generator-level (truth) values.
 The reconstructed values are the ones that passed the entire reconstruction pipeline with detector effects included and generator-level values are the original values that the event generator has produced.
 Certain variables, for example, vertex quality or trigger decisions, can only be accessed on the reconstruction level.
 This allows to study different reconstruction and detector effects for your analysis.
 
-DaVinci can be run locally at the lxplus (for small tasks) or at the CERN grid computing system via [ganga](davinci-grid) or via [Analysis Productions](analysis-productions). 
-Using ganga will give you more control over the jobs (little scrips and macros you run on the remote machines) and also will allow you to do way more than just running DaVinci. 
+DaVinci can be run locally on `lxplus` (for small tasks) or on the Grid computing system via [Ganga](davinci-grid) or via [Analysis Productions](analysis-productions). 
+Using Ganga will give you more control over the jobs (short scripts and macros you run on the remote machines) and also will allow you to do way more than just running DaVinci. 
 Analysis Productions, however, are more user-friendly and provide a set of tests that ensure your jobs will be run as expected with minimal errors. 
 Analysis Productions are also extremely important for the preservation of your analysis.
 We will discuss the concept of analysis preservation a bit later in this lesson.
-Unless you want to run some really unusual ntuple jobs on ganga, you should always go for Analysis Productions. 
+Unless you want to run some really unusual ntuple jobs with Ganga, you should always go for Analysis Productions. 
 
-In first analysis steps we cover both running DaVinci on [ganga](https://lhcb.github.io/starterkit-lessons/first-analysis-steps/davinci-grid.html) and via [Analysis Productions](https://lhcb.github.io/starterkit-lessons/first-analysis-steps/analysis-productions.html).
+In first analysis steps we cover both running DaVinci on [Ganga](https://lhcb.github.io/starterkit-lessons/first-analysis-steps/davinci-grid.html) and via [Analysis Productions](https://lhcb.github.io/starterkit-lessons/first-analysis-steps/analysis-productions.html).
 
 
 ### Useful high energy physics analysis tools
