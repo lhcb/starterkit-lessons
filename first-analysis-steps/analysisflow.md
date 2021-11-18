@@ -22,15 +22,10 @@ This is done using the software package called DaVinci.
 
 ### Getting data files
 
-<<<<<<< HEAD
-After preselecting data either in the stripping, sprucing or triggering step, user can produce a ROOT file, by running the DaVinci package.
-ROOT datafiles usually contain either [TTree](https://root.cern.ch/doc/master/classTTree.html) of [_ntuple_](https://root.cern.ch/doc/v608/classTNtuple.html) data structures with information saved per event or per candidate, like mass of a candidate or trigger decision flags.
-For the data sample information is coming from reconstruction, but for the simulation sample you can request both the reconstructed values of observables/variables or generator-level values.
-=======
 After preselecting data either in the Stripping, Sprucing or triggering step, users can produce ROOT files containing _ntuples_, running the DaVinci application.
 An ntuple is a (often complex) data structure typically stored within a (ROOT) file, which contains information about events or candidates in the data sample, such as the candidate mass or trigger decision flags.
 For data samples the available information is solely that coming from the reconstruction, but for simulation samples you can request both the reconstructed values of observables/variables and the generator-level (truth) values.
->>>>>>> 2c99fa5e4e3cc705ddbc2f60f4be01ea4a43cbea
+
 The reconstructed values are the ones that passed the entire reconstruction pipeline with detector effects included and generator-level values are the original values that the event generator has produced.
 Certain variables, for example, vertex quality or trigger decisions, can only be accessed on the reconstruction level.
 This allows to study different reconstruction and detector effects for your analysis.
@@ -40,10 +35,6 @@ Using Ganga will give you more control over the jobs (short scripts and macros y
 Analysis Productions, however, are more user-friendly and provide a set of tests that ensure your jobs will be run as expected with minimal errors. 
 Analysis Productions can be very useful for the preservation of your analysis.
 We will discuss the concept of analysis preservation a bit later in this lesson.
-<<<<<<< HEAD
-=======
-Unless you want to run some really unusual ntuple jobs with Ganga, you should always go for Analysis Productions. 
->>>>>>> 2c99fa5e4e3cc705ddbc2f60f4be01ea4a43cbea
 
 In first analysis steps we cover both running DaVinci on [Ganga](https://lhcb.github.io/starterkit-lessons/first-analysis-steps/davinci-grid.html) and via [Analysis Productions](https://lhcb.github.io/starterkit-lessons/first-analysis-steps/analysis-productions.html).
 
