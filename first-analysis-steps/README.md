@@ -23,7 +23,6 @@ The [analysis essentials course](https://hsf-training.github.io/analysis-essenti
     physics-at-lhcb.md
     dataflow.md
     run-2-data-flow.md
-    analysisflow.md
     davinci.md
     bookkeeping.md
     files-from-grid.md
