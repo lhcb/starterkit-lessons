@@ -17,10 +17,9 @@ In order to reach even higher precision the experiment aims to take $50\,\mathrm
 data in Run 3 by increasing the instantaneous luminosity by a factor of five.
 To be capable of dealing with the higher detector occupancy the experiment will be equipped with an entire new set of tracking detectors with higher granularity and improved radiation tolerance.
 
-Additionally, the front-end and readout electronics of all sub-detectors will be replaced, to be able
-to operate at bunch crossing rate of $40\,\mathrm{MHz}$, as well as the photodetectors of the RICH1 detector. 
+One of the most important upgrades in Run3 will be the removal of the LHCb L0 hardware triggers. As described in the following, this will bring significant changes in the data-flow of the experiment both for online and offline processing. It also means that the front-end and readout electronics of all sub-detectors will be replaced, to be able
+to operate at the bunch crossing rate of $40\,\mathrm{MHz}$, as well as the photodetectors of the RICH1 detector. 
 
-Moreover, the LHCb upgrade comprises significant changes to the data flow, both for the online and offline processing.
 
 ## Upgrade of the LHCb trigger system
 
@@ -28,15 +27,20 @@ The trigger layout for Run 3 will look like this:
 
 !["Data processing chain for Run 3"](img/hidef_RTA_dataflow_widescreen.png)
 
-The LHCb trigger system will be fully redesigned by removing the L0 hardware trigger and moving to a fully-software based trigger. This means that the full detector readout as well as running the HLT1 needs to be enabled at the average non-empty bunch crossing rate in LHCb of $30\,\mathrm{MHz}$.
+The LHCb trigger system will be fully redesigned by removing the L0 hardware trigger and moving to a fully-software based trigger. The reason for this upgrade is that the hardware trigger has a rate limit of 1 MHz, which would be an important limitation with the increase in luminosity. The removal of this bottleneck means that the full detector readout as well as running the HLT1 needs to be enabled at the average non-empty bunch crossing rate in LHCb of $30\,\mathrm{MHz}$, a not so trivial computing challenge!
 
-For this purpose the partial event reconstruction performed by HLT1 will be implemented as part of the ```Allen project``` and run on GPUs to make simple trigger decisions based on the kinematic and topological selections possible. HLT1 will reduce the data rate by a factor of 30.
+As we saw already at the Run 2 dataflow lecture, the software trigger is implemented in two steps: the HLT1 which performs partial event reconstruction and simple trigger decsisions to reduce the data rate, and HLT2, which performs the more computationally expensive full reconstruction and complete trigger selection. One of the most important tasks of the building the events is the track reconstruction, which is an inherently parallelizable process. For this purpose, HLT1 will be implemented as part of the ```Allen project``` and run on GPUs.
+
+### The HLT architecture
+Data from the various subdetectors are received in the central DAQ system of LHCb by custom FPGA cards, called PCIe40. A set of servers, the Event Builder (EB), then pieces together fragments from the subdetectors to form events and group them into packets. The event packets are then passed to an Event Filtering Farm (EFF) for further processing, and events passing the selection end-up in storage. The existing HLT architecture of LHCb is well suited for the requirements of GPUs and can be easily adapted to host them in the Event Builder. HLT1 will reduce the data rate by a factor of 30, and implementing it already at the EB level will greatly minimize the size of the network needed for the following steps. 
+
+Having the HLT1 run on GPUs imposes some different requirements on the code development. The `Allen` framework is based on the `CUDA` GPU programming platform. Developers should keep in mind that HLT1 algorithms should be implemented in a way that maximizes parallelizability and is thread-safe (i.e. memory should be accessed in a secure way from parallel processes). Documentation on how to develop reconstruction algorithms and selection lines for HLT1 can be found in the readme's of the [Allen project](https://gitlab.cern.ch/lhcb/Allen).
 
 The raw data of events selected by HLT1 is passed on to the buffer system and stored there. The buffering of events enables to run the real-time alignment and calibration before events are entering HLT2. This is crucial, because in this way calibration and alignment constants obtained from dedicated calibration samples collected in HLT1 can be used in the full event reconstruction performed in HLT2.
 
 The total bandwidth that can be saved from HLT2 to tape is limited to $10\,\mathrm{GB}/s$. An important change in the HLT2 selections with respect to the Run 2 will be the increased use of the Turbo model. Wherever possible, the Turbo will be the baseline, so that in total for approximately 2/3 of data only the data of signal candidate (raw and reconstructed) will be saved and no further offline reconstruction will be possible. This results in significantly smaller event sizes, so that more events can be saved.
 
-More details about HLT selections can be found in the [Moore documentation](https://lhcbdoc.web.cern.ch/lhcbdoc/moore/master/index.html) and the readme's of the [Allen project](https://gitlab.cern.ch/lhcb/Allen).
+More details about HLT2 selections can be found in the [Moore documentation](https://lhcbdoc.web.cern.ch/lhcbdoc/moore/master/index.html).
 
 ### Selective persistency
 
