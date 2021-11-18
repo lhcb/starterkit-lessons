@@ -80,8 +80,8 @@ Try the following steps with the computer you will use at the workshop:
    /DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=thead/CN=667505/CN=Timothy Daniel Head | private_pilot | 2015/08/25 08:05
   ```
 
- 4. Check that X11 forwarding works by typing `glxgears` on lxplus. Some rotating gears should appear in 
-    a new window. Press `Ctrl-C` from the terminal to exit.
+ 4. Check that X11 forwarding works by typing `display` on lxplus. A wizard should appear in 
+    a new window. 
     >If you're not connected to the CERN network at CERN, do not worry if the X11 forwarding is slow--this is normal.
 
 If you can successfully execute all of the above steps, you are ready to go for
