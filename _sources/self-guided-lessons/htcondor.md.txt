@@ -48,14 +48,14 @@ When you connect to lxplus, you have read/write access to both the AFS and EOS f
 
 Each worker node has its own remote storage space, which is limited to 20GB. When a job starts, the executable is copied to this storage area, usually along with any input data files required. Any files created by the script should be created there as well, where they can later be transferred back to your user area. When a job completes, the worker node cleans out its storage area, so it's important to tell HTCondor to transfer any output files you want to keep.
 
-See [here](https://batchdocs.web.cern.ch/batchdocs/concepts/dataflow.html) for a more detailed explanation (and a helpful diagram).
+See [here](https://batchdocs.web.cern.ch/concepts/dataflow.html) for a more detailed explanation (and a helpful diagram).
 
 ## Other useful resources
 
 While putting this lesson together, the following guides, tutorials, and pages proved highly useful, and may be useful to you as well if you need more information:
 
 * [HTCondor v8.8.2 Manual](https://research.cs.wisc.edu/htcondor/manual/v8.8/) - University of Wisconsin-Madison
-* [CERN Batch Service User Guide](https://batchdocs.web.cern.ch/batchdocs/index.html)
+* [CERN Batch Service User Guide](https://batchdocs.web.cern.ch/index.html)
 * [HTCondor User Tutorial](https://indico.cern.ch/event/611296/contributions/2604376/attachments/1471164/2276521/TannenbaumT_UserTutorial.pdf) - Todd Tannenbaum, 6th June 2017
 * [Mattermost](https://mattermost.web.cern.ch/lhcb) - you can join the 'condor' and 'Distributed Analysis' channels
 * [lhcb-distributed-analysis@cern.ch](mailto:lhcb-distributed-analysis@cern.ch) mailing list
