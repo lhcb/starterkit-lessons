@@ -1,6 +1,6 @@
 j = Job(name='First ganga job')
 myApp = GaudiExec()
-myApp.directory = "./DaVinciDev_v45r1"
+myApp.directory = "./DaVinciDev_v45r8"
 j.application = myApp
 j.application.options = ['ntuple-options.py']
 j.application.platform = 'x86_64-centos7-gcc8-opt'
