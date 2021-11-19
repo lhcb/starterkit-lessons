@@ -317,7 +317,7 @@ to some special commands provided by <code class="docutils literal notranslate">
 </div>
 <p>To create your first <code class="docutils literal notranslate"><span class="pre">ganga</span></code> job, type the following:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">j</span> <span class="o">=</span> <span class="n">Job</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;First ganga job&#39;</span><span class="p">)</span>
-<span class="n">myApp</span> <span class="o">=</span> <span class="n">prepareGaudiExec</span><span class="p">(</span><span class="s1">&#39;DaVinci&#39;</span><span class="p">,</span><span class="s1">&#39;v45r1&#39;</span><span class="p">,</span> <span class="n">myPath</span><span class="o">=</span><span class="s1">&#39;.&#39;</span><span class="p">)</span>
+<span class="n">myApp</span> <span class="o">=</span> <span class="n">prepareGaudiExec</span><span class="p">(</span><span class="s1">&#39;DaVinci&#39;</span><span class="p">,</span><span class="s1">&#39;v45r8&#39;</span><span class="p">,</span> <span class="n">myPath</span><span class="o">=</span><span class="s1">&#39;.&#39;</span><span class="p">)</span>
 <span class="n">j</span><span class="o">.</span><span class="n">application</span> <span class="o">=</span> <span class="n">myApp</span>
 <span class="n">j</span><span class="o">.</span><span class="n">application</span><span class="o">.</span><span class="n">options</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;ntuple_options.py&#39;</span><span class="p">]</span>
 <span class="n">j</span><span class="o">.</span><span class="n">application</span><span class="o">.</span><span class="n">platform</span> <span class="o">=</span> <span class="s1">&#39;x86_64-centos7-gcc8-opt&#39;</span>
@@ -340,12 +340,12 @@ processing different files simultaneously. More details about the splitter are g
 <p id="davincidev-folder"><i class="fa fa-info-circle"></i> DaVinciDev folder</p>
 </div>
 <div class="panel-body docutils container">
-<p>When you create a job using <code class="docutils literal notranslate"><span class="pre">prepareGaudiExec('DaVinci','v45r1',</span> <span class="pre">myPath='.')</span></code>
+<p>When you create a job using <code class="docutils literal notranslate"><span class="pre">prepareGaudiExec('DaVinci','v45r8',</span> <span class="pre">myPath='.')</span></code>
 you get the following message:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>INFO     Set up App Env at: ./DaVinciDev_v45r1
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>INFO     Set up App Env at: ./DaVinciDev_v45r8
 </pre></div>
 </div>
-<p><code class="docutils literal notranslate"><span class="pre">ganga</span></code> has created a folder with a local copy of the DaVinci v45r1 release.
+<p><code class="docutils literal notranslate"><span class="pre">ganga</span></code> has created a folder with a local copy of the DaVinci v45r8 release.
 The content of it will be sent to the grid to ensure your job runs with
 exactly this configuration.
 We will use this folder for the following jobs and you will learn more about
@@ -354,7 +354,7 @@ this in the <a class="reference internal" href="lhcb-dev.html"><span class="doc"
 </div>
 <p>Now you have created your first job, however it has not started
 running yet. To submit it type <code class="docutils literal notranslate"><span class="pre">j.submit()</span></code>. Now <code class="docutils literal notranslate"><span class="pre">ganga</span></code> will do the
-equivalent of <code class="docutils literal notranslate"><span class="pre">lb-run</span> <span class="pre">DaVinci/v45r1</span></code>, prepare your job and then
+equivalent of <code class="docutils literal notranslate"><span class="pre">lb-run</span> <span class="pre">DaVinci/v45r8</span></code>, prepare your job and then
 ship it off to the grid.</p>
 <div class="panel panel-callout docutils container">
 <div class="panel-header open docutils container">
@@ -363,12 +363,12 @@ ship it off to the grid.</p>
 <div class="panel-body docutils container">
 <p>The default platform on most lxplus machines is <code class="docutils literal notranslate"><span class="pre">x86_64-centos7-gcc8-opt</span></code> with gcc compiler version 8.
 However some older DaVinci version are not compiled for <code class="docutils literal notranslate"><span class="pre">x86_64-centos7-gcc8-opt</span></code>.</p>
-<p>The list of platforms available for a certain DaVinci version (let’s try the DaVinci version we are using <code class="docutils literal notranslate"><span class="pre">v45r1</span></code>), can be viewed by</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ lb-run --list-platforms DaVinci v45r1
+<p>The list of platforms available for a certain DaVinci version (let’s try the DaVinci version we are using <code class="docutils literal notranslate"><span class="pre">v45r8</span></code>), can be viewed by</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ lb-run --list-platforms DaVinci v45r8
 </pre></div>
 </div>
 <p>The default compiler platform for GaudiExec applications is <code class="docutils literal notranslate"><span class="pre">x86_64-slc6-gcc62-opt</span></code>.
-So for some DaVinci versions, including the latest <code class="docutils literal notranslate"><span class="pre">DaVinci</span> <span class="pre">v45r1</span></code> a few additional actions are needed to set up your ganga job properly.</p>
+So for some DaVinci versions, including the latest <code class="docutils literal notranslate"><span class="pre">DaVinci</span> <span class="pre">v45r8</span></code> a few additional actions are needed to set up your ganga job properly.</p>
 <p>When setting up your ganga job, add the following line after declaring the <code class="docutils literal notranslate"><span class="pre">j.application</span></code>:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">j</span><span class="o">.</span><span class="n">application</span><span class="o">.</span><span class="n">platform</span> <span class="o">=</span> <span class="s1">&#39;x86_64-centos7-gcc8-opt&#39;</span>
 </pre></div>
@@ -382,7 +382,7 @@ lines that define a job in a file and simply run that.</p>
 <p>Place the following in a file called <a class="reference download internal" download="" href="../_downloads/8051061c015862ec27df0e678503ef43/first-job.py"><code class="xref download docutils literal notranslate"><span class="pre">first-job.py</span></code></a>:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">j</span> <span class="o">=</span> <span class="n">Job</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;First ganga job&#39;</span><span class="p">)</span>
 <span class="n">myApp</span> <span class="o">=</span> <span class="n">GaudiExec</span><span class="p">()</span>
-<span class="n">myApp</span><span class="o">.</span><span class="n">directory</span> <span class="o">=</span> <span class="s2">&quot;./DaVinciDev_v45r1&quot;</span>
+<span class="n">myApp</span><span class="o">.</span><span class="n">directory</span> <span class="o">=</span> <span class="s2">&quot;./DaVinciDev_v45r8&quot;</span>
 <span class="n">j</span><span class="o">.</span><span class="n">application</span> <span class="o">=</span> <span class="n">myApp</span>
 <span class="n">j</span><span class="o">.</span><span class="n">application</span><span class="o">.</span><span class="n">options</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;ntuple_options.py&#39;</span><span class="p">]</span>
 <span class="n">j</span><span class="o">.</span><span class="n">application</span><span class="o">.</span><span class="n">platform</span> <span class="o">=</span> <span class="s1">&#39;x86_64-centos7-gcc8-opt&#39;</span>
@@ -444,7 +444,7 @@ with <code class="docutils literal notranslate"><span class="pre">!ls</span> <sp
 </div>
 <p>To look at the <code class="docutils literal notranslate"><span class="pre">root</span></code> file produced by the job start a new terminal, and
 type:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ lb-run DaVinci/v45r1 <span class="nv">$SHELL</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ lb-run DaVinci/v45r8 <span class="nv">$SHELL</span>
 $ root -l path/to/the/job/output
 </pre></div>
 </div>

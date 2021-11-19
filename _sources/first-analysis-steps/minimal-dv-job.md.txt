@@ -196,7 +196,7 @@ In the same folder as your options file `ntuple_options.py` and your DST file
 ending in `.dst`, there's just a single command you need run on `lxplus`.
 
 ```shell
-$ lb-run DaVinci/v45r1 gaudirun.py ntuple_options.py
+$ lb-run DaVinci/v45r8 gaudirun.py ntuple_options.py
 ```
 
 The full options file we've created, `ntuple_options.py`, is [available
