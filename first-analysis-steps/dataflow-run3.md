@@ -11,7 +11,7 @@
 
 In Run 1 & 2 LHCb proved itself not only to be a high-precision
 heavy flavour physics experiment, but also extended the core physics programme to many different areas such as electroweak physics and fixed-target experiments. This incredible precision led to
-over 500 papers including breakthroughs such as the first discovery of $C\!P$-violation in charm and the first observation of $B_s^0\to \mu^+\mu^-$ among many others.
+over 500 papers including breakthroughs such as the first discovery of $C\!P$-violation in charm and the first observation of the decay $B_s^0\to \mu^+\mu^-$ among many others.
 
 In order to reach even higher precision the experiment aims to take $50\,\mathrm{fb}^{-1}$ of
 data in Run 3 by increasing the instantaneous luminosity by a factor of five.
