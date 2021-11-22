@@ -40,7 +40,7 @@ More information about the real-time alignment and calibration can be found in t
 
 The total bandwidth that can be saved from HLT2 to tape is limited to $10\,\mathrm{GB}/s$. An important change in the HLT2 selections with respect to the Run 2 will be the increased use of the Turbo model. Wherever possible, the Turbo will be the baseline, so that in total for approximately 2/3 of data only the data of the signal candidate (raw and reconstructed) will be saved and no further offline reconstruction will be possible. This results in significantly smaller event sizes so that more events can be saved.
 
-More details about HLT2 selections can be found in the [Moore documentation](https://lhcbdoc.web.cern.ch/lhcbdoc/moore/master/index.html).
+For details and tutorials on how to develop HLT2 line selections as well as how to check their efficiencies and data rates follow the [Moore documentation](https://lhcbdoc.web.cern.ch/lhcbdoc/moore/master/index.html).
 
 ### Selective persistency
 
