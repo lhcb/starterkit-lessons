@@ -9,7 +9,7 @@
 
 {% endobjectives %} 
 
-Probably most of you have seen somewhere in a Stripping line, a trigger line or a DaVinci options file an expression like this:
+Probably most of you have seen somewhere in a Stripping line, a Run 1-2 trigger line or a DaVinci options file an expression like this:
 
 ```python
 '(PT > 750*MeV) & (P > 4000*MeV) & (MIPCHI2DV(PRIMARY) > 4)'.
@@ -53,7 +53,7 @@ left off [exploring a DST interactively](interactive-dst).
 First open the DST as we did previously:
 
 ```bash
-$ lb-run --ext=ipython DaVinci/v45r1 ipython -i explore.py 00070793_00000001_7.AllStreams.dst
+$ lb-run --ext=ipython DaVinci/v45r8 ipython -i explore.py 00070793_00000001_7.AllStreams.dst
 ```
 
 Get the first candidate in the `D2hhPromptDst2D2KKLine` line:
@@ -72,7 +72,7 @@ This can be done calling the function `momentum()` for our candidate in the foll
 p_x = candidate.momentum().X()
 p_y = candidate.momentum().Y()
 p_z = candidate.momentum().Z()
-print p_x, p_y, p_z
+print (p_x, p_y, p_z)
 ```
 
 This is inconvenient when [running DaVinci with Python options files](minimal-dv-job): there's no way of calling the `momentum()` method.
@@ -80,9 +80,9 @@ Instead, we can use the corresponding LoKi particle functors:
 
 ```python
 from LoKiPhys.decorators import PX, PY, PZ
-print PX(candidate)
-print PY(candidate)
-print PZ(candidate)
+print (PX(candidate))
+print (PY(candidate))
+print (PZ(candidate))
 ```
 
 You will see an error when loading the functors:
@@ -112,8 +112,8 @@ There exist specific LoKi functors for all the most important properties of the 
 
 ```python
 from LoKiPhys.decorators import PT, M
-print PT(candidate)
-print M(candidate)
+print (PT(candidate))
+print (M(candidate))
 ```
 
 {% challenge "Some practice" %}
@@ -129,7 +129,7 @@ Now, retrieve the transverse momentum and invariant mass (you will probably need
 By the [convention](https://lhcb-comp.web.cern.ch/lhcb-comp/Support/Conventions/units.pdf), the LHCb default units are MeV, millimeters and nanoseconds. It is easy to print the values of interest in other units:
 ```python
 from LoKiPhys.decorators import GeV
-print PT(candidate)/GeV
+print (PT(candidate)/GeV)
 ```
 
 {% endcallout %} 
@@ -139,7 +139,7 @@ quality (`$ \chi^2 $`), we need to pass a vertex object to the vertex functor.
 
 ```python
 from LoKiPhys.decorators import VCHI2
-print VCHI2(candidate.endVertex())
+print (VCHI2(candidate.endVertex()))
 ```
 
 Again, this is inconvenient when [running DaVinci with Python options 
@@ -170,6 +170,8 @@ What would `create_greeting('Hello')` return? What about
 
 {% endchallenge %} 
 
+Recently, there has been some effort to simplify the LoKi syntax. In particular, the new functor `CHI2VX` was introduced which is equivalent to `VFASPF(VCHI2)`. However, in pretty much all code used during Runs 1 and 2 of LHCb you will only see the old syntax. 
+
 Calculation of some of the properties, such as the impact parameter (IP) or cosine of the 
 direction angle (DIRA), requires the knowledge of the primary vertex (PV) 
 associated to the candidate.
@@ -186,7 +188,7 @@ best_pv = pv_finder_tool.relatedPV(candidate, pvs)
 Now, we can get the cosine of the direction angle for the candidate given the primary vertex: 
 ```python
 from LoKiPhys.decorators import DIRA
-print DIRA(best_pv)(candidate)
+print (DIRA(best_pv)(candidate))
 ```
 
 Given that this is a very common operation, we have the possibility of using, in the context of a `DaVinci` application (Stripping, for example), a special set of functors, starting with the `BPV` prefix (for Best PV), which will get the PV for us.
@@ -201,10 +203,10 @@ ipTool = gbl.LoKi.Vertices.ImpactParamTool(distCal)
 Now, we evaluate the quality of impact parameter of the candidate, given the primary vertex, and using the provided calculator:
 ```python
 from LoKiPhys.decorators import IPCHI2
-print IPCHI2(best_pv, ipTool)(candidate)
+print (IPCHI2(best_pv, ipTool)(candidate))
 ```
 
-In the context of `DaVinci` application, e.g. the Stripping, the things become much simplier since the calculator instances are loaded automatically, and the syntax for calling the `IPCHI2` functor becomes `IPCHI2(best_pv,geo())(cand)`, where `geo()` is the geometry calculator tool.
+In the context of `DaVinci` application, e.g. the Stripping, the things become much simplier since the calculator instances are loaded automatically, and the syntax for calling the `IPCHI2` functor becomes `IPCHI2(best_pv,geo())(candidate)`, where `geo()` is the geometry calculator tool.
 
 {% callout "Finding LoKi functors" %}
 
@@ -285,8 +287,8 @@ This is why you should **always** use `&` and `|` when combining LoKi functors, 
 Similarly, the `SUMTREE` functor allows us to accumulate quantities for those children that pass a certain selection:
 ```python
 from LoKiPhys.decorators import SUMTREE, ABSID
-print SUMTREE(321 == ABSID, PT)(candidate)
-print SUMTREE('K+' == ABSID, PT)(candidate)
+print (SUMTREE(321 == ABSID, PT)(candidate))
+print (SUMTREE('K+' == ABSID, PT)(candidate))
 ```
 In this case, we have summed the transverse momentum of the charged kaons in the tree.
 Note the usage of the `ABSID` functor, which selects particles from the decay 
@@ -313,9 +315,9 @@ Therefore, to access the mass of the `$ D^{0} $` we have 2 options:
 ```python
 from LoKiPhys.decorators import CHILD
 # Option 1
-mass = M(cand.daughtersVector()[0])
+mass = M(candidate.daughtersVector()[0])
 # Option 2
-mass_child = CHILD(M, 1)(cand)
+mass_child = CHILD(M, 1)(candidate)
 # Do they agree?
 mass == mass_child
 ```
@@ -394,5 +396,11 @@ the most important of these are:
   monitor_p_components_sum = monitor(p_components_sum)
   monitor_p_components_sum(candidate)
   ```
+
+{% endcallout %} 
+
+{% callout "A word on the Run 3" %}
+
+In the Run 3, we introduce a more performant set of **th**roughput-**or**iented functors, known as [ThOr functors](https://lhcbdoc.web.cern.ch/lhcbdoc/moore/master/selection/thor_functors.html). While they have certain conceptual similarities to the LoKi functors, they are designed to work in a more efficient manner for multithreaded execution. 
 
 {% endcallout %} 

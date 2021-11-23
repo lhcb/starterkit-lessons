@@ -56,16 +56,16 @@ One of the most important ones is *DaVinci*, which provides lots of *Algorithms*
 
 You can run DaVinci using the following command [on lxplus](../first-analysis-steps/prerequisites.md#Pre-workshop checklist):
 ```bash
-lb-run DaVinci/v45r1 gaudirun.py
+lb-run DaVinci/v45r8 gaudirun.py
 ```
 
-This will run the `gaudirun.py` command using version v45r1 of DaVinci. (`lb-run` sets the specified environment for `gaudirun.py` to run in.)
+This will run the `gaudirun.py` command using version v45r8 of DaVinci. (`lb-run` sets the specified environment for `gaudirun.py` to run in.)
 `gaudirun.py` is a script that sets up the EventLoop.
 You should get the following output:
 
 ```
 ====================================================================================================================================
-                                                   Welcome to DaVinci version v45r1
+                                                   Welcome to DaVinci version v45r8
                                           running on lxplus707.cern.ch on Thu Sep 19 14:17:08 2019
 ====================================================================================================================================
 ApplicationMgr       INFO Application Manager Configured successfully
@@ -85,7 +85,7 @@ During this run, DaVinci didn't do anything: We didn't specify any algorithms to
 Usually, you will write an option file (e.g. `options.py`) and specify it as an argument to `gaudirun.py`:
 
 ```bash
-lb-run DaVinci/v45r1 gaudirun.py options.py
+lb-run DaVinci/v45r8 gaudirun.py options.py
 ```
 
 An `option.py` is just a regular Python script that specifies how to set things up in the software.
@@ -93,7 +93,7 @@ Many of the following lessons will teach you how to do something with DaVinci by
 You can use the above command to test it.
 You can also specify several option files like this:
 ```bash
-lb-run DaVinci/v45r1 gaudirun.py options1.py options2.py
+lb-run DaVinci/v45r8 gaudirun.py options1.py options2.py
 ```
 They will then both be used to set up DaVinci.
 
@@ -119,11 +119,11 @@ above) and a set for everything else. Generally, you will want the latest
 version in the latter set, such as when making ntuples from Run 1 or Run 2
 data.
 
-These lessons use [DaVinci v45r1][v45r1], which was the latest Run 1/2 version at the
+These lessons use [DaVinci v45r8][v45r8], which was the latest Run 1/2 version at the
 time the text was last revised.
 
 [releases]: http://lhcbdoc.web.cern.ch/lhcbdoc/davinci/releases/
-[v45r1]: http://lhcbdoc.web.cern.ch/lhcbdoc/davinci/releases/v45r1/
+[v45r8]: http://lhcbdoc.web.cern.ch/lhcbdoc/davinci/releases/v45r8/
 
 **Note:** Older versions of DaVinci may not be available on the default platform ```x86_64-centos7-gcc8-opt```.
 To get around this we can pick the best suitable platform by using ```lb-run -c best DaVinci/vXXrYpZ ...```.
@@ -135,11 +135,11 @@ More details about the platform string are available in [HSF-TN-2018-01](https:/
 Do you want to start a shell that already contains the LHCb environment, so you don't have to use `lb-run`?
 Execute
 ```bash
-lb-run DaVinci/v45r1 $SHELL
+lb-run DaVinci/v45r8 $SHELL
 ```
 Note that sometimes this environment can result in failing scripts due to struggles with your shell's rc file (e.g., `~/.bashrc`). Using
 ```bash
-lb-run DaVinci/v45r1 bash --norc
+lb-run DaVinci/v45r8 bash --norc
 ```
 avoids this, but means you won't be able to use any aliases, etc, included in the ignored rc file.
 
@@ -151,10 +151,10 @@ Typing `exit` or using `Ctrl-d` will close the shell and leave the LHCb environm
 When reading through other tutorials, you will come across `SetupProject`.
 This is an older way of setting up a shell that is configured to run LHCb software.
 `lb-run` is the new way of doing things and has some nice benefits over `SetupProject`.
-For most purposes, `SetupProject DaVinci v45r1` is equivalent to
+For most purposes, `SetupProject DaVinci v45r8` is equivalent to
 ```bash
-lb-run DaVinci/v45r1 $SHELL
+lb-run DaVinci/v45r8 $SHELL
 ```
-but you should really avoid doing things this way as this method is no longer supported for the latest project releases. (The environment for DaVinci v45r1, for example, cannot be started this way.)
+but you should really avoid doing things this way as this method is no longer supported for the latest project releases. (The environment for DaVinci v45r8, for example, cannot be started this way.)
 
 {% endcallout %} 
