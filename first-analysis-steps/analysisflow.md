@@ -80,7 +80,7 @@ Other corrections, like correcting the kinematics distributions in the simulated
 
 After acquiring the parameter(s) of interest, one has to have their work being reviewed by [physics working group](http://lhcb.web.cern.ch/lhcb_page/collaboration/organization/lhcb-conv/Physics_history_and_Sub-structure.html) (PWG) and then by the LHCb collaboration. 
 
-One of the requirements for the successful review is that your analysis is fully preserved and can be reproduced by another LHCb physicist.  
+One of the requirements for the successful review is that your analysis code is preserved.  
 Scientific integrity means having transparency on each step of the research as well as reproducibility of the results.
 Both LHCb and CERN have guidelines which one should always follow when conducting research usign LHCb or CERN facilities.
 LHCb guidelines are discussed and implemented in the [work package 6](https://lhcb-dpa.web.cern.ch/lhcb-dpa/wp6/index.html) of DPA.
