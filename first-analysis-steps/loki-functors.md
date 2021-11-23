@@ -401,6 +401,6 @@ the most important of these are:
 
 {% callout "A word on the Run 3" %}
 
-In the Run 3, we introduce a more performant set of **th**roughput-**or**iented functors, known as [ThOr functors](https://lhcbdoc.web.cern.ch/lhcbdoc/moore/master/selection/thor_functors.html). While they have certain conceptual similarities to the LoKi functors, they are designed to work in a more efficient manner for multi-threaded execution. 
+In the Run 3, we introduce a more performant set of **th**roughput-**or**iented functors, known as [ThOr functors](https://lhcbdoc.web.cern.ch/lhcbdoc/moore/master/selection/thor_functors.html). While they have certain conceptual similarities to the LoKi functors, they are designed to work in a more efficient manner for multithreaded execution. 
 
 {% endcallout %} 
