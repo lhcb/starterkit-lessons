@@ -83,6 +83,19 @@
 <li class="toctree-l2"><a class="reference internal" href="ganga-data.html">More Ganga</a></li>
 <li class="toctree-l2"><a class="reference internal" href="eos-storage.html">Storing large files on EOS</a></li>
 <li class="toctree-l2"><a class="reference internal" href="lhcb-dev.html">Developing LHCb Software</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dataflow-run3.html">LHCb data flow in Run 3</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="dataflow-run3.html#lhcb-upgrade">LHCb upgrade</a></li>
+<li class="toctree-l3"><a class="reference internal" href="dataflow-run3.html#upgrade-of-the-lhcb-trigger-system">Upgrade of the LHCb trigger system</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="dataflow-run3.html#the-hlt-architecture">The HLT architecture</a></li>
+<li class="toctree-l4"><a class="reference internal" href="dataflow-run3.html#selective-persistency">Selective persistency</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="dataflow-run3.html#offline-data-processing">Offline data processing</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="dataflow-run3.html#changes-to-davinci">Changes to DaVinci</a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="asking-questions.html">Asking good questions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="ecgd.html">Early career, gender and diversity</a></li>
 <li class="toctree-l2"><a class="reference internal" href="contributing-lesson.html">Contribute to this lesson</a></li>
@@ -329,6 +342,10 @@ For example, to resubmit a failed subjob, you would run</p>
 <p>It’s possible that some of your subjobs will be stuck in a certain state (submitting/completing/…).
 If that is the case, try to reset the Dirac backend:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">jobs</span><span class="p">(</span><span class="mi">787</span><span class="p">)</span><span class="o">.</span><span class="n">subjobs</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span><span class="o">.</span><span class="n">backend</span><span class="o">.</span><span class="n">reset</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>If you want to this for all stucked subjobs of your job in once, you can use</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">jobs</span><span class="p">(</span><span class="mi">787</span><span class="p">)</span><span class="o">.</span><span class="n">backend</span><span class="o">.</span><span class="n">reset</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>If that doesn’t help, try failing the job and resubmitting:</p>

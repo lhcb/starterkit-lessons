@@ -38,6 +38,7 @@ The [analysis essentials course](https://hsf-training.github.io/analysis-essenti
     ganga-data.md
     eos-storage.md
     lhcb-dev.md
+    dataflow-run3.md
     asking-questions.md
     ecgd.md
     contributing-lesson.md

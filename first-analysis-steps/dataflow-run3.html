@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Early career, gender and diversity &mdash; LHCb Starterkit Lessons  documentation</title>
+  <title>LHCb data flow in Run 3 &mdash; LHCb Starterkit Lessons  documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/panels.css" type="text/css" />
@@ -22,8 +22,8 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Contribute to this lesson" href="contributing-lesson.html" />
-    <link rel="prev" title="Asking good questions" href="asking-questions.html" /> 
+    <link rel="next" title="Asking good questions" href="asking-questions.html" />
+    <link rel="prev" title="Developing LHCb Software" href="lhcb-dev.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -83,21 +83,21 @@
 <li class="toctree-l2"><a class="reference internal" href="ganga-data.html">More Ganga</a></li>
 <li class="toctree-l2"><a class="reference internal" href="eos-storage.html">Storing large files on EOS</a></li>
 <li class="toctree-l2"><a class="reference internal" href="lhcb-dev.html">Developing LHCb Software</a></li>
-<li class="toctree-l2"><a class="reference internal" href="dataflow-run3.html">LHCb data flow in Run 3</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="dataflow-run3.html#lhcb-upgrade">LHCb upgrade</a></li>
-<li class="toctree-l3"><a class="reference internal" href="dataflow-run3.html#upgrade-of-the-lhcb-trigger-system">Upgrade of the LHCb trigger system</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="dataflow-run3.html#the-hlt-architecture">The HLT architecture</a></li>
-<li class="toctree-l4"><a class="reference internal" href="dataflow-run3.html#selective-persistency">Selective persistency</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">LHCb data flow in Run 3</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#lhcb-upgrade">LHCb upgrade</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#upgrade-of-the-lhcb-trigger-system">Upgrade of the LHCb trigger system</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#the-hlt-architecture">The HLT architecture</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#selective-persistency">Selective persistency</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="dataflow-run3.html#offline-data-processing">Offline data processing</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="dataflow-run3.html#changes-to-davinci">Changes to DaVinci</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#offline-data-processing">Offline data processing</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#changes-to-davinci">Changes to DaVinci</a></li>
 </ul>
 </li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="asking-questions.html">Asking good questions</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Early career, gender and diversity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ecgd.html">Early career, gender and diversity</a></li>
 <li class="toctree-l2"><a class="reference internal" href="contributing-lesson.html">Contribute to this lesson</a></li>
 </ul>
 </li>
@@ -236,9 +236,9 @@
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
           <li><a href="README.html">First Analysis Steps</a> &raquo;</li>
-      <li>Early career, gender and diversity</li>
+      <li>LHCb data flow in Run 3</li>
       <li class="wy-breadcrumbs-aside">
-              <a href="https://github.com/lhcb/starterkit-lessons/blob/master/first-analysis-steps/ecgd.md" class="fa fa-github"> Edit on GitHub</a>
+              <a href="https://github.com/lhcb/starterkit-lessons/blob/master/first-analysis-steps/dataflow-run3.md" class="fa fa-github"> Edit on GitHub</a>
       </li>
   </ul>
   <hr/>
@@ -270,40 +270,80 @@
     text-align: unset;
 }
 </style>
-<section id="early-career-gender-and-diversity">
-<h1>Early career, gender and diversity<a class="headerlink" href="#early-career-gender-and-diversity" title="Permalink to this headline"></a></h1>
+<section id="lhcb-data-flow-in-run-3">
+<h1>LHCb data flow in Run 3<a class="headerlink" href="#lhcb-data-flow-in-run-3" title="Permalink to this headline"></a></h1>
 <div class="panel panel-objectives docutils container">
 <div class="panel-header open docutils container">
 <p id="learning-objectives"><i class="fa fa-line-chart"></i> Learning Objectives</p>
 </div>
 <div class="panel-body docutils container">
 <ul class="simple">
-<li><p>Know about the existence of the ECGD office, where ECGD means Early Career,
-Gender and Diversity.</p></li>
-<li><p>Meet the ECGD representatives</p></li>
-<li><p>Learn how/when the ECGD office can be useful for you.</p></li>
+<li><p>Understand the changes to the LHCb data flow for Run 3</p></li>
+<li><p>Learn the key concepts on the HLT, Sprucing</p></li>
 </ul>
 </div>
 </div>
-<p>The aim of the ECGD is to help LHCb achieve a working environment in which all LHCb members can thrive. This includes especially those experiencing discrimination on grounds of gender, sexual orientation, ethnicity, disability, creed, cultural background or other factors. The ECGD also helps early-career physicists who wish to, eventually, escape the precarious life of repeated short-term contracts and reach a permanent position. You can find more information and a lot of documentation in the <a class="reference external" href="https://lhcb.web.cern.ch/lhcb/ECGD_Office/ECGD-intro.html">ECGD web page</a>.</p>
-<div class="panel panel-callout docutils container">
-<div class="panel-header open docutils container">
-<p id="the-ecgd-office"><i class="fa fa-info-circle"></i> The ECGD office</p>
-</div>
-<div class="panel-body docutils container">
-<p>It’s made up of two people. You’ll meet one of them during the Starterkit.  In
-general, the ECGD “officers” will be happy to receive your emails, phone calls
-or meet in person.</p>
-</div>
-</div>
+<section id="lhcb-upgrade">
+<h2>LHCb upgrade<a class="headerlink" href="#lhcb-upgrade" title="Permalink to this headline"></a></h2>
+<p>In Run 1 &amp; 2 LHCb proved itself not only to be a high-precision
+heavy flavour physics experiment, but also extended the core physics programme to many different areas such as electroweak physics and fixed-target experiments. This incredible precision led to
+over 500 papers including breakthroughs such as the first discovery of $C!P$-violation in charm and the first observation of the decay $B_s^0\to \mu^+\mu^-$ among many others.</p>
+<p>In order to reach even higher precision the experiment aims to take $50,\mathrm{fb}^{-1}$ of
+data in Run 3 by increasing the instantaneous luminosity by a factor of five.
+To be capable of dealing with the higher detector occupancy the experiment will be equipped with an entire new set of tracking detectors with higher granularity and improved radiation tolerance.</p>
+<p>One of the most important upgrades in Run 3 will be the removal of the LHCb L0 hardware triggers. As described in the following, this will bring significant changes in the data flow of the experiment both for online and offline processing. It also means that the front-end and readout electronics of all sub-detectors will be replaced, to be able
+to operate at the bunch crossing rate of $40,\mathrm{MHz}$, as well as the photodetectors of the RICH1 detector.</p>
+</section>
+<section id="upgrade-of-the-lhcb-trigger-system">
+<h2>Upgrade of the LHCb trigger system<a class="headerlink" href="#upgrade-of-the-lhcb-trigger-system" title="Permalink to this headline"></a></h2>
+<p>The trigger layout for Run 3 will look like this:</p>
+<p><img alt="&quot;Data processing chain for Run 3&quot;" src="../_images/hidef_RTA_dataflow_widescreen.png" /></p>
+<p>The LHCb trigger system will be fully redesigned by removing the L0 hardware trigger and moving to a fully-software based trigger. The hardware trigger has a rate limit of 1 MHz, which would be a limitation with the increase in luminosity. Such a low rate could be only achieved by having tight hardware trigger thresholds on $p_\mathrm{T}$ and $E_\mathrm{T}$ which is inefficient especially for fully hadronic decay modes. The removal of this bottleneck means that the full detector readout as well as running the HLT1 needs to be enabled at the average non-empty bunch crossing rate in LHCb of $30,\mathrm{MHz}$, a not so trivial computing challenge!</p>
+<p>As we saw already at the <a class="reference external" href="https://lhcb.github.io/starterkit-lessons/first-analysis-steps/dataflow.html">Run 1 and Run 2 dataflow lecture</a>, the software trigger is implemented in two steps: the HLT1 which performs partial event reconstruction and simple trigger decisions to reduce the data rate, and HLT2, which performs the more computationally expensive full reconstruction and complete trigger selection. One of the most important tasks of building the events is track reconstruction, which is an inherently parallelizable process. For this purpose, HLT1 in Run 3 is implemented as part of the <code class="docutils literal notranslate"><span class="pre">Allen</span> <span class="pre">project</span></code> and run on GPUs.</p>
+<section id="the-hlt-architecture">
+<h3>The HLT architecture<a class="headerlink" href="#the-hlt-architecture" title="Permalink to this headline"></a></h3>
+<p>Data from the various subdetectors are received in the central Data Acquisition (DAQ) system of LHCb by custom Field Programmable Gate Array (FPGA) cards, called PCIe40. A set of servers, the Event Builder (EB), then pieces together fragments of raw data information from the subdetectors to form events and group them into packets. The event packets are then passed to an Event Filtering Farm (EFF) for further processing, and events passing the selection end up in storage. The existing HLT architecture of LHCb is well suited for the requirements of GPUs and can be easily adapted to host them in the Event Builder. HLT1 will reduce the data rate by a factor of 30, and implementing it already at the EB level will greatly minimize the size of the network needed for the following steps.</p>
+<p>Having the HLT1 run on GPUs imposes some different requirements on the code development. The <code class="docutils literal notranslate"><span class="pre">Allen</span></code> framework is based on the <code class="docutils literal notranslate"><span class="pre">CUDA</span></code> GPU programming platform. Developers should keep in mind that HLT1 algorithms should be implemented in a way that maximizes parallelizability and is thread-safe, i.e. memory should be accessed in a secure way from parallel processes. Documentation on how to develop reconstruction algorithms and selection lines for HLT1 can be found in the readme’s of the <a class="reference external" href="https://gitlab.cern.ch/lhcb/Allen">Allen project</a>.</p>
+<p>The raw data of events selected by HLT1 is passed on to the buffer system and stored there. The buffering of events enables to run the real-time alignment and calibration before events are entering HLT2. This is crucial because in this way calibration and alignment constants obtained can be used in the full event reconstruction performed in HLT2. For the determination of these constants, HLT1 selects dedicated calibration samples.
+More information about the real-time alignment and calibration can be found in the <a class="reference external" href="https://twiki.cern.ch/twiki/bin/view/LHCb/AlignmentInUpgrade">Upgrade Alignment TWIKI page</a>.</p>
+<p>The total bandwidth that can be saved from HLT2 to tape is limited to $10,\mathrm{GB}/s$. An important change in the HLT2 selections with respect to the Run 2 will be the increased use of the Turbo model. Wherever possible, the Turbo will be the baseline, so that in total for approximately 2/3 of data only the data of the signal candidate (raw and reconstructed) will be saved and no further offline reconstruction will be possible. This results in significantly smaller event sizes so that more events can be saved.</p>
+<p>For details and tutorials on how to develop HLT2 line selections as well as how to check their efficiencies and data rates follow the <a class="reference external" href="https://lhcbdoc.web.cern.ch/lhcbdoc/moore/master/index.html">Moore documentation</a>.</p>
+</section>
+<section id="selective-persistency">
+<h3>Selective persistency<a class="headerlink" href="#selective-persistency" title="Permalink to this headline"></a></h3>
+<p>Besides the events that are processed by the Turbo stream, there are cases for persisting extra information of the raw data. For some decay modes, it cannot be avoided to save the full raw data, whereas for others few extra information is needed. In case of persisting the full raw and reconstructed data of the event HLT2 line can be run by setting the flag <code class="docutils literal notranslate"><span class="pre">persistreco=True</span></code>. When full event information is not required objects can be persisted selectively by defining <code class="docutils literal notranslate"><span class="pre">extra_outputs</span></code>, which can be among the following:</p>
+<ul class="simple">
+<li><p>extra reconstructed tracks</p></li>
+<li><p>ECAL clusters for neutral objects</p></li>
+<li><p>…</p></li>
+</ul>
+</section>
+</section>
+<section id="offline-data-processing">
+<h2>Offline data processing<a class="headerlink" href="#offline-data-processing" title="Permalink to this headline"></a></h2>
+<p>Events that have passed HLT2 and have been saved to tape are further processed offline by running through the Sprucing application. After passing the Sprucing events are saved on disk. For events from the Turbo stream, the default model is to run through the Sprucing only in a passthrough sprucing selection, whereas others can undergo a tighter selection by running through a sprucing line. This is necessary because the total bandwidth for events that can be saved on disk is only 3.6GB/s, whereas for saving data from HLT2 to tape 10GB/s are available. Data that is saved to disk will be provided in streams dedicated to specific physics applications.</p>
+<p>HLT2 and sprucing selections share the same code base, so that selection lines can be interchanged among the two flexibly.</p>
+<p><img alt="https://lhcbproject.web.cern.ch/lhcbproject/Publications/f/p/Directory_LHCb-FIGURE-2020-016/hidef_DPA_dataflow.png" src="https://lhcbproject.web.cern.ch/lhcbproject/Publications/f/p/Directory_LHCb-FIGURE-2020-016/hidef_DPA_dataflow.png" /></p>
+<section id="changes-to-davinci">
+<h3>Changes to DaVinci<a class="headerlink" href="#changes-to-davinci" title="Permalink to this headline"></a></h3>
+<p>As in Run 2, the DaVinci application is used to produce tuples for offline user analysis from the different physics streams. DaVinci itself is being redesigned to address the following issues:</p>
+<ul class="simple">
+<li><p>storage and computing resources are limited and saving irrelevant variables should be avoided, especially because there will be much more data in Run 3</p></li>
+<li><p>consistency between online and offline selection frameworks in using ThOr functors</p></li>
+</ul>
+<p>For this purpose the tupling tool is changed to <code class="docutils literal notranslate"><span class="pre">FunTuple</span></code> which allows more flexibility for users to choose only variables that are needed for the analysis and not take all variables from a specific TupleTool. After a transition certain period that is necessary to develop all demanded tupling features for <code class="docutils literal notranslate"><span class="pre">FunTuple</span></code> the TupleTools used in Run 2 will no longer be supported and fully removed from DaVinci.
+At the moment FunTuple supports both LoKi and ThOr functors until all relevant functors are migrated to the ThOr framework. Afterwards the use of LoKi functors will be depricated.</p>
+<p>For detailed information and implementation examples of <code class="docutils literal notranslate"><span class="pre">FunTuple</span></code> and offline data processing in Run 3 see the <a class="reference external" href="https://gitlab.cern.ch/lhcb/DaVinci/-/blob/master/DaVinciExamples/python/DaVinciExamples/tupling/example-tupling-advanced-run-mc.py">DaVinciExamples</a> and <a class="reference external" href="https://lhcb-dpa.web.cern.ch/lhcb-dpa/index.html">DPA documentation</a>.</p>
+</section>
+</section>
 </section>
 
 
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="asking-questions.html" class="btn btn-neutral float-left" title="Asking good questions" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="contributing-lesson.html" class="btn btn-neutral float-right" title="Contribute to this lesson" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="lhcb-dev.html" class="btn btn-neutral float-left" title="Developing LHCb Software" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="asking-questions.html" class="btn btn-neutral float-right" title="Asking good questions" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
