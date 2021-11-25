@@ -116,7 +116,7 @@ The usage of `Branches` is very important (and strongly encouraged) to keep the 
 One of the most difficult things is to know which tool we need to add to our 
 `DecayTreeTuple` in order to get the information we want.
 For this, it is necessary to know where to find `TupleTools` and their code.
-`TupleTools` are spread in 9 packages under `Analysis/Phys` (see the master branch in `git` [here](https://gitlab.cern.ch/lhcb/Analysis/tree/master/Phys)), all starting with the prefix `DecayTreeTuple`, according to the type of information they fill in our ntuple:
+`TupleTools` are spread in 9 packages under `Analysis/Phys` (see the master branch in `git` [here](https://gitlab.cern.ch/lhcb/Analysis/tree/run2-patches/Phys)), all starting with the prefix `DecayTreeTuple`, according to the type of information they fill in our ntuple:
 
 - `DecayTreeTuple` for the more general tools;
 - `DecayTreeTupleANNPID` for the NeuralNet-based PID tools;
@@ -131,7 +131,7 @@ For this, it is necessary to know where to find `TupleTools` and their code.
 The `TupleTools` are placed in the `src` folder within each package and it's usually easy to get what they do just by looking at their name.
 However, the best way to know what a tool does is check its documentation, either by opening its `.h` file or be searching for it in the latest [`doxygen`](https://lhcb-doxygen.web.cern.ch/lhcb-doxygen/davinci/latest/index.html).
 Most tools are very well documented and will also inform you of their configuration options.
-As an example, to get the information on the `TupleToolTrackInfo` we used before we could either check its [source code](https://gitlab.cern.ch/lhcb/Analysis/blob/master/Phys/DecayTreeTupleReco/src/TupleToolTrackInfo.h) or its [web documentation](https://lhcb-doxygen.web.cern.ch/lhcb-doxygen/davinci/latest/da/ddd/class_tuple_tool_track_info.html).
+As an example, to get the information on the `TupleToolTrackInfo` we used before we could either check its [source code](https://gitlab.cern.ch/lhcb/Analysis/blob/run2-patches/Phys/DecayTreeTupleReco/src/TupleToolTrackInfo.h) or its [web documentation](https://lhcb-doxygen.web.cern.ch/lhcb-doxygen/davinci/latest/da/ddd/class_tuple_tool_track_info.html).
  In case we need more information or need to know *exactly* what the code does, the `fill` method is the one we need to look at.
 
  As a shortcut, the list of tupletools can also be found in doxygen at the top of the pages for the [`IParticleTupleTool`](https://lhcb-doxygen.web.cern.ch/lhcb-doxygen/davinci/latest/de/df8/struct_i_particle_tuple_tool.html) and the [`IEventTupleTool`](https://lhcb-doxygen.web.cern.ch/lhcb-doxygen/davinci/latest/d5/d88/struct_i_event_tuple_tool.html) interfaces (depending on whether they fill information about specific particles or the event in general).
