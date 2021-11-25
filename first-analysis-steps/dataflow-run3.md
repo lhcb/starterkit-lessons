@@ -11,14 +11,14 @@
 
 In Run 1 & 2 LHCb proved itself not only to be a high-precision
 heavy flavour physics experiment, but also extended the core physics programme to many different areas such as electroweak physics and fixed-target experiments. This incredible precision led to
-over 500 papers including breakthroughs such as the first discovery of $C\!P$-violation in charm and the first observation of the decay $B_s^0\to \mu^+\mu^-$ among many others.
+over 500 papers including breakthroughs such as the first discovery of `$ C\!P $`-violation in charm and the first observation of the decay `$ B_s^0\to \mu^+\mu^- $` among many others.
 
-In order to reach even higher precision the experiment aims to take $50\,\mathrm{fb}^{-1}$ of
+In order to reach even higher precision the experiment aims to take `$ 50\,\mathrm{fb}^{-1} $` of
 data in Run 3 by increasing the instantaneous luminosity by a factor of five.
 To be capable of dealing with the higher detector occupancy the experiment will be equipped with an entire new set of tracking detectors with higher granularity and improved radiation tolerance.
 
 One of the most important upgrades in Run 3 will be the removal of the LHCb L0 hardware triggers. As described in the following, this will bring significant changes in the data flow of the experiment both for online and offline processing. It also means that the front-end and readout electronics of all sub-detectors will be replaced, to be able
-to operate at the bunch crossing rate of $40\,\mathrm{MHz}$, as well as the photodetectors of the RICH1 detector. 
+to operate at the bunch crossing rate of `$ 40\,\mathrm{MHz} $`, as well as the photodetectors of the RICH1 detector. 
 
 ## Upgrade of the LHCb trigger system
 
@@ -26,7 +26,7 @@ The trigger layout for Run 3 will look like this:
 
 !["Data processing chain for Run 3"](img/hidef_RTA_dataflow_widescreen.png)
 
-The LHCb trigger system will be fully redesigned by removing the L0 hardware trigger and moving to a fully-software based trigger. The hardware trigger has a rate limit of 1 MHz, which would be a limitation with the increase in luminosity. Such a low rate could be only achieved by having tight hardware trigger thresholds on $p_\mathrm{T}$ and $E_\mathrm{T}$ which is inefficient especially for fully hadronic decay modes. The removal of this bottleneck means that the full detector readout as well as running the HLT1 needs to be enabled at the average non-empty bunch crossing rate in LHCb of $30\,\mathrm{MHz}$, a not so trivial computing challenge!
+The LHCb trigger system will be fully redesigned by removing the L0 hardware trigger and moving to a fully-software based trigger. The hardware trigger has a rate limit of 1 MHz, which would be a limitation with the increase in luminosity. Such a low rate could be only achieved by having tight hardware trigger thresholds on `$ p_\mathrm{T} $` and `$ E_\mathrm{T} $` which is inefficient especially for fully hadronic decay modes. The removal of this bottleneck means that the full detector readout as well as running the HLT1 needs to be enabled at the average non-empty bunch crossing rate in LHCb of `$ 30\,\mathrm{MHz} $`, a not so trivial computing challenge!
 
 As we saw already at the [Run 1 and Run 2 dataflow lecture](https://lhcb.github.io/starterkit-lessons/first-analysis-steps/dataflow.html), the software trigger is implemented in two steps: the HLT1 which performs partial event reconstruction and simple trigger decisions to reduce the data rate, and HLT2, which performs the more computationally expensive full reconstruction and complete trigger selection. One of the most important tasks of building the events is track reconstruction, which is an inherently parallelizable process. For this purpose, HLT1 in Run 3 is implemented as part of the ```Allen project``` and run on GPUs.
 
@@ -38,7 +38,7 @@ Having the HLT1 run on GPUs imposes some different requirements on the code deve
 The raw data of events selected by HLT1 is passed on to the buffer system and stored there. The buffering of events enables to run the real-time alignment and calibration before events are entering HLT2. This is crucial because in this way calibration and alignment constants obtained can be used in the full event reconstruction performed in HLT2. For the determination of these constants, HLT1 selects dedicated calibration samples. 
 More information about the real-time alignment and calibration can be found in the [Upgrade Alignment TWIKI page](https://twiki.cern.ch/twiki/bin/view/LHCb/AlignmentInUpgrade).
 
-The total bandwidth that can be saved from HLT2 to tape is limited to $10\,\mathrm{GB}/s$. An important change in the HLT2 selections with respect to the Run 2 will be the increased use of the Turbo model. Wherever possible, the Turbo will be the baseline, so that in total for approximately 2/3 of data only the data of the signal candidate (raw and reconstructed) will be saved and no further offline reconstruction will be possible. This results in significantly smaller event sizes so that more events can be saved.
+The total bandwidth that can be saved from HLT2 to tape is limited to `$ 10\,\mathrm{GB}/s $`. An important change in the HLT2 selections with respect to the Run 2 will be the increased use of the Turbo model. Wherever possible, the Turbo will be the baseline, so that in total for approximately 2/3 of data only the data of the signal candidate (raw and reconstructed) will be saved and no further offline reconstruction will be possible. This results in significantly smaller event sizes so that more events can be saved.
 
 For details and tutorials on how to develop HLT2 line selections as well as how to check their efficiencies and data rates follow the [Moore documentation](https://lhcbdoc.web.cern.ch/lhcbdoc/moore/master/index.html).
 
