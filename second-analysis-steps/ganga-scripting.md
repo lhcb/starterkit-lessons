@@ -271,7 +271,7 @@ def write_lfns(j, filename):
             lfns.append(df.lfn)
 
     with open(filename, 'w') as f:
-        f.writelfns('\n'.join(lfns))
+        f.write('\n'.join(lfns))
 ```
 
 How about downloading and merging the ROOT output of a job's subjobs? Write a helper!
