@@ -49,7 +49,7 @@ up.
    configuration.  To ensure that this is the case, run
    ```
    git config --global user.name "Your Name"
-   git config --global user.email "Your Name <your.name@cern.ch>"
+   git config --global user.email "your.name@cern.ch"
    ```
    and put in your information.
 
