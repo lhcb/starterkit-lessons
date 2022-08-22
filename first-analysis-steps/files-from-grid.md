@@ -94,7 +94,7 @@ if __name__ == '__main__':
     files = FILES[:n_files]
     for f in files:
         print('Getting file {0}.'.format(f))
-        call('dirac-dms-get-file {0}'.format(f), shell=True)
+        call('lb-dirac dirac-dms-get-file LFN:{0}'.format(f), shell=True)
     print('Done getting {0} files.'.format(n_files))
 ```
 
