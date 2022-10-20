@@ -52,7 +52,7 @@ j = Job(name='First ganga job')
 myApp = prepareGaudiExec('DaVinci','v45r8', myPath='.')
 j.application = myApp
 j.application.options = ['ntuple_options.py']
-j.application.platform = 'x86_64-centos7-gcc8-opt'
+j.application.platform = 'x86_64_v2-centos7-gcc10-opt'
 bkPath = '/MC/2016/Beam6500GeV-2016-MagDown-Nu1.6-25ns-Pythia8/Sim09c/Trig0x6138160F/Reco16/Turbo03/Stripping28r1NoPrescalingFlagged/27163002/ALLSTREAMS.DST'
 data  = BKQuery(bkPath, dqflag=['OK']).getDataset()
 j.inputdata = data[0:2]     # access only the first 2 files of data
@@ -102,7 +102,7 @@ So for some DaVinci versions, including the latest `DaVinci v45r8` a few additio
 
 When setting up your ganga job, add the following line after declaring the `j.application`:
 ```python
-j.application.platform = 'x86_64-centos7-gcc8-opt'
+j.application.platform = 'x86_64_v2-centos7-gcc10-opt'
 ```
 
 {% endcallout %}
@@ -120,7 +120,7 @@ myApp = GaudiExec()
 myApp.directory = "./DaVinciDev_v45r8"
 j.application = myApp
 j.application.options = ['ntuple_options.py']
-j.application.platform = 'x86_64-centos7-gcc8-opt'
+j.application.platform = 'x86_64_v2-centos7-gcc10-opt'
 bkPath = '/MC/2016/Beam6500GeV-2016-MagDown-Nu1.6-25ns-Pythia8/Sim09c/Trig0x6138160F/Reco16/Turbo03/Stripping28r1NoPrescalingFlagged/27163002/ALLSTREAMS.DST'
 data  = BKQuery(bkPath, dqflag=['OK']).getDataset()
 j.inputdata = data[0:2]
