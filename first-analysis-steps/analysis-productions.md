@@ -44,7 +44,7 @@ You can now explore this file by doing `TBrowser b` inside of ROOT (or with anot
 
 ## Creating your own production
 
-For practice, we will now go through the steps of creating a simple production. For details about more advanced usage, see the [Analysis Productions README](https://gitlab.cern.ch/lhcb-datapkg/AnalysisProductions).
+For practice, we will now go through the steps of creating a simple production. For details about more advanced usage, see the [Analysis Productions documentation](https://lhcb-ap.docs.cern.ch/index.html).
 
 Start by creating a folder to work in, and into it clone the [Analysis Productions repository](https://gitlab.cern.ch/lhcb-datapkg/AnalysisProductions).
 
@@ -68,16 +68,22 @@ mkdir D02HH_Practice
 Let's enter that new directory (`cd D02HH_Practice`), and start adding the files we'll need. First is the DaVinci options file. If you have the options file you created during the previous lessons, copy it here, and open it with your text editor of choice. There are a couple of things to change - first, you can remove the lines about using the local input data (that's everything to do with `IOHelper()`), since we're going to be using remotely hosted data instead. Also, because the Analysis Productions system is able to automatically configure parts of jobs, you can also remove these lines:
 
 ```python
-DaVinci().InputType = 'DST'
-DaVinci().TupleFile = 'DVntuple.root'
-DaVinci().PrintFreq = 1000
-DaVinci().DataType = '2016'
-DaVinci().Simulation = True
-# Only ask for luminosity information when not using simulated data
-DaVinci().Lumi = not DaVinci().Simulation
-DaVinci().EvtMax = -1
-DaVinci().CondDBtag = 'sim-20170721-2-vc-md100'
-DaVinci().DDDBtag = 'dddb-20170721-3'
+DaVinci().InputType       = "DST"
+DaVinci().TupleFile       = "DVntuple.root"
+DaVinci().PrintFreq       = 1000
+DaVinci().DataType        = "2016"
+DaVinci().Simulation      = True
+DaVinci().Lumi            = not DaVinci().Simulation
+DaVinci().EvtMax          = -1
+DaVinci().CondDBtag       = "sim-20170721-2-vc-md100"
+DaVinci().DDDBtag         = "dddb-20170721-3"
+
+from GaudiConf import IOHelper
+
+IOHelper().inputFiles([
+	"./00070793_00000001_7.AllStreams.dst"
+], clear=True)
+
 ```
 
 If you don't have your options file from earlier available, or are having trouble, you can [use this options file](code/analysis-productions/ntuple_options.py).
@@ -86,7 +92,7 @@ The next file needed is a `.yaml` file, which will be used to configure the jobs
 
 ```yaml
 defaults:
-    application: DaVinci/v45r8
+    application: DaVinci/v46r4
     wg: Charm
     automatically_configure: yes
     turbo: no
@@ -103,7 +109,7 @@ defaults:
 
 Here, the unindented lines are the names of jobs (although `defaults` has a special function), and the indented lines are the options we're applying to those jobs. Using this file will create one job called `2016_MagDown_PromptMC_D02KK`, that will read in data from the provided bookkeeping path. All the options applied under `defaults` are automatically applied to all other jobs - very useful for avoiding repetition. The options we're using here are:
 
-* **application**: the version of DaVinci to use. Here we choose v45r5, the latest for Run 2 at the time of writing.
+* **application**: the version of DaVinci to use. Here we choose v46r4, the latest for Run 2 at the time of writing (see [here](http://lhcbdoc.web.cern.ch/lhcbdoc/davinci/) to check what versions are available).
 * **wg**: the working group this production is a part of. Since this is a `$ D^{0} \to K^{-}K^{+} $` decay, we'll set this to `Charm`.
 * **inform**: optionally, you can enter your email address to receive updates on the status of your jobs.
 * **automatically_configure**: setting this to `yes` is what allowed us to remove all of those configuration lines from the options file. This is very useful when creating productions that use multiple years, or both data and MC.
@@ -112,7 +118,7 @@ Here, the unindented lines are the names of jobs (although `defaults` has a spec
 * **output**: the name of the output `.root` ntuples. These will get registered in bookkeeping as well.
 * **input**: the bookkeeping path of the data you're running over. This is what you located during the [bookkeeping lesson](bookkeeping), and is unique to the 2016 magnet-down job, so it doesn't belong under `defaults`.
 
-For a full list of the available options, and information on their allowed values, see the [Analysis Productions README](https://gitlab.cern.ch/lhcb-datapkg/AnalysisProductions).
+For a full list of the available options, and information on their allowed values, see the [documentation](https://lhcb-ap.docs.cern.ch/user_guide/creating.html#yaml-configuration).
 
 {% challenge "Add a magnet-up job" %}
 
@@ -130,7 +136,7 @@ For good practice, the final thing we should add is a README. This is a markdown
 
 ### Testing your production locally
 
-Now we've got both of the files we need, we should test the production to make sure it works as expected. All of this will be done using the `lb-ap` command. Navigate up one level to the base directory of the respository (`AnalysisProductions`), and run `lb-ap`, which should display the following:
+Now we've got both of the files we need, we should test the production to make sure it works as expected. All of this will be done using the `lb-ap` command. Navigate up one level to the base directory of the repository (`AnalysisProductions`), and run `lb-ap`, which should display the following:
 
 ```
 Usage: lb-ap [OPTIONS] COMMAND [ARGS]...
@@ -142,13 +148,20 @@ Options:
   --help     Show this message and exit.
 
 Commands:
-  list       List the available production folders by running lb-ap list...
-  render     Render the info.yaml for a given production
-  validate   Validate the configuration for a given production
-  test       Execute a job locally
-  debug      Start an interactive session inside the job's environment
-  reproduce  Reproduce an existing online test locally
-  parse-log  Read a Gaudi log file and extract information
+  login        Login to the Analysis Productions API
+  versions     List the available tags of the Analysis Productions...
+  clone        Clone the AnalysisProductions repository and do lb-ap...
+  checkout     Clean out the current copy of the specified production and...
+  list         List the available production folders by running 'lb-ap list'
+  list-checks  List the checks for a specific production by running lb-ap...
+  render       Render the info.yaml for a given production
+  validate     Validate the configuration for a given production
+  test         Execute a job locally
+  check        Run checks for a production
+  ci-checks    Helper function for running checks in the CI.
+  debug        Start an interactive session inside the job's environment
+  reproduce    Reproduce an existing online test locally
+  parse-log    Read a Gaudi log file and extract information
 ```
 
 This command `lb-ap` will allow us to perform a number of different tests. Let's start with `lb-ap list`, which will display all of the productions. Hopefully you should see your new production (`D02HH_Practice`) on this list! You can also use this to list all of the jobs within a given production, by running `lb-ap list D02HH_Practice`. If you added a second job for magnet-up earlier, the output of this command should look like this:
@@ -209,8 +222,58 @@ INFO:Creating new pipeline for ID 1958388
 ALWAYS:Results will be available at https://lhcb-analysis-productions.web.cern.ch/1958388/
 ```
 
-You can open that link in your browser to view the status of the test jobs (example [here](https://lhcb-analysis-productions.web.cern.ch/3195170/)). After a few minutes, these should have completed - all being well, you've now successfully submitted your first production!
+You can open that link in your browser to view the status of the test jobs (example [here](https://lhcb-analysis-productions.web.cern.ch/pipelines/?id=4791499)). After a few minutes, these should have completed - all being well, you've now successfully submitted your first production!
 
+### Checks
+For the start of Run 3 it was requested to add the `Checks` feature to AnalysisProductions. This facilitates offline monitoring by allowing automated simple analysis of tupling output to assist with data quality and early measurements. For now let's stick with some simple ones but for full details you can [check the documentation](https://lhcb-ap.docs.cern.ch/user_guide/creating.html#checks).
+
+We start by defining the checks we would like to perform. Add the following to your `info.yaml` below the `defaults`:
+```python
+checks:
+    histogram:
+        type: range
+        expression: Dst_2010_plus_M
+        limits:
+            min: 1900
+            max: 2300
+        blind_ranges:
+            min: 2000
+            max: 2020
+    histogram_fail:
+        type: range
+        expression: Dst_2010_plus_M
+        limits:
+            min: 0
+            max: 10
+    at_least_50_entries:
+        type: num_entries
+        tree_pattern: TupleDstToD0pi_D0ToKK/DecayTree
+        count: 50
+```
+
+Here we have defined two `range` checks and one `num_entries` check. `range` checks plot a histogram in the range shown for your desired expression, if empty they will fail your test. `num_entries` simply checks that your specified TTree has at least the number of events you desire.
+
+Now that we have defined our checks we should choose which jobs to apply them to, if any check is not applied to at least one job the validation will fail!
+
+```python
+2016_MagDown_PromptMC_D02KK:
+    input:
+        bk_query: "/MC/2016/Beam6500GeV-2016-MagDown-Nu1.6-25ns-Pythia8/Sim09c/Trig0x6138160F/Reco16/Turbo03/Stripping28r1NoPrescalingFlagged/27163002/ALLSTREAMS.DST"
+    checks:
+        - histogram
+        - histogram_fail
+        - at_least_50_entries
+```
+
+Now if we test `2016_MagDown_PromptMC_D02KK` the checks will be run automatically and their results printed. If we push these changes to our remote branch then in the pipeline results we will find a summary of each check result and the plots of each histogram.
+
+![Pipeline check results](img/aprods_checks.png)
+
+{% callout "Did it fail?" %}
+
+The test will have failed due to the histogram check we defined to fail, remove that if you want your tests to pass.
+
+{% endcallout %}
 
 {% callout "Next steps for real productions" %}
 
