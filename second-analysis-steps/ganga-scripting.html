@@ -16,7 +16,9 @@
         <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
         <script src="../_static/jquery.js"></script>
         <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
         <script src="../_static/panels.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script src="../_static/js/theme.js"></script>
@@ -74,6 +76,7 @@
 <li class="toctree-l3"><a class="reference internal" href="../first-analysis-steps/analysis-productions.html#creating-your-own-production">Creating your own production</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="../first-analysis-steps/analysis-productions.html#testing-your-production-locally">Testing your production locally</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../first-analysis-steps/analysis-productions.html#creating-a-merge-request">Creating a merge request</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../first-analysis-steps/analysis-productions.html#checks">Checks</a></li>
 </ul>
 </li>
 </ul>
@@ -234,9 +237,9 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
-          <li><a href="README.html">Second Analysis Steps</a> &raquo;</li>
-      <li>Scripting Ganga</li>
+      <li><a href="../index.html" class="icon icon-home"></a></li>
+          <li class="breadcrumb-item"><a href="README.html">Second Analysis Steps</a></li>
+      <li class="breadcrumb-item active">Scripting Ganga</li>
       <li class="wy-breadcrumbs-aside">
               <a href="https://github.com/lhcb/starterkit-lessons/blob/master/second-analysis-steps/ganga-scripting.md" class="fa fa-github"> Edit on GitHub</a>
       </li>
@@ -271,7 +274,7 @@
 }
 </style>
 <section id="scripting-ganga">
-<h1>Scripting Ganga<a class="headerlink" href="#scripting-ganga" title="Permalink to this headline"></a></h1>
+<h1>Scripting Ganga<a class="headerlink" href="#scripting-ganga" title="Permalink to this heading"></a></h1>
 <p>We have already started using Ganga, such as when <a class="reference internal" href="../first-analysis-steps/davinci-grid.html"><span class="doc">submitting jobs to the
 Grid</span></a> and
 <a class="reference internal" href="../first-analysis-steps/ganga-data.html"><span class="doc">using datasets from the bookkeeping</span></a>, for
@@ -283,7 +286,7 @@ scripts that Ganga will execute when starting up. This lesson will focus on
 writing job definition scripts, and exploring how we can define utility
 functions that will be available across all of our Ganga sessions.</p>
 <section id="defining-jobs-with-scripts">
-<h2>Defining jobs with scripts<a class="headerlink" href="#defining-jobs-with-scripts" title="Permalink to this headline"></a></h2>
+<h2>Defining jobs with scripts<a class="headerlink" href="#defining-jobs-with-scripts" title="Permalink to this heading"></a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">ganga</span></code> executable is similar to the <code class="docutils literal notranslate"><span class="pre">python</span></code> and <code class="docutils literal notranslate"><span class="pre">ipython</span></code> executables in
 a couple of ways.
 If you just run <code class="docutils literal notranslate"><span class="pre">ganga</span></code>, you are dropped into a prompt, but you can also supply
@@ -459,7 +462,7 @@ run the application over only a single data file, and run the job locally
 rather than on the Grid (setting <code class="docutils literal notranslate"><span class="pre">j.backend</span></code> appropriately).</p>
 </section>
 <section id="adding-helpers-functions">
-<h2>Adding helpers functions<a class="headerlink" href="#adding-helpers-functions" title="Permalink to this headline"></a></h2>
+<h2>Adding helpers functions<a class="headerlink" href="#adding-helpers-functions" title="Permalink to this heading"></a></h2>
 <p>We’ve seen above how giving a script to <code class="docutils literal notranslate"><span class="pre">ganga</span></code> makes the variables defined in
 those scripts available interactively.
 But what if you have, or would like to have, some set of your own custom helper

@@ -16,11 +16,13 @@
         <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
         <script src="../_static/jquery.js"></script>
         <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
         <script src="../_static/panels.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-        <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
         <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+        <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -76,6 +78,7 @@
 <li class="toctree-l3"><a class="reference internal" href="../first-analysis-steps/analysis-productions.html#creating-your-own-production">Creating your own production</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="../first-analysis-steps/analysis-productions.html#testing-your-production-locally">Testing your production locally</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../first-analysis-steps/analysis-productions.html#creating-a-merge-request">Creating a merge request</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../first-analysis-steps/analysis-productions.html#checks">Checks</a></li>
 </ul>
 </li>
 </ul>
@@ -236,10 +239,10 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
-          <li><a href="README.html">Second Analysis Steps</a> &raquo;</li>
-          <li><a href="simulation.html">The simulation framework</a> &raquo;</li>
-      <li>Which option files to use and how to run Gauss</li>
+      <li><a href="../index.html" class="icon icon-home"></a></li>
+          <li class="breadcrumb-item"><a href="README.html">Second Analysis Steps</a></li>
+          <li class="breadcrumb-item"><a href="simulation.html">The simulation framework</a></li>
+      <li class="breadcrumb-item active">Which option files to use and how to run Gauss</li>
       <li class="wy-breadcrumbs-aside">
               <a href="https://github.com/lhcb/starterkit-lessons/blob/master/second-analysis-steps/simulation-running-gauss.md" class="fa fa-github"> Edit on GitHub</a>
       </li>
@@ -285,7 +288,7 @@
 </div>
 </div>
 <section id="which-option-files-to-use-and-how-to-run-gauss">
-<h1>Which option files to use and how to run Gauss<a class="headerlink" href="#which-option-files-to-use-and-how-to-run-gauss" title="Permalink to this headline"></a></h1>
+<h1>Which option files to use and how to run Gauss<a class="headerlink" href="#which-option-files-to-use-and-how-to-run-gauss" title="Permalink to this heading"></a></h1>
 <p>Imagine you need to know the option files and software versions used for a simulated sample you have found in the bookkeeping, e.g.</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>/MC/2016/Beam6500GeV-2016-MagDown-Nu1.6-25ns-Pythia8/Sim09c/Trig0x6138160F/Reco16/Turbo03/Stripping28r1Filtered/27163003/D2HMUNUSTREAM.STRIP.DST
 </pre></div>
@@ -304,7 +307,7 @@ produces the sample using Pythia 8 while <code class="docutils literal notransla
 </div>
 </section>
 <section id="running-gauss-and-create-a-generator-only-sample">
-<h1>Running Gauss and create a generator-only sample<a class="headerlink" href="#running-gauss-and-create-a-generator-only-sample" title="Permalink to this headline"></a></h1>
+<h1>Running Gauss and create a generator-only sample<a class="headerlink" href="#running-gauss-and-create-a-generator-only-sample" title="Permalink to this heading"></a></h1>
 <p>The production system handles the necessary settings for initial event- and runnumber and the used database tags. In a private production, you need to set these yourself in an additional options file, containing, for example:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">Gauss.Configuration</span> <span class="kn">import</span> <span class="n">GenInit</span>
 
@@ -363,7 +366,7 @@ produces the sample using Pythia 8 while <code class="docutils literal notransla
 <p>See if you can generate a generator level only sample for event type <code class="docutils literal notranslate"><span class="pre">27175000</span></code> ( <span class="math notranslate nohighlight">\( D^{*+} \to D^{0}(\to K^{+}K^{-}\mu^{+}\mu^{-})\pi^{+} \)</span> )</p>
 </section>
 <section id="make-an-ntuple">
-<h1>Make an nTuple<a class="headerlink" href="#make-an-ntuple" title="Permalink to this headline"></a></h1>
+<h1>Make an nTuple<a class="headerlink" href="#make-an-ntuple" title="Permalink to this heading"></a></h1>
 <p>The <code class="docutils literal notranslate"><span class="pre">.xgen</span></code> file can be processed into something more usable (copied together from <a class="reference external" href="https://gitlab.cern.ch/lhcb-datapkg/Gen/DecFiles/blob/master/CONTRIBUTING.md#">here</a>).
 A larger input file containing 50,000 generated events for event-type can be found on EOS: <code class="docutils literal notranslate"><span class="pre">root://eosuser.cern.ch//eos/user/l/lhcbsk/sim-lesson-2019/Gauss-27175000-50000ev-20190515.xgen</span></code>.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot;Configure the variables below with:</span>

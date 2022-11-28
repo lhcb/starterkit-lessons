@@ -16,7 +16,9 @@
         <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
         <script src="../_static/jquery.js"></script>
         <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
         <script src="../_static/panels.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script src="../_static/js/theme.js"></script>
@@ -74,6 +76,7 @@
 <li class="toctree-l3"><a class="reference internal" href="../first-analysis-steps/analysis-productions.html#creating-your-own-production">Creating your own production</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="../first-analysis-steps/analysis-productions.html#testing-your-production-locally">Testing your production locally</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../first-analysis-steps/analysis-productions.html#creating-a-merge-request">Creating a merge request</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../first-analysis-steps/analysis-productions.html#checks">Checks</a></li>
 </ul>
 </li>
 </ul>
@@ -234,9 +237,9 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
-          <li><a href="README.html">Second Analysis Steps</a> &raquo;</li>
-      <li>Using git to develop LHCb software</li>
+      <li><a href="../index.html" class="icon icon-home"></a></li>
+          <li class="breadcrumb-item"><a href="README.html">Second Analysis Steps</a></li>
+      <li class="breadcrumb-item active">Using git to develop LHCb software</li>
       <li class="wy-breadcrumbs-aside">
               <a href="https://github.com/lhcb/starterkit-lessons/blob/master/second-analysis-steps/lb-git.md" class="fa fa-github"> Edit on GitHub</a>
       </li>
@@ -271,7 +274,7 @@
 }
 </style>
 <section id="using-git-to-develop-lhcb-software">
-<h1>Using git to develop LHCb software<a class="headerlink" href="#using-git-to-develop-lhcb-software" title="Permalink to this headline"></a></h1>
+<h1>Using git to develop LHCb software<a class="headerlink" href="#using-git-to-develop-lhcb-software" title="Permalink to this heading"></a></h1>
 <div class="panel panel-objectives docutils container">
 <div class="panel-header open docutils container">
 <p id="learning-objectives"><i class="fa fa-line-chart"></i> Learning Objectives</p>
@@ -316,7 +319,7 @@ your local git configuration and your settings on GitLab are sufficiently set up
 <p>Your name and email address should be set up in your local <code class="docutils literal notranslate"><span class="pre">git</span></code> configuration.
 To ensure that this is the case, run</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ git config --global user.name &quot;Your Name&quot;
-$ git config --global user.email &quot;Your Name &lt;your.name@cern.ch&gt;&quot;
+$ git config --global user.email &quot;your.name@cern.ch&quot;
 </pre></div>
 </div>
 <p>and put in your information.</p>

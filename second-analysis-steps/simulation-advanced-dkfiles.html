@@ -16,7 +16,9 @@
         <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
         <script src="../_static/jquery.js"></script>
         <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
         <script src="../_static/panels.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script src="../_static/js/theme.js"></script>
@@ -74,6 +76,7 @@
 <li class="toctree-l3"><a class="reference internal" href="../first-analysis-steps/analysis-productions.html#creating-your-own-production">Creating your own production</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="../first-analysis-steps/analysis-productions.html#testing-your-production-locally">Testing your production locally</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../first-analysis-steps/analysis-productions.html#creating-a-merge-request">Creating a merge request</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../first-analysis-steps/analysis-productions.html#checks">Checks</a></li>
 </ul>
 </li>
 </ul>
@@ -234,10 +237,10 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
-          <li><a href="README.html">Second Analysis Steps</a> &raquo;</li>
-          <li><a href="simulation.html">The simulation framework</a> &raquo;</li>
-      <li>Advanced: Modifying the decay</li>
+      <li><a href="../index.html" class="icon icon-home"></a></li>
+          <li class="breadcrumb-item"><a href="README.html">Second Analysis Steps</a></li>
+          <li class="breadcrumb-item"><a href="simulation.html">The simulation framework</a></li>
+      <li class="breadcrumb-item active">Advanced: Modifying the decay</li>
       <li class="wy-breadcrumbs-aside">
               <a href="https://github.com/lhcb/starterkit-lessons/blob/master/second-analysis-steps/simulation-advanced-dkfiles.md" class="fa fa-github"> Edit on GitHub</a>
       </li>
@@ -282,7 +285,7 @@
 </div>
 </div>
 <section id="advanced-modifying-the-decay">
-<h1>Advanced: Modifying the decay<a class="headerlink" href="#advanced-modifying-the-decay" title="Permalink to this headline"></a></h1>
+<h1>Advanced: Modifying the decay<a class="headerlink" href="#advanced-modifying-the-decay" title="Permalink to this heading"></a></h1>
 <p>##Two-body decays - getting angular momentum right
 EvtGen has specific models for each two body spin configuration, for example Scalar to Vector+Scalar (SVS), and Vector to lepton+lepton(VLL)</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>#
@@ -320,7 +323,7 @@ Enddecay
 </div>
 </section>
 <section id="multi-body-decays">
-<h1>3+ multi-body decays<a class="headerlink" href="#multi-body-decays" title="Permalink to this headline"></a></h1>
+<h1>3+ multi-body decays<a class="headerlink" href="#multi-body-decays" title="Permalink to this heading"></a></h1>
 <p>For 3+ bodies the physics models get more complicated. For a fully hadronic final state, typically a Dalitz model will be specified, e.g:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span># D_DALITZ includes resonances contributions (K*(892), K*(1430), K*(1680))
 Decay MyD-
@@ -342,7 +345,7 @@ CDecay anti-B0sig
 <p>here the numbers correspond to measured values for the form factor parameters.</p>
 </section>
 <section id="cocktail-decays">
-<h1>Cocktail decays<a class="headerlink" href="#cocktail-decays" title="Permalink to this headline"></a></h1>
+<h1>Cocktail decays<a class="headerlink" href="#cocktail-decays" title="Permalink to this heading"></a></h1>
 <p>Often you will want to simulate more than one decay mode in a sample, e.g:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Decay MyD_s+
  0.0259 phi      mu+     nu_mu                      PHOTOS  ISGW2;
@@ -359,11 +362,11 @@ CDecay MyD_s-
 <p>Note that the fractions will always be renormalised to sum to 1 - you can directly use PDG branching fractions without having to rescale by hand.</p>
 </section>
 <section id="final-state-radiation">
-<h1>Final state radiation<a class="headerlink" href="#final-state-radiation" title="Permalink to this headline"></a></h1>
+<h1>Final state radiation<a class="headerlink" href="#final-state-radiation" title="Permalink to this heading"></a></h1>
 <p>After generating the decay, final state radiation is added using PHOTOS. Note that PHOTOS is enabled by default, even though many decfiles explicitly specify it. It needs to be explicitly removed via “noPhotos”</p>
 </section>
 <section id="changing-particle-masses-lifetimes-widths">
-<h1>Changing particle masses / lifetimes/ widths<a class="headerlink" href="#changing-particle-masses-lifetimes-widths" title="Permalink to this headline"></a></h1>
+<h1>Changing particle masses / lifetimes/ widths<a class="headerlink" href="#changing-particle-masses-lifetimes-widths" title="Permalink to this heading"></a></h1>
 <p>Sometimes you need to change the mass or lifetime of a particle, either because the initial values are wrong, or the particle you actually want doesn’t exist in EvtGen, and you need to adapt an existing particle.
 This can be done with python code inserted in the header:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span># InsertPythonCode:
@@ -387,7 +390,7 @@ This can be done with python code inserted in the header:</p>
 </div>
 </section>
 <section id="finding-constants-used-in-an-existing-mc-sample-masses-lifetimes-etc">
-<h1>Finding Constants Used in an Existing MC Sample (Masses/Lifetimes/etc)<a class="headerlink" href="#finding-constants-used-in-an-existing-mc-sample-masses-lifetimes-etc" title="Permalink to this headline"></a></h1>
+<h1>Finding Constants Used in an Existing MC Sample (Masses/Lifetimes/etc)<a class="headerlink" href="#finding-constants-used-in-an-existing-mc-sample-masses-lifetimes-etc" title="Permalink to this heading"></a></h1>
 <p>If you have a pre-existing MC sample and you want to find constants which have been used in its generation (typically the lifetime or masses of generated particles), The method to do this has two steps</p>
 <ol class="simple">
 <li><p>Find the database tag (dddb) used in the generation of your sample. Instructions for doing this can be found <a class="reference external" href="https://lhcb.github.io/starterkit-lessons/first-analysis-steps/minimal-dv-job.html">earlier in this gitbook</a>.</p></li>

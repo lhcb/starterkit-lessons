@@ -66,7 +66,7 @@ with the option files given in `j.application.options` using a
 backend called `Dirac`, which is "the grid". Instead of specifying the
 files to process as part of the options file you have now to tell the
 `Job` about it. This allows `ganga` to split your job up by setting `j.splitter`,
-processing different files simultaneously. More details about the splitter are given in the [next lesson](split-jobs). Note that data will be accessed using its path in the bookkeeping `bkPath`. In order to speed-up our job, only the first 2 elements (files) of `data` will be accessed; we don't need to look at much data here. 
+processing different files simultaneously. More details about the splitter are given in the [next lesson](split-jobs). Note that data will be accessed using its path in the bookkeeping `bkPath`. In order to speed-up our job, only the first 2 elements (files) of `data` will be accessed; we don't need to look at much data here.
 
 {% callout "DaVinciDev folder" %}
 
@@ -195,6 +195,18 @@ $ root -l path/to/the/job/output
 ```
 
 You need to setup `DaVinci` as we need ROOT version 6 to read the nTuple.
+
+{% callout "Test your jobs!" %}
+
+When submitting large jobs you must test them first! Submitting 1000 subjobs which all fail because of a mistake in your DaVinci options will result in a grumpy email from the grid experts and potentially ending up on low priority lists.
+
+Testing your job is simple - just change the inputdata to only run on one or two files as in this example.
+
+```python
+j.inputdata = data[:2]
+```
+
+{% endcallout %}
 
 {% callout "Getting help with ganga" %}
 

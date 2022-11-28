@@ -16,11 +16,13 @@
         <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
         <script src="../_static/jquery.js"></script>
         <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
         <script src="../_static/panels.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-        <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
         <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+        <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -76,6 +78,7 @@
 <li class="toctree-l3"><a class="reference internal" href="analysis-productions.html#creating-your-own-production">Creating your own production</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="analysis-productions.html#testing-your-production-locally">Testing your production locally</a></li>
 <li class="toctree-l4"><a class="reference internal" href="analysis-productions.html#creating-a-merge-request">Creating a merge request</a></li>
+<li class="toctree-l4"><a class="reference internal" href="analysis-productions.html#checks">Checks</a></li>
 </ul>
 </li>
 </ul>
@@ -236,9 +239,9 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
-          <li><a href="README.html">First Analysis Steps</a> &raquo;</li>
-      <li>Physics at LHCb</li>
+      <li><a href="../index.html" class="icon icon-home"></a></li>
+          <li class="breadcrumb-item"><a href="README.html">First Analysis Steps</a></li>
+      <li class="breadcrumb-item active">Physics at LHCb</li>
       <li class="wy-breadcrumbs-aside">
               <a href="https://github.com/lhcb/starterkit-lessons/blob/master/first-analysis-steps/physics-at-lhcb.md" class="fa fa-github"> Edit on GitHub</a>
       </li>
@@ -273,7 +276,7 @@
 }
 </style>
 <section id="physics-at-lhcb">
-<h1>Physics at LHCb<a class="headerlink" href="#physics-at-lhcb" title="Permalink to this headline"></a></h1>
+<h1>Physics at LHCb<a class="headerlink" href="#physics-at-lhcb" title="Permalink to this heading"></a></h1>
 <div class="panel panel-objectives docutils container">
 <div class="panel-header open docutils container">
 <p id="learning-objectives"><i class="fa fa-line-chart"></i> Learning Objectives</p>
@@ -313,7 +316,7 @@ formed as combinations of these ‘stable’ particles[^1]:</p>
 intrinsic, but we have to infer them based on the signals they create
 in the detector as they traverse through it.</p>
 <section id="the-reconstruction">
-<h2>The reconstruction<a class="headerlink" href="#the-reconstruction" title="Permalink to this headline"></a></h2>
+<h2>The reconstruction<a class="headerlink" href="#the-reconstruction" title="Permalink to this heading"></a></h2>
 <p>The properties of particles produced in collisions are known to Nature, but we
 must reconstruct those properties based on the readout of the detector.
 The process of inferring all properties is called <em>reconstruction</em>. For a given
@@ -337,7 +340,7 @@ understand tracks and vertices, and how decays can be reconstructed and
 selected from these.</p>
 </section>
 <section id="building-decay-candidates">
-<h2>Building decay candidates<a class="headerlink" href="#building-decay-candidates" title="Permalink to this headline"></a></h2>
+<h2>Building decay candidates<a class="headerlink" href="#building-decay-candidates" title="Permalink to this heading"></a></h2>
 <p>All objects created by the reconstruction contain contributions from detector
 effects, such as resolution. In addition, not all created objects may
 correspond to real particles; we could for example create ‘ghost’ tracks,
@@ -387,7 +390,7 @@ components can be used to deduce the fraction of the sample which contains true
 decays, within some uncertainty.</p>
 </section>
 <section id="building-more-complex-decays">
-<h2>Building more complex decays<a class="headerlink" href="#building-more-complex-decays" title="Permalink to this headline"></a></h2>
+<h2>Building more complex decays<a class="headerlink" href="#building-more-complex-decays" title="Permalink to this heading"></a></h2>
 <p>With a set of <span class="math notranslate nohighlight">\( J/\psi \)</span> candidates, we could build more complex decay chains
 such as <span class="math notranslate nohighlight">\( B_{s}^{0} \to J/\psi\phi(1020) \)</span>.
 The <span class="math notranslate nohighlight">\( J/\psi \)</span> and the <a class="reference external" href="http://pdglive.lbl.gov/Particle.action?init=0&amp;node=M004&amp;home=MXXX005"><span class="math notranslate nohighlight">\( \phi \)</span> meson</a> can decay in various ways,

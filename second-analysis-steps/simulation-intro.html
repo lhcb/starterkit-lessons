@@ -16,7 +16,9 @@
         <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
         <script src="../_static/jquery.js"></script>
         <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
         <script src="../_static/panels.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script src="../_static/js/theme.js"></script>
@@ -74,6 +76,7 @@
 <li class="toctree-l3"><a class="reference internal" href="../first-analysis-steps/analysis-productions.html#creating-your-own-production">Creating your own production</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="../first-analysis-steps/analysis-productions.html#testing-your-production-locally">Testing your production locally</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../first-analysis-steps/analysis-productions.html#creating-a-merge-request">Creating a merge request</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../first-analysis-steps/analysis-productions.html#checks">Checks</a></li>
 </ul>
 </li>
 </ul>
@@ -234,10 +237,10 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
-          <li><a href="README.html">Second Analysis Steps</a> &raquo;</li>
-          <li><a href="simulation.html">The simulation framework</a> &raquo;</li>
-      <li>What is Gauss?</li>
+      <li><a href="../index.html" class="icon icon-home"></a></li>
+          <li class="breadcrumb-item"><a href="README.html">Second Analysis Steps</a></li>
+          <li class="breadcrumb-item"><a href="simulation.html">The simulation framework</a></li>
+      <li class="breadcrumb-item active">What is Gauss?</li>
       <li class="wy-breadcrumbs-aside">
               <a href="https://github.com/lhcb/starterkit-lessons/blob/master/second-analysis-steps/simulation-intro.md" class="fa fa-github"> Edit on GitHub</a>
       </li>
@@ -282,7 +285,7 @@
 </div>
 </div>
 <section id="what-is-gauss">
-<h1>What is Gauss?<a class="headerlink" href="#what-is-gauss" title="Permalink to this headline"></a></h1>
+<h1>What is Gauss?<a class="headerlink" href="#what-is-gauss" title="Permalink to this heading"></a></h1>
 <p>Gauss is the LHCb simulation framework which manages the creation of simulated events by interfacing to multiple external applications. Most commonly, an event is created via the following procedure:</p>
 <ol class="simple">
 <li><p>The <code class="docutils literal notranslate"><span class="pre">ProductionTool</span></code> (Pythia, GenXicc, …) generates an event with the required signal particle. Either by generating minimum bias events until a matching particle is found or by ensuring one is produced in every event. The resulting event is comprised of either stable particles or unstable particles which are known to either EvtGen or Geant4 and can be decayed.</p></li>
@@ -304,7 +307,7 @@
 </div>
 </section>
 <section id="choosing-your-gauss-version">
-<h1>Choosing your Gauss Version<a class="headerlink" href="#choosing-your-gauss-version" title="Permalink to this headline"></a></h1>
+<h1>Choosing your Gauss Version<a class="headerlink" href="#choosing-your-gauss-version" title="Permalink to this heading"></a></h1>
 <p>Each release of Gauss v49 represents a different release of Sim09. You may want to run an older version of Gauss to verify something in a pre-existing MC dataset or for any number of other reasons. Here is a table matching each Gauss v49 release to each Sim09 version:</p>
 <!--
 .. list-table:: Sim09 Version - Gauss Correspondance

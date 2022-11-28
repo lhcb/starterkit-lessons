@@ -16,11 +16,13 @@
         <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
         <script src="../_static/jquery.js"></script>
         <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
         <script src="../_static/panels.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-        <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
         <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+        <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -76,6 +78,7 @@
 <li class="toctree-l3"><a class="reference internal" href="#creating-your-own-production">Creating your own production</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#testing-your-production-locally">Testing your production locally</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#creating-a-merge-request">Creating a merge request</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#checks">Checks</a></li>
 </ul>
 </li>
 </ul>
@@ -236,9 +239,9 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
-          <li><a href="README.html">First Analysis Steps</a> &raquo;</li>
-      <li>Analysis Productions</li>
+      <li><a href="../index.html" class="icon icon-home"></a></li>
+          <li class="breadcrumb-item"><a href="README.html">First Analysis Steps</a></li>
+      <li class="breadcrumb-item active">Analysis Productions</li>
       <li class="wy-breadcrumbs-aside">
               <a href="https://github.com/lhcb/starterkit-lessons/blob/master/first-analysis-steps/analysis-productions.md" class="fa fa-github"> Edit on GitHub</a>
       </li>
@@ -273,7 +276,7 @@
 }
 </style>
 <section id="analysis-productions">
-<h1>Analysis Productions<a class="headerlink" href="#analysis-productions" title="Permalink to this headline"></a></h1>
+<h1>Analysis Productions<a class="headerlink" href="#analysis-productions" title="Permalink to this heading"></a></h1>
 <div class="panel panel-objectives docutils container">
 <div class="panel-header open docutils container">
 <p id="learning-objectives"><i class="fa fa-line-chart"></i> Learning Objectives</p>
@@ -294,7 +297,7 @@
 </ul>
 <p>It is the goal of <a class="reference external" href="https://gitlab.cern.ch/lhcb-datapkg/AnalysisProductions/">Analysis Productions</a> to centralise and automate much of the process of making ntuples, and to keep a record of how datasets were produced. Moving into run 3, this will usually be the preferred way to create ntuples for your analysis.</p>
 <section id="monitoring-productions">
-<h2>Monitoring productions<a class="headerlink" href="#monitoring-productions" title="Permalink to this headline"></a></h2>
+<h2>Monitoring productions<a class="headerlink" href="#monitoring-productions" title="Permalink to this heading"></a></h2>
 <p>Before we get into the how-to, let’s first take a look at the end result of a real production. Open the <a class="reference external" href="https://lhcb-analysis-productions-preview.web.cern.ch/">Analysis Productions webpage</a>, and navigate to <code class="docutils literal notranslate"><span class="pre">Productions</span></code>. You should see a new menu appear, showing a list of productions. Using the search bar on the right you can search for any production of interest, try <code class="docutils literal notranslate"><span class="pre">b02dkpi</span></code> for example. This should return one result and clicking on it should show you a table of jobs belonging to the production.</p>
 <p>Each row in the table corresponds to a job belonging to this production, and displays:</p>
 <ul class="simple">
@@ -314,8 +317,8 @@
 <p>You can now explore this file by doing <code class="docutils literal notranslate"><span class="pre">TBrowser</span> <span class="pre">b</span></code> inside of ROOT (or with another method of your choice).</p>
 </section>
 <section id="creating-your-own-production">
-<h2>Creating your own production<a class="headerlink" href="#creating-your-own-production" title="Permalink to this headline"></a></h2>
-<p>For practice, we will now go through the steps of creating a simple production. For details about more advanced usage, see the <a class="reference external" href="https://gitlab.cern.ch/lhcb-datapkg/AnalysisProductions">Analysis Productions README</a>.</p>
+<h2>Creating your own production<a class="headerlink" href="#creating-your-own-production" title="Permalink to this heading"></a></h2>
+<p>For practice, we will now go through the steps of creating a simple production. For details about more advanced usage, see the <a class="reference external" href="https://lhcb-ap.docs.cern.ch/index.html">Analysis Productions documentation</a>.</p>
 <p>Start by creating a folder to work in, and into it clone the <a class="reference external" href="https://gitlab.cern.ch/lhcb-datapkg/AnalysisProductions">Analysis Productions repository</a>.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git clone ssh://git@gitlab.cern.ch:7999/lhcb-datapkg/AnalysisProductions.git
 <span class="nb">cd</span> AnalysisProductions
@@ -330,39 +333,44 @@
 </pre></div>
 </div>
 <p>Let’s enter that new directory (<code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">D02HH_Practice</span></code>), and start adding the files we’ll need. First is the DaVinci options file. If you have the options file you created during the previous lessons, copy it here, and open it with your text editor of choice. There are a couple of things to change - first, you can remove the lines about using the local input data (that’s everything to do with <code class="docutils literal notranslate"><span class="pre">IOHelper()</span></code>), since we’re going to be using remotely hosted data instead. Also, because the Analysis Productions system is able to automatically configure parts of jobs, you can also remove these lines:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">DaVinci</span><span class="p">()</span><span class="o">.</span><span class="n">InputType</span> <span class="o">=</span> <span class="s1">&#39;DST&#39;</span>
-<span class="n">DaVinci</span><span class="p">()</span><span class="o">.</span><span class="n">TupleFile</span> <span class="o">=</span> <span class="s1">&#39;DVntuple.root&#39;</span>
-<span class="n">DaVinci</span><span class="p">()</span><span class="o">.</span><span class="n">PrintFreq</span> <span class="o">=</span> <span class="mi">1000</span>
-<span class="n">DaVinci</span><span class="p">()</span><span class="o">.</span><span class="n">DataType</span> <span class="o">=</span> <span class="s1">&#39;2016&#39;</span>
-<span class="n">DaVinci</span><span class="p">()</span><span class="o">.</span><span class="n">Simulation</span> <span class="o">=</span> <span class="kc">True</span>
-<span class="c1"># Only ask for luminosity information when not using simulated data</span>
-<span class="n">DaVinci</span><span class="p">()</span><span class="o">.</span><span class="n">Lumi</span> <span class="o">=</span> <span class="ow">not</span> <span class="n">DaVinci</span><span class="p">()</span><span class="o">.</span><span class="n">Simulation</span>
-<span class="n">DaVinci</span><span class="p">()</span><span class="o">.</span><span class="n">EvtMax</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
-<span class="n">DaVinci</span><span class="p">()</span><span class="o">.</span><span class="n">CondDBtag</span> <span class="o">=</span> <span class="s1">&#39;sim-20170721-2-vc-md100&#39;</span>
-<span class="n">DaVinci</span><span class="p">()</span><span class="o">.</span><span class="n">DDDBtag</span> <span class="o">=</span> <span class="s1">&#39;dddb-20170721-3&#39;</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">DaVinci</span><span class="p">()</span><span class="o">.</span><span class="n">InputType</span>       <span class="o">=</span> <span class="s2">&quot;DST&quot;</span>
+<span class="n">DaVinci</span><span class="p">()</span><span class="o">.</span><span class="n">TupleFile</span>       <span class="o">=</span> <span class="s2">&quot;DVntuple.root&quot;</span>
+<span class="n">DaVinci</span><span class="p">()</span><span class="o">.</span><span class="n">PrintFreq</span>       <span class="o">=</span> <span class="mi">1000</span>
+<span class="n">DaVinci</span><span class="p">()</span><span class="o">.</span><span class="n">DataType</span>        <span class="o">=</span> <span class="s2">&quot;2016&quot;</span>
+<span class="n">DaVinci</span><span class="p">()</span><span class="o">.</span><span class="n">Simulation</span>      <span class="o">=</span> <span class="kc">True</span>
+<span class="n">DaVinci</span><span class="p">()</span><span class="o">.</span><span class="n">Lumi</span>            <span class="o">=</span> <span class="ow">not</span> <span class="n">DaVinci</span><span class="p">()</span><span class="o">.</span><span class="n">Simulation</span>
+<span class="n">DaVinci</span><span class="p">()</span><span class="o">.</span><span class="n">EvtMax</span>          <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+<span class="n">DaVinci</span><span class="p">()</span><span class="o">.</span><span class="n">CondDBtag</span>       <span class="o">=</span> <span class="s2">&quot;sim-20170721-2-vc-md100&quot;</span>
+<span class="n">DaVinci</span><span class="p">()</span><span class="o">.</span><span class="n">DDDBtag</span>         <span class="o">=</span> <span class="s2">&quot;dddb-20170721-3&quot;</span>
+
+<span class="kn">from</span> <span class="nn">GaudiConf</span> <span class="kn">import</span> <span class="n">IOHelper</span>
+
+<span class="n">IOHelper</span><span class="p">()</span><span class="o">.</span><span class="n">inputFiles</span><span class="p">([</span>
+	<span class="s2">&quot;./00070793_00000001_7.AllStreams.dst&quot;</span>
+<span class="p">],</span> <span class="n">clear</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>If you don’t have your options file from earlier available, or are having trouble, you can <a class="reference download internal" download="" href="../_downloads/26f133d9caf2ef72e73893756d498eaf/ntuple_options.py"><code class="xref download docutils literal notranslate"><span class="pre">use</span> <span class="pre">this</span> <span class="pre">options</span> <span class="pre">file</span></code></a>.</p>
 <p>The next file needed is a <code class="docutils literal notranslate"><span class="pre">.yaml</span></code> file, which will be used to configure the jobs. Create a new file named <code class="docutils literal notranslate"><span class="pre">info.yaml</span></code>, and add the following to it:</p>
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">defaults</span><span class="p">:</span>
-    <span class="nt">application</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">DaVinci/v45r8</span>
-    <span class="nt">wg</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Charm</span>
-    <span class="nt">automatically_configure</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">yes</span>
-    <span class="nt">turbo</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">no</span>
-    <span class="nt">inform</span><span class="p">:</span>
-        <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">your.email.here@cern.ch</span>
-    <span class="nt">options</span><span class="p">:</span>
-        <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">ntuple_options.py</span>
-    <span class="nt">output</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">D02KK.ROOT</span>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">defaults</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="nt">application</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">DaVinci/v46r4</span><span class="w"></span>
+<span class="w">    </span><span class="nt">wg</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Charm</span><span class="w"></span>
+<span class="w">    </span><span class="nt">automatically_configure</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">yes</span><span class="w"></span>
+<span class="w">    </span><span class="nt">turbo</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">no</span><span class="w"></span>
+<span class="w">    </span><span class="nt">inform</span><span class="p">:</span><span class="w"></span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">your.email.here@cern.ch</span><span class="w"></span>
+<span class="w">    </span><span class="nt">options</span><span class="p">:</span><span class="w"></span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ntuple_options.py</span><span class="w"></span>
+<span class="w">    </span><span class="nt">output</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">D02KK.ROOT</span><span class="w"></span>
 
-<span class="nt">2016_MagDown_PromptMC_D02KK</span><span class="p">:</span>
-    <span class="nt">input</span><span class="p">:</span>
-        <span class="nt">bk_query</span><span class="p">:</span> <span class="s">&quot;/MC/2016/Beam6500GeV-2016-MagDown-Nu1.6-25ns-Pythia8/Sim09c/Trig0x6138160F/Reco16/Turbo03/Stripping28r1NoPrescalingFlagged/27163002/ALLSTREAMS.DST&quot;</span>
+<span class="nt">2016_MagDown_PromptMC_D02KK</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="nt">input</span><span class="p">:</span><span class="w"></span>
+<span class="w">        </span><span class="nt">bk_query</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;/MC/2016/Beam6500GeV-2016-MagDown-Nu1.6-25ns-Pythia8/Sim09c/Trig0x6138160F/Reco16/Turbo03/Stripping28r1NoPrescalingFlagged/27163002/ALLSTREAMS.DST&quot;</span><span class="w"></span>
 </pre></div>
 </div>
 <p>Here, the unindented lines are the names of jobs (although <code class="docutils literal notranslate"><span class="pre">defaults</span></code> has a special function), and the indented lines are the options we’re applying to those jobs. Using this file will create one job called <code class="docutils literal notranslate"><span class="pre">2016_MagDown_PromptMC_D02KK</span></code>, that will read in data from the provided bookkeeping path. All the options applied under <code class="docutils literal notranslate"><span class="pre">defaults</span></code> are automatically applied to all other jobs - very useful for avoiding repetition. The options we’re using here are:</p>
 <ul class="simple">
-<li><p><strong>application</strong>: the version of DaVinci to use. Here we choose v45r5, the latest for Run 2 at the time of writing.</p></li>
+<li><p><strong>application</strong>: the version of DaVinci to use. Here we choose v46r4, the latest for Run 2 at the time of writing (see <a class="reference external" href="http://lhcbdoc.web.cern.ch/lhcbdoc/davinci/">here</a> to check what versions are available).</p></li>
 <li><p><strong>wg</strong>: the working group this production is a part of. Since this is a <span class="math notranslate nohighlight">\( D^{0} \to K^{-}K^{+} \)</span> decay, we’ll set this to <code class="docutils literal notranslate"><span class="pre">Charm</span></code>.</p></li>
 <li><p><strong>inform</strong>: optionally, you can enter your email address to receive updates on the status of your jobs.</p></li>
 <li><p><strong>automatically_configure</strong>: setting this to <code class="docutils literal notranslate"><span class="pre">yes</span></code> is what allowed us to remove all of those configuration lines from the options file. This is very useful when creating productions that use multiple years, or both data and MC.</p></li>
@@ -371,7 +379,7 @@
 <li><p><strong>output</strong>: the name of the output <code class="docutils literal notranslate"><span class="pre">.root</span></code> ntuples. These will get registered in bookkeeping as well.</p></li>
 <li><p><strong>input</strong>: the bookkeeping path of the data you’re running over. This is what you located during the <a class="reference internal" href="bookkeeping.html"><span class="doc">bookkeeping lesson</span></a>, and is unique to the 2016 magnet-down job, so it doesn’t belong under <code class="docutils literal notranslate"><span class="pre">defaults</span></code>.</p></li>
 </ul>
-<p>For a full list of the available options, and information on their allowed values, see the <a class="reference external" href="https://gitlab.cern.ch/lhcb-datapkg/AnalysisProductions">Analysis Productions README</a>.</p>
+<p>For a full list of the available options, and information on their allowed values, see the <a class="reference external" href="https://lhcb-ap.docs.cern.ch/user_guide/creating.html#yaml-configuration">documentation</a>.</p>
 <div class="panel panel-challenge docutils container">
 <div class="panel-header open docutils container">
 <p id="add-a-magnet-up-job"><i class="fa fa-square-o"></i> Add a magnet-up job</p>
@@ -390,8 +398,8 @@
 </div>
 <p>For good practice, the final thing we should add is a README. This is a markdown file that will be used to document the information about your production in a more human-readable format. Create a file <code class="docutils literal notranslate"><span class="pre">README.md</span></code>, and add some pertinent information. If you’re not sure what to add, try looking at some existing productions to get an idea.</p>
 <section id="testing-your-production-locally">
-<h3>Testing your production locally<a class="headerlink" href="#testing-your-production-locally" title="Permalink to this headline"></a></h3>
-<p>Now we’ve got both of the files we need, we should test the production to make sure it works as expected. All of this will be done using the <code class="docutils literal notranslate"><span class="pre">lb-ap</span></code> command. Navigate up one level to the base directory of the respository (<code class="docutils literal notranslate"><span class="pre">AnalysisProductions</span></code>), and run <code class="docutils literal notranslate"><span class="pre">lb-ap</span></code>, which should display the following:</p>
+<h3>Testing your production locally<a class="headerlink" href="#testing-your-production-locally" title="Permalink to this heading"></a></h3>
+<p>Now we’ve got both of the files we need, we should test the production to make sure it works as expected. All of this will be done using the <code class="docutils literal notranslate"><span class="pre">lb-ap</span></code> command. Navigate up one level to the base directory of the repository (<code class="docutils literal notranslate"><span class="pre">AnalysisProductions</span></code>), and run <code class="docutils literal notranslate"><span class="pre">lb-ap</span></code>, which should display the following:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Usage: lb-ap [OPTIONS] COMMAND [ARGS]...
 
   Command line tool for the LHCb AnalysisProductions
@@ -401,13 +409,20 @@ Options:
   --help     Show this message and exit.
 
 Commands:
-  list       List the available production folders by running lb-ap list...
-  render     Render the info.yaml for a given production
-  validate   Validate the configuration for a given production
-  test       Execute a job locally
-  debug      Start an interactive session inside the job&#39;s environment
-  reproduce  Reproduce an existing online test locally
-  parse-log  Read a Gaudi log file and extract information
+  login        Login to the Analysis Productions API
+  versions     List the available tags of the Analysis Productions...
+  clone        Clone the AnalysisProductions repository and do lb-ap...
+  checkout     Clean out the current copy of the specified production and...
+  list         List the available production folders by running &#39;lb-ap list&#39;
+  list-checks  List the checks for a specific production by running lb-ap...
+  render       Render the info.yaml for a given production
+  validate     Validate the configuration for a given production
+  test         Execute a job locally
+  check        Run checks for a production
+  ci-checks    Helper function for running checks in the CI.
+  debug        Start an interactive session inside the job&#39;s environment
+  reproduce    Reproduce an existing online test locally
+  parse-log    Read a Gaudi log file and extract information
 </pre></div>
 </div>
 <p>This command <code class="docutils literal notranslate"><span class="pre">lb-ap</span></code> will allow us to perform a number of different tests. Let’s start with <code class="docutils literal notranslate"><span class="pre">lb-ap</span> <span class="pre">list</span></code>, which will display all of the productions. Hopefully you should see your new production (<code class="docutils literal notranslate"><span class="pre">D02HH_Practice</span></code>) on this list! You can also use this to list all of the jobs within a given production, by running <code class="docutils literal notranslate"><span class="pre">lb-ap</span> <span class="pre">list</span> <span class="pre">D02HH_Practice</span></code>. If you added a second job for magnet-up earlier, the output of this command should look like this:</p>
@@ -435,7 +450,7 @@ Commands:
 </div>
 </section>
 <section id="creating-a-merge-request">
-<h3>Creating a merge request<a class="headerlink" href="#creating-a-merge-request" title="Permalink to this headline"></a></h3>
+<h3>Creating a merge request<a class="headerlink" href="#creating-a-merge-request" title="Permalink to this heading"></a></h3>
 <p>Now that we’ve tested all of our changes and are sure that everything’s working as intended, we can prepare to submit them to the main repository by creating a merge request. Start by commiting the changes:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git add ntuple_options.py
 git add info.yaml
@@ -454,7 +469,55 @@ INFO:Creating new pipeline for ID 1958388
 ALWAYS:Results will be available at https://lhcb-analysis-productions.web.cern.ch/1958388/
 </pre></div>
 </div>
-<p>You can open that link in your browser to view the status of the test jobs (example <a class="reference external" href="https://lhcb-analysis-productions.web.cern.ch/3195170/">here</a>). After a few minutes, these should have completed - all being well, you’ve now successfully submitted your first production!</p>
+<p>You can open that link in your browser to view the status of the test jobs (example <a class="reference external" href="https://lhcb-analysis-productions.web.cern.ch/pipelines/?id=4791499">here</a>). After a few minutes, these should have completed - all being well, you’ve now successfully submitted your first production!</p>
+</section>
+<section id="checks">
+<h3>Checks<a class="headerlink" href="#checks" title="Permalink to this heading"></a></h3>
+<p>For the start of Run 3 it was requested to add the <code class="docutils literal notranslate"><span class="pre">Checks</span></code> feature to AnalysisProductions. This facilitates offline monitoring by allowing automated simple analysis of tupling output to assist with data quality and early measurements. For now let’s stick with some simple ones but for full details you can <a class="reference external" href="https://lhcb-ap.docs.cern.ch/user_guide/creating.html#checks">check the documentation</a>.</p>
+<p>We start by defining the checks we would like to perform. Add the following to your <code class="docutils literal notranslate"><span class="pre">info.yaml</span></code> below the <code class="docutils literal notranslate"><span class="pre">defaults</span></code>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">checks</span><span class="p">:</span>
+    <span class="n">histogram</span><span class="p">:</span>
+        <span class="nb">type</span><span class="p">:</span> <span class="nb">range</span>
+        <span class="n">expression</span><span class="p">:</span> <span class="n">Dst_2010_plus_M</span>
+        <span class="n">limits</span><span class="p">:</span>
+            <span class="nb">min</span><span class="p">:</span> <span class="mi">1900</span>
+            <span class="nb">max</span><span class="p">:</span> <span class="mi">2300</span>
+        <span class="n">blind_ranges</span><span class="p">:</span>
+            <span class="nb">min</span><span class="p">:</span> <span class="mi">2000</span>
+            <span class="nb">max</span><span class="p">:</span> <span class="mi">2020</span>
+    <span class="n">histogram_fail</span><span class="p">:</span>
+        <span class="nb">type</span><span class="p">:</span> <span class="nb">range</span>
+        <span class="n">expression</span><span class="p">:</span> <span class="n">Dst_2010_plus_M</span>
+        <span class="n">limits</span><span class="p">:</span>
+            <span class="nb">min</span><span class="p">:</span> <span class="mi">0</span>
+            <span class="nb">max</span><span class="p">:</span> <span class="mi">10</span>
+    <span class="n">at_least_50_entries</span><span class="p">:</span>
+        <span class="nb">type</span><span class="p">:</span> <span class="n">num_entries</span>
+        <span class="n">tree_pattern</span><span class="p">:</span> <span class="n">TupleDstToD0pi_D0ToKK</span><span class="o">/</span><span class="n">DecayTree</span>
+        <span class="n">count</span><span class="p">:</span> <span class="mi">50</span>
+</pre></div>
+</div>
+<p>Here we have defined two <code class="docutils literal notranslate"><span class="pre">range</span></code> checks and one <code class="docutils literal notranslate"><span class="pre">num_entries</span></code> check. <code class="docutils literal notranslate"><span class="pre">range</span></code> checks plot a histogram in the range shown for your desired expression, if empty they will fail your test. <code class="docutils literal notranslate"><span class="pre">num_entries</span></code> simply checks that your specified TTree has at least the number of events you desire.</p>
+<p>Now that we have defined our checks we should choose which jobs to apply them to, if any check is not applied to at least one job the validation will fail!</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="mi">2016</span><span class="n">_MagDown_PromptMC_D02KK</span><span class="p">:</span>
+    <span class="nb">input</span><span class="p">:</span>
+        <span class="n">bk_query</span><span class="p">:</span> <span class="s2">&quot;/MC/2016/Beam6500GeV-2016-MagDown-Nu1.6-25ns-Pythia8/Sim09c/Trig0x6138160F/Reco16/Turbo03/Stripping28r1NoPrescalingFlagged/27163002/ALLSTREAMS.DST&quot;</span>
+    <span class="n">checks</span><span class="p">:</span>
+        <span class="o">-</span> <span class="n">histogram</span>
+        <span class="o">-</span> <span class="n">histogram_fail</span>
+        <span class="o">-</span> <span class="n">at_least_50_entries</span>
+</pre></div>
+</div>
+<p>Now if we test <code class="docutils literal notranslate"><span class="pre">2016_MagDown_PromptMC_D02KK</span></code> the checks will be run automatically and their results printed. If we push these changes to our remote branch then in the pipeline results we will find a summary of each check result and the plots of each histogram.</p>
+<p><img alt="Pipeline check results" src="../_images/aprods_checks.png" /></p>
+<div class="panel panel-callout docutils container">
+<div class="panel-header open docutils container">
+<p id="did-it-fail?"><i class="fa fa-info-circle"></i> Did it fail?</p>
+</div>
+<div class="panel-body docutils container">
+<p>The test will have failed due to the histogram check we defined to fail, remove that if you want your tests to pass.</p>
+</div>
+</div>
 <div class="panel panel-callout docutils container">
 <div class="panel-header open docutils container">
 <p id="next-steps-for-real-productions"><i class="fa fa-info-circle"></i> Next steps for real productions</p>

@@ -16,7 +16,9 @@
         <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
         <script src="../_static/jquery.js"></script>
         <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
         <script src="../_static/panels.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script src="../_static/js/theme.js"></script>
@@ -74,6 +76,7 @@
 <li class="toctree-l3"><a class="reference internal" href="analysis-productions.html#creating-your-own-production">Creating your own production</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="analysis-productions.html#testing-your-production-locally">Testing your production locally</a></li>
 <li class="toctree-l4"><a class="reference internal" href="analysis-productions.html#creating-a-merge-request">Creating a merge request</a></li>
+<li class="toctree-l4"><a class="reference internal" href="analysis-productions.html#checks">Checks</a></li>
 </ul>
 </li>
 </ul>
@@ -234,9 +237,9 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
-          <li><a href="README.html">First Analysis Steps</a> &raquo;</li>
-      <li>Running DaVinci on the grid</li>
+      <li><a href="../index.html" class="icon icon-home"></a></li>
+          <li class="breadcrumb-item"><a href="README.html">First Analysis Steps</a></li>
+      <li class="breadcrumb-item active">Running DaVinci on the grid</li>
       <li class="wy-breadcrumbs-aside">
               <a href="https://github.com/lhcb/starterkit-lessons/blob/master/first-analysis-steps/davinci-grid.md" class="fa fa-github"> Edit on GitHub</a>
       </li>
@@ -271,7 +274,7 @@
 }
 </style>
 <section id="running-davinci-on-the-grid">
-<h1>Running DaVinci on the grid<a class="headerlink" href="#running-davinci-on-the-grid" title="Permalink to this headline"></a></h1>
+<h1>Running DaVinci on the grid<a class="headerlink" href="#running-davinci-on-the-grid" title="Permalink to this heading"></a></h1>
 <div class="panel panel-objectives docutils container">
 <div class="panel-header open docutils container">
 <p id="learning-objectives"><i class="fa fa-line-chart"></i> Learning Objectives</p>
@@ -448,6 +451,18 @@ $ root -l path/to/the/job/output
 </pre></div>
 </div>
 <p>You need to setup <code class="docutils literal notranslate"><span class="pre">DaVinci</span></code> as we need ROOT version 6 to read the nTuple.</p>
+<div class="panel panel-callout docutils container">
+<div class="panel-header open docutils container">
+<p id="test-your-jobs!"><i class="fa fa-info-circle"></i> Test your jobs!</p>
+</div>
+<div class="panel-body docutils container">
+<p>When submitting large jobs you must test them first! Submitting 1000 subjobs which all fail because of a mistake in your DaVinci options will result in a grumpy email from the grid experts and potentially ending up on low priority lists.</p>
+<p>Testing your job is simple - just change the inputdata to only run on one or two files as in this example.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">j</span><span class="o">.</span><span class="n">inputdata</span> <span class="o">=</span> <span class="n">data</span><span class="p">[:</span><span class="mi">2</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
 <div class="panel panel-callout docutils container">
 <div class="panel-header open docutils container">
 <p id="getting-help-with-ganga"><i class="fa fa-info-circle"></i> Getting help with ganga</p>
