@@ -1,4 +1,4 @@
-# The LHCb Starterkit lessons [![Build Status](https://api.travis-ci.org/lhcb/starterkit-lessons.svg?branch=master)](https://travis-ci.org/lhcb/starterkit-lessons)
+# The LHCb Starterkit lessons [![Build Status](https://github.com/lhcb/starterkit-ci/actions/workflows/build.yml/badge.svg)
 
 These are the lessons taught during the [LHCb Starterkit][starterkit].
 If you'd like to join the next workshop, visit [the website][starterkit] to find out when that will how and how to sign up.
