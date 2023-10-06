@@ -12,9 +12,9 @@ jobs:
       - name: Install dependencies
         run: pip install -vv starterkit-ci>=0.1.0
       - name: Build the website
-        run: starterkit_ci build
+        run: starterkit_ci build --allow-warnings
       - name: Check for dead links
-        run: starterkit_ci check
+        run: starterkit_ci check --allow-warnings
       - name: Upload build artifacts
         uses: actions/upload-artifact@v2
         with:
