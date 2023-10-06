@@ -18,7 +18,7 @@ It is the goal of [Analysis Productions](https://gitlab.cern.ch/lhcb-datapkg/Ana
 
 ## Monitoring productions
 
-Before we get into the how-to, let's first take a look at the end result of a real production. Open the [Analysis Productions webpage](https://lhcb-analysis-productions-preview.web.cern.ch/), and navigate to `Productions`. You should see a new menu appear, showing a list of productions. Using the search bar on the right you can search for any production of interest, try `b02dkpi` for example. This should return one result and clicking on it should show you a table of jobs belonging to the production.
+Before we get into the how-to, let's first take a look at the end result of a real production. Open the [Analysis Productions webpage](https://lhcb-analysis-productions.web.cern.ch/), and navigate to `Productions`. You should see a new menu appear, showing a list of productions. Using the search bar on the right you can search for any production of interest, try `b02dkpi` for example. This should return one result and clicking on it should show you a table of jobs belonging to the production.
 
 Each row in the table corresponds to a job belonging to this production, and displays:
 

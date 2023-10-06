@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>LHCb data flow in Run 3 &mdash; LHCb Starterkit Lessons  documentation</title>
@@ -35,12 +35,16 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../index.html" class="icon icon-home"> LHCb Starterkit Lessons
-            <img src="../_static/starterkit.png" class="logo" alt="Logo"/>
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            LHCb Starterkit Lessons
+              <img src="../_static/starterkit.png" class="logo" alt="Logo"/>
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -239,7 +243,7 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../index.html" class="icon icon-home"></a></li>
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="README.html">First Analysis Steps</a></li>
       <li class="breadcrumb-item active">LHCb data flow in Run 3</li>
       <li class="wy-breadcrumbs-aside">
@@ -251,31 +255,7 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  
-<style>
-/* CSS overrides for sphinx_rtd_theme */
-
-/* 24px margin */
-.nbinput.nblast.container,
-.nboutput.nblast.container {
-    margin-bottom: 19px;  /* padding has already 5px */
-}
-
-/* ... except between code cells! */
-.nblast.container + .nbinput.container {
-    margin-top: -19px;
-}
-
-.admonition > p:before {
-    margin-right: 4px;  /* make room for the exclamation icon */
-}
-
-/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
-.math {
-    text-align: unset;
-}
-</style>
-<section id="lhcb-data-flow-in-run-3">
+  <section id="lhcb-data-flow-in-run-3">
 <h1>LHCb data flow in Run 3<a class="headerlink" href="#lhcb-data-flow-in-run-3" title="Permalink to this heading"></a></h1>
 <div class="panel panel-objectives docutils container">
 <div class="panel-header open docutils container">
@@ -292,18 +272,18 @@
 <h2>LHCb upgrade<a class="headerlink" href="#lhcb-upgrade" title="Permalink to this heading"></a></h2>
 <p>In Run 1 &amp; 2 LHCb proved itself not only to be a high-precision
 heavy flavour physics experiment, but also extended the core physics programme to many different areas such as electroweak physics and fixed-target experiments. This incredible precision led to
-over 500 papers including breakthroughs such as the first discovery of <span class="math notranslate nohighlight">\( C\!P \)</span>-violation in charm and the first observation of the decay <span class="math notranslate nohighlight">\( B_s^0\to \mu^+\mu^- \)</span> among many others.</p>
-<p>In order to reach even higher precision the experiment aims to take <span class="math notranslate nohighlight">\( 50\,\mathrm{fb}^{-1} \)</span> of
+over 500 papers including breakthroughs such as the first discovery of <span class="math notranslate nohighlight">\(` C\!P `\)</span>-violation in charm and the first observation of the decay <span class="math notranslate nohighlight">\(` B_s^0\to \mu^+\mu^- `\)</span> among many others.</p>
+<p>In order to reach even higher precision the experiment aims to take <span class="math notranslate nohighlight">\(` 50\,\mathrm{fb}^{-1} `\)</span> of
 data in Run 3 by increasing the instantaneous luminosity by a factor of five.
 To be capable of dealing with the higher detector occupancy the experiment will be equipped with an entire new set of tracking detectors with higher granularity and improved radiation tolerance.</p>
 <p>One of the most important upgrades in Run 3 will be the removal of the LHCb L0 hardware triggers. As described in the following, this will bring significant changes in the data flow of the experiment both for online and offline processing. It also means that the front-end and readout electronics of all sub-detectors will be replaced, to be able
-to operate at the bunch crossing rate of <span class="math notranslate nohighlight">\( 40\,\mathrm{MHz} \)</span>, as well as the photodetectors of the RICH1 detector.</p>
+to operate at the bunch crossing rate of <span class="math notranslate nohighlight">\(` 40\,\mathrm{MHz} `\)</span>, as well as the photodetectors of the RICH1 detector.</p>
 </section>
 <section id="upgrade-of-the-lhcb-trigger-system">
 <h2>Upgrade of the LHCb trigger system<a class="headerlink" href="#upgrade-of-the-lhcb-trigger-system" title="Permalink to this heading"></a></h2>
 <p>The trigger layout for Run 3 will look like this:</p>
 <p><img alt="&quot;Data processing chain for Run 3&quot;" src="../_images/hidef_RTA_dataflow_widescreen.png" /></p>
-<p>The LHCb trigger system will be fully redesigned by removing the L0 hardware trigger and moving to a fully-software based trigger. The hardware trigger has a rate limit of 1 MHz, which would be a limitation with the increase in luminosity. Such a low rate could be only achieved by having tight hardware trigger thresholds on <span class="math notranslate nohighlight">\( p_\mathrm{T} \)</span> and <span class="math notranslate nohighlight">\( E_\mathrm{T} \)</span> which is inefficient especially for fully hadronic decay modes. The removal of this bottleneck means that the full detector readout as well as running the HLT1 needs to be enabled at the average non-empty bunch crossing rate in LHCb of <span class="math notranslate nohighlight">\( 30\,\mathrm{MHz} \)</span>, a not so trivial computing challenge!</p>
+<p>The LHCb trigger system will be fully redesigned by removing the L0 hardware trigger and moving to a fully-software based trigger. The hardware trigger has a rate limit of 1 MHz, which would be a limitation with the increase in luminosity. Such a low rate could be only achieved by having tight hardware trigger thresholds on <span class="math notranslate nohighlight">\(` p_\mathrm{T} `\)</span> and <span class="math notranslate nohighlight">\(` E_\mathrm{T} `\)</span> which is inefficient especially for fully hadronic decay modes. The removal of this bottleneck means that the full detector readout as well as running the HLT1 needs to be enabled at the average non-empty bunch crossing rate in LHCb of <span class="math notranslate nohighlight">\(` 30\,\mathrm{MHz} `\)</span>, a not so trivial computing challenge!</p>
 <p>As we saw already at the <a class="reference external" href="https://lhcb.github.io/starterkit-lessons/first-analysis-steps/dataflow.html">Run 1 and Run 2 dataflow lecture</a>, the software trigger is implemented in two steps: the HLT1 which performs partial event reconstruction and simple trigger decisions to reduce the data rate, and HLT2, which performs the more computationally expensive full reconstruction and complete trigger selection. One of the most important tasks of building the events is track reconstruction, which is an inherently parallelizable process. For this purpose, HLT1 in Run 3 is implemented as part of the <code class="docutils literal notranslate"><span class="pre">Allen</span> <span class="pre">project</span></code> and run on GPUs.</p>
 <section id="the-hlt-architecture">
 <h3>The HLT architecture<a class="headerlink" href="#the-hlt-architecture" title="Permalink to this heading"></a></h3>
@@ -311,7 +291,7 @@ to operate at the bunch crossing rate of <span class="math notranslate nohighlig
 <p>Having the HLT1 run on GPUs imposes some different requirements on the code development. The <code class="docutils literal notranslate"><span class="pre">Allen</span></code> framework is based on the <code class="docutils literal notranslate"><span class="pre">CUDA</span></code> GPU programming platform. Developers should keep in mind that HLT1 algorithms should be implemented in a way that maximizes parallelizability and is thread-safe, i.e. memory should be accessed in a secure way from parallel processes. Documentation on how to develop reconstruction algorithms and selection lines for HLT1 can be found in the readme’s of the <a class="reference external" href="https://gitlab.cern.ch/lhcb/Allen">Allen project</a>.</p>
 <p>The raw data of events selected by HLT1 is passed on to the buffer system and stored there. The buffering of events enables to run the real-time alignment and calibration before events are entering HLT2. This is crucial because in this way calibration and alignment constants obtained can be used in the full event reconstruction performed in HLT2. For the determination of these constants, HLT1 selects dedicated calibration samples.
 More information about the real-time alignment and calibration can be found in the <a class="reference external" href="https://twiki.cern.ch/twiki/bin/view/LHCb/AlignmentInUpgrade">Upgrade Alignment TWIKI page</a>.</p>
-<p>The total bandwidth that can be saved from HLT2 to tape is limited to <span class="math notranslate nohighlight">\( 10\,\mathrm{GB}/s \)</span>. An important change in the HLT2 selections with respect to the Run 2 will be the increased use of the Turbo model. Wherever possible, the Turbo will be the baseline, so that in total for approximately 2/3 of data only the data of the signal candidate (raw and reconstructed) will be saved and no further offline reconstruction will be possible. This results in significantly smaller event sizes so that more events can be saved.</p>
+<p>The total bandwidth that can be saved from HLT2 to tape is limited to <span class="math notranslate nohighlight">\(` 10\,\mathrm{GB}/s `\)</span>. An important change in the HLT2 selections with respect to the Run 2 will be the increased use of the Turbo model. Wherever possible, the Turbo will be the baseline, so that in total for approximately 2/3 of data only the data of the signal candidate (raw and reconstructed) will be saved and no further offline reconstruction will be possible. This results in significantly smaller event sizes so that more events can be saved.</p>
 <p>For details and tutorials on how to develop HLT2 line selections as well as how to check their efficiencies and data rates follow the <a class="reference external" href="https://lhcbdoc.web.cern.ch/lhcbdoc/moore/master/index.html">Moore documentation</a>.</p>
 </section>
 <section id="selective-persistency">

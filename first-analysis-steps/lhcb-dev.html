@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Developing LHCb Software &mdash; LHCb Starterkit Lessons  documentation</title>
@@ -33,12 +33,16 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../index.html" class="icon icon-home"> LHCb Starterkit Lessons
-            <img src="../_static/starterkit.png" class="logo" alt="Logo"/>
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            LHCb Starterkit Lessons
+              <img src="../_static/starterkit.png" class="logo" alt="Logo"/>
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -237,7 +241,7 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../index.html" class="icon icon-home"></a></li>
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="README.html">First Analysis Steps</a></li>
       <li class="breadcrumb-item active">Developing LHCb Software</li>
       <li class="wy-breadcrumbs-aside">
@@ -249,31 +253,7 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  
-<style>
-/* CSS overrides for sphinx_rtd_theme */
-
-/* 24px margin */
-.nbinput.nblast.container,
-.nboutput.nblast.container {
-    margin-bottom: 19px;  /* padding has already 5px */
-}
-
-/* ... except between code cells! */
-.nblast.container + .nbinput.container {
-    margin-top: -19px;
-}
-
-.admonition > p:before {
-    margin-right: 4px;  /* make room for the exclamation icon */
-}
-
-/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
-.math {
-    text-align: unset;
-}
-</style>
-<section id="developing-lhcb-software">
+  <section id="developing-lhcb-software">
 <h1>Developing LHCb Software<a class="headerlink" href="#developing-lhcb-software" title="Permalink to this heading"></a></h1>
 <div class="panel panel-objectives docutils container">
 <div class="panel-header open docutils container">
@@ -313,11 +293,11 @@ you to check out individual packages inside a project, and streamlines the
 modification of a few packages at a time.</p></li>
 </ol>
 <p>Here, we want to focus on the second workflow. The first workflow will be
-discussed briefly at the <a class="reference external" href="#working-with-a-full-project-checkout">bottom</a> of
-this page. Note that, although the <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">lb-*</span></code> commands are much easier for small
-changes to existing packages where recompiling an entire project would be
-cumbersome, for any serious development the usage of vanilla Git is much more
-stable. Please consider using it if you can spare the compilation time.</p>
+discussed briefly at the bottom ofthis page. Note that, although the
+<code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">lb-*</span></code> commands are much easier for small changes to existing packages
+where recompiling an entire project would be cumbersome, for any serious
+development the usage of vanilla Git is much more stable. Please consider
+using it if you can spare the compilation time.</p>
 <div class="panel panel-callout docutils container">
 <div class="panel-header open docutils container">
 <p id="initial-setup"><i class="fa fa-info-circle"></i> Initial setup</p>
@@ -353,7 +333,7 @@ git config --global user.email &quot;your.name@cern.ch&quot;
 </ul>
 <p>If you want to make changes to a software package, you will need to set up a
 development environment. <code class="docutils literal notranslate"><span class="pre">lb-dev</span></code> is your friend here:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>lb-dev --name DaVinciDev DaVinci/v45r8
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>lb-dev<span class="w"> </span>--name<span class="w"> </span>DaVinciDev<span class="w"> </span>DaVinci/v45r8
 </pre></div>
 </div>
 <p>The output should look similar to this:</p>
@@ -402,12 +382,12 @@ git push -u origin master
 </div>
 </div>
 <p>Follow those instructions to compile the software:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> DaVinciDev
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>DaVinciDev
 make
 </pre></div>
 </div>
 <p>Once that’s done, let’s try it out:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>./run gaudirun.py
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>./run<span class="w"> </span>gaudirun.py
 </pre></div>
 </div>
 <p>We just successfully ran the simplest possible Gaudi job with <code class="docutils literal notranslate"><span class="pre">gaudirun.py</span></code>!
@@ -422,7 +402,7 @@ It works similar to <code class="docutils literal notranslate"><span class="pre"
 <p>Sometimes it is convenient to get a shell with the runtime environment
 so that you don’t need to prefix commands with <code class="docutils literal notranslate"><span class="pre">./run</span></code> all the time.
 To do this, simply run</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>./run bash -l
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>./run<span class="w"> </span>bash<span class="w"> </span>-l
 </pre></div>
 </div>
 <p>While useful, it is generally advised to stick to prefixing commands with
@@ -441,8 +421,8 @@ developing LHCb software easier.
 For example, if you want to modify a <code class="docutils literal notranslate"><span class="pre">TupleTool</span></code>
 (which you discovered in the <a class="reference internal" href="add-tupletools.html"><span class="doc">TupleTools and branches</span></a> lesson),
 start by executing the following in the <code class="docutils literal notranslate"><span class="pre">DaVinciDev</span></code> directory:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git lb-use Analysis
-git lb-checkout Analysis/run2-patches Phys/DecayTreeTuple
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>lb-use<span class="w"> </span>Analysis
+git<span class="w"> </span>lb-checkout<span class="w"> </span>Analysis/run2-patches<span class="w"> </span>Phys/DecayTreeTuple
 </pre></div>
 </div>
 <div class="panel panel-discussion docutils container">
@@ -450,8 +430,8 @@ git lb-checkout Analysis/run2-patches Phys/DecayTreeTuple
 <p id="what-if-git-asks-for-my-password?"><i class="fa fa-bell"></i> What if git asks for my password?</p>
 </div>
 <div class="panel-body docutils container">
-<p>Make sure you succesfully completed the instructions under <a class="reference external" href="#initial-setup">initial
-setup</a>.</p>
+<p>Make sure you succesfully completed the instructions under initial
+setup.</p>
 </div>
 </div>
 <p>Under the hood, <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">lb-use</span></code> will add and fetch the
@@ -470,11 +450,11 @@ directory.</p>
 to check out and work on, and not on the project name you passed to <code class="docutils literal notranslate"><span class="pre">lb-dev</span></code>.
 Moreover you can call <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">lb-use</span></code> several times for different remote
 projects in the same local project:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>lb-dev --name DaVinciDev DaVinci/v45r8
-<span class="nb">cd</span> DaVinciDev
-git lb-use Analysis
-git lb-use Stripping
-git lb-use DaVinci
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>lb-dev<span class="w"> </span>--name<span class="w"> </span>DaVinciDev<span class="w"> </span>DaVinci/v45r8
+<span class="nb">cd</span><span class="w"> </span>DaVinciDev
+git<span class="w"> </span>lb-use<span class="w"> </span>Analysis
+git<span class="w"> </span>lb-use<span class="w"> </span>Stripping
+git<span class="w"> </span>lb-use<span class="w"> </span>DaVinci
 </pre></div>
 </div>
 <p>Note that in order for this to work, projects you specify in <code class="docutils literal notranslate"><span class="pre">lb-use</span></code> must
@@ -486,12 +466,12 @@ chain</a>.</p>
 <p>After checking out new packages, always remember to make them known to your
 local project with <code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">configure</span></code> (sometimes it might be necessary to fully
 clean up the build with <code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">purge</span></code>):</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>make configure
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>make<span class="w"> </span>configure
 </pre></div>
 </div>
 <p>You can now modify the <code class="docutils literal notranslate"><span class="pre">Phys/DecayTreeTuple</span></code> package and run <code class="docutils literal notranslate"><span class="pre">make</span></code> to build
 it with your changes. You can test your changes with the <code class="docutils literal notranslate"><span class="pre">./run</span></code> script.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>./run gaudirun.py ntuple_options.py
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>./run<span class="w"> </span>gaudirun.py<span class="w"> </span>ntuple_options.py
 </pre></div>
 </div>
 <p>If you have made changes that you’d like to be integrated into the official
@@ -536,7 +516,7 @@ merge request description, such that the maintainers of the affected project can
 update the reference file.</p>
 <p>Often it is useful to work directly from nightly builds (e.g. to debug an issue on another platform).
 You can use a nightly build version of a project with:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>lb-dev -c x86_64-centos7-gcc9-opt --nightly lhcb-run2-patches DaVinci/run2-patches
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>lb-dev<span class="w"> </span>-c<span class="w"> </span>x86_64-centos7-gcc9-opt<span class="w"> </span>--nightly<span class="w"> </span>lhcb-run2-patches<span class="w"> </span>DaVinci/run2-patches
 </pre></div>
 </div>
 <p>A more detailed description of the command is found at <a class="reference external" href="https://twiki.cern.ch/twiki/bin/view/LHCb/SoftwareEnvTools">SoftwareEnvTools</a>.</p>
@@ -549,7 +529,7 @@ functionality, but the output is not always easy to read, especially if it
 returns many hits. To search a project much quicker, you can use <code class="docutils literal notranslate"><span class="pre">lb-glimpse</span></code>.
 It allows you to search for a given string in the source code of a particular
 LHCb project (and all its dependencies).</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>lb-glimpse <span class="s2">&quot;PVRefitter&quot;</span> DaVinci/v45r8
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>lb-glimpse<span class="w"> </span><span class="s2">&quot;PVRefitter&quot;</span><span class="w"> </span>DaVinci/v45r8
 </pre></div>
 </div>
 <p>This works with every LHCb project and released version. Since it’s a shell
@@ -577,7 +557,7 @@ checking out an entire project – just don’t be surprised if it takes hours
 to compile on lxplus! Note that repeated compilation will be much faster
 and using a dedicated multi-core machine can speed things up a lot.</p>
 <p>To check out a project, run the following:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git clone https://:@gitlab.cern.ch:8443/lhcb/DaVinci.git
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>clone<span class="w"> </span>https://:@gitlab.cern.ch:8443/lhcb/DaVinci.git
 </pre></div>
 </div>
 <p>replacing <code class="docutils literal notranslate"><span class="pre">DaVinci</span></code> with the project name of your choice. Next, initialise

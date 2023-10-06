@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>TupleTools and branches &mdash; LHCb Starterkit Lessons  documentation</title>
@@ -35,12 +35,16 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../index.html" class="icon icon-home"> LHCb Starterkit Lessons
-            <img src="../_static/starterkit.png" class="logo" alt="Logo"/>
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            LHCb Starterkit Lessons
+              <img src="../_static/starterkit.png" class="logo" alt="Logo"/>
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -239,7 +243,7 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../index.html" class="icon icon-home"></a></li>
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="README.html">First Analysis Steps</a></li>
       <li class="breadcrumb-item active">TupleTools and branches</li>
       <li class="wy-breadcrumbs-aside">
@@ -251,31 +255,7 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  
-<style>
-/* CSS overrides for sphinx_rtd_theme */
-
-/* 24px margin */
-.nbinput.nblast.container,
-.nboutput.nblast.container {
-    margin-bottom: 19px;  /* padding has already 5px */
-}
-
-/* ... except between code cells! */
-.nblast.container + .nbinput.container {
-    margin-top: -19px;
-}
-
-.admonition > p:before {
-    margin-right: 4px;  /* make room for the exclamation icon */
-}
-
-/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
-.math {
-    text-align: unset;
-}
-</style>
-<section id="tupletools-and-branches">
+  <section id="tupletools-and-branches">
 <h1>TupleTools and branches<a class="headerlink" href="#tupletools-and-branches" title="Permalink to this heading"></a></h1>
 <div class="panel panel-objectives docutils container">
 <div class="panel-header open docutils container">
@@ -427,7 +407,7 @@ To add LoKi-based leaves to the tree, we need to use the <code class="docutils l
 <li><p>Its <em>name</em>, specified in the <code class="docutils literal notranslate"><span class="pre">addTupleTool</span></code> call after a <code class="docutils literal notranslate"><span class="pre">/</span></code>.  This is
 very useful (and recommended) if we want to have different
 <code class="docutils literal notranslate"><span class="pre">LoKi::Hybrid::TupleTool</span></code> for each of our branches. For instance, we may
-want to add different information for the D*, the D0 and the soft <span class="math notranslate nohighlight">\( \pi \)</span>:</p></li>
+want to add different information for the D*, the D0 and the soft <span class="math notranslate nohighlight">\(` \pi `\)</span>:</p></li>
 </ol>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">dstar_hybrid</span> <span class="o">=</span> <span class="n">dtt</span><span class="o">.</span><span class="n">Dstar</span><span class="o">.</span><span class="n">addTupleTool</span><span class="p">(</span><span class="s1">&#39;LoKi::Hybrid::TupleTool/LoKi_Dstar&#39;</span><span class="p">)</span>
 <span class="n">d0_hybrid</span> <span class="o">=</span> <span class="n">dtt</span><span class="o">.</span><span class="n">D0</span><span class="o">.</span><span class="n">addTupleTool</span><span class="p">(</span><span class="s1">&#39;LoKi::Hybrid::TupleTool/LoKi_D0&#39;</span><span class="p">)</span>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Physics at LHCb &mdash; LHCb Starterkit Lessons  documentation</title>
@@ -35,12 +35,16 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../index.html" class="icon icon-home"> LHCb Starterkit Lessons
-            <img src="../_static/starterkit.png" class="logo" alt="Logo"/>
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            LHCb Starterkit Lessons
+              <img src="../_static/starterkit.png" class="logo" alt="Logo"/>
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -239,7 +243,7 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../index.html" class="icon icon-home"></a></li>
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="README.html">First Analysis Steps</a></li>
       <li class="breadcrumb-item active">Physics at LHCb</li>
       <li class="wy-breadcrumbs-aside">
@@ -251,31 +255,7 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  
-<style>
-/* CSS overrides for sphinx_rtd_theme */
-
-/* 24px margin */
-.nbinput.nblast.container,
-.nboutput.nblast.container {
-    margin-bottom: 19px;  /* padding has already 5px */
-}
-
-/* ... except between code cells! */
-.nblast.container + .nbinput.container {
-    margin-top: -19px;
-}
-
-.admonition > p:before {
-    margin-right: 4px;  /* make room for the exclamation icon */
-}
-
-/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
-.math {
-    text-align: unset;
-}
-</style>
-<section id="physics-at-lhcb">
+  <section id="physics-at-lhcb">
 <h1>Physics at LHCb<a class="headerlink" href="#physics-at-lhcb" title="Permalink to this heading"></a></h1>
 <div class="panel panel-objectives docutils container">
 <div class="panel-header open docutils container">
@@ -304,12 +284,12 @@ fraction can traverse the full detector, and so we typically consider these
 particles as ‘stable’. Unstable objects, with much shorter lifetimes, are
 formed as combinations of these ‘stable’ particles[^1]:</p>
 <ol class="simple">
-<li><p>Charged pions <span class="math notranslate nohighlight">\( \pi^{\pm} \)</span></p></li>
-<li><p>Charged kaons <span class="math notranslate nohighlight">\( K^{\pm} \)</span></p></li>
-<li><p>Protons <span class="math notranslate nohighlight">\( p/\bar{p} \)</span></p></li>
-<li><p>Electrons <span class="math notranslate nohighlight">\( e^{\pm} \)</span></p></li>
-<li><p>Muons <span class="math notranslate nohighlight">\( \mu^{\pm} \)</span></p></li>
-<li><p>Photons <span class="math notranslate nohighlight">\( \gamma \)</span></p></li>
+<li><p>Charged pions <span class="math notranslate nohighlight">\(` \pi^{\pm} `\)</span></p></li>
+<li><p>Charged kaons <span class="math notranslate nohighlight">\(` K^{\pm} `\)</span></p></li>
+<li><p>Protons <span class="math notranslate nohighlight">\(` p/\bar{p} `\)</span></p></li>
+<li><p>Electrons <span class="math notranslate nohighlight">\(` e^{\pm} `\)</span></p></li>
+<li><p>Muons <span class="math notranslate nohighlight">\(` \mu^{\pm} `\)</span></p></li>
+<li><p>Photons <span class="math notranslate nohighlight">\(` \gamma `\)</span></p></li>
 <li><p>Deuterons (<a class="reference external" href="https://en.wikipedia.org/wiki/Deuterium">deuterium nuclei</a>)</p></li>
 </ol>
 <p>Many properties of these objects, such as their momentum and charge, are
@@ -348,8 +328,8 @@ trajectories created from combinations of random hits that together <em>look lik
 a real trajectory.</p>
 <p>Given this, we can never know anything with complete certainty. Instead we
 must infer properties <em>statistically</em> based on ensembles of objects and events.</p>
-<p>Let’s say we want to count the number of <a class="reference external" href="http://pdglive.lbl.gov/Particle.action?init=0&amp;node=M070&amp;home=MXXX025"><span class="math notranslate nohighlight">\( J/\psi \)</span> mesons</a> that
-decay to two muons, <span class="math notranslate nohighlight">\( \mu^{+}\mu^{-} \)</span>. This proceeds via three steps:</p>
+<p>Let’s say we want to count the number of <a class="reference external" href="http://pdglive.lbl.gov/Particle.action?init=0&amp;node=M070&amp;home=MXXX025"><span class="math notranslate nohighlight">\(` J/\psi `\)</span> mesons</a> that
+decay to two muons, <span class="math notranslate nohighlight">\(` \mu^{+}\mu^{-} `\)</span>. This proceeds via three steps:</p>
 <ol class="simple">
 <li><p>Select tracks created by the reconstruction;</p></li>
 <li><p>Create pairs of oppositely-charged tracks;</p></li>
@@ -359,8 +339,8 @@ in space.</p></li>
 <p>We’ll go over each of these steps, starting with tracks produced by the
 reconstruction. Naturally, there are many of these in any given event,
 typically hundreds, so we begin be applying <em>selections</em> on the tracks based on
-our physics understanding. For example, the <span class="math notranslate nohighlight">\( J/\psi \)</span> is quite heavy (at
-around <span class="math notranslate nohighlight">\( 3.1\,\mathrm{GeV}/c^{2} \)</span>), so we might expect its decay products to have a
+our physics understanding. For example, the <span class="math notranslate nohighlight">\(` J/\psi `\)</span> is quite heavy (at
+around <span class="math notranslate nohighlight">\(` 3.1\,\mathrm{GeV}/c^{2} `\)</span>), so we might expect its decay products to have a
 higher momentum on average than objects produced from soft processes in the
 collision. The reconstruction gives us some probability-like
 information for a given track to have been created by a true muon, so we might
@@ -369,18 +349,18 @@ require that the tracks we use have some minimum ‘muon probability’.</p>
 We know that a real particle decay happens at a point in space, so we could
 require that the distance of closest approach between the two muons does not
 exceed some maximum value. We could further require that the invariant mass of
-the dimuon combination is close to the known mass of the <span class="math notranslate nohighlight">\( J/\psi \)</span>, invoking
+the dimuon combination is close to the known mass of the <span class="math notranslate nohighlight">\(` J/\psi `\)</span>, invoking
 the conservation of momentum.</p>
-<p>With selected dimuon pairs, we can <em>fit</em> a <span class="math notranslate nohighlight">\( J/\psi \to \mu^{+}\mu^{-} \)</span> decay
+<p>With selected dimuon pairs, we can <em>fit</em> a <span class="math notranslate nohighlight">\(` J/\psi \to \mu^{+}\mu^{-} `\)</span> decay
 vertex. This is done by expressing the hypothesis that there is a common origin
 vertex of both tracks as an optimisation problem, and then varying the measured
-<span class="math notranslate nohighlight">\( \mu^{+} \)</span> and <span class="math notranslate nohighlight">\( \mu^{-} \)</span> four-momenta within their measured uncertainties to
+<span class="math notranslate nohighlight">\(` \mu^{+} `\)</span> and <span class="math notranslate nohighlight">\(` \mu^{-} `\)</span> four-momenta within their measured uncertainties to
 best fit that hypothesis. The result is a vertex object which has, for example,
-a fit <span class="math notranslate nohighlight">\( \chi^{2} \)</span> associated to it. The quality of the fit can be used in a
+a fit <span class="math notranslate nohighlight">\(` \chi^{2} `\)</span> associated to it. The quality of the fit can be used in a
 selection.</p>
 <p>Finally, with the fitted muon four-vectors, we can form the four-vector of the
-<span class="math notranslate nohighlight">\( J/\psi \)</span> as their sum, creating the <span class="math notranslate nohighlight">\( J/\psi \)</span> <em>candidate</em>[^2]. Now we get
-back to our original goal of measuring the number of true <span class="math notranslate nohighlight">\( J/\psi \to \mu^{+}\mu^{-} \)</span>. By plotting the <span class="math notranslate nohighlight">\( J/\psi \)</span> invariant mass values as a
+<span class="math notranslate nohighlight">\(` J/\psi `\)</span> as their sum, creating the <span class="math notranslate nohighlight">\(` J/\psi `\)</span> <em>candidate</em>[^2]. Now we get
+back to our original goal of measuring the number of true <span class="math notranslate nohighlight">\(` J/\psi \to \mu^{+}\mu^{-} `\)</span>. By plotting the <span class="math notranslate nohighlight">\(` J/\psi `\)</span> invariant mass values as a
 histogram, we might hope to see a signal component. An example is shown in the
 following plot, created using simulated toy data.</p>
 <p><img alt="Dimuon invariant mass spectrum" src="../_images/dimuon_mass.png" /></p>
@@ -391,23 +371,23 @@ decays, within some uncertainty.</p>
 </section>
 <section id="building-more-complex-decays">
 <h2>Building more complex decays<a class="headerlink" href="#building-more-complex-decays" title="Permalink to this heading"></a></h2>
-<p>With a set of <span class="math notranslate nohighlight">\( J/\psi \)</span> candidates, we could build more complex decay chains
-such as <span class="math notranslate nohighlight">\( B_{s}^{0} \to J/\psi\phi(1020) \)</span>.
-The <span class="math notranslate nohighlight">\( J/\psi \)</span> and the <a class="reference external" href="http://pdglive.lbl.gov/Particle.action?init=0&amp;node=M004&amp;home=MXXX005"><span class="math notranslate nohighlight">\( \phi \)</span> meson</a> can decay in various ways,
-but we might choose to reconstruct them in the <span class="math notranslate nohighlight">\( \mu^{+}\mu^{-} \)</span> and
-<span class="math notranslate nohighlight">\( K^{+}K^{-} \)</span> final states, respectively.
-The <span class="math notranslate nohighlight">\( \phi \to K^{+}K^{-} \)</span> candidates can then be reconstructed in a similar
-manner to that described previously for the <span class="math notranslate nohighlight">\( J/\psi \)</span> decay.
-With a set of <span class="math notranslate nohighlight">\( J/\psi \)</span> and <span class="math notranslate nohighlight">\( \phi \)</span> candidates, we can then build
-<a class="reference external" href="http://pdglive.lbl.gov/Particle.action?init=0&amp;node=S086&amp;home=MXXX046"><span class="math notranslate nohighlight">\( B_{s}^{0} \)</span> meson</a> candidates by combining the two decay products in
+<p>With a set of <span class="math notranslate nohighlight">\(` J/\psi `\)</span> candidates, we could build more complex decay chains
+such as <span class="math notranslate nohighlight">\(` B_{s}^{0} \to J/\psi\phi(1020) `\)</span>.
+The <span class="math notranslate nohighlight">\(` J/\psi `\)</span> and the <a class="reference external" href="http://pdglive.lbl.gov/Particle.action?init=0&amp;node=M004&amp;home=MXXX005"><span class="math notranslate nohighlight">\(` \phi `\)</span> meson</a> can decay in various ways,
+but we might choose to reconstruct them in the <span class="math notranslate nohighlight">\(` \mu^{+}\mu^{-} `\)</span> and
+<span class="math notranslate nohighlight">\(` K^{+}K^{-} `\)</span> final states, respectively.
+The <span class="math notranslate nohighlight">\(` \phi \to K^{+}K^{-} `\)</span> candidates can then be reconstructed in a similar
+manner to that described previously for the <span class="math notranslate nohighlight">\(` J/\psi `\)</span> decay.
+With a set of <span class="math notranslate nohighlight">\(` J/\psi `\)</span> and <span class="math notranslate nohighlight">\(` \phi `\)</span> candidates, we can then build
+<a class="reference external" href="http://pdglive.lbl.gov/Particle.action?init=0&amp;node=S086&amp;home=MXXX046"><span class="math notranslate nohighlight">\(` B_{s}^{0} `\)</span> meson</a> candidates by combining the two decay products in
 another vertex fit. If our selection is clean enough, we may then see a
-<span class="math notranslate nohighlight">\( B_s^{0} \)</span> signal peak, shown below (again, using toy data).</p>
+<span class="math notranslate nohighlight">\(` B_s^{0} `\)</span> signal peak, shown below (again, using toy data).</p>
 <p><img alt="Four-body invariant mass spectrum" src="../_images/jpsiphi_mass.png" /></p>
 <p>As we’ll see in the following lesson, lots of selections like these are run
 centrally and produce output datasets that contain a mixture of decay chain
 candidates. This course will show you how to extract the candidates and their
 properties that are relevant for your analysis.</p>
-<p>[^1]: Other ‘stable’ particles under this definition include neutrons <span class="math notranslate nohighlight">\( n \)</span> and the long-lived neutral kaon weak eigenstate <span class="math notranslate nohighlight">\( K_{\mathrm{L}}^{0} \)</span>, but these are not part of standard reconstruction output.</p>
+<p>[^1]: Other ‘stable’ particles under this definition include neutrons <span class="math notranslate nohighlight">\(` n `\)</span> and the long-lived neutral kaon weak eigenstate <span class="math notranslate nohighlight">\(` K_{\mathrm{L}}^{0} `\)</span>, but these are not part of standard reconstruction output.</p>
 <p>[^2]: ‘Candidate’ because, again, we never know anything with complete certainty; this could be combination of muons that just happen to pass our selection criteria.</p>
 </section>
 </section>

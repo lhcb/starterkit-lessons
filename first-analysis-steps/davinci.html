@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>An introduction to LHCb Software &mdash; LHCb Starterkit Lessons  documentation</title>
@@ -33,12 +33,16 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../index.html" class="icon icon-home"> LHCb Starterkit Lessons
-            <img src="../_static/starterkit.png" class="logo" alt="Logo"/>
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            LHCb Starterkit Lessons
+              <img src="../_static/starterkit.png" class="logo" alt="Logo"/>
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -237,7 +241,7 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../index.html" class="icon icon-home"></a></li>
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="README.html">First Analysis Steps</a></li>
       <li class="breadcrumb-item active">An introduction to LHCb Software</li>
       <li class="wy-breadcrumbs-aside">
@@ -249,31 +253,7 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  
-<style>
-/* CSS overrides for sphinx_rtd_theme */
-
-/* 24px margin */
-.nbinput.nblast.container,
-.nboutput.nblast.container {
-    margin-bottom: 19px;  /* padding has already 5px */
-}
-
-/* ... except between code cells! */
-.nblast.container + .nbinput.container {
-    margin-top: -19px;
-}
-
-.admonition > p:before {
-    margin-right: 4px;  /* make room for the exclamation icon */
-}
-
-/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
-.math {
-    text-align: unset;
-}
-</style>
-<section id="an-introduction-to-lhcb-software">
+  <section id="an-introduction-to-lhcb-software">
 <h1>An introduction to LHCb Software<a class="headerlink" href="#an-introduction-to-lhcb-software" title="Permalink to this heading"></a></h1>
 <div class="panel panel-objectives docutils container">
 <div class="panel-header open docutils container">
@@ -325,7 +305,7 @@ You can then start the Gaudi EventLoop using this option file, and it will set u
 <p>Usually, you will work with one of the LHCb software projects that are based on Gaudi.
 One of the most important ones is <em>DaVinci</em>, which provides lots of <em>Algorithms</em> and <em>Tools</em> for physics analysis.</p>
 <p>You can run DaVinci using the following command [on lxplus](../first-analysis-steps/prerequisites.md#Pre-workshop checklist):</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>lb-run DaVinci/v45r8 gaudirun.py
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>lb-run<span class="w"> </span>DaVinci/v45r8<span class="w"> </span>gaudirun.py
 </pre></div>
 </div>
 <p>This will run the <code class="docutils literal notranslate"><span class="pre">gaudirun.py</span></code> command using version v45r8 of DaVinci. (<code class="docutils literal notranslate"><span class="pre">lb-run</span></code> sets the specified environment for <code class="docutils literal notranslate"><span class="pre">gaudirun.py</span></code> to run in.)
@@ -350,19 +330,19 @@ ApplicationMgr       INFO Application Manager Terminated successfully
 </div>
 <p>During this run, DaVinci didn’t do anything: We didn’t specify any algorithms to run or any data to run over.
 Usually, you will write an option file (e.g. <code class="docutils literal notranslate"><span class="pre">options.py</span></code>) and specify it as an argument to <code class="docutils literal notranslate"><span class="pre">gaudirun.py</span></code>:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>lb-run DaVinci/v45r8 gaudirun.py options.py
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>lb-run<span class="w"> </span>DaVinci/v45r8<span class="w"> </span>gaudirun.py<span class="w"> </span>options.py
 </pre></div>
 </div>
 <p>An <code class="docutils literal notranslate"><span class="pre">option.py</span></code> is just a regular Python script that specifies how to set things up in the software.
 Many of the following lessons will teach you how to do something with DaVinci by showing you how to write or extend an <code class="docutils literal notranslate"><span class="pre">options.py</span></code>.
 You can use the above command to test it.
 You can also specify several option files like this:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>lb-run DaVinci/v45r8 gaudirun.py options1.py options2.py
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>lb-run<span class="w"> </span>DaVinci/v45r8<span class="w"> </span>gaudirun.py<span class="w"> </span>options1.py<span class="w"> </span>options2.py
 </pre></div>
 </div>
 <p>They will then both be used to set up DaVinci.</p>
 <p>Do you want to get an overview of which versions of DaVinci exist? Use</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>lb-run --list DaVinci
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>lb-run<span class="w"> </span>--list<span class="w"> </span>DaVinci
 </pre></div>
 </div>
 <div class="panel panel-callout docutils container">
@@ -392,11 +372,11 @@ More details about the platform string are available in <a class="reference exte
 </div>
 <p>Do you want to start a shell that already contains the LHCb environment, so you don’t have to use <code class="docutils literal notranslate"><span class="pre">lb-run</span></code>?
 Execute</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>lb-run DaVinci/v45r8 <span class="nv">$SHELL</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>lb-run<span class="w"> </span>DaVinci/v45r8<span class="w"> </span><span class="nv">$SHELL</span>
 </pre></div>
 </div>
 <p>Note that sometimes this environment can result in failing scripts due to struggles with your shell’s rc file (e.g., <code class="docutils literal notranslate"><span class="pre">~/.bashrc</span></code>). Using</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>lb-run DaVinci/v45r8 bash --norc
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>lb-run<span class="w"> </span>DaVinci/v45r8<span class="w"> </span>bash<span class="w"> </span>--norc
 </pre></div>
 </div>
 <p>avoids this, but means you won’t be able to use any aliases, etc, included in the ignored rc file.</p>
@@ -411,7 +391,7 @@ Typing <code class="docutils literal notranslate"><span class="pre">exit</span><
 This is an older way of setting up a shell that is configured to run LHCb software.
 <code class="docutils literal notranslate"><span class="pre">lb-run</span></code> is the new way of doing things and has some nice benefits over <code class="docutils literal notranslate"><span class="pre">SetupProject</span></code>.
 For most purposes, <code class="docutils literal notranslate"><span class="pre">SetupProject</span> <span class="pre">DaVinci</span> <span class="pre">v45r8</span></code> is equivalent to</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>lb-run DaVinci/v45r8 <span class="nv">$SHELL</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>lb-run<span class="w"> </span>DaVinci/v45r8<span class="w"> </span><span class="nv">$SHELL</span>
 </pre></div>
 </div>
 <p>but you should really avoid doing things this way as this method is no longer supported for the latest project releases. (The environment for DaVinci v45r8, for example, cannot be started this way.)</p>

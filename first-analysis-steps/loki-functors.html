@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Fun with LoKi Functors &mdash; LHCb Starterkit Lessons  documentation</title>
@@ -35,12 +35,16 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../index.html" class="icon icon-home"> LHCb Starterkit Lessons
-            <img src="../_static/starterkit.png" class="logo" alt="Logo"/>
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            LHCb Starterkit Lessons
+              <img src="../_static/starterkit.png" class="logo" alt="Logo"/>
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -239,7 +243,7 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../index.html" class="icon icon-home"></a></li>
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="README.html">First Analysis Steps</a></li>
       <li class="breadcrumb-item active">Fun with LoKi Functors</li>
       <li class="wy-breadcrumbs-aside">
@@ -251,31 +255,7 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  
-<style>
-/* CSS overrides for sphinx_rtd_theme */
-
-/* 24px margin */
-.nbinput.nblast.container,
-.nboutput.nblast.container {
-    margin-bottom: 19px;  /* padding has already 5px */
-}
-
-/* ... except between code cells! */
-.nblast.container + .nbinput.container {
-    margin-top: -19px;
-}
-
-.admonition > p:before {
-    margin-right: 4px;  /* make room for the exclamation icon */
-}
-
-/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
-.math {
-    text-align: unset;
-}
-</style>
-<section id="fun-with-loki-functors">
+  <section id="fun-with-loki-functors">
 <h1>Fun with LoKi Functors<a class="headerlink" href="#fun-with-loki-functors" title="Permalink to this heading"></a></h1>
 <div class="panel panel-objectives docutils container">
 <div class="panel-header open docutils container">
@@ -329,7 +309,7 @@ if ever, also due to the existence of LoKi functors.</p>
 <p>To understand what we can do with LoKi functors, we will pick up from where we
 left off <a class="reference internal" href="interactive-dst.html"><span class="doc">exploring a DST interactively</span></a>.
 First open the DST as we did previously:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ lb-run --ext<span class="o">=</span>ipython DaVinci/v45r8 ipython -i explore.py 00070793_00000001_7.AllStreams.dst
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>lb-run<span class="w"> </span>--ext<span class="o">=</span>ipython<span class="w"> </span>DaVinci/v45r8<span class="w"> </span>ipython<span class="w"> </span>-i<span class="w"> </span>explore.py<span class="w"> </span>00070793_00000001_7.AllStreams.dst
 </pre></div>
 </div>
 <p>Get the first candidate in the <code class="docutils literal notranslate"><span class="pre">D2hhPromptDst2D2KKLine</span></code> line:</p>
@@ -340,7 +320,7 @@ First open the DST as we did previously:</p>
 </div>
 <p>The object <code class="docutils literal notranslate"><span class="pre">candidate</span> </code>, loaded from the DST, is of type <code class="docutils literal notranslate"><span class="pre">LHCb::Particle</span></code> and we are looking at its representation via python bindings.
 We can do <code class="docutils literal notranslate"><span class="pre">help(candidate)</span></code> to find out which functions are available.
-We can try to get very simple properties of the <span class="math notranslate nohighlight">\( D^{* +} \)</span> candidate. Let’s start from the components of its momentum.
+We can try to get very simple properties of the <span class="math notranslate nohighlight">\(` D^{* +} `\)</span> candidate. Let’s start from the components of its momentum.
 This can be done calling the function <code class="docutils literal notranslate"><span class="pre">momentum()</span></code> for our candidate in the following way:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">p_x</span> <span class="o">=</span> <span class="n">candidate</span><span class="o">.</span><span class="n">momentum</span><span class="p">()</span><span class="o">.</span><span class="n">X</span><span class="p">()</span>
 <span class="n">p_y</span> <span class="o">=</span> <span class="n">candidate</span><span class="o">.</span><span class="n">momentum</span><span class="p">()</span><span class="o">.</span><span class="n">Y</span><span class="p">()</span>
@@ -406,8 +386,8 @@ will be no warnings.</p>
 </div>
 </div>
 </div>
-<p>If we want to get the properties of the <span class="math notranslate nohighlight">\( D^{* +} \)</span> vertex, for example its fit
-quality (<span class="math notranslate nohighlight">\( \chi^2 \)</span>), we need to pass a vertex object to the vertex functor.</p>
+<p>If we want to get the properties of the <span class="math notranslate nohighlight">\(` D^{* +} `\)</span> vertex, for example its fit
+quality (<span class="math notranslate nohighlight">\(` \chi^2 `\)</span>), we need to pass a vertex object to the vertex functor.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">LoKiPhys.decorators</span> <span class="kn">import</span> <span class="n">VCHI2</span>
 <span class="nb">print</span> <span class="p">(</span><span class="n">VCHI2</span><span class="p">(</span><span class="n">candidate</span><span class="o">.</span><span class="n">endVertex</span><span class="p">()))</span>
 </pre></div>
@@ -485,11 +465,11 @@ The list can be overwhelming, so it’s also worth checking a more curated selec
 </div>
 </div>
 <p>So far we’ve only looked at the properties of the head of the decay (that is,
-the <span class="math notranslate nohighlight">\( D^{* +} \)</span>), but what if we want to get information about its decay products? As
+the <span class="math notranslate nohighlight">\(` D^{* +} `\)</span>), but what if we want to get information about its decay products? As
 an example, let’s get the largest transverse momentum of the final state
 particles.
 A simple solution would be to navigate the tree and calculate the maximum
-<span class="math notranslate nohighlight">\( p_{\text{T}} \)</span>.</p>
+<span class="math notranslate nohighlight">\(` p_{\text{T}} `\)</span>.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">find_tracks</span><span class="p">(</span><span class="n">particle</span><span class="p">):</span>
     <span class="n">tracks</span> <span class="o">=</span> <span class="p">[]</span>
     <span class="k">if</span> <span class="n">particle</span><span class="o">.</span><span class="n">isBasicParticle</span><span class="p">():</span>
@@ -574,7 +554,7 @@ Out[10]:
 </pre></div>
 </div>
 <p>we know that <code class="docutils literal notranslate"><span class="pre">D0</span></code> is the first child and <code class="docutils literal notranslate"><span class="pre">pi+</span></code> is the second.
-Therefore, to access the mass of the <span class="math notranslate nohighlight">\( D^{0} \)</span> we have 2 options:</p>
+Therefore, to access the mass of the <span class="math notranslate nohighlight">\(` D^{0} `\)</span> we have 2 options:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">LoKiPhys.decorators</span> <span class="kn">import</span> <span class="n">CHILD</span>
 <span class="c1"># Option 1</span>
 <span class="n">mass</span> <span class="o">=</span> <span class="n">M</span><span class="p">(</span><span class="n">candidate</span><span class="o">.</span><span class="n">daughtersVector</span><span class="p">()[</span><span class="mi">0</span><span class="p">])</span>
@@ -592,7 +572,7 @@ Therefore, to access the mass of the <span class="math notranslate nohighlight">
 <p>Evaluate the quality of the D0 decay vertex.</p>
 </div>
 </div>
-<p>In the similar way, we may access properties of child of the child: for example, a kaon from the <span class="math notranslate nohighlight">\( D^{0} \)</span> decay:</p>
+<p>In the similar way, we may access properties of child of the child: for example, a kaon from the <span class="math notranslate nohighlight">\(` D^{0} `\)</span> decay:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">LoKiPhys.decorators</span> <span class="kn">import</span> <span class="n">CHILD</span>
 <span class="n">mass_kaon</span> <span class="o">=</span> <span class="n">CHILD</span><span class="p">(</span><span class="n">CHILD</span><span class="p">(</span><span class="n">M</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span><span class="mi">1</span><span class="p">)(</span><span class="n">candidate</span><span class="p">)</span>
 </pre></div>

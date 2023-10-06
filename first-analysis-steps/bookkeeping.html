@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Finding data in the Bookkeeping &mdash; LHCb Starterkit Lessons  documentation</title>
@@ -35,12 +35,16 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../index.html" class="icon icon-home"> LHCb Starterkit Lessons
-            <img src="../_static/starterkit.png" class="logo" alt="Logo"/>
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            LHCb Starterkit Lessons
+              <img src="../_static/starterkit.png" class="logo" alt="Logo"/>
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -239,7 +243,7 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../index.html" class="icon icon-home"></a></li>
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="README.html">First Analysis Steps</a></li>
       <li class="breadcrumb-item active">Finding data in the Bookkeeping</li>
       <li class="wy-breadcrumbs-aside">
@@ -251,31 +255,7 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  
-<style>
-/* CSS overrides for sphinx_rtd_theme */
-
-/* 24px margin */
-.nbinput.nblast.container,
-.nboutput.nblast.container {
-    margin-bottom: 19px;  /* padding has already 5px */
-}
-
-/* ... except between code cells! */
-.nblast.container + .nbinput.container {
-    margin-top: -19px;
-}
-
-.admonition > p:before {
-    margin-right: 4px;  /* make room for the exclamation icon */
-}
-
-/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
-.math {
-    text-align: unset;
-}
-</style>
-<section id="finding-data-in-the-bookkeeping">
+  <section id="finding-data-in-the-bookkeeping">
 <h1>Finding data in the Bookkeeping<a class="headerlink" href="#finding-data-in-the-bookkeeping" title="Permalink to this heading"></a></h1>
 <p>Knowing how data flows through the various Gaudi applications is crucial for
 knowing where to look for your data.</p>
@@ -285,8 +265,8 @@ for validation studies’.
 After this, a tree of various application and processing versions will
 eventually lead to the data you need.</p>
 <p>So, before we can run our first DaVinci job we need to locate some events. In
-this tutorial we will use the decay <span class="math notranslate nohighlight">\( D^{* +} \to D^{0}\pi^{+} \)</span> as an example,
-where the <span class="math notranslate nohighlight">\( D^{0} \)</span> decays to <span class="math notranslate nohighlight">\( K^{-} K^{+} \)</span>.</p>
+this tutorial we will use the decay <span class="math notranslate nohighlight">\(` D^{* +} \to D^{0}\pi^{+} `\)</span> as an example,
+where the <span class="math notranslate nohighlight">\(` D^{0} `\)</span> decays to <span class="math notranslate nohighlight">\(` K^{-} K^{+} `\)</span>.</p>
 <div class="panel panel-objectives docutils container">
 <div class="panel-header open docutils container">
 <p id="learning-objectives"><i class="fa fa-line-chart"></i> Learning Objectives</p>
@@ -314,7 +294,7 @@ is simulated data. We are looking for a folder which is named
 representation of the <a class="reference external" href="https://cds.cern.ch/record/855452?ln=en">event
 type</a>.  The text is the human
 readable version of that.</p>
-<p>This sample of simulated events will only contain events where a <span class="math notranslate nohighlight">\( D^{* +} \to  D^{0}(\to K^{-}K^{+})\pi^{+} \)</span> was generated within the LHCb acceptance,
+<p>This sample of simulated events will only contain events where a <span class="math notranslate nohighlight">\(` D^{* +} \to  D^{0}(\to K^{-}K^{+})\pi^{+} `\)</span> was generated within the LHCb acceptance,
 although the decay might not have been fully reconstructed. (Not all simulated
 samples have the same requirements made on the signal decay.)</p>
 <p>If you expand the <code class="docutils literal notranslate"><span class="pre">27163002</span> <span class="pre">(Dst_D0pi,KK=DecProdCut)</span></code> folder you
@@ -385,8 +365,8 @@ by typing this path and pressing the <code class="docutils literal notranslate">
 <div class="panel-body docutils container">
 <p>Think of a decay and try to find a Monte Carlo sample for it. You could use
 the decay that your analysis is about, or if you don’t have any ideas you
-could look for the semileptonic decay <span class="math notranslate nohighlight">\( \Lambda_{b}^{0} \to  \Lambda_{c}^{+}\mu^{-}\bar{\nu}_{\mu} \)</span>, where the <span class="math notranslate nohighlight">\( \Lambda_{c}^{+} \)</span> decays
-to <span class="math notranslate nohighlight">\( pK^{-}\pi^{+} \)</span>.</p>
+could look for the semileptonic decay <span class="math notranslate nohighlight">\(` \Lambda_{b}^{0} \to  \Lambda_{c}^{+}\mu^{-}\bar{\nu}_{\mu} `\)</span>, where the <span class="math notranslate nohighlight">\(` \Lambda_{c}^{+} `\)</span> decays
+to <span class="math notranslate nohighlight">\(` pK^{-}\pi^{+} `\)</span>.</p>
 </div>
 </div>
 <p>If you would like to find out more about how the event types define the

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Creating a grid proxy without LbScripts &mdash; LHCb Starterkit Lessons  documentation</title>
@@ -33,12 +33,16 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../index.html" class="icon icon-home"> LHCb Starterkit Lessons
-            <img src="../_static/starterkit.png" class="logo" alt="Logo"/>
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            LHCb Starterkit Lessons
+              <img src="../_static/starterkit.png" class="logo" alt="Logo"/>
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -237,7 +241,7 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../index.html" class="icon icon-home"></a></li>
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="README.html">Self guided lessons</a></li>
       <li class="breadcrumb-item active">Creating a grid proxy without LbScripts</li>
       <li class="wy-breadcrumbs-aside">
@@ -249,31 +253,7 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  
-<style>
-/* CSS overrides for sphinx_rtd_theme */
-
-/* 24px margin */
-.nbinput.nblast.container,
-.nboutput.nblast.container {
-    margin-bottom: 19px;  /* padding has already 5px */
-}
-
-/* ... except between code cells! */
-.nblast.container + .nbinput.container {
-    margin-top: -19px;
-}
-
-.admonition > p:before {
-    margin-right: 4px;  /* make room for the exclamation icon */
-}
-
-/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
-.math {
-    text-align: unset;
-}
-</style>
-<section id="creating-a-grid-proxy-without-lbscripts">
+  <section id="creating-a-grid-proxy-without-lbscripts">
 <h1>Creating a grid proxy without LbScripts<a class="headerlink" href="#creating-a-grid-proxy-without-lbscripts" title="Permalink to this heading"></a></h1>
 <p>On the grid VOMS (Virtual Organization Membership Service) is used to provide authentication when accessing grid resources.
 This works by using your certificate to create a local proxy credential which can then be used by applications for a limited time.</p>
@@ -286,21 +266,21 @@ Fortunately VOMS can be easily installed and used without requiring the full LHC
 <p>The VOMS client can be installed in the following ways, if your operating system isn’t listed see <a class="reference external" href="https://github.com/italiangrid/voms-clients">here</a> (and consider <a class="reference internal" href="../CONTRIBUTING.html"><span class="doc">making a pull request</span></a> to update this guide).</p>
 <section id="macos-with-homebrew">
 <h3>macOS with <a class="reference external" href="https://brew.sh">homebrew</a><a class="headerlink" href="#macos-with-homebrew" title="Permalink to this heading"></a></h3>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>brew cask install java
-brew install voms
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>brew<span class="w"> </span>cask<span class="w"> </span>install<span class="w"> </span>java
+brew<span class="w"> </span>install<span class="w"> </span>voms
 </pre></div>
 </div>
 </section>
 <section id="ubuntu">
 <h3>Ubuntu<a class="headerlink" href="#ubuntu" title="Permalink to this heading"></a></h3>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo apt-get install voms-clients
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>voms-clients
 </pre></div>
 </div>
 </section>
 <section id="centos">
 <h3>CentOS<a class="headerlink" href="#centos" title="Permalink to this heading"></a></h3>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo yum install epel-release
-sudo yum install voms-clients
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>yum<span class="w"> </span>install<span class="w"> </span>epel-release
+sudo<span class="w"> </span>yum<span class="w"> </span>install<span class="w"> </span>voms-clients
 </pre></div>
 </div>
 </section>
@@ -312,13 +292,13 @@ sudo yum install voms-clients
 <section id="getting-the-required-files-and-certificates">
 <h2>Getting the required files and certificates<a class="headerlink" href="#getting-the-required-files-and-certificates" title="Permalink to this heading"></a></h2>
 <p>In order to create a proxy you must have a copy of your personal grid certificate, assuming this is already set up on lxplus this can be copied using:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>scp -r lxplus.cern.ch:.globus/ ~/.globus
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>scp<span class="w"> </span>-r<span class="w"> </span>lxplus.cern.ch:.globus/<span class="w"> </span>~/.globus
 </pre></div>
 </div>
 <p>Additionally, you will need a copy of the central LHCb grid certificates.
 If you have cvmfs installed this is already available at <code class="docutils literal notranslate"><span class="pre">/cvmfs/lhcb.cern.ch/etc/grid-security/</span></code>.
 If not, they can be copied from lxplus to <code class="docutils literal notranslate"><span class="pre">~/grid-security/</span></code> using:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>scp -r lxplus.cern.ch:/cvmfs/lhcb.cern.ch/etc/grid-security/ ~/grid-security
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>scp<span class="w"> </span>-r<span class="w"> </span>lxplus.cern.ch:/cvmfs/lhcb.cern.ch/etc/grid-security/<span class="w"> </span>~/grid-security
 </pre></div>
 </div>
 <p>Note these will need updating occasionally by rerunning the above commands.</p>
@@ -326,16 +306,16 @@ If not, they can be copied from lxplus to <code class="docutils literal notransl
 <section id="creating-a-proxy">
 <h2>Creating a proxy<a class="headerlink" href="#creating-a-proxy" title="Permalink to this heading"></a></h2>
 <p>Once the voms have been installed and the files have been copied a grid certificate with a 168 hour (1 week) validity can be created using:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span> <span class="nv">X509_CERT_DIR</span><span class="o">=</span><span class="s2">&quot;</span><span class="nv">$HOME</span><span class="s2">/grid-security/certificates&quot;</span>
-<span class="nb">export</span> <span class="nv">X509_VOMS_DIR</span><span class="o">=</span><span class="s2">&quot;</span><span class="nv">$HOME</span><span class="s2">/grid-security/vomsdir&quot;</span>
-voms-proxy-init -voms <span class="s2">&quot;lhcb:/lhcb/Role=user&quot;</span> -vomses <span class="s2">&quot;</span><span class="nv">$HOME</span><span class="s2">/grid-security/vomses&quot;</span> -r --valid <span class="m">168</span>:00 -cert <span class="s2">&quot;</span><span class="nv">$HOME</span><span class="s2">/.globus/usercert.pem&quot;</span> -key <span class="s2">&quot;</span><span class="nv">$HOME</span><span class="s2">/.globus/userkey.pem&quot;</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span><span class="w"> </span><span class="nv">X509_CERT_DIR</span><span class="o">=</span><span class="s2">&quot;</span><span class="nv">$HOME</span><span class="s2">/grid-security/certificates&quot;</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">X509_VOMS_DIR</span><span class="o">=</span><span class="s2">&quot;</span><span class="nv">$HOME</span><span class="s2">/grid-security/vomsdir&quot;</span>
+voms-proxy-init<span class="w"> </span>-voms<span class="w"> </span><span class="s2">&quot;lhcb:/lhcb/Role=user&quot;</span><span class="w"> </span>-vomses<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$HOME</span><span class="s2">/grid-security/vomses&quot;</span><span class="w"> </span>-r<span class="w"> </span>--valid<span class="w"> </span><span class="m">168</span>:00<span class="w"> </span>-cert<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$HOME</span><span class="s2">/.globus/usercert.pem&quot;</span><span class="w"> </span>-key<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$HOME</span><span class="s2">/.globus/userkey.pem&quot;</span>
 </pre></div>
 </div>
 <p>Alternatively, an alias can be created to allow proxies to be created using an <code class="docutils literal notranslate"><span class="pre">lhcb-proxy-init</span></code>.
 This can be setup by appending the following to <code class="docutils literal notranslate"><span class="pre">~/.bashrc</span></code> and then opening a new terminal.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span> <span class="nv">X509_CERT_DIR</span><span class="o">=</span><span class="s2">&quot;</span><span class="nv">$HOME</span><span class="s2">/grid-security/certificates&quot;</span>
-<span class="nb">export</span> <span class="nv">X509_VOMS_DIR</span><span class="o">=</span><span class="s2">&quot;</span><span class="nv">$HOME</span><span class="s2">/grid-security/vomsdir&quot;</span>
-<span class="nb">alias</span> lhcb-proxy-init<span class="o">=</span><span class="s1">&#39;voms-proxy-init -voms &quot;lhcb:/lhcb/Role=user&quot; -vomses &quot;$HOME/grid-security/vomses&quot; -r --valid 168:00 -cert &quot;$HOME/.globus/usercert.pem&quot; -key &quot;$HOME/.globus/userkey.pem&quot;&#39;</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span><span class="w"> </span><span class="nv">X509_CERT_DIR</span><span class="o">=</span><span class="s2">&quot;</span><span class="nv">$HOME</span><span class="s2">/grid-security/certificates&quot;</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">X509_VOMS_DIR</span><span class="o">=</span><span class="s2">&quot;</span><span class="nv">$HOME</span><span class="s2">/grid-security/vomsdir&quot;</span>
+<span class="nb">alias</span><span class="w"> </span>lhcb-proxy-init<span class="o">=</span><span class="s1">&#39;voms-proxy-init -voms &quot;lhcb:/lhcb/Role=user&quot; -vomses &quot;$HOME/grid-security/vomses&quot; -r --valid 168:00 -cert &quot;$HOME/.globus/usercert.pem&quot; -key &quot;$HOME/.globus/userkey.pem&quot;&#39;</span>
 </pre></div>
 </div>
 </section>

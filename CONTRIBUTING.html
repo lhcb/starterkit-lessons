@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Contributing &mdash; LHCb Starterkit Lessons  documentation</title>
@@ -33,12 +33,16 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="index.html" class="icon icon-home"> LHCb Starterkit Lessons
-            <img src="_static/starterkit.png" class="logo" alt="Logo"/>
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            LHCb Starterkit Lessons
+              <img src="_static/starterkit.png" class="logo" alt="Logo"/>
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -237,7 +241,7 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="index.html" class="icon icon-home"></a></li>
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
       <li class="breadcrumb-item active">Contributing</li>
       <li class="wy-breadcrumbs-aside">
               <a href="https://github.com/lhcb/starterkit-lessons/blob/master/CONTRIBUTING.md" class="fa fa-github"> Edit on GitHub</a>
@@ -248,31 +252,7 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  
-<style>
-/* CSS overrides for sphinx_rtd_theme */
-
-/* 24px margin */
-.nbinput.nblast.container,
-.nboutput.nblast.container {
-    margin-bottom: 19px;  /* padding has already 5px */
-}
-
-/* ... except between code cells! */
-.nblast.container + .nbinput.container {
-    margin-top: -19px;
-}
-
-.admonition > p:before {
-    margin-right: 4px;  /* make room for the exclamation icon */
-}
-
-/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
-.math {
-    text-align: unset;
-}
-</style>
-<section id="contributing">
+  <section id="contributing">
 <h1>Contributing<a class="headerlink" href="#contributing" title="Permalink to this heading"></a></h1>
 <p><a class="reference external" href="https://github.com/lhcb/starterkit-lessons">starterkit-lessons</a> is an open source project, and we welcome contributions of all kinds:</p>
 <ul class="simple">
@@ -288,7 +268,7 @@ You also agree to abide by our <a class="reference internal" href="CONDUCT.html"
 <ol class="simple">
 <li><p>We use the <a class="reference external" href="https://reflectoring.io/github-fork-and-pull/">fork and pull</a> model to manage changes.
 More information about <a class="reference external" href="https://help.github.com/en/articles/fork-a-repo">forking a repository</a> and <a class="reference external" href="https://help.github.com/en/articles/about-pull-requests">making a Pull Request</a>.</p></li>
-<li><p>To build the lessons please install the <a class="reference external" href="#DEPENDENCIES">dependencies</a>.</p></li>
+<li><p>To build the lessons please install the <a class="reference internal" href="#dependencies"><span class="std std-ref">dependencies</span></a>.</p></li>
 <li><p>For our lessons, you should branch from and submit pull requests against the <code class="docutils literal notranslate"><span class="pre">master</span></code> branch.</p></li>
 <li><p>When editing lesson pages, you need only commit changes to the Markdown source files.</p></li>
 <li><p>If you’re looking for things to work on, please see <a class="reference external" href="https://github.com/lhcb/starterkit-lessons/issues">the list of issues for this repository</a>.
@@ -302,13 +282,13 @@ Comments on issues and reviews of pull requests are equally welcome.</p></li>
 <li><p><a class="reference external" href="https://pypi.org/project/starterkit-ci/">starterkit-ci</a></p></li>
 </ol>
 <p>Then build the pages:</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ starterkit_ci build --allow-warnings
-$ starterkit_ci check --allow-warnings
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>starterkit_ci<span class="w"> </span>build<span class="w"> </span>--allow-warnings
+$<span class="w"> </span>starterkit_ci<span class="w"> </span>check<span class="w"> </span>--allow-warnings
 </pre></div>
 </div>
 <p>and start a web server to host them:</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ <span class="nb">cd</span> build
-$ python -m http.server <span class="m">8000</span>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>build
+$<span class="w"> </span>python<span class="w"> </span>-m<span class="w"> </span>http.server<span class="w"> </span><span class="m">8000</span>
 </pre></div>
 </div>
 <p>You can see your local version by using a web-browser to navigate to <code class="docutils literal notranslate"><span class="pre">http://localhost:8000</span></code> or wherever it says it’s serving the book.</p>

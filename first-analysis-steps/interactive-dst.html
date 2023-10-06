@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Interactively exploring a DST &mdash; LHCb Starterkit Lessons  documentation</title>
@@ -35,12 +35,16 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../index.html" class="icon icon-home"> LHCb Starterkit Lessons
-            <img src="../_static/starterkit.png" class="logo" alt="Logo"/>
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            LHCb Starterkit Lessons
+              <img src="../_static/starterkit.png" class="logo" alt="Logo"/>
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -239,7 +243,7 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../index.html" class="icon icon-home"></a></li>
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="README.html">First Analysis Steps</a></li>
       <li class="breadcrumb-item active">Interactively exploring a DST</li>
       <li class="wy-breadcrumbs-aside">
@@ -251,31 +255,7 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  
-<style>
-/* CSS overrides for sphinx_rtd_theme */
-
-/* 24px margin */
-.nbinput.nblast.container,
-.nboutput.nblast.container {
-    margin-bottom: 19px;  /* padding has already 5px */
-}
-
-/* ... except between code cells! */
-.nblast.container + .nbinput.container {
-    margin-top: -19px;
-}
-
-.admonition > p:before {
-    margin-right: 4px;  /* make room for the exclamation icon */
-}
-
-/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
-.math {
-    text-align: unset;
-}
-</style>
-<section id="interactively-exploring-a-dst">
+  <section id="interactively-exploring-a-dst">
 <h1>Interactively exploring a DST<a class="headerlink" href="#interactively-exploring-a-dst" title="Permalink to this heading"></a></h1>
 <div class="panel panel-objectives docutils container">
 <div class="panel-header open docutils container">
@@ -327,7 +307,7 @@ the input data, and then create the application manager and tell it to start
 running.</p>
 <p>Place this into a file called <code class="docutils literal notranslate"><span class="pre">explore.py</span></code> and run the following
 command in a new terminal:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ lb-run --ext<span class="o">=</span>ipython DaVinci/v45r8 ipython -i explore.py 00070793_00000001_7.AllStreams.dst
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>lb-run<span class="w"> </span>--ext<span class="o">=</span>ipython<span class="w"> </span>DaVinci/v45r8<span class="w"> </span>ipython<span class="w"> </span>-i<span class="w"> </span>explore.py<span class="w"> </span>00070793_00000001_7.AllStreams.dst
 </pre></div>
 </div>
 <p>This will configure the application, initialise it, and put you in a Python
@@ -364,7 +344,7 @@ hierachy from the root node.</p>
 this into a little recursive function that walks through all children of the
 root, all the children of each child, and so on.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">nodes</span><span class="p">(</span><span class="n">evt</span><span class="p">,</span> <span class="n">root</span><span class="o">=</span><span class="s1">&#39;/Event&#39;</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;List all nodes in `evt` starting from `node`.&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;List all nodes in `evt` starting from `node`.&quot;&quot;&quot;</span>
     <span class="n">node_list</span> <span class="o">=</span> <span class="p">[</span><span class="n">root</span><span class="p">]</span>
     <span class="k">for</span> <span class="n">leaf</span> <span class="ow">in</span> <span class="n">evt</span><span class="o">.</span><span class="n">leaves</span><span class="p">(</span><span class="n">evt</span><span class="p">[</span><span class="n">root</span><span class="p">]):</span>
         <span class="n">node_list</span> <span class="o">+=</span> <span class="n">nodes</span><span class="p">(</span><span class="n">evt</span><span class="p">,</span> <span class="n">leaf</span><span class="o">.</span><span class="n">identifier</span><span class="p">())</span>
@@ -388,7 +368,7 @@ However not every event will contain a candidate for your line, so the second
 tool we need is something that will advance us through events until the
 stripping decision was positive:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">advance</span><span class="p">(</span><span class="n">decision</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Advance until stripping decision is true, returns</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Advance until stripping decision is true, returns</span>
 <span class="sd">    number of events by which we advanced&quot;&quot;&quot;</span>
     <span class="n">n</span> <span class="o">=</span> <span class="mi">0</span>
     <span class="k">while</span> <span class="n">evt</span><span class="p">[</span><span class="s1">&#39;/Event&#39;</span><span class="p">]:</span>
@@ -429,9 +409,9 @@ one with:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">candidates</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
 </pre></div>
 </div>
-<p>Which will print out some information about the <a class="reference external" href="https://lhcb-doxygen.web.cern.ch/lhcb-doxygen/davinci/latest/d0/d13/class_l_h_cb_1_1_particle.html">Particle</a>. In our case a <span class="math notranslate nohighlight">\( D^{* +} \)</span> (<a class="reference external" href="http://pdg.lbl.gov/2019/reviews/rpp2018-rev-monte-carlo-numbering.pdf">particle ID number</a> 413). You can access its decay products with
+<p>Which will print out some information about the <a class="reference external" href="https://lhcb-doxygen.web.cern.ch/lhcb-doxygen/davinci/latest/d0/d13/class_l_h_cb_1_1_particle.html">Particle</a>. In our case a <span class="math notranslate nohighlight">\(` D^{* +} `\)</span> (<a class="reference external" href="http://pdg.lbl.gov/2019/reviews/rpp2018-rev-monte-carlo-numbering.pdf">particle ID number</a> 413). You can access its decay products with
 <code class="docutils literal notranslate"><span class="pre">candidates[0].daughtersVector()[0]</span></code> and <code class="docutils literal notranslate"><span class="pre">candidates[0].daughtersVector()[1]</span></code>,
-which will be a <span class="math notranslate nohighlight">\( D^{0} \)</span> and a <span class="math notranslate nohighlight">\( \pi^{+} \)</span>.</p>
+which will be a <span class="math notranslate nohighlight">\(` D^{0} `\)</span> and a <span class="math notranslate nohighlight">\(` \pi^{+} `\)</span>.</p>
 <p>There is a useful tool for printing out decay trees, which you can
 pass the top level particle to and it will print out the full decay tree etc:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">print_decay</span> <span class="o">=</span> <span class="n">appMgr</span><span class="o">.</span><span class="n">toolsvc</span><span class="p">()</span><span class="o">.</span><span class="n">create</span><span class="p">(</span>

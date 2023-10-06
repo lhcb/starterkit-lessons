@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Analysis Productions &mdash; LHCb Starterkit Lessons  documentation</title>
@@ -35,12 +35,16 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../index.html" class="icon icon-home"> LHCb Starterkit Lessons
-            <img src="../_static/starterkit.png" class="logo" alt="Logo"/>
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            LHCb Starterkit Lessons
+              <img src="../_static/starterkit.png" class="logo" alt="Logo"/>
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -239,7 +243,7 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../index.html" class="icon icon-home"></a></li>
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="README.html">First Analysis Steps</a></li>
       <li class="breadcrumb-item active">Analysis Productions</li>
       <li class="wy-breadcrumbs-aside">
@@ -251,31 +255,7 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  
-<style>
-/* CSS overrides for sphinx_rtd_theme */
-
-/* 24px margin */
-.nbinput.nblast.container,
-.nboutput.nblast.container {
-    margin-bottom: 19px;  /* padding has already 5px */
-}
-
-/* ... except between code cells! */
-.nblast.container + .nbinput.container {
-    margin-top: -19px;
-}
-
-.admonition > p:before {
-    margin-right: 4px;  /* make room for the exclamation icon */
-}
-
-/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
-.math {
-    text-align: unset;
-}
-</style>
-<section id="analysis-productions">
+  <section id="analysis-productions">
 <h1>Analysis Productions<a class="headerlink" href="#analysis-productions" title="Permalink to this heading"></a></h1>
 <div class="panel panel-objectives docutils container">
 <div class="panel-header open docutils container">
@@ -298,7 +278,7 @@
 <p>It is the goal of <a class="reference external" href="https://gitlab.cern.ch/lhcb-datapkg/AnalysisProductions/">Analysis Productions</a> to centralise and automate much of the process of making ntuples, and to keep a record of how datasets were produced. Moving into run 3, this will usually be the preferred way to create ntuples for your analysis.</p>
 <section id="monitoring-productions">
 <h2>Monitoring productions<a class="headerlink" href="#monitoring-productions" title="Permalink to this heading"></a></h2>
-<p>Before we get into the how-to, let’s first take a look at the end result of a real production. Open the <a class="reference external" href="https://lhcb-analysis-productions-preview.web.cern.ch/">Analysis Productions webpage</a>, and navigate to <code class="docutils literal notranslate"><span class="pre">Productions</span></code>. You should see a new menu appear, showing a list of productions. Using the search bar on the right you can search for any production of interest, try <code class="docutils literal notranslate"><span class="pre">b02dkpi</span></code> for example. This should return one result and clicking on it should show you a table of jobs belonging to the production.</p>
+<p>Before we get into the how-to, let’s first take a look at the end result of a real production. Open the <a class="reference external" href="https://lhcb-analysis-productions.web.cern.ch/">Analysis Productions webpage</a>, and navigate to <code class="docutils literal notranslate"><span class="pre">Productions</span></code>. You should see a new menu appear, showing a list of productions. Using the search bar on the right you can search for any production of interest, try <code class="docutils literal notranslate"><span class="pre">b02dkpi</span></code> for example. This should return one result and clicking on it should show you a table of jobs belonging to the production.</p>
 <p>Each row in the table corresponds to a job belonging to this production, and displays:</p>
 <ul class="simple">
 <li><p>Its status (e.g. READY, ACTIVE)</p></li>
@@ -311,7 +291,7 @@
 <p><img alt="An AP job summary" src="../_images/web_production_annotated.png" /></p>
 <p>The top section shows a summary of important information, such as the state of the job, its production version, the total storage required for the output files and the merge request and JIRA task used to submit the production. To view the input scripts used to set up the production click the link to the merge request. The next section lists the tags used to categorise the job and the third section lists the DIRAC production information for the job. Finally, is the Files section which lists the output files for the job. One can use either the PFNs or LFNs to access the output, the PFNs should be visible to all systems with access to the CVMFS.</p>
 <p>Let’s try accessing one of these files right now by doing:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>root -l root://eoslhcb.cern.ch//eos/lhcb/grid/prod/lhcb/MC/2018/B02DKPI.ROOT/00145105/0000/00145105_00000001_1.b02dkpi.root
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>root<span class="w"> </span>-l<span class="w"> </span>root://eoslhcb.cern.ch//eos/lhcb/grid/prod/lhcb/MC/2018/B02DKPI.ROOT/00145105/0000/00145105_00000001_1.b02dkpi.root
 </pre></div>
 </div>
 <p>You can now explore this file by doing <code class="docutils literal notranslate"><span class="pre">TBrowser</span> <span class="pre">b</span></code> inside of ROOT (or with another method of your choice).</p>
@@ -320,16 +300,16 @@
 <h2>Creating your own production<a class="headerlink" href="#creating-your-own-production" title="Permalink to this heading"></a></h2>
 <p>For practice, we will now go through the steps of creating a simple production. For details about more advanced usage, see the <a class="reference external" href="https://lhcb-ap.docs.cern.ch/index.html">Analysis Productions documentation</a>.</p>
 <p>Start by creating a folder to work in, and into it clone the <a class="reference external" href="https://gitlab.cern.ch/lhcb-datapkg/AnalysisProductions">Analysis Productions repository</a>.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git clone ssh://git@gitlab.cern.ch:7999/lhcb-datapkg/AnalysisProductions.git
-<span class="nb">cd</span> AnalysisProductions
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>clone<span class="w"> </span>ssh://git@gitlab.cern.ch:7999/lhcb-datapkg/AnalysisProductions.git
+<span class="nb">cd</span><span class="w"> </span>AnalysisProductions
 </pre></div>
 </div>
 <p>Before making any edits, you should create a branch for your changes, and switch to it:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git checkout -b <span class="si">${</span><span class="nv">USER</span><span class="si">}</span>/starterkit-practice
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>checkout<span class="w"> </span>-b<span class="w"> </span><span class="si">${</span><span class="nv">USER</span><span class="si">}</span>/starterkit-practice
 </pre></div>
 </div>
-<p>Now we need to create a folder to store all the things we’re going to add for our new production. For this practice production, we’ll continue with the <span class="math notranslate nohighlight">\( D^{0} \to K^{-}K^{+} \)</span> decays used in the previous few lessons, so we should name the folder appropriately:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mkdir D02HH_Practice
+<p>Now we need to create a folder to store all the things we’re going to add for our new production. For this practice production, we’ll continue with the <span class="math notranslate nohighlight">\(` D^{0} \to K^{-}K^{+} `\)</span> decays used in the previous few lessons, so we should name the folder appropriately:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mkdir<span class="w"> </span>D02HH_Practice
 </pre></div>
 </div>
 <p>Let’s enter that new directory (<code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">D02HH_Practice</span></code>), and start adding the files we’ll need. First is the DaVinci options file. If you have the options file you created during the previous lessons, copy it here, and open it with your text editor of choice. There are a couple of things to change - first, you can remove the lines about using the local input data (that’s everything to do with <code class="docutils literal notranslate"><span class="pre">IOHelper()</span></code>), since we’re going to be using remotely hosted data instead. Also, because the Analysis Productions system is able to automatically configure parts of jobs, you can also remove these lines:</p>
@@ -352,26 +332,26 @@
 </div>
 <p>If you don’t have your options file from earlier available, or are having trouble, you can <a class="reference download internal" download="" href="../_downloads/26f133d9caf2ef72e73893756d498eaf/ntuple_options.py"><code class="xref download docutils literal notranslate"><span class="pre">use</span> <span class="pre">this</span> <span class="pre">options</span> <span class="pre">file</span></code></a>.</p>
 <p>The next file needed is a <code class="docutils literal notranslate"><span class="pre">.yaml</span></code> file, which will be used to configure the jobs. Create a new file named <code class="docutils literal notranslate"><span class="pre">info.yaml</span></code>, and add the following to it:</p>
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">defaults</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="nt">application</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">DaVinci/v46r4</span><span class="w"></span>
-<span class="w">    </span><span class="nt">wg</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Charm</span><span class="w"></span>
-<span class="w">    </span><span class="nt">automatically_configure</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">yes</span><span class="w"></span>
-<span class="w">    </span><span class="nt">turbo</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">no</span><span class="w"></span>
-<span class="w">    </span><span class="nt">inform</span><span class="p">:</span><span class="w"></span>
-<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">your.email.here@cern.ch</span><span class="w"></span>
-<span class="w">    </span><span class="nt">options</span><span class="p">:</span><span class="w"></span>
-<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ntuple_options.py</span><span class="w"></span>
-<span class="w">    </span><span class="nt">output</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">D02KK.ROOT</span><span class="w"></span>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">defaults</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">application</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">DaVinci/v46r4</span>
+<span class="w">    </span><span class="nt">wg</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Charm</span>
+<span class="w">    </span><span class="nt">automatically_configure</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">yes</span>
+<span class="w">    </span><span class="nt">turbo</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">no</span>
+<span class="w">    </span><span class="nt">inform</span><span class="p">:</span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">your.email.here@cern.ch</span>
+<span class="w">    </span><span class="nt">options</span><span class="p">:</span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ntuple_options.py</span>
+<span class="w">    </span><span class="nt">output</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">D02KK.ROOT</span>
 
-<span class="nt">2016_MagDown_PromptMC_D02KK</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="nt">input</span><span class="p">:</span><span class="w"></span>
-<span class="w">        </span><span class="nt">bk_query</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;/MC/2016/Beam6500GeV-2016-MagDown-Nu1.6-25ns-Pythia8/Sim09c/Trig0x6138160F/Reco16/Turbo03/Stripping28r1NoPrescalingFlagged/27163002/ALLSTREAMS.DST&quot;</span><span class="w"></span>
+<span class="nt">2016_MagDown_PromptMC_D02KK</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">input</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">bk_query</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;/MC/2016/Beam6500GeV-2016-MagDown-Nu1.6-25ns-Pythia8/Sim09c/Trig0x6138160F/Reco16/Turbo03/Stripping28r1NoPrescalingFlagged/27163002/ALLSTREAMS.DST&quot;</span>
 </pre></div>
 </div>
 <p>Here, the unindented lines are the names of jobs (although <code class="docutils literal notranslate"><span class="pre">defaults</span></code> has a special function), and the indented lines are the options we’re applying to those jobs. Using this file will create one job called <code class="docutils literal notranslate"><span class="pre">2016_MagDown_PromptMC_D02KK</span></code>, that will read in data from the provided bookkeeping path. All the options applied under <code class="docutils literal notranslate"><span class="pre">defaults</span></code> are automatically applied to all other jobs - very useful for avoiding repetition. The options we’re using here are:</p>
 <ul class="simple">
 <li><p><strong>application</strong>: the version of DaVinci to use. Here we choose v46r4, the latest for Run 2 at the time of writing (see <a class="reference external" href="http://lhcbdoc.web.cern.ch/lhcbdoc/davinci/">here</a> to check what versions are available).</p></li>
-<li><p><strong>wg</strong>: the working group this production is a part of. Since this is a <span class="math notranslate nohighlight">\( D^{0} \to K^{-}K^{+} \)</span> decay, we’ll set this to <code class="docutils literal notranslate"><span class="pre">Charm</span></code>.</p></li>
+<li><p><strong>wg</strong>: the working group this production is a part of. Since this is a <span class="math notranslate nohighlight">\(` D^{0} \to K^{-}K^{+} `\)</span> decay, we’ll set this to <code class="docutils literal notranslate"><span class="pre">Charm</span></code>.</p></li>
 <li><p><strong>inform</strong>: optionally, you can enter your email address to receive updates on the status of your jobs.</p></li>
 <li><p><strong>automatically_configure</strong>: setting this to <code class="docutils literal notranslate"><span class="pre">yes</span></code> is what allowed us to remove all of those configuration lines from the options file. This is very useful when creating productions that use multiple years, or both data and MC.</p></li>
 <li><p><strong>turbo</strong>: Setting this to <code class="docutils literal notranslate"><span class="pre">yes</span></code> indicates <code class="docutils literal notranslate"><span class="pre">automatically_configure</span></code> should configure the application for reading turbo data.</p></li>
@@ -432,7 +412,7 @@ Commands:
 </pre></div>
 </div>
 <p>The most important test is if the production actually runs successfully, and creates the desired ntuples. The <code class="docutils literal notranslate"><span class="pre">lb-ap</span></code> command is used for this as well. To test the magnet-down job, run this command:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>lb-ap <span class="nb">test</span> D02HH_Practice 2016_MagDown_PromptMC_D02KK
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>lb-ap<span class="w"> </span><span class="nb">test</span><span class="w"> </span>D02HH_Practice<span class="w"> </span>2016_MagDown_PromptMC_D02KK
 </pre></div>
 </div>
 <p>This will automatically run DaVinci, using the data and options files you specified in <code class="docutils literal notranslate"><span class="pre">info.yaml</span></code>. You should see the output from DaVinci similar to what you saw when you ran it manually in an earlier lesson, followed by a completion message that tells you the location of the output files created by the test.</p>
@@ -452,14 +432,14 @@ Commands:
 <section id="creating-a-merge-request">
 <h3>Creating a merge request<a class="headerlink" href="#creating-a-merge-request" title="Permalink to this heading"></a></h3>
 <p>Now that we’ve tested all of our changes and are sure that everything’s working as intended, we can prepare to submit them to the main repository by creating a merge request. Start by commiting the changes:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git add ntuple_options.py
-git add info.yaml
-git add README.md
-git commit -m <span class="s2">&quot;Add D02KK MC production for starterkit&quot;</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>add<span class="w"> </span>ntuple_options.py
+git<span class="w"> </span>add<span class="w"> </span>info.yaml
+git<span class="w"> </span>add<span class="w"> </span>README.md
+git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;Add D02KK MC production for starterkit&quot;</span>
 </pre></div>
 </div>
 <p>And then push the changes with</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git push origin <span class="si">${</span><span class="nv">USER</span><span class="si">}</span>/starterkit-practice
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>push<span class="w"> </span>origin<span class="w"> </span><span class="si">${</span><span class="nv">USER</span><span class="si">}</span>/starterkit-practice
 </pre></div>
 </div>
 <p>Once this has completed, it should give you a link to create a merge request for your new branch. Open it in a browser, and give it a suitable name &amp; description - in the description, please make sure to say that this is part of the Starterkit lesson! For a real production please ensure you follow the instructions in the merge request description template. Then you can submit your merge request.</p>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>The Selection Framework &mdash; LHCb Starterkit Lessons  documentation</title>
@@ -35,12 +35,16 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../index.html" class="icon icon-home"> LHCb Starterkit Lessons
-            <img src="../_static/starterkit.png" class="logo" alt="Logo"/>
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            LHCb Starterkit Lessons
+              <img src="../_static/starterkit.png" class="logo" alt="Logo"/>
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -239,7 +243,7 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../index.html" class="icon icon-home"></a></li>
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="README.html">Second Analysis Steps</a></li>
           <li class="breadcrumb-item"><a href="building-decays.html">Building your own decay</a></li>
       <li class="breadcrumb-item active">The Selection Framework</li>
@@ -252,31 +256,7 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  
-<style>
-/* CSS overrides for sphinx_rtd_theme */
-
-/* 24px margin */
-.nbinput.nblast.container,
-.nboutput.nblast.container {
-    margin-bottom: 19px;  /* padding has already 5px */
-}
-
-/* ... except between code cells! */
-.nblast.container + .nbinput.container {
-    margin-top: -19px;
-}
-
-.admonition > p:before {
-    margin-right: 4px;  /* make room for the exclamation icon */
-}
-
-/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
-.math {
-    text-align: unset;
-}
-</style>
-<section id="the-selection-framework">
+  <section id="the-selection-framework">
 <h1>The Selection Framework<a class="headerlink" href="#the-selection-framework" title="Permalink to this heading"></a></h1>
 <div class="panel panel-objectives docutils container">
 <div class="panel-header open docutils container">
@@ -291,12 +271,12 @@
 </div>
 <p>In order to perform most physics analyses we need to build a <em>decay chain</em> with reconstructed particles that represents the physics process we want to study.
 In LHCb, this decay chain can be built through <code class="docutils literal notranslate"><span class="pre">LHCb::Particle</span></code> and <code class="docutils literal notranslate"><span class="pre">LHCb::MCParticle</span></code> objects that represent individual particles and contain links to their children, also represented by the same type of object.</p>
-<p>We’ll learn all the concepts involved by running through our usual full example of the <span class="math notranslate nohighlight">\( D^\ast\rightarrow D^0(\rightarrow K^{-} K^{+}) \pi \)</span> decay chain.</p>
-<p>The LHCb approach to building decays is from the bottom up. Therefore, to build <span class="math notranslate nohighlight">\( D^\ast\rightarrow D^0(\rightarrow K^{-} K^{+}) \pi \)</span> we need to</p>
+<p>We’ll learn all the concepts involved by running through our usual full example of the <span class="math notranslate nohighlight">\(` D^\ast\rightarrow D^0(\rightarrow K^{-} K^{+}) \pi `\)</span> decay chain.</p>
+<p>The LHCb approach to building decays is from the bottom up. Therefore, to build <span class="math notranslate nohighlight">\(` D^\ast\rightarrow D^0(\rightarrow K^{-} K^{+}) \pi `\)</span> we need to</p>
 <ol class="simple">
 <li><p>Get input pions and kaons and filter them according to our physics needs.</p></li>
-<li><p>Combine two kaons to build a <span class="math notranslate nohighlight">\( D^0 \)</span>, and apply selection cuts to it.</p></li>
-<li><p>Combine this <span class="math notranslate nohighlight">\( D^0 \)</span> with a pion to build the <span class="math notranslate nohighlight">\( D^\ast \)</span>, again filtering when necessary.</p></li>
+<li><p>Combine two kaons to build a <span class="math notranslate nohighlight">\(` D^0 `\)</span>, and apply selection cuts to it.</p></li>
+<li><p>Combine this <span class="math notranslate nohighlight">\(` D^0 `\)</span> with a pion to build the <span class="math notranslate nohighlight">\(` D^\ast `\)</span>, again filtering when necessary.</p></li>
 </ol>
 <p>To do that, we need to know a little bit more about how the LHCb analysis framework works.</p>
 <p>As discussed in the <a class="reference internal" href="../first-analysis-steps/davinci.html"><span class="doc">Gaudi introduction</span></a>, <code class="docutils literal notranslate"><span class="pre">Gaudi</span></code> is based on the event-by-event sequential (chained) execution of algorithms wrapped in a <code class="docutils literal notranslate"><span class="pre">GaudiSequencer</span></code>, which takes care of handling the execution order such that processing stops when an algorithm is <em>not passed</em>.

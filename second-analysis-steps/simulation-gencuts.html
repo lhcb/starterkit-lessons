@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Modifying the decay &mdash; LHCb Starterkit Lessons  documentation</title>
@@ -35,12 +35,16 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../index.html" class="icon icon-home"> LHCb Starterkit Lessons
-            <img src="../_static/starterkit.png" class="logo" alt="Logo"/>
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            LHCb Starterkit Lessons
+              <img src="../_static/starterkit.png" class="logo" alt="Logo"/>
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -239,7 +243,7 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../index.html" class="icon icon-home"></a></li>
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="README.html">Second Analysis Steps</a></li>
           <li class="breadcrumb-item"><a href="simulation.html">The simulation framework</a></li>
       <li class="breadcrumb-item active">Modifying the decay</li>
@@ -252,31 +256,7 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  
-<style>
-/* CSS overrides for sphinx_rtd_theme */
-
-/* 24px margin */
-.nbinput.nblast.container,
-.nboutput.nblast.container {
-    margin-bottom: 19px;  /* padding has already 5px */
-}
-
-/* ... except between code cells! */
-.nblast.container + .nbinput.container {
-    margin-top: -19px;
-}
-
-.admonition > p:before {
-    margin-right: 4px;  /* make room for the exclamation icon */
-}
-
-/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
-.math {
-    text-align: unset;
-}
-</style>
-<div class="panel panel-objectives docutils container">
+  <div class="panel panel-objectives docutils container">
 <div class="panel-header open docutils container">
 <p id="learning-objectives"><i class="fa fa-line-chart"></i> Learning Objectives</p>
 </div>
@@ -292,30 +272,30 @@
 <h1>Modifying the decay<a class="headerlink" href="#modifying-the-decay" title="Permalink to this heading"></a></h1>
 <section id="adding-a-decay-channel">
 <h2>Adding a decay channel<a class="headerlink" href="#adding-a-decay-channel" title="Permalink to this heading"></a></h2>
-<p>In order to make our decay model more realistic we can add in known resonances. E.g. instead of solely relying on phase-space, we can add in the prominent <span class="math notranslate nohighlight">\( \Phi\to K^{+}K^{-} \)</span> resonance to hopefully. In the decfile, we can another line to the decay channels of the <span class="math notranslate nohighlight">\( D^0 \)</span>:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>Decay MyD0                                                                                                                                                                                                                                                 
-  <span class="m">0</span>.5 K+ K- mu+ mu- PHSP<span class="p">;</span>                                                                                                                                                                                                                                
-  <span class="m">0</span>.5 phi mu+ mu- PHSP<span class="p">;</span>                                                                                                                                                                                                                                
-Enddecay                                                                                                                                                                                                                                                   
-CDecay MyantiD0                                                                                                                                                                                                                                            
+<p>In order to make our decay model more realistic we can add in known resonances. E.g. instead of solely relying on phase-space, we can add in the prominent <span class="math notranslate nohighlight">\(` \Phi\to K^{+}K^{-} `\)</span> resonance to hopefully. In the decfile, we can another line to the decay channels of the <span class="math notranslate nohighlight">\(` D^0 `\)</span>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>Decay<span class="w"> </span>MyD0<span class="w">                                                                                                                                                                                                                                                 </span>
+<span class="w">  </span><span class="m">0</span>.5<span class="w"> </span>K+<span class="w"> </span>K-<span class="w"> </span>mu+<span class="w"> </span>mu-<span class="w"> </span>PHSP<span class="p">;</span><span class="w">                                                                                                                                                                                                                                </span>
+<span class="w">  </span><span class="m">0</span>.5<span class="w"> </span>phi<span class="w"> </span>mu+<span class="w"> </span>mu-<span class="w"> </span>PHSP<span class="p">;</span><span class="w">                                                                                                                                                                                                                                </span>
+Enddecay<span class="w">                                                                                                                                                                                                                                                   </span>
+CDecay<span class="w"> </span>MyantiD0<span class="w">                                                                                                                                                                                                                                            </span>
 </pre></div>
 </div>
-<p>This triggers EvtGen to produce the <span class="math notranslate nohighlight">\( \phi \)</span> resonance in 50% of the cases and <span class="math notranslate nohighlight">\( \phi \)</span> is subsequently decayed. However, we have not told EvtGen that the <span class="math notranslate nohighlight">\( \phi \)</span> should be decayed only to a <span class="math notranslate nohighlight">\( K^+K^- \)</span>, hence it will randomly choose from all possible decays it knows about. Instead of modifying the common <code class="docutils literal notranslate"><span class="pre">phi</span></code>, we apply the same trick as we did for the <span class="math notranslate nohighlight">\( D^0 \)</span> decay:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>Alias MyPhi phi
-ChargeConj MyPhi MyPhi
+<p>This triggers EvtGen to produce the <span class="math notranslate nohighlight">\(` \phi `\)</span> resonance in 50% of the cases and <span class="math notranslate nohighlight">\(` \phi `\)</span> is subsequently decayed. However, we have not told EvtGen that the <span class="math notranslate nohighlight">\(` \phi `\)</span> should be decayed only to a <span class="math notranslate nohighlight">\(` K^+K^- `\)</span>, hence it will randomly choose from all possible decays it knows about. Instead of modifying the common <code class="docutils literal notranslate"><span class="pre">phi</span></code>, we apply the same trick as we did for the <span class="math notranslate nohighlight">\(` D^0 `\)</span> decay:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>Alias<span class="w"> </span>MyPhi<span class="w"> </span>phi
+ChargeConj<span class="w"> </span>MyPhi<span class="w"> </span>MyPhi
 
-Decay MyD0
-  <span class="m">0</span>.25 K+ K- mu+ mu- PHSP<span class="p">;</span>  
-  <span class="m">0</span>.75 MyPhi mu+ mu- PHSP<span class="p">;</span>  
+Decay<span class="w"> </span>MyD0
+<span class="w">  </span><span class="m">0</span>.25<span class="w"> </span>K+<span class="w"> </span>K-<span class="w"> </span>mu+<span class="w"> </span>mu-<span class="w"> </span>PHSP<span class="p">;</span><span class="w">  </span>
+<span class="w">  </span><span class="m">0</span>.75<span class="w"> </span>MyPhi<span class="w"> </span>mu+<span class="w"> </span>mu-<span class="w"> </span>PHSP<span class="p">;</span><span class="w">  </span>
 Enddecay
-CDecay MyantiD0
+CDecay<span class="w"> </span>MyantiD0
 
-Decay MyPhi
-  <span class="m">1</span>.000 K+  K-    VSS<span class="p">;</span>
+Decay<span class="w"> </span>MyPhi
+<span class="w">  </span><span class="m">1</span>.000<span class="w"> </span>K+<span class="w">  </span>K-<span class="w">    </span>VSS<span class="p">;</span>
 Enddecay
 </pre></div>
 </div>
-<p>After changing the decfile, you have to rerun <code class="docutils literal notranslate"><span class="pre">make</span></code>. Try out the modified decfile with Gauss, you should see a large spike in <span class="math notranslate nohighlight">\( m(K^+K^-) \)</span>.</p>
+<p>After changing the decfile, you have to rerun <code class="docutils literal notranslate"><span class="pre">make</span></code>. Try out the modified decfile with Gauss, you should see a large spike in <span class="math notranslate nohighlight">\(` m(K^+K^-) `\)</span>.</p>
 </section>
 <section id="generator-level-cuts">
 <h2>Generator level cuts<a class="headerlink" href="#generator-level-cuts" title="Permalink to this heading"></a></h2>
@@ -326,11 +306,11 @@ Cut tools need to be implemented in C++ and reside in the package <code class="d
 <section id="removing-the-generator-cuts">
 <h2>Removing the generator cuts<a class="headerlink" href="#removing-the-generator-cuts" title="Permalink to this heading"></a></h2>
 <p>The absolute efficiencies for generator cuts can be obtained from the respective <a class="reference external" href="http://lhcbdoc.web.cern.ch/lhcbdoc/STATISTICS/SIM09STAT/index.shtml">website</a> or the produced <code class="docutils literal notranslate"><span class="pre">GeneratorLog.xml</span></code> file, which contains:</p>
-<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;efficiency</span> <span class="na">name =</span> <span class="s">&quot;generator level cut&quot;</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;after&gt;</span> 5 <span class="nt">&lt;/after&gt;</span>
-    <span class="nt">&lt;before&gt;</span> 27 <span class="nt">&lt;/before&gt;</span>
-    <span class="nt">&lt;value&gt;</span> 0.18519 <span class="nt">&lt;/value&gt;</span>
-    <span class="nt">&lt;error&gt;</span> 0.074757 <span class="nt">&lt;/error&gt;</span>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;efficiency</span><span class="w"> </span><span class="na">name =</span><span class="w"> </span><span class="s">&quot;generator level cut&quot;</span><span class="nt">&gt;</span>
+<span class="w">    </span><span class="nt">&lt;after&gt;</span><span class="w"> </span>5<span class="w"> </span><span class="nt">&lt;/after&gt;</span>
+<span class="w">    </span><span class="nt">&lt;before&gt;</span><span class="w"> </span>27<span class="w"> </span><span class="nt">&lt;/before&gt;</span>
+<span class="w">    </span><span class="nt">&lt;value&gt;</span><span class="w"> </span>0.18519<span class="w"> </span><span class="nt">&lt;/value&gt;</span>
+<span class="w">    </span><span class="nt">&lt;error&gt;</span><span class="w"> </span>0.074757<span class="w"> </span><span class="nt">&lt;/error&gt;</span>
 <span class="nt">&lt;/efficiency&gt;</span>
 </pre></div>
 </div>

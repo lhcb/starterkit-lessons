@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Managing files in Ganga &mdash; LHCb Starterkit Lessons  documentation</title>
@@ -33,12 +33,16 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../index.html" class="icon icon-home"> LHCb Starterkit Lessons
-            <img src="../_static/starterkit.png" class="logo" alt="Logo"/>
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            LHCb Starterkit Lessons
+              <img src="../_static/starterkit.png" class="logo" alt="Logo"/>
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -237,7 +241,7 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../index.html" class="icon icon-home"></a></li>
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="README.html">Second Analysis Steps</a></li>
       <li class="breadcrumb-item active">Managing files in Ganga</li>
       <li class="wy-breadcrumbs-aside">
@@ -249,31 +253,7 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  
-<style>
-/* CSS overrides for sphinx_rtd_theme */
-
-/* 24px margin */
-.nbinput.nblast.container,
-.nboutput.nblast.container {
-    margin-bottom: 19px;  /* padding has already 5px */
-}
-
-/* ... except between code cells! */
-.nblast.container + .nbinput.container {
-    margin-top: -19px;
-}
-
-.admonition > p:before {
-    margin-right: 4px;  /* make room for the exclamation icon */
-}
-
-/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
-.math {
-    text-align: unset;
-}
-</style>
-<section id="managing-files-in-ganga">
+  <section id="managing-files-in-ganga">
 <h1>Managing files in Ganga<a class="headerlink" href="#managing-files-in-ganga" title="Permalink to this heading"></a></h1>
 <div class="panel panel-objectives docutils container">
 <div class="panel-header open docutils container">
@@ -323,12 +303,12 @@ page for Ganga</a>, on the <a class="reference external" href="https://mattermos
 <div class="panel-body docutils container">
 <p>To make sure there will be no pre-existing files from of Ganga to interfere,
 we will move them to a backup location.</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ <span class="nb">cd</span> ~
-$ mkdir ganga-backup
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>~
+$<span class="w"> </span>mkdir<span class="w"> </span>ganga-backup
 <span class="c1"># See what&#39;s in your home directory that&#39;s related to Ganga</span>
-$ ls -la <span class="p">|</span> grep -i ganga
+$<span class="w"> </span>ls<span class="w"> </span>-la<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>-i<span class="w"> </span>ganga
 <span class="c1"># Then move everything</span>
-$ mv gangadir .gangarc* .ganga.log .ganga.py .ipython-ganga ganga-backup
+$<span class="w"> </span>mv<span class="w"> </span>gangadir<span class="w"> </span>.gangarc*<span class="w"> </span>.ganga.log<span class="w"> </span>.ganga.py<span class="w"> </span>.ipython-ganga<span class="w"> </span>ganga-backup
 </pre></div>
 </div>
 <p>You can move this back after the lesson if you want to restore your old
@@ -336,7 +316,7 @@ settings and data.</p>
 </div>
 </div>
 <p>We’ll be doing everything in Ganga, so let’s start it up.</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ ganga
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>ganga
 </pre></div>
 </div>
 <p>If it’s your first time starting Ganga, you’ll be asked if you want to create a
@@ -355,10 +335,10 @@ given a file containing ‘Hello world!’ as input.</p>
 <p><a class="reference download internal" download="" href="../_downloads/9d7edaf957a05879dfab52d5a04a2009/reverse.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">the</span> <span class="pre">script</span></code></a> to lxplus and set it to be executable.
 You can execute these commands inside Ganga, if you like, by prefixing them
 with a <code class="docutils literal notranslate"><span class="pre">!</span></code>.</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ wget https://raw.githubusercontent.com/lhcb/starterkit-lessons/master/second-analysis-steps/code/01-managing-files-with-ganga/reverse.py
-$ chmod +x reverse.py
-$ ./reverse.py
-Usage: reverse.py &lt;file&gt;
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>wget<span class="w"> </span>https://raw.githubusercontent.com/lhcb/starterkit-lessons/master/second-analysis-steps/code/01-managing-files-with-ganga/reverse.py
+$<span class="w"> </span>chmod<span class="w"> </span>+x<span class="w"> </span>reverse.py
+$<span class="w"> </span>./reverse.py
+Usage:<span class="w"> </span>reverse.py<span class="w"> </span>&lt;file&gt;
 </pre></div>
 </div>
 <p>In Ganga, create a <code class="docutils literal notranslate"><span class="pre">Job</span></code> object with a descriptive name and take a look at it.</p>
@@ -432,7 +412,7 @@ As a result, if you try to upload a file which already exists you receive an err
 <p>Grid files that are replicated at CERN are directly accessible via EOS. We can
 see that our file’s on EOS by looking at the LFN Ganga gave us. We just need to
 add the prefix <code class="docutils literal notranslate"><span class="pre">/eos/lhcb/grid/user</span></code> to the LFN.</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>eos ls /eos/lhcb/grid/user//lhcb/user/a/apearce/GangaFiles_22.24_Wednesday_18_May_2016
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>eos<span class="w"> </span>ls<span class="w"> </span>/eos/lhcb/grid/user//lhcb/user/a/apearce/GangaFiles_22.24_Wednesday_18_May_2016
 </pre></div>
 </div>
 <div class="panel panel-callout docutils container">

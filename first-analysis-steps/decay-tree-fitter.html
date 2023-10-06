@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>How do I use DecayTreeFitter? &mdash; LHCb Starterkit Lessons  documentation</title>
@@ -35,12 +35,16 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../index.html" class="icon icon-home"> LHCb Starterkit Lessons
-            <img src="../_static/starterkit.png" class="logo" alt="Logo"/>
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            LHCb Starterkit Lessons
+              <img src="../_static/starterkit.png" class="logo" alt="Logo"/>
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -239,7 +243,7 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../index.html" class="icon icon-home"></a></li>
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="README.html">First Analysis Steps</a></li>
       <li class="breadcrumb-item active">How do I use DecayTreeFitter?</li>
       <li class="wy-breadcrumbs-aside">
@@ -251,31 +255,7 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  
-<style>
-/* CSS overrides for sphinx_rtd_theme */
-
-/* 24px margin */
-.nbinput.nblast.container,
-.nboutput.nblast.container {
-    margin-bottom: 19px;  /* padding has already 5px */
-}
-
-/* ... except between code cells! */
-.nblast.container + .nbinput.container {
-    margin-top: -19px;
-}
-
-.admonition > p:before {
-    margin-right: 4px;  /* make room for the exclamation icon */
-}
-
-/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
-.math {
-    text-align: unset;
-}
-</style>
-<section id="how-do-i-use-decaytreefitter">
+  <section id="how-do-i-use-decaytreefitter">
 <h1>How do I use DecayTreeFitter?<a class="headerlink" href="#how-do-i-use-decaytreefitter" title="Permalink to this heading"></a></h1>
 <div class="panel panel-objectives docutils container">
 <div class="panel-header open docutils container">
@@ -371,7 +351,7 @@ of doubt.</p>
 </div>
 </div>
 <p>Once you have produced your ntuple you can have a look at the refitted variables.</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>root -l DVntuple.root
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>root<span class="w"> </span>-l<span class="w"> </span>DVntuple.root
 TupleDstToD0pi_D0ToKK-&gt;cd<span class="o">()</span>
 DecayTree-&gt;StartViewer<span class="o">()</span>
 </pre></div>
@@ -390,7 +370,7 @@ fitted vertex position, but not the result of the actual vertex fit. Remember th
 a vertex fit acts like a vertex constraint, improving the opening-angle resolution.</p>
 </div>
 </div>
-<p>Now let us look at the refitted mass of the <span class="math notranslate nohighlight">\( D^{*+} \)</span>, with the <span class="math notranslate nohighlight">\( D^0 \)</span> constrained to its nominal mass.
+<p>Now let us look at the refitted mass of the <span class="math notranslate nohighlight">\(` D^{*+} `\)</span>, with the <span class="math notranslate nohighlight">\(` D^0 `\)</span> constrained to its nominal mass.
 It is stored in the variable <code class="docutils literal notranslate"><span class="pre">Dstar_ConsD_M</span></code>.
 If you plot this you will note that some values are unphysical.
 So, let’s restrict the range we look at to something that makes sense.</p>
@@ -406,7 +386,7 @@ So, let’s restrict the range we look at to something that makes sense.</p>
 <p>and we get the final kinematically refitted Dstar mass:</p>
 <p><img alt="Dstar refitted best PV" src="../_images/DstarRefitBest.png" /></p>
 <p>Finally, let’s check how the D0 mass constraint has played out.</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>tv__tree-&gt;Draw<span class="o">(</span><span class="s2">&quot;Dstar_ConsD_D0_M[0]&gt;&gt;h(100,1800,1900)&quot;</span>,<span class="s2">&quot;&quot;</span>,<span class="s2">&quot;&quot;</span>, <span class="m">128</span>, <span class="m">0</span><span class="o">)</span><span class="p">;</span>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>tv__tree-&gt;Draw<span class="o">(</span><span class="s2">&quot;Dstar_ConsD_D0_M[0]&gt;&gt;h(100,1800,1900)&quot;</span>,<span class="s2">&quot;&quot;</span>,<span class="s2">&quot;&quot;</span>,<span class="w"> </span><span class="m">128</span>,<span class="w"> </span><span class="m">0</span><span class="o">)</span><span class="p">;</span>
 </pre></div>
 </div>
 <p><img alt="constrained D0" src="../_images/D0Refit.png" /></p>

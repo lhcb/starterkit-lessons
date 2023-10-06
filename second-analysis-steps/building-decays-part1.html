@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>A Historical Approach &mdash; LHCb Starterkit Lessons  documentation</title>
@@ -35,12 +35,16 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../index.html" class="icon icon-home"> LHCb Starterkit Lessons
-            <img src="../_static/starterkit.png" class="logo" alt="Logo"/>
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            LHCb Starterkit Lessons
+              <img src="../_static/starterkit.png" class="logo" alt="Logo"/>
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -239,7 +243,7 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../index.html" class="icon icon-home"></a></li>
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="README.html">Second Analysis Steps</a></li>
           <li class="breadcrumb-item"><a href="building-decays.html">Building your own decay</a></li>
       <li class="breadcrumb-item active">A Historical Approach</li>
@@ -252,31 +256,7 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  
-<style>
-/* CSS overrides for sphinx_rtd_theme */
-
-/* 24px margin */
-.nbinput.nblast.container,
-.nboutput.nblast.container {
-    margin-bottom: 19px;  /* padding has already 5px */
-}
-
-/* ... except between code cells! */
-.nblast.container + .nbinput.container {
-    margin-top: -19px;
-}
-
-.admonition > p:before {
-    margin-right: 4px;  /* make room for the exclamation icon */
-}
-
-/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
-.math {
-    text-align: unset;
-}
-</style>
-<section id="a-historical-approach">
+  <section id="a-historical-approach">
 <h1>A Historical Approach<a class="headerlink" href="#a-historical-approach" title="Permalink to this heading"></a></h1>
 <div class="panel panel-objectives docutils container">
 <div class="panel-header open docutils container">
@@ -301,7 +281,7 @@ At the end of this lesson its shortcomings will be highlighted and a better way 
 </div>
 </div>
 <p>Now we’ll learn to apply the concepts of the Selection Framework by running through a full example:
-using the DST files from the <a class="reference internal" href="../first-analysis-steps/files-from-grid.html"><span class="doc">Downloading a file from the Grid</span></a> lesson, we will build our own <span class="math notranslate nohighlight">\( D^\ast\rightarrow D^0(\rightarrow K^{-} K^{+}) \pi \)</span> decay chain from scratch.
+using the DST files from the <a class="reference internal" href="../first-analysis-steps/files-from-grid.html"><span class="doc">Downloading a file from the Grid</span></a> lesson, we will build our own <span class="math notranslate nohighlight">\(` D^\ast\rightarrow D^0(\rightarrow K^{-} K^{+}) \pi `\)</span> decay chain from scratch.
 Get your <a class="reference internal" href="../first-analysis-steps/loki-functors.html"><span class="doc">LoKi skills</span></a> ready and let’s start.</p>
 <div class="panel panel-callout docutils container">
 <div class="panel-header open docutils container">
@@ -340,7 +320,7 @@ Therefore, the following code would be equivalent to what we have used:</p>
 </div>
 </div>
 </div>
-<p>Once we have the input kaons, we can combine them to build a <span class="math notranslate nohighlight">\( D^0 \)</span> by means of the <code class="docutils literal notranslate"><span class="pre">CombineParticles</span></code> algorithm.
+<p>Once we have the input kaons, we can combine them to build a <span class="math notranslate nohighlight">\(` D^0 `\)</span> by means of the <code class="docutils literal notranslate"><span class="pre">CombineParticles</span></code> algorithm.
 This algorithm performs the combinatorics for us according to a given decay descriptor and puts the resulting particle in the TES, allowing also to apply some cuts on them:</p>
 <ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">DaughtersCuts</span></code> is a dictionary that maps each child particle type to a LoKi
@@ -406,7 +386,7 @@ For example:</p>
 <p>We can already see that this two-step process (building the <code class="docutils literal notranslate"><span class="pre">CombineParticles</span></code> and the <code class="docutils literal notranslate"><span class="pre">Selection</span></code>) is a bit cumbersome.
 This can be simplified using a <code class="docutils literal notranslate"><span class="pre">SimpleSelection</span></code> object, which will be discussed in the next lesson.</p>
 <p>For the time being, let’s finish building our candidates.
-Now we can use another <code class="docutils literal notranslate"><span class="pre">CombineParticles</span></code> to build the <span class="math notranslate nohighlight">\( D^\ast \)</span> with pions and the <span class="math notranslate nohighlight">\( D^0 \)</span>‘s as inputs, and applying a filtering only on the soft pion:</p>
+Now we can use another <code class="docutils literal notranslate"><span class="pre">CombineParticles</span></code> to build the <span class="math notranslate nohighlight">\(` D^\ast `\)</span> with pions and the <span class="math notranslate nohighlight">\(` D^0 `\)</span>’s as inputs, and applying a filtering only on the soft pion:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">dstar_decay_products</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;pi+&#39;</span><span class="p">:</span> <span class="s1">&#39;(TRCHI2DOF &lt; 3) &amp; (PT &gt; 100*MeV)&#39;</span><span class="p">}</span>
 <span class="n">dstar_comb</span> <span class="o">=</span> <span class="s2">&quot;(ADAMASS(&#39;D*(2010)+&#39;) &lt; 400*MeV)&quot;</span>
 <span class="n">dstar_vertex</span> <span class="o">=</span> <span class="p">(</span>

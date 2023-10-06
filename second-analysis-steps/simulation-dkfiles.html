@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Controlling the decay: DecFiles &mdash; LHCb Starterkit Lessons  documentation</title>
@@ -33,12 +33,16 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../index.html" class="icon icon-home"> LHCb Starterkit Lessons
-            <img src="../_static/starterkit.png" class="logo" alt="Logo"/>
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            LHCb Starterkit Lessons
+              <img src="../_static/starterkit.png" class="logo" alt="Logo"/>
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -237,7 +241,7 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../index.html" class="icon icon-home"></a></li>
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="README.html">Second Analysis Steps</a></li>
           <li class="breadcrumb-item"><a href="simulation.html">The simulation framework</a></li>
       <li class="breadcrumb-item active">Controlling the decay: DecFiles</li>
@@ -250,31 +254,7 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  
-<style>
-/* CSS overrides for sphinx_rtd_theme */
-
-/* 24px margin */
-.nbinput.nblast.container,
-.nboutput.nblast.container {
-    margin-bottom: 19px;  /* padding has already 5px */
-}
-
-/* ... except between code cells! */
-.nblast.container + .nbinput.container {
-    margin-top: -19px;
-}
-
-.admonition > p:before {
-    margin-right: 4px;  /* make room for the exclamation icon */
-}
-
-/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
-.math {
-    text-align: unset;
-}
-</style>
-<div class="panel panel-objectives docutils container">
+  <div class="panel panel-objectives docutils container">
 <div class="panel-header open docutils container">
 <p id="learning-objectives"><i class="fa fa-line-chart"></i> Learning Objectives</p>
 </div>
@@ -306,22 +286,22 @@ For example, the <code class="docutils literal notranslate"><span class="pre">.d
 <span class="c1"># Email: unknown@&lt;nospam&gt;cern.ch                                                                                                                                                                                                                           </span>
 <span class="c1"># Date: 20091215                                                                                                                                                                                                                                           </span>
 <span class="c1">#                                                                                                                                                                                                                                                          </span>
-                                                                                                                                                                                                                                                           
-Alias MyD0 D0                                                                                                                                                                                                                                              
-Alias MyantiD0 anti-D0                                                                                                                                                                                                                                     
-ChargeConj MyD0 MyantiD0                                                                                                                                                                                                                                   
-                                                                                                                                                                                                                                                           
-Decay D*+sig                                                                                                                                                                                                                                               
-  <span class="m">1</span>.000 MyD0  pi+    VSS<span class="p">;</span>                                                                                                                                                                                                                                  
-Enddecay                                                                                                                                                                                                                                                   
-CDecay D*-sig                                                                                                                                                                                                                                              
-                                                                                                                                                                                                                                                           
-Decay MyD0                                                                                                                                                                                                                                                 
-  <span class="m">1</span>.000 K+ K- mu+ mu- PHSP<span class="p">;</span>                                                                                                                                                                                                                                
-Enddecay                                                                                                                                                                                                                                                   
-CDecay MyantiD0                                                                                                                                                                                                                                            
+<span class="w">                                                                                                                                                                                                                                                           </span>
+Alias<span class="w"> </span>MyD0<span class="w"> </span>D0<span class="w">                                                                                                                                                                                                                                              </span>
+Alias<span class="w"> </span>MyantiD0<span class="w"> </span>anti-D0<span class="w">                                                                                                                                                                                                                                     </span>
+ChargeConj<span class="w"> </span>MyD0<span class="w"> </span>MyantiD0<span class="w">                                                                                                                                                                                                                                   </span>
+<span class="w">                                                                                                                                                                                                                                                           </span>
+Decay<span class="w"> </span>D*+sig<span class="w">                                                                                                                                                                                                                                               </span>
+<span class="w">  </span><span class="m">1</span>.000<span class="w"> </span>MyD0<span class="w">  </span>pi+<span class="w">    </span>VSS<span class="p">;</span><span class="w">                                                                                                                                                                                                                                  </span>
+Enddecay<span class="w">                                                                                                                                                                                                                                                   </span>
+CDecay<span class="w"> </span>D*-sig<span class="w">                                                                                                                                                                                                                                              </span>
+<span class="w">                                                                                                                                                                                                                                                           </span>
+Decay<span class="w"> </span>MyD0<span class="w">                                                                                                                                                                                                                                                 </span>
+<span class="w">  </span><span class="m">1</span>.000<span class="w"> </span>K+<span class="w"> </span>K-<span class="w"> </span>mu+<span class="w"> </span>mu-<span class="w"> </span>PHSP<span class="p">;</span><span class="w">                                                                                                                                                                                                                                </span>
+Enddecay<span class="w">                                                                                                                                                                                                                                                   </span>
+CDecay<span class="w"> </span>MyantiD0<span class="w">                                                                                                                                                                                                                                            </span>
 <span class="c1">#                                                                                                                                                                                                                                                          </span>
-End  
+End<span class="w">  </span>
 </pre></div>
 </div>
 <p>The commented actually contains vital information and is parsed during the compilation to create the <code class="docutils literal notranslate"><span class="pre">&lt;event-type&gt;.py</span></code> file that is given to <code class="docutils literal notranslate"><span class="pre">Gauss</span></code> as one of its options!

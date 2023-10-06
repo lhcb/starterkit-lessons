@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Running a minimal DaVinci job locally &mdash; LHCb Starterkit Lessons  documentation</title>
@@ -33,12 +33,16 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../index.html" class="icon icon-home"> LHCb Starterkit Lessons
-            <img src="../_static/starterkit.png" class="logo" alt="Logo"/>
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            LHCb Starterkit Lessons
+              <img src="../_static/starterkit.png" class="logo" alt="Logo"/>
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -237,7 +241,7 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../index.html" class="icon icon-home"></a></li>
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="README.html">First Analysis Steps</a></li>
       <li class="breadcrumb-item active">Running a minimal DaVinci job locally</li>
       <li class="wy-breadcrumbs-aside">
@@ -249,31 +253,7 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  
-<style>
-/* CSS overrides for sphinx_rtd_theme */
-
-/* 24px margin */
-.nbinput.nblast.container,
-.nboutput.nblast.container {
-    margin-bottom: 19px;  /* padding has already 5px */
-}
-
-/* ... except between code cells! */
-.nblast.container + .nbinput.container {
-    margin-top: -19px;
-}
-
-.admonition > p:before {
-    margin-right: 4px;  /* make room for the exclamation icon */
-}
-
-/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
-.math {
-    text-align: unset;
-}
-</style>
-<section id="running-a-minimal-davinci-job-locally">
+  <section id="running-a-minimal-davinci-job-locally">
 <h1>Running a minimal DaVinci job locally<a class="headerlink" href="#running-a-minimal-davinci-job-locally" title="Permalink to this heading"></a></h1>
 <p><a class="reference internal" href="interactive-dst.html"><span class="doc">Looping event-by-event</span></a> over a file and <a class="reference internal" href="loki-functors.html"><span class="doc">inspecting
 interesting quantities with LoKi functors</span></a> is great for
@@ -458,7 +438,7 @@ file, and to clear any previous input files that might have been defined.</p>
 <p>That’s it! We’re ready to run DaVinci.</p>
 <p>In the same folder as your options file <code class="docutils literal notranslate"><span class="pre">ntuple_options.py</span></code> and your DST file
 ending in <code class="docutils literal notranslate"><span class="pre">.dst</span></code>, there’s just a single command you need run on <code class="docutils literal notranslate"><span class="pre">lxplus</span></code>.</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ lb-run DaVinci/v45r8 gaudirun.py ntuple_options.py
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>lb-run<span class="w"> </span>DaVinci/v45r8<span class="w"> </span>gaudirun.py<span class="w"> </span>ntuple_options.py
 </pre></div>
 </div>
 <p>The full options file we’ve created, <code class="docutils literal notranslate"><span class="pre">ntuple_options.py</span></code>, is <a class="reference download internal" download="" href="../_downloads/937445760fade9c86cf97523b587a29c/ntuple_options.py"><code class="xref download docutils literal notranslate"><span class="pre">available</span>
@@ -467,13 +447,13 @@ A slightly modified version that uses remote files (using an XML catalog as
 <a class="reference internal" href="files-from-grid.html"><span class="doc">described here</span></a>) is <a class="reference download internal" download="" href="../_downloads/6f0d9c7b57aaa6d301065f6ede4788a9/ntuple_options_xmlcatalog.py"><code class="xref download docutils literal notranslate"><span class="pre">available</span>
 <span class="pre">here</span></code></a>.</p>
 <p>You can now view and inspect your ntuple using ROOT <code class="docutils literal notranslate"><span class="pre">TBrowser</span></code> just do:</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ root -l DVntuple.root 
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>root<span class="w"> </span>-l<span class="w"> </span>DVntuple.root<span class="w"> </span>
 
-root <span class="o">[</span><span class="m">0</span><span class="o">]</span> 
-Attaching file DVntuple.root as _file0...
-<span class="o">(</span>TFile *<span class="o">)</span> 0x2ae94f0
-root <span class="o">[</span><span class="m">1</span><span class="o">]</span> new TBrowser
-<span class="o">(</span>TBrowser *<span class="o">)</span> 0x2fe31b0
+root<span class="w"> </span><span class="o">[</span><span class="m">0</span><span class="o">]</span><span class="w"> </span>
+Attaching<span class="w"> </span>file<span class="w"> </span>DVntuple.root<span class="w"> </span>as<span class="w"> </span>_file0...
+<span class="o">(</span>TFile<span class="w"> </span>*<span class="o">)</span><span class="w"> </span>0x2ae94f0
+root<span class="w"> </span><span class="o">[</span><span class="m">1</span><span class="o">]</span><span class="w"> </span>new<span class="w"> </span>TBrowser
+<span class="o">(</span>TBrowser<span class="w"> </span>*<span class="o">)</span><span class="w"> </span>0x2fe31b0
 </pre></div>
 </div>
 <div class="panel panel-callout docutils container">

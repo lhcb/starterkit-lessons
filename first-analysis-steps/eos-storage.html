@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Storing large files on EOS &mdash; LHCb Starterkit Lessons  documentation</title>
@@ -33,12 +33,16 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../index.html" class="icon icon-home"> LHCb Starterkit Lessons
-            <img src="../_static/starterkit.png" class="logo" alt="Logo"/>
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            LHCb Starterkit Lessons
+              <img src="../_static/starterkit.png" class="logo" alt="Logo"/>
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -237,7 +241,7 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../index.html" class="icon icon-home"></a></li>
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="README.html">First Analysis Steps</a></li>
       <li class="breadcrumb-item active">Storing large files on EOS</li>
       <li class="wy-breadcrumbs-aside">
@@ -249,31 +253,7 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  
-<style>
-/* CSS overrides for sphinx_rtd_theme */
-
-/* 24px margin */
-.nbinput.nblast.container,
-.nboutput.nblast.container {
-    margin-bottom: 19px;  /* padding has already 5px */
-}
-
-/* ... except between code cells! */
-.nblast.container + .nbinput.container {
-    margin-top: -19px;
-}
-
-.admonition > p:before {
-    margin-right: 4px;  /* make room for the exclamation icon */
-}
-
-/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
-.math {
-    text-align: unset;
-}
-</style>
-<section id="storing-large-files-on-eos">
+  <section id="storing-large-files-on-eos">
 <h1>Storing large files on EOS<a class="headerlink" href="#storing-large-files-on-eos" title="Permalink to this heading"></a></h1>
 <div class="panel panel-objectives docutils container">
 <div class="panel-header open docutils container">
@@ -303,15 +283,15 @@ If you list the contents of the <code class="docutils literal notranslate"><span
 </li>
 </ul>
 <p>Let’s inspect your user area:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ ls -al /eos/lhcb/user/a/another
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>ls<span class="w"> </span>-al<span class="w"> </span>/eos/lhcb/user/a/another
 </pre></div>
 </div>
 <p>Files stored on EOS can be open in <code class="docutils literal notranslate"><span class="pre">ROOT</span></code> the usual way:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ root /eos/lhcb/user/a/another/myfavouritefile.root
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>root<span class="w"> </span>/eos/lhcb/user/a/another/myfavouritefile.root
 </pre></div>
 </div>
 <p>You may also use the following path which is independent of the EOS mount:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ root root://eoslhcb.cern.ch//eos/lhcb/user/a/another/myfavouritefile.root
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>root<span class="w"> </span>root://eoslhcb.cern.ch//eos/lhcb/user/a/another/myfavouritefile.root
 </pre></div>
 </div>
 <p>In general the fuse mount of EOS is not very reliable and it is not recommended to use it for moving or accessing large numbers of files. Instead you can use the <a class="reference external" href="http://eos-docs.web.cern.ch/eos-docs/clicommands.html">eos commands</a>, for example <code class="docutils literal notranslate"><span class="pre">eos</span> <span class="pre">cp</span></code>, or the <a class="reference external" href="https://xrootd.slac.stanford.edu/doc/xrdcl-docs/www/xrdcldocs.html#x1-40003">xrootd protocol</a>, for example <code class="docutils literal notranslate"><span class="pre">xrdcp</span></code>.</p>
