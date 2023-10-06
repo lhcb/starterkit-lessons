@@ -33,11 +33,11 @@ repositories:
    modification of a few packages at a time.
 
 Here, we want to focus on the second workflow. The first workflow will be
-discussed briefly at the [bottom](#working-with-a-full-project-checkout) of
-this page. Note that, although the `git lb-*` commands are much easier for small
-changes to existing packages where recompiling an entire project would be
-cumbersome, for any serious development the usage of vanilla Git is much more
-stable. Please consider using it if you can spare the compilation time.
+discussed briefly at the bottom ofthis page. Note that, although the 
+`git lb-*` commands are much easier for small changes to existing packages 
+where recompiling an entire project would be cumbersome, for any serious 
+development the usage of vanilla Git is much more stable. Please consider 
+using it if you can spare the compilation time.
 
 {% callout "Initial setup" %}
 
