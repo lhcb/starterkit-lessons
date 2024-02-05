@@ -226,7 +226,7 @@ You can open that link in your browser to view the status of the test jobs (exam
 
 
 ### Checks
-For the start of Run 3 it was requested to add the `Checks` feature to AnalysisProductions. This facilitates offline monitoring by allowing automated simple analysis of tupling output to assist with data quality and early measurements. For now let's stick with some simple ones but for full details you can [check the documentation](https://lhcb-ap.docs.cern.ch/user_guide/creating.html#checks).
+For the start of Run 3 it was requested to add the `Checks` feature to AnalysisProductions. This facilitates offline monitoring by allowing automated simple analysis of tupling output to assist with data quality and early measurements. In the output of the CI you may have noticed some Checks already ran. These are default checks run for all productions to perform some basic validation of the production but you can also add your own. For now let's stick with some simple ones but for full details you can [check the documentation](https://lhcb-ap.docs.cern.ch/user_guide/creating.html#checks).
 
 We start by defining the checks we would like to perform. Add the following to your `info.yaml` below the `defaults`:
 ```python
