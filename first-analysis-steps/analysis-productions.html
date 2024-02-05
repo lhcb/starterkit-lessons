@@ -1,14 +1,16 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en">
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Analysis Productions &mdash; LHCb Starterkit Lessons  documentation</title>
-      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/panels.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/starterkit.css" type="text/css" />
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/panels.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/starterkit.css" />
+
+  
   <!--[if lt IE 9]>
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
@@ -333,7 +335,7 @@
 <p>If you don’t have your options file from earlier available, or are having trouble, you can <a class="reference download internal" download="" href="../_downloads/26f133d9caf2ef72e73893756d498eaf/ntuple_options.py"><code class="xref download docutils literal notranslate"><span class="pre">use</span> <span class="pre">this</span> <span class="pre">options</span> <span class="pre">file</span></code></a>.</p>
 <p>The next file needed is a <code class="docutils literal notranslate"><span class="pre">.yaml</span></code> file, which will be used to configure the jobs. Create a new file named <code class="docutils literal notranslate"><span class="pre">info.yaml</span></code>, and add the following to it:</p>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">defaults</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">application</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">DaVinci/v46r4</span>
+<span class="w">    </span><span class="nt">application</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">DaVinci/v46r10</span>
 <span class="w">    </span><span class="nt">wg</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Charm</span>
 <span class="w">    </span><span class="nt">automatically_configure</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">yes</span>
 <span class="w">    </span><span class="nt">turbo</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">no</span>
@@ -350,7 +352,7 @@
 </div>
 <p>Here, the unindented lines are the names of jobs (although <code class="docutils literal notranslate"><span class="pre">defaults</span></code> has a special function), and the indented lines are the options we’re applying to those jobs. Using this file will create one job called <code class="docutils literal notranslate"><span class="pre">2016_MagDown_PromptMC_D02KK</span></code>, that will read in data from the provided bookkeeping path. All the options applied under <code class="docutils literal notranslate"><span class="pre">defaults</span></code> are automatically applied to all other jobs - very useful for avoiding repetition. The options we’re using here are:</p>
 <ul class="simple">
-<li><p><strong>application</strong>: the version of DaVinci to use. Here we choose v46r4, the latest for Run 2 at the time of writing (see <a class="reference external" href="http://lhcbdoc.web.cern.ch/lhcbdoc/davinci/">here</a> to check what versions are available).</p></li>
+<li><p><strong>application</strong>: the version of DaVinci to use. Here we choose v46r10, the latest for Run 2 at the time of writing (see <a class="reference external" href="http://lhcbdoc.web.cern.ch/lhcbdoc/davinci/">here</a> to check what versions are available).</p></li>
 <li><p><strong>wg</strong>: the working group this production is a part of. Since this is a <span class="math notranslate nohighlight">\(` D^{0} \to K^{-}K^{+} `\)</span> decay, we’ll set this to <code class="docutils literal notranslate"><span class="pre">Charm</span></code>.</p></li>
 <li><p><strong>inform</strong>: optionally, you can enter your email address to receive updates on the status of your jobs.</p></li>
 <li><p><strong>automatically_configure</strong>: setting this to <code class="docutils literal notranslate"><span class="pre">yes</span></code> is what allowed us to remove all of those configuration lines from the options file. This is very useful when creating productions that use multiple years, or both data and MC.</p></li>
@@ -453,7 +455,7 @@ ALWAYS:Results will be available at https://lhcb-analysis-productions.web.cern.c
 </section>
 <section id="checks">
 <h3>Checks<a class="headerlink" href="#checks" title="Permalink to this heading"></a></h3>
-<p>For the start of Run 3 it was requested to add the <code class="docutils literal notranslate"><span class="pre">Checks</span></code> feature to AnalysisProductions. This facilitates offline monitoring by allowing automated simple analysis of tupling output to assist with data quality and early measurements. For now let’s stick with some simple ones but for full details you can <a class="reference external" href="https://lhcb-ap.docs.cern.ch/user_guide/creating.html#checks">check the documentation</a>.</p>
+<p>For the start of Run 3 it was requested to add the <code class="docutils literal notranslate"><span class="pre">Checks</span></code> feature to AnalysisProductions. This facilitates offline monitoring by allowing automated simple analysis of tupling output to assist with data quality and early measurements. In the output of the CI you may have noticed some Checks already ran. These are default checks run for all productions to perform some basic validation of the production but you can also add your own. For now let’s stick with some simple ones but for full details you can <a class="reference external" href="https://lhcb-ap.docs.cern.ch/user_guide/creating.html#checks">check the documentation</a>.</p>
 <p>We start by defining the checks we would like to perform. Add the following to your <code class="docutils literal notranslate"><span class="pre">info.yaml</span></code> below the <code class="docutils literal notranslate"><span class="pre">defaults</span></code>:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">checks</span><span class="p">:</span>
     <span class="n">histogram</span><span class="p">:</span>
@@ -496,6 +498,14 @@ ALWAYS:Results will be available at https://lhcb-analysis-productions.web.cern.c
 </div>
 <div class="panel-body docutils container">
 <p>The test will have failed due to the histogram check we defined to fail, remove that if you want your tests to pass.</p>
+</div>
+</div>
+<div class="panel panel-callout docutils container">
+<div class="panel-header open docutils container">
+<p id="what-about-run-3"><i class="fa fa-info-circle"></i> What about Run 3</p>
+</div>
+<div class="panel-body docutils container">
+<p>By and large the procedure for Run 3 is the same, the major differences are within the DaVinci scripts themselves so are covered by the DaVinci lessons. There are some additional configuration options required (at the time of writing) in the YAML file but your WG liaisons should be able to point you to examples.</p>
 </div>
 </div>
 <div class="panel panel-callout docutils container">
