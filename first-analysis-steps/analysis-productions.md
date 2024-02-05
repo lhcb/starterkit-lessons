@@ -224,6 +224,7 @@ ALWAYS:Results will be available at https://lhcb-analysis-productions.web.cern.c
 
 You can open that link in your browser to view the status of the test jobs (example [here](https://lhcb-analysis-productions.web.cern.ch/pipelines/?id=4791499)). After a few minutes, these should have completed - all being well, you've now successfully submitted your first production!
 
+
 ### Checks
 For the start of Run 3 it was requested to add the `Checks` feature to AnalysisProductions. This facilitates offline monitoring by allowing automated simple analysis of tupling output to assist with data quality and early measurements. For now let's stick with some simple ones but for full details you can [check the documentation](https://lhcb-ap.docs.cern.ch/user_guide/creating.html#checks).
 
