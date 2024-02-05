@@ -92,7 +92,7 @@ The next file needed is a `.yaml` file, which will be used to configure the jobs
 
 ```yaml
 defaults:
-    application: DaVinci/v46r4
+    application: DaVinci/v46r10
     wg: Charm
     automatically_configure: yes
     turbo: no
@@ -109,7 +109,7 @@ defaults:
 
 Here, the unindented lines are the names of jobs (although `defaults` has a special function), and the indented lines are the options we're applying to those jobs. Using this file will create one job called `2016_MagDown_PromptMC_D02KK`, that will read in data from the provided bookkeeping path. All the options applied under `defaults` are automatically applied to all other jobs - very useful for avoiding repetition. The options we're using here are:
 
-* **application**: the version of DaVinci to use. Here we choose v46r4, the latest for Run 2 at the time of writing (see [here](http://lhcbdoc.web.cern.ch/lhcbdoc/davinci/) to check what versions are available).
+* **application**: the version of DaVinci to use. Here we choose v46r10, the latest for Run 2 at the time of writing (see [here](http://lhcbdoc.web.cern.ch/lhcbdoc/davinci/) to check what versions are available).
 * **wg**: the working group this production is a part of. Since this is a `$ D^{0} \to K^{-}K^{+} $` decay, we'll set this to `Charm`.
 * **inform**: optionally, you can enter your email address to receive updates on the status of your jobs.
 * **automatically_configure**: setting this to `yes` is what allowed us to remove all of those configuration lines from the options file. This is very useful when creating productions that use multiple years, or both data and MC.
