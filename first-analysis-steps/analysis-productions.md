@@ -92,7 +92,7 @@ The next file needed is a `.yaml` file, which will be used to configure the jobs
 
 ```yaml
 defaults:
-    application: DaVinci/v46r4
+    application: DaVinci/v46r10
     wg: Charm
     automatically_configure: yes
     turbo: no
@@ -109,7 +109,7 @@ defaults:
 
 Here, the unindented lines are the names of jobs (although `defaults` has a special function), and the indented lines are the options we're applying to those jobs. Using this file will create one job called `2016_MagDown_PromptMC_D02KK`, that will read in data from the provided bookkeeping path. All the options applied under `defaults` are automatically applied to all other jobs - very useful for avoiding repetition. The options we're using here are:
 
-* **application**: the version of DaVinci to use. Here we choose v46r4, the latest for Run 2 at the time of writing (see [here](http://lhcbdoc.web.cern.ch/lhcbdoc/davinci/) to check what versions are available).
+* **application**: the version of DaVinci to use. Here we choose v46r10, the latest for Run 2 at the time of writing (see [here](http://lhcbdoc.web.cern.ch/lhcbdoc/davinci/) to check what versions are available).
 * **wg**: the working group this production is a part of. Since this is a `$ D^{0} \to K^{-}K^{+} $` decay, we'll set this to `Charm`.
 * **inform**: optionally, you can enter your email address to receive updates on the status of your jobs.
 * **automatically_configure**: setting this to `yes` is what allowed us to remove all of those configuration lines from the options file. This is very useful when creating productions that use multiple years, or both data and MC.
@@ -224,8 +224,9 @@ ALWAYS:Results will be available at https://lhcb-analysis-productions.web.cern.c
 
 You can open that link in your browser to view the status of the test jobs (example [here](https://lhcb-analysis-productions.web.cern.ch/pipelines/?id=4791499)). After a few minutes, these should have completed - all being well, you've now successfully submitted your first production!
 
+
 ### Checks
-For the start of Run 3 it was requested to add the `Checks` feature to AnalysisProductions. This facilitates offline monitoring by allowing automated simple analysis of tupling output to assist with data quality and early measurements. For now let's stick with some simple ones but for full details you can [check the documentation](https://lhcb-ap.docs.cern.ch/user_guide/creating.html#checks).
+For the start of Run 3 it was requested to add the `Checks` feature to AnalysisProductions. This facilitates offline monitoring by allowing automated simple analysis of tupling output to assist with data quality and early measurements. In the output of the CI you may have noticed some Checks already ran. These are default checks run for all productions to perform some basic validation of the production but you can also add your own. For now let's stick with some simple ones but for full details you can [check the documentation](https://lhcb-ap.docs.cern.ch/user_guide/creating.html#checks).
 
 We start by defining the checks we would like to perform. Add the following to your `info.yaml` below the `defaults`:
 ```python
@@ -272,6 +273,12 @@ Now if we test `2016_MagDown_PromptMC_D02KK` the checks will be run automaticall
 {% callout "Did it fail?" %}
 
 The test will have failed due to the histogram check we defined to fail, remove that if you want your tests to pass.
+
+{% endcallout %}
+
+{% callout "What about Run 3" %}
+
+By and large the procedure for Run 3 is the same, the major differences are within the DaVinci scripts themselves so are covered by the DaVinci lessons. There are some additional configuration options required (at the time of writing) in the YAML file but your WG liaisons should be able to point you to examples.
 
 {% endcallout %}
 
