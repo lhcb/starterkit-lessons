@@ -276,7 +276,7 @@ The test will have failed due to the histogram check we defined to fail, remove 
 
 {% endcallout %}
 
-{% callout "What about Run 3" %}
+{% callout "What about Run 3?" %}
 
 By and large the procedure for Run 3 is the same, the major differences are within the DaVinci scripts themselves so are covered by the DaVinci lessons. There are some additional configuration options required (at the time of writing) in the YAML file but your WG liaisons should be able to point you to examples.
 
