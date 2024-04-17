@@ -55,7 +55,7 @@ This list is by no means exhaustive, so if there are any other tools you use oft
    - [uproot](https://github.com/scikit-hep/uproot4) a python module that allows to read the root files (that are the output of the DaVinci package). 
    - [awkward-array](https://github.com/scikit-hep/awkward-1.0) a Python module for a friendly manipulation of data structures common in Particle Physics, i.e., nested, variable-sized data, including arbitrary-length lists, records, mixed types, and missing data, using NumPy-like idioms.
    - [boost histogram](https://github.com/scikit-hep/boost-histogram) a python version of the C++14 library [Boost::Histogram](https://www.boost.org/doc/libs/1_77_0/libs/histogram/doc/html/index.html) for histogramming. 
-   - [iminuit](https://github.com/scikit-hep/iminuit) a jupyter-friendly python interface for minimization package [Minuit2](https://root.cern.ch/doc/master/Minuit2Page.html).
+   - [iminuit](https://github.com/scikit-hep/iminuit) a jupyter-friendly python interface for minimization package [Minuit2](https://root.cern.ch/doc/master/md_math_minuit2_doc_Minuit2.html).
    - [mplhep](https://github.com/scikit-hep/mplhep) a set of high energy physics helpers for [matplotlib](https://matplotlib.org/).
    - etc.
 * [RooFit](https://root.cern/manual/roofit/) a fitting, fit model defining, plotting and "toy model" generation package supported by CERN ROOT team. Can be used in both C++ and python.
