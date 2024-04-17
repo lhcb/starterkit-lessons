@@ -138,7 +138,11 @@ your dataset!
 
 There are several ways to access the database tags used for a specific production, but the most reliable one consists of the following steps:
 - Find the bookkeeping location of any DST for your desired event type and conditions (e.g. `/lhcb/MC/2016/ALLSTREAMS.DST/00070793/0000/00070793_00000002_7.AllStreams.dst`).
-- The number after `ALLSTREAMS.DST` is the number of the production: in this case, `00070793`.
+- In the path, the number after `ALLSTREAMS.DST` is the number of the production: in this case, `00070793`.
+- At this stage, it is likely sufficient to run `lb-dirac dirac-bookkeeping-production-information 00070793`.
+
+If this fails, then the following should also work:
+
 - Go to the [transformation monitor](https://lhcb-portal-dirac.cern.ch/DIRAC/?view=tabs&theme=Grey&url_state=1|*LHCbDIRAC.LHCbTransformationMonitor.classes.LHCbTransformationMonitor:,). Put this number in the field `ProductionID(s):` and press "Submit". You will see the details of the production to the right.
 - Right click on these details, and press "Show request". The new tab "Production Request manager" will appear to the right of the "LHCb Transformation Monitor". Go to that tab.
 - You will see the details of the MC request. Right click on it, and press "View".
