@@ -116,7 +116,7 @@ Here, the unindented lines are the names of jobs (although `defaults` has a spec
 * **application**: the version of DaVinci to use. Here we choose v46r10, the latest for Run 2 at the time of writing (see [here](http://lhcbdoc.web.cern.ch/lhcbdoc/davinci/) to check what versions are available).
 * **wg**: the working group this production is a part of. Since this is a `$ D^{0} \to K^{-}K^{+} $` decay, we'll set this to `Charm`.
 * **inform**: optionally, you can enter your email address to receive updates on the status of your jobs.
-* **automatically_configure**: setting this to `yes` is what allowed us to automatically generate the configuration lines for the application, such as year, `CondDBtag`, `DDDBtag` and so on. This is very useful when creating productions that use multiple years, or both data and MC.
+* **automatically_configure**: setting this to `yes` causes the input-data-specific application configuration, e.g. year, `CondDBtag`, `DDDBtag`, and so on to be generated automatically, according to the input data.
 * **turbo**: Setting this to `yes` indicates `automatically_configure` should configure the application for reading turbo data.
 * **options**: the list of options files to use. Behind the scenes, these will get passed to DaVinci.
 * **output**: the name of the output `.root` ntuples. These will get registered in bookkeeping as well.
