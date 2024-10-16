@@ -79,6 +79,60 @@ CDecay MyD_s-
 ```
 Note that the fractions will always be renormalised to sum to 1 - you can directly use PDG branching fractions without having to rescale by hand.
 
+## A Warning about intermediate state cocktails with forced final states 
+
+*Be careful!* - if you are simulating a cocktail of intermediate states and forcing a decay to one or more final states, you may need to correct the branching fractions of all the intermediate decays as well. For example, if studying inclusive decays for some ``Xc0 -> D0X`` or ``Xc0 -> D+X`` with intermediate ``D*+`` and ``D*0`` states:
+
+If ``Xc0`` decays to ``D*0 pi0`` and ``D*+ pi-`` with equal probability and you are interested in the ``D0`` final state, to have a decfile such as:
+
+```
+Decay MyXc0
+ 0.5000 MyD*0 pi0  PHOTOS  <MODEL>;
+ 0.5000 MyD*+ pi-  PHOTOS  <MODEL>;
+Enddecay
+CDecay MyAntiXc0
+#
+Decay MyD*+
+ 0.677 D0 pi+  PHOTOS  VSS;
+Enddecay
+CDecay MyD*-
+#
+Decay MyD*0
+ 0.647   D0 pi0    PHOTOS  VSS;
+ 0.353   D0 gamma  PHOTOS  VSP_PWAVE;
+ 0.00391 D0 e+ e-  PHOTOS  PHSP;
+Enddecay
+CDecay MyAntiD*0
+```
+
+would result in a sample where an equal number of ``D0`` are coming from intermediate ``D*+`` as ``D*0``, even though the branching fraction for the former is only 67.7% - thus the ``D0 pi+ pi-`` final state would be overrepresented in the sample. 
+
+This is to say that the fact that EvtGen normalizes all branching fractions for a decay to 1 matters for cocktails with multiple intermediate final states decaying to a forced final state! The proper handling would instead be:
+
+```
+Decay MyXc0
+ 0.5000 MyD*0 pi0  PHOTOS  <MODEL>;
+ 0.3385 MyD*+ pi-  PHOTOS  <MODEL>;
+Enddecay
+CDecay MyAntiXc0
+#
+Decay MyD*+
+ 0.677 D0 pi+  PHOTOS  VSS;
+Enddecay
+CDecay MyD*-
+#
+Decay MyD*0
+ 0.647   D0 pi0    PHOTOS  VSS;
+ 0.353   D0 gamma  PHOTOS  VSP_PWAVE;
+ 0.00391 D0 e+ e-  PHOTOS  PHSP;
+Enddecay
+CDecay MyAntiD*0
+```
+
+If you have multiple generations of intermediate cocktail states, the forced final state decay needs to be back-propagated through each generation in this manner.
+
+It is important to be careful about this even when using **pre-existing** decfiles and always check them for consistency, as even many decfiles within the database do not take this important factor into account.
+
 ## Final state radiation
 After generating the decay, final state radiation is added using PHOTOS. Note that PHOTOS is enabled by default, even though many decfiles explicitly specify it. It needs to be explicitly removed via "noPhotos"
 
