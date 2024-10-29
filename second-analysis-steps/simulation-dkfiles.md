@@ -61,4 +61,8 @@ The bottom part of the decay file specifies the decay itself:
 This DecFile defines a signal `D*+` which decays 100% to `D0` `pi+`, and the D0 in turn decays 100% into `K+`, `K-`, `mu+` and `mu-`. Important is the definition of "MyD0". If the decay was to "D0" rather than "MyD0", the D0 would decay via all of the decay modes implemented in DECAY.DEC.
 The final part of each decay is the actual physics model used - in this case "VSS", the generic matrix element for vector to scaler-scaler transitions, and "PHSP", which is phase space only (matrix element = constant). Note that with PHSP, the decay products are completely unpolarized - for anything other than (spin0) to (spin0 spin0) this will get the angular momentum wrong!
 
-When using pre-existing decay files, it is important to check them closely for consistency first. Many Decay files are created for a specific physics use case, and some may even get physics wrong when it comes to e.g. the relative frequencies of intermediate states in a cocktail.
+{% callout "Double Check Pre-Existing Decay Files!" %}
+
+When using pre-existing decay files, it is important to check them closely for consistency first. Many Decay files are created for a specific physics use case, and some may even get physics wrong when it comes to e.g. the relative branching fractions of intermediate states in a cocktail with a forced final state.
+
+{% endcallout %}
