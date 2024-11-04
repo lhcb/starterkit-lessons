@@ -161,7 +161,7 @@ A complete list of ClassAd attributes can be found [in the documentation](https:
 In addition to these, you should also always specify the duration of your job, which allows HTCondor to schedule things more effectively, and to give preference to shorter jobs. Importantly, it will also terminate jobs that go over their maximum runtime. Here, you are assigning a ClassAd attribute to the job rather than looking at the attributes of other systems or machines, so they are specified in a slightly different way - to set a maximum runtime of 1 hour (3600 seconds), you would need to add the following line to your submit file:
 
 ```
-+MaxDuration = 3600
++MaxRuntime = 3600
 ```
 
 Equivalently, one could use the `JobFlavour` attribute instead:
