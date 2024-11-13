@@ -29,6 +29,8 @@ linkcheck_ignore += [
     r'https://groups\.cern\.ch/group/lhcb-distributed-analysis/default\.aspx',  # 403 error, requires a login
     r'https://lhcb-doxygen\.web\.cern\.ch/.*',  # 403 error, requires a login
     r'https://twiki.cern.ch/.*',  # most pages now require a login
+    r'https://opensource.org/.*',  # 403 error - rejects the bot
+    r'https://xrootd.slac.stanford.edu/doc/.*',  # redirect error - rejects the bot with SSL failure
 ]
 
 starterkit_ci_redirects['first-analysis-steps/index.html'] = 'https://lhcb.github.io/starterkit-lessons/first-analysis-steps/README.html'

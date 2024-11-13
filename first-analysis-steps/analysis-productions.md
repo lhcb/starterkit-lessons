@@ -222,7 +222,7 @@ INFO:Creating new pipeline for ID 1958388
 ALWAYS:Results will be available at https://lhcb-analysis-productions.web.cern.ch/1958388/
 ```
 
-You can open that link in your browser to view the status of the test jobs (example [here](https://lhcb-analysis-productions.web.cern.ch/pipelines/?id=4791499)). After a few minutes, these should have completed - all being well, you've now successfully submitted your first production!
+You can open that link in your browser to view the status of the test jobs (example [here](https://lhcb-productions.web.cern.ch/ana-prod/pipelines/?id=8064)). After a few minutes, these should have completed - all being well, you've now successfully submitted your first production!
 
 
 ### Checks
