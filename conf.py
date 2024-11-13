@@ -28,6 +28,7 @@ html_static_path += [
 linkcheck_ignore += [
     r'https://groups\.cern\.ch/group/lhcb-distributed-analysis/default\.aspx',  # 403 error, requires a login
     r'https://lhcb-doxygen\.web\.cern\.ch/.*',  # 403 error, requires a login
+    r'https://twiki.cern.ch/.*',  # most pages now require a login
 ]
 
 starterkit_ci_redirects['first-analysis-steps/index.html'] = 'https://lhcb.github.io/starterkit-lessons/first-analysis-steps/README.html'
