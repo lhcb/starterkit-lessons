@@ -332,6 +332,9 @@
 <span class="p">],</span> <span class="n">clear</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
+<p>{% callout “Reminder” %}
+<code class="docutils literal notranslate"><span class="pre">automatically_configure</span></code> will not overwrite your existing configuration of <code class="docutils literal notranslate"><span class="pre">DataType</span></code>, <code class="docutils literal notranslate"><span class="pre">CondDBtag</span></code>, <code class="docutils literal notranslate"><span class="pre">DDDBtag</span></code>, et cetera. Your settings take precedence.
+{% endcallout %}</p>
 <p>If you don’t have your options file from earlier available, or are having trouble, you can <a class="reference download internal" download="" href="../_downloads/26f133d9caf2ef72e73893756d498eaf/ntuple_options.py"><code class="xref download docutils literal notranslate"><span class="pre">use</span> <span class="pre">this</span> <span class="pre">options</span> <span class="pre">file</span></code></a>.</p>
 <p>The next file needed is a <code class="docutils literal notranslate"><span class="pre">.yaml</span></code> file, which will be used to configure the jobs. Create a new file named <code class="docutils literal notranslate"><span class="pre">info.yaml</span></code>, and add the following to it:</p>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">defaults</span><span class="p">:</span>
@@ -355,7 +358,7 @@
 <li><p><strong>application</strong>: the version of DaVinci to use. Here we choose v46r10, the latest for Run 2 at the time of writing (see <a class="reference external" href="http://lhcbdoc.web.cern.ch/lhcbdoc/davinci/">here</a> to check what versions are available).</p></li>
 <li><p><strong>wg</strong>: the working group this production is a part of. Since this is a <span class="math notranslate nohighlight">\(` D^{0} \to K^{-}K^{+} `\)</span> decay, we’ll set this to <code class="docutils literal notranslate"><span class="pre">Charm</span></code>.</p></li>
 <li><p><strong>inform</strong>: optionally, you can enter your email address to receive updates on the status of your jobs.</p></li>
-<li><p><strong>automatically_configure</strong>: setting this to <code class="docutils literal notranslate"><span class="pre">yes</span></code> is what allowed us to remove all of those configuration lines from the options file. This is very useful when creating productions that use multiple years, or both data and MC.</p></li>
+<li><p><strong>automatically_configure</strong>: setting this to <code class="docutils literal notranslate"><span class="pre">yes</span></code> causes the input-data-specific application configuration, e.g. year, <code class="docutils literal notranslate"><span class="pre">CondDBtag</span></code>, <code class="docutils literal notranslate"><span class="pre">DDDBtag</span></code>, and so on to be generated automatically, according to the input data.</p></li>
 <li><p><strong>turbo</strong>: Setting this to <code class="docutils literal notranslate"><span class="pre">yes</span></code> indicates <code class="docutils literal notranslate"><span class="pre">automatically_configure</span></code> should configure the application for reading turbo data.</p></li>
 <li><p><strong>options</strong>: the list of options files to use. Behind the scenes, these will get passed to DaVinci.</p></li>
 <li><p><strong>output</strong>: the name of the output <code class="docutils literal notranslate"><span class="pre">.root</span></code> ntuples. These will get registered in bookkeeping as well.</p></li>
