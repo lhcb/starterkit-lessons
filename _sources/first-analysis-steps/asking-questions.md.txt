@@ -130,7 +130,7 @@ solved and what the solution is.
 A lot of the material in this topic was taken from the folowing, excellent
 guides to asking god questions:
 
- * [How To Ask Questions The Smart Way](http://www.catb.org/esr/faqs/smart-questions.html) by
+ * [How To Ask Questions In A Smart Way](http://www.catb.org/esr/faqs/smart-questions.html) by
    Eric Raymond
  * [Writing the perfect question](https://codeblog.jonskeet.uk/2010/08/29/writing-the-perfect-question/)
    by Jon Skeet
