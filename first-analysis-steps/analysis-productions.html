@@ -310,7 +310,7 @@
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>checkout<span class="w"> </span>-b<span class="w"> </span><span class="si">${</span><span class="nv">USER</span><span class="si">}</span>/starterkit-practice
 </pre></div>
 </div>
-<p>Now we need to create a folder to store all the things we’re going to add for our new production. For this practice production, we’ll continue with the <span class="math notranslate nohighlight">\(` D^{0} \to K^{-}K^{+} `\)</span> decays used in the previous few lessons, so we should name the folder appropriately:</p>
+<p>Now we need to create a folder to store all the things we’re going to add for our new production. For this practice production, we’ll continue with the <span class="math notranslate nohighlight">\(` B^+ \to J/\psi \mu^+ \mu^- `\)</span> decays used in the previous few lessons, so we should name the folder appropriately:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mkdir<span class="w"> </span>starterkit
 </pre></div>
 </div>
@@ -344,7 +344,7 @@
 <p>Here, the unindented lines are the names of jobs (although <code class="docutils literal notranslate"><span class="pre">defaults</span></code> has a special function), and the indented lines are the options we’re applying to those jobs. Using this file will create one job called <code class="docutils literal notranslate"><span class="pre">Bu2Jpsimumu_24c4_MagDown</span></code>, that will read in data from the provided bookkeeping path. All the options applied under <code class="docutils literal notranslate"><span class="pre">defaults</span></code> are automatically applied to all other jobs - very useful for avoiding repetition. The options we’re using here are copied from the Run 3 DaVinci lesson:</p>
 <ul class="simple">
 <li><p><strong>application</strong>: the version of DaVinci to use. Here we choose v64r12, see <a class="reference external" href="http://lhcbdoc.web.cern.ch/lhcbdoc/davinci/">here</a> to check what versions are available.</p></li>
-<li><p><strong>wg</strong>: the working group this production is a part of. Since this is a <span class="math notranslate nohighlight">\(`B^+ \to J/\psi 'mu^+ \mu^-`\)</span> decay, we’ll set this to <code class="docutils literal notranslate"><span class="pre">B2CC</span></code>.</p></li>
+<li><p><strong>wg</strong>: the working group this production is a part of. Since this is a <span class="math notranslate nohighlight">\(` B^+ \to J/\psi \mu^+ \mu^- `\)</span> decay, we’ll set this to <code class="docutils literal notranslate"><span class="pre">B2CC</span></code>.</p></li>
 <li><p><strong>inform</strong>: optionally, you can enter your email address to receive updates on the status of your jobs.</p></li>
 <li><p><strong>options</strong>: the settings to use when running DaVinci. These are copied from the Run 3 DaVinci lesson.</p></li>
 <li><p><strong>output</strong>: the name of the output <code class="docutils literal notranslate"><span class="pre">.root</span></code> ntuples. These will get registered in bookkeeping as well.</p></li>
