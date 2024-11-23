@@ -221,10 +221,10 @@ For this starterkit example we could do
 ```bash
 from apd import AnalysisData
 datasets = AnalysisData("apd", "starterkit")
-24c4_magup_data = datasets(name="bu2jpsimumu_24c4_magdown")
+24c4_magdown_data = datasets(name="bu2jpsimumu_24c4_magdown")
 ```
 
-This will create `24c4_magup_data` as a list of all the PFNs for the output of this job. You could then access these using your preferred kind of Python based ROOT.
+This will create `24c4_magdown_data` as a list of all the PFNs for the output of this job. You could then access these using your preferred kind of Python based ROOT.
 
 {% callout "Next steps for real productions" %}
 
