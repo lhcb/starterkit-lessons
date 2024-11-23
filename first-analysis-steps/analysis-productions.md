@@ -59,7 +59,7 @@ Before making any edits, you should create a branch for your changes, and switch
 git checkout -b ${USER}/starterkit-practice
 ```
 
-Now we need to create a folder to store all the things we're going to add for our new production. For this practice production, we'll continue with the `$ D^{0} \to K^{-}K^{+} $` decays used in the previous few lessons, so we should name the folder appropriately:
+Now we need to create a folder to store all the things we're going to add for our new production. For this practice production, we'll continue with the `$ B^+ \to J/\psi \mu^+ \mu^- $` decays used in the previous few lessons, so we should name the folder appropriately:
 
 ```bash
 mkdir starterkit
@@ -99,7 +99,7 @@ Bu2Jpsimumu_24c4_MagDown:
 Here, the unindented lines are the names of jobs (although `defaults` has a special function), and the indented lines are the options we're applying to those jobs. Using this file will create one job called `Bu2Jpsimumu_24c4_MagDown`, that will read in data from the provided bookkeeping path. All the options applied under `defaults` are automatically applied to all other jobs - very useful for avoiding repetition. The options we're using here are copied from the Run 3 DaVinci lesson:
 
 * **application**: the version of DaVinci to use. Here we choose v64r12, see [here](http://lhcbdoc.web.cern.ch/lhcbdoc/davinci/) to check what versions are available.
-* **wg**: the working group this production is a part of. Since this is a `$B^+ \to J/\psi 'mu^+ \mu^-$` decay, we'll set this to `B2CC`.
+* **wg**: the working group this production is a part of. Since this is a `$ B^+ \to J/\psi \mu^+ \mu^- $` decay, we'll set this to `B2CC`.
 * **inform**: optionally, you can enter your email address to receive updates on the status of your jobs.
 * **options**: the settings to use when running DaVinci. These are copied from the Run 3 DaVinci lesson.
 * **output**: the name of the output `.root` ntuples. These will get registered in bookkeeping as well.
