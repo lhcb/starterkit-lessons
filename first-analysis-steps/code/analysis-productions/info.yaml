@@ -1,18 +1,26 @@
 defaults:
-    application: DaVinci/v45r8
-    wg: Charm
-    automatically_configure: yes
-    turbo: no
-    inform:
-        - your.email.here@cern.ch
-    options:
-        - ntuple_options.py
-    output: D02KK.ROOT
+  application: DaVinci/v64r12
+  output: DATA.ROOT
+  options:
+    entrypoint: starterkit.dv_basic:main
+    extra_options:
+      input_type: ROOT 
+      input_raw_format: 0.5
+      simulation: false
+      input_process: "TurboPass"
+      geometry_version: run3/2024.Q1.2-v00.00
+      conditions_version: master
+      lumi: true
+      data_type: "Upgrade"
+      input_stream: b2cc
+  inform:
+    - aidan.richard.wiederhold@cern.ch
+  wg: DPA
 
-2016_MagDown_PromptMC_D02KK:
-    input:
-        bk_query: "/MC/2016/Beam6500GeV-2016-MagDown-Nu1.6-25ns-Pythia8/Sim09c/Trig0x6138160F/Reco16/Turbo03/Stripping28r1NoPrescalingFlagged/27163002/ALLSTREAMS.DST"
+Bu2Jpsimumu_24c4_MagDown:
+  input:
+    bk_query: "/LHCb/Collision24/Beam6800GeV-VeloClosed-MagDown/Real Data/Sprucing24c4/94000000/B2CC.DST"
 
-2016_MagUp_PromptMC_D02KK:
-    input:
-        bk_query: "/MC/2016/Beam6500GeV-2016-MagUp-Nu1.6-25ns-Pythia8/Sim09c/Trig0x6138160F/Reco16/Turbo03/Stripping28r1NoPrescalingFlagged/27163002/ALLSTREAMS.DST"
+Bu2Jpsimumu_24c4_MagUp:
+  input:
+    bk_query: "/LHCb/Collision24/Beam6800GeV-VeloClosed-MagUp/Real Data/Sprucing24c4/94000000/B2CC.DST"

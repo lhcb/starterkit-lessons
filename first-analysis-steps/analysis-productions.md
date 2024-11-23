@@ -14,7 +14,7 @@ Running DaVinci locally can be great for testing an options file, but is rarely 
 * Computing resources can be wasted if multiple analyses are independently producing similar ntuples.
 * Ntuples can be lost, or removed when analysts leave, which can be an issue for [analysis preservation](https://lhcb-dpa.web.cern.ch/lhcb-dpa/wp6/index.html).
 
-It is the goal of [Analysis Productions](https://gitlab.cern.ch/lhcb-datapkg/AnalysisProductions/) to centralise and automate much of the process of making ntuples, and to keep a record of how datasets were produced. Moving into run 3, this will usually be the preferred way to create ntuples for your analysis.
+It is the goal of [Analysis Productions](https://gitlab.cern.ch/lhcb-datapkg/AnalysisProductions/) to centralise and automate much of the process of making ntuples, and to keep a record of how datasets were produced. In Run 3, this is the preferred way to create ntuples for your analysis.
 
 ## Monitoring productions
 
@@ -23,20 +23,20 @@ Before we get into the how-to, let's first take a look at the end result of a re
 Each row in the table corresponds to a job belonging to this production, and displays:
 
 * Its status (e.g. READY, ACTIVE)
-* Some of its tags (e.g. MC/DATA, Run1/Run2)
 * Its name (e.g. 2018_15164022_magup)
-* When it was created and last updated
-* The version of the code used to run it
+* Some of its tags (e.g. MC/DATA, Run1/Run2)
+* When it needs a housekeeping check, when it was created and when it was last updated
+* The version of the Analysis Productions repository it corresponds to
 
 To view more information about any one of these jobs, you can click on it to view a job summary page. The image below shows one such page, with a couple of particularly useful elements highlighted in magenta.
 
 ![An AP job summary](img/web_production_annotated.png)
 
-The top section shows a summary of important information, such as the state of the job, its production version, the total storage required for the output files and the merge request and JIRA task used to submit the production. To view the input scripts used to set up the production click the link to the merge request. The next section lists the tags used to categorise the job and the third section lists the DIRAC production information for the job. Finally, is the Files section which lists the output files for the job. One can use either the PFNs or LFNs to access the output, the PFNs should be visible to all systems with access to the CVMFS.
+The top section shows a summary of important information, such as the state of the job, its production version, the total storage required for the output files and the merge request used to submit the production. To view the input scripts used to set up the production click the link to the merge request. The next section lists the DIRAC production information for the job. Finally, is the Production Output section which lists the output files for the job. One can use either the PFNs or LFNs to access the output, the PFNs should be visible to all systems with access to the CVMFS.
 
 Let's try accessing one of these files right now by doing:
 ```bash
-root -l root://eoslhcb.cern.ch//eos/lhcb/grid/prod/lhcb/MC/2018/B02DKPI.ROOT/00145105/0000/00145105_00000001_1.b02dkpi.root
+root -l root://eoslhcb.cern.ch//eos/lhcb/grid/prod/lhcb/LHCb/Collision12/B02DKPI.ROOT/00121782/0000/00121782_00000004_1.b02dkpi.root
 ```
 
 You can now explore this file by doing `TBrowser b` inside of ROOT (or with another method of your choice).
@@ -62,75 +62,58 @@ git checkout -b ${USER}/starterkit-practice
 Now we need to create a folder to store all the things we're going to add for our new production. For this practice production, we'll continue with the `$ D^{0} \to K^{-}K^{+} $` decays used in the previous few lessons, so we should name the folder appropriately:
 
 ```bash
-mkdir D02HH_Practice
+mkdir starterkit
 ```
 
-Let's enter that new directory (`cd D02HH_Practice`), and start adding the files we'll need. First is the DaVinci options file. If you have the options file you created during the previous lessons, copy it here, and open it with your text editor of choice. There are a couple of things to change - first, you can remove the lines about using the local input data (that's everything to do with `IOHelper()`), since we're going to be using remotely hosted data instead. Also, because the Analysis Productions system is able to automatically configure parts of jobs, you can also remove these lines:
+Let's enter that new directory (`cd starterkit`), and start adding the files we'll need. First is the DaVinci options file. If you have the options file you created during the previous lessons in a working condition, copy it here, and open it with your text editor of choice. 
 
-```python
-DaVinci().InputType       = "DST"
-DaVinci().TupleFile       = "DVntuple.root"
-DaVinci().PrintFreq       = 1000
-DaVinci().DataType        = "2016"
-DaVinci().Simulation      = True
-DaVinci().Lumi            = not DaVinci().Simulation
-DaVinci().EvtMax          = -1
-DaVinci().CondDBtag       = "sim-20170721-2-vc-md100"
-DaVinci().DDDBtag         = "dddb-20170721-3"
-
-from GaudiConf import IOHelper
-
-IOHelper().inputFiles([
-	"./00070793_00000001_7.AllStreams.dst"
-], clear=True)
-
-```
-
-{% callout "Reminder" %}
-`automatically_configure` will not overwrite your existing configuration of `DataType`, `CondDBtag`, `DDDBtag`, et cetera. Your settings take precedence.
-{% endcallout %}
-
-If you don't have your options file from earlier available, or are having trouble, you can [use this options file](code/analysis-productions/ntuple_options.py).
+If you don't have your options file from earlier available, or are having trouble, you can [use this options file](code/analysis-productions/dv_basic.py).
 
 The next file needed is a `.yaml` file, which will be used to configure the jobs. Create a new file named `info.yaml`, and add the following to it:
 
 ```yaml
 defaults:
-    application: DaVinci/v46r10
-    wg: Charm
-    automatically_configure: yes
-    turbo: no
-    inform:
-        - your.email.here@cern.ch
-    options:
-        - ntuple_options.py
-    output: D02KK.ROOT
+  application: DaVinci/v64r12
+  output: DATA.ROOT
+  options:
+    entrypoint: starterkit.dv_basic:main
+    extra_options:
+      input_type: ROOT 
+      input_raw_format: 0.5
+      simulation: false
+      input_process: "TurboPass"
+      geometry_version: run3/2024.Q1.2-v00.00
+      conditions_version: master
+      lumi: true
+      data_type: "Upgrade"
+      input_stream: b2cc
+  inform:
+    - aidan.richard.wiederhold@cern.ch
+  wg: DPA
 
-2016_MagDown_PromptMC_D02KK:
-    input:
-        bk_query: "/MC/2016/Beam6500GeV-2016-MagDown-Nu1.6-25ns-Pythia8/Sim09c/Trig0x6138160F/Reco16/Turbo03/Stripping28r1NoPrescalingFlagged/27163002/ALLSTREAMS.DST"
+Bu2Jpsimumu_24c4_MagDown:
+  input:
+    bk_query: "/LHCb/Collision24/Beam6800GeV-VeloClosed-MagDown/Real Data/Sprucing24c4/94000000/B2CC.DST"
 ```
 
-Here, the unindented lines are the names of jobs (although `defaults` has a special function), and the indented lines are the options we're applying to those jobs. Using this file will create one job called `2016_MagDown_PromptMC_D02KK`, that will read in data from the provided bookkeeping path. All the options applied under `defaults` are automatically applied to all other jobs - very useful for avoiding repetition. The options we're using here are:
+Here, the unindented lines are the names of jobs (although `defaults` has a special function), and the indented lines are the options we're applying to those jobs. Using this file will create one job called `Bu2Jpsimumu_24c4_MagDown`, that will read in data from the provided bookkeeping path. All the options applied under `defaults` are automatically applied to all other jobs - very useful for avoiding repetition. The options we're using here are copied from the Run 3 DaVinci lesson:
 
-* **application**: the version of DaVinci to use. Here we choose v46r10, the latest for Run 2 at the time of writing (see [here](http://lhcbdoc.web.cern.ch/lhcbdoc/davinci/) to check what versions are available).
-* **wg**: the working group this production is a part of. Since this is a `$ D^{0} \to K^{-}K^{+} $` decay, we'll set this to `Charm`.
+* **application**: the version of DaVinci to use. Here we choose v64r12, see [here](http://lhcbdoc.web.cern.ch/lhcbdoc/davinci/) to check what versions are available.
+* **wg**: the working group this production is a part of. Since this is a `$B^+ \to J/\psi 'mu^+ \mu^-$` decay, we'll set this to `B2CC`.
 * **inform**: optionally, you can enter your email address to receive updates on the status of your jobs.
-* **automatically_configure**: setting this to `yes` causes the input-data-specific application configuration, e.g. year, `CondDBtag`, `DDDBtag`, and so on to be generated automatically, according to the input data.
-* **turbo**: Setting this to `yes` indicates `automatically_configure` should configure the application for reading turbo data.
-* **options**: the list of options files to use. Behind the scenes, these will get passed to DaVinci.
+* **options**: the settings to use when running DaVinci. These are copied from the Run 3 DaVinci lesson.
 * **output**: the name of the output `.root` ntuples. These will get registered in bookkeeping as well.
-* **input**: the bookkeeping path of the data you're running over. This is what you located during the [bookkeeping lesson](bookkeeping), and is unique to the 2016 magnet-down job, so it doesn't belong under `defaults`.
+* **input**: the bookkeeping path of the data you're running over. This is what you located during the [bookkeeping lesson](bookkeeping), and is unique to the 24c4 magnet down job, so it doesn't belong under `defaults`.
 
 For a full list of the available options, and information on their allowed values, see the [documentation](https://lhcb-ap.docs.cern.ch/user_guide/creating.html#yaml-configuration).
 
 {% challenge "Add a magnet-up job" %}
 
-Currently, this will create ntuples for 2016 magnet-down MC data only. See if you can add to your `info.yaml` file to create a job for 2016 magnet-up data as well. *Hint:* the location of the correct `.DST` file can be found using bookkeeping.
+Currently, this will create ntuples for 24c4 magnet-down data only. See if you can add to your `info.yaml` file to create a job for 24c4 magnet-up data as well. *Hint:* the location of the correct `.DST` file can be found using bookkeeping.
 
 {% solution "Solutions" %}
 
-Since we're making use of the `defaults` job name, we need to add very little to add this new job. One can simply copy the final 3 lines to create a new job, rename it to something like `2016_MagUp_PromptMC_D02KK`, and add the appropriate bookkeeping path. An example of this can be found [here](code/analysis-productions/info.yaml).
+Since we're making use of the `defaults` job name, we need to add very little to add this new job. One can simply copy the final 3 lines to create a new job, rename it to `Bu2Jpsimumu_24c4_MagUp`, and add the appropriate bookkeeping path. An example of this can be found [here](code/analysis-productions/info.yaml).
 
 {% endsolution %}
 
@@ -168,25 +151,27 @@ Commands:
   parse-log    Read a Gaudi log file and extract information
 ```
 
-This command `lb-ap` will allow us to perform a number of different tests. Let's start with `lb-ap list`, which will display all of the productions. Hopefully you should see your new production (`D02HH_Practice`) on this list! You can also use this to list all of the jobs within a given production, by running `lb-ap list D02HH_Practice`. If you added a second job for magnet-up earlier, the output of this command should look like this:
+This command `lb-ap` will allow us to perform a number of different tests. Let's start with `lb-ap list`, which will display all of the productions. Hopefully you should see your new production (`starterkit`) on this list! You can also use this to list all of the jobs within a given production, by running `lb-ap list starterkit`. If you added a second job for magnet-up earlier, the output of this command should look like this:
 
 ```
-The available jobs for D02HH_Practice are:
-* 2016_MagDown_PromptMC_D02KK
-* 2016_MagUp_PromptMC_D02KK
+The available jobs for starterkit are: 
+* Bu2Jpsimumu_24c4_MagDown
+* Bu2Jpsimumu_24c4_MagUp
 ```
 
 The most important test is if the production actually runs successfully, and creates the desired ntuples. The `lb-ap` command is used for this as well. To test the magnet-down job, run this command:
 
 ```bash
-lb-ap test D02HH_Practice 2016_MagDown_PromptMC_D02KK
+lb-ap test starterkit Bu2Jpsimumu_24c4_MagDown
 ```
 
-This will automatically run DaVinci, using the data and options files you specified in `info.yaml`. You should see the output from DaVinci similar to what you saw when you ran it manually in an earlier lesson, followed by a completion message that tells you the location of the output files created by the test.
+The first time you run this in a session remember to activate your proxy using `lhcb-proxy-init`. You will also be prompted to sign into the CERN Single Sign-On as an extra security step.
 
-You should find that a `local-tests` directory has been created, and inside it are a record of any local tests you've run. Navigate to the `output` folder of your test, and check what files have been created. There are assorted log files, as well as a `.ROOT` file called something like `00012345_00006789_1.CHARM_PROMPTMC_D02KK.ROOT`.
+DaVinci will now run using the data and options files you specified in `info.yaml`. You should see the output from DaVinci similar to what you saw when you ran it manually in an earlier lesson, followed by a completion message that tells you the location of the output files created by the test.
 
-Let's open this `.root` file and check if everything worked correctly. Similar to what we did earlier, run `root -l 00012345_00006789_1.CHARM_PROMPTMC_D02KK.ROOT` to open ROOT with that ntuple loaded, and view the contents by running `TBrowser b` (or otherwise). Take a little time to look around, and make sure everything's in order.
+You should find that a `local-tests` directory has been created, and inside it are a record of any local tests you've run. Navigate to the `output` folder of your test, and check what files have been created. There are assorted log files, as well as a `.ROOT` file called something like `00012345_00006789_1.DATA.ROOT`.
+
+Let's open this `.root` file and check if everything worked correctly. Similar to what we did earlier, run `root -l 00012345_00006789_1.DATA.ROOT` to open ROOT with that ntuple loaded, and view the contents by running `TBrowser b` (or otherwise). Take a little time to look around, and make sure everything's in order.
 
 {% callout "Useful resources" %}
 
@@ -204,10 +189,10 @@ For issues with `info.yaml` files, or anything else to do with the Analysis Prod
 Now that we've tested all of our changes and are sure that everything's working as intended, we can prepare to submit them to the main repository by creating a merge request. Start by commiting the changes:
 
 ```bash
-git add ntuple_options.py
+git add dv_basic.py
 git add info.yaml
 git add README.md
-git commit -m "Add D02KK MC production for starterkit"
+git commit -m "Add starterkit example production"
 ```
 
 And then push the changes with
@@ -216,7 +201,7 @@ And then push the changes with
 git push origin ${USER}/starterkit-practice
 ```
 
-Once this has completed, it should give you a link to create a merge request for your new branch. Open it in a browser, and give it a suitable name & description - in the description, please make sure to say that this is part of the Starterkit lesson! For a real production please ensure you follow the instructions in the merge request description template. Then you can submit your merge request.
+Once this has completed, it should give you a link to create a merge request for your new branch. Open it in a browser, and give it a suitable name & description - also please add the `Starterkit (not for merge)` label! For a real production please ensure you follow the instructions in the merge request description template. Then you can submit your merge request.
 
 Since this is only for practice, your request won't actually be merged, but some tests will still be run automatically. To view these, go to the Pipelines tab of your merge request, and open it by clicking the pipeline number (eg. "#1958388"). At the bottom, you will see a `test` job - click on this, and it will show you the output of the test jobs. These will take a little time to complete, so it may still be in progress. The first few lines should look something like:
 
@@ -226,65 +211,20 @@ INFO:Creating new pipeline for ID 1958388
 ALWAYS:Results will be available at https://lhcb-analysis-productions.web.cern.ch/1958388/
 ```
 
-You can open that link in your browser to view the status of the test jobs (example [here](https://lhcb-productions.web.cern.ch/ana-prod/pipelines/?id=8064)). After a few minutes, these should have completed - all being well, you've now successfully submitted your first production!
+You can open that link in your browser to view the status of the test jobs (example [here](https://lhcb-analysis-productions.web.cern.ch/ana-prod/pipelines/?id=8610&ci_run=starterkit)). After a few minutes, these should have completed - all being well, you've now successfully prepared your first production!
 
+### Analysis Productions Data
+We have created a standalone Python package, [APD](https://pypi.org/project/apd/), which can be used to help you access your Analysis Productions output. 
+At the bottom of a job output page you can find an example of how to do this.
+For this starterkit example we could do
 
-### Checks
-For the start of Run 3 it was requested to add the `Checks` feature to AnalysisProductions. This facilitates offline monitoring by allowing automated simple analysis of tupling output to assist with data quality and early measurements. In the output of the CI you may have noticed some Checks already ran. These are default checks run for all productions to perform some basic validation of the production but you can also add your own. For now let's stick with some simple ones but for full details you can [check the documentation](https://lhcb-ap.docs.cern.ch/user_guide/creating.html#checks).
-
-We start by defining the checks we would like to perform. Add the following to your `info.yaml` below the `defaults`:
-```python
-checks:
-    histogram:
-        type: range
-        expression: Dst_2010_plus_M
-        limits:
-            min: 1900
-            max: 2300
-        blind_ranges:
-            min: 2000
-            max: 2020
-    histogram_fail:
-        type: range
-        expression: Dst_2010_plus_M
-        limits:
-            min: 0
-            max: 10
-    at_least_50_entries:
-        type: num_entries
-        tree_pattern: TupleDstToD0pi_D0ToKK/DecayTree
-        count: 50
+```bash
+from apd import AnalysisData
+datasets = AnalysisData("apd", "starterkit")
+24c4_magup_data = datasets(name="bu2jpsimumu_24c4_magdown")
 ```
 
-Here we have defined two `range` checks and one `num_entries` check. `range` checks plot a histogram in the range shown for your desired expression, if empty they will fail your test. `num_entries` simply checks that your specified TTree has at least the number of events you desire.
-
-Now that we have defined our checks we should choose which jobs to apply them to, if any check is not applied to at least one job the validation will fail!
-
-```python
-2016_MagDown_PromptMC_D02KK:
-    input:
-        bk_query: "/MC/2016/Beam6500GeV-2016-MagDown-Nu1.6-25ns-Pythia8/Sim09c/Trig0x6138160F/Reco16/Turbo03/Stripping28r1NoPrescalingFlagged/27163002/ALLSTREAMS.DST"
-    checks:
-        - histogram
-        - histogram_fail
-        - at_least_50_entries
-```
-
-Now if we test `2016_MagDown_PromptMC_D02KK` the checks will be run automatically and their results printed. If we push these changes to our remote branch then in the pipeline results we will find a summary of each check result and the plots of each histogram.
-
-![Pipeline check results](img/aprods_checks.png)
-
-{% callout "Did it fail?" %}
-
-The test will have failed due to the histogram check we defined to fail, remove that if you want your tests to pass.
-
-{% endcallout %}
-
-{% callout "What about Run 3?" %}
-
-By and large the procedure for Run 3 is the same, the major differences are within the DaVinci scripts themselves so are covered by the DaVinci lessons. There are some additional configuration options required (at the time of writing) in the YAML file but your WG liaisons should be able to point you to examples.
-
-{% endcallout %}
+This will create `24c4_magup_data` as a list of all the PFNs for the output of this job. You could then access these using your preferred kind of Python based ROOT.
 
 {% callout "Next steps for real productions" %}
 
