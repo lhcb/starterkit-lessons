@@ -310,7 +310,7 @@
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>checkout<span class="w"> </span>-b<span class="w"> </span><span class="si">${</span><span class="nv">USER</span><span class="si">}</span>/starterkit-practice
 </pre></div>
 </div>
-<p>Now we need to create a folder to store all the things we’re going to add for our new production. For this practice production, we’ll continue with the <span class="math notranslate nohighlight">\(` B^+ \to J/\psi \mu^+ \mu^- `\)</span> decays used in the previous few lessons, so we should name the folder appropriately:</p>
+<p>Now we need to create a folder to store all the things we’re going to add for our new production. For this practice production, we’ll continue with the <span class="math notranslate nohighlight">\(` B^+ \to (J/\psi \to \mu^+ \mu^-) K^+ `\)</span> decays used in the previous few lessons, so we should name the folder appropriately:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mkdir<span class="w"> </span>starterkit
 </pre></div>
 </div>
@@ -334,17 +334,17 @@
 <span class="w">      </span><span class="nt">input_stream</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">b2cc</span>
 <span class="w">  </span><span class="nt">inform</span><span class="p">:</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">aidan.richard.wiederhold@cern.ch</span>
-<span class="w">  </span><span class="nt">wg</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">DPA</span>
+<span class="w">  </span><span class="nt">wg</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">B2CC</span>
 
-<span class="nt">Bu2Jpsimumu_24c4_MagDown</span><span class="p">:</span>
+<span class="nt">Bu2JpsiK_24c4_MagDown</span><span class="p">:</span>
 <span class="w">  </span><span class="nt">input</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">bk_query</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;/LHCb/Collision24/Beam6800GeV-VeloClosed-MagDown/Real</span><span class="nv"> </span><span class="s">Data/Sprucing24c4/94000000/B2CC.DST&quot;</span>
 </pre></div>
 </div>
-<p>Here, the unindented lines are the names of jobs (although <code class="docutils literal notranslate"><span class="pre">defaults</span></code> has a special function), and the indented lines are the options we’re applying to those jobs. Using this file will create one job called <code class="docutils literal notranslate"><span class="pre">Bu2Jpsimumu_24c4_MagDown</span></code>, that will read in data from the provided bookkeeping path. All the options applied under <code class="docutils literal notranslate"><span class="pre">defaults</span></code> are automatically applied to all other jobs - very useful for avoiding repetition. The options we’re using here are copied from the Run 3 DaVinci lesson:</p>
+<p>Here, the unindented lines are the names of jobs (although <code class="docutils literal notranslate"><span class="pre">defaults</span></code> has a special function), and the indented lines are the options we’re applying to those jobs. Using this file will create one job called <code class="docutils literal notranslate"><span class="pre">Bu2JpsiK_24c4_MagDown</span></code>, that will read in data from the provided bookkeeping path. All the options applied under <code class="docutils literal notranslate"><span class="pre">defaults</span></code> are automatically applied to all other jobs - very useful for avoiding repetition. The options we’re using here are copied from the Run 3 DaVinci lesson:</p>
 <ul class="simple">
 <li><p><strong>application</strong>: the version of DaVinci to use. Here we choose v64r12, see <a class="reference external" href="http://lhcbdoc.web.cern.ch/lhcbdoc/davinci/">here</a> to check what versions are available.</p></li>
-<li><p><strong>wg</strong>: the working group this production is a part of. Since this is a <span class="math notranslate nohighlight">\(` B^+ \to J/\psi \mu^+ \mu^- `\)</span> decay, we’ll set this to <code class="docutils literal notranslate"><span class="pre">B2CC</span></code>.</p></li>
+<li><p><strong>wg</strong>: the working group this production is a part of. Since this is a <span class="math notranslate nohighlight">\(` B^+ \to (J/\psi \to \mu^+ \mu^-) K^+ `\)</span> decay, we’ll set this to <code class="docutils literal notranslate"><span class="pre">B2CC</span></code>.</p></li>
 <li><p><strong>inform</strong>: optionally, you can enter your email address to receive updates on the status of your jobs.</p></li>
 <li><p><strong>options</strong>: the settings to use when running DaVinci. These are copied from the Run 3 DaVinci lesson.</p></li>
 <li><p><strong>output</strong>: the name of the output <code class="docutils literal notranslate"><span class="pre">.root</span></code> ntuples. These will get registered in bookkeeping as well.</p></li>
@@ -362,7 +362,7 @@
 <p id="solutions"><i class="fa fa-check-square-o"></i> Solutions</p>
 </div>
 <div class="panel-body docutils container">
-<p>Since we’re making use of the <code class="docutils literal notranslate"><span class="pre">defaults</span></code> job name, we need to add very little to add this new job. One can simply copy the final 3 lines to create a new job, rename it to <code class="docutils literal notranslate"><span class="pre">Bu2Jpsimumu_24c4_MagUp</span></code>, and add the appropriate bookkeeping path. An example of this can be found <a class="reference download internal" download="" href="../_downloads/27028a16a46572fec57089b46a40fd04/info.yaml"><code class="xref download docutils literal notranslate"><span class="pre">here</span></code></a>.</p>
+<p>Since we’re making use of the <code class="docutils literal notranslate"><span class="pre">defaults</span></code> job name, we need to add very little to add this new job. One can simply copy the final 3 lines to create a new job, rename it to <code class="docutils literal notranslate"><span class="pre">Bu2JpsiK_24c4_MagUp</span></code>, and add the appropriate bookkeeping path. An example of this can be found <a class="reference download internal" download="" href="../_downloads/27028a16a46572fec57089b46a40fd04/info.yaml"><code class="xref download docutils literal notranslate"><span class="pre">here</span></code></a>.</p>
 </div>
 </div>
 </div>
@@ -398,12 +398,12 @@ Commands:
 </div>
 <p>This command <code class="docutils literal notranslate"><span class="pre">lb-ap</span></code> will allow us to perform a number of different tests. Let’s start with <code class="docutils literal notranslate"><span class="pre">lb-ap</span> <span class="pre">list</span></code>, which will display all of the productions. Hopefully you should see your new production (<code class="docutils literal notranslate"><span class="pre">starterkit</span></code>) on this list! You can also use this to list all of the jobs within a given production, by running <code class="docutils literal notranslate"><span class="pre">lb-ap</span> <span class="pre">list</span> <span class="pre">starterkit</span></code>. If you added a second job for magnet-up earlier, the output of this command should look like this:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>The available jobs for starterkit are: 
-* Bu2Jpsimumu_24c4_MagDown
-* Bu2Jpsimumu_24c4_MagUp
+* Bu2JpsiK_24c4_MagDown
+* Bu2JpsiK_24c4_MagUp
 </pre></div>
 </div>
 <p>The most important test is if the production actually runs successfully, and creates the desired ntuples. The <code class="docutils literal notranslate"><span class="pre">lb-ap</span></code> command is used for this as well. To test the magnet-down job, run this command:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>lb-ap<span class="w"> </span><span class="nb">test</span><span class="w"> </span>starterkit<span class="w"> </span>Bu2Jpsimumu_24c4_MagDown
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>lb-ap<span class="w"> </span><span class="nb">test</span><span class="w"> </span>starterkit<span class="w"> </span>Bu2JpsiK_24c4_MagDown
 </pre></div>
 </div>
 <p>The first time you run this in a session remember to activate your proxy using <code class="docutils literal notranslate"><span class="pre">lhcb-proxy-init</span></code>. You will also be prompted to sign into the CERN Single Sign-On as an extra security step.</p>
@@ -450,7 +450,7 @@ At the bottom of a job output page you can find an example of how to do this.
 For this starterkit example we could do</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>from<span class="w"> </span>apd<span class="w"> </span>import<span class="w"> </span>AnalysisData
 <span class="nv">datasets</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>AnalysisData<span class="o">(</span><span class="s2">&quot;apd&quot;</span>,<span class="w"> </span><span class="s2">&quot;starterkit&quot;</span><span class="o">)</span>
-<span class="nv">24c4_magdown_data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>datasets<span class="o">(</span><span class="nv">name</span><span class="o">=</span><span class="s2">&quot;bu2jpsimumu_24c4_magdown&quot;</span><span class="o">)</span>
+<span class="nv">24c4_magdown_data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>datasets<span class="o">(</span><span class="nv">name</span><span class="o">=</span><span class="s2">&quot;bu2jpsik_24c4_magdown&quot;</span><span class="o">)</span>
 </pre></div>
 </div>
 <p>This will create <code class="docutils literal notranslate"><span class="pre">24c4_magdown_data</span></code> as a list of all the PFNs for the output of this job. You could then access these using your preferred kind of Python based ROOT.</p>

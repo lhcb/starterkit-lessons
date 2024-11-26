@@ -59,7 +59,7 @@ Before making any edits, you should create a branch for your changes, and switch
 git checkout -b ${USER}/starterkit-practice
 ```
 
-Now we need to create a folder to store all the things we're going to add for our new production. For this practice production, we'll continue with the `$ B^+ \to J/\psi \mu^+ \mu^- $` decays used in the previous few lessons, so we should name the folder appropriately:
+Now we need to create a folder to store all the things we're going to add for our new production. For this practice production, we'll continue with the `$ B^+ \to (J/\psi \to \mu^+ \mu^-) K^+ $` decays used in the previous few lessons, so we should name the folder appropriately:
 
 ```bash
 mkdir starterkit
@@ -89,17 +89,17 @@ defaults:
       input_stream: b2cc
   inform:
     - aidan.richard.wiederhold@cern.ch
-  wg: DPA
+  wg: B2CC
 
-Bu2Jpsimumu_24c4_MagDown:
+Bu2JpsiK_24c4_MagDown:
   input:
     bk_query: "/LHCb/Collision24/Beam6800GeV-VeloClosed-MagDown/Real Data/Sprucing24c4/94000000/B2CC.DST"
 ```
 
-Here, the unindented lines are the names of jobs (although `defaults` has a special function), and the indented lines are the options we're applying to those jobs. Using this file will create one job called `Bu2Jpsimumu_24c4_MagDown`, that will read in data from the provided bookkeeping path. All the options applied under `defaults` are automatically applied to all other jobs - very useful for avoiding repetition. The options we're using here are copied from the Run 3 DaVinci lesson:
+Here, the unindented lines are the names of jobs (although `defaults` has a special function), and the indented lines are the options we're applying to those jobs. Using this file will create one job called `Bu2JpsiK_24c4_MagDown`, that will read in data from the provided bookkeeping path. All the options applied under `defaults` are automatically applied to all other jobs - very useful for avoiding repetition. The options we're using here are copied from the Run 3 DaVinci lesson:
 
 * **application**: the version of DaVinci to use. Here we choose v64r12, see [here](http://lhcbdoc.web.cern.ch/lhcbdoc/davinci/) to check what versions are available.
-* **wg**: the working group this production is a part of. Since this is a `$ B^+ \to J/\psi \mu^+ \mu^- $` decay, we'll set this to `B2CC`.
+* **wg**: the working group this production is a part of. Since this is a `$ B^+ \to (J/\psi \to \mu^+ \mu^-) K^+ $` decay, we'll set this to `B2CC`.
 * **inform**: optionally, you can enter your email address to receive updates on the status of your jobs.
 * **options**: the settings to use when running DaVinci. These are copied from the Run 3 DaVinci lesson.
 * **output**: the name of the output `.root` ntuples. These will get registered in bookkeeping as well.
@@ -113,7 +113,7 @@ Currently, this will create ntuples for 24c4 magnet-down data only. See if you c
 
 {% solution "Solutions" %}
 
-Since we're making use of the `defaults` job name, we need to add very little to add this new job. One can simply copy the final 3 lines to create a new job, rename it to `Bu2Jpsimumu_24c4_MagUp`, and add the appropriate bookkeeping path. An example of this can be found [here](code/analysis-productions/info.yaml).
+Since we're making use of the `defaults` job name, we need to add very little to add this new job. One can simply copy the final 3 lines to create a new job, rename it to `Bu2JpsiK_24c4_MagUp`, and add the appropriate bookkeeping path. An example of this can be found [here](code/analysis-productions/info.yaml).
 
 {% endsolution %}
 
@@ -155,14 +155,14 @@ This command `lb-ap` will allow us to perform a number of different tests. Let's
 
 ```
 The available jobs for starterkit are: 
-* Bu2Jpsimumu_24c4_MagDown
-* Bu2Jpsimumu_24c4_MagUp
+* Bu2JpsiK_24c4_MagDown
+* Bu2JpsiK_24c4_MagUp
 ```
 
 The most important test is if the production actually runs successfully, and creates the desired ntuples. The `lb-ap` command is used for this as well. To test the magnet-down job, run this command:
 
 ```bash
-lb-ap test starterkit Bu2Jpsimumu_24c4_MagDown
+lb-ap test starterkit Bu2JpsiK_24c4_MagDown
 ```
 
 The first time you run this in a session remember to activate your proxy using `lhcb-proxy-init`. You will also be prompted to sign into the CERN Single Sign-On as an extra security step.
@@ -221,7 +221,7 @@ For this starterkit example we could do
 ```bash
 from apd import AnalysisData
 datasets = AnalysisData("apd", "starterkit")
-24c4_magdown_data = datasets(name="bu2jpsimumu_24c4_magdown")
+24c4_magdown_data = datasets(name="bu2jpsik_24c4_magdown")
 ```
 
 This will create `24c4_magdown_data` as a list of all the PFNs for the output of this job. You could then access these using your preferred kind of Python based ROOT.

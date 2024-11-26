@@ -15,12 +15,12 @@ defaults:
       input_stream: b2cc
   inform:
     - aidan.richard.wiederhold@cern.ch
-  wg: DPA
+  wg: B2CC
 
-Bu2Jpsimumu_24c4_MagDown:
+Bu2JpsiK_24c4_MagDown:
   input:
     bk_query: "/LHCb/Collision24/Beam6800GeV-VeloClosed-MagDown/Real Data/Sprucing24c4/94000000/B2CC.DST"
 
-Bu2Jpsimumu_24c4_MagUp:
+Bu2JpsiK_24c4_MagUp:
   input:
     bk_query: "/LHCb/Collision24/Beam6800GeV-VeloClosed-MagUp/Real Data/Sprucing24c4/94000000/B2CC.DST"
