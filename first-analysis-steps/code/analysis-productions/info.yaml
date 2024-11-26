@@ -15,7 +15,7 @@ defaults:
       input_stream: b2cc
   inform:
     - aidan.richard.wiederhold@cern.ch
-  wg: DPA
+  wg: B2CC
 
 Bu2JpsiK_24c4_MagDown:
   input:
