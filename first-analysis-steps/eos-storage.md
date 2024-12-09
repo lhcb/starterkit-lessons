@@ -50,7 +50,7 @@ $ eos quota /eos/lhcb/user/a/another
 
 Checking the grid storage quota is more complicated. To do so, you need to run the LHCbDirac using your grid certificate:
 ```bash
-$ lb-run LHCbDirac/prod bash --norc
+$ lb-dirac bash --norc
 $ lhcb-proxy-init
 ```
 To check the current quota, one simply types
@@ -104,6 +104,7 @@ Finally, to remove these files, one does
 $ dirac-dms-remove-files lhcb-user-a-another.lfns
 ```
 {% callout "Removal by direct path" %}
+
 One may also simply remove a single specific file providing the path to it:
 ```bash
 $ dirac-dms-remove-files /lhcb/user/a/another/2017_08/176410/176410700/Tuple.root
