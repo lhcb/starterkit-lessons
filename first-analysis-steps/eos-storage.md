@@ -59,11 +59,11 @@ $ dirac-dms-user-quota
 ```
 However, this does not show the actual amount of space used. To see it, one types
 ```bash
-$ dirac-dms-storage-usage-summary --Directory /eos/lhcb/grid/user/lhcb/user/a/another
+$ dirac-dms-storage-usage-summary --User another
 ```
 This will show a summary of your data on every grid site:
 ```output
-Storage usage for directories ['/lhcb/user/a/another/']
+Storage usage for user anmorris (quota: 2.0 TB)
 ------------------------------------------------
 DIRAC SE             Size (TB)            Files
 ------------------------------------------------
