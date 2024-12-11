@@ -47,7 +47,7 @@ Lots of people downloading the same file at the same time can be very slow.
 As a workaround, the file is also available on EOS, and can be downloaded to
 your current directory with the following command:
 ```bash
-$ xrdcp root://eosuser.cern.ch//eos/user/l/lhcbsk/data-sets/00070793_00000001_7.AllStreams.dst .
+$ xrdcp root://eoslhcb.cern.ch//eos/lhcb/wg/dpa/wp7/Run2SK/files-from-grid/00070793_00000001_7.AllStreams.dst .
 ```
 
 {% endcallout %} 
