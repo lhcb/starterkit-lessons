@@ -61,7 +61,7 @@ The second option is usually easier and in the example used so far only requires
 Generation().SignalPlain.CutTool = ""
 ```
 which must be included after `27163003.py` is sourced (e.g. in `Gauss-Job.py`). You can convince yourself that this alters the observed
-distributions and leads to a generator level cut efficiency of 100%. A large sample can be found on EOS: `root://eoslhcb.cern.ch//eos/lhcb/wg/dpa/wp7/Run2SK/simulation/Gauss-27175000-modified-50000ev-20190515.xgen` (includes additional resonance added above).
+distributions and leads to a generator level cut efficiency of 100%. A large sample can be found on EOS: `root://eoslhcb.cern.ch//eos/lhcb/wg/dpa/wp7/Run2SK/simulation/Gauss-27175000-modified-50000ev-20241216.xgen` (includes additional resonance added above).
 Have a look at the pseudorapidity distribution of the head particle. This illustrates another default behavior of the generation of signal decays in Gauss: The generated events' z-axis if inverted if the selected signal particle's momentum along that axis is negative.
 
 
