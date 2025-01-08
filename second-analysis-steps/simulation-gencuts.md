@@ -96,7 +96,7 @@ tightCut.Cuts = {
    '[mu+]cc': 'inAcc'
 }
 ```
-You can again check that this works and a larger sample of 10,000 events can be found `root://eoslhcb.cern.ch//eos/lhcb/wg/dpa/wp7/Run2SK/simulation/GaussTightCut-27163003-10000ev.xgen`
+You can again check that this works and a larger sample of 10,000 events can be found `root://eoslhcb.cern.ch//eos/lhcb/wg/dpa/wp7/Run2SK/simulation/GaussTightCut-27175000-10000ev-20241216.xgen`
 .
 You might also notice a slight slow-down in the rate at which events are produced: by default, 
 an event failing the generator cut (which is applied after Pythia and EvtGen are done) triggers a reset of
