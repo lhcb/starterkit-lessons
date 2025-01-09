@@ -1,28 +1,25 @@
+
+
 <!DOCTYPE html>
-<html class="writer-html5" lang="en">
+<html class="writer-html5" lang="en" data-content_root="../">
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Running a minimal DaVinci job locally &mdash; LHCb Starterkit Lessons  documentation</title>
-      <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css" />
-      <link rel="stylesheet" type="text/css" href="../_static/panels.css" />
-      <link rel="stylesheet" type="text/css" href="../_static/starterkit.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../_static/panels.css?v=69fd799d" />
+      <link rel="stylesheet" type="text/css" href="../_static/starterkit.css?v=be2937d8" />
 
   
-  <!--[if lt IE 9]>
-    <script src="../_static/js/html5shiv.min.js"></script>
-  <![endif]-->
-  
-        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-        <script src="../_static/jquery.js"></script>
-        <script src="../_static/underscore.js"></script>
-        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script src="../_static/doctools.js"></script>
-        <script src="../_static/sphinx_highlight.js"></script>
-        <script src="../_static/panels.js"></script>
-        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../_static/panels.js?v=0f4bdeea"></script>
+      <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -256,7 +253,7 @@
            <div itemprop="articleBody">
              
   <section id="running-a-minimal-davinci-job-locally">
-<h1>Running a minimal DaVinci job locally<a class="headerlink" href="#running-a-minimal-davinci-job-locally" title="Permalink to this heading"></a></h1>
+<h1>Running a minimal DaVinci job locally<a class="headerlink" href="#running-a-minimal-davinci-job-locally" title="Link to this heading"></a></h1>
 <p><a class="reference internal" href="interactive-dst.html"><span class="doc">Looping event-by-event</span></a> over a file and <a class="reference internal" href="loki-functors.html"><span class="doc">inspecting
 interesting quantities with LoKi functors</span></a> is great for
 exploration: to check that the file contains the candidates you need, that
@@ -296,8 +293,8 @@ of information available on the DST, but for now we’ll just work on getting th
 bare essentials up and running.</p>
 <p>Our main tool will be the <code class="docutils literal notranslate"><span class="pre">DecayTreeTuple</span></code> object, which we’ll create inside a
 file we will call <code class="docutils literal notranslate"><span class="pre">ntuple_options.py</span></code>:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">Configurables</span> <span class="kn">import</span> <span class="n">DecayTreeTuple</span>
-<span class="kn">from</span> <span class="nn">DecayTreeTuple.Configuration</span> <span class="kn">import</span> <span class="o">*</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">Configurables</span><span class="w"> </span><span class="kn">import</span> <span class="n">DecayTreeTuple</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">DecayTreeTuple.Configuration</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>
 
 <span class="c1"># Stream and stripping line we want to use</span>
 <span class="n">stream</span> <span class="o">=</span> <span class="s1">&#39;AllStreams&#39;</span>
@@ -343,7 +340,7 @@ on.</p>
 attributes</a>
 defined on the <code class="docutils literal notranslate"><span class="pre">DaVinci</span></code> object, but we will only set the ones that are
 necessary for us.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">Configurables</span> <span class="kn">import</span> <span class="n">DaVinci</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">Configurables</span><span class="w"> </span><span class="kn">import</span> <span class="n">DaVinci</span>
 
 <span class="c1"># Configure DaVinci</span>
 <span class="n">DaVinci</span><span class="p">()</span><span class="o">.</span><span class="n">UserAlgorithms</span> <span class="o">+=</span> <span class="p">[</span><span class="n">dtt</span><span class="p">]</span>
@@ -413,7 +410,7 @@ At the same time, event unpacking and running the DecayTreeTuple machinery for e
 Consequently, DSTs can be processed much faster if before unpacking we select <em>only</em> events which are likely to accomodate the desired TES location. This can be achieved, for example, by requiring a prefilter checking whether event passes a stripping requirement. You may also filter on trigger decisions - this is an idea behind the Turbo stream.
 As a conclusion, it is <em>strongly</em> recommended to exploit the <code class="docutils literal notranslate"><span class="pre">EventPreFilters</span></code> method offered by <code class="docutils literal notranslate"><span class="pre">DaVinci</span></code>: this feature can save a lot of processing time and collaboration’s computing resources when running over millions of events.
 To require events to pass a specific stripping line requirement, one should add these lines to the options file:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">PhysConf.Filters</span> <span class="kn">import</span> <span class="n">LoKi_Filters</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">PhysConf.Filters</span><span class="w"> </span><span class="kn">import</span> <span class="n">LoKi_Filters</span>
 <span class="n">fltrs</span> <span class="o">=</span> <span class="n">LoKi_Filters</span> <span class="p">(</span>
     <span class="n">STRIP_Code</span> <span class="o">=</span> <span class="s2">&quot;HLT_PASS_RE(&#39;StrippingD2hhPromptDst2D2KKLineDecision&#39;)&quot;</span>
 <span class="p">)</span>
@@ -427,7 +424,7 @@ You may investigate some of more advanced examples of <code class="docutils lite
 <p>All that’s left to do is to say what data we would like to run over.
 As we already have a data file <a class="reference internal" href="files-from-grid.html"><span class="doc">downloaded locally</span></a>, we
 define that as our input data.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">GaudiConf</span> <span class="kn">import</span> <span class="n">IOHelper</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">GaudiConf</span><span class="w"> </span><span class="kn">import</span> <span class="n">IOHelper</span>
 
 <span class="c1"># Use the local input data</span>
 <span class="n">IOHelper</span><span class="p">()</span><span class="o">.</span><span class="n">inputFiles</span><span class="p">([</span>

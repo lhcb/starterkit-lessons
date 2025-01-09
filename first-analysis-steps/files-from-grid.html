@@ -1,28 +1,25 @@
+
+
 <!DOCTYPE html>
-<html class="writer-html5" lang="en">
+<html class="writer-html5" lang="en" data-content_root="../">
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Downloading a file from the grid &mdash; LHCb Starterkit Lessons  documentation</title>
-      <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css" />
-      <link rel="stylesheet" type="text/css" href="../_static/panels.css" />
-      <link rel="stylesheet" type="text/css" href="../_static/starterkit.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../_static/panels.css?v=69fd799d" />
+      <link rel="stylesheet" type="text/css" href="../_static/starterkit.css?v=be2937d8" />
 
   
-  <!--[if lt IE 9]>
-    <script src="../_static/js/html5shiv.min.js"></script>
-  <![endif]-->
-  
-        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-        <script src="../_static/jquery.js"></script>
-        <script src="../_static/underscore.js"></script>
-        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script src="../_static/doctools.js"></script>
-        <script src="../_static/sphinx_highlight.js"></script>
-        <script src="../_static/panels.js"></script>
-        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../_static/panels.js?v=0f4bdeea"></script>
+      <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -256,7 +253,7 @@
            <div itemprop="articleBody">
              
   <section id="downloading-a-file-from-the-grid">
-<h1>Downloading a file from the grid<a class="headerlink" href="#downloading-a-file-from-the-grid" title="Permalink to this heading"></a></h1>
+<h1>Downloading a file from the grid<a class="headerlink" href="#downloading-a-file-from-the-grid" title="Link to this heading"></a></h1>
 <div class="panel panel-objectives docutils container">
 <div class="panel-header open docutils container">
 <p id="learning-objectives"><i class="fa fa-line-chart"></i> Learning Objectives</p>
@@ -302,7 +299,7 @@ quick look at the dataset, it is sufficient to just obtain one of those files.</
 <p>Lots of people downloading the same file at the same time can be very slow.
 As a workaround, the file is also available on EOS, and can be downloaded to
 your current directory with the following command:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>xrdcp<span class="w"> </span>root://eosuser.cern.ch//eos/user/l/lhcbsk/data-sets/00070793_00000001_7.AllStreams.dst<span class="w"> </span>.
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>xrdcp<span class="w"> </span>root://eoslhcb.cern.ch//eos/lhcb/wg/dpa/wp7/Run2SK/files-from-grid/00070793_00000001_7.AllStreams.dst<span class="w"> </span>.
 </pre></div>
 </div>
 </div>
@@ -323,7 +320,7 @@ XML catalog such that it can access them remotely.</p>
 </pre></div>
 </div>
 <p>and add</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">Gaudi.Configuration</span> <span class="kn">import</span> <span class="n">FileCatalog</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">Gaudi.Configuration</span><span class="w"> </span><span class="kn">import</span> <span class="n">FileCatalog</span>
 <span class="n">FileCatalog</span><span class="p">()</span><span class="o">.</span><span class="n">Catalogs</span> <span class="o">=</span> <span class="p">[</span> <span class="s2">&quot;xmlcatalog_file:/path/to/myCatalog.xml&quot;</span> <span class="p">]</span>
 </pre></div>
 </div>
@@ -336,8 +333,8 @@ XML catalog such that it can access them remotely.</p>
 <span class="n">FILES</span> <span class="o">=</span> <span class="p">[]</span>
 
 <span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
-    <span class="kn">from</span> <span class="nn">subprocess</span> <span class="kn">import</span> <span class="n">call</span>
-    <span class="kn">from</span> <span class="nn">sys</span> <span class="kn">import</span> <span class="n">argv</span>
+    <span class="kn">from</span><span class="w"> </span><span class="nn">subprocess</span><span class="w"> </span><span class="kn">import</span> <span class="n">call</span>
+    <span class="kn">from</span><span class="w"> </span><span class="nn">sys</span><span class="w"> </span><span class="kn">import</span> <span class="n">argv</span>
 
     <span class="n">n_files</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">FILES</span><span class="p">)</span>
     <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">argv</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>

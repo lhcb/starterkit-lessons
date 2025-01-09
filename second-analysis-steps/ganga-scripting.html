@@ -1,28 +1,25 @@
+
+
 <!DOCTYPE html>
-<html class="writer-html5" lang="en">
+<html class="writer-html5" lang="en" data-content_root="../">
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Scripting Ganga &mdash; LHCb Starterkit Lessons  documentation</title>
-      <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css" />
-      <link rel="stylesheet" type="text/css" href="../_static/panels.css" />
-      <link rel="stylesheet" type="text/css" href="../_static/starterkit.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../_static/panels.css?v=69fd799d" />
+      <link rel="stylesheet" type="text/css" href="../_static/starterkit.css?v=be2937d8" />
 
   
-  <!--[if lt IE 9]>
-    <script src="../_static/js/html5shiv.min.js"></script>
-  <![endif]-->
-  
-        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-        <script src="../_static/jquery.js"></script>
-        <script src="../_static/underscore.js"></script>
-        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script src="../_static/doctools.js"></script>
-        <script src="../_static/sphinx_highlight.js"></script>
-        <script src="../_static/panels.js"></script>
-        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../_static/panels.js?v=0f4bdeea"></script>
+      <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -256,7 +253,7 @@
            <div itemprop="articleBody">
              
   <section id="scripting-ganga">
-<h1>Scripting Ganga<a class="headerlink" href="#scripting-ganga" title="Permalink to this heading"></a></h1>
+<h1>Scripting Ganga<a class="headerlink" href="#scripting-ganga" title="Link to this heading"></a></h1>
 <p>We have already started using Ganga, such as when <a class="reference internal" href="../first-analysis-steps/davinci-grid.html"><span class="doc">submitting jobs to the
 Grid</span></a> and
 <a class="reference internal" href="../first-analysis-steps/ganga-data.html"><span class="doc">using datasets from the bookkeeping</span></a>, for
@@ -268,7 +265,7 @@ scripts that Ganga will execute when starting up. This lesson will focus on
 writing job definition scripts, and exploring how we can define utility
 functions that will be available across all of our Ganga sessions.</p>
 <section id="defining-jobs-with-scripts">
-<h2>Defining jobs with scripts<a class="headerlink" href="#defining-jobs-with-scripts" title="Permalink to this heading"></a></h2>
+<h2>Defining jobs with scripts<a class="headerlink" href="#defining-jobs-with-scripts" title="Link to this heading"></a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">ganga</span></code> executable is similar to the <code class="docutils literal notranslate"><span class="pre">python</span></code> and <code class="docutils literal notranslate"><span class="pre">ipython</span></code> executables in
 a couple of ways.
 If you just run <code class="docutils literal notranslate"><span class="pre">ganga</span></code>, you are dropped into a prompt, but you can also supply
@@ -346,7 +343,7 @@ We need to then <em>parameterise</em> our script, and one way of doing this is p
 arguments to it by the command line.
 You can inspect arguments from a Python script by using the <code class="docutils literal notranslate"><span class="pre">argv</span></code>
 property on the <code class="docutils literal notranslate"><span class="pre">sys</span></code> module:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sys</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
 <span class="nb">print</span> <span class="n">sys</span><span class="o">.</span><span class="n">argv</span>
 </pre></div>
 </div>
@@ -368,7 +365,7 @@ To parameterise our script for year and magnet polarity, we could check this
 list to find one of <code class="docutils literal notranslate"><span class="pre">2015</span></code> or <code class="docutils literal notranslate"><span class="pre">2016</span></code> and one of <code class="docutils literal notranslate"><span class="pre">Up</span></code> or <code class="docutils literal notranslate"><span class="pre">Down</span></code>, for example,
 but instead we’ll opt to use the excellent <a class="reference external" href="https://docs.python.org/2/library/argparse.html"><code class="docutils literal notranslate"><span class="pre">argparse</span></code> module</a>, which
 comes with Python, to parse the command-line arguments for us.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">argparse</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">argparse</span>
 
 <span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s2">&quot;Make my DaVinci job.&quot;</span><span class="p">)</span>
 <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;year&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span> <span class="n">choices</span><span class="o">=</span><span class="p">[</span><span class="mi">2015</span><span class="p">,</span> <span class="mi">2016</span><span class="p">],</span>
@@ -444,7 +441,7 @@ run the application over only a single data file, and run the job locally
 rather than on the Grid (setting <code class="docutils literal notranslate"><span class="pre">j.backend</span></code> appropriately).</p>
 </section>
 <section id="adding-helpers-functions">
-<h2>Adding helpers functions<a class="headerlink" href="#adding-helpers-functions" title="Permalink to this heading"></a></h2>
+<h2>Adding helpers functions<a class="headerlink" href="#adding-helpers-functions" title="Link to this heading"></a></h2>
 <p>We’ve seen above how giving a script to <code class="docutils literal notranslate"><span class="pre">ganga</span></code> makes the variables defined in
 those scripts available interactively.
 But what if you have, or would like to have, some set of your own custom helper
@@ -475,7 +472,7 @@ Yo!
 </ol>
 <p>The latter is particularly interesting. Do you often find yourself creating a
 file that contains all the output LFNs of your job? Write a helper!</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">write_lfns</span><span class="p">(</span><span class="n">j</span><span class="p">,</span> <span class="n">filename</span><span class="p">):</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">write_lfns</span><span class="p">(</span><span class="n">j</span><span class="p">,</span> <span class="n">filename</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Write LFNs of all DiracFiles of all completed subjobs to fname.&quot;&quot;&quot;</span>
     <span class="c1"># Treat a job with subjobs the same as a job with no subjobs</span>
     <span class="n">sjobs</span> <span class="o">=</span> <span class="n">j</span><span class="o">.</span><span class="n">subjobs</span>
@@ -495,7 +492,7 @@ file that contains all the output LFNs of your job? Write a helper!</p>
 </pre></div>
 </div>
 <p>How about downloading and merging the ROOT output of a job’s subjobs? Write a helper!</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">merge_root_output</span><span class="p">(</span><span class="n">j</span><span class="p">,</span> <span class="n">input_tree_name</span><span class="p">,</span> <span class="n">merged_filepath</span><span class="p">):</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">merge_root_output</span><span class="p">(</span><span class="n">j</span><span class="p">,</span> <span class="n">input_tree_name</span><span class="p">,</span> <span class="n">merged_filepath</span><span class="p">):</span>
     <span class="c1"># Treat a job with subjobs the same as a job with no subjobs</span>
     <span class="n">sjobs</span> <span class="o">=</span> <span class="n">j</span><span class="o">.</span><span class="n">subjobs</span>
     <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">sjobs</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
@@ -523,7 +520,7 @@ downloaded, so you only need enough disk space for the merged file.</p>
 </div>
 <div class="panel-body docutils container">
 <p>By default, ROOT is not available in a Ganga session:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">Ganga</span> <span class="n">In</span> <span class="p">[</span><span class="mi">1</span><span class="p">]:</span> <span class="kn">import</span> <span class="nn">ROOT</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">Ganga</span> <span class="n">In</span> <span class="p">[</span><span class="mi">1</span><span class="p">]:</span> <span class="kn">import</span><span class="w"> </span><span class="nn">ROOT</span>
 <span class="n">ERROR</span>    <span class="n">No</span> <span class="n">module</span> <span class="n">named</span> <span class="n">ROOT</span>
 </pre></div>
 </div>

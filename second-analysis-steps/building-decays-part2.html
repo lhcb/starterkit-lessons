@@ -1,28 +1,25 @@
+
+
 <!DOCTYPE html>
-<html class="writer-html5" lang="en">
+<html class="writer-html5" lang="en" data-content_root="../">
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Modern Selection Framework &mdash; LHCb Starterkit Lessons  documentation</title>
-      <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css" />
-      <link rel="stylesheet" type="text/css" href="../_static/panels.css" />
-      <link rel="stylesheet" type="text/css" href="../_static/starterkit.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../_static/panels.css?v=69fd799d" />
+      <link rel="stylesheet" type="text/css" href="../_static/starterkit.css?v=be2937d8" />
 
   
-  <!--[if lt IE 9]>
-    <script src="../_static/js/html5shiv.min.js"></script>
-  <![endif]-->
-  
-        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-        <script src="../_static/jquery.js"></script>
-        <script src="../_static/underscore.js"></script>
-        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script src="../_static/doctools.js"></script>
-        <script src="../_static/sphinx_highlight.js"></script>
-        <script src="../_static/panels.js"></script>
-        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../_static/panels.js?v=0f4bdeea"></script>
+      <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -257,7 +254,7 @@
            <div itemprop="articleBody">
              
   <section id="modern-selection-framework">
-<h1>Modern Selection Framework<a class="headerlink" href="#modern-selection-framework" title="Permalink to this heading"></a></h1>
+<h1>Modern Selection Framework<a class="headerlink" href="#modern-selection-framework" title="Link to this heading"></a></h1>
 <div class="panel panel-objectives docutils container">
 <div class="panel-header open docutils container">
 <p id="learning-objectives"><i class="fa fa-line-chart"></i> Learning Objectives</p>
@@ -274,8 +271,8 @@ For this reason, the Selection Framework offers a more streamlined set of <code 
 <p>This two-step process for building the <code class="docutils literal notranslate"><span class="pre">Selection</span></code> (creating an algorithm and building a selection with it) can be simplified by using a helper function in the <code class="docutils literal notranslate"><span class="pre">PhysConf.Selections</span></code> module, called <code class="docutils literal notranslate"><span class="pre">SimpleSelection</span></code>.
 It gets a selection name, the algorithm type we want to run, the inputs and any other parameters that need to be passed to the algorithm (as keyword arguments), and returns a <code class="docutils literal notranslate"><span class="pre">Selection</span></code> object build in the same two-step way.
 With that in mind, we can rewrite the previous two pieces of code as</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">GaudiConfUtils.ConfigurableGenerators</span> <span class="k">as</span> <span class="nn">ConfigurableGenerators</span>
-<span class="kn">from</span> <span class="nn">PhysConf.Selections</span> <span class="kn">import</span> <span class="n">SimpleSelection</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">GaudiConfUtils.ConfigurableGenerators</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">ConfigurableGenerators</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">PhysConf.Selections</span><span class="w"> </span><span class="kn">import</span> <span class="n">SimpleSelection</span>
 <span class="n">d0_sel</span> <span class="o">=</span> <span class="n">SimpleSelection</span><span class="p">(</span>
     <span class="s1">&#39;Sel_D0&#39;</span><span class="p">,</span>
     <span class="n">ConfigurableGenerators</span><span class="o">.</span><span class="n">CombineParticles</span><span class="p">,</span>
@@ -308,7 +305,7 @@ While <code class="docutils literal notranslate"><span class="pre">SimpleSelecti
 <ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">CombineSelection</span></code> is used for the <code class="docutils literal notranslate"><span class="pre">Selection</span></code> – <code class="docutils literal notranslate"><span class="pre">CombineParticles</span></code> combination.
 The previous example would be written then:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">PhysConf.Selections</span> <span class="kn">import</span> <span class="n">CombineSelection</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">PhysConf.Selections</span><span class="w"> </span><span class="kn">import</span> <span class="n">CombineSelection</span>
 <span class="n">d0_sel</span> <span class="o">=</span> <span class="n">CombineSelection</span><span class="p">(</span>
     <span class="s1">&#39;Sel_D0&#39;</span><span class="p">,</span>
     <span class="p">[</span><span class="n">Kaons</span><span class="p">],</span>
@@ -367,7 +364,7 @@ Additionally, it takes care of <code class="docutils literal notranslate"><span 
 <div class="panel-body docutils container">
 <p>Try running the <a class="reference internal" href="../first-analysis-steps/minimal-dv-job.html"><span class="doc">minimal DaVinci job</span></a> with and without the <code class="docutils literal notranslate"><span class="pre">StrippingSelection</span></code>/<code class="docutils literal notranslate"><span class="pre">DecayTreeTuple</span></code> selections, and compare their performance</p>
 <p>In this particular case, there is a simple way to achieve a CPU-efficient code with <code class="docutils literal notranslate"><span class="pre">DecayTreeTuple</span></code>, thanks to the use of <code class="docutils literal notranslate"><span class="pre">DaVinci</span></code> pre-event filters;</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">PhysConf.Filters</span> <span class="kn">import</span> <span class="n">LoKi_Filters</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">PhysConf.Filters</span><span class="w"> </span><span class="kn">import</span> <span class="n">LoKi_Filters</span>
 <span class="n">filter_</span> <span class="o">=</span> <span class="n">LoKi_Filters</span><span class="p">(</span><span class="n">STRIP_Code</span><span class="o">=</span><span class="s2">&quot;HLT_PASS(&#39;StrippingD2hhPromptDst2D2KKLineDecision&#39;)&quot;</span><span class="p">)</span>
 
 <span class="n">DaVinci</span><span class="p">()</span><span class="o">.</span><span class="n">EventPreFilters</span> <span class="o">=</span> <span class="n">filter_</span><span class="o">.</span><span class="n">filters</span><span class="p">(</span><span class="s2">&quot;FILTERS&quot;</span><span class="p">)</span>

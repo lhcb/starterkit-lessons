@@ -1,30 +1,27 @@
+
+
 <!DOCTYPE html>
-<html class="writer-html5" lang="en">
+<html class="writer-html5" lang="en" data-content_root="../">
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>What to do when something fails &mdash; LHCb Starterkit Lessons  documentation</title>
-      <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css" />
-      <link rel="stylesheet" type="text/css" href="../_static/panels.css" />
-      <link rel="stylesheet" type="text/css" href="../_static/starterkit.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../_static/panels.css?v=69fd799d" />
+      <link rel="stylesheet" type="text/css" href="../_static/starterkit.css?v=be2937d8" />
 
   
-  <!--[if lt IE 9]>
-    <script src="../_static/js/html5shiv.min.js"></script>
-  <![endif]-->
-  
-        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-        <script src="../_static/jquery.js"></script>
-        <script src="../_static/underscore.js"></script>
-        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script src="../_static/doctools.js"></script>
-        <script src="../_static/sphinx_highlight.js"></script>
-        <script src="../_static/panels.js"></script>
-        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-        <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-        <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../_static/panels.js?v=0f4bdeea"></script>
+      <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+      <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+      <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -258,7 +255,7 @@
            <div itemprop="articleBody">
              
   <section id="what-to-do-when-something-fails">
-<h1>What to do when something fails<a class="headerlink" href="#what-to-do-when-something-fails" title="Permalink to this heading"></a></h1>
+<h1>What to do when something fails<a class="headerlink" href="#what-to-do-when-something-fails" title="Link to this heading"></a></h1>
 <div class="panel panel-objectives docutils container">
 <div class="panel-header open docutils container">
 <p id="learning-objectives"><i class="fa fa-line-chart"></i> Learning Objectives</p>
@@ -369,7 +366,7 @@ For example, imagine we forgot to add the Kaons as inputs in <code class="docuti
 <p>And we would get suspicious about the <code class="docutils literal notranslate"><span class="pre">MotherCut</span></code>…</p>
 <p>The final trick is to use the <code class="docutils literal notranslate"><span class="pre">StoreExplorerAlg</span></code>, which shows us the state of the TES in the middle of execution.
 We can configure it very easily and insert it in the DaVinci sequence to see what is happening.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">Configurables</span> <span class="kn">import</span> <span class="n">StoreExplorerAlg</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">Configurables</span><span class="w"> </span><span class="kn">import</span> <span class="n">StoreExplorerAlg</span>
 
 <span class="n">DaVinci</span><span class="p">()</span><span class="o">.</span><span class="n">UserAlgorithms</span> <span class="o">+=</span> <span class="p">[</span><span class="n">StoreExplorerAlg</span><span class="p">(</span><span class="s2">&quot;Before&quot;</span><span class="p">),</span>
                              <span class="n">dstar_seq</span><span class="o">.</span><span class="n">sequence</span><span class="p">(),</span>

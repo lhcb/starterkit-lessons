@@ -1,28 +1,25 @@
+
+
 <!DOCTYPE html>
-<html class="writer-html5" lang="en">
+<html class="writer-html5" lang="en" data-content_root="../">
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Submitting a simple job &mdash; LHCb Starterkit Lessons  documentation</title>
-      <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css" />
-      <link rel="stylesheet" type="text/css" href="../_static/panels.css" />
-      <link rel="stylesheet" type="text/css" href="../_static/starterkit.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../_static/panels.css?v=69fd799d" />
+      <link rel="stylesheet" type="text/css" href="../_static/starterkit.css?v=be2937d8" />
 
   
-  <!--[if lt IE 9]>
-    <script src="../_static/js/html5shiv.min.js"></script>
-  <![endif]-->
-  
-        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-        <script src="../_static/jquery.js"></script>
-        <script src="../_static/underscore.js"></script>
-        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script src="../_static/doctools.js"></script>
-        <script src="../_static/sphinx_highlight.js"></script>
-        <script src="../_static/panels.js"></script>
-        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../_static/panels.js?v=0f4bdeea"></script>
+      <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -257,7 +254,7 @@
            <div itemprop="articleBody">
              
   <section id="submitting-a-simple-job">
-<h1>Submitting a simple job<a class="headerlink" href="#submitting-a-simple-job" title="Permalink to this heading"></a></h1>
+<h1>Submitting a simple job<a class="headerlink" href="#submitting-a-simple-job" title="Link to this heading"></a></h1>
 <div class="panel panel-objectives docutils container">
 <div class="panel-header open docutils container">
 <p id="learning-objectives"><i class="fa fa-line-chart"></i> Learning Objectives</p>
@@ -300,7 +297,7 @@ queue
 </div>
 <p>This tells you that the job has been submitted, and gives you the cluster ID (essentially, this is a unique reference number that HTCondor assigns to the job(s) you submitted). If you look in the current directory, you should see that it has automatically created the three files specified in the submit file earlier (<code class="docutils literal notranslate"><span class="pre">output.out</span></code>, <code class="docutils literal notranslate"><span class="pre">error.err</span></code>, and <code class="docutils literal notranslate"><span class="pre">log.log</span></code>). As the job progresses, it will add to these files as appropriate.</p>
 <section id="tracking-your-jobs">
-<h2>Tracking your jobs<a class="headerlink" href="#tracking-your-jobs" title="Permalink to this heading"></a></h2>
+<h2>Tracking your jobs<a class="headerlink" href="#tracking-your-jobs" title="Link to this heading"></a></h2>
 <p>While we’re waiting for the job to complete, we can track its progress from a terminal. There are multiple ways to do this, but here are some of the most useful:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">condor_q</span></code>: shows you the current queue, and the status of your job.</p></li>

@@ -1,28 +1,25 @@
+
+
 <!DOCTYPE html>
-<html class="writer-html5" lang="en">
+<html class="writer-html5" lang="en" data-content_root="../">
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Replace a mass hypothesis &mdash; LHCb Starterkit Lessons  documentation</title>
-      <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css" />
-      <link rel="stylesheet" type="text/css" href="../_static/panels.css" />
-      <link rel="stylesheet" type="text/css" href="../_static/starterkit.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../_static/panels.css?v=69fd799d" />
+      <link rel="stylesheet" type="text/css" href="../_static/starterkit.css?v=be2937d8" />
 
   
-  <!--[if lt IE 9]>
-    <script src="../_static/js/html5shiv.min.js"></script>
-  <![endif]-->
-  
-        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-        <script src="../_static/jquery.js"></script>
-        <script src="../_static/underscore.js"></script>
-        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script src="../_static/doctools.js"></script>
-        <script src="../_static/sphinx_highlight.js"></script>
-        <script src="../_static/panels.js"></script>
-        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../_static/panels.js?v=0f4bdeea"></script>
+      <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -256,7 +253,7 @@
            <div itemprop="articleBody">
              
   <section id="replace-a-mass-hypothesis">
-<h1>Replace a mass hypothesis<a class="headerlink" href="#replace-a-mass-hypothesis" title="Permalink to this heading"></a></h1>
+<h1>Replace a mass hypothesis<a class="headerlink" href="#replace-a-mass-hypothesis" title="Link to this heading"></a></h1>
 <div class="panel panel-objectives docutils container">
 <div class="panel-header open docutils container">
 <p id="learning-objectives"><i class="fa fa-line-chart"></i> Learning Objectives</p>
@@ -283,7 +280,7 @@ to look for new decay modes.</p>
 <p>There is an algorithm that allows us to replace parts of the decay descriptor called <code class="docutils literal notranslate"><span class="pre">SubstitutePID</span></code>:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># configure an algorithm to substitute the K+ (resp. the K-)</span>
 <span class="c1"># in the D0 (resp the D~0) decay by a pion </span>
-<span class="kn">from</span> <span class="nn">Configurables</span> <span class="kn">import</span> <span class="n">SubstitutePID</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">Configurables</span><span class="w"> </span><span class="kn">import</span> <span class="n">SubstitutePID</span>
 <span class="n">subs</span> <span class="o">=</span> <span class="n">SubstitutePID</span><span class="p">(</span>
     <span class="s1">&#39;MakeD02Kpi&#39;</span><span class="p">,</span>
     <span class="n">Code</span> <span class="o">=</span> <span class="s2">&quot;DECTREE(&#39;[D*(2010)+ -&gt; (D0 -&gt; K- K+) pi+]CC&#39;)&quot;</span><span class="p">,</span>
@@ -302,9 +299,9 @@ to look for new decay modes.</p>
 <p>means: Look for a decay of a Charm-particle into D0 plus any meson, where the D0 decays to (K- K+) and replace the K+ with a pi+.</p>
 <p>Note that <code class="docutils literal notranslate"><span class="pre">SubstitutePID</span></code> does not automatically handle complex conjugation via the <code class="docutils literal notranslate"><span class="pre">CC</span></code> operator. Therefore you have to specify all substitutions explicitely.</p>
 <p>Next we have to handle the input and output of this algorithm. This is accomplished using <a class="reference external" href="https://twiki.cern.ch/twiki/bin/view/LHCb/ParticleSelection">particle selections</a>. The input to our substitution algorithm will be the candidates produced by the stripping. In order to make them look like a selection we can use the <code class="docutils literal notranslate"><span class="pre">DataOnDemand</span></code> service:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">PhysSelPython.Wrappers</span> <span class="kn">import</span> <span class="n">Selection</span>
-<span class="kn">from</span> <span class="nn">PhysSelPython.Wrappers</span> <span class="kn">import</span> <span class="n">SelectionSequence</span>
-<span class="kn">from</span> <span class="nn">PhysSelPython.Wrappers</span> <span class="kn">import</span> <span class="n">DataOnDemand</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">PhysSelPython.Wrappers</span><span class="w"> </span><span class="kn">import</span> <span class="n">Selection</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">PhysSelPython.Wrappers</span><span class="w"> </span><span class="kn">import</span> <span class="n">SelectionSequence</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">PhysSelPython.Wrappers</span><span class="w"> </span><span class="kn">import</span> <span class="n">DataOnDemand</span>
 
 <span class="c1"># Stream and stripping line we want to use</span>
 <span class="n">stream</span> <span class="o">=</span> <span class="s1">&#39;AllStreams&#39;</span>
@@ -329,7 +326,7 @@ to look for new decay modes.</p>
 </pre></div>
 </div>
 <p>We are now ready to produce an ntuple on our newly created selection. As usual we configure a <code class="docutils literal notranslate"><span class="pre">DecayTreeTuple</span></code>, which now is looking for the candidates, which have the redefined D0 decay:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">Configurables</span> <span class="kn">import</span> <span class="n">DecayTreeTuple</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">Configurables</span><span class="w"> </span><span class="kn">import</span> <span class="n">DecayTreeTuple</span>
 
 <span class="c1"># Create an ntuple to capture D*+ decays from the new selection</span>
 <span class="n">dtt</span> <span class="o">=</span> <span class="n">DecayTreeTuple</span><span class="p">(</span><span class="s1">&#39;TupleDstToD0pi_D0ToKpi&#39;</span><span class="p">)</span>
@@ -350,7 +347,7 @@ The <a class="reference external" href="https://twiki.cern.ch/twiki/bin/view/LHC
 </div>
 </div>
 <p>Finally we add the <code class="docutils literal notranslate"><span class="pre">SelectionSequence</span></code> and the <code class="docutils literal notranslate"><span class="pre">DecayTreeTuple</span></code> to the DaVinci application. Since we are adding more than one algorithm we need a <code class="docutils literal notranslate"><span class="pre">GaudiSequencer</span></code> that takes care of calling everything in the right order:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">Configurables</span> <span class="kn">import</span> <span class="n">GaudiSequencer</span><span class="p">,</span> <span class="n">DaVinci</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">Configurables</span><span class="w"> </span><span class="kn">import</span> <span class="n">GaudiSequencer</span><span class="p">,</span> <span class="n">DaVinci</span>
 
 <span class="c1"># add our new selection and the tuple into the sequencer</span>
 <span class="n">seq</span> <span class="o">=</span> <span class="n">GaudiSequencer</span><span class="p">(</span><span class="s1">&#39;MyTupleSeq&#39;</span><span class="p">)</span>

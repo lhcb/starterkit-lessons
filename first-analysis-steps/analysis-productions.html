@@ -1,30 +1,27 @@
+
+
 <!DOCTYPE html>
-<html class="writer-html5" lang="en">
+<html class="writer-html5" lang="en" data-content_root="../">
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Analysis Productions &mdash; LHCb Starterkit Lessons  documentation</title>
-      <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css" />
-      <link rel="stylesheet" type="text/css" href="../_static/panels.css" />
-      <link rel="stylesheet" type="text/css" href="../_static/starterkit.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../_static/panels.css?v=69fd799d" />
+      <link rel="stylesheet" type="text/css" href="../_static/starterkit.css?v=be2937d8" />
 
   
-  <!--[if lt IE 9]>
-    <script src="../_static/js/html5shiv.min.js"></script>
-  <![endif]-->
-  
-        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-        <script src="../_static/jquery.js"></script>
-        <script src="../_static/underscore.js"></script>
-        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script src="../_static/doctools.js"></script>
-        <script src="../_static/sphinx_highlight.js"></script>
-        <script src="../_static/panels.js"></script>
-        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-        <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-        <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../_static/panels.js?v=0f4bdeea"></script>
+      <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+      <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+      <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -258,7 +255,7 @@
            <div itemprop="articleBody">
              
   <section id="analysis-productions">
-<h1>Analysis Productions<a class="headerlink" href="#analysis-productions" title="Permalink to this heading"></a></h1>
+<h1>Analysis Productions<a class="headerlink" href="#analysis-productions" title="Link to this heading"></a></h1>
 <div class="panel panel-objectives docutils container">
 <div class="panel-header open docutils container">
 <p id="learning-objectives"><i class="fa fa-line-chart"></i> Learning Objectives</p>
@@ -279,7 +276,7 @@
 </ul>
 <p>It is the goal of <a class="reference external" href="https://gitlab.cern.ch/lhcb-datapkg/AnalysisProductions/">Analysis Productions</a> to centralise and automate much of the process of making ntuples, and to keep a record of how datasets were produced. In Run 3, this is the preferred way to create ntuples for your analysis.</p>
 <section id="monitoring-productions">
-<h2>Monitoring productions<a class="headerlink" href="#monitoring-productions" title="Permalink to this heading"></a></h2>
+<h2>Monitoring productions<a class="headerlink" href="#monitoring-productions" title="Link to this heading"></a></h2>
 <p>Before we get into the how-to, let’s first take a look at the end result of a real production. Open the <a class="reference external" href="https://lhcb-analysis-productions.web.cern.ch/">Analysis Productions webpage</a>, and navigate to <code class="docutils literal notranslate"><span class="pre">Productions</span></code>. You should see a new menu appear, showing a list of productions. Using the search bar on the right you can search for any production of interest, try <code class="docutils literal notranslate"><span class="pre">b02dkpi</span></code> for example. This should return one result and clicking on it should show you a table of jobs belonging to the production.</p>
 <p>Each row in the table corresponds to a job belonging to this production, and displays:</p>
 <ul class="simple">
@@ -299,7 +296,7 @@
 <p>You can now explore this file by doing <code class="docutils literal notranslate"><span class="pre">TBrowser</span> <span class="pre">b</span></code> inside of ROOT (or with another method of your choice).</p>
 </section>
 <section id="creating-your-own-production">
-<h2>Creating your own production<a class="headerlink" href="#creating-your-own-production" title="Permalink to this heading"></a></h2>
+<h2>Creating your own production<a class="headerlink" href="#creating-your-own-production" title="Link to this heading"></a></h2>
 <p>For practice, we will now go through the steps of creating a simple production. For details about more advanced usage, see the <a class="reference external" href="https://lhcb-ap.docs.cern.ch/index.html">Analysis Productions documentation</a>.</p>
 <p>Start by creating a folder to work in, and into it clone the <a class="reference external" href="https://gitlab.cern.ch/lhcb-datapkg/AnalysisProductions">Analysis Productions repository</a>.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>clone<span class="w"> </span>ssh://git@gitlab.cern.ch:7999/lhcb-datapkg/AnalysisProductions.git
@@ -369,7 +366,7 @@
 </div>
 <p>For good practice, the final thing we should add is a README. This is a markdown file that will be used to document the information about your production in a more human-readable format. Create a file <code class="docutils literal notranslate"><span class="pre">README.md</span></code>, and add some pertinent information. If you’re not sure what to add, try looking at some existing productions to get an idea.</p>
 <section id="testing-your-production-locally">
-<h3>Testing your production locally<a class="headerlink" href="#testing-your-production-locally" title="Permalink to this heading"></a></h3>
+<h3>Testing your production locally<a class="headerlink" href="#testing-your-production-locally" title="Link to this heading"></a></h3>
 <p>Now we’ve got both of the files we need, we should test the production to make sure it works as expected. All of this will be done using the <code class="docutils literal notranslate"><span class="pre">lb-ap</span></code> command. Navigate up one level to the base directory of the repository (<code class="docutils literal notranslate"><span class="pre">AnalysisProductions</span></code>), and run <code class="docutils literal notranslate"><span class="pre">lb-ap</span></code>, which should display the following:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Usage: lb-ap [OPTIONS] COMMAND [ARGS]...
 
@@ -422,7 +419,7 @@ Commands:
 </div>
 </section>
 <section id="creating-a-merge-request">
-<h3>Creating a merge request<a class="headerlink" href="#creating-a-merge-request" title="Permalink to this heading"></a></h3>
+<h3>Creating a merge request<a class="headerlink" href="#creating-a-merge-request" title="Link to this heading"></a></h3>
 <p>Now that we’ve tested all of our changes and are sure that everything’s working as intended, we can prepare to submit them to the main repository by creating a merge request. Start by commiting the changes:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>add<span class="w"> </span>dv_basic.py
 git<span class="w"> </span>add<span class="w"> </span>info.yaml
@@ -444,7 +441,7 @@ ALWAYS:Results will be available at https://lhcb-analysis-productions.web.cern.c
 <p>You can open that link in your browser to view the status of the test jobs (example <a class="reference external" href="https://lhcb-analysis-productions.web.cern.ch/ana-prod/pipelines/?id=8610&amp;ci_run=starterkit">here</a>). After a few minutes, these should have completed - all being well, you’ve now successfully prepared your first production!</p>
 </section>
 <section id="analysis-productions-data">
-<h3>Analysis Productions Data<a class="headerlink" href="#analysis-productions-data" title="Permalink to this heading"></a></h3>
+<h3>Analysis Productions Data<a class="headerlink" href="#analysis-productions-data" title="Link to this heading"></a></h3>
 <p>We have created a standalone Python package, <a class="reference external" href="https://pypi.org/project/apd/">APD</a>, which can be used to help you access your Analysis Productions output.
 At the bottom of a job output page you can find an example of how to do this.
 For this starterkit example we could do</p>

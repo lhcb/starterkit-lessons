@@ -1,28 +1,25 @@
+
+
 <!DOCTYPE html>
-<html class="writer-html5" lang="en">
+<html class="writer-html5" lang="en" data-content_root="../">
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>HLT intro &mdash; LHCb Starterkit Lessons  documentation</title>
-      <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css" />
-      <link rel="stylesheet" type="text/css" href="../_static/panels.css" />
-      <link rel="stylesheet" type="text/css" href="../_static/starterkit.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../_static/panels.css?v=69fd799d" />
+      <link rel="stylesheet" type="text/css" href="../_static/starterkit.css?v=be2937d8" />
 
   
-  <!--[if lt IE 9]>
-    <script src="../_static/js/html5shiv.min.js"></script>
-  <![endif]-->
-  
-        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-        <script src="../_static/jquery.js"></script>
-        <script src="../_static/underscore.js"></script>
-        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script src="../_static/doctools.js"></script>
-        <script src="../_static/sphinx_highlight.js"></script>
-        <script src="../_static/panels.js"></script>
-        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../_static/panels.js?v=0f4bdeea"></script>
+      <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -256,7 +253,7 @@
            <div itemprop="articleBody">
              
   <section id="hlt-intro">
-<h1>HLT intro<a class="headerlink" href="#hlt-intro" title="Permalink to this heading"></a></h1>
+<h1>HLT intro<a class="headerlink" href="#hlt-intro" title="Link to this heading"></a></h1>
 <div class="panel panel-objectives docutils container">
 <div class="panel-header open docutils container">
 <p id="learning-objectives"><i class="fa fa-line-chart"></i> Learning Objectives</p>
@@ -296,15 +293,15 @@ The output of the Turbo stream is almost identical to the output of a Stripping
 line which goes to mdst.</p>
 <p>For Run 3 LHCb is removing the hardware trigger and the first stage of the software trigger will run at 30 MHz. The HLT is being developed in the <a class="reference external" href="https://twiki.cern.ch/twiki/bin/viewauth/LHCb/RealTimeAnalysis">Real-Time-Analysis project</a>.</p>
 <section id="add-trigger-information-to-your-ntuple">
-<h2>Add trigger information to your ntuple<a class="headerlink" href="#add-trigger-information-to-your-ntuple" title="Permalink to this heading"></a></h2>
+<h2>Add trigger information to your ntuple<a class="headerlink" href="#add-trigger-information-to-your-ntuple" title="Link to this heading"></a></h2>
 <p>In this section and the following, we will explain how to find out which trigger lines selected my signal.</p>
 <p>Copy the following DaVinci script to get an ntuple.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">Configurables</span> <span class="kn">import</span> <span class="n">DaVinci</span><span class="p">,</span> <span class="n">CondDB</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">Configurables</span><span class="w"> </span><span class="kn">import</span> <span class="n">DaVinci</span><span class="p">,</span> <span class="n">CondDB</span>
 
 <span class="n">stream</span> <span class="o">=</span> <span class="s2">&quot;Semileptonic&quot;</span>
 <span class="n">stripping_line</span> <span class="o">=</span> <span class="s2">&quot;B2DMuNuX_D0&quot;</span>
 
-<span class="kn">from</span> <span class="nn">PhysConf.Selections</span> <span class="kn">import</span> <span class="n">AutomaticData</span><span class="p">,</span> <span class="n">SelectionSequence</span><span class="p">,</span> <span class="n">TupleSelection</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">PhysConf.Selections</span><span class="w"> </span><span class="kn">import</span> <span class="n">AutomaticData</span><span class="p">,</span> <span class="n">SelectionSequence</span><span class="p">,</span> <span class="n">TupleSelection</span>
 <span class="n">my_particles_KPi</span> <span class="o">=</span> <span class="n">AutomaticData</span><span class="p">(</span> <span class="s2">&quot;/Event/</span><span class="si">{}</span><span class="s2">/Phys/</span><span class="si">{}</span><span class="s2">/Particles&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">stream</span><span class="p">,</span> <span class="n">stripping_line</span><span class="p">)</span> <span class="p">)</span>
 
 <span class="n">tupsel_KPi</span> <span class="o">=</span> <span class="n">TupleSelection</span> <span class="p">(</span>
@@ -338,14 +335,14 @@ line which goes to mdst.</p>
 <span class="n">DaVinci</span><span class="p">()</span><span class="o">.</span><span class="n">EvtMax</span> <span class="o">=</span> <span class="mi">1000</span>
 
 
-<span class="kn">from</span> <span class="nn">PhysConf.Filters</span> <span class="kn">import</span> <span class="n">LoKi_Filters</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">PhysConf.Filters</span><span class="w"> </span><span class="kn">import</span> <span class="n">LoKi_Filters</span>
 <span class="n">DaVinci</span><span class="p">()</span><span class="o">.</span><span class="n">EventPreFilters</span> <span class="o">=</span> <span class="p">[</span><span class="n">LoKi_Filters</span><span class="p">(</span>
     <span class="n">STRIP_Code</span><span class="o">=</span><span class="s2">&quot;HLT_PASS_RE(&#39;Stripping&quot;</span><span class="o">+</span><span class="n">stripping_line</span><span class="o">+</span><span class="s2">&quot;Decision&#39;)&quot;</span>
 <span class="p">)</span><span class="o">.</span><span class="n">sequencer</span><span class="p">(</span><span class="s1">&#39;PreFilter&#39;</span><span class="p">)]</span>
 
 
 <span class="c1"># file from lb-dirac dirac-dms-lfn-accessURL --Protocol=xroot /lhcb/LHCb/Collision18/SEMILEPTONIC.DST/00075559/0000/00075559_00002816_1.semileptonic.dst</span>
-<span class="kn">from</span> <span class="nn">GaudiConf</span> <span class="kn">import</span> <span class="n">IOHelper</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">GaudiConf</span><span class="w"> </span><span class="kn">import</span> <span class="n">IOHelper</span>
 <span class="n">IOHelper</span><span class="p">()</span><span class="o">.</span><span class="n">inputFiles</span><span class="p">([</span>
     <span class="s1">&#39;root://eoslhcb.cern.ch//eos/lhcb/grid/prod/lhcb/LHCb/Collision18/SEMILEPTONIC.DST/00075559/0000/00075559_00002816_1.semileptonic.dst&#39;</span>
 <span class="p">],</span> <span class="n">clear</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
@@ -381,7 +378,7 @@ with 2.</p>
 </div>
 </section>
 <section id="exploring-a-tck-list-of-trigger-lines">
-<h2>Exploring a TCK: List of trigger lines<a class="headerlink" href="#exploring-a-tck-list-of-trigger-lines" title="Permalink to this heading"></a></h2>
+<h2>Exploring a TCK: List of trigger lines<a class="headerlink" href="#exploring-a-tck-list-of-trigger-lines" title="Link to this heading"></a></h2>
 <p>To get a list of all available TCKs one can use TCKsh which is a python shell with predefined
 functions to explore TCKs, do</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span># Use the latest available Run 2 Moore release
@@ -401,7 +398,7 @@ $ lb-run -c best Moore/v28r3p1 TCKsh
 </div>
 </section>
 <section id="add-trigger-information-to-your-ntuple-continued">
-<h2>Add trigger information to your ntuple, continued<a class="headerlink" href="#add-trigger-information-to-your-ntuple-continued" title="Permalink to this heading"></a></h2>
+<h2>Add trigger information to your ntuple, continued<a class="headerlink" href="#add-trigger-information-to-your-ntuple-continued" title="Link to this heading"></a></h2>
 <p>Once you have a list of trigger lines, you can add this to <code class="docutils literal notranslate"><span class="pre">TupleToolTrigger</span></code>:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">triggerList</span> <span class="o">=</span> <span class="p">[</span>
     <span class="c1">#L0 TCKsh getL0Channels(0x11741801)</span>
@@ -431,7 +428,7 @@ $ lb-run -c best Moore/v28r3p1 TCKsh
 <p>Be aware you have to append <code class="docutils literal notranslate"><span class="pre">Decision</span></code> to the name of the trigger line.</p>
 </section>
 <section id="add-tistos-information-to-your-ntuple">
-<h2>Add TISTOS information to your ntuple<a class="headerlink" href="#add-tistos-information-to-your-ntuple" title="Permalink to this heading"></a></h2>
+<h2>Add TISTOS information to your ntuple<a class="headerlink" href="#add-tistos-information-to-your-ntuple" title="Link to this heading"></a></h2>
 <p>For analysis purposes it is important to know if your signal candidate was part of the trigger decision or not as one has different efficiencies for both categories. The following categories exist [ <a class="reference external" href="https://cds.cern.ch/record/1701134/files/LHCb-PUB-2014-039.pdf">LHCb-PUB-2014-039</a> ]:</p>
 <ol class="simple">
 <li><p>Triggered On Signal (TOS): events for which the presence of the signal is sufficient to generate a positive trigger decision.</p></li>
@@ -455,7 +452,7 @@ $ lb-run -c best Moore/v28r3p1 TCKsh
 </div>
 </section>
 <section id="exploring-a-tck-properties-of-trigger-lines">
-<h2>Exploring a TCK: Properties of trigger lines<a class="headerlink" href="#exploring-a-tck-properties-of-trigger-lines" title="Permalink to this heading"></a></h2>
+<h2>Exploring a TCK: Properties of trigger lines<a class="headerlink" href="#exploring-a-tck-properties-of-trigger-lines" title="Link to this heading"></a></h2>
 <p>If you want to get an overview of an Hlt line and its algorithms, you can do</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&gt; dump(&lt;TCK&gt;, lines = &lt;line_names_regex&gt;, file=&quot;output.txt&quot;)
 </pre></div>

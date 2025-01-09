@@ -1,30 +1,27 @@
+
+
 <!DOCTYPE html>
-<html class="writer-html5" lang="en">
+<html class="writer-html5" lang="en" data-content_root="../">
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>A Historical Approach &mdash; LHCb Starterkit Lessons  documentation</title>
-      <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css" />
-      <link rel="stylesheet" type="text/css" href="../_static/panels.css" />
-      <link rel="stylesheet" type="text/css" href="../_static/starterkit.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../_static/panels.css?v=69fd799d" />
+      <link rel="stylesheet" type="text/css" href="../_static/starterkit.css?v=be2937d8" />
 
   
-  <!--[if lt IE 9]>
-    <script src="../_static/js/html5shiv.min.js"></script>
-  <![endif]-->
-  
-        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-        <script src="../_static/jquery.js"></script>
-        <script src="../_static/underscore.js"></script>
-        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script src="../_static/doctools.js"></script>
-        <script src="../_static/sphinx_highlight.js"></script>
-        <script src="../_static/panels.js"></script>
-        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-        <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-        <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../_static/panels.js?v=0f4bdeea"></script>
+      <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+      <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+      <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -259,7 +256,7 @@
            <div itemprop="articleBody">
              
   <section id="a-historical-approach">
-<h1>A Historical Approach<a class="headerlink" href="#a-historical-approach" title="Permalink to this heading"></a></h1>
+<h1>A Historical Approach<a class="headerlink" href="#a-historical-approach" title="Link to this heading"></a></h1>
 <div class="panel panel-objectives docutils container">
 <div class="panel-header open docutils container">
 <p id="learning-objectives"><i class="fa fa-line-chart"></i> Learning Objectives</p>
@@ -292,7 +289,7 @@ Get your <a class="reference internal" href="../first-analysis-steps/loki-functo
 <div class="panel-body docutils container">
 <p>There’s no need to download the files from the Grid for this lesson.
 We can simply open them using the <code class="docutils literal notranslate"><span class="pre">root</span></code> protocol thanks to the fact that they are replicated at CERN:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">GaudiConf</span> <span class="kn">import</span> <span class="n">IOHelper</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">GaudiConf</span><span class="w"> </span><span class="kn">import</span> <span class="n">IOHelper</span>
 <span class="n">IOHelper</span><span class="p">()</span><span class="o">.</span><span class="n">inputFiles</span><span class="p">([(</span><span class="s1">&#39;root://eoslhcb.cern.ch//eos/lhcb/grid/prod/lhcb/MC/2016/ALLSTREAMS.DST/00062514/0000/00062514_00000008_7.AllStreams.dst&#39;</span><span class="p">)],</span>
                       <span class="n">clear</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
@@ -301,8 +298,8 @@ We can simply open them using the <code class="docutils literal notranslate"><sp
 </div>
 </div>
 <p>Our input pions and kaons can be imported from the <code class="docutils literal notranslate"><span class="pre">StandardParticles</span></code> package:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">StandardParticles</span> <span class="kn">import</span> <span class="n">StdAllNoPIDsPions</span> <span class="k">as</span> <span class="n">Pions</span>
-<span class="kn">from</span> <span class="nn">StandardParticles</span> <span class="kn">import</span> <span class="n">StdAllLooseKaons</span> <span class="k">as</span> <span class="n">Kaons</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">StandardParticles</span><span class="w"> </span><span class="kn">import</span> <span class="n">StdAllNoPIDsPions</span> <span class="k">as</span> <span class="n">Pions</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">StandardParticles</span><span class="w"> </span><span class="kn">import</span> <span class="n">StdAllLooseKaons</span> <span class="k">as</span> <span class="n">Kaons</span>
 </pre></div>
 </div>
 <p>This is an ideal way to get pre-made particles with the standard LHCb configuration.</p>
@@ -315,7 +312,7 @@ We can simply open them using the <code class="docutils literal notranslate"><sp
 The <code class="docutils literal notranslate"><span class="pre">StandardParticles</span></code>/<code class="docutils literal notranslate"><span class="pre">CommonParticles</span></code> packages (one imports the other), which you can find <a class="reference external" href="https://gitlab.cern.ch/lhcb/Phys/tree/master/Phys/CommonParticles">here</a>, allow to access premade particles with reasonable reconstruction/selections for us to use with <code class="docutils literal notranslate"><span class="pre">AutomaticData</span></code>.</p>
 <p>For example, in our specific case, we use the <code class="docutils literal notranslate"><span class="pre">AutomaticData</span></code> class with the <code class="docutils literal notranslate"><span class="pre">Phys/StdAllNoPIDsPions/Particles</span></code> and <code class="docutils literal notranslate"><span class="pre">Phys/StdAllLooseKaons/Particles</span></code> locations to access the output of the <code class="docutils literal notranslate"><span class="pre">StdAllNoPIDsPions</span></code> and <code class="docutils literal notranslate"><span class="pre">StdAllLooseKaons</span></code> algorithms, respectively (see <a class="reference external" href="https://gitlab.cern.ch/lhcb/Phys/blob/master/Phys/CommonParticles/python/CommonParticles/StdAllNoPIDsPions.py">here</a> and <a class="reference external" href="https://gitlab.cern.ch/lhcb/Phys/blob/master/Phys/CommonParticles/python/CommonParticles/StdAllLooseKaons.py">here</a>).
 Therefore, the following code would be equivalent to what we have used:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">PhysConf.Selections</span> <span class="kn">import</span> <span class="n">AutomaticData</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">PhysConf.Selections</span><span class="w"> </span><span class="kn">import</span> <span class="n">AutomaticData</span>
 <span class="n">Pions</span> <span class="o">=</span> <span class="n">AutomaticData</span><span class="p">(</span><span class="s1">&#39;Phys/StdAllNoPIDsPions/Particles&#39;</span><span class="p">)</span>
 <span class="n">Kaons</span> <span class="o">=</span> <span class="n">AutomaticData</span><span class="p">(</span><span class="s1">&#39;Phys/StdAllLooseKaons/Particles&#39;</span><span class="p">)</span>
 </pre></div>
@@ -355,7 +352,7 @@ For example:</p>
 </li>
 </ul>
 <p>With all the selections ready, we can build a combiner as</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">Configurables</span> <span class="kn">import</span> <span class="n">CombineParticles</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">Configurables</span><span class="w"> </span><span class="kn">import</span> <span class="n">CombineParticles</span>
 <span class="n">d0</span> <span class="o">=</span> <span class="n">CombineParticles</span><span class="p">(</span>
     <span class="s1">&#39;Combine_D0&#39;</span><span class="p">,</span>
     <span class="n">DecayDescriptor</span><span class="o">=</span><span class="s1">&#39;[D0 -&gt; K- K+]cc&#39;</span><span class="p">,</span>
@@ -377,7 +374,7 @@ For example:</p>
 </div>
 </div>
 <p>Now we have to build a <code class="docutils literal notranslate"><span class="pre">Selection</span></code> out of it so we can later on put all pieces together:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">PhysConf.Selections</span> <span class="kn">import</span> <span class="n">Selection</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">PhysConf.Selections</span><span class="w"> </span><span class="kn">import</span> <span class="n">Selection</span>
 <span class="n">d0_sel</span> <span class="o">=</span> <span class="n">Selection</span><span class="p">(</span>
     <span class="s1">&#39;Sel_D0&#39;</span><span class="p">,</span>
     <span class="n">Algorithm</span><span class="o">=</span><span class="n">d0</span><span class="p">,</span>
@@ -420,7 +417,7 @@ Now we can use another <code class="docutils literal notranslate"><span class="p
 some common particles/selection;
 for example, in our case we could have been building D0-&gt;K pi in the same script, and then we would have wanted to select the soft pion in the same way when building the Dstar.
 In this situation, we can make use of the <code class="docutils literal notranslate"><span class="pre">FilterDesktop</span></code> algorithm, which takes a TES location and filters the particles inside according to a given LoKi functor in the <code class="docutils literal notranslate"><span class="pre">Code</span></code> property, which then can be given as input to a <code class="docutils literal notranslate"><span class="pre">Selection</span></code>:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">Configurables</span> <span class="kn">import</span> <span class="n">FilterDesktop</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">Configurables</span><span class="w"> </span><span class="kn">import</span> <span class="n">FilterDesktop</span>
 <span class="n">soft_pion</span> <span class="o">=</span> <span class="n">FilterDesktop</span><span class="p">(</span><span class="s1">&#39;Filter_SoftPi&#39;</span><span class="p">,</span>
                           <span class="n">Code</span><span class="o">=</span><span class="s1">&#39;(TRCHI2DOF &lt; 3) &amp; (PT &gt; 100*MeV)&#39;</span><span class="p">)</span>
 <span class="n">soft_pion_sel</span> <span class="o">=</span> <span class="n">Selection</span><span class="p">(</span><span class="s1">&#39;Sel_SoftPi&#39;</span><span class="p">,</span>
@@ -446,9 +443,9 @@ In this situation, we can make use of the <code class="docutils literal notransl
 </div>
 </div>
 <p>We can now build build a <code class="docutils literal notranslate"><span class="pre">SelectionSequence</span></code> to add to the <code class="docutils literal notranslate"><span class="pre">DaVinci</span></code> execution sequence</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">PhysConf.Selections</span> <span class="kn">import</span> <span class="n">SelectionSequence</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">PhysConf.Selections</span><span class="w"> </span><span class="kn">import</span> <span class="n">SelectionSequence</span>
 <span class="n">dstar_seq</span> <span class="o">=</span> <span class="n">SelectionSequence</span><span class="p">(</span><span class="s1">&#39;Dstar_Seq&#39;</span><span class="p">,</span> <span class="n">TopSelection</span><span class="o">=</span><span class="n">dstar_sel</span><span class="p">)</span>
-<span class="kn">from</span> <span class="nn">Configurables</span> <span class="kn">import</span> <span class="n">DaVinci</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">Configurables</span><span class="w"> </span><span class="kn">import</span> <span class="n">DaVinci</span>
 <span class="n">DaVinci</span><span class="p">()</span><span class="o">.</span><span class="n">UserAlgorithms</span> <span class="o">+=</span> <span class="p">[</span><span class="n">dstar_seq</span><span class="o">.</span><span class="n">sequence</span><span class="p">()]</span>
 </pre></div>
 </div>

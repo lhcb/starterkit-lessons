@@ -1,28 +1,25 @@
+
+
 <!DOCTYPE html>
-<html class="writer-html5" lang="en">
+<html class="writer-html5" lang="en" data-content_root="../">
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>More submit file options &mdash; LHCb Starterkit Lessons  documentation</title>
-      <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css" />
-      <link rel="stylesheet" type="text/css" href="../_static/panels.css" />
-      <link rel="stylesheet" type="text/css" href="../_static/starterkit.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../_static/panels.css?v=69fd799d" />
+      <link rel="stylesheet" type="text/css" href="../_static/starterkit.css?v=be2937d8" />
 
   
-  <!--[if lt IE 9]>
-    <script src="../_static/js/html5shiv.min.js"></script>
-  <![endif]-->
-  
-        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-        <script src="../_static/jquery.js"></script>
-        <script src="../_static/underscore.js"></script>
-        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script src="../_static/doctools.js"></script>
-        <script src="../_static/sphinx_highlight.js"></script>
-        <script src="../_static/panels.js"></script>
-        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../_static/panels.js?v=0f4bdeea"></script>
+      <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -257,7 +254,7 @@
            <div itemprop="articleBody">
              
   <section id="more-submit-file-options">
-<h1>More submit file options<a class="headerlink" href="#more-submit-file-options" title="Permalink to this heading"></a></h1>
+<h1>More submit file options<a class="headerlink" href="#more-submit-file-options" title="Link to this heading"></a></h1>
 <div class="panel panel-objectives docutils container">
 <div class="panel-header open docutils container">
 <p id="learning-objectives"><i class="fa fa-line-chart"></i> Learning Objectives</p>
@@ -272,7 +269,7 @@
 </div>
 <p>The options showcased in submit file used in the previous section are enough for certain simpler jobs, but for many purposes you will want to do more. This section of the lesson will cover a selection of some of the more common and/or useful ones, and the settings you’ll likely want to use for your own jobs. For more information, a complete list can be found <a class="reference external" href="https://research.cs.wisc.edu/htcondor/manual/v7.6/condor_submit.html">in the documentation</a> for <code class="docutils literal notranslate"><span class="pre">condor_submit</span></code>.</p>
 <section id="input-files">
-<h2>Input files<a class="headerlink" href="#input-files" title="Permalink to this heading"></a></h2>
+<h2>Input files<a class="headerlink" href="#input-files" title="Link to this heading"></a></h2>
 <p>Often, you’ll want your job to process data that’s stored in another file. Create a file <code class="docutils literal notranslate"><span class="pre">input.txt</span></code> and add some lines of text to it. To test this, you can use the following bash script, placed in <code class="docutils literal notranslate"><span class="pre">exec.sh</span></code>:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>#!/bin/bash
 echo &quot;# Contents of file &#39;input.txt&#39;: #&quot;
@@ -319,7 +316,7 @@ python process_file.py
 </div>
 </section>
 <section id="output-files">
-<h2>Output files<a class="headerlink" href="#output-files" title="Permalink to this heading"></a></h2>
+<h2>Output files<a class="headerlink" href="#output-files" title="Link to this heading"></a></h2>
 <p>HTCondor uses the name ‘output file’ to refer to different things in different contexts, so it’s important to make it clear which is meant. One of these is the one that’s been used so far, which refers to the one specified in the submit file (using the <code class="docutils literal notranslate"><span class="pre">output</span></code> option) which contains the STDOUT (terminal output) of your executable. The other use is for any new files that your executable may create as it runs. This part will cover the second of these.</p>
 <p>Let’s modify our python script so that, instead of displaying the file contents in the terminal, it puts all the text into upper-case and saves it to a new file. This new script will look something like:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>f_in = open(&#39;input.txt&#39;, &#39;r&#39;)
@@ -354,7 +351,7 @@ when_to_transfer_output = ON_EXIT
 </ul>
 </section>
 <section id="arguments">
-<h2>Arguments<a class="headerlink" href="#arguments" title="Permalink to this heading"></a></h2>
+<h2>Arguments<a class="headerlink" href="#arguments" title="Link to this heading"></a></h2>
 <p>If your executable takes command-line arguments, you need to specify them in the submit file using the <code class="docutils literal notranslate"><span class="pre">arguments</span></code> option. Anything you put here will be passed as an argument to the executable.</p>
 <p>To test this out, let’s modify our python script to add an argument that will let us choose whether to change the text to upper or lower-case. For convenience, you can use the <code class="docutils literal notranslate"><span class="pre">argparse</span></code> library:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>import argparse
@@ -384,7 +381,7 @@ python process_file.py &quot;$@&quot;
 <p>Submitting the job now should give produce a file <code class="docutils literal notranslate"><span class="pre">result.txt</span></code> with all the text all in upper-case. You can also switch modes by changing the argument in the submit file from <code class="docutils literal notranslate"><span class="pre">upper</span></code> to <code class="docutils literal notranslate"><span class="pre">lower</span></code> - submitting this job should replace <code class="docutils literal notranslate"><span class="pre">result.txt</span></code> with a version in all lower-case.</p>
 </section>
 <section id="resources-and-requirements">
-<h2>Resources and Requirements<a class="headerlink" href="#resources-and-requirements" title="Permalink to this heading"></a></h2>
+<h2>Resources and Requirements<a class="headerlink" href="#resources-and-requirements" title="Link to this heading"></a></h2>
 <p>You can specify running conditions of your jobs in the submit file. The system for doing this uses what are known as ClassAd attributes, which are essentially properties of some part of the system (machines, jobs, the scheduler, etc.). You can use these to tell HTCondor about the requirements and preferences you have for your jobs. These can be specified in the submit file using the <code class="docutils literal notranslate"><span class="pre">requirements</span></code> and <code class="docutils literal notranslate"><span class="pre">rank</span></code> options respectively.</p>
 <p>A complete list of ClassAd attributes can be found <a class="reference external" href="https://research.cs.wisc.edu/htcondor/manual/v8.8/ClassAdAttributes.html#x167-1231000A">in the documentation</a>, but in this part a few particularly useful ones are highlighted. Note that, by using these, you are restricting how your job can run, which means that it will likely take longer to run. You should use these with care, and speak with the Batch support team for advice if you’re not sure.</p>
 <ul class="simple">
@@ -412,7 +409,7 @@ nextweek     = 1 week
 </div>
 </section>
 <section id="notifications">
-<h2>Notifications<a class="headerlink" href="#notifications" title="Permalink to this heading"></a></h2>
+<h2>Notifications<a class="headerlink" href="#notifications" title="Link to this heading"></a></h2>
 <p>If you want, you can tell HTCondor to send you emails updating you on the progress of your job. In your submit file, add the line:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>notify_user = &lt;your_email_address&gt;
 </pre></div>

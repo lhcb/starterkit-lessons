@@ -1,30 +1,27 @@
+
+
 <!DOCTYPE html>
-<html class="writer-html5" lang="en">
+<html class="writer-html5" lang="en" data-content_root="../">
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Which option files to use and how to run Gauss &mdash; LHCb Starterkit Lessons  documentation</title>
-      <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css" />
-      <link rel="stylesheet" type="text/css" href="../_static/panels.css" />
-      <link rel="stylesheet" type="text/css" href="../_static/starterkit.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../_static/panels.css?v=69fd799d" />
+      <link rel="stylesheet" type="text/css" href="../_static/starterkit.css?v=be2937d8" />
 
   
-  <!--[if lt IE 9]>
-    <script src="../_static/js/html5shiv.min.js"></script>
-  <![endif]-->
-  
-        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-        <script src="../_static/jquery.js"></script>
-        <script src="../_static/underscore.js"></script>
-        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script src="../_static/doctools.js"></script>
-        <script src="../_static/sphinx_highlight.js"></script>
-        <script src="../_static/panels.js"></script>
-        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-        <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-        <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../_static/panels.js?v=0f4bdeea"></script>
+      <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+      <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+      <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -270,7 +267,7 @@
 </div>
 </div>
 <section id="which-option-files-to-use-and-how-to-run-gauss">
-<h1>Which option files to use and how to run Gauss<a class="headerlink" href="#which-option-files-to-use-and-how-to-run-gauss" title="Permalink to this heading"></a></h1>
+<h1>Which option files to use and how to run Gauss<a class="headerlink" href="#which-option-files-to-use-and-how-to-run-gauss" title="Link to this heading"></a></h1>
 <p>Imagine you need to know the option files and software versions used for a simulated sample you have found in the bookkeeping, e.g.</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>/MC/2016/Beam6500GeV-2016-MagDown-Nu1.6-25ns-Pythia8/Sim09c/Trig0x6138160F/Reco16/Turbo03/Stripping28r1Filtered/27163003/D2HMUNUSTREAM.STRIP.DST
 </pre></div>
@@ -289,15 +286,15 @@ produces the sample using Pythia 8 while <code class="docutils literal notransla
 </div>
 </section>
 <section id="running-gauss-and-create-a-generator-only-sample">
-<h1>Running Gauss and create a generator-only sample<a class="headerlink" href="#running-gauss-and-create-a-generator-only-sample" title="Permalink to this heading"></a></h1>
+<h1>Running Gauss and create a generator-only sample<a class="headerlink" href="#running-gauss-and-create-a-generator-only-sample" title="Link to this heading"></a></h1>
 <p>The production system handles the necessary settings for initial event- and runnumber and the used database tags. In a private production, you need to set these yourself in an additional options file, containing, for example:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">Gauss.Configuration</span> <span class="kn">import</span> <span class="n">GenInit</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">Gauss.Configuration</span><span class="w"> </span><span class="kn">import</span> <span class="n">GenInit</span>
 
 <span class="n">GaussGen</span> <span class="o">=</span> <span class="n">GenInit</span><span class="p">(</span><span class="s2">&quot;GaussGen&quot;</span><span class="p">)</span>
 <span class="n">GaussGen</span><span class="o">.</span><span class="n">FirstEventNumber</span> <span class="o">=</span> <span class="mi">1</span>
 <span class="n">GaussGen</span><span class="o">.</span><span class="n">RunNumber</span> <span class="o">=</span> <span class="mi">1082</span>
 
-<span class="kn">from</span> <span class="nn">Configurables</span> <span class="kn">import</span> <span class="n">LHCbApp</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">Configurables</span><span class="w"> </span><span class="kn">import</span> <span class="n">LHCbApp</span>
 <span class="n">LHCbApp</span><span class="p">()</span><span class="o">.</span><span class="n">DDDBtag</span> <span class="o">=</span> <span class="s1">&#39;dddb-20170721-3&#39;</span>
 <span class="n">LHCbApp</span><span class="p">()</span><span class="o">.</span><span class="n">CondDBtag</span> <span class="o">=</span> <span class="s1">&#39;sim-20170721-2-vc-md100&#39;</span>
 <span class="n">LHCbApp</span><span class="p">()</span><span class="o">.</span><span class="n">EvtMax</span> <span class="o">=</span> <span class="mi">5</span>
@@ -338,7 +335,7 @@ produces the sample using Pythia 8 while <code class="docutils literal notransla
 </div>
 <div class="panel-body docutils container">
 <p>You can source the various options files from your <code class="docutils literal notranslate"><span class="pre">'Gauss-Job.py'</span></code> by adding at its top:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">Gaudi.Configuration</span> <span class="kn">import</span> <span class="o">*</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">Gaudi.Configuration</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>
 <span class="n">importOptions</span><span class="p">(</span><span class="s2">&quot;$APPCONFIGOPTS/Gauss/Beam6500GeV-md100-2016-nu1.6.py&quot;</span><span class="p">)</span>
 <span class="c1"># etc ...</span>
 </pre></div>
@@ -348,9 +345,9 @@ produces the sample using Pythia 8 while <code class="docutils literal notransla
 <p>See if you can generate a generator level only sample for event type <code class="docutils literal notranslate"><span class="pre">27175000</span></code> ( <span class="math notranslate nohighlight">\(` D^{*+} \to D^{0}(\to K^{+}K^{-}\mu^{+}\mu^{-})\pi^{+} `\)</span> )</p>
 </section>
 <section id="make-an-ntuple">
-<h1>Make an nTuple<a class="headerlink" href="#make-an-ntuple" title="Permalink to this heading"></a></h1>
+<h1>Make an nTuple<a class="headerlink" href="#make-an-ntuple" title="Link to this heading"></a></h1>
 <p>The <code class="docutils literal notranslate"><span class="pre">.xgen</span></code> file can be processed into something more usable (copied together from <a class="reference external" href="https://gitlab.cern.ch/lhcb-datapkg/Gen/DecFiles/blob/master/CONTRIBUTING.md#">here</a>).
-A larger input file containing 50,000 generated events for event-type can be found on EOS: <code class="docutils literal notranslate"><span class="pre">root://eosuser.cern.ch//eos/user/l/lhcbsk/sim-lesson-2019/Gauss-27175000-50000ev-20190515.xgen</span></code>.</p>
+A larger input file containing 50,000 generated events for event-type can be found on EOS: <code class="docutils literal notranslate"><span class="pre">root://eoslhcb.cern.ch//eos/lhcb/wg/dpa/wp7/Run2SK/simulation/Gauss-27175000-50000ev-20241216.xgen</span></code>.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot;Configure the variables below with:</span>
 <span class="sd">decay: Decay you want to inspect, using &#39;newer&#39; LoKi decay descriptor syntax,</span>
 <span class="sd">decay_heads: Particles you&#39;d like to see the decay tree of,</span>
@@ -372,11 +369,11 @@ A larger input file containing 50,000 generated events for event-type can be fou
     <span class="s1">&#39;P&#39;</span><span class="p">:</span> <span class="s1">&#39;MCP&#39;</span><span class="p">,</span>
 <span class="p">}</span>
 
-<span class="kn">from</span> <span class="nn">Configurables</span> <span class="kn">import</span> <span class="p">(</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">Configurables</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
     <span class="n">DaVinci</span><span class="p">,</span>
     <span class="n">MCDecayTreeTuple</span>
 <span class="p">)</span>
-<span class="kn">from</span> <span class="nn">DecayTreeTuple.Configuration</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">DecayTreeTuple.Configuration</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>
 
 <span class="c1"># For a quick and dirty check, you don&#39;t need to edit anything below here.</span>
 <span class="c1">##########################################################################</span>
@@ -391,7 +388,7 @@ A larger input file containing 50,000 generated events for event-type can be fou
 <span class="p">)</span><span class="o">.</span><span class="n">Variables</span> <span class="o">=</span> <span class="n">mc_basic_loki_vars</span>
 
 <span class="c1"># Name of the .xgen file produced by Gauss</span>
-<span class="kn">from</span> <span class="nn">GaudiConf</span> <span class="kn">import</span> <span class="n">IOHelper</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">GaudiConf</span><span class="w"> </span><span class="kn">import</span> <span class="n">IOHelper</span>
 <span class="c1"># Use the local input data</span>
 <span class="n">IOHelper</span><span class="p">()</span><span class="o">.</span><span class="n">inputFiles</span><span class="p">([</span>
     <span class="n">datafile</span>
@@ -405,17 +402,17 @@ A larger input file containing 50,000 generated events for event-type can be fou
 <span class="n">DaVinci</span><span class="p">()</span><span class="o">.</span><span class="n">InputType</span> <span class="o">=</span> <span class="s1">&#39;DIGI&#39;</span>
 <span class="n">DaVinci</span><span class="p">()</span><span class="o">.</span><span class="n">UserAlgorithms</span> <span class="o">=</span> <span class="p">[</span><span class="n">mctuple</span><span class="p">]</span>
 
-<span class="kn">from</span> <span class="nn">Gaudi.Configuration</span> <span class="kn">import</span> <span class="n">appendPostConfigAction</span>
-<span class="k">def</span> <span class="nf">doIt</span><span class="p">():</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">Gaudi.Configuration</span><span class="w"> </span><span class="kn">import</span> <span class="n">appendPostConfigAction</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">doIt</span><span class="p">():</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    specific post-config action for (x)GEN-files</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">extension</span> <span class="o">=</span> <span class="s2">&quot;xgen&quot;</span>
     <span class="n">ext</span> <span class="o">=</span> <span class="n">extension</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>
 
-    <span class="kn">from</span> <span class="nn">Configurables</span> <span class="kn">import</span> <span class="n">DataOnDemandSvc</span>
+    <span class="kn">from</span><span class="w"> </span><span class="nn">Configurables</span><span class="w"> </span><span class="kn">import</span> <span class="n">DataOnDemandSvc</span>
     <span class="n">dod</span>  <span class="o">=</span> <span class="n">DataOnDemandSvc</span> <span class="p">()</span>
-    <span class="kn">from</span> <span class="nn">copy</span> <span class="kn">import</span> <span class="n">deepcopy</span>
+    <span class="kn">from</span><span class="w"> </span><span class="nn">copy</span><span class="w"> </span><span class="kn">import</span> <span class="n">deepcopy</span>
     <span class="n">algs</span> <span class="o">=</span> <span class="n">deepcopy</span> <span class="p">(</span> <span class="n">dod</span><span class="o">.</span><span class="n">AlgMap</span> <span class="p">)</span>
     <span class="n">bad</span>  <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
     <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">algs</span> <span class="p">:</span>
@@ -433,7 +430,7 @@ A larger input file containing 50,000 generated events for event-type can be fou
 
     <span class="n">dod</span><span class="o">.</span><span class="n">AlgMap</span> <span class="o">=</span> <span class="n">algs</span>
 
-    <span class="kn">from</span> <span class="nn">Configurables</span> <span class="kn">import</span> <span class="n">EventClockSvc</span><span class="p">,</span> <span class="n">CondDB</span>
+    <span class="kn">from</span><span class="w"> </span><span class="nn">Configurables</span><span class="w"> </span><span class="kn">import</span> <span class="n">EventClockSvc</span><span class="p">,</span> <span class="n">CondDB</span>
     <span class="n">EventClockSvc</span> <span class="p">(</span> <span class="n">EventTimeDecoder</span> <span class="o">=</span> <span class="s2">&quot;FakeEventTime&quot;</span> <span class="p">)</span>
     <span class="n">CondDB</span>  <span class="p">(</span> <span class="n">IgnoreHeartBeat</span> <span class="o">=</span> <span class="kc">True</span> <span class="p">)</span>
 

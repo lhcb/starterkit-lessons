@@ -1,28 +1,25 @@
+
+
 <!DOCTYPE html>
-<html class="writer-html5" lang="en">
+<html class="writer-html5" lang="en" data-content_root="../">
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Batch submission using HTCondor &mdash; LHCb Starterkit Lessons  documentation</title>
-      <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css" />
-      <link rel="stylesheet" type="text/css" href="../_static/panels.css" />
-      <link rel="stylesheet" type="text/css" href="../_static/starterkit.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../_static/panels.css?v=69fd799d" />
+      <link rel="stylesheet" type="text/css" href="../_static/starterkit.css?v=be2937d8" />
 
   
-  <!--[if lt IE 9]>
-    <script src="../_static/js/html5shiv.min.js"></script>
-  <![endif]-->
-  
-        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-        <script src="../_static/jquery.js"></script>
-        <script src="../_static/underscore.js"></script>
-        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script src="../_static/doctools.js"></script>
-        <script src="../_static/sphinx_highlight.js"></script>
-        <script src="../_static/panels.js"></script>
-        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../_static/panels.js?v=0f4bdeea"></script>
+      <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -256,7 +253,7 @@
            <div itemprop="articleBody">
              
   <section id="batch-submission-using-htcondor">
-<h1>Batch submission using HTCondor<a class="headerlink" href="#batch-submission-using-htcondor" title="Permalink to this heading"></a></h1>
+<h1>Batch submission using HTCondor<a class="headerlink" href="#batch-submission-using-htcondor" title="Link to this heading"></a></h1>
 <div class="panel panel-callout docutils container">
 <div class="panel-header open docutils container">
 <p id="lhcb-fair-usage-of-grid-resources"><i class="fa fa-info-circle"></i> LHCb fair-usage of Grid resources</p>
@@ -313,13 +310,13 @@
 </ul>
 </div>
 <section id="system-architecture">
-<h2>System architecture<a class="headerlink" href="#system-architecture" title="Permalink to this heading"></a></h2>
+<h2>System architecture<a class="headerlink" href="#system-architecture" title="Link to this heading"></a></h2>
 <p>When you connect to lxplus, you have read/write access to both the AFS and EOS filesystems, as well as read-only access to CVMFS for accessing experiment software. Worker notes in the batch system have the same permissions, which is what allows them to read input files from, and write output files to, your user areas.</p>
 <p>Each worker node has its own remote storage space, which is limited to 20GB. When a job starts, the executable is copied to this storage area, usually along with any input data files required. Any files created by the script should be created there as well, where they can later be transferred back to your user area. When a job completes, the worker node cleans out its storage area, so it’s important to tell HTCondor to transfer any output files you want to keep.</p>
 <p>See <a class="reference external" href="https://batchdocs.web.cern.ch/concepts/dataflow.html">here</a> for a more detailed explanation (and a helpful diagram).</p>
 </section>
 <section id="other-useful-resources">
-<h2>Other useful resources<a class="headerlink" href="#other-useful-resources" title="Permalink to this heading"></a></h2>
+<h2>Other useful resources<a class="headerlink" href="#other-useful-resources" title="Link to this heading"></a></h2>
 <p>While putting this lesson together, the following guides, tutorials, and pages proved highly useful, and may be useful to you as well if you need more information:</p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://research.cs.wisc.edu/htcondor/manual/v8.8/">HTCondor v8.8.2 Manual</a> - University of Wisconsin-Madison</p></li>

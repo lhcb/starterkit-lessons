@@ -1,30 +1,27 @@
+
+
 <!DOCTYPE html>
-<html class="writer-html5" lang="en">
+<html class="writer-html5" lang="en" data-content_root="../">
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Reuse particles from a decay tree &mdash; LHCb Starterkit Lessons  documentation</title>
-      <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css" />
-      <link rel="stylesheet" type="text/css" href="../_static/panels.css" />
-      <link rel="stylesheet" type="text/css" href="../_static/starterkit.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../_static/panels.css?v=69fd799d" />
+      <link rel="stylesheet" type="text/css" href="../_static/starterkit.css?v=be2937d8" />
 
   
-  <!--[if lt IE 9]>
-    <script src="../_static/js/html5shiv.min.js"></script>
-  <![endif]-->
-  
-        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-        <script src="../_static/jquery.js"></script>
-        <script src="../_static/underscore.js"></script>
-        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script src="../_static/doctools.js"></script>
-        <script src="../_static/sphinx_highlight.js"></script>
-        <script src="../_static/panels.js"></script>
-        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-        <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-        <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../_static/panels.js?v=0f4bdeea"></script>
+      <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+      <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+      <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -258,7 +255,7 @@
            <div itemprop="articleBody">
              
   <section id="reuse-particles-from-a-decay-tree">
-<h1>Reuse particles from a decay tree<a class="headerlink" href="#reuse-particles-from-a-decay-tree" title="Permalink to this heading"></a></h1>
+<h1>Reuse particles from a decay tree<a class="headerlink" href="#reuse-particles-from-a-decay-tree" title="Link to this heading"></a></h1>
 <div class="panel panel-objectives docutils container">
 <div class="panel-header open docutils container">
 <p id="learning-objectives"><i class="fa fa-line-chart"></i> Learning Objectives</p>
@@ -276,8 +273,8 @@ To achieve this we can use the <code class="docutils literal notranslate"><span 
 <p>Let’s start from the example in <a class="reference internal" href="building-decays-part0.html"><span class="doc">the selection framework lesson</span></a> and let’s check that the <span class="math notranslate nohighlight">\(` K^+ `\)</span> child of the <span class="math notranslate nohighlight">\(` D^0 `\)</span> does not come from a <span class="math notranslate nohighlight">\(` K^{*}(892)^{0} \to K^{+}\pi^{-} `\)</span>.
 To do that, we have to extract the <span class="math notranslate nohighlight">\(` K^+ `\)</span> from <code class="docutils literal notranslate"><span class="pre">([D0</span> <span class="pre">-&gt;</span> <span class="pre">K+</span> <span class="pre">K-]CC)</span></code> and combine it with all pions in <code class="docutils literal notranslate"><span class="pre">Phys/StdAllNoPIDsPions/Particles</span></code>.</p>
 <p>Using <code class="docutils literal notranslate"><span class="pre">FilterInTrees</span></code> is done in the same way we would use <code class="docutils literal notranslate"><span class="pre">FilterDesktop</span></code>:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">Configurables</span> <span class="kn">import</span> <span class="n">FilterInTrees</span>
-<span class="kn">from</span> <span class="nn">PhysSelPython.Wrappers</span> <span class="kn">import</span> <span class="n">Selection</span><span class="p">,</span> <span class="n">DataOnDemand</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">Configurables</span><span class="w"> </span><span class="kn">import</span> <span class="n">FilterInTrees</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">PhysSelPython.Wrappers</span><span class="w"> </span><span class="kn">import</span> <span class="n">Selection</span><span class="p">,</span> <span class="n">DataOnDemand</span>
 
 <span class="n">stream</span> <span class="o">=</span> <span class="s1">&#39;AllStreams&#39;</span>
 <span class="n">line</span> <span class="o">=</span> <span class="s1">&#39;D2hhPromptDst2D2KKLine&#39;</span>
@@ -291,8 +288,8 @@ To do that, we have to extract the <span class="math notranslate nohighlight">\(
 </div>
 <p>The output of <code class="docutils literal notranslate"><span class="pre">kaons_from_d0_sel</span></code> is a container with all the kaons coming from the <span class="math notranslate nohighlight">\(` D^0 `\)</span>.</p>
 <p>The final step is easy, very similar to <a class="reference internal" href="building-decays-part0.html"><span class="doc">building your own decay</span></a>:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">Configurables</span> <span class="kn">import</span> <span class="n">CombineParticles</span>
-<span class="kn">from</span> <span class="nn">PhysSelPython.Wrappers</span> <span class="kn">import</span> <span class="n">Selection</span><span class="p">,</span> <span class="n">DataOnDemand</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">Configurables</span><span class="w"> </span><span class="kn">import</span> <span class="n">CombineParticles</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">PhysSelPython.Wrappers</span><span class="w"> </span><span class="kn">import</span> <span class="n">Selection</span><span class="p">,</span> <span class="n">DataOnDemand</span>
 
 <span class="n">Pions</span> <span class="o">=</span> <span class="n">DataOnDemand</span><span class="p">(</span><span class="s1">&#39;Phys/StdAllNoPIDsPions/Particles&#39;</span><span class="p">)</span>
 <span class="n">kst</span> <span class="o">=</span> <span class="n">CombineParticles</span><span class="p">(</span><span class="s1">&#39;kst_particles&#39;</span><span class="p">,</span>
@@ -325,7 +322,7 @@ To do that, we have to extract the <span class="math notranslate nohighlight">\(
 once and obtain a flattened list.
 For example, if we had a Stripping line that builds <code class="docutils literal notranslate"><span class="pre">[B-</span>&#160; <span class="pre">-&gt;</span> <span class="pre">(^D0</span> <span class="pre">-&gt;</span> <span class="pre">^K-</span> <span class="pre">^pi+)</span> <span class="pre">^pi-]cc</span></code> and we wanted to combine the <code class="docutils literal notranslate"><span class="pre">D0</span></code> and <code class="docutils literal notranslate"><span class="pre">pi-</span></code> with an external <code class="docutils literal notranslate"><span class="pre">pi0</span></code> to build <code class="docutils literal notranslate"><span class="pre">[B-</span> <span class="pre">-&gt;</span> <span class="pre">D0</span> <span class="pre">pi-</span> <span class="pre">pi0]cc</span></code>, we could do</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">flatlist</span> <span class="o">=</span> <span class="n">FilterInTrees</span> <span class="p">(</span><span class="s2">&quot;FlatList&quot;</span><span class="p">,</span> <span class="n">Code</span><span class="o">=</span><span class="s2">&quot;(&#39;D0&#39; == ABSID) | (&#39;pi-&#39; == ABSID)&quot;</span><span class="p">)</span>
-<span class="kn">from</span> <span class="nn">Configurables</span> <span class="kn">import</span> <span class="n">CombineParticles</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">Configurables</span><span class="w"> </span><span class="kn">import</span> <span class="n">CombineParticles</span>
 <span class="n">add_pi0</span> <span class="o">=</span> <span class="n">CombineParticles</span><span class="p">(</span><span class="s2">&quot;MakeB&quot;</span><span class="p">,</span>
                            <span class="n">DecayDescriptor</span> <span class="o">=</span> <span class="s2">&quot;[B- -&gt; D0 pi- pi0]cc&quot;</span><span class="p">,</span>
                            <span class="o">...</span>

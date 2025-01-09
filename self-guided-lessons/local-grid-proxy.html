@@ -1,28 +1,25 @@
+
+
 <!DOCTYPE html>
-<html class="writer-html5" lang="en">
+<html class="writer-html5" lang="en" data-content_root="../">
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Creating a grid proxy without LbScripts &mdash; LHCb Starterkit Lessons  documentation</title>
-      <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css" />
-      <link rel="stylesheet" type="text/css" href="../_static/panels.css" />
-      <link rel="stylesheet" type="text/css" href="../_static/starterkit.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../_static/panels.css?v=69fd799d" />
+      <link rel="stylesheet" type="text/css" href="../_static/starterkit.css?v=be2937d8" />
 
   
-  <!--[if lt IE 9]>
-    <script src="../_static/js/html5shiv.min.js"></script>
-  <![endif]-->
-  
-        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-        <script src="../_static/jquery.js"></script>
-        <script src="../_static/underscore.js"></script>
-        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script src="../_static/doctools.js"></script>
-        <script src="../_static/sphinx_highlight.js"></script>
-        <script src="../_static/panels.js"></script>
-        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../_static/panels.js?v=0f4bdeea"></script>
+      <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -256,7 +253,7 @@
            <div itemprop="articleBody">
              
   <section id="creating-a-grid-proxy-without-lbscripts">
-<h1>Creating a grid proxy without LbScripts<a class="headerlink" href="#creating-a-grid-proxy-without-lbscripts" title="Permalink to this heading"></a></h1>
+<h1>Creating a grid proxy without LbScripts<a class="headerlink" href="#creating-a-grid-proxy-without-lbscripts" title="Link to this heading"></a></h1>
 <p>On the grid VOMS (Virtual Organization Membership Service) is used to provide authentication when accessing grid resources.
 This works by using your certificate to create a local proxy credential which can then be used by applications for a limited time.</p>
 <p>LbScripts provides a useful command <code class="docutils literal notranslate"><span class="pre">lhcb-proxy-init</span></code> which is used to create a proxy.
@@ -264,35 +261,35 @@ It is sometimes useful however, to create a grid proxy when LbScripts is unavail
 The most commonly use for this is to be able to access data at grid sites using XRootD.
 Fortunately VOMS can be easily installed and used without requiring the full LHCb environment.</p>
 <section id="installation">
-<h2>Installation<a class="headerlink" href="#installation" title="Permalink to this heading"></a></h2>
+<h2>Installation<a class="headerlink" href="#installation" title="Link to this heading"></a></h2>
 <p>The VOMS client can be installed in the following ways, if your operating system isn’t listed see <a class="reference external" href="https://github.com/italiangrid/voms-clients">here</a> (and consider <a class="reference internal" href="../CONTRIBUTING.html"><span class="doc">making a pull request</span></a> to update this guide).</p>
 <section id="macos-with-homebrew">
-<h3>macOS with <a class="reference external" href="https://brew.sh">homebrew</a><a class="headerlink" href="#macos-with-homebrew" title="Permalink to this heading"></a></h3>
+<h3>macOS with <a class="reference external" href="https://brew.sh">homebrew</a><a class="headerlink" href="#macos-with-homebrew" title="Link to this heading"></a></h3>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>brew<span class="w"> </span>cask<span class="w"> </span>install<span class="w"> </span>java
 brew<span class="w"> </span>install<span class="w"> </span>voms
 </pre></div>
 </div>
 </section>
 <section id="ubuntu">
-<h3>Ubuntu<a class="headerlink" href="#ubuntu" title="Permalink to this heading"></a></h3>
+<h3>Ubuntu<a class="headerlink" href="#ubuntu" title="Link to this heading"></a></h3>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>voms-clients
 </pre></div>
 </div>
 </section>
 <section id="centos">
-<h3>CentOS<a class="headerlink" href="#centos" title="Permalink to this heading"></a></h3>
+<h3>CentOS<a class="headerlink" href="#centos" title="Link to this heading"></a></h3>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>yum<span class="w"> </span>install<span class="w"> </span>epel-release
 sudo<span class="w"> </span>yum<span class="w"> </span>install<span class="w"> </span>voms-clients
 </pre></div>
 </div>
 </section>
 <section id="arch-linux">
-<h3>Arch Linux<a class="headerlink" href="#arch-linux" title="Permalink to this heading"></a></h3>
+<h3>Arch Linux<a class="headerlink" href="#arch-linux" title="Link to this heading"></a></h3>
 <p>Install <a class="reference external" href="https://aur.archlinux.org/packages/voms/">voms from the AUR</a>.</p>
 </section>
 </section>
 <section id="getting-the-required-files-and-certificates">
-<h2>Getting the required files and certificates<a class="headerlink" href="#getting-the-required-files-and-certificates" title="Permalink to this heading"></a></h2>
+<h2>Getting the required files and certificates<a class="headerlink" href="#getting-the-required-files-and-certificates" title="Link to this heading"></a></h2>
 <p>In order to create a proxy you must have a copy of your personal grid certificate, assuming this is already set up on lxplus this can be copied using:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>scp<span class="w"> </span>-r<span class="w"> </span>lxplus.cern.ch:.globus/<span class="w"> </span>~/.globus
 </pre></div>
@@ -306,7 +303,7 @@ If not, they can be copied from lxplus to <code class="docutils literal notransl
 <p>Note these will need updating occasionally by rerunning the above commands.</p>
 </section>
 <section id="creating-a-proxy">
-<h2>Creating a proxy<a class="headerlink" href="#creating-a-proxy" title="Permalink to this heading"></a></h2>
+<h2>Creating a proxy<a class="headerlink" href="#creating-a-proxy" title="Link to this heading"></a></h2>
 <p>Once the voms have been installed and the files have been copied a grid certificate with a 168 hour (1 week) validity can be created using:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span><span class="w"> </span><span class="nv">X509_CERT_DIR</span><span class="o">=</span><span class="s2">&quot;</span><span class="nv">$HOME</span><span class="s2">/grid-security/certificates&quot;</span>
 <span class="nb">export</span><span class="w"> </span><span class="nv">X509_VOMS_DIR</span><span class="o">=</span><span class="s2">&quot;</span><span class="nv">$HOME</span><span class="s2">/grid-security/vomsdir&quot;</span>
@@ -322,7 +319,7 @@ This can be setup by appending the following to <code class="docutils literal no
 </div>
 </section>
 <section id="managing-the-proxy">
-<h2>Managing the proxy<a class="headerlink" href="#managing-the-proxy" title="Permalink to this heading"></a></h2>
+<h2>Managing the proxy<a class="headerlink" href="#managing-the-proxy" title="Link to this heading"></a></h2>
 <p>The status of the current proxy can be checked using <code class="docutils literal notranslate"><span class="pre">voms-proxy-info</span></code>.</p>
 <p>The current proxy can be deleted using <code class="docutils literal notranslate"><span class="pre">voms-proxy-destroy</span></code>.</p>
 </section>
