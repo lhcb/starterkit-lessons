@@ -8,7 +8,7 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v2
         with:
-          python-version: 3.7
+          python-version: 3.13.1
       - name: Install dependencies
         run: pip install -vv starterkit-ci>=0.1.0
       - name: Build the website
