@@ -15,7 +15,8 @@ There are a few situations where you may need to run legacy code e.g.
 * Running code from an older analysis
 * Often times the code used by the Simulation working group requires older operating systems as well
 
-The previously-used operating systems used by lxplus - the mostly that you will need - are:
+The previously-used operating systems used by lxplus are listed below.
+If not RHEL9, the OS you need will almost certainly be one of thse two:
 
  * Centos7 - Retired in 2023
  * Scientific linux 6 (SL6) - Retired in 2018
