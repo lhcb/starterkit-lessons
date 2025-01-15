@@ -19,7 +19,7 @@ The previously-used operating systems used by lxplus are listed below.
 If not RHEL9, the OS you need will almost certainly be one of thse two:
 
  * Centos7 - Retired in 2023
- * Scientific linux 6 (SL6) - Retired in 2018
+ * Scientific Linux CERN 6 (SLC6) - Retired in 2018
 
 {% callout "Running simulation" %}
 
@@ -41,7 +41,7 @@ Containers are [virtualisation](https://en.wikipedia.org/wiki/OS-level_virtualiz
 The software used on lxplus to jump from one OS to another is called `apptainer`. To be able to run centos7 software on a RHEL9 machine the following command can be used and adapted:
 
 ```bash
-apptainer exec -B /eos -B /afs/cern.ch/work -B /cvmfs -e /cvmfs/lhcb.cern.ch/containers/os-base/centos7-devel/prod/amd64 bash --rcfile /cvmfs/lhcb.cern.ch/lib/group_login.sh
+apptainer exec --env LBENV_SOURCED= -B /eos -B /afs/cern.ch/work -B /cvmfs -e /cvmfs/lhcb.cern.ch/containers/os-base/centos7-devel/prod/amd64 bash --rcfile /cvmfs/lhcb.cern.ch/lib/LbEnv
 ```
 
 We can break down this command in the following way:
