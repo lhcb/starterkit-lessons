@@ -29,7 +29,7 @@ The simulation framework is a common place where older operating systems are nee
  | Simulation framework | Required OS |
  | -------------------- | ----------- |
  | Sim10                | Centos7     |
- | Sim09                | SL6         |
+ | Sim09                | SLC6         |
 ```
 
 {% endcallout %}
@@ -41,7 +41,7 @@ Containers are [virtualisation](https://en.wikipedia.org/wiki/OS-level_virtualiz
 The software used on lxplus to jump from one OS to another is called `apptainer`. To be able to run centos7 software on a RHEL9 machine the following command can be used and adapted:
 
 ```bash
-apptainer exec --env LBENV_SOURCED= -B /eos -B /afs/cern.ch/work -B /cvmfs -e /cvmfs/lhcb.cern.ch/containers/os-base/centos7-devel/prod/amd64 bash --rcfile /cvmfs/lhcb.cern.ch/lib/LbEnv
+apptainer exec --env LBENV_SOURCED= -B /afs/cern.ch/user -B /afs/cern.ch/work -B /cvmfs -e /cvmfs/lhcb.cern.ch/containers/os-base/centos7-devel/prod/amd64 bash --rcfile /cvmfs/lhcb.cern.ch/lib/LbEnv
 ```
 
 We can break down this command in the following way:
@@ -54,12 +54,34 @@ We can break down this command in the following way:
  | -B <directory>                         | These are 'binds', any directory (and its subdirectories) which |
  |                                        | should be visible within the container need to be specified.    |
  | --rcfile <group_login>                 | Specifies that LbEnv should be sourced.                         |
+ | --env LBENV_SOURCED=                   | Resets the LBENV_SOURCED environment variable to reload LbEnv   |
+```
+
+The full list of available platforms is listed here[^1]:
+
+```
+| Platform | Location                                                        |
+| -------- | --------------------------------------------------------------- |
+| slc5     | /cvmfs/lhcb.cern.ch/containers/os-base/slc6-devel/prod/amd64    |
+| slc6     | /cvmfs/lhcb.cern.ch/containers/os-base/slc6-devel/prod/amd64    |
+| centos7  | /cvmfs/lhcb.cern.ch/containers/os-base/centos7-devel/prod/amd64 |
+| el9      | /cvmfs/lhcb.cern.ch/containers/os-base/alma9-devel/prod/amd64   |
 ```
 
 {% challenge "Checking your OS" %}
 
-At any point the OS you are using can be checked with the command `cat /etc/os-release`
+At any point the OS you are using can be checked with the command `cat /etc/system-release`
 
  * Try it now both in a RHEL9 environment and a singularity running Centos7 to see the operating system change!
 
 {% endchallenge %} 
+
+{% callout "Warning: minimal use and stability" %}
+
+One thing to bear in mind about using containers is that they will be less stable than the default OS on your machine.
+For this reason it is recommended to only use the containers to run code requiring that OS and do everything else (e.g. git stuff) outside of the container.
+This is especially true for containers of older systems such as SLC5 and SLC6.
+
+{% endcallout %}
+
+[^1]: It's also possible to get an el9 (i.e. RHEL9) platform. This allows a system running a different linux distro locally (e.g. Ubuntu, Fedora, Arch, ...) to run software compiled for EL9!
