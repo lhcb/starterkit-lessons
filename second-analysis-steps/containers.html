@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Controlling the decay: DecFiles &mdash; LHCb Starterkit Lessons  documentation</title>
+  <title>Containers and running legacy code &mdash; LHCb Starterkit Lessons  documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="../_static/panels.css?v=69fd799d" />
@@ -23,8 +23,8 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Modifying the decay" href="simulation-gencuts.html" />
-    <link rel="prev" title="Which option files to use and how to run Gauss" href="simulation-running-gauss.html" /> 
+    <link rel="next" title="Self guided lessons" href="../self-guided-lessons/README.html" />
+    <link rel="prev" title="Advanced Dirac" href="advanced-dirac.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -119,13 +119,13 @@
 <li class="toctree-l2"><a class="reference internal" href="rerun-stripping.html">Run a different stripping line on simulated data</a></li>
 <li class="toctree-l2"><a class="reference internal" href="switch-mass-hypo.html">Replace a mass hypothesis</a></li>
 <li class="toctree-l2"><a class="reference internal" href="filter-in-trees.html">Reuse particles from a decay tree</a></li>
-<li class="toctree-l2 current"><a class="reference internal" href="simulation.html">The simulation framework</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="simulation.html">The simulation framework</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="simulation-intro.html">What is Gauss?</a></li>
 <li class="toctree-l3"><a class="reference internal" href="simulation-intro.html#choosing-your-gauss-version">Choosing your Gauss Version</a></li>
 <li class="toctree-l3"><a class="reference internal" href="simulation-running-gauss.html">Which option files to use and how to run Gauss</a></li>
 <li class="toctree-l3"><a class="reference internal" href="simulation-running-gauss.html#running-gauss-and-create-a-generator-only-sample">Running Gauss and create a generator-only sample</a></li>
 <li class="toctree-l3"><a class="reference internal" href="simulation-running-gauss.html#make-an-ntuple">Make an nTuple</a></li>
-<li class="toctree-l3 current"><a class="current reference internal" href="#">Controlling the decay: DecFiles</a></li>
+<li class="toctree-l3"><a class="reference internal" href="simulation-dkfiles.html">Controlling the decay: DecFiles</a></li>
 <li class="toctree-l3"><a class="reference internal" href="simulation-gencuts.html">Modifying the decay</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="simulation-gencuts.html#adding-a-decay-channel">Adding a decay channel</a></li>
 <li class="toctree-l4"><a class="reference internal" href="simulation-gencuts.html#generator-level-cuts">Generator level cuts</a></li>
@@ -168,7 +168,7 @@
 <li class="toctree-l3"><a class="reference internal" href="advanced-dirac.html#alternative-backends-condor">Alternative Backends - Condor</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="containers.html">Containers and running legacy code</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Containers and running legacy code</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../self-guided-lessons/README.html">Self guided lessons</a><ul>
@@ -243,10 +243,9 @@
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="README.html">Second Analysis Steps</a></li>
-          <li class="breadcrumb-item"><a href="simulation.html">The simulation framework</a></li>
-      <li class="breadcrumb-item active">Controlling the decay: DecFiles</li>
+      <li class="breadcrumb-item active">Containers and running legacy code</li>
       <li class="wy-breadcrumbs-aside">
-              <a href="https://github.com/lhcb/starterkit-lessons/blob/master/second-analysis-steps/simulation-dkfiles.md" class="fa fa-github"> Edit on GitHub</a>
+              <a href="https://github.com/lhcb/starterkit-lessons/blob/master/second-analysis-steps/containers.md" class="fa fa-github"> Edit on GitHub</a>
       </li>
   </ul>
   <hr/>
@@ -254,77 +253,102 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <div class="panel panel-objectives docutils container">
+  <section id="containers-and-running-legacy-code">
+<h1>Containers and running legacy code<a class="headerlink" href="#containers-and-running-legacy-code" title="Link to this heading"></a></h1>
+<div class="panel panel-objectives docutils container">
 <div class="panel-header open docutils container">
 <p id="learning-objectives"><i class="fa fa-line-chart"></i> Learning Objectives</p>
 </div>
 <div class="panel-body docutils container">
 <ul class="simple">
-<li><p>Learn the basic structure of a decfile.</p></li>
+<li><p>Understand how to use containers to run code requiring older operating systems</p></li>
 </ul>
 </div>
 </div>
-<section id="controlling-the-decay-decfiles">
-<h1>Controlling the decay: DecFiles<a class="headerlink" href="#controlling-the-decay-decfiles" title="Link to this heading"></a></h1>
-<p>The <code class="docutils literal notranslate"><span class="pre">DecFile</span></code> controls the decay itself (i.e. what <code class="docutils literal notranslate"><span class="pre">EvtGen</span></code> does) as well as provide any event-type specific configuration (e.g. generator cuts).
-They exist in the <code class="docutils literal notranslate"><span class="pre">Gen/DecFile</span></code> package which we have already checked out and built in the beginning and are given as <code class="docutils literal notranslate"><span class="pre">.dec</span></code> files in <code class="docutils literal notranslate"><span class="pre">Gen/DecFiles/dkfiles</span></code>.
-For example, the <code class="docutils literal notranslate"><span class="pre">.dec</span></code> file for event-type <code class="docutils literal notranslate"><span class="pre">27175000</span></code> is <code class="docutils literal notranslate"><span class="pre">Dst_D0pi,KKmumu=DecProdCut.dec</span></code>:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># EventType: 27175000                                                                                                                                                                                                                                      </span>
-<span class="c1">#                                                                                                                                                                                                                                                          </span>
-<span class="c1"># Descriptor: [D*(2010)+ -&gt; (D0 -&gt; {K+ K- mu+ mu-}) pi+]cc                                                                                                                                                                                                 </span>
-<span class="c1">#                                                                                                                                                                                                                                                          </span>
-<span class="c1"># NickName: Dst_D0pi,KKmumu=DecProdCut                                                                                                                                                                                                                     </span>
-<span class="c1">#                                                                                                                                                                                                                                                          </span>
-<span class="c1"># Cuts: DaughtersInLHCb                                                                                                                                                                                                                                    </span>
-<span class="c1">#                                                                                                                                                                                                                                                          </span>
-<span class="c1"># Documentation: Forces the D* decay in generic b-bbar / c-cbar events + Requires products to be in LHCb acceptance                                                                                                                                        </span>
-<span class="c1"># EndDocumentation                                                                                                                                                                                                                                         </span>
-<span class="c1">#                                                                                                                                                                                                                                                          </span>
-<span class="c1"># PhysicsWG: Charm                                                                                                                                                                                                                                         </span>
-<span class="c1"># Tested: Yes                                                                                                                                                                                                                                              </span>
-<span class="c1"># Responsible: Luisa Arrabito                                                                                                                                                                                                                              </span>
-<span class="c1"># Email: unknown@&lt;nospam&gt;cern.ch                                                                                                                                                                                                                           </span>
-<span class="c1"># Date: 20091215                                                                                                                                                                                                                                           </span>
-<span class="c1">#                                                                                                                                                                                                                                                          </span>
-<span class="w">                                                                                                                                                                                                                                                           </span>
-Alias<span class="w"> </span>MyD0<span class="w"> </span>D0<span class="w">                                                                                                                                                                                                                                              </span>
-Alias<span class="w"> </span>MyantiD0<span class="w"> </span>anti-D0<span class="w">                                                                                                                                                                                                                                     </span>
-ChargeConj<span class="w"> </span>MyD0<span class="w"> </span>MyantiD0<span class="w">                                                                                                                                                                                                                                   </span>
-<span class="w">                                                                                                                                                                                                                                                           </span>
-Decay<span class="w"> </span>D*+sig<span class="w">                                                                                                                                                                                                                                               </span>
-<span class="w">  </span><span class="m">1</span>.000<span class="w"> </span>MyD0<span class="w">  </span>pi+<span class="w">    </span>VSS<span class="p">;</span><span class="w">                                                                                                                                                                                                                                  </span>
-Enddecay<span class="w">                                                                                                                                                                                                                                                   </span>
-CDecay<span class="w"> </span>D*-sig<span class="w">                                                                                                                                                                                                                                              </span>
-<span class="w">                                                                                                                                                                                                                                                           </span>
-Decay<span class="w"> </span>MyD0<span class="w">                                                                                                                                                                                                                                                 </span>
-<span class="w">  </span><span class="m">1</span>.000<span class="w"> </span>K+<span class="w"> </span>K-<span class="w"> </span>mu+<span class="w"> </span>mu-<span class="w"> </span>PHSP<span class="p">;</span><span class="w">                                                                                                                                                                                                                                </span>
-Enddecay<span class="w">                                                                                                                                                                                                                                                   </span>
-CDecay<span class="w"> </span>MyantiD0<span class="w">                                                                                                                                                                                                                                            </span>
-<span class="c1">#                                                                                                                                                                                                                                                          </span>
-End<span class="w">  </span>
+<p>When running code at LHCb there are several scenarios where a user may have to run legacy code intended for an older OS.
+The most recent operating systems used is Redhat Enterprise Linux 9 (RHEL9).
+There are however, different alternatives to this OS which are roughly equivalent e.g. AlmaLinux 9, Rocky Linux 9.</p>
+<p>There are a few situations where you may need to run legacy code e.g.</p>
+<ul class="simple">
+<li><p>Running code from an older analysis</p></li>
+<li><p>Often times the code used by the Simulation working group requires older operating systems as well</p></li>
+</ul>
+<p>The previously-used operating systems used by lxplus are listed below.
+If not RHEL9, the OS you need will almost certainly be one of thse two:</p>
+<ul class="simple">
+<li><p>Centos7 - Retired in 2023</p></li>
+<li><p>Scientific Linux CERN 6 (SLC6) - Retired in 2018</p></li>
+</ul>
+<div class="panel panel-callout docutils container">
+<div class="panel-header open docutils container">
+<p id="running-simulation"><i class="fa fa-info-circle"></i> Running simulation</p>
+</div>
+<div class="panel-body docutils container">
+<p>The simulation framework is a common place where older operating systems are needed these are:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span> | Simulation framework | Required OS |
+ | -------------------- | ----------- |
+ | Sim10                | Centos7     |
+ | Sim09                | SLC6         |
 </pre></div>
 </div>
-<p>The commented actually contains vital information and is parsed during the compilation to create the <code class="docutils literal notranslate"><span class="pre">&lt;event-type&gt;.py</span></code> file that is given to <code class="docutils literal notranslate"><span class="pre">Gauss</span></code> as one of its options!
-The EventType is a series of flags which controls the generation. The rules for this are described in detail in <a class="reference external" href="https://cds.cern.ch/record/855452/files/lhcb-2005-034.pdf">LHCb-2005-034</a> and also a <a class="reference external" href="http://lbeventtype.web.cern.ch/">website</a> that allows you to build/parse event-types.
-For example for the first digit: 1 = contains b quark, 2 = c quark, 3 = min bias …</p>
-<p>Similarly, the document specifies the conventions for the “NickName” - which also has to be the filename. Note that once MC has been produced from a given DecFile, it is not allowed to be changed, so you never need to worry about which version of DecFiles you are looking at when trying to understand existing samples.
-The “Cuts” field specifies which one of a predetermined set of cut tools are used. Additional python code can be added to the resulting configuration file:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># InsertPythonCode:</span>
-<span class="c1"># code ...</span>
-<span class="c1"># EndInsertPythonCode</span>
+</div>
+</div>
+<p>When running legacy code, it is not necessary to find a machine which runs the older OS nor is it necessary to make a virtual machine using the older OS. Instead we can use containers!
+Containers are <a class="reference external" href="https://en.wikipedia.org/wiki/OS-level_virtualization">virtualisation</a> software which will allow for multiple operating systems to be run on the same machine, so in this case a machine running RHEL9 can instead use another OS for a while as if it were just another environment.</p>
+<p>The software used on lxplus to jump from one OS to another is called <code class="docutils literal notranslate"><span class="pre">apptainer</span></code>. To be able to run centos7 software on a RHEL9 machine the following command can be used and adapted:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>apptainer<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>--env<span class="w"> </span><span class="nv">LBENV_SOURCED</span><span class="o">=</span><span class="w"> </span>-B<span class="w"> </span>/afs/cern.ch/user<span class="w"> </span>-B<span class="w"> </span>/afs/cern.ch/work<span class="w"> </span>-B<span class="w"> </span>/cvmfs<span class="w"> </span>-e<span class="w"> </span>/cvmfs/lhcb.cern.ch/containers/os-base/centos7-devel/prod/amd64<span class="w"> </span>bash<span class="w"> </span>--rcfile<span class="w"> </span>/cvmfs/lhcb.cern.ch/lib/LbEnv
 </pre></div>
 </div>
-<p>The bottom part of the decay file specifies the decay itself:
-This DecFile defines a signal <code class="docutils literal notranslate"><span class="pre">D*+</span></code> which decays 100% to <code class="docutils literal notranslate"><span class="pre">D0</span></code> <code class="docutils literal notranslate"><span class="pre">pi+</span></code>, and the D0 in turn decays 100% into <code class="docutils literal notranslate"><span class="pre">K+</span></code>, <code class="docutils literal notranslate"><span class="pre">K-</span></code>, <code class="docutils literal notranslate"><span class="pre">mu+</span></code> and <code class="docutils literal notranslate"><span class="pre">mu-</span></code>. Important is the definition of “MyD0”. If the decay was to “D0” rather than “MyD0”, the D0 would decay via all of the decay modes implemented in DECAY.DEC.
-The final part of each decay is the actual physics model used - in this case “VSS”, the generic matrix element for vector to scaler-scaler transitions, and “PHSP”, which is phase space only (matrix element = constant). Note that with PHSP, the decay products are completely unpolarized - for anything other than (spin0) to (spin0 spin0) this will get the angular momentum wrong!</p>
+<p>We can break down this command in the following way:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span> | Command                                | Explanation                                                     |
+ | -------------------------------------- | --------------------------------------------------------------- |
+ | Apptainer                              | The command being run.                                          |
+ | exec -e &lt;the centos7 environment&gt; bash | Run a bash session with centos7.                                |
+ | -B &lt;directory&gt;                         | These are &#39;binds&#39;, any directory (and its subdirectories) which |
+ |                                        | should be visible within the container need to be specified.    |
+ | --rcfile &lt;group_login&gt;                 | Specifies that LbEnv should be sourced.                         |
+ | --env LBENV_SOURCED=                   | Resets the LBENV_SOURCED environment variable to reload LbEnv   |
+</pre></div>
+</div>
+<p>The full list of available platforms is listed here[^1]:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>| Platform | Location                                                        |
+| -------- | --------------------------------------------------------------- |
+| slc5     | /cvmfs/lhcb.cern.ch/containers/os-base/slc6-devel/prod/amd64    |
+| slc6     | /cvmfs/lhcb.cern.ch/containers/os-base/slc6-devel/prod/amd64    |
+| centos7  | /cvmfs/lhcb.cern.ch/containers/os-base/centos7-devel/prod/amd64 |
+| el9      | /cvmfs/lhcb.cern.ch/containers/os-base/alma9-devel/prod/amd64   |
+</pre></div>
+</div>
+<div class="panel panel-challenge docutils container">
+<div class="panel-header open docutils container">
+<p id="checking-your-os"><i class="fa fa-square-o"></i> Checking your OS</p>
+</div>
+<div class="panel-body docutils container">
+<p>At any point the OS you are using can be checked with the command <code class="docutils literal notranslate"><span class="pre">cat</span> <span class="pre">/etc/system-release</span></code></p>
+<ul class="simple">
+<li><p>Try it now both in a RHEL9 environment and a singularity running Centos7 to see the operating system change!</p></li>
+</ul>
+</div>
+</div>
+<div class="panel panel-callout docutils container">
+<div class="panel-header open docutils container">
+<p id="warning:-minimal-use-and-stability"><i class="fa fa-info-circle"></i> Warning: minimal use and stability</p>
+</div>
+<div class="panel-body docutils container">
+<p>One thing to bear in mind about using containers is that they will be less stable than the default OS on your machine.
+For this reason it is recommended to only use the containers to run code requiring that OS and do everything else (e.g. git stuff) outside of the container.
+This is especially true for containers of older systems such as SLC5 and SLC6.</p>
+</div>
+</div>
+<p>[^1]: It’s also possible to get an el9 (i.e. RHEL9) platform. This allows a system running a different linux distro locally (e.g. Ubuntu, Fedora, Arch, …) to run software compiled for EL9!</p>
 </section>
 
 
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="simulation-running-gauss.html" class="btn btn-neutral float-left" title="Which option files to use and how to run Gauss" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="simulation-gencuts.html" class="btn btn-neutral float-right" title="Modifying the decay" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="advanced-dirac.html" class="btn btn-neutral float-left" title="Advanced Dirac" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../self-guided-lessons/README.html" class="btn btn-neutral float-right" title="Self guided lessons" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
