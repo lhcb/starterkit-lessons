@@ -29,7 +29,7 @@ The simulation framework is a common place where older operating systems are nee
  | Simulation framework | Required OS |
  | -------------------- | ----------- |
  | Sim10                | Centos7     |
- | Sim09                | SLC6         |
+ | Sim09                | SLC6        |
 ```
 
 {% endcallout %}
