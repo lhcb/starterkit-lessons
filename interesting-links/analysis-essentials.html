@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Batch submission using HTCondor &mdash; LHCb Starterkit Lessons  documentation</title>
+  <title>HSF analysis essentials &mdash; LHCb Starterkit Lessons  documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="../_static/panels.css?v=69fd799d" />
@@ -23,8 +23,7 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Submitting a simple job" href="htcondor-first-job.html" />
-    <link rel="prev" title="Self guided lessons" href="README.html" /> 
+    <link rel="prev" title="Instructional Material" href="../LICENSE.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -48,7 +47,7 @@
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
-<ul class="current">
+<ul>
 <li class="toctree-l1"><a class="reference internal" href="../first-analysis-steps/README.html">First Analysis Steps</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../first-analysis-steps/prerequisites.html">Pre-workshop checklist</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../first-analysis-steps/introduction-to-course.html">Goals of the course</a></li>
@@ -171,41 +170,41 @@
 <li class="toctree-l2"><a class="reference internal" href="../second-analysis-steps/containers.html">Containers and running legacy code</a></li>
 </ul>
 </li>
-<li class="toctree-l1 current"><a class="reference internal" href="README.html">Self guided lessons</a><ul class="current">
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Batch submission using HTCondor</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="htcondor-first-job.html">Submitting a simple job</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="htcondor-first-job.html#tracking-your-jobs">Tracking your jobs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../self-guided-lessons/README.html">Self guided lessons</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../self-guided-lessons/htcondor.html">Batch submission using HTCondor</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../self-guided-lessons/htcondor-first-job.html">Submitting a simple job</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../self-guided-lessons/htcondor-first-job.html#tracking-your-jobs">Tracking your jobs</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="htcondor-more-options.html">More submit file options</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="htcondor-more-options.html#input-files">Input files</a></li>
-<li class="toctree-l4"><a class="reference internal" href="htcondor-more-options.html#output-files">Output files</a></li>
-<li class="toctree-l4"><a class="reference internal" href="htcondor-more-options.html#arguments">Arguments</a></li>
-<li class="toctree-l4"><a class="reference internal" href="htcondor-more-options.html#resources-and-requirements">Resources and Requirements</a></li>
-<li class="toctree-l4"><a class="reference internal" href="htcondor-more-options.html#notifications">Notifications</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../self-guided-lessons/htcondor-more-options.html">More submit file options</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../self-guided-lessons/htcondor-more-options.html#input-files">Input files</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../self-guided-lessons/htcondor-more-options.html#output-files">Output files</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../self-guided-lessons/htcondor-more-options.html#arguments">Arguments</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../self-guided-lessons/htcondor-more-options.html#resources-and-requirements">Resources and Requirements</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../self-guided-lessons/htcondor-more-options.html#notifications">Notifications</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="htcondor-queue.html">Using the queue command</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="htcondor-queue.html#more-on-variables">More on variables</a></li>
-<li class="toctree-l4"><a class="reference internal" href="htcondor-queue.html#other-ways-to-queue">Other ways to queue</a></li>
-<li class="toctree-l4"><a class="reference internal" href="htcondor-queue.html#mixing-options-and-variables">Mixing options and variables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../self-guided-lessons/htcondor-queue.html">Using the queue command</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../self-guided-lessons/htcondor-queue.html#more-on-variables">More on variables</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../self-guided-lessons/htcondor-queue.html#other-ways-to-queue">Other ways to queue</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../self-guided-lessons/htcondor-queue.html#mixing-options-and-variables">Mixing options and variables</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#system-architecture">System architecture</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#other-useful-resources">Other useful resources</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../self-guided-lessons/htcondor.html#system-architecture">System architecture</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../self-guided-lessons/htcondor.html#other-useful-resources">Other useful resources</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="local-grid-proxy.html">Creating a grid proxy without LbScripts</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="local-grid-proxy.html#installation">Installation</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="local-grid-proxy.html#macos-with-homebrew">macOS with homebrew</a></li>
-<li class="toctree-l4"><a class="reference internal" href="local-grid-proxy.html#ubuntu">Ubuntu</a></li>
-<li class="toctree-l4"><a class="reference internal" href="local-grid-proxy.html#centos">CentOS</a></li>
-<li class="toctree-l4"><a class="reference internal" href="local-grid-proxy.html#arch-linux">Arch Linux</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../self-guided-lessons/local-grid-proxy.html">Creating a grid proxy without LbScripts</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../self-guided-lessons/local-grid-proxy.html#installation">Installation</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../self-guided-lessons/local-grid-proxy.html#macos-with-homebrew">macOS with homebrew</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../self-guided-lessons/local-grid-proxy.html#ubuntu">Ubuntu</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../self-guided-lessons/local-grid-proxy.html#centos">CentOS</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../self-guided-lessons/local-grid-proxy.html#arch-linux">Arch Linux</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="local-grid-proxy.html#getting-the-required-files-and-certificates">Getting the required files and certificates</a></li>
-<li class="toctree-l3"><a class="reference internal" href="local-grid-proxy.html#creating-a-proxy">Creating a proxy</a></li>
-<li class="toctree-l3"><a class="reference internal" href="local-grid-proxy.html#managing-the-proxy">Managing the proxy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../self-guided-lessons/local-grid-proxy.html#getting-the-required-files-and-certificates">Getting the required files and certificates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../self-guided-lessons/local-grid-proxy.html#creating-a-proxy">Creating a proxy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../self-guided-lessons/local-grid-proxy.html#managing-the-proxy">Managing the proxy</a></li>
 </ul>
 </li>
 </ul>
@@ -222,14 +221,14 @@
 </li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">External links:</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../interesting-links/analysis-essentials.html">HSF analysis essentials</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../interesting-links/analysis-essentials.html#an-introduction-to-python">An introduction to Python</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../interesting-links/analysis-essentials.html#advanced-python-tutorial">Advanced Python tutorial</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../interesting-links/analysis-essentials.html#introducing-the-shell">Introducing the shell</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../interesting-links/analysis-essentials.html#unix-shell">UNIX shell</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../interesting-links/analysis-essentials.html#analysis-automation-with-snakemake">Analysis automation with Snakemake</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../interesting-links/analysis-essentials.html#version-control-with-git">Version control with Git</a></li>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">HSF analysis essentials</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#an-introduction-to-python">An introduction to Python</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#advanced-python-tutorial">Advanced Python tutorial</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#introducing-the-shell">Introducing the shell</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#unix-shell">UNIX shell</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#analysis-automation-with-snakemake">Analysis automation with Snakemake</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#version-control-with-git">Version control with Git</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference external" href="https://cern.ch/lhcb-core-doc/">LHCb Core documentation</a></li>
@@ -250,10 +249,9 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
-          <li class="breadcrumb-item"><a href="README.html">Self guided lessons</a></li>
-      <li class="breadcrumb-item active">Batch submission using HTCondor</li>
+      <li class="breadcrumb-item active">HSF analysis essentials</li>
       <li class="wy-breadcrumbs-aside">
-              <a href="https://github.com/lhcb/starterkit-lessons/blob/master/self-guided-lessons/htcondor.md" class="fa fa-github"> Edit on GitHub</a>
+              <a href="https://github.com/lhcb/starterkit-lessons/blob/master/interesting-links/analysis-essentials.md" class="fa fa-github"> Edit on GitHub</a>
       </li>
   </ul>
   <hr/>
@@ -261,79 +259,43 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="batch-submission-using-htcondor">
-<h1>Batch submission using HTCondor<a class="headerlink" href="#batch-submission-using-htcondor" title="Link to this heading"></a></h1>
-<div class="panel panel-callout docutils container">
-<div class="panel-header open docutils container">
-<p id="lhcb-fair-usage-of-grid-resources"><i class="fa fa-info-circle"></i> LHCb fair-usage of Grid resources</p>
-</div>
-<div class="panel-body docutils container">
-<p>LHCb has a policy document on the <a class="reference external" href="https://twiki.cern.ch/twiki/pub/LHCb/LHCbNationalComputingBoard/LHCb_Grid_usage_policy.pdf">fair-usage of Grid computing resources</a>, which explains how job resource accounting information are monitored by DIRAC. This enables the fair-usage policy to be enforced automatically at the job submission stage, but only if those jobs were submitted using DIRAC (i.e. via <code class="docutils literal notranslate"><span class="pre">ganga</span></code>). By submitting jobs to the Grid this way, you can be sure that you are using the resources fairly.</p>
-<p>Computing nodes used in the CERN LXBATCH system are effectively part of LHCb Grid resources. However, using HTCondor to submit jobs to these nodes (e.g. on lxplus) will not take the fair-usage policy into account, and so should not be used!</p>
-<p>You may still like to read this tutorial, as your home institute may have its own HTCondor batch system.</p>
-</div>
-</div>
-<div class="panel panel-objectives docutils container">
-<div class="panel-header open docutils container">
-<p id="learning-objectives"><i class="fa fa-line-chart"></i> Learning Objectives</p>
-</div>
-<div class="panel-body docutils container">
-<ul class="simple">
-<li><p>Understand some of the basic concepts of batch computing services</p></li>
-<li><p>Understand the architecture of the CERN batch system</p></li>
-</ul>
-</div>
-</div>
-<p>HTCondor is a high throughput computing service. Its purpose is to decide how and when jobs submitted by users should be run using the distributed computing service. It makes these decisions in a way that tries to share the available resources fairly between everyone using the system.</p>
-<p>When you submit jobs to HTCondor from lxplus, it adds them to a queue. Once they reach the front of the queue, they will automatically be sent to some of the worker nodes in the distributed computing service. The jobs are then run on the nodes HTCondor assigned them to. As each one completes, any output is returned to the user, along with any errors that occurred.</p>
-<p>In order to decide where to place your jobs in the queue, HTCondor considers factors including (but not limited to):</p>
-<ul class="simple">
-<li><p>Amount of resources requested - number of CPUs, etc.</p></li>
-<li><p>Expected duration of each job</p></li>
-<li><p>Quantity, and expected durations, of other users’ jobs</p></li>
-<li><p>Share of resources allotted to different experiments</p></li>
-<li><p>Your priority score</p></li>
-</ul>
-<p>Your priority score is determined based on your recent usage. Submitting lots of intensive jobs will cause your score to increase quickly, but if you wait a little while afterwards it will gradually reduce back down <em>(N.B. a lower score means your jobs will have a higher priority)</em>.</p>
-<div class="toctree-wrapper compound">
-<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="htcondor-first-job.html">Submitting a simple job</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="htcondor-first-job.html#tracking-your-jobs">Tracking your jobs</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="htcondor-more-options.html">More submit file options</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="htcondor-more-options.html#input-files">Input files</a></li>
-<li class="toctree-l2"><a class="reference internal" href="htcondor-more-options.html#output-files">Output files</a></li>
-<li class="toctree-l2"><a class="reference internal" href="htcondor-more-options.html#arguments">Arguments</a></li>
-<li class="toctree-l2"><a class="reference internal" href="htcondor-more-options.html#resources-and-requirements">Resources and Requirements</a></li>
-<li class="toctree-l2"><a class="reference internal" href="htcondor-more-options.html#notifications">Notifications</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="htcondor-queue.html">Using the queue command</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="htcondor-queue.html#more-on-variables">More on variables</a></li>
-<li class="toctree-l2"><a class="reference internal" href="htcondor-queue.html#other-ways-to-queue">Other ways to queue</a></li>
-<li class="toctree-l2"><a class="reference internal" href="htcondor-queue.html#mixing-options-and-variables">Mixing options and variables</a></li>
-</ul>
-</li>
-</ul>
-</div>
-<section id="system-architecture">
-<h2>System architecture<a class="headerlink" href="#system-architecture" title="Link to this heading"></a></h2>
-<p>When you connect to lxplus, you have read/write access to both the AFS and EOS filesystems, as well as read-only access to CVMFS for accessing experiment software. Worker notes in the batch system have the same permissions, which is what allows them to read input files from, and write output files to, your user areas.</p>
-<p>Each worker node has its own remote storage space, which is limited to 20GB. When a job starts, the executable is copied to this storage area, usually along with any input data files required. Any files created by the script should be created there as well, where they can later be transferred back to your user area. When a job completes, the worker node cleans out its storage area, so it’s important to tell HTCondor to transfer any output files you want to keep.</p>
-<p>See <a class="reference external" href="https://batchdocs.web.cern.ch/concepts/dataflow.html">here</a> for a more detailed explanation (and a helpful diagram).</p>
+  <section id="hsf-analysis-essentials">
+<h1>HSF analysis essentials<a class="headerlink" href="#hsf-analysis-essentials" title="Link to this heading"></a></h1>
+<p>Still not found what you’re looking for?
+Take a look at the <a class="reference external" href="https://hsf-training.org/training-center/">HSF training centre</a> for many more training courses, including ROOT, C++, Julia, REANA, CI/CD, Docker and more!</p>
+<section id="an-introduction-to-python">
+<h2><a class="reference external" href="https://hsf-training.github.io/analysis-essentials/python/README.html">An introduction to Python</a><a class="headerlink" href="#an-introduction-to-python" title="Link to this heading"></a></h2>
+<p>This guide covers all of the basics of Python, starting with the core objects and syntax, and working through to modules and classes.
+This guide also introduces scripting with Python and interactive devlopment in Jupyter, useful for all analyses!</p>
 </section>
-<section id="other-useful-resources">
-<h2>Other useful resources<a class="headerlink" href="#other-useful-resources" title="Link to this heading"></a></h2>
-<p>While putting this lesson together, the following guides, tutorials, and pages proved highly useful, and may be useful to you as well if you need more information:</p>
-<ul class="simple">
-<li><p><a class="reference external" href="https://research.cs.wisc.edu/htcondor/manual/v8.8/">HTCondor v8.8.2 Manual</a> - University of Wisconsin-Madison</p></li>
-<li><p><a class="reference external" href="https://batchdocs.web.cern.ch/index.html">CERN Batch Service User Guide</a></p></li>
-<li><p><a class="reference external" href="https://indico.cern.ch/event/611296/contributions/2604376/attachments/1471164/2276521/TannenbaumT_UserTutorial.pdf">HTCondor User Tutorial</a> - Todd Tannenbaum, 6th June 2017</p></li>
-<li><p><a class="reference external" href="https://mattermost.web.cern.ch/lhcb">Mattermost</a> - you can join the ‘condor’ and ‘Distributed Analysis’ channels</p></li>
-<li><p><a class="reference external" href="mailto:lhcb-distributed-analysis&#37;&#52;&#48;cern&#46;ch">lhcb-distributed-analysis<span>&#64;</span>cern<span>&#46;</span>ch</a> mailing list</p></li>
-</ul>
+<section id="advanced-python-tutorial">
+<h2><a class="reference external" href="https://hsf-training.github.io/analysis-essentials/advanced-python/README.html">Advanced Python tutorial</a><a class="headerlink" href="#advanced-python-tutorial" title="Link to this heading"></a></h2>
+<p>Comfortable with Python and looking for more?
+This guide introduces the use of Python for Scientific Computing, with a focus on using Python for HEP analysis.
+The guide introduces libraries for loading and inspecting data, applying selections and producing plots.
+This is extended with an introduction to multivariate analysis and classification, histogram manipulation and reweighting.
+Finally, the guide covers likelihood inference and fitting, and the use of the <em>sPlot</em> method.</p>
+</section>
+<section id="introducing-the-shell">
+<h2><a class="reference external" href="https://hsf-training.github.io/analysis-essentials/shell/README.html">Introducing the shell</a><a class="headerlink" href="#introducing-the-shell" title="Link to this heading"></a></h2>
+<p>This guide gives an overview of how and why to use the shell.
+The guide also covers the navigation of directories, finding of objects and use of pipes, filters and loops.</p>
+</section>
+<section id="unix-shell">
+<h2><a class="reference external" href="https://hsf-training.github.io/analysis-essentials/shell-extras/README.html">UNIX shell</a><a class="headerlink" href="#unix-shell" title="Link to this heading"></a></h2>
+<p>This guide, for the intermediate shell user, introduces screen and tmux for keeping your code running, and has a dedicated section about using these on lxplus.
+It also introduces a variety of concepts such as environment variable, diffs and editors.</p>
+</section>
+<section id="analysis-automation-with-snakemake">
+<h2><a class="reference external" href="https://hsf-training.github.io/analysis-essentials/snakemake/README.html">Analysis automation with Snakemake</a><a class="headerlink" href="#analysis-automation-with-snakemake" title="Link to this heading"></a></h2>
+<p>This guide introduces the use of Snakemake, a workflow management system for Python, ideal for tying your analysis together!
+The guide demonstrates how to put a basic workflow together for processing information, setting out rules, wildcards and accompanying files (e.g., logs and configs).</p>
+</section>
+<section id="version-control-with-git">
+<h2><a class="reference external" href="https://hsf-training.github.io/analysis-essentials/git/README.html">Version control with Git</a><a class="headerlink" href="#version-control-with-git" title="Link to this heading"></a></h2>
+<p>This guide presents Git for version control in your projects.
+Basic functionality such as creating a Git repository, committing changes, exploring the project history and opening pull/merge requests are introduced.
+More advanced concepts such as CI/CD pipelines, licensing and citation are also covered.</p>
 </section>
 </section>
 
@@ -341,8 +303,7 @@
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="README.html" class="btn btn-neutral float-left" title="Self guided lessons" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="htcondor-first-job.html" class="btn btn-neutral float-right" title="Submitting a simple job" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="../LICENSE.html" class="btn btn-neutral float-left" title="Instructional Material" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
 
   <hr/>
