@@ -230,7 +230,7 @@ This will create `24c4_magdown_data` as a list of all the PFNs for the output of
 
 As mentioned earlier, your test productions for this lesson won't be merged since this is only for practice purposes. If this were a real production, there would be some extra steps to take before merging.
 
-You should try to reach out to anyone else who may also want to use these ntuples, and see if they'd like to add or change anything. This is usually done through your working group (either by email, or for new productions, by presenting at a WG meeting). For this, you can start by getting in touch with your WG conveners (see [here](http://lhcb.web.cern.ch/lhcb_page/collaboration/organization/lhcb-conv/Physics_history_and_Sub-structure.html) to find out who they are).
+You should try to reach out to anyone else who may also want to use these ntuples, and see if they'd like to add or change anything. This is usually done through your working group (either by email, or for new productions, by presenting at a WG meeting). For this, you can start by getting in touch with your WG conveners (see [here](https://twiki.cern.ch/twiki/bin/view/LHCbPhysics/LHCbPhysics) to find out who they are).
 
 In addition, the Analysis Productions coordinator(s) may also have some feedback on your additions/changes.
 
