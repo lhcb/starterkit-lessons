@@ -78,7 +78,7 @@ Other corrections, like correcting the kinematics distributions in the simulated
 3. Computing efficiencies, acceptances and measuring detector resolution effects. 
 4. Putting all the above together to measure the parameter(s) of interest. 
 
-After acquiring the parameter(s) of interest, one has to have their work being reviewed by [physics working group](http://lhcb.web.cern.ch/lhcb_page/collaboration/organization/lhcb-conv/Physics_history_and_Sub-structure.html) (PWG) and then by the LHCb collaboration. 
+After acquiring the parameter(s) of interest, one has to have their work being reviewed by [physics working group](https://twiki.cern.ch/twiki/bin/view/LHCbPhysics/LHCbPhysics) (PWG) and then by the LHCb collaboration.
 
 One of the requirements for the successful review is that your analysis code is preserved.  
 Scientific integrity means having transparency on each step of the research as well as reproducibility of the results.
