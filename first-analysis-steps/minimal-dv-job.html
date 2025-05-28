@@ -395,7 +395,11 @@ your dataset!</p>
 <p>There are several ways to access the database tags used for a specific production, but the most reliable one consists of the following steps:</p>
 <ul class="simple">
 <li><p>Find the bookkeeping location of any DST for your desired event type and conditions (e.g. <code class="docutils literal notranslate"><span class="pre">/lhcb/MC/2016/ALLSTREAMS.DST/00070793/0000/00070793_00000002_7.AllStreams.dst</span></code>).</p></li>
-<li><p>The number after <code class="docutils literal notranslate"><span class="pre">ALLSTREAMS.DST</span></code> is the number of the production: in this case, <code class="docutils literal notranslate"><span class="pre">00070793</span></code>.</p></li>
+<li><p>In the path, the number after <code class="docutils literal notranslate"><span class="pre">ALLSTREAMS.DST</span></code> is the number of the production: in this case, <code class="docutils literal notranslate"><span class="pre">00070793</span></code>.</p></li>
+<li><p>At this stage, it is likely sufficient to run <code class="docutils literal notranslate"><span class="pre">lb-dirac</span> <span class="pre">dirac-bookkeeping-production-information</span> <span class="pre">00070793</span></code>.</p></li>
+</ul>
+<p>If this fails, then the following should also work:</p>
+<ul class="simple">
 <li><p>Go to the <a class="reference external" href="https://lhcb-portal-dirac.cern.ch/DIRAC/?view=tabs&amp;theme=Grey&amp;url_state=1%7C*LHCbDIRAC.LHCbTransformationMonitor.classes.LHCbTransformationMonitor:,">transformation monitor</a>. Put this number in the field <code class="docutils literal notranslate"><span class="pre">ProductionID(s):</span></code> and press “Submit”. You will see the details of the production to the right.</p></li>
 <li><p>Right click on these details, and press “Show request”. The new tab “Production Request manager” will appear to the right of the “LHCb Transformation Monitor”. Go to that tab.</p></li>
 <li><p>You will see the details of the MC request. Right click on it, and press “View”.</p></li>
