@@ -34,6 +34,9 @@ linkcheck_ignore += [
     r'https://sourceforge.net/.*', # 403 error - rejects the bot
 ]
 
+# Add a footer pointing to the Run 3 Starterkit
+templates_path = ["_templates"]
+
 starterkit_ci_redirects['first-analysis-steps/index.html'] = 'https://lhcb.github.io/starterkit-lessons/first-analysis-steps/README.html'
 starterkit_ci_redirects['second-analysis-steps/index.html'] = 'https://lhcb.github.io/starterkit-lessons/second-analysis-steps/README.html'
 
