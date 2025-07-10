@@ -178,8 +178,8 @@ git lb-checkout Analysis/run2-patches Phys/DecayTreeTuple
 
 {% discussion "What if `git` asks for my password?" %}
 
-Make sure you succesfully completed the instructions under [initial
-setup](#initial-setup).
+Make sure you succesfully completed the instructions in the initial
+setup callout above.
 
 {% enddiscussion %}
 
