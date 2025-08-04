@@ -49,7 +49,7 @@ and put in your information.
 Next, connect to [https://gitlab.cern.ch](https://gitlab.cern.ch) and log in
 with your CERN credentials.
 
-Visit [https://gitlab.cern.ch/profile/keys](https://gitlab.cern.ch/profile/keys) and add an SSH key.
+Visit [https://gitlab.cern.ch/-/user_settings/ssh_keys](https://gitlab.cern.ch/-/user_settings/ssh_keys) and add an SSH key.
 
 Run this LHCb-specific configuration command:
 ```
