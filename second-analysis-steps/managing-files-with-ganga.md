@@ -209,26 +209,72 @@ it's not currently available at.
 df.replicate('RAL-USER')
 ```
 
-{% callout "Automating replication to CERN" %}
+{% callout "Accessing DiracFiles remotely" %}
 
-If you have a job with subjobs, you can automate this to replicate all output 
-files to CERN, so that you can run your analysis directly on the files on 
-EOS.
+A DiracFile can be accessed remotely if you have a valid grid proxy.
 
-```python
-j = jobs(...)
-for sj in j.subjobs:
-  # Get all output files which are DiracFile objects
-  for df in sj.outputfiles.get(DiracFile):
-    # No need to replicate if it's already at CERN
-    if 'CERN-USER' not in df.locations:
-      df.replicate('CERN-USER')
+You need to find the `accessURL` (also known as the Physical File Name or `PFN`)
+which tells you the location of your file. The `LFN` (Logical File Name) is the 
+record of the file in the Dirac database.
+
+To get the `accessURL` you can use the `LHCbDirac` command line option with an LFN:
+
+```
+lb-dirac dirac-dms-lfn-accessURL /path/to/some/LFN.root
 ```
 
-After you did this your files will go into "/eos/lhcb/grid/lhcb/{u}/{user}/"+LFN.
+In Ganga you can get a PFN with the helper function in the GPI
 
-You could make a function from this and put it in your `.ganga.py` file, whose 
-contents is available in any Ganga session.
+```python
+Ganga In [1]: getAccessURLs(['/lhcb/MC/2018/LDST/00086797/0000/00086797_00000775_5.ldst'])                                                                                                   
+Ganga Out [1]: ['root://x509up_u29047@eoslhcb.cern.ch//eos/lhcb/grid/prod/lhcb/MC/2018/LDST/00086797/0000/00086797_00000775_5.ldst']
+```
+
+If you have many LFNs you want to find PFNs for it is quickest to put them all in a list
+to pass to the function rather than looping individually.
+
+If you want to find the accessURLs for all of your outputdata for a given job then you can do
+
+```python
+j.backend.getOutputDataAccessURLs()
+```
+which will return a list of the PFNs for any DiracFile object created in your job output.
+
+These PFNs can then be opened directly with ROOT if a root file. They can also be used in the 
+LHCb applications in case you want to test your DaVinci options interactively with a DST from
+the bookkeeping.
+
+You could make a function to write these PFNs to a text file:
+
+```python
+def exportAccessURLs(jobNo, filePattern = '', outName = ''):
+    """
+    A function to write the accessURLs of a job to a file:
+    exportAccessURLs(jobNo, filePattern = '', outName = '')
+    Note: '.txt' automatically appended to outName
+    """
+    
+    j = jobs(jobNo)
+    outFileName = str(jobNo)+"_accessURLs.txt"
+    if outName:
+        outFileName = outName+".txt"
+    thefile = open(outFileName, 'w')
+    ds = j.backend.getOutputDataAccessURLs()
+    outds = []
+    if not filePattern == '':
+        for _url in ds:
+            if filePattern in _url:
+                outds.append(_url)
+    else:
+        outds = ds
+    for _f in outds:
+        thefile.write("%s\n" % _f)
+    thefile.close()
+```
+If you put this in a file `~/.ganga.py` then Ganga will load the function
+into the GPI when it starts, making it available for use in your ganga session.
+You can define other helper functions in `~/.ganga.py` as well.
+
 
 {% endcallout %}
 
