@@ -4,9 +4,9 @@
 
 {% endobjectives %} 
 
-## Advanced: Modifying the decay
+# Advanced: Modifying the decay
 
-##Two-body decays - getting angular momentum right
+#Two-body decays - getting angular momentum right
 EvtGen has specific models for each two body spin configuration, for example Scalar to Vector+Scalar (SVS), and Vector to lepton+lepton(VLL)
 ```
 #
@@ -42,7 +42,7 @@ Decay anti-B0sig
 Enddecay
 ```
 
-## 3+ multi-body decays
+# 3+ multi-body decays
 For 3+ bodies the physics models get more complicated. For a fully hadronic final state, typically a Dalitz model will be specified, e.g:
 ```
 # D_DALITZ includes resonances contributions (K*(892), K*(1430), K*(1680))
@@ -63,7 +63,7 @@ Enddecay
 CDecay anti-B0sig
 ```
 here the numbers correspond to measured values for the form factor parameters. 
-## Cocktail decays
+# Cocktail decays
 Often you will want to simulate more than one decay mode in a sample, e.g:
 ```
 Decay MyD_s+
@@ -79,11 +79,11 @@ CDecay MyD_s-
 ```
 Note that the fractions will always be renormalised to sum to 1 - you can directly use PDG branching fractions without having to rescale by hand.
 
-## Final state radiation
+# Final state radiation
 After generating the decay, final state radiation is added using PHOTOS. Note that PHOTOS is enabled by default, even though many decfiles explicitly specify it. It needs to be explicitly removed via "noPhotos"
 
 
-## Changing particle masses / lifetimes/ widths
+# Changing particle masses / lifetimes/ widths
 Sometimes you need to change the mass or lifetime of a particle, either because the initial values are wrong, or the particle you actually want doesn't exist in EvtGen, and you need to adapt an existing particle.
 This can be done with python code inserted in the header:
 
@@ -108,7 +108,7 @@ The format is:
 ```
 
 
-## Finding Constants Used in an Existing MC Sample (Masses/Lifetimes/etc)
+# Finding Constants Used in an Existing MC Sample (Masses/Lifetimes/etc)
 
 If you have a pre-existing MC sample and you want to find constants which have been used in its generation (typically the lifetime or masses of generated particles), The method to do this has two steps
 

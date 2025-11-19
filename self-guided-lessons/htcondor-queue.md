@@ -104,7 +104,7 @@ transfer_input_files = my_script.py, input/data_$(ProcId).txt
 {% endchallenge %}
 
 
-### More on variables
+## More on variables
 
 As you've seen above, the variables that HTCondor automatically defines provide a lot of potential for the automisation of large numbers of jobs. To expand on this, you are also able to define your own variables within your submit file using very similar syntax. Among other things, this is particularly useful for avoiding repetition - in the example above, the input and output file names had to be written in two places. Equivalent functionality can be achieved by using:
 
@@ -118,7 +118,7 @@ transfer_input_files = my_script.py, input/$(INPUTFN)
 transfer_output_files = $(OUTPUTFN)
 ```
 
-### Other ways to queue
+## Other ways to queue
 
 The above syntax for queuing multiple jobs is very simple and convenient for jobs with sequential enumeration starting from zero, but this isn't always the case. Fortunately, the queue command is extremely flexible and has many alternative choices of syntax. This part of the lesson showcases some of these options and how to use them. For more information and other examples, you can visit [the documentation for the queue command](https://research.cs.wisc.edu/htcondor/manual/v8.5/2_5Submitting_Job.html#SECTION00352000000000000000).
 
@@ -152,7 +152,7 @@ down,00083879
 
 This method of creating a list of input files is particularly convenient because it doesn't require you to manually list entries, or to define exactly how many files there are, as the previous methods have. Here, you can use wildcards to get HTCondor to automatically construct the list for you. For example, if you had a set of input `.dat` files and wanted to create a separate job for each one, you could use the command `queue INPUTFN matching files *.dat`.
 
-### Mixing options and variables
+## Mixing options and variables
 
 It may have become apparent by now that options and variables behave in a very similar way within a submit file - you provide parameters to an option (e.g. `transfer_input_files = input.dat`) using the same syntax as you use to provide a value to a variable (e.g. `MyCustomVar = 25`). You can think of options as being specific variables that HTCondor looks at to determine how to create and schedule your jobs.
 

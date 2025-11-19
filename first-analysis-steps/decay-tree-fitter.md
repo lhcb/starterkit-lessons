@@ -111,7 +111,7 @@ a vertex fit acts like a vertex constraint, improving the opening-angle resoluti
 {% endcallout %} 
 
 
-Now let us look at the refitted mass of the `$ D^{*+} $`, with the `$ D^0 $` constrained to its nominal mass.
+Now let us look at the refitted mass of the $D^{*+}$, with the $D^0$ constrained to its nominal mass.
 It is stored in the variable `Dstar_ConsD_M`.
 If you plot this you will note that some values are unphysical.
 So, let's restrict the range we look at to something that makes sense.

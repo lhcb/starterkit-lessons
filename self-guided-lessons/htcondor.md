@@ -32,14 +32,13 @@ In order to decide where to place your jobs in the queue, HTCondor considers fac
 
 Your priority score is determined based on your recent usage. Submitting lots of intensive jobs will cause your score to increase quickly, but if you wait a little while afterwards it will gradually reduce back down *(N.B. a lower score means your jobs will have a higher priority)*.
 
-```eval_rst
-.. toctree::
-    :maxdepth: 3
-    :caption: Contents:
+```{toctree}
+:maxdepth: 3
+:caption: Contents:
 
-    htcondor-first-job.md
-    htcondor-more-options.md
-    htcondor-queue.md
+htcondor-first-job.md
+htcondor-more-options.md
+htcondor-queue.md
 ```
 
 ## System architecture

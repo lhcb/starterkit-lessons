@@ -43,15 +43,14 @@ There is a chance the step creating the dec files repository didn't work on syst
 
 {% endcallout %}
 
-```eval_rst
-.. toctree::
-    :maxdepth: 3
-    :caption: Contents:
+```{toctree}
+:maxdepth: 3
+:caption: Contents:
 
-    simulation-intro.md
-    simulation-running-gauss.md
-    simulation-dkfiles.md
-    simulation-gencuts.md
-    simulation-advanced-dkfiles.md
-    simulation-fastsim.md
+simulation-intro.md
+simulation-running-gauss.md
+simulation-dkfiles.md
+simulation-gencuts.md
+simulation-advanced-dkfiles.md
+simulation-fastsim.md
 ```

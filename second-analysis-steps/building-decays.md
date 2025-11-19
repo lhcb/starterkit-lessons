@@ -33,12 +33,11 @@ combinations in a separate step?
 
 {% endchallenge %}
 
-```eval_rst
-.. toctree::
-    :maxdepth: 3
-    :caption: Contents:
+```{toctree}
+:maxdepth: 3
+:caption: Contents:
 
-    building-decays-part0.md
-    building-decays-part1.md
-    building-decays-part2.md
+building-decays-part0.md
+building-decays-part1.md
+building-decays-part2.md
 ```

@@ -1,4 +1,4 @@
-## Modern Selection Framework
+# Modern Selection Framework
 
 {% objectives "Learning Objectives" %}
 

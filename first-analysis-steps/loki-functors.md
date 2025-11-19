@@ -66,7 +66,7 @@ candidate = candidates[0]
 
 The object `candidate `, loaded from the DST, is of type `LHCb::Particle` and we are looking at its representation via python bindings. 
 We can do `help(candidate)` to find out which functions are available.
-We can try to get very simple properties of the `$ D^{* +} $` candidate. Let's start from the components of its momentum.
+We can try to get very simple properties of the $D^{* +}$ candidate. Let's start from the components of its momentum.
 This can be done calling the function `momentum()` for our candidate in the following way:
 ```python
 p_x = candidate.momentum().X()
@@ -134,8 +134,8 @@ print (PT(candidate)/GeV)
 
 {% endcallout %} 
 
-If we want to get the properties of the `$ D^{* +} $` vertex, for example its fit 
-quality (`$ \chi^2 $`), we need to pass a vertex object to the vertex functor.
+If we want to get the properties of the $D^{* +}$ vertex, for example its fit 
+quality ($\chi^2$), we need to pass a vertex object to the vertex functor.
 
 ```python
 from LoKiPhys.decorators import VCHI2
@@ -219,11 +219,11 @@ The list can be overwhelming, so it's also worth checking a more curated selecti
 {% endcallout %} 
 
 So far we've only looked at the properties of the head of the decay (that is, 
-the `$ D^{* +} $`), but what if we want to get information about its decay products? As 
+the $D^{* +}$), but what if we want to get information about its decay products? As 
 an example, let's get the largest transverse momentum of the final state 
 particles.
 A simple solution would be to navigate the tree and calculate the maximum 
-`$ p_{\text{T}} $`.
+$p_{\text{T}}$.
 
 ```python
 def find_tracks(particle):
@@ -311,7 +311,7 @@ Out[10]:
 
 ```
 we know that `D0` is the first child and `pi+` is the second.
-Therefore, to access the mass of the `$ D^{0} $` we have 2 options:
+Therefore, to access the mass of the $D^{0}$ we have 2 options:
 ```python
 from LoKiPhys.decorators import CHILD
 # Option 1
@@ -328,7 +328,7 @@ Evaluate the quality of the D0 decay vertex.
 
 {% endchallenge %} 
 
-In the similar way, we may access properties of child of the child: for example, a kaon from the `$ D^{0} $` decay:
+In the similar way, we may access properties of child of the child: for example, a kaon from the $D^{0}$ decay:
 ```python
 from LoKiPhys.decorators import CHILD
 mass_kaon = CHILD(CHILD(M, 1),1)(candidate)

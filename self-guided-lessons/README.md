@@ -8,11 +8,10 @@ If you have any problems or questions on these tutorials, you can [open an issue
 [lessons-repo]: https://github.com/lhcb/starterkit-lessons
 
 
-```eval_rst
-.. toctree::
-    :maxdepth: 3
-    :caption: Contents:
+```{toctree}
+:maxdepth: 3
+:caption: Contents:
 
-    htcondor.md
-    local-grid-proxy.md
+htcondor.md
+local-grid-proxy.md
 ```

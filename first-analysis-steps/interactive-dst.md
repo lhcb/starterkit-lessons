@@ -176,9 +176,9 @@ one with:
 >>> print(candidates[0])
 ```
 
-Which will print out some information about the [Particle](https://lhcb-doxygen.web.cern.ch/lhcb-doxygen/davinci/latest/d0/d13/class_l_h_cb_1_1_particle.html). In our case a `$ D^{* +} $` ([particle ID number](http://pdg.lbl.gov/2019/reviews/rpp2018-rev-monte-carlo-numbering.pdf) 413). You can access its decay products with
+Which will print out some information about the [Particle](https://lhcb-doxygen.web.cern.ch/lhcb-doxygen/davinci/latest/d0/d13/class_l_h_cb_1_1_particle.html). In our case a $D^{* +}$ ([particle ID number](http://pdg.lbl.gov/2019/reviews/rpp2018-rev-monte-carlo-numbering.pdf) 413). You can access its decay products with
 `candidates[0].daughtersVector()[0]` and `candidates[0].daughtersVector()[1]`,
-which will be a `$ D^{0} $` and a `$ \pi^{+} $`.
+which will be a $D^{0}$ and a $\pi^{+}$.
 
 There is a useful tool for printing out decay trees, which you can
 pass the top level particle to and it will print out the full decay tree etc:
