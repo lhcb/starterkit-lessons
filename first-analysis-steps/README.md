@@ -33,6 +33,7 @@ The [analysis essentials course](https://hsf-training.github.io/analysis-essenti
     add-tupletools.md
     decay-tree-fitter.md
     analysis-productions.md
+    analysis-productions-legacy.md
     davinci-grid.md
     split-jobs.md
     ganga-data.md
