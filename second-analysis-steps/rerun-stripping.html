@@ -8,7 +8,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Run a different stripping line on simulated data &mdash; LHCb Starterkit Lessons  documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
-      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=9edc463e" />
       <link rel="stylesheet" type="text/css" href="../_static/panels.css?v=69fd799d" />
       <link rel="stylesheet" type="text/css" href="../_static/starterkit.css?v=be2937d8" />
 
@@ -16,8 +16,8 @@
       <script src="../_static/jquery.js?v=5d32c60e"></script>
       <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
       <script src="../_static/documentation_options.js?v=5929fcd5"></script>
-      <script src="../_static/doctools.js?v=9bcbadda"></script>
-      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
       <script src="../_static/panels.js?v=0f4bdeea"></script>
       <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script src="../_static/js/theme.js"></script>
@@ -352,7 +352,7 @@ The file in the minimal DaVinci example can be copied using this command:</p>
 </div>
 <p>It is strongly recommended to run restripping with the same version of DaVinci as the one used for the corresponding stripping production: this ensures all the settings are configured the same exact way as for your data. For the Stripping 28r1, DaVinci v41r4p4 was used. Notice that this version is not available for the default platform <code class="docutils literal notranslate"><span class="pre">x86_64-slc6-gcc62-opt</span></code>.
 To work around this you can pick up the best suitable platform using <code class="docutils literal notranslate"><span class="pre">lb-run</span> <span class="pre">-c</span> <span class="pre">best</span> <span class="pre">DaVinci/v41r4p4</span> <span class="pre">...</span></code> or by <a class="reference external" href="https://lhcb.github.io/starterkit-lessons/first-analysis-steps/davinci-grid.html#picking-up-a-right-platform">setting the <code class="docutils literal notranslate"><span class="pre">application.platform</span></code> attribute in ganga</a>.
-See the <a class="reference external" href="https://twiki.cern.ch/twiki/bin/view/Main/ProcessingPasses">ProcessingPasses TWiki page</a> to find which version of DaVinci was used for each stripping campaign.</p>
+See the <a class="reference external" href="https://gitlab.cern.ch/lhcb-simulation/lbmcsubmit/-/blob/main/src/LbMCSubmit/processing_passes/stripping.py?ref_type=heads">LbMCSubmit repository</a> to find which version of DaVinci is used for simulating each stripping campaign.</p>
 </section>
 
 
