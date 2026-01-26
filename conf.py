@@ -32,6 +32,7 @@ linkcheck_ignore += [
     r'https://opensource.org.*',  # 403 error - rejects the bot
     r'https://xrootd.slac.stanford.edu/doc/.*',  # redirect error - rejects the bot with SSL failure
     r'https://sourceforge.net/.*', # 403 error - rejects the bot
+    r'https://cernvm.cern.ch/.*', # certificate error
 ]
 
 # Add a footer pointing to the Run 3 Starterkit
