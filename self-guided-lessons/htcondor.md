@@ -53,7 +53,7 @@ See [here](https://batchdocs.web.cern.ch/concepts/dataflow.html) for a more deta
 
 While putting this lesson together, the following guides, tutorials, and pages proved highly useful, and may be useful to you as well if you need more information:
 
-* [HTCondor v8.8.2 Manual](https://research.cs.wisc.edu/htcondor/manual/v8.8/) - University of Wisconsin-Madison
+* [HTCondor v8.8.2 Manual](https://htcondor.readthedocs.io/en/latest/) - University of Wisconsin-Madison
 * [CERN Batch Service User Guide](https://batchdocs.web.cern.ch/index.html)
 * [HTCondor User Tutorial](https://indico.cern.ch/event/611296/contributions/2604376/attachments/1471164/2276521/TannenbaumT_UserTutorial.pdf) - Todd Tannenbaum, 6th June 2017
 * [Mattermost](https://mattermost.web.cern.ch/lhcb) - you can join the 'condor' and 'Distributed Analysis' channels

@@ -9,7 +9,7 @@
 
 {% endobjectives %} 
 
-The options showcased in submit file used in the previous section are enough for certain simpler jobs, but for many purposes you will want to do more. This section of the lesson will cover a selection of some of the more common and/or useful ones, and the settings you'll likely want to use for your own jobs. For more information, a complete list can be found [in the documentation](https://research.cs.wisc.edu/htcondor/manual/v7.6/condor_submit.html) for `condor_submit`.
+The options showcased in submit file used in the previous section are enough for certain simpler jobs, but for many purposes you will want to do more. This section of the lesson will cover a selection of some of the more common and/or useful ones, and the settings you'll likely want to use for your own jobs. For more information, a complete list can be found [in the documentation](https://htcondor.readthedocs.io/en/latest/man-pages/condor_submit.html) for `condor_submit`.
 
 ## Input files
 
@@ -150,7 +150,7 @@ Submitting the job now should give produce a file `result.txt` with all the text
 
 You can specify running conditions of your jobs in the submit file. The system for doing this uses what are known as ClassAd attributes, which are essentially properties of some part of the system (machines, jobs, the scheduler, etc.). You can use these to tell HTCondor about the requirements and preferences you have for your jobs. These can be specified in the submit file using the `requirements` and `rank` options respectively.
 
-A complete list of ClassAd attributes can be found [in the documentation](https://research.cs.wisc.edu/htcondor/manual/v8.8/ClassAdAttributes.html#x167-1231000A), but in this part a few particularly useful ones are highlighted. Note that, by using these, you are restricting how your job can run, which means that it will likely take longer to run. You should use these with care, and speak with the Batch support team for advice if you're not sure.
+A complete list of ClassAd attributes can be found [in the documentation](https://htcondor.readthedocs.io/en/latest/man-pages/classads.html#htcondor-s-classad-mechanism), but in this part a few particularly useful ones are highlighted. Note that, by using these, you are restricting how your job can run, which means that it will likely take longer to run. You should use these with care, and speak with the Batch support team for advice if you're not sure.
 
 * `OpSysAndVer`: specifies the operating system (and version) that a machine is using. Currently, some of the grid resources are using SLC6, while others have been migrated to CentOS7. For example, if you wanted to ensure that your program runs using CentOS7, you would need to add `requirements = (OpSysAndVer =?= "CentOS7")` to your submit file.
 
