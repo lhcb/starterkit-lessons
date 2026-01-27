@@ -143,9 +143,9 @@ centrally and produce output datasets that contain a mixture of decay chain
 candidates. This course will show you how to extract the candidates and their
 properties that are relevant for your analysis.
 
-[pdgjpsi]: http://pdglive.lbl.gov/Particle.action?init=0&node=M070&home=MXXX025
-[pdgphi]: http://pdglive.lbl.gov/Particle.action?init=0&node=M004&home=MXXX005
-[pdgbs]: http://pdglive.lbl.gov/Particle.action?init=0&node=S086&home=MXXX046
+[pdgjpsi]: https://pdglive.lbl.gov/Particle.action?init=0&node=M070&home=MXXX025
+[pdgphi]: https://pdglive.lbl.gov/Particle.action?init=0&node=M004&home=MXXX005
+[pdgbs]: https://pdglive.lbl.gov/Particle.action?init=0&node=S086&home=MXXX046
 [deuterium]: https://en.wikipedia.org/wiki/Deuterium
 [detdesc]: https://doi.org/10.1088/1748-0221/3/08/S08005
 [run1perf]: https://arxiv.org/abs/1412.6352
