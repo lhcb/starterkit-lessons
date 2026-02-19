@@ -20,6 +20,7 @@
       <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
       <script src="../_static/panels.js?v=0f4bdeea"></script>
       <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+      <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
       <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
       <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
     <script src="../_static/js/theme.js"></script>
@@ -270,7 +271,7 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="tupletools-and-branches">
+  <section class="tex2jax_ignore mathjax_ignore" id="tupletools-and-branches">
 <h1>TupleTools and branches<a class="headerlink" href="#tupletools-and-branches" title="Link to this heading"></a></h1>
 <div class="panel panel-objectives docutils container">
 <div class="panel-header open docutils container">
@@ -286,7 +287,7 @@
 </ul>
 </div>
 </div>
-<p>Usually, the default information stored by <code class="docutils literal notranslate"><span class="pre">DecayTreeTuple</span></code> as shown in our <a class="reference internal" href="minimal-dv-job.html"><span class="doc">minimal DaVinci job</span></a> is not enough for physics analysis.
+<p>Usually, the default information stored by <code class="docutils literal notranslate"><span class="pre">DecayTreeTuple</span></code> as shown in our <a class="reference internal" href="minimal-dv-job.html"><span class="doc std std-doc">minimal DaVinci job</span></a> is not enough for physics analysis.
 Fortunately, most of the information we need can be added by adding C++ tools (known as <code class="docutils literal notranslate"><span class="pre">TupleTools</span></code>) to <code class="docutils literal notranslate"><span class="pre">dtt</span></code>;
 there is an extensive library of these, some of which will be briefly discussed during the lesson.</p>
 <div class="panel panel-callout docutils container">
@@ -319,7 +320,7 @@ For example, if we wanted the information of the PV associated to our particle, 
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">dtt</span><span class="o">.</span><span class="n">addTupleTool</span><span class="p">(</span><span class="s1">&#39;TupleToolPrimaries&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>The way the <code class="docutils literal notranslate"><span class="pre">DecayTreeTuple.Decay</span></code> is written in in our <a class="reference internal" href="minimal-dv-job.html"><span class="doc">minimal DaVinci job</span></a>,</p>
+<p>The way the <code class="docutils literal notranslate"><span class="pre">DecayTreeTuple.Decay</span></code> is written in in our <a class="reference internal" href="minimal-dv-job.html"><span class="doc std std-doc">minimal DaVinci job</span></a>,</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">dtt</span><span class="o">.</span><span class="n">Decay</span> <span class="o">=</span> <span class="s1">&#39;[D*(2010)+ -&gt; (D0 -&gt; K- K+) pi+]CC&#39;</span>
 </pre></div>
 </div>
@@ -397,13 +398,13 @@ In case we need more information or need to know <em>exactly</em> what the code 
 <p>As a shortcut, the list of tupletools can also be found in doxygen at the top of the pages for the <a class="reference external" href="https://lhcb-doxygen.web.cern.ch/lhcb-doxygen/davinci/latest/de/df8/struct_i_particle_tuple_tool.html"><code class="docutils literal notranslate"><span class="pre">IParticleTupleTool</span></code></a> and the <a class="reference external" href="https://lhcb-doxygen.web.cern.ch/lhcb-doxygen/davinci/latest/d5/d88/struct_i_event_tuple_tool.html"><code class="docutils literal notranslate"><span class="pre">IEventTupleTool</span></code></a> interfaces (depending on whether they fill information about specific particles or the event in general).</p>
 </div>
 </div>
-<p>The updated options can be found <a class="reference download internal" download="" href="../_downloads/0446b9397d6fb032e5595674185b1cf2/ntuple_options.py"><code class="xref download docutils literal notranslate"><span class="pre">here</span></code></a>.</p>
+<p>The updated options can be found <a class="reference download internal" download="" href="../_downloads/0446b9397d6fb032e5595674185b1cf2/ntuple_options.py"><span class="xref download myst">here</span></a>.</p>
 <div class="panel panel-challenge docutils container">
 <div class="panel-header open docutils container">
 <p id="test-your-ntuple"><i class="fa fa-square-o"></i> Test your ntuple</p>
 </div>
 <div class="panel-body docutils container">
-<p>Run the options in the same way as in the <a class="reference internal" href="minimal-dv-job.html"><span class="doc">minimal DaVinci
+<p>Run the options in the same way as in the <a class="reference internal" href="minimal-dv-job.html"><span class="doc std std-doc">minimal DaVinci
 job</span></a> lesson.
 You will obtain a <code class="docutils literal notranslate"><span class="pre">DVntuple.root</span></code> file, which we can open and inspect with <code class="docutils literal notranslate"><span class="pre">ROOT</span></code>’s <code class="docutils literal notranslate"><span class="pre">TBrowser</span></code>:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ root DVntuple.root
@@ -416,20 +417,20 @@ root [2]
 <p>Try to locate the branches we have added, which are placed in the <code class="docutils literal notranslate"><span class="pre">TupleDstToD0pi_D0ToKpi/DecayTree</span></code>, and plot some distributions by double-clicking the leaves.</p>
 </div>
 </div>
-<p>Picking up with the <a class="reference internal" href="loki-functors.html"><span class="doc">LoKi functors lesson</span></a>, let’s store some specific bits of information discussed there in our ntuple.
+<p>Picking up with the <a class="reference internal" href="loki-functors.html"><span class="doc std std-doc">LoKi functors lesson</span></a>, let’s store some specific bits of information discussed there in our ntuple.
 To add LoKi-based leaves to the tree, we need to use the <code class="docutils literal notranslate"><span class="pre">LoKi::Hybrid::TupleTool</span></code>, which is configured with 3 arguments:</p>
-<ol class="simple">
+<ol class="arabic simple">
 <li><p>Its <em>name</em>, specified in the <code class="docutils literal notranslate"><span class="pre">addTupleTool</span></code> call after a <code class="docutils literal notranslate"><span class="pre">/</span></code>.  This is
 very useful (and recommended) if we want to have different
 <code class="docutils literal notranslate"><span class="pre">LoKi::Hybrid::TupleTool</span></code> for each of our branches. For instance, we may
-want to add different information for the D*, the D0 and the soft <span class="math notranslate nohighlight">\(` \pi `\)</span>:</p></li>
+want to add different information for the D*, the D0 and the soft <span class="math notranslate nohighlight">\(\pi\)</span>:</p></li>
 </ol>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">dstar_hybrid</span> <span class="o">=</span> <span class="n">dtt</span><span class="o">.</span><span class="n">Dstar</span><span class="o">.</span><span class="n">addTupleTool</span><span class="p">(</span><span class="s1">&#39;LoKi::Hybrid::TupleTool/LoKi_Dstar&#39;</span><span class="p">)</span>
 <span class="n">d0_hybrid</span> <span class="o">=</span> <span class="n">dtt</span><span class="o">.</span><span class="n">D0</span><span class="o">.</span><span class="n">addTupleTool</span><span class="p">(</span><span class="s1">&#39;LoKi::Hybrid::TupleTool/LoKi_D0&#39;</span><span class="p">)</span>
 <span class="n">pisoft_hybrid</span> <span class="o">=</span> <span class="n">dtt</span><span class="o">.</span><span class="n">pisoft</span><span class="o">.</span><span class="n">addTupleTool</span><span class="p">(</span><span class="s1">&#39;LoKi::Hybrid::TupleTool/LoKi_PiSoft&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<ol class="simple">
+<ol class="arabic simple" start="2">
 <li><p>The <code class="docutils literal notranslate"><span class="pre">Preambulo</span></code> property, which lets us perform preprocessing of the LoKi
 functors to simplify the code that is used to fill the leaves, for example
 creating combinations of LoKi functors or performing mathematical
@@ -443,7 +444,7 @@ operations:</p></li>
 <span class="n">d0_hybrid</span><span class="o">.</span><span class="n">Preambulo</span> <span class="o">=</span> <span class="n">preamble</span>
 </pre></div>
 </div>
-<ol class="simple">
+<ol class="arabic simple" start="3">
 <li><p>The <code class="docutils literal notranslate"><span class="pre">Variables</span></code> property, consisting of a <code class="docutils literal notranslate"><span class="pre">dict</span></code> of (variable name, LoKi
 functor) pairs. In here, LoKi functors can be used, as well as any
 variable we may have defined in the <code class="docutils literal notranslate"><span class="pre">Preambulo</span></code>:</p></li>
@@ -472,7 +473,7 @@ variable we may have defined in the <code class="docutils literal notranslate"><
 <span class="p">}</span>
 </pre></div>
 </div>
-<p>In the code snippets specified above (available <a class="reference download internal" download="" href="../_downloads/4ca5612fc8a5e20d0dcf492cd042a108/ntuple_options_loki.py"><code class="xref download docutils literal notranslate"><span class="pre">here</span></code></a>), you can see that the <code class="docutils literal notranslate"><span class="pre">NINTREE</span></code> functor counts the number of particles that pass the specified criteria. While this is not very useful for ntuple-building (we can always do it offline), it’s a very powerful functor to use when building decay selections.</p>
+<p>In the code snippets specified above (available <a class="reference download internal" download="" href="../_downloads/4ca5612fc8a5e20d0dcf492cd042a108/ntuple_options_loki.py"><span class="xref download myst">here</span></a>), you can see that the <code class="docutils literal notranslate"><span class="pre">NINTREE</span></code> functor counts the number of particles that pass the specified criteria. While this is not very useful for ntuple-building (we can always do it offline), it’s a very powerful functor to use when building decay selections.</p>
 <div class="panel panel-challenge docutils container">
 <div class="panel-header open docutils container">
 <p id="getting-more-practice"><i class="fa fa-square-o"></i> Getting more practice</p>

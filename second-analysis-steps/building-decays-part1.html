@@ -20,6 +20,7 @@
       <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
       <script src="../_static/panels.js?v=0f4bdeea"></script>
       <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+      <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
       <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
       <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
     <script src="../_static/js/theme.js"></script>
@@ -271,7 +272,7 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="a-historical-approach">
+  <section class="tex2jax_ignore mathjax_ignore" id="a-historical-approach">
 <h1>A Historical Approach<a class="headerlink" href="#a-historical-approach" title="Link to this heading"></a></h1>
 <div class="panel panel-objectives docutils container">
 <div class="panel-header open docutils container">
@@ -292,12 +293,12 @@
 <p>In this lesson we will explain how to work with the most basic building
 blocks of the Selection Framework.
 This is not the most optimal way to use it, but it is included here because their use is very generalized, for example in the Stripping, and understanding them is very useful for understanding most of our current code.
-At the end of this lesson its shortcomings will be highlighted and a better way to approach the problem will be presented in the <a class="reference internal" href="building-decays-part2.html"><span class="doc">following lesson</span></a>.</p>
+At the end of this lesson its shortcomings will be highlighted and a better way to approach the problem will be presented in the <a class="reference internal" href="building-decays-part2.html"><span class="doc std std-doc">following lesson</span></a>.</p>
 </div>
 </div>
 <p>Now we’ll learn to apply the concepts of the Selection Framework by running through a full example:
-using the DST files from the <a class="reference internal" href="../first-analysis-steps/files-from-grid.html"><span class="doc">Downloading a file from the Grid</span></a> lesson, we will build our own <span class="math notranslate nohighlight">\(` D^\ast\rightarrow D^0(\rightarrow K^{-} K^{+}) \pi `\)</span> decay chain from scratch.
-Get your <a class="reference internal" href="../first-analysis-steps/loki-functors.html"><span class="doc">LoKi skills</span></a> ready and let’s start.</p>
+using the DST files from the <a class="reference internal" href="../first-analysis-steps/files-from-grid.html"><span class="std std-doc">Downloading a file from the Grid</span></a> lesson, we will build our own <span class="math notranslate nohighlight">\(D^\ast\rightarrow D^0(\rightarrow K^{-} K^{+}) \pi\)</span> decay chain from scratch.
+Get your <a class="reference internal" href="../first-analysis-steps/loki-functors.html"><span class="std std-doc">LoKi skills</span></a> ready and let’s start.</p>
 <div class="panel panel-callout docutils container">
 <div class="panel-header open docutils container">
 <p id="getting-started"><i class="fa fa-info-circle"></i> Getting started</p>
@@ -310,7 +311,7 @@ We can simply open them using the <code class="docutils literal notranslate"><sp
                       <span class="n">clear</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>The starting code for this exercise can be found <a class="reference download internal" download="" href="../_downloads/34667cd65e485926565df4755e0c4f2b/00.start.py"><code class="xref download docutils literal notranslate"><span class="pre">here</span></code></a>.</p>
+<p>The starting code for this exercise can be found <a class="reference download internal" download="" href="../_downloads/34667cd65e485926565df4755e0c4f2b/00.start.py"><span class="xref download myst">here</span></a>.</p>
 </div>
 </div>
 <p>Our input pions and kaons can be imported from the <code class="docutils literal notranslate"><span class="pre">StandardParticles</span></code> package:</p>
@@ -321,7 +322,7 @@ We can simply open them using the <code class="docutils literal notranslate"><sp
 <p>This is an ideal way to get pre-made particles with the standard LHCb configuration.</p>
 <div class="panel panel-callout docutils container">
 <div class="panel-header open docutils container">
-<p id="where-do-standardparticles-come-from?"><i class="fa fa-info-circle"></i> Where do StandardParticles come from?</p>
+<p id="where-do-`standardparticles`-come-from?"><i class="fa fa-info-circle"></i> Where do `StandardParticles` come from?</p>
 </div>
 <div class="panel-body docutils container">
 <p>One important type of <code class="docutils literal notranslate"><span class="pre">Selection</span></code> is the <code class="docutils literal notranslate"><span class="pre">AutomaticData</span></code>, which builds objects from their TES location using a centrally predefined algorithm.
@@ -335,14 +336,14 @@ Therefore, the following code would be equivalent to what we have used:</p>
 </div>
 </div>
 </div>
-<p>Once we have the input kaons, we can combine them to build a <span class="math notranslate nohighlight">\(` D^0 `\)</span> by means of the <code class="docutils literal notranslate"><span class="pre">CombineParticles</span></code> algorithm.
+<p>Once we have the input kaons, we can combine them to build a <span class="math notranslate nohighlight">\(D^0\)</span> by means of the <code class="docutils literal notranslate"><span class="pre">CombineParticles</span></code> algorithm.
 This algorithm performs the combinatorics for us according to a given decay descriptor and puts the resulting particle in the TES, allowing also to apply some cuts on them:</p>
 <ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">DaughtersCuts</span></code> is a dictionary that maps each child particle type to a LoKi
 particle functor that determines if that particular particle satisfies our
 selection criteria. Optionally, one can specify also a <code class="docutils literal notranslate"><span class="pre">Preambulo</span></code> property
 that allows us to make imports, preprocess functors, etc (more on this in
-the <a class="reference internal" href="../first-analysis-steps/loki-functors.html"><span class="doc">LoKi functors</span></a> lesson).
+the <a class="reference internal" href="../first-analysis-steps/loki-functors.html"><span class="std std-doc">LoKi functors</span></a> lesson).
 For example:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">d0_decay_products</span> <span class="o">=</span> <span class="p">{</span>
   <span class="s1">&#39;K-&#39;</span><span class="p">:</span> <span class="s1">&#39;(PT &gt; 750*MeV) &amp; (P &gt; 4000*MeV) &amp; (MIPCHI2DV(PRIMARY) &gt; 4)&#39;</span><span class="p">,</span>
@@ -401,7 +402,7 @@ For example:</p>
 <p>We can already see that this two-step process (building the <code class="docutils literal notranslate"><span class="pre">CombineParticles</span></code> and the <code class="docutils literal notranslate"><span class="pre">Selection</span></code>) is a bit cumbersome.
 This can be simplified using a <code class="docutils literal notranslate"><span class="pre">SimpleSelection</span></code> object, which will be discussed in the next lesson.</p>
 <p>For the time being, let’s finish building our candidates.
-Now we can use another <code class="docutils literal notranslate"><span class="pre">CombineParticles</span></code> to build the <span class="math notranslate nohighlight">\(` D^\ast `\)</span> with pions and the <span class="math notranslate nohighlight">\(` D^0 `\)</span>’s as inputs, and applying a filtering only on the soft pion:</p>
+Now we can use another <code class="docutils literal notranslate"><span class="pre">CombineParticles</span></code> to build the <span class="math notranslate nohighlight">\(D^\ast\)</span> with pions and the <span class="math notranslate nohighlight">\(D^0\)</span>’s as inputs, and applying a filtering only on the soft pion:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">dstar_decay_products</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;pi+&#39;</span><span class="p">:</span> <span class="s1">&#39;(TRCHI2DOF &lt; 3) &amp; (PT &gt; 100*MeV)&#39;</span><span class="p">}</span>
 <span class="n">dstar_comb</span> <span class="o">=</span> <span class="s2">&quot;(ADAMASS(&#39;D*(2010)+&#39;) &lt; 400*MeV)&quot;</span>
 <span class="n">dstar_vertex</span> <span class="o">=</span> <span class="p">(</span>
@@ -473,14 +474,14 @@ In this situation, we can make use of the <code class="docutils literal notransl
 <ul class="simple">
 <li><p>Finish the script by adapting the basic <code class="docutils literal notranslate"><span class="pre">DaVinci</span></code> configuration from its
 corresponding
-<a class="reference internal" href="../first-analysis-steps/minimal-dv-job.html"><span class="doc">lesson</span></a> and
+<a class="reference internal" href="../first-analysis-steps/minimal-dv-job.html"><span class="std std-doc">lesson</span></a> and
 check the output ntuple (run over 10000 events to make sure your tuple has
 enough entries). The solution can be found
-<a class="reference download internal" download="" href="../_downloads/7033b0f600c3c6a75bdfde6735282673/01.historical.py"><code class="xref download docutils literal notranslate"><span class="pre">here</span></code></a>).</p></li>
+<a class="reference download internal" download="" href="../_downloads/7033b0f600c3c6a75bdfde6735282673/01.historical.py"><span class="xref download myst">here</span></a>).</p></li>
 <li><p>Add a <code class="docutils literal notranslate"><span class="pre">PrintSelection</span></code> algorithm in your selections and run again. It gets a
 <code class="docutils literal notranslate"><span class="pre">Selection</span></code> as input and it can be used the same way, except it will print
 the decay tree everytime making use of the <code class="docutils literal notranslate"><span class="pre">PrintDecayTree</span></code> algorithm which
-was discussed in the <a class="reference internal" href="../first-analysis-steps/interactive-dst.html"><span class="doc">Exploring a
+was discussed in the <a class="reference internal" href="../first-analysis-steps/interactive-dst.html"><span class="std std-doc">Exploring a
 DST</span></a> lesson.</p></li>
 <li><p>Compare your selection with what is done in the actual Stripping, which can be found <a class="reference external" href="https://gitlab.cern.ch/lhcb/Stripping/blob/master/Phys/StrippingArchive/python/StrippingArchive/Stripping28/StrippingCharm/StrippingD2hh.py">here</a>. You can appreciate the power of the Selection Framework in the modularity of that Stripping.</p></li>
 </ul>
@@ -488,7 +489,7 @@ DST</span></a> lesson.</p></li>
 </div>
 <p>By looking at the final script, there is one striking thing:
 there is a lot of repetition (<code class="docutils literal notranslate"><span class="pre">CombineParticles</span></code>-<code class="docutils literal notranslate"><span class="pre">Selection</span></code> sequence) which leads to complicated naming schemes, due to the fact that we want our <code class="docutils literal notranslate"><span class="pre">Selection</span></code> or <code class="docutils literal notranslate"><span class="pre">CombineParticle</span></code> objects to have a unique name.
-To help with these name clashes and to allow a much more streamlined <code class="docutils literal notranslate"><span class="pre">Selection</span></code> building, the <code class="docutils literal notranslate"><span class="pre">PhysConf.Selections</span></code> module offers a large set of more optimized classes, which we’ll discuss in the <a class="reference internal" href="building-decays-part2.html"><span class="doc">next lesson</span></a>.</p>
+To help with these name clashes and to allow a much more streamlined <code class="docutils literal notranslate"><span class="pre">Selection</span></code> building, the <code class="docutils literal notranslate"><span class="pre">PhysConf.Selections</span></code> module offers a large set of more optimized classes, which we’ll discuss in the <a class="reference internal" href="building-decays-part2.html"><span class="doc std std-doc">next lesson</span></a>.</p>
 </section>
 
 

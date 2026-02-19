@@ -268,7 +268,7 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="hlt-intro">
+  <section class="tex2jax_ignore mathjax_ignore" id="hlt-intro">
 <h1>HLT intro<a class="headerlink" href="#hlt-intro" title="Link to this heading"></a></h1>
 <div class="panel panel-objectives docutils container">
 <div class="panel-header open docutils container">
@@ -446,7 +446,7 @@ $ lb-run -c best Moore/v28r3p1 TCKsh
 <section id="add-tistos-information-to-your-ntuple">
 <h2>Add TISTOS information to your ntuple<a class="headerlink" href="#add-tistos-information-to-your-ntuple" title="Link to this heading"></a></h2>
 <p>For analysis purposes it is important to know if your signal candidate was part of the trigger decision or not as one has different efficiencies for both categories. The following categories exist [ <a class="reference external" href="https://cds.cern.ch/record/1701134/files/LHCb-PUB-2014-039.pdf">LHCb-PUB-2014-039</a> ]:</p>
-<ol class="simple">
+<ol class="arabic simple">
 <li><p>Triggered On Signal (TOS): events for which the presence of the signal is sufficient to generate a positive trigger decision.</p></li>
 <li><p>Triggered Independent of Signal (TIS): the “rest” of the event is sufficient to generate a positive trigger decision, where the rest of the event is defined through an operational procedure consisting in removing the signal and all detector hits belonging to it.</p></li>
 <li><p>Triggered On Both (TOB): these are events that are neither TIS nor TOS; neither the presence of the signal alone nor the rest of the event alone are sufficient to generate a positive trigger decision, but rather both are necessary.</p></li>
@@ -484,7 +484,7 @@ Type for example:</p>
 <p>The regex is needed to search through all algorithms connected to a line.</p>
 <!-- ## Old
 
-### Run Moore from settings (Run1 + Run2)
+## Run Moore from settings (Run1 + Run2)
 The application of the software trigger is called Moore. Moore relies on the same
 algorithms as are used in Brunel to run the reconstruction and in DaVinci to
 select particle decays.
@@ -555,7 +555,7 @@ What is difference in run time of Hlt1 and Hlt2?
 
 {% endchallenge %}
 
-### Run Moore from TCK* (Run1 + Run2)
+## Run Moore from TCK* (Run1 + Run2)
 
 There are two ways to run Moore, from `ThresholdSettings` and from `TCK` (Trigger Configuration Key).
 When you develop a trigger line, it is more convenient to run from ThresholdSettings. The TCK
@@ -620,7 +620,7 @@ Moore().inputFiles = ["TestTCK1.mdf"]
 Moore().EvtMax = 100
 ```
 
-### Adapt an existing trigger line (Run1 + Run2)
+## Adapt an existing trigger line (Run1 + Run2)
 
 HLT2 lines are similar to stripping lines. They combine basic particles to composite objects
 and you apply selections to get a clean sample. The framework in which you write a trigger
@@ -669,7 +669,8 @@ We encourage people to check it out and give feedback on the [issues page](https
 2. Make it a Turbo line (You have to set the property Turbo to true and the name of the line has to end with Turbo).
 3. Run a rate test to determine the rate of the line, [instructions](https://twiki.cern.ch/twiki/bin/view/LHCb/MooreRateTestExamples) are found here.
 
-{% endchallenge %} --></section>
+{% endchallenge %} -->
+</section>
 </section>
 
 

@@ -20,6 +20,7 @@
       <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
       <script src="../_static/panels.js?v=0f4bdeea"></script>
       <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+      <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
       <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
       <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
     <script src="../_static/js/theme.js"></script>
@@ -283,11 +284,11 @@
 </ul>
 </div>
 </div>
-<section id="modifying-the-decay">
+<section class="tex2jax_ignore mathjax_ignore" id="modifying-the-decay">
 <h1>Modifying the decay<a class="headerlink" href="#modifying-the-decay" title="Link to this heading"></a></h1>
 <section id="adding-a-decay-channel">
 <h2>Adding a decay channel<a class="headerlink" href="#adding-a-decay-channel" title="Link to this heading"></a></h2>
-<p>In order to make our decay model more realistic we can add in known resonances. E.g. instead of solely relying on phase-space, we can add in the prominent <span class="math notranslate nohighlight">\(` \Phi\to K^{+}K^{-} `\)</span> resonance to hopefully. In the decfile, we can another line to the decay channels of the <span class="math notranslate nohighlight">\(` D^0 `\)</span>:</p>
+<p>In order to make our decay model more realistic we can add in known resonances. E.g. instead of solely relying on phase-space, we can add in the prominent <span class="math notranslate nohighlight">\(\Phi\to K^{+}K^{-}\)</span> resonance to hopefully. In the decfile, we can another line to the decay channels of the <span class="math notranslate nohighlight">\(D^0\)</span>:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>Decay<span class="w"> </span>MyD0<span class="w">                                                                                                                                                                                                                                                 </span>
 <span class="w">  </span><span class="m">0</span>.5<span class="w"> </span>K+<span class="w"> </span>K-<span class="w"> </span>mu+<span class="w"> </span>mu-<span class="w"> </span>PHSP<span class="p">;</span><span class="w">                                                                                                                                                                                                                                </span>
 <span class="w">  </span><span class="m">0</span>.5<span class="w"> </span>phi<span class="w"> </span>mu+<span class="w"> </span>mu-<span class="w"> </span>PHSP<span class="p">;</span><span class="w">                                                                                                                                                                                                                                </span>
@@ -295,7 +296,7 @@ Enddecay<span class="w">                                                        
 CDecay<span class="w"> </span>MyantiD0<span class="w">                                                                                                                                                                                                                                            </span>
 </pre></div>
 </div>
-<p>This triggers EvtGen to produce the <span class="math notranslate nohighlight">\(` \phi `\)</span> resonance in 50% of the cases and <span class="math notranslate nohighlight">\(` \phi `\)</span> is subsequently decayed. However, we have not told EvtGen that the <span class="math notranslate nohighlight">\(` \phi `\)</span> should be decayed only to a <span class="math notranslate nohighlight">\(` K^+K^- `\)</span>, hence it will randomly choose from all possible decays it knows about. Instead of modifying the common <code class="docutils literal notranslate"><span class="pre">phi</span></code>, we apply the same trick as we did for the <span class="math notranslate nohighlight">\(` D^0 `\)</span> decay:</p>
+<p>This triggers EvtGen to produce the <span class="math notranslate nohighlight">\(\phi\)</span> resonance in 50% of the cases and <span class="math notranslate nohighlight">\(\phi\)</span> is subsequently decayed. However, we have not told EvtGen that the <span class="math notranslate nohighlight">\(\phi\)</span> should be decayed only to a <span class="math notranslate nohighlight">\(K^+K^-\)</span>, hence it will randomly choose from all possible decays it knows about. Instead of modifying the common <code class="docutils literal notranslate"><span class="pre">phi</span></code>, we apply the same trick as we did for the <span class="math notranslate nohighlight">\(D^0\)</span> decay:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>Alias<span class="w"> </span>MyPhi<span class="w"> </span>phi
 ChargeConj<span class="w"> </span>MyPhi<span class="w"> </span>MyPhi
 
@@ -310,7 +311,7 @@ Decay<span class="w"> </span>MyPhi
 Enddecay
 </pre></div>
 </div>
-<p>After changing the decfile, you have to rerun <code class="docutils literal notranslate"><span class="pre">make</span></code>. Try out the modified decfile with Gauss, you should see a large spike in <span class="math notranslate nohighlight">\(` m(K^+K^-) `\)</span>.</p>
+<p>After changing the decfile, you have to rerun <code class="docutils literal notranslate"><span class="pre">make</span></code>. Try out the modified decfile with Gauss, you should see a large spike in <span class="math notranslate nohighlight">\(m(K^+K^-)\)</span>.</p>
 </section>
 <section id="generator-level-cuts">
 <h2>Generator level cuts<a class="headerlink" href="#generator-level-cuts" title="Link to this heading"></a></h2>
@@ -330,7 +331,7 @@ Cut tools need to be implemented in C++ and reside in the package <code class="d
 </pre></div>
 </div>
 <p>However, if you need the efficiencies as functions of some other observables this is not sufficient. Instead one might want to create a generator-only sample without any cuts applied. Two possibilities exist:</p>
-<ol class="simple">
+<ol class="arabic simple">
 <li><p>Modify the DecFile and recompile the package</p></li>
 <li><p>Overwrite the python configuration originally configured by <code class="docutils literal notranslate"><span class="pre">&lt;event-type&gt;.py</span></code></p></li>
 </ol>
@@ -345,7 +346,7 @@ Have a look at the pseudorapidity distribution of the head particle. This illust
 <section id="modifying-the-cut-tool">
 <h2>Modifying the cut tool<a class="headerlink" href="#modifying-the-cut-tool" title="Link to this heading"></a></h2>
 <p>If you need to modify the cut tool, you generally can pick between multiple options with increasing complexity and time until in production:</p>
-<ol class="simple">
+<ol class="arabic simple">
 <li><p>Configure an existing cut-tool in <code class="docutils literal notranslate"><span class="pre">Gen/GenCuts</span></code> if possible.</p></li>
 <li><p>Use <code class="docutils literal notranslate"><span class="pre">LoKi</span></code> functors for <code class="docutils literal notranslate"><span class="pre">GenParticle</span></code> (starting with a <code class="docutils literal notranslate"><span class="pre">G</span></code>) in a <code class="docutils literal notranslate"><span class="pre">LoKi::GenCutTool</span></code>.</p></li>
 <li><p>Last resort for really special things: write your own C++ implementation of the <code class="docutils literal notranslate"><span class="pre">IGenCutTool</span></code> interface.</p></li>
@@ -382,7 +383,7 @@ the entire generation phase of the simulation. Therefore, very tight generator l
 with a signal particle that only rarely occurs in minimum bias events can results in the generation phase
 taking manifold longer than the simulation of the detector response (and you might want to rethink your
 strategy for event generation).
-For some ideas on which kind of cuts to apply, you can have a look here: https://twiki.cern.ch/twiki/bin/view/LHCb/GeneratorLevelTightCuts</p>
+For some ideas on which kind of cuts to apply, you can have a look here: <a class="reference external" href="https://twiki.cern.ch/twiki/bin/view/LHCb/GeneratorLevelTightCuts">https://twiki.cern.ch/twiki/bin/view/LHCb/GeneratorLevelTightCuts</a></p>
 <div class="panel panel-callout docutils container">
 <div class="panel-header open docutils container">
 <p id="modifying-cut-tools-for-production"><i class="fa fa-info-circle"></i> Modifying cut tools for production</p>

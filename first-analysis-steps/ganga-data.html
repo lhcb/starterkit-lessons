@@ -268,7 +268,7 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="more-ganga">
+  <section class="tex2jax_ignore mathjax_ignore" id="more-ganga">
 <h1>More Ganga<a class="headerlink" href="#more-ganga" title="Link to this heading"></a></h1>
 <div class="panel panel-objectives docutils container">
 <div class="panel-header open docutils container">
@@ -284,7 +284,7 @@
 </ul>
 </div>
 </div>
-<p>As you already saw in the <a class="reference internal" href="davinci-grid.html"><span class="doc">previous lesson</span></a>, the input data can be specified for your job with the BKQuery tool. The path for the data can be found using the online Dirac portal and passed to the <code class="docutils literal notranslate"><span class="pre">BKQuery</span></code> to get the dataset. For example, to run over the Stripping 21 MagUp, Semileptonic stream</p>
+<p>As you already saw in the <a class="reference internal" href="davinci-grid.html"><span class="doc std std-doc">previous lesson</span></a>, the input data can be specified for your job with the BKQuery tool. The path for the data can be found using the online Dirac portal and passed to the <code class="docutils literal notranslate"><span class="pre">BKQuery</span></code> to get the dataset. For example, to run over the Stripping 21 MagUp, Semileptonic stream</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">Ganga</span> <span class="n">In</span> <span class="p">[</span><span class="mi">3</span><span class="p">]:</span> <span class="n">j</span><span class="o">.</span><span class="n">inputdata</span> <span class="o">=</span> <span class="n">BKQuery</span><span class="p">(</span><span class="s1">&#39;/LHCb/Collision12/Beam4000GeV-VeloClosed-MagUp/Real Data/Reco14/Stripping21r0p1a/90000000/SEMILEPTONIC.DST&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">getDataset</span><span class="p">()</span>
 <span class="n">Ganga</span> <span class="n">In</span> <span class="p">[</span><span class="mi">4</span><span class="p">]:</span> <span class="n">j</span><span class="o">.</span><span class="n">inputdata</span>
 <span class="n">Ganga</span> <span class="n">Out</span> <span class="p">[</span><span class="mi">4</span><span class="p">]:</span> 
@@ -314,7 +314,7 @@
 <span class="n">Ganga</span> <span class="n">Out</span> <span class="p">[</span><span class="mi">5</span><span class="p">]:</span> <span class="p">[</span><span class="s1">&#39;root://bw32-4.grid.sara.nl:1094/pnfs/grid.sara.nl/data/lhcb/LHCb/Collision12/SEMILEPTONIC.DST/00051179/0000/00051179_00006978_1.semileptonic.dst&#39;</span><span class="p">]</span>
 </pre></div>
 </div>
-<p>The returned path can be used by Bender to explore the contents of the DST, as in the <a class="reference internal" href="interactive-dst.html"><span class="doc">Interactively exploring a DST</span></a> lesson.</p>
+<p>The returned path can be used by Bender to explore the contents of the DST, as in the <a class="reference internal" href="interactive-dst.html"><span class="doc std std-doc">Interactively exploring a DST</span></a> lesson.</p>
 <p>In the previous lesson we looked at the location of the ouput with <code class="docutils literal notranslate"><span class="pre">job(782).outputdir</span></code>. This location points us to the <code class="docutils literal notranslate"><span class="pre">gangadir</span></code> where ganga stores information about the jobs and their output. If we have lots of jobs with large files, the file system where the gangadir is located will quickly fill up.</p>
 <div class="panel panel-callout docutils container">
 <div class="panel-header open docutils container">
@@ -338,7 +338,7 @@ For example, to access the location of the output <code class="docutils literal 
 </pre></div>
 </div>
 <p>This is a very useful feature: you do not have to download your files from the grid in order to merge them locally! This takes a lot of time and disk space.
-Instead, one can get a list of URLs from each subjob, and pass them to the <code class="docutils literal notranslate"><span class="pre">TChain</span></code> or use the <code class="docutils literal notranslate"><span class="pre">hadd</span></code> method of ROOT[^1].
+Instead, one can get a list of URLs from each subjob, and pass them to the <code class="docutils literal notranslate"><span class="pre">TChain</span></code> or use the <code class="docutils literal notranslate"><span class="pre">hadd</span></code> method of ROOT<a class="footnote-reference brackets" href="#id2" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a>.
 Ganga has a shortcut to access the list of all <code class="docutils literal notranslate"><span class="pre">.root</span></code> files from all the subjobs of a given job:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">jobs</span><span class="p">(</span><span class="mi">787</span><span class="p">)</span><span class="o">.</span><span class="n">backend</span><span class="o">.</span><span class="n">getOutputDataAccessURLs</span><span class="p">()</span>
 </pre></div>
@@ -353,8 +353,14 @@ Ganga has a shortcut to access the list of all <code class="docutils literal not
 FAQ</a> tells you all about ways to remove unneeded branches from your nTuples, such that you do not waste space. This is also <em>the</em> place to find other tips and tricks on using Ganga.</p>
 </div>
 </div>
-<p>[^1]: Merging your files with <code class="docutils literal notranslate"><span class="pre">hadd</span></code> will be significantly faster if you run it with the option telling ROOT to use the same compression level in that output file as is used for the input files. This can be done using the <code class="docutils literal notranslate"><span class="pre">-fk</span></code> option. If running on lxplus you will need to get a newer ROOT version that supports this option by using: <code class="docutils literal notranslate"><span class="pre">lb-conda</span> <span class="pre">default</span> <span class="pre">hadd</span> <span class="pre">-fk</span> <span class="pre">output.root</span> <span class="pre">input/*.root</span></code></p>
 </section>
+<hr class="footnotes docutils" />
+<aside class="footnote-list brackets">
+<aside class="footnote brackets" id="id2" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">1</a><span class="fn-bracket">]</span></span>
+<p>Merging your files with <code class="docutils literal notranslate"><span class="pre">hadd</span></code> will be significantly faster if you run it with the option telling ROOT to use the same compression level in that output file as is used for the input files. This can be done using the <code class="docutils literal notranslate"><span class="pre">-fk</span></code> option. If running on lxplus you will need to get a newer ROOT version that supports this option by using: <code class="docutils literal notranslate"><span class="pre">lb-conda</span> <span class="pre">default</span> <span class="pre">hadd</span> <span class="pre">-fk</span> <span class="pre">output.root</span> <span class="pre">input/*.root</span></code></p>
+</aside>
+</aside>
 
 
            </div>

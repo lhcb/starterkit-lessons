@@ -20,6 +20,7 @@
       <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
       <script src="../_static/panels.js?v=0f4bdeea"></script>
       <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+      <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
       <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
       <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
     <script src="../_static/js/theme.js"></script>
@@ -270,7 +271,7 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="what-to-do-when-something-fails">
+  <section class="tex2jax_ignore mathjax_ignore" id="what-to-do-when-something-fails">
 <h1>What to do when something fails<a class="headerlink" href="#what-to-do-when-something-fails" title="Link to this heading"></a></h1>
 <div class="panel panel-objectives docutils container">
 <div class="panel-header open docutils container">
@@ -285,7 +286,7 @@
 </div>
 <p>When chaining complex workflows (building particles, combining them, etc) we find that our ntuple is not written while we don’t have any errors.
 The first step is to look at the logs.
-Let’s first go back at what we learned <a class="reference internal" href="building-decays-part0.html"><span class="doc">when building our own decays</span></a> and rerun again (saving the output to a log file!).</p>
+Let’s first go back at what we learned <a class="reference internal" href="building-decays-part0.html"><span class="doc std std-doc">when building our own decays</span></a> and rerun again (saving the output to a log file!).</p>
 <p>We can scroll through the log until we find our selections, where we will see something like this:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Sel_D0            SUCCESS Number of counters : 10
  |    Counter                                      |     #     |    sum     | mean/eff^* | rms/err^*  |     min     |     max     |
@@ -318,6 +319,7 @@ Sel_Dstar         SUCCESS Number of counters : 14
  |*&quot;#pass combcut&quot;                                 |      3601 |        843 |(  23.4102 +- 0.705629 )%|   -------   |   -------   |
  |*&quot;#pass mother cut&quot;                              |       843 |         61 |(  7.23606 +- 0.892333 )%|   -------   |   -------   |
  | &quot;Error from IParticleCombiner, skip the combinat|         5 |          5 |     1.0000 |     0.0000 |      1.0000 |      1.0000 |
+
 </pre></div>
 </div>
 <p>Here we have information of the input containers, types of particles, etc, with all the counters corresponding to our run on 1000 events.</p>
@@ -350,10 +352,11 @@ For example, imagine we forgot to add the Kaons as inputs in <code class="docuti
  |*&quot;#accept&quot;                                       |      1000 |          0 |(  0.00000 +- 0.100000 )%|   -------   |   -------   |
  | &quot;#pass combcut&quot;                                 |         0 |          0 |     0.0000 |     0.0000 | 1.7977e+308 |-1.7977e+308 |
  | &quot;#pass mother cut&quot;                              |         0 |          0 |     0.0000 |     0.0000 | 1.7977e+308 |-1.7977e+308 |
+
 </pre></div>
 </div>
 <p>It’s easy to see we have 0 input kaons and we can see we only get input pions!</p>
-<p>Another problem: we messed up with a cut, for example in building the <span class="math notranslate nohighlight">\(` D^* `\)</span>,</p>
+<p>Another problem: we messed up with a cut, for example in building the <span class="math notranslate nohighlight">\(D^*\)</span>,</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">dstar_mother</span> <span class="o">=</span> <span class="p">(</span>
     <span class="s2">&quot;(abs(M-MAXTREE(&#39;D0&#39;==ABSID,M)-145.42) &lt; 10*MeV)&quot;</span>
     <span class="s1">&#39;&amp; (VFASPF(VCHI2/VDOF) &lt; 0)&#39;</span>
@@ -522,6 +525,7 @@ After                INFO   | +--&gt; /Sel_D0 [No Address]  DataObject
 After                INFO   | | +--&gt; /Particles [No Address]  KeyedContainer&lt;LHCb::Particle,Co [0]
 After                INFO     +--&gt; /TupleDstToD0pi_D0ToKK [No Address]  DataObject
 After                INFO       +--&gt; /Particles [No Address]  KeyedContainer&lt;LHCb::Particle,Co [0]
+
 </pre></div>
 </div>
 <p>Here we can see where our decays are being put and we can debug problems with inputs and outputs.

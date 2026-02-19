@@ -10,8 +10,8 @@ After this, a tree of various application and processing versions will
 eventually lead to the data you need.
 
 So, before we can run our first DaVinci job we need to locate some events. In 
-this tutorial we will use the decay `$ D^{* +} \to D^{0}\pi^{+} $` as an example, 
-where the `$ D^{0} $` decays to `$ K^{-} K^{+} $`.
+this tutorial we will use the decay $ D^{* +} \to D^{0}\pi^{+} $ as an example, 
+where the $D^{0}$ decays to $K^{-} K^{+}$.
 
 {% objectives "Learning Objectives" %}
 
@@ -40,8 +40,8 @@ representation of the [event
 type](https://cds.cern.ch/record/855452?ln=en).  The text is the human
 readable version of that.
 
-This sample of simulated events will only contain events where a `$ D^{* +} \to 
-D^{0}(\to K^{-}K^{+})\pi^{+} $` was generated within the LHCb acceptance, 
+This sample of simulated events will only contain events where a $D^{* +} \to 
+D^{0}(\to K^{-}K^{+})\pi^{+}$ was generated within the LHCb acceptance, 
 although the decay might not have been fully reconstructed. (Not all simulated 
 samples have the same requirements made on the signal decay.)
 
@@ -109,9 +109,9 @@ by typing this path and pressing the `Go` button.
 
 Think of a decay and try to find a Monte Carlo sample for it. You could use 
 the decay that your analysis is about, or if you don't have any ideas you 
-could look for the semileptonic decay `$ \Lambda_{b}^{0} \to 
-\Lambda_{c}^{+}\mu^{-}\bar{\nu}_{\mu} $`, where the `$ \Lambda_{c}^{+} $` decays 
-to `$ pK^{-}\pi^{+} $`.
+could look for the semileptonic decay $\Lambda_{b}^{0} \to 
+\Lambda_{c}^{+}\mu^{-}\bar{\nu}_{\mu}$, where the $\Lambda_{c}^{+}$ decays 
+to $pK^{-}\pi^{+}$.
 
 {% endchallenge %}
 

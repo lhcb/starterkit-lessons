@@ -268,11 +268,11 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="scripting-ganga">
+  <section class="tex2jax_ignore mathjax_ignore" id="scripting-ganga">
 <h1>Scripting Ganga<a class="headerlink" href="#scripting-ganga" title="Link to this heading"></a></h1>
-<p>We have already started using Ganga, such as when <a class="reference internal" href="../first-analysis-steps/davinci-grid.html"><span class="doc">submitting jobs to the
+<p>We have already started using Ganga, such as when <a class="reference internal" href="../first-analysis-steps/davinci-grid.html"><span class="std std-doc">submitting jobs to the
 Grid</span></a> and
-<a class="reference internal" href="../first-analysis-steps/ganga-data.html"><span class="doc">using datasets from the bookkeeping</span></a>, for
+<a class="reference internal" href="../first-analysis-steps/ganga-data.html"><span class="std std-doc">using datasets from the bookkeeping</span></a>, for
 creating jobs; but there’s a lot more you can do with it.</p>
 <p>Part of Ganga’s power comes from it being written in Python. When you run
 <code class="docutils literal notranslate"><span class="pre">ganga</span></code>, you’re given an IPython prompt where you input Python code that’s executed when you hit <code class="docutils literal notranslate"><span class="pre">&lt;enter&gt;</span></code>.
@@ -332,7 +332,7 @@ Let’s modify <code class="docutils literal notranslate"><span class="pre">crea
 </div>
 <p>This example is quite boring, but it captures the idea. You’ll want to
 extend this, changing the <code class="docutils literal notranslate"><span class="pre">application</span></code> property to a <code class="docutils literal notranslate"><span class="pre">GaudiExec</span></code> instance,
-for example, as covered in <a class="reference internal" href="../first-analysis-steps/davinci-grid.html"><span class="doc">a previous
+for example, as covered in <a class="reference internal" href="../first-analysis-steps/davinci-grid.html"><span class="std std-doc">a previous
 lesson</span></a>.</p>
 <p>Now we can run this and interact with the job as the <code class="docutils literal notranslate"><span class="pre">j</span></code> variable:</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>ganga<span class="w"> </span>-i<span class="w"> </span>create_job.py
@@ -423,7 +423,7 @@ Ganga<span class="w"> </span>In<span class="w"> </span><span class="o">[</span><
 missing.</p>
 <div class="panel panel-callout docutils container">
 <div class="panel-header open docutils container">
-<p id="getting-to-grips-with-argparse"><i class="fa fa-info-circle"></i> Getting to grips with argparse</p>
+<p id="getting-to-grips-with-`argparse`"><i class="fa fa-info-circle"></i> Getting to grips with `argparse`</p>
 </div>
 <div class="panel-body docutils container">
 <p>The <code class="docutils literal notranslate"><span class="pre">argparse</span></code> module can do a lot, being able to parse complex sets of
@@ -482,7 +482,7 @@ Yo!
 </pre></div>
 </div>
 <p>Neat. The general idea for this file is two-fold:</p>
-<ol class="simple">
+<ol class="arabic simple">
 <li><p>Add commands that you always want executed when Ganga starts, e.g. <code class="docutils literal notranslate"><span class="pre">print</span>&#160; <span class="pre">jobs.select(status='running')</span></code>; and</p></li>
 <li><p>Define functions for commonly-performed tasks.</p></li>
 </ol>

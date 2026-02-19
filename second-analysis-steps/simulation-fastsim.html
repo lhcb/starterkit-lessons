@@ -20,6 +20,7 @@
       <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
       <script src="../_static/panels.js?v=0f4bdeea"></script>
       <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+      <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
       <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
       <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
     <script src="../_static/js/theme.js"></script>
@@ -281,7 +282,7 @@
 </ul>
 </div>
 </div>
-<section id="why-fast-simulation-is-crucial">
+<section class="tex2jax_ignore mathjax_ignore" id="why-fast-simulation-is-crucial">
 <h1>Why fast simulation is crucial<a class="headerlink" href="#why-fast-simulation-is-crucial" title="Link to this heading"></a></h1>
 <p>Our production queues are beyond full and nominal simulation for all requests is unsustainable for the future.
 Using fast simulation or being smart about how you use simulated samples is unavoidable. Fortunately,
@@ -312,7 +313,7 @@ are usually too good (compared to the full simulation) as the detector occupancy
 speed-ups by a factor between 10 and 20 are typically seen. Additionally, the same precision as in the nominal simulation is reached.
 However, as the underlying event and the kinematics of the signal particle remain unchanged, correlations between different events are introduced whose
 effect depends on the studied observables and need to be handled with care if significant.
-See also https://twiki.cern.ch/twiki/bin/view/LHCb/ReDecay.</p>
+See also <a class="reference external" href="https://twiki.cern.ch/twiki/bin/view/LHCb/ReDecay">https://twiki.cern.ch/twiki/bin/view/LHCb/ReDecay</a>.</p>
 </section>
 </section>
 <section id="speeding-up-the-generation">
@@ -324,8 +325,8 @@ cuts which do not depend on what Pythia did (i.e. Lorentz-invariant quantities s
 to split the generator cuts: One part is applied as usual, triggering a reset of the generation phase if not passed. The other part is applied immediately after
 EvtGen generated the signal decay. If the generated decay fails (e.g. the invariant mass combination of two children is below a threshold), the decay products are
 removed and a new decay is generated until the cuts are passed. This avoids rerunning Pythia unnecessarily and can lead to substantial CPU savings when studying rare
-particles (e.g. <span class="math notranslate nohighlight">\(` \Lambda_b `\)</span>).
-For implementation details, see https://twiki.cern.ch/twiki/bin/view/LHCb/GeneratorLevelEvtGenCuts</p>
+particles (e.g. <span class="math notranslate nohighlight">\(\Lambda_b\)</span>).
+For implementation details, see <a class="reference external" href="https://twiki.cern.ch/twiki/bin/view/LHCb/GeneratorLevelEvtGenCuts">https://twiki.cern.ch/twiki/bin/view/LHCb/GeneratorLevelEvtGenCuts</a></p>
 </section>
 </section>
 </section>

@@ -20,6 +20,7 @@
       <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
       <script src="../_static/panels.js?v=0f4bdeea"></script>
       <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+      <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
       <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
       <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
     <script src="../_static/js/theme.js"></script>
@@ -271,7 +272,7 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="the-selection-framework">
+  <section class="tex2jax_ignore mathjax_ignore" id="the-selection-framework">
 <h1>The Selection Framework<a class="headerlink" href="#the-selection-framework" title="Link to this heading"></a></h1>
 <div class="panel panel-objectives docutils container">
 <div class="panel-header open docutils container">
@@ -286,15 +287,15 @@
 </div>
 <p>In order to perform most physics analyses we need to build a <em>decay chain</em> with reconstructed particles that represents the physics process we want to study.
 In LHCb, this decay chain can be built through <code class="docutils literal notranslate"><span class="pre">LHCb::Particle</span></code> and <code class="docutils literal notranslate"><span class="pre">LHCb::MCParticle</span></code> objects that represent individual particles and contain links to their children, also represented by the same type of object.</p>
-<p>We’ll learn all the concepts involved by running through our usual full example of the <span class="math notranslate nohighlight">\(` D^\ast\rightarrow D^0(\rightarrow K^{-} K^{+}) \pi `\)</span> decay chain.</p>
-<p>The LHCb approach to building decays is from the bottom up. Therefore, to build <span class="math notranslate nohighlight">\(` D^\ast\rightarrow D^0(\rightarrow K^{-} K^{+}) \pi `\)</span> we need to</p>
-<ol class="simple">
+<p>We’ll learn all the concepts involved by running through our usual full example of the <span class="math notranslate nohighlight">\(D^\ast\rightarrow D^0(\rightarrow K^{-} K^{+}) \pi\)</span> decay chain.</p>
+<p>The LHCb approach to building decays is from the bottom up. Therefore, to build <span class="math notranslate nohighlight">\(D^\ast\rightarrow D^0(\rightarrow K^{-} K^{+}) \pi\)</span> we need to</p>
+<ol class="arabic simple">
 <li><p>Get input pions and kaons and filter them according to our physics needs.</p></li>
-<li><p>Combine two kaons to build a <span class="math notranslate nohighlight">\(` D^0 `\)</span>, and apply selection cuts to it.</p></li>
-<li><p>Combine this <span class="math notranslate nohighlight">\(` D^0 `\)</span> with a pion to build the <span class="math notranslate nohighlight">\(` D^\ast `\)</span>, again filtering when necessary.</p></li>
+<li><p>Combine two kaons to build a <span class="math notranslate nohighlight">\(D^0\)</span>, and apply selection cuts to it.</p></li>
+<li><p>Combine this <span class="math notranslate nohighlight">\(D^0\)</span> with a pion to build the <span class="math notranslate nohighlight">\(D^\ast\)</span>, again filtering when necessary.</p></li>
 </ol>
 <p>To do that, we need to know a little bit more about how the LHCb analysis framework works.</p>
-<p>As discussed in the <a class="reference internal" href="../first-analysis-steps/davinci.html"><span class="doc">Gaudi introduction</span></a>, <code class="docutils literal notranslate"><span class="pre">Gaudi</span></code> is based on the event-by-event sequential (chained) execution of algorithms wrapped in a <code class="docutils literal notranslate"><span class="pre">GaudiSequencer</span></code>, which takes care of handling the execution order such that processing stops when an algorithm is <em>not passed</em>.
+<p>As discussed in the <a class="reference internal" href="../first-analysis-steps/davinci.html"><span class="std std-doc">Gaudi introduction</span></a>, <code class="docutils literal notranslate"><span class="pre">Gaudi</span></code> is based on the event-by-event sequential (chained) execution of algorithms wrapped in a <code class="docutils literal notranslate"><span class="pre">GaudiSequencer</span></code>, which takes care of handling the execution order such that processing stops when an algorithm is <em>not passed</em>.
 However, it does not handle the data dependencies between these algorithms nor does it give easy access to them.
 To solve this problem, the <a class="reference external" href="https://twiki.cern.ch/twiki/bin/view/LHCb/ParticleSelection">Selection Framework</a> was created, and it is based on two types of objects: <code class="docutils literal notranslate"><span class="pre">Selection</span></code> and <code class="docutils literal notranslate"><span class="pre">SelectionSequence</span></code>:</p>
 <ul class="simple">
@@ -303,7 +304,7 @@ To solve this problem, the <a class="reference external" href="https://twiki.cer
 It also makes the output locations of the data written by the selection chain available via the <code class="docutils literal notranslate"><span class="pre">outputLocations</span></code> method.</p></li>
 </ul>
 <p>Additionally, we need algorithms to perform the particle combination and filtering (or other data processing capabilities), since <code class="docutils literal notranslate"><span class="pre">Selection</span></code>s don’t do any work by themselves, but just organize the dependencies properly.
-Two of the most important data processing algorithms are <code class="docutils literal notranslate"><span class="pre">CombineParticles</span></code> and <code class="docutils literal notranslate"><span class="pre">FilterDesktop</span></code>, which will be discussed in the <a class="reference internal" href="building-decays-part1.html"><span class="doc">next lesson</span></a>.</p>
+Two of the most important data processing algorithms are <code class="docutils literal notranslate"><span class="pre">CombineParticles</span></code> and <code class="docutils literal notranslate"><span class="pre">FilterDesktop</span></code>, which will be discussed in the <a class="reference internal" href="building-decays-part1.html"><span class="doc std std-doc">next lesson</span></a>.</p>
 <p>The advantages of using this framework are several:</p>
 <ul class="simple">
 <li><p>Building the algorithms with bare Configurables and chaining their <code class="docutils literal notranslate"><span class="pre">Input</span></code> and <code class="docutils literal notranslate"><span class="pre">Output</span></code> is a responsibility of the users.
@@ -325,7 +326,7 @@ As a consequence of this, only one algorithm with a given name can be instantiat
 <p>We could create a generic selection for building D0 with a known name, put it in a <code class="docutils literal notranslate"><span class="pre">build_d0.py</span></code> file and use (and even modify) it in another file loaded in the same <code class="docutils literal notranslate"><span class="pre">gaudirun.py</span></code> call.
 We could write the data-only parts of our selection in one file and the MC-only separately (typically inputs are different), but setting the same names for the algorithms. Then, our <code class="docutils literal notranslate"><span class="pre">DecayTreeTuple</span></code> code could be common, as the selection would be loaded “by-name”.</p>
 <p>This is very useful to build complicated configuration chains, but it’s <em>very easy</em> to have problems if our selection/algorithm names are not unique.
-Therefore, it’s very important to pay attention to the algorithm names (we will see how to minimize this problem in the <a class="reference internal" href="building-decays-part2.html"><span class="doc">final Selection Framework lesson</span></a>).</p>
+Therefore, it’s very important to pay attention to the algorithm names (we will see how to minimize this problem in the <a class="reference internal" href="building-decays-part2.html"><span class="doc std std-doc">final Selection Framework lesson</span></a>).</p>
 </div>
 </div>
 </section>

@@ -13,33 +13,32 @@ The [analysis essentials course](https://hsf-training.github.io/analysis-essenti
 
 {% endprereq %}
 
-```eval_rst
-.. toctree::
-    :hidden:
-    :caption: Contents:
+```{toctree}
+:hidden:
+:caption: Contents:
 
-    prerequisites.md
-    introduction-to-course.md
-    physics-at-lhcb.md
-    dataflow.md
-    run-2-data-flow.md
-    analysisflow.md
-    davinci.md
-    bookkeeping.md
-    files-from-grid.md
-    interactive-dst.md
-    minimal-dv-job.md
-    loki-functors.md
-    add-tupletools.md
-    decay-tree-fitter.md
-    analysis-productions.md
-    davinci-grid.md
-    split-jobs.md
-    ganga-data.md
-    eos-storage.md
-    lhcb-dev.md
-    dataflow-run3.md
-    asking-questions.md
-    ecgd.md
-    contributing-lesson.md
+prerequisites.md
+introduction-to-course.md
+physics-at-lhcb.md
+dataflow.md
+run-2-data-flow.md
+analysisflow.md
+davinci.md
+bookkeeping.md
+files-from-grid.md
+interactive-dst.md
+minimal-dv-job.md
+loki-functors.md
+add-tupletools.md
+decay-tree-fitter.md
+analysis-productions.md
+davinci-grid.md
+split-jobs.md
+ganga-data.md
+eos-storage.md
+lhcb-dev.md
+dataflow-run3.md
+asking-questions.md
+ecgd.md
+contributing-lesson.md
 ```

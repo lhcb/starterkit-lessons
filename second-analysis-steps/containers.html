@@ -268,7 +268,7 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="containers-and-running-legacy-code">
+  <section class="tex2jax_ignore mathjax_ignore" id="containers-and-running-legacy-code">
 <h1>Containers and running legacy code<a class="headerlink" href="#containers-and-running-legacy-code" title="Link to this heading"></a></h1>
 <div class="panel panel-objectives docutils container">
 <div class="panel-header open docutils container">
@@ -325,7 +325,7 @@ Containers are <a class="reference external" href="https://en.wikipedia.org/wiki
  | --env LBENV_SOURCED=                   | Resets the LBENV_SOURCED environment variable to reload LbEnv   |
 </pre></div>
 </div>
-<p>The full list of available platforms is listed here[^1]:</p>
+<p>The full list of available platforms is listed here<a class="footnote-reference brackets" href="#id2" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a>:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>| Platform | Location                                                        |
 | -------- | --------------------------------------------------------------- |
 | slc5     | /cvmfs/lhcb.cern.ch/containers/os-base/slc6-devel/prod/amd64    |
@@ -355,8 +355,14 @@ For this reason it is recommended to only use the containers to run code requiri
 This is especially true for containers of older systems such as SLC5 and SLC6.</p>
 </div>
 </div>
-<p>[^1]: It’s also possible to get an el9 (i.e. RHEL9) platform. This allows a system running a different linux distro locally (e.g. Ubuntu, Fedora, Arch, …) to run software compiled for EL9!</p>
 </section>
+<hr class="footnotes docutils" />
+<aside class="footnote-list brackets">
+<aside class="footnote brackets" id="id2" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">1</a><span class="fn-bracket">]</span></span>
+<p>It’s also possible to get an el9 (i.e. RHEL9) platform. This allows a system running a different linux distro locally (e.g. Ubuntu, Fedora, Arch, …) to run software compiled for EL9!</p>
+</aside>
+</aside>
 
 
            </div>

@@ -269,7 +269,7 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="modern-selection-framework">
+  <section class="tex2jax_ignore mathjax_ignore" id="modern-selection-framework">
 <h1>Modern Selection Framework<a class="headerlink" href="#modern-selection-framework" title="Link to this heading"></a></h1>
 <div class="panel panel-objectives docutils container">
 <div class="panel-header open docutils container">
@@ -304,7 +304,7 @@ With that in mind, we can rewrite the previous two pieces of code as</p>
 This is because the LHCb algorithms are configured as singletons and it is mandatory to give them a name, which we don’t want to in <code class="docutils literal notranslate"><span class="pre">SimpleSelection</span></code> (we want to skip steps!).</p>
 <div class="panel panel-callout docutils container">
 <div class="panel-header open docutils container">
-<p id="why-configurablegenerators?"><i class="fa fa-info-circle"></i> Why ConfigurableGenerators?</p>
+<p id="why-`configurablegenerators`?"><i class="fa fa-info-circle"></i> Why `ConfigurableGenerators`?</p>
 </div>
 <div class="panel-body docutils container">
 <p>If we had tried to simply use <code class="docutils literal notranslate"><span class="pre">CombineParticles</span></code> inside our
@@ -347,8 +347,8 @@ It’s used in a similar way as <code class="docutils literal notranslate"><span
 <ul class="simple">
 <li><p>Rewrite the previous script to select our signal in terms of
 <code class="docutils literal notranslate"><span class="pre">SimpleSelections</span></code> and the other algorithms we just learned.</p></li>
-<li><p>Introduce <code class="docutils literal notranslate"><span class="pre">FilterSelection</span></code> by performing the soft pion selection outside the <code class="docutils literal notranslate"><span class="pre">CombineParticles</span></code> as discussed in the <em>Building shared selections</em> callout in the <a class="reference internal" href="building-decays-part1.html"><span class="doc">previous lesson</span></a>.
-The solution can be found <a class="reference download internal" download="" href="../_downloads/070ea56e39e038ce122da5886e071827/02.optimized.py"><code class="xref download docutils literal notranslate"><span class="pre">here</span></code></a>.</p></li>
+<li><p>Introduce <code class="docutils literal notranslate"><span class="pre">FilterSelection</span></code> by performing the soft pion selection outside the <code class="docutils literal notranslate"><span class="pre">CombineParticles</span></code> as discussed in the <em>Building shared selections</em> callout in the <a class="reference internal" href="building-decays-part1.html"><span class="doc std std-doc">previous lesson</span></a>.
+The solution can be found <a class="reference download internal" download="" href="../_downloads/070ea56e39e038ce122da5886e071827/02.optimized.py"><span class="xref download myst">here</span></a>.</p></li>
 </ul>
 </div>
 </div>
@@ -358,7 +358,7 @@ The most interesting are (see the <a class="reference external" href="https://gi
 <ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">TriggerSelection</span></code>, including <code class="docutils literal notranslate"><span class="pre">L0</span></code>/<code class="docutils literal notranslate"><span class="pre">Hlt1</span></code>/<code class="docutils literal notranslate"><span class="pre">Hlt2</span></code> specific versions. These are used to filter on certain trigger decisions (NB: their job is simply to filter, so they cannot be used as particle input for another selection).
 The same interface can be used for filtering on Stripping decisions by using the <code class="docutils literal notranslate"><span class="pre">StrippingSelection</span></code> class.
-With it, the example from the Starterkit <a class="reference internal" href="../first-analysis-steps/minimal-dv-job.html"><span class="doc">minimal DaVinci job</span></a>, in which the output of a Stripping line was passed to <code class="docutils literal notranslate"><span class="pre">DecayTreeTuple</span></code>, could be written in a more CPU-efficient way:</p>
+With it, the example from the Starterkit <a class="reference internal" href="../first-analysis-steps/minimal-dv-job.html"><span class="std std-doc">minimal DaVinci job</span></a>, in which the output of a Stripping line was passed to <code class="docutils literal notranslate"><span class="pre">DecayTreeTuple</span></code>, could be written in a more CPU-efficient way:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">line</span> <span class="o">=</span> <span class="s1">&#39;D2hhPromptDst2D2KKLine&#39;</span>
 <span class="n">strip_sel</span> <span class="o">=</span> <span class="n">StrippingSelection</span><span class="p">(</span><span class="s2">&quot;Strip_sel&quot;</span><span class="p">,</span>
                                <span class="s2">&quot;HLT_PASS(&#39;StrippingD2hhPromptDst2D2KKLineDecision&#39;)&quot;</span><span class="p">)</span>
@@ -378,7 +378,7 @@ Additionally, it takes care of <code class="docutils literal notranslate"><span 
 <p id="a-small-test"><i class="fa fa-square-o"></i> A small test</p>
 </div>
 <div class="panel-body docutils container">
-<p>Try running the <a class="reference internal" href="../first-analysis-steps/minimal-dv-job.html"><span class="doc">minimal DaVinci job</span></a> with and without the <code class="docutils literal notranslate"><span class="pre">StrippingSelection</span></code>/<code class="docutils literal notranslate"><span class="pre">DecayTreeTuple</span></code> selections, and compare their performance</p>
+<p>Try running the <a class="reference internal" href="../first-analysis-steps/minimal-dv-job.html"><span class="std std-doc">minimal DaVinci job</span></a> with and without the <code class="docutils literal notranslate"><span class="pre">StrippingSelection</span></code>/<code class="docutils literal notranslate"><span class="pre">DecayTreeTuple</span></code> selections, and compare their performance</p>
 <p>In this particular case, there is a simple way to achieve a CPU-efficient code with <code class="docutils literal notranslate"><span class="pre">DecayTreeTuple</span></code>, thanks to the use of <code class="docutils literal notranslate"><span class="pre">DaVinci</span></code> pre-event filters;</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">PhysConf.Filters</span><span class="w"> </span><span class="kn">import</span> <span class="n">LoKi_Filters</span>
 <span class="n">filter_</span> <span class="o">=</span> <span class="n">LoKi_Filters</span><span class="p">(</span><span class="n">STRIP_Code</span><span class="o">=</span><span class="s2">&quot;HLT_PASS(&#39;StrippingD2hhPromptDst2D2KKLineDecision&#39;)&quot;</span><span class="p">)</span>

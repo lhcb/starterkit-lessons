@@ -268,7 +268,7 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="run-a-different-stripping-line-on-simulated-data">
+  <section class="tex2jax_ignore mathjax_ignore" id="run-a-different-stripping-line-on-simulated-data">
 <h1>Run a different stripping line on simulated data<a class="headerlink" href="#run-a-different-stripping-line-on-simulated-data" title="Link to this heading"></a></h1>
 <div class="panel panel-objectives docutils container">
 <div class="panel-header open docutils container">
@@ -289,8 +289,8 @@ For example, what if our data sample uses Stripping 28r1, while our MC sample us
 the decisions of the stripping that ran during the central MC production are placed in a default location in the TES (<code class="docutils literal notranslate"><span class="pre">/Event/Strip/Phys/DecReports</span></code>), so if we try to run our custom stripping it will complain because the location it wants to write the new decisions to already exists.
 To solve this issue, we need to run an instance of <code class="docutils literal notranslate"><span class="pre">EventNodeKiller</span></code> to remove the decisions from the MC production so that our custom stripping can write there instead.
 This is nice, because most tools expect to read the stripping decisions from the default location, so we won’t have to reconfigure anything.</p>
-<p><a class="reference download internal" download="" href="../_downloads/f107cac626e4f6cdb65b5e1de212025d/options.py"><code class="xref download docutils literal notranslate"><span class="pre">This</span> <span class="pre">example</span></code></a> is an extended version of the <a class="reference internal" href="../first-analysis-steps/minimal-dv-job.html"><span class="doc">minimal DaVinci DecayTreeTuple job</span></a> that additionally runs the corresponding stripping line from Stripping 28r1.</p>
-<p>Take a look at the file and try to find out what has changed compared to the <a class="reference download internal" download="" href="../_downloads/beefe47816c401481df4eb8722c37b1d/ntuple_options.py"><code class="xref download docutils literal notranslate"><span class="pre">minimal</span> <span class="pre">DaVinci</span> <span class="pre">example</span></code></a>.</p>
+<p><a class="reference download internal" download="" href="../_downloads/f107cac626e4f6cdb65b5e1de212025d/options.py"><span class="xref download myst">This example</span></a> is an extended version of the <a class="reference internal" href="../first-analysis-steps/minimal-dv-job.html"><span class="std std-doc">minimal DaVinci DecayTreeTuple job</span></a> that additionally runs the corresponding stripping line from Stripping 28r1.</p>
+<p>Take a look at the file and try to find out what has changed compared to the <a class="reference download internal" download="" href="../_downloads/beefe47816c401481df4eb8722c37b1d/ntuple_options.py"><span class="xref download myst">minimal DaVinci example</span></a>.</p>
 <div class="panel panel-callout docutils container">
 <div class="panel-header open docutils container">
 <p id="downloading-the-file-during-a-impactkit-lesson"><i class="fa fa-info-circle"></i> Downloading the file during a Impactkit lesson</p>

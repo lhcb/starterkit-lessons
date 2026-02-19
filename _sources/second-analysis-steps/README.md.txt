@@ -18,22 +18,21 @@ Before starting, you should be familiar with the [first analysis steps](/first-a
 [lessons-issues]: https://github.com/lhcb/starterkit-lessons/issues
 [lessons-repo]: https://github.com/lhcb/starterkit-lessons
 
-```eval_rst
-.. toctree::
-    :hidden:
-    :caption: Contents:
+```{toctree}
+:hidden:
+:caption: Contents:
 
-    lb-git.md
-    building-decays.md
-    fixing-errors.md
-    rerun-stripping.md
-    switch-mass-hypo.md
-    filter-in-trees.md
-    simulation.md
-    hlt-intro.md
-    tistos-diy.md
-    ganga-scripting.md
-    managing-files-with-ganga.md
-    advanced-dirac.md
-    containers.md
+lb-git.md
+building-decays.md
+fixing-errors.md
+rerun-stripping.md
+switch-mass-hypo.md
+filter-in-trees.md
+simulation.md
+hlt-intro.md
+tistos-diy.md
+ganga-scripting.md
+managing-files-with-ganga.md
+advanced-dirac.md
+containers.md
 ```

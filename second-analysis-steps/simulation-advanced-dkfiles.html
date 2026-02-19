@@ -279,9 +279,9 @@
 </ul>
 </div>
 </div>
-<section id="advanced-modifying-the-decay">
+<section class="tex2jax_ignore mathjax_ignore" id="advanced-modifying-the-decay">
 <h1>Advanced: Modifying the decay<a class="headerlink" href="#advanced-modifying-the-decay" title="Link to this heading"></a></h1>
-<p>##Two-body decays - getting angular momentum right
+<p>#Two-body decays - getting angular momentum right
 EvtGen has specific models for each two body spin configuration, for example Scalar to Vector+Scalar (SVS), and Vector to lepton+lepton(VLL)</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>#
 Decay B+sig
@@ -317,7 +317,7 @@ Enddecay
 </pre></div>
 </div>
 </section>
-<section id="multi-body-decays">
+<section class="tex2jax_ignore mathjax_ignore" id="multi-body-decays">
 <h1>3+ multi-body decays<a class="headerlink" href="#multi-body-decays" title="Link to this heading"></a></h1>
 <p>For 3+ bodies the physics models get more complicated. For a fully hadronic final state, typically a Dalitz model will be specified, e.g:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span># D_DALITZ includes resonances contributions (K*(892), K*(1430), K*(1680))
@@ -339,7 +339,7 @@ CDecay anti-B0sig
 </div>
 <p>here the numbers correspond to measured values for the form factor parameters.</p>
 </section>
-<section id="cocktail-decays">
+<section class="tex2jax_ignore mathjax_ignore" id="cocktail-decays">
 <h1>Cocktail decays<a class="headerlink" href="#cocktail-decays" title="Link to this heading"></a></h1>
 <p>Often you will want to simulate more than one decay mode in a sample, e.g:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Decay MyD_s+
@@ -356,11 +356,11 @@ CDecay MyD_s-
 </div>
 <p>Note that the fractions will always be renormalised to sum to 1 - you can directly use PDG branching fractions without having to rescale by hand.</p>
 </section>
-<section id="final-state-radiation">
+<section class="tex2jax_ignore mathjax_ignore" id="final-state-radiation">
 <h1>Final state radiation<a class="headerlink" href="#final-state-radiation" title="Link to this heading"></a></h1>
 <p>After generating the decay, final state radiation is added using PHOTOS. Note that PHOTOS is enabled by default, even though many decfiles explicitly specify it. It needs to be explicitly removed via “noPhotos”</p>
 </section>
-<section id="changing-particle-masses-lifetimes-widths">
+<section class="tex2jax_ignore mathjax_ignore" id="changing-particle-masses-lifetimes-widths">
 <h1>Changing particle masses / lifetimes/ widths<a class="headerlink" href="#changing-particle-masses-lifetimes-widths" title="Link to this heading"></a></h1>
 <p>Sometimes you need to change the mass or lifetime of a particle, either because the initial values are wrong, or the particle you actually want doesn’t exist in EvtGen, and you need to adapt an existing particle.
 This can be done with python code inserted in the header:</p>
@@ -384,12 +384,12 @@ This can be done with python code inserted in the header:</p>
 </pre></div>
 </div>
 </section>
-<section id="finding-constants-used-in-an-existing-mc-sample-masses-lifetimes-etc">
+<section class="tex2jax_ignore mathjax_ignore" id="finding-constants-used-in-an-existing-mc-sample-masses-lifetimes-etc">
 <h1>Finding Constants Used in an Existing MC Sample (Masses/Lifetimes/etc)<a class="headerlink" href="#finding-constants-used-in-an-existing-mc-sample-masses-lifetimes-etc" title="Link to this heading"></a></h1>
 <p>If you have a pre-existing MC sample and you want to find constants which have been used in its generation (typically the lifetime or masses of generated particles), The method to do this has two steps</p>
-<ol class="simple">
+<ol class="arabic simple">
 <li><p>Find the database tag (dddb) used in the generation of your sample. Instructions for doing this can be found <a class="reference external" href="https://lhcb.github.io/starterkit-lessons/first-analysis-steps/minimal-dv-job.html">earlier in this gitbook</a>.</p></li>
-<li><p>go to https://gitlab.cern.ch/lhcb-conddb/DDDB/-/blob/master/param/ParticleTable.txt replace and change the branch to be the same as your dddb tag.</p></li>
+<li><p>go to <a class="reference external" href="https://gitlab.cern.ch/lhcb-conddb/DDDB/-/blob/master/param/ParticleTable.txt">https://gitlab.cern.ch/lhcb-conddb/DDDB/-/blob/master/param/ParticleTable.txt</a> replace and change the branch to be the same as your dddb tag.</p></li>
 </ol>
 <p>You will now see every constant associated with every particle which could have been used in your decay.</p>
 </section>

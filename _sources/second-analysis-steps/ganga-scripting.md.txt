@@ -13,7 +13,7 @@ writing job definition scripts, and exploring how we can define utility
 functions that will be available across all of our Ganga sessions.
 
 
-### Defining jobs with scripts
+## Defining jobs with scripts
 
 The `ganga` executable is similar to the `python` and `ipython` executables in 
 a couple of ways.
@@ -182,8 +182,6 @@ The `argparse` module can do a lot, being able to parse complex sets of
 arguments with much difficultly. It's a useful tool to know in general, so we 
 recommend that you check out the [documentation][argparse] to learn more.
 
-[argparse]: https://docs.python.org/2/library/argparse.html
-
 {% endcallout %}
 
 When we do supply all the necessary arguments, the values are then available in
@@ -214,7 +212,7 @@ Above we added the `--test` flag as an example: if this is `True`, you could
 run the application over only a single data file, and run the job locally 
 rather than on the Grid (setting `j.backend` appropriately).
 
-### Adding helpers functions
+## Adding helpers functions
 
 We've seen above how giving a script to `ganga` makes the variables defined in 
 those scripts available interactively.

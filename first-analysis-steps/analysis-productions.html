@@ -20,6 +20,7 @@
       <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
       <script src="../_static/panels.js?v=0f4bdeea"></script>
       <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+      <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
       <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
       <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
     <script src="../_static/js/theme.js"></script>
@@ -270,7 +271,7 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="analysis-productions">
+  <section class="tex2jax_ignore mathjax_ignore" id="analysis-productions">
 <h1>Analysis Productions<a class="headerlink" href="#analysis-productions" title="Link to this heading"></a></h1>
 <div class="panel panel-objectives docutils container">
 <div class="panel-header open docutils container">
@@ -284,7 +285,7 @@
 </ul>
 </div>
 </div>
-<p>Running DaVinci locally can be great for testing an options file, but is rarely appropriate for creating the full set of ROOT ntuples needed for an analysis. Historically, people would submit their jobs to the grid: one can send off a large number of DaVinci jobs to be handled by batch computing resources (in certain cases, this is still useful - see the <a class="reference internal" href="davinci-grid.html"><span class="doc">next lesson</span></a> for how to do this). However, this still has some drawbacks, in particular:</p>
+<p>Running DaVinci locally can be great for testing an options file, but is rarely appropriate for creating the full set of ROOT ntuples needed for an analysis. Historically, people would submit their jobs to the grid: one can send off a large number of DaVinci jobs to be handled by batch computing resources (in certain cases, this is still useful - see the <a class="reference internal" href="davinci-grid.html"><span class="doc std std-doc">next lesson</span></a> for how to do this). However, this still has some drawbacks, in particular:</p>
 <ul class="simple">
 <li><p>Large datasets (especially in run 3) would require a long period of monitoring your grid jobs.</p></li>
 <li><p>Computing resources can be wasted if multiple analyses are independently producing similar ntuples.</p></li>
@@ -323,12 +324,12 @@
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>checkout<span class="w"> </span>-b<span class="w"> </span><span class="si">${</span><span class="nv">USER</span><span class="si">}</span>/starterkit-practice
 </pre></div>
 </div>
-<p>Now we need to create a folder to store all the things we’re going to add for our new production. For this practice production, we’ll continue with the <span class="math notranslate nohighlight">\(` B^+ \to (J/\psi \to \mu^+ \mu^-) K^+ `\)</span> decays used in the previous few lessons, so we should name the folder appropriately:</p>
+<p>Now we need to create a folder to store all the things we’re going to add for our new production. For this practice production, we’ll continue with the <span class="math notranslate nohighlight">\(B^+ \to (J/\psi \to \mu^+ \mu^-) K^+\)</span> decays used in the previous few lessons, so we should name the folder appropriately:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mkdir<span class="w"> </span>starterkit
 </pre></div>
 </div>
 <p>Let’s enter that new directory (<code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">starterkit</span></code>), and start adding the files we’ll need. First is the DaVinci options file. If you have the options file you created during the previous lessons in a working condition, copy it here, and open it with your text editor of choice.</p>
-<p>If you don’t have your options file from earlier available, or are having trouble, you can <a class="reference download internal" download="" href="../_downloads/c64e8c69c2133646af1587bad0ce3466/dv_basic.py"><code class="xref download docutils literal notranslate"><span class="pre">use</span> <span class="pre">this</span> <span class="pre">options</span> <span class="pre">file</span></code></a>.</p>
+<p>If you don’t have your options file from earlier available, or are having trouble, you can <a class="reference download internal" download="" href="../_downloads/c64e8c69c2133646af1587bad0ce3466/dv_basic.py"><span class="xref download myst">use this options file</span></a>.</p>
 <p>The next file needed is a <code class="docutils literal notranslate"><span class="pre">.yaml</span></code> file, which will be used to configure the jobs. Create a new file named <code class="docutils literal notranslate"><span class="pre">info.yaml</span></code>, and add the following to it:</p>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">defaults</span><span class="p">:</span>
 <span class="w">  </span><span class="nt">application</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">DaVinci/v64r12</span>
@@ -357,11 +358,11 @@
 <p>Here, the unindented lines are the names of jobs (although <code class="docutils literal notranslate"><span class="pre">defaults</span></code> has a special function), and the indented lines are the options we’re applying to those jobs. Using this file will create one job called <code class="docutils literal notranslate"><span class="pre">Bu2JpsiK_24c4_MagDown</span></code>, that will read in data from the provided bookkeeping path. All the options applied under <code class="docutils literal notranslate"><span class="pre">defaults</span></code> are automatically applied to all other jobs - very useful for avoiding repetition. The options we’re using here are copied from the Run 3 DaVinci lesson:</p>
 <ul class="simple">
 <li><p><strong>application</strong>: the version of DaVinci to use. Here we choose v64r12, see <a class="reference external" href="http://lhcbdoc.web.cern.ch/lhcbdoc/davinci/">here</a> to check what versions are available.</p></li>
-<li><p><strong>wg</strong>: the working group this production is a part of. Since this is a <span class="math notranslate nohighlight">\(` B^+ \to (J/\psi \to \mu^+ \mu^-) K^+ `\)</span> decay, we’ll set this to <code class="docutils literal notranslate"><span class="pre">B2CC</span></code>.</p></li>
+<li><p><strong>wg</strong>: the working group this production is a part of. Since this is a <span class="math notranslate nohighlight">\(B^+ \to (J/\psi \to \mu^+ \mu^-) K^+\)</span> decay, we’ll set this to <code class="docutils literal notranslate"><span class="pre">B2CC</span></code>.</p></li>
 <li><p><strong>inform</strong>: optionally, you can enter your email address to receive updates on the status of your jobs.</p></li>
 <li><p><strong>options</strong>: the settings to use when running DaVinci. These are copied from the Run 3 DaVinci lesson.</p></li>
 <li><p><strong>output</strong>: the name of the output <code class="docutils literal notranslate"><span class="pre">.root</span></code> ntuples. These will get registered in bookkeeping as well.</p></li>
-<li><p><strong>input</strong>: the bookkeeping path of the data you’re running over. This is what you located during the <a class="reference internal" href="bookkeeping.html"><span class="doc">bookkeeping lesson</span></a>, and is unique to the 24c4 magnet down job, so it doesn’t belong under <code class="docutils literal notranslate"><span class="pre">defaults</span></code>.</p></li>
+<li><p><strong>input</strong>: the bookkeeping path of the data you’re running over. This is what you located during the <a class="reference internal" href="bookkeeping.html"><span class="doc std std-doc">bookkeeping lesson</span></a>, and is unique to the 24c4 magnet down job, so it doesn’t belong under <code class="docutils literal notranslate"><span class="pre">defaults</span></code>.</p></li>
 </ul>
 <p>For a full list of the available options, and information on their allowed values, see the <a class="reference external" href="https://lhcb-ap.docs.cern.ch/user_guide/creating.html#yaml-configuration">documentation</a>.</p>
 <div class="panel panel-challenge docutils container">
@@ -375,7 +376,7 @@
 <p id="solutions"><i class="fa fa-check-square-o"></i> Solutions</p>
 </div>
 <div class="panel-body docutils container">
-<p>Since we’re making use of the <code class="docutils literal notranslate"><span class="pre">defaults</span></code> job name, we need to add very little to add this new job. One can simply copy the final 3 lines to create a new job, rename it to <code class="docutils literal notranslate"><span class="pre">Bu2JpsiK_24c4_MagUp</span></code>, and add the appropriate bookkeeping path. An example of this can be found <a class="reference download internal" download="" href="../_downloads/27028a16a46572fec57089b46a40fd04/info.yaml"><code class="xref download docutils literal notranslate"><span class="pre">here</span></code></a>.</p>
+<p>Since we’re making use of the <code class="docutils literal notranslate"><span class="pre">defaults</span></code> job name, we need to add very little to add this new job. One can simply copy the final 3 lines to create a new job, rename it to <code class="docutils literal notranslate"><span class="pre">Bu2JpsiK_24c4_MagUp</span></code>, and add the appropriate bookkeeping path. An example of this can be found <a class="reference download internal" download="" href="../_downloads/27028a16a46572fec57089b46a40fd04/info.yaml"><span class="xref download myst">here</span></a>.</p>
 </div>
 </div>
 </div>
@@ -454,7 +455,7 @@ INFO:Creating new pipeline for ID 1958388
 ALWAYS:Results will be available at https://lhcb-analysis-productions.web.cern.ch/1958388/
 </pre></div>
 </div>
-<p>You can open that link in your browser to view the status of the test jobs (example <a class="reference external" href="https://lhcb-analysis-productions.web.cern.ch/ana-prod/pipelines/?id=8610&amp;ci_run=starterkit">here</a>). After a few minutes, these should have completed - all being well, you’ve now successfully prepared your first production!</p>
+<p>You can open that link in your browser to view the status of the test jobs (example <a class="reference external" href="https://lhcb-analysis-productions.web.cern.ch/ana-prod/pipelines/?id=8610&amp;amp;ci_run=starterkit">here</a>). After a few minutes, these should have completed - all being well, you’ve now successfully prepared your first production!</p>
 </section>
 <section id="analysis-productions-data">
 <h3>Analysis Productions Data<a class="headerlink" href="#analysis-productions-data" title="Link to this heading"></a></h3>

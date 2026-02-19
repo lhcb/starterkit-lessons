@@ -279,10 +279,10 @@
 </ul>
 </div>
 </div>
-<section id="what-is-gauss">
+<section class="tex2jax_ignore mathjax_ignore" id="what-is-gauss">
 <h1>What is Gauss?<a class="headerlink" href="#what-is-gauss" title="Link to this heading"></a></h1>
 <p>Gauss is the LHCb simulation framework which manages the creation of simulated events by interfacing to multiple external applications. Most commonly, an event is created via the following procedure:</p>
-<ol class="simple">
+<ol class="arabic simple">
 <li><p>The <code class="docutils literal notranslate"><span class="pre">ProductionTool</span></code> (Pythia, GenXicc, …) generates an event with the required signal particle. Either by generating minimum bias events until a matching particle is found or by ensuring one is produced in every event. The resulting event is comprised of either stable particles or unstable particles which are known to either EvtGen or Geant4 and can be decayed.</p></li>
 <li><p>The signal particle is decayed using the <code class="docutils literal notranslate"><span class="pre">DecayTool</span></code> (EvtGen) to the desired final state, all remaining unstable particles are decayed independently.</p></li>
 <li><p>The signal and its decay products might be required to pass generator level cuts implemented as a <code class="docutils literal notranslate"><span class="pre">CutTool</span></code>.</p></li>
@@ -293,7 +293,7 @@
 <p id="things-to-remember"><i class="fa fa-info-circle"></i> Things to remember</p>
 </div>
 <div class="panel-body docutils container">
-<ol class="simple">
+<ol class="arabic simple">
 <li><p>The detector simulation is <strong><strong>by far</strong></strong> the most time consuming step (minutes, compared to seconds for the rest). So make sure your generator cuts remove events you cannot possibly reconstruct or select later on. Additional options are available to increase the speed, please talk to your MC liaisons!</p></li>
 <li><p>The generator cuts are only applied to the signal that was forced to decay to the specific final state. <em>Any</em> other true signal candidate is not required to pass. Furthermore, if the signal candidate flies in negative <code class="docutils literal notranslate"><span class="pre">z</span></code> direction, the event is mirrored to optimise the use of available CPU resources.</p></li>
 <li><p>The number of generated events refers to the number entering step 4 above, so those passing the generator level cuts. <strong>Not</strong> the number of events produced by the <code class="docutils literal notranslate"><span class="pre">ProductionTool</span></code> in the first step.</p></li>
@@ -301,7 +301,7 @@
 </div>
 </div>
 </section>
-<section id="choosing-your-gauss-version">
+<section class="tex2jax_ignore mathjax_ignore" id="choosing-your-gauss-version">
 <h1>Choosing your Gauss Version<a class="headerlink" href="#choosing-your-gauss-version" title="Link to this heading"></a></h1>
 <p>Each release of Gauss v49 represents a different release of Sim09. You may want to run an older version of Gauss to verify something in a pre-existing MC dataset or for any number of other reasons. Here is a table matching each Gauss v49 release to each Sim09 version:</p>
 <!--
@@ -328,7 +328,8 @@
      - v49r18
    * - Sim09k
      - v49r20
---><!--
+-->
+<!--
 | Sim09 Version | Original Gauss Releases |
 | -- | -- |
 | Sim09b | v49r5 |
@@ -341,7 +342,8 @@
 | Sim09i | v49r17 |
 | Sim09j | v49r18 |
 | Sim09k | v49r20 |
---><p><em>Sim09 Version</em> - <em>Original Gauss Releases</em></p>
+-->
+<p><em>Sim09 Version</em> - <em>Original Gauss Releases</em></p>
 <p>Sim09b - v49r5</p>
 <p>Sim09c - v49r8</p>
 <p>Sim09d - v49r10</p>

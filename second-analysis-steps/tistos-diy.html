@@ -20,6 +20,7 @@
       <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
       <script src="../_static/panels.js?v=0f4bdeea"></script>
       <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+      <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
       <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
       <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
     <script src="../_static/js/theme.js"></script>
@@ -270,7 +271,7 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="tistos-diy">
+  <section class="tex2jax_ignore mathjax_ignore" id="tistos-diy">
 <h1>TisTos DIY<a class="headerlink" href="#tistos-diy" title="Link to this heading"></a></h1>
 <div class="panel panel-objectives docutils container">
 <div class="panel-header open docutils container">
@@ -309,7 +310,7 @@ microDST, where only candidates that are used in passing selections are
 available to analysts. The Turbo stream is different because information that
 is not saved is lost forever.</p>
 <p>We will now have a look at some of the candidates stored by the HLT. We will use the script we
-<a class="reference internal" href="../first-analysis-steps/interactive-dst.html"><span class="doc">used last time</span></a>
+<a class="reference internal" href="../first-analysis-steps/interactive-dst.html"><span class="std std-doc">used last time</span></a>
 as a starting point, and the file
 <code class="docutils literal notranslate"><span class="pre">root://eoslhcb.cern.ch//eos/lhcb/user/r/raaij/Impactkit/00051318_00000509_1.turbo.mdst</span></code>.
 This file contains some 2016 Turbo events from <a class="reference external" href="https://lbrundb.cern.ch/rundb/run/174252/">run
@@ -339,7 +340,7 @@ in Run 2 are called Hlt1TrackMVA and Hlt1TwoTrackMVA. Use the advance function
 to find an event that was accepted by either of these trigger selections.</p>
 <p>The DecReports only contains the decisions for each line, 1 or 0. The
 candidates themselves are stored in the
-SelReports (”Hlt{1,2}/SelReports”). Get the HLT1 SelReports from the event store
+SelReports (“Hlt{1,2}/SelReports”). Get the HLT1 SelReports from the event store
 and retrieve the one for one of the TrackMVA selections using the selReport function,
 analogously to how the DecReport was retrieved above.</p>
 <p>The SelReports store candidates in a tree of sub-structures, which can be
@@ -429,7 +430,7 @@ configured in the following way (before the AppMgr is instantiated):</p>
 </pre></div>
 </div>
 <p>Create the tools in the same way you created others during the
-<a class="reference internal" href="../first-analysis-steps/interactive-dst.html"><span class="doc">other lesson</span></a>, but use instance-specific names that
+<a class="reference internal" href="../first-analysis-steps/interactive-dst.html"><span class="std std-doc">other lesson</span></a>, but use instance-specific names that
 correspond to the configuration we just added: <code class="docutils literal notranslate"><span class="pre">Hlt1TriggerTisTos</span></code> and
 <code class="docutils literal notranslate"><span class="pre">Hlt2TriggerTisTos</span></code>. The tools use <code class="docutils literal notranslate"><span class="pre">ITriggerTisTos</span></code> as an interface.</p>
 <p>Use the advance function to find an event that has some candidates for the
@@ -467,7 +468,7 @@ Tis:</p>
 </pre></div>
 </div>
 <p>The (Tos) trigger efficiency of a trigger selection can be calculated as:</p>
-<p><span class="math notranslate nohighlight">\(` \epsilon_{\mathrm{Tos}}=N_{\mathrm{Tis}\&amp;\mathrm{Tos}} / {N_{\mathrm{Tis}}} `\)</span></p>
+<p><span class="math notranslate nohighlight">\(\epsilon_{\mathrm{Tos}}=N_{\mathrm{Tis}\&amp;\mathrm{Tos}} / {N_{\mathrm{Tis}}}\)</span></p>
 <p>Loop over the events in the DST and calculate the efficiency of
 Hlt1TrackAllL0. You can add some more Hlt1 selecitons when checking for Tis,
 which ones would make sense?</p>

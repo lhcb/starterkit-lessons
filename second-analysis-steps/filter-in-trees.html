@@ -20,6 +20,7 @@
       <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
       <script src="../_static/panels.js?v=0f4bdeea"></script>
       <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+      <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
       <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
       <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
     <script src="../_static/js/theme.js"></script>
@@ -270,7 +271,7 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="reuse-particles-from-a-decay-tree">
+  <section class="tex2jax_ignore mathjax_ignore" id="reuse-particles-from-a-decay-tree">
 <h1>Reuse particles from a decay tree<a class="headerlink" href="#reuse-particles-from-a-decay-tree" title="Link to this heading"></a></h1>
 <div class="panel panel-objectives docutils container">
 <div class="panel-header open docutils container">
@@ -284,10 +285,10 @@
 </div>
 </div>
 <p>Sometimes we want to extract a portion of the decay tree in order to build a different decay.
-To do that, we need to put the particles we’re interested in in a new container so they can afterwards be used as inputs to a <code class="docutils literal notranslate"><span class="pre">CombineParticles</span></code> instance (as we saw in <a class="reference internal" href="building-decays-part0.html"><span class="doc">the selection framework lesson</span></a>).
+To do that, we need to put the particles we’re interested in in a new container so they can afterwards be used as inputs to a <code class="docutils literal notranslate"><span class="pre">CombineParticles</span></code> instance (as we saw in <a class="reference internal" href="building-decays-part0.html"><span class="doc std std-doc">the selection framework lesson</span></a>).
 To achieve this we can use the <code class="docutils literal notranslate"><span class="pre">FilterInTrees</span></code> algorithm, a simple variation of <code class="docutils literal notranslate"><span class="pre">FilterDesktop</span></code> (<a class="reference external" href="https://lhcb-doxygen.web.cern.ch/lhcb-doxygen/davinci/latest/d0/d0c/class_filter_desktop.html">doxygen</a>).</p>
-<p>Let’s start from the example in <a class="reference internal" href="building-decays-part0.html"><span class="doc">the selection framework lesson</span></a> and let’s check that the <span class="math notranslate nohighlight">\(` K^+ `\)</span> child of the <span class="math notranslate nohighlight">\(` D^0 `\)</span> does not come from a <span class="math notranslate nohighlight">\(` K^{*}(892)^{0} \to K^{+}\pi^{-} `\)</span>.
-To do that, we have to extract the <span class="math notranslate nohighlight">\(` K^+ `\)</span> from <code class="docutils literal notranslate"><span class="pre">([D0</span> <span class="pre">-&gt;</span> <span class="pre">K+</span> <span class="pre">K-]CC)</span></code> and combine it with all pions in <code class="docutils literal notranslate"><span class="pre">Phys/StdAllNoPIDsPions/Particles</span></code>.</p>
+<p>Let’s start from the example in <a class="reference internal" href="building-decays-part0.html"><span class="doc std std-doc">the selection framework lesson</span></a> and let’s check that the <span class="math notranslate nohighlight">\(K^+\)</span> child of the <span class="math notranslate nohighlight">\(D^0\)</span> does not come from a <span class="math notranslate nohighlight">\(K^{*}(892)^{0} \to K^{+}\pi^{-}\)</span>.
+To do that, we have to extract the <span class="math notranslate nohighlight">\(K^+\)</span> from <code class="docutils literal notranslate"><span class="pre">([D0</span> <span class="pre">-&gt;</span> <span class="pre">K+</span> <span class="pre">K-]CC)</span></code> and combine it with all pions in <code class="docutils literal notranslate"><span class="pre">Phys/StdAllNoPIDsPions/Particles</span></code>.</p>
 <p>Using <code class="docutils literal notranslate"><span class="pre">FilterInTrees</span></code> is done in the same way we would use <code class="docutils literal notranslate"><span class="pre">FilterDesktop</span></code>:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">Configurables</span><span class="w"> </span><span class="kn">import</span> <span class="n">FilterInTrees</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">PhysSelPython.Wrappers</span><span class="w"> </span><span class="kn">import</span> <span class="n">Selection</span><span class="p">,</span> <span class="n">DataOnDemand</span>
@@ -302,8 +303,8 @@ To do that, we have to extract the <span class="math notranslate nohighlight">\(
                             <span class="n">RequiredSelections</span><span class="o">=</span><span class="p">[</span><span class="n">DataOnDemand</span><span class="p">(</span><span class="n">Location</span><span class="o">=</span><span class="n">tesLoc</span><span class="p">)])</span>
 </pre></div>
 </div>
-<p>The output of <code class="docutils literal notranslate"><span class="pre">kaons_from_d0_sel</span></code> is a container with all the kaons coming from the <span class="math notranslate nohighlight">\(` D^0 `\)</span>.</p>
-<p>The final step is easy, very similar to <a class="reference internal" href="building-decays-part0.html"><span class="doc">building your own decay</span></a>:</p>
+<p>The output of <code class="docutils literal notranslate"><span class="pre">kaons_from_d0_sel</span></code> is a container with all the kaons coming from the <span class="math notranslate nohighlight">\(D^0\)</span>.</p>
+<p>The final step is easy, very similar to <a class="reference internal" href="building-decays-part0.html"><span class="doc std std-doc">building your own decay</span></a>:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">Configurables</span><span class="w"> </span><span class="kn">import</span> <span class="n">CombineParticles</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">PhysSelPython.Wrappers</span><span class="w"> </span><span class="kn">import</span> <span class="n">Selection</span><span class="p">,</span> <span class="n">DataOnDemand</span>
 
@@ -317,7 +318,7 @@ To do that, we have to extract the <span class="math notranslate nohighlight">\(
                     <span class="n">RequiredSelections</span><span class="o">=</span><span class="p">[</span><span class="n">kaons_from_d0_sel</span><span class="p">,</span> <span class="n">Pions</span><span class="p">])</span>
 </pre></div>
 </div>
-<p>Add the <code class="docutils literal notranslate"><span class="pre">kst_sel</span></code> to the example from <a class="reference internal" href="building-decays-part0.html"><span class="doc">building your own decay</span></a>:</p>
+<p>Add the <code class="docutils literal notranslate"><span class="pre">kst_sel</span></code> to the example from <a class="reference internal" href="building-decays-part0.html"><span class="doc std std-doc">building your own decay</span></a>:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#Combine D and pions into Dstar                                                                                                              </span>
 <span class="n">dstar_sel</span> <span class="o">=</span> <span class="n">CombineSelection</span><span class="p">(</span>
     <span class="s1">&#39;Sel_Dstar&#39;</span><span class="p">,</span>
@@ -328,7 +329,7 @@ To do that, we have to extract the <span class="math notranslate nohighlight">\(
 <span class="p">)</span>
 </pre></div>
 </div>
-<p>The full example can be found <a class="reference download internal" download="" href="../_downloads/c44395d2638db6cb6189cd484aba6fec/filter-in-trees.py"><code class="xref download docutils literal notranslate"><span class="pre">here</span></code></a>.</p>
+<p>The full example can be found <a class="reference download internal" download="" href="../_downloads/c44395d2638db6cb6189cd484aba6fec/filter-in-trees.py"><span class="xref download myst">here</span></a>.</p>
 <div class="panel panel-callout docutils container">
 <div class="panel-header open docutils container">
 <p id="an-interesting-detail"><i class="fa fa-info-circle"></i> An interesting detail</p>

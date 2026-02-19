@@ -268,7 +268,7 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="replace-a-mass-hypothesis">
+  <section class="tex2jax_ignore mathjax_ignore" id="replace-a-mass-hypothesis">
 <h1>Replace a mass hypothesis<a class="headerlink" href="#replace-a-mass-hypothesis" title="Link to this heading"></a></h1>
 <div class="panel panel-objectives docutils container">
 <div class="panel-header open docutils container">
@@ -307,7 +307,7 @@ to look for new decay modes.</p>
 <span class="p">)</span>
 </pre></div>
 </div>
-<p>The algorithm is configured with a name <code class="docutils literal notranslate"><span class="pre">MakeD02Kpi</span></code>. In the <code class="docutils literal notranslate"><span class="pre">Code</span></code> argument we need to specify the initial selection. This is done by using LoKi functors. Since we know we will be using an already prepared selection, we can simply use the <code class="docutils literal notranslate"><span class="pre">DECTREE</span></code> functor to search for candidates fulfilling this decay structure. See the <a class="reference internal" href="../first-analysis-steps/loki-functors.html"><span class="doc">lesson on LoKi</span></a> for more info on what you can do here.</p>
+<p>The algorithm is configured with a name <code class="docutils literal notranslate"><span class="pre">MakeD02Kpi</span></code>. In the <code class="docutils literal notranslate"><span class="pre">Code</span></code> argument we need to specify the initial selection. This is done by using LoKi functors. Since we know we will be using an already prepared selection, we can simply use the <code class="docutils literal notranslate"><span class="pre">DECTREE</span></code> functor to search for candidates fulfilling this decay structure. See the <a class="reference internal" href="../first-analysis-steps/loki-functors.html"><span class="std std-doc">lesson on LoKi</span></a> for more info on what you can do here.</p>
 <p>Now we are ready to specify which hypotheses to change. <code class="docutils literal notranslate"><span class="pre">Substitutions</span></code> is a dictionary where the keys are decay descriptors and the values are the names of the replacement particles. The particle that should be replaced is marked with a <code class="docutils literal notranslate"><span class="pre">^</span></code>. So in the example above</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;Charm -&gt; (D0 -&gt; K- ^K+) Meson&#39;</span><span class="p">:</span> <span class="s1">&#39;pi+&#39;</span>
 </pre></div>
@@ -372,8 +372,8 @@ The <a class="reference external" href="https://twiki.cern.ch/twiki/bin/view/LHC
 <span class="n">DaVinci</span><span class="p">()</span><span class="o">.</span><span class="n">appendToMainSequence</span><span class="p">([</span><span class="n">seq</span><span class="p">])</span>
 </pre></div>
 </div>
-<p>The solution to this exercise <code class="docutils literal notranslate"><span class="pre">ntuple_switchHypo.py</span></code>, is <a class="reference download internal" download="" href="../_downloads/09b3470aaf13b03ee78cabdb3411e401/ntuple_switchHypo.py"><code class="xref download docutils literal notranslate"><span class="pre">available</span>
-<span class="pre">here</span></code></a>.</p>
+<p>The solution to this exercise <code class="docutils literal notranslate"><span class="pre">ntuple_switchHypo.py</span></code>, is <a class="reference download internal" download="" href="../_downloads/09b3470aaf13b03ee78cabdb3411e401/ntuple_switchHypo.py"><span class="xref download myst">available
+here</span></a>.</p>
 <div class="panel panel-callout docutils container">
 <div class="panel-header open docutils container">
 <p id="think-about-it"><i class="fa fa-info-circle"></i> Think about it</p>

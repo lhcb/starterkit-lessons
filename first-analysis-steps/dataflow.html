@@ -268,7 +268,7 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="the-lhcb-data-flow">
+  <section class="tex2jax_ignore mathjax_ignore" id="the-lhcb-data-flow">
 <h1>The LHCb data flow<a class="headerlink" href="#the-lhcb-data-flow" title="Link to this heading"></a></h1>
 <div class="panel panel-objectives docutils container">
 <div class="panel-header open docutils container">
@@ -307,11 +307,11 @@ This consists of several steps, each one being controlled by an ‘application�
 that processes the data event-by-event, using the data from the previous step
 and creating the results ready for the next.
 These steps are as follows:</p>
-<ol class="simple">
+<ol class="arabic simple">
 <li><p>Data from the detector are filtered through the <em>trigger</em>, which consists
 of the L0, implemented in hardware, and the high level trigger (HLT),
 implemented in software. The application responsible for the software trigger
-is Moore, discussed in the <a class="reference internal" href="../second-analysis-steps/hlt-intro.html"><span class="doc">trigger lesson</span></a>
+is Moore, discussed in the <a class="reference internal" href="../second-analysis-steps/hlt-intro.html"><span class="std std-doc">trigger lesson</span></a>
 in second-analysis-steps.</p></li>
 <li><p>Triggered, raw data are reconstructed to transform the detector hits into
 objects such as tracks and clusters. This is done by the Brunel
@@ -341,7 +341,7 @@ around 50kB per event, is discarded.</p>
 <p>The overview of most important file formats used in LHCb can be found <a class="reference external" href="http://lhcbdoc.web.cern.ch/lhcbdoc/gauss/doc/FileTypes.php">here</a>.</p>
 </div>
 </div>
-<ol class="simple">
+<ol class="arabic simple" start="4">
 <li><p>Users can run their own analysis tools to extract variables for their
 analysis with the DaVinci application. The processing is slightly different
 between DST and µDST, since some calculations need the other tracks in the
@@ -353,7 +353,7 @@ This similarity is very beneficial, as the simulated data is subject to the
 same deficiencies as in the processing of real data.
 There are two simulation steps which replace the proton-proton collisions and
 the detector response:</p>
-<ol class="simple">
+<ol class="arabic simple">
 <li><p>The simulation of proton-proton collisions, and the hadronisation and decay
 of the resulting particles, are ultimately controlled by the Gauss
 application. Gauss is responsible for calling the various Monte Carlo
@@ -368,7 +368,7 @@ simulated data can then be passed through the usual data processing chain
 described above, beginning with the trigger.</p></li>
 </ol>
 <p>So, the data flow and the associated applications look like this:</p>
-<p><a class="reference download internal" download="" href="../_downloads/1ae972630d9c6096cdbbaf92559ec14d/lhcb_data_flow.png"><code class="xref download docutils literal notranslate"><img alt="&quot;The flow of real and simulated data during Run 1 of the LHC&quot;" src="../_images/lhcb_data_flow.png" /></code></a></p>
+<p><a class="reference download internal" download="" href="../_downloads/1ae972630d9c6096cdbbaf92559ec14d/lhcb_data_flow.png"><span class="xref download myst"><img alt="&quot;The flow of real and simulated data during Run 1 of the LHC&quot;" src="../_images/lhcb_data_flow.png" /></span></a></p>
 <p>Knowing this flow is essential in selecting your data! Different application
 versions can produce very different physics, so it’s very useful to know how
 each application has manipulated the data you want to use.</p>
@@ -426,7 +426,7 @@ website</a>,
 where you can see all the algorithms run and cuts applied in each <em>line</em>.
 For example, if we wanted to understand the
 <code class="docutils literal notranslate"><span class="pre">D2hhPromptDst2D2KKLine</span></code> line, which we will use in the
-<a class="reference internal" href="interactive-dst.html"><span class="doc">exploring a DST</span></a> lesson later on, we would go
+<a class="reference internal" href="interactive-dst.html"><span class="doc std std-doc">exploring a DST</span></a> lesson later on, we would go
 <a class="reference external" href="http://lhcbdoc.web.cern.ch/lhcbdoc/stripping/config/stripping28/charm/strippingd2hhpromptdst2d2kkline.html">here</a>.</p>
 </section>
 

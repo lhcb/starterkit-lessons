@@ -268,9 +268,9 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="running-a-minimal-davinci-job-locally">
+  <section class="tex2jax_ignore mathjax_ignore" id="running-a-minimal-davinci-job-locally">
 <h1>Running a minimal DaVinci job locally<a class="headerlink" href="#running-a-minimal-davinci-job-locally" title="Link to this heading"></a></h1>
-<p><a class="reference internal" href="interactive-dst.html"><span class="doc">Looping event-by-event</span></a> over a file and <a class="reference internal" href="loki-functors.html"><span class="doc">inspecting
+<p><a class="reference internal" href="interactive-dst.html"><span class="doc std std-doc">Looping event-by-event</span></a> over a file and <a class="reference internal" href="loki-functors.html"><span class="doc std std-doc">inspecting
 interesting quantities with LoKi functors</span></a> is great for
 exploration: to check that the file contains the candidates you need, that
 the topology makes sense, and so on.
@@ -384,8 +384,8 @@ many events to run over, where a value of <code class="docutils literal notransl
 that the Monte Carlo was generated with.
 Specifying these tags is important, as without them you can end up with the
 wrong magnet polarity value in your ntuple, amongst other Bad Things.
-You can find the values for these tags in the <a class="reference download internal" download="" href="../_downloads/1f7f5ac7463dc79a8a4f9b4d819fdab8/MC_2016_27163002_Beam6500GeV2016MagDownNu1.625nsPythia8_Sim09c_Trig0x6138160F_Reco16_Turbo03_Stripping28r1NoPrescalingFlagged_ALLSTREAMS.DST.py"><code class="xref download docutils literal notranslate"><span class="pre">bookkeeping</span>
-<span class="pre">file</span></code></a>
+You can find the values for these tags in the <a class="reference download internal" download="" href="../_downloads/1f7f5ac7463dc79a8a4f9b4d819fdab8/MC_2016_27163002_Beam6500GeV2016MagDownNu1.625nsPythia8_Sim09c_Trig0x6138160F_Reco16_Turbo03_Stripping28r1NoPrescalingFlagged_ALLSTREAMS.DST.py"><span class="xref download myst">bookkeeping
+file</span></a>
 we downloaded earlier.</p>
 <div class="panel panel-callout docutils container">
 <div class="panel-header open docutils container">
@@ -407,7 +407,7 @@ your dataset!</p>
 </ul>
 <p>If this fails, then the following should also work:</p>
 <ul class="simple">
-<li><p>Go to the <a class="reference external" href="https://lhcb-portal-dirac.cern.ch/DIRAC/?view=tabs&amp;theme=Grey&amp;url_state=1%7C*LHCbDIRAC.LHCbTransformationMonitor.classes.LHCbTransformationMonitor:,">transformation monitor</a>. Put this number in the field <code class="docutils literal notranslate"><span class="pre">ProductionID(s):</span></code> and press “Submit”. You will see the details of the production to the right.</p></li>
+<li><p>Go to the <a class="reference external" href="https://lhcb-portal-dirac.cern.ch/DIRAC/?view=tabs&amp;amp;theme=Grey&amp;amp;url_state=1%7C*LHCbDIRAC.LHCbTransformationMonitor.classes.LHCbTransformationMonitor:,">transformation monitor</a>. Put this number in the field <code class="docutils literal notranslate"><span class="pre">ProductionID(s):</span></code> and press “Submit”. You will see the details of the production to the right.</p></li>
 <li><p>Right click on these details, and press “Show request”. The new tab “Production Request manager” will appear to the right of the “LHCb Transformation Monitor”. Go to that tab.</p></li>
 <li><p>You will see the details of the MC request. Right click on it, and press “View”.</p></li>
 <li><p>A new window will pop up with the complete details of the request. You have to find the “Step 1” section, and the following line in it <code class="docutils literal notranslate"><span class="pre">DDDB:</span> <span class="pre">dddb-20170721-3</span> <span class="pre">Condition</span> <span class="pre">DB:</span> <span class="pre">sim-20170721-2-vc-md100</span></code> contains your database tags.</p></li>
@@ -442,7 +442,7 @@ You may investigate some of more advanced examples of <code class="docutils lite
 </div>
 </div>
 <p>All that’s left to do is to say what data we would like to run over.
-As we already have a data file <a class="reference internal" href="files-from-grid.html"><span class="doc">downloaded locally</span></a>, we
+As we already have a data file <a class="reference internal" href="files-from-grid.html"><span class="doc std std-doc">downloaded locally</span></a>, we
 define that as our input data.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">GaudiConf</span><span class="w"> </span><span class="kn">import</span> <span class="n">IOHelper</span>
 
@@ -460,11 +460,11 @@ ending in <code class="docutils literal notranslate"><span class="pre">.dst</spa
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>lb-run<span class="w"> </span>DaVinci/v45r8<span class="w"> </span>gaudirun.py<span class="w"> </span>ntuple_options.py
 </pre></div>
 </div>
-<p>The full options file we’ve created, <code class="docutils literal notranslate"><span class="pre">ntuple_options.py</span></code>, is <a class="reference download internal" download="" href="../_downloads/937445760fade9c86cf97523b587a29c/ntuple_options.py"><code class="xref download docutils literal notranslate"><span class="pre">available</span>
-<span class="pre">here</span></code></a>.
+<p>The full options file we’ve created, <code class="docutils literal notranslate"><span class="pre">ntuple_options.py</span></code>, is <a class="reference download internal" download="" href="../_downloads/937445760fade9c86cf97523b587a29c/ntuple_options.py"><span class="xref download myst">available
+here</span></a>.
 A slightly modified version that uses remote files (using an XML catalog as
-<a class="reference internal" href="files-from-grid.html"><span class="doc">described here</span></a>) is <a class="reference download internal" download="" href="../_downloads/6f0d9c7b57aaa6d301065f6ede4788a9/ntuple_options_xmlcatalog.py"><code class="xref download docutils literal notranslate"><span class="pre">available</span>
-<span class="pre">here</span></code></a>.</p>
+<a class="reference internal" href="files-from-grid.html"><span class="doc std std-doc">described here</span></a>) is <a class="reference download internal" download="" href="../_downloads/6f0d9c7b57aaa6d301065f6ede4788a9/ntuple_options_xmlcatalog.py"><span class="xref download myst">available
+here</span></a>.</p>
 <p>You can now view and inspect your ntuple using ROOT <code class="docutils literal notranslate"><span class="pre">TBrowser</span></code> just do:</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>root<span class="w"> </span>-l<span class="w"> </span>DVntuple.root<span class="w"> </span>
 
@@ -484,7 +484,7 @@ root<span class="w"> </span><span class="o">[</span><span class="m">1</span><spa
 Some stripping lines go to µDSTs, and some go to DSTs.
 There are two things that need changing in our options file in order to have
 it work when it is used with a stripping line that goes to a µDST:</p>
-<ol class="simple">
+<ol class="arabic simple">
 <li><p>The <code class="docutils literal notranslate"><span class="pre">DecayTreeTuple.Inputs</span></code> attribute should start at the word
 <code class="docutils literal notranslate"><span class="pre">Phys</span></code>; and</p></li>
 <li><p>The <code class="docutils literal notranslate"><span class="pre">RootInTES</span></code> attribute on the <code class="docutils literal notranslate"><span class="pre">DaVinci</span></code> object has to be set to

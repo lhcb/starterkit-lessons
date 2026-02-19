@@ -20,7 +20,7 @@ This is done using the software package called DaVinci.
 
 {% endcallout %}
 
-### Getting data files
+## Getting data files
 
 After preselecting data either in the Stripping, Sprucing or triggering step, users can produce ROOT files containing _ntuples_, running the DaVinci application.
 An ntuple is a (often complex) data structure typically stored within a (ROOT) file, which contains information about events or candidates in the data sample, such as the candidate mass or trigger decision flags.
@@ -39,7 +39,7 @@ We will discuss the concept of analysis preservation a bit later in this lesson.
 In first analysis steps we cover both running DaVinci on [Ganga](https://lhcb.github.io/starterkit-lessons/first-analysis-steps/davinci-grid.html) and via [Analysis Productions](https://lhcb.github.io/starterkit-lessons/first-analysis-steps/analysis-productions.html).
 
 
-### Useful high energy physics analysis tools
+## Useful high energy physics analysis tools
 
 After getting the ntuples a user usually develops new analysis code or expands an existing code, that their collaborators use. 
 Analysis code is usually based on the popular high-energy physics software tools or on the more general data analysis tools, like [numpy](https://numpy.org/) or [pandas](https://pandas.pydata.org/). 
@@ -66,7 +66,7 @@ This list is by no means exhaustive, so if there are any other tools you use oft
 
 Discussions on the new analysis tools that might be useful for the LHCb community are held in the [Work Package 4](https://lhcb-dpa.web.cern.ch/lhcb-dpa/wp4/index.html) of the Data Processing & Analysis project (DPA). 
 
-### Analysis Preservation
+## Analysis Preservation
 
 When the samples are ready one can proceed with developing the necessary macros and scripts to perform the analysis steps, such as applying additional selections, fitting distributions, computing efficiencies and acceptances, etc. 
 Starting from the ntuples a typical analysis will consist of the following steps: 

@@ -1,4 +1,4 @@
-## The Selection Framework
+# The Selection Framework
 
 {% objectives "Learning Objectives" %}
 
@@ -10,13 +10,13 @@
 In order to perform most physics analyses we need to build a *decay chain* with reconstructed particles that represents the physics process we want to study.
 In LHCb, this decay chain can be built through `LHCb::Particle` and `LHCb::MCParticle` objects that represent individual particles and contain links to their children, also represented by the same type of object.
 
-We'll learn all the concepts involved by running through our usual full example of the `$ D^\ast\rightarrow D^0(\rightarrow K^{-} K^{+}) \pi $` decay chain.
+We'll learn all the concepts involved by running through our usual full example of the $D^\ast\rightarrow D^0(\rightarrow K^{-} K^{+}) \pi$ decay chain.
 
-The LHCb approach to building decays is from the bottom up. Therefore, to build `$ D^\ast\rightarrow D^0(\rightarrow K^{-} K^{+}) \pi $` we need to
+The LHCb approach to building decays is from the bottom up. Therefore, to build $D^\ast\rightarrow D^0(\rightarrow K^{-} K^{+}) \pi$ we need to
 
   1. Get input pions and kaons and filter them according to our physics needs.
-  2. Combine two kaons to build a `$ D^0 $`, and apply selection cuts to it.
-  3. Combine this `$ D^0 $` with a pion to build the `$ D^\ast $`, again filtering when necessary.
+  2. Combine two kaons to build a $D^0$, and apply selection cuts to it.
+  3. Combine this $D^0$ with a pion to build the $D^\ast$, again filtering when necessary.
 
 To do that, we need to know a little bit more about how the LHCb analysis framework works.
 

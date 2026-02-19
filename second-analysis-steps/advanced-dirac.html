@@ -268,7 +268,7 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="advanced-dirac">
+  <section class="tex2jax_ignore mathjax_ignore" id="advanced-dirac">
 <h1>Advanced Dirac<a class="headerlink" href="#advanced-dirac" title="Link to this heading"></a></h1>
 <p>At this point we have used Ganga for a number of things related to DaVinci and basic file management. However, Ganga is a much more flexible tool than that. Using <code class="docutils literal notranslate"><span class="pre">Python</span></code> and <code class="docutils literal notranslate"><span class="pre">IPython</span></code> we can set up more complicated workflows that manage much of your analysis for you!</p>
 <div class="panel panel-objectives docutils container">
@@ -288,7 +288,7 @@
 <p id="pre-requisites"><i class="fa fa-info-circle"></i> Pre-Requisites</p>
 </div>
 <div class="panel-body docutils container">
-<p>This tutorial will be based on a couple of python files. Please download the following files and place them in a working directory on lxplus. <a class="reference download internal" download="" href="../_downloads/5711c729663d226cacf6d37f666d3d71/distro.py"><code class="xref download docutils literal notranslate"><span class="pre">distro.py</span></code></a>, <a class="reference download internal" download="" href="../_downloads/e56394fd732ea83599674bf4203e4f0a/compare.py"><code class="xref download docutils literal notranslate"><span class="pre">compare.py</span></code></a></p>
+<p>This tutorial will be based on a couple of python files. Please download the following files and place them in a working directory on lxplus. <a class="reference download internal" download="" href="../_downloads/5711c729663d226cacf6d37f666d3d71/distro.py"><span class="xref download myst">distro.py</span></a>, <a class="reference download internal" download="" href="../_downloads/e56394fd732ea83599674bf4203e4f0a/compare.py"><span class="xref download myst">compare.py</span></a></p>
 </div>
 </div>
 <section id="gangatasks">
@@ -346,6 +346,7 @@
 
 #run the python script that you uploaded
 lb-conda default python distro.py $MYENV $1
+
 </pre></div>
 </div>
 <div class="panel panel-callout docutils container">
@@ -398,6 +399,7 @@ lb-conda default python distro.py $MYENV $1
 cat __GangaInputData.txt__
 
 lb-conda default python compare.py
+
 </pre></div>
 </div>
 <p>Now you can submit this task again and monitor the results. <code class="docutils literal notranslate"><span class="pre">cat</span> <span class="pre">__GangaInputData.txt__</span></code> is included so you can inspect which files are passed between Transforms.</p>
@@ -447,7 +449,7 @@ lb-conda default python compare.py
 <span class="n">trf1</span><span class="o">.</span><span class="n">backend</span> <span class="o">=</span> <span class="n">Dirac</span><span class="p">()</span>
 </pre></div>
 </div>
-<p>For more details of how to prepare DaVinci jobs for GRID submission please refer to the <a class="reference internal" href="../first-analysis-steps/davinci-grid.html"><span class="doc">Running DaVinci on the GRID</span></a> lesson.</p>
+<p>For more details of how to prepare DaVinci jobs for GRID submission please refer to the <a class="reference internal" href="../first-analysis-steps/davinci-grid.html"><span class="std std-doc">Running DaVinci on the GRID</span></a> lesson.</p>
 </section>
 <section id="alternative-backends-condor">
 <h2>Alternative Backends - Condor<a class="headerlink" href="#alternative-backends-condor" title="Link to this heading"></a></h2>

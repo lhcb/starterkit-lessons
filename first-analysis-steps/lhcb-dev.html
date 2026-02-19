@@ -268,7 +268,7 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="developing-lhcb-software">
+  <section class="tex2jax_ignore mathjax_ignore" id="developing-lhcb-software">
 <h1>Developing LHCb Software<a class="headerlink" href="#developing-lhcb-software" title="Link to this heading"></a></h1>
 <div class="panel panel-objectives docutils container">
 <div class="panel-header open docutils container">
@@ -300,7 +300,7 @@ requests</em>) in a convenient web interface.  You can find the CERN GitLab
 instance at <a class="reference external" href="https://gitlab.cern.ch">https://gitlab.cern.ch</a>.</p>
 <p>In principle, there are multiple ways of interacting with the LHCb software
 repositories:</p>
-<ol class="simple">
+<ol class="arabic simple">
 <li><p>A vanilla Git workflow using only the standard Git commands.  This requires
 you to <code class="docutils literal notranslate"><span class="pre">clone</span></code> and compile an entire LHCb project at a time.</p></li>
 <li><p>An LHCb-specific workflow using a set of <code class="docutils literal notranslate"><span class="pre">lb-*</span></code> Git subcommands.  This allows
@@ -434,7 +434,7 @@ use the method described at the <a class="reference external" href="http://lhcb-
 These are a set of subcommands, starting with <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">lb-</span></code>, that are designed to make
 developing LHCb software easier.
 For example, if you want to modify a <code class="docutils literal notranslate"><span class="pre">TupleTool</span></code>
-(which you discovered in the <a class="reference internal" href="add-tupletools.html"><span class="doc">TupleTools and branches</span></a> lesson),
+(which you discovered in the <a class="reference internal" href="add-tupletools.html"><span class="doc std std-doc">TupleTools and branches</span></a> lesson),
 start by executing the following in the <code class="docutils literal notranslate"><span class="pre">DaVinciDev</span></code> directory:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>lb-use<span class="w"> </span>Analysis
 git<span class="w"> </span>lb-checkout<span class="w"> </span>Analysis/run2-patches<span class="w"> </span>Phys/DecayTreeTuple
@@ -442,7 +442,7 @@ git<span class="w"> </span>lb-checkout<span class="w"> </span>Analysis/run2-patc
 </div>
 <div class="panel panel-discussion docutils container">
 <div class="panel-header docutils container">
-<p id="what-if-git-asks-for-my-password?"><i class="fa fa-bell"></i> What if git asks for my password?</p>
+<p id="what-if-`git`-asks-for-my-password?"><i class="fa fa-bell"></i> What if `git` asks for my password?</p>
 </div>
 <div class="panel-body docutils container">
 <p>Make sure you succesfully completed the instructions in the initial
@@ -458,7 +458,7 @@ adding the files under the
 directory.</p>
 <div class="panel panel-callout docutils container">
 <div class="panel-header open docutils container">
-<p id="which-project-to-use-in-git-lb-use?"><i class="fa fa-info-circle"></i> Which project to use in git lb-use?</p>
+<p id="which-project-to-use-in-`git-lb-use`?"><i class="fa fa-info-circle"></i> Which project to use in `git lb-use`?</p>
 </div>
 <div class="panel-body docutils container">
 <p>The project name to pass to <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">lb-use</span></code> depends on the directories you want

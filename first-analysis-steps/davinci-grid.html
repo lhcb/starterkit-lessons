@@ -268,7 +268,7 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="running-davinci-on-the-grid">
+  <section class="tex2jax_ignore mathjax_ignore" id="running-davinci-on-the-grid">
 <h1>Running DaVinci on the grid<a class="headerlink" href="#running-davinci-on-the-grid" title="Link to this heading"></a></h1>
 <div class="panel panel-objectives docutils container">
 <div class="panel-header open docutils container">
@@ -283,12 +283,12 @@
 </ul>
 </div>
 </div>
-<p>In certain cases, submitting an <a class="reference internal" href="analysis-productions.html"><span class="doc">Analysis Production</span></a> may not be the best option.
-This lesson will teach you how to take our <a class="reference internal" href="minimal-dv-job.html"><span class="doc">minimal DaVinci
+<p>In certain cases, submitting an <a class="reference internal" href="analysis-productions.html"><span class="doc std std-doc">Analysis Production</span></a> may not be the best option.
+This lesson will teach you how to take our <a class="reference internal" href="minimal-dv-job.html"><span class="doc std std-doc">minimal DaVinci
 job</span></a> and run it on the grid yourself.</p>
 <p><code class="docutils literal notranslate"><span class="pre">ganga</span></code> is a program which you can use to interact with your grid
 jobs.</p>
-<p>Before creating your first <code class="docutils literal notranslate"><span class="pre">ganga</span></code> job, open the script <code class="docutils literal notranslate"><span class="pre">ntuple_options.py</span></code>, obtained in an <a class="reference internal" href="minimal-dv-job.html"><span class="doc">earlier lesson</span></a>, and comment out the lines taking the local input data: we will now use the data stored on grid.</p>
+<p>Before creating your first <code class="docutils literal notranslate"><span class="pre">ganga</span></code> job, open the script <code class="docutils literal notranslate"><span class="pre">ntuple_options.py</span></code>, obtained in an <a class="reference internal" href="minimal-dv-job.html"><span class="doc std std-doc">earlier lesson</span></a>, and comment out the lines taking the local input data: we will now use the data stored on grid.</p>
 <p>Also, you need to know the path to your data from Bookkeeping.
 In our case the path is:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>/MC/2016/Beam6500GeV-2016-MagDown-Nu1.6-25ns-Pythia8/Sim09c/Trig0x6138160F/Reco16/Turbo03/Stripping28r1NoPrescalingFlagged/27163002/ALLSTREAMS.DST
@@ -331,7 +331,7 @@ with the option files given in <code class="docutils literal notranslate"><span 
 backend called <code class="docutils literal notranslate"><span class="pre">Dirac</span></code>, which is “the grid”. Instead of specifying the
 files to process as part of the options file you have now to tell the
 <code class="docutils literal notranslate"><span class="pre">Job</span></code> about it. This allows <code class="docutils literal notranslate"><span class="pre">ganga</span></code> to split your job up by setting <code class="docutils literal notranslate"><span class="pre">j.splitter</span></code>,
-processing different files simultaneously. More details about the splitter are given in the <a class="reference internal" href="split-jobs.html"><span class="doc">next lesson</span></a>. Note that data will be accessed using its path in the bookkeeping <code class="docutils literal notranslate"><span class="pre">bkPath</span></code>. In order to speed-up our job, only the first 2 elements (files) of <code class="docutils literal notranslate"><span class="pre">data</span></code> will be accessed; we don’t need to look at much data here.</p>
+processing different files simultaneously. More details about the splitter are given in the <a class="reference internal" href="split-jobs.html"><span class="doc std std-doc">next lesson</span></a>. Note that data will be accessed using its path in the bookkeeping <code class="docutils literal notranslate"><span class="pre">bkPath</span></code>. In order to speed-up our job, only the first 2 elements (files) of <code class="docutils literal notranslate"><span class="pre">data</span></code> will be accessed; we don’t need to look at much data here.</p>
 <div class="panel panel-callout docutils container">
 <div class="panel-header open docutils container">
 <p id="davincidev-folder"><i class="fa fa-info-circle"></i> DaVinciDev folder</p>
@@ -346,7 +346,7 @@ you get the following message:</p>
 The content of it will be sent to the grid to ensure your job runs with
 exactly this configuration.
 We will use this folder for the following jobs and you will learn more about
-this in the <a class="reference internal" href="lhcb-dev.html"><span class="doc">Developing LHCb Software</span></a> lesson.</p>
+this in the <a class="reference internal" href="lhcb-dev.html"><span class="doc std std-doc">Developing LHCb Software</span></a> lesson.</p>
 </div>
 </div>
 <p>Now you have created your first job, however it has not started
@@ -376,7 +376,7 @@ So for some DaVinci versions, including the latest <code class="docutils literal
 method. Having to type in the details of each job every time you want
 to run it is error prone and tedious. Instead you can place all the
 lines that define a job in a file and simply run that.</p>
-<p>Place the following in a file called <a class="reference download internal" download="" href="../_downloads/8051061c015862ec27df0e678503ef43/first-job.py"><code class="xref download docutils literal notranslate"><span class="pre">first-job.py</span></code></a>:</p>
+<p>Place the following in a file called <a class="reference download internal" download="" href="../_downloads/8051061c015862ec27df0e678503ef43/first-job.py"><span class="xref download myst">first-job.py</span></a>:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">j</span> <span class="o">=</span> <span class="n">Job</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;First ganga job&#39;</span><span class="p">)</span>
 <span class="n">myApp</span> <span class="o">=</span> <span class="n">GaudiExec</span><span class="p">()</span>
 <span class="n">myApp</span><span class="o">.</span><span class="n">directory</span> <span class="o">=</span> <span class="s2">&quot;./DaVinciDev_v45r8&quot;</span>

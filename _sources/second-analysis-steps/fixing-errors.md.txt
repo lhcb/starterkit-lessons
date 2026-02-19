@@ -86,7 +86,7 @@ Sel_D0            SUCCESS Number of counters : 10
 
 It's easy to see we have 0 input kaons and we can see we only get input pions!
 
-Another problem: we messed up with a cut, for example in building the `$ D^* $`,
+Another problem: we messed up with a cut, for example in building the $D^*$,
 
 ```python
 dstar_mother = (
