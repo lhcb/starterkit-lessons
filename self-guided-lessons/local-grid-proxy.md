@@ -12,27 +12,27 @@ Fortunately VOMS can be easily installed and used without requiring the full LHC
 
 The VOMS client can be installed in the following ways, if your operating system isn't listed see [here](https://github.com/italiangrid/voms-clients) (and consider [making a pull request](/CONTRIBUTING) to update this guide).
 
-#### macOS with [homebrew](https://brew.sh)
+### macOS with [homebrew](https://brew.sh)
 
 ```bash
 brew cask install java
 brew install voms
 ```
 
-#### Ubuntu
+### Ubuntu
 
 ```bash
 sudo apt-get install voms-clients
 ```
 
-#### CentOS
+### CentOS
 
 ```bash
 sudo yum install epel-release
 sudo yum install voms-clients
 ```
 
-#### Arch Linux
+### Arch Linux
 
 Install [voms from the AUR](https://aur.archlinux.org/packages/voms/).
 

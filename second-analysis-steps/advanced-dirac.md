@@ -16,7 +16,7 @@ This tutorial will be based on a couple of python files. Please download the fol
 
 {% endcallout %}
 
-### GangaTasks
+## GangaTasks
 
 The first and most important package to introduce is GangaTasks. This package is designed to stop busy analysts from spending more time managing GRID jobs than working on physics. It has the following core features.
 
@@ -150,7 +150,7 @@ tasks(task_num).overview()
 
 {% endcallout %}
 
-### Alternative Backends - DIRAC (Python [bugged](https://github.com/ganga-devs/ganga/pull/1896))
+## Alternative Backends - DIRAC (Python [bugged](https://github.com/ganga-devs/ganga/pull/1896))
 
 So far we have only run Tasks on the `Localhost`. Naturally this will not be appropriate for many of the jobs you will need to do. So firstly lets get our python scripts running on `DIRAC` rather than `Localhost`. First we need to ensure that our `DIRAC` submission can access lb-conda. This is done using `Tags` which allow us to configure the behind the scenes of `DIRAC`. As such we need to add the following snippet to our code.
 
@@ -167,7 +167,7 @@ source /cvmfs/lhcb.cern.ch/lib/LbEnv
 
 Since any sites that are not at CERN will not source this by default.
 
-### Alternative Backends - DIRAC (DaVinci)
+## Alternative Backends - DIRAC (DaVinci)
 
 As you can also imagine it is useful to be able to include DaVinci jobs as Transforms in certain analysis chains. As mentioned earlier Transforms have the following advantages over traditional jobs.
 
@@ -192,7 +192,7 @@ trf1.backend = Dirac()
 
 For more details of how to prepare DaVinci jobs for GRID submission please refer to the [Running DaVinci on the GRID](../first-analysis-steps/davinci-grid.md) lesson.
 
-### Alternative Backends - Condor
+## Alternative Backends - Condor
 
 Transforms can also be set to run on the Condor backend. For those of you familiar with Condor you should recognise the `requirements` object that allows you to set requirements for host selection. These include `opsys`, `arch`, `memory` and others and can be inspected directly through the `IPython` interface. Changes to the choice of Condor universe can also be made by directly by changing the contents of `backend.universe`. An example of using the Condor backend is as follows.
 

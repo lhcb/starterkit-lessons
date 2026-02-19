@@ -32,14 +32,13 @@ In order to decide where to place your jobs in the queue, HTCondor considers fac
 
 Your priority score is determined based on your recent usage. Submitting lots of intensive jobs will cause your score to increase quickly, but if you wait a little while afterwards it will gradually reduce back down *(N.B. a lower score means your jobs will have a higher priority)*.
 
-```eval_rst
-.. toctree::
-    :maxdepth: 3
-    :caption: Contents:
+```{toctree}
+:maxdepth: 3
+:caption: Contents:
 
-    htcondor-first-job.md
-    htcondor-more-options.md
-    htcondor-queue.md
+htcondor-first-job.md
+htcondor-more-options.md
+htcondor-queue.md
 ```
 
 ## System architecture
@@ -54,7 +53,7 @@ See [here](https://batchdocs.web.cern.ch/concepts/dataflow.html) for a more deta
 
 While putting this lesson together, the following guides, tutorials, and pages proved highly useful, and may be useful to you as well if you need more information:
 
-* [HTCondor v8.8.2 Manual](https://research.cs.wisc.edu/htcondor/manual/v8.8/) - University of Wisconsin-Madison
+* [HTCondor v8.8.2 Manual](https://htcondor.readthedocs.io/en/latest/) - University of Wisconsin-Madison
 * [CERN Batch Service User Guide](https://batchdocs.web.cern.ch/index.html)
 * [HTCondor User Tutorial](https://indico.cern.ch/event/611296/contributions/2604376/attachments/1471164/2276521/TannenbaumT_UserTutorial.pdf) - Todd Tannenbaum, 6th June 2017
 * [Mattermost](https://mattermost.web.cern.ch/lhcb) - you can join the 'condor' and 'Distributed Analysis' channels

@@ -1,4 +1,4 @@
-## A Historical Approach
+# A Historical Approach
 
 {% objectives "Learning Objectives" %}
 
@@ -17,7 +17,7 @@ At the end of this lesson its shortcomings will be highlighted and a better way 
 {% endcallout %}
 
 Now we'll learn to apply the concepts of the Selection Framework by running through a full example:
-using the DST files from the [Downloading a file from the Grid](../first-analysis-steps/files-from-grid.md) lesson, we will build our own `$ D^\ast\rightarrow D^0(\rightarrow K^{-} K^{+}) \pi $` decay chain from scratch.
+using the DST files from the [Downloading a file from the Grid](../first-analysis-steps/files-from-grid.md) lesson, we will build our own $D^\ast\rightarrow D^0(\rightarrow K^{-} K^{+}) \pi$ decay chain from scratch.
 Get your [LoKi skills](../first-analysis-steps/loki-functors.md) ready and let's start.
 
 {% callout "Getting started" %}
@@ -59,7 +59,7 @@ Kaons = AutomaticData('Phys/StdAllLooseKaons/Particles')
 
 {% endcallout %}
 
-Once we have the input kaons, we can combine them to build a `$ D^0 $` by means of the `CombineParticles` algorithm.
+Once we have the input kaons, we can combine them to build a $D^0$ by means of the `CombineParticles` algorithm.
 This algorithm performs the combinatorics for us according to a given decay descriptor and puts the resulting particle in the TES, allowing also to apply some cuts on them:
 
  - `DaughtersCuts` is a dictionary that maps each child particle type to a LoKi 
@@ -127,7 +127,7 @@ We can already see that this two-step process (building the `CombineParticles` a
 This can be simplified using a `SimpleSelection` object, which will be discussed in the next lesson.
 
 For the time being, let's finish building our candidates.
-Now we can use another `CombineParticles` to build the `$ D^\ast $` with pions and the `$ D^0 $`'s as inputs, and applying a filtering only on the soft pion:
+Now we can use another `CombineParticles` to build the $D^\ast$ with pions and the $D^0$'s as inputs, and applying a filtering only on the soft pion:
 
 ```python
 dstar_decay_products = {'pi+': '(TRCHI2DOF < 3) & (PT > 100*MeV)'}

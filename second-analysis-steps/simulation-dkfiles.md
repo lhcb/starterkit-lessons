@@ -4,7 +4,7 @@
 
 {% endobjectives %}
 
-## Controlling the decay: DecFiles
+# Controlling the decay: DecFiles
 
 The `DecFile` controls the decay itself (i.e. what `EvtGen` does) as well as provide any event-type specific configuration (e.g. generator cuts).
 They exist in the `Gen/DecFile` package which we have already checked out and built in the beginning and are given as `.dec` files in `Gen/DecFiles/dkfiles`.

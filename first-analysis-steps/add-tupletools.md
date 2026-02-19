@@ -164,7 +164,7 @@ To add LoKi-based leaves to the tree, we need to use the `LoKi::Hybrid::TupleToo
   1. Its *name*, specified in the `addTupleTool` call after a `/`.  This is 
      very useful (and recommended) if we want to have different 
      `LoKi::Hybrid::TupleTool` for each of our branches. For instance, we may 
-     want to add different information for the D*, the D0 and the soft `$ \pi $`:
+     want to add different information for the D*, the D0 and the soft $\pi$:
 
 ```python
 dstar_hybrid = dtt.Dstar.addTupleTool('LoKi::Hybrid::TupleTool/LoKi_Dstar')

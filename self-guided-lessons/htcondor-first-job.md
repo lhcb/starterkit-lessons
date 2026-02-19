@@ -45,7 +45,7 @@ Submitting job(s).
 
 This tells you that the job has been submitted, and gives you the cluster ID (essentially, this is a unique reference number that HTCondor assigns to the job(s) you submitted). If you look in the current directory, you should see that it has automatically created the three files specified in the submit file earlier (`output.out`, `error.err`, and `log.log`). As the job progresses, it will add to these files as appropriate.
 
-### Tracking your jobs
+## Tracking your jobs
 
 While we're waiting for the job to complete, we can track its progress from a terminal. There are multiple ways to do this, but here are some of the most useful:
 

@@ -4,7 +4,7 @@
 
 {% endobjectives %}
 
-## What is Gauss?
+# What is Gauss?
 
 Gauss is the LHCb simulation framework which manages the creation of simulated events by interfacing to multiple external applications. Most commonly, an event is created via the following procedure:
 
@@ -21,7 +21,7 @@ Gauss is the LHCb simulation framework which manages the creation of simulated e
 
 {% endcallout %}
 
-## Choosing your Gauss Version
+# Choosing your Gauss Version
 
 Each release of Gauss v49 represents a different release of Sim09. You may want to run an older version of Gauss to verify something in a pre-existing MC dataset or for any number of other reasons. Here is a table matching each Gauss v49 release to each Sim09 version:
 <!--

@@ -5,7 +5,7 @@
 
 {% endobjectives %} 
 
-## Which option files to use and how to run Gauss
+# Which option files to use and how to run Gauss
 
 Imagine you need to know the option files and software versions used for a simulated sample you have found in the bookkeeping, e.g.
 ```
@@ -25,7 +25,7 @@ produces the sample using Pythia 8 while `'$LBPYTHIA8ROOT/options/Pythia8.py'
 
 {% endcallout %}
 
-## Running Gauss and create a generator-only sample
+# Running Gauss and create a generator-only sample
 
 The production system handles the necessary settings for initial event- and runnumber and the used database tags. In a private production, you need to set these yourself in an additional options file, containing, for example:
 ```python
@@ -82,9 +82,9 @@ importOptions("$APPCONFIGOPTS/Gauss/Beam6500GeV-md100-2016-nu1.6.py")
 
 {% endcallout %}
 
-See if you can generate a generator level only sample for event type `27175000` ( `$ D^{*+} \to D^{0}(\to K^{+}K^{-}\mu^{+}\mu^{-})\pi^{+} $` )
+See if you can generate a generator level only sample for event type `27175000` ( $D^{*+} \to D^{0}(\to K^{+}K^{-}\mu^{+}\mu^{-})\pi^{+}$ )
 
-## Make an nTuple
+# Make an nTuple
 
 The `.xgen` file can be processed into something more usable (copied together from [here](https://gitlab.cern.ch/lhcb-datapkg/Gen/DecFiles/blob/master/CONTRIBUTING.md#)).
 A larger input file containing 50,000 generated events for event-type can be found on EOS: `root://eoslhcb.cern.ch//eos/lhcb/wg/dpa/wp7/Run2SK/simulation/Gauss-27175000-50000ev-20241216.xgen`.

@@ -40,7 +40,7 @@ line which goes to mdst.
 
 For Run 3 LHCb is removing the hardware trigger and the first stage of the software trigger will run at 30 MHz. The HLT is being developed in the [Real-Time-Analysis project](https://twiki.cern.ch/twiki/bin/viewauth/LHCb/RealTimeAnalysis).
 
-### Add trigger information to your ntuple
+## Add trigger information to your ntuple
 In this section and the following, we will explain how to find out which trigger lines selected my signal.
 
 Copy the following DaVinci script to get an ntuple.
@@ -122,7 +122,7 @@ Find out what the hexadecimal presentation of the Hlt1 and Hlt2 TCK is.
 
 {% endchallenge %}
 
-### Exploring a TCK: List of trigger lines
+## Exploring a TCK: List of trigger lines
 
 To get a list of all available TCKs one can use TCKsh which is a python shell with predefined
 functions to explore TCKs, do
@@ -143,7 +143,7 @@ What are the names of the topological trigger lines in Run 1 and Run 2?
 
 {% endchallenge %}
 
-### Add trigger information to your ntuple, continued
+## Add trigger information to your ntuple, continued
 Once you have a list of trigger lines, you can add this to `TupleToolTrigger`:
 ```python
 triggerList = [
@@ -173,7 +173,7 @@ ttt.TriggerList = triggerList
 Be aware you have to append `Decision` to the name of the trigger line.
 
 
-### Add TISTOS information to your ntuple
+## Add TISTOS information to your ntuple
 For analysis purposes it is important to know if your signal candidate was part of the trigger decision or not as one has different efficiencies for both categories. The following categories exist [ [LHCb-PUB-2014-039](https://cds.cern.ch/record/1701134/files/LHCb-PUB-2014-039.pdf) ]:
 1. Triggered On Signal (TOS): events for which the presence of the signal is sufficient to generate a positive trigger decision.
 2. Triggered Independent of Signal (TIS): the “rest” of the event is sufficient to generate a positive trigger decision, where the rest of the event is defined through an operational procedure consisting in removing the signal and all detector hits belonging to it.
@@ -194,7 +194,7 @@ Explain why a single particle cannot be TOS on the Hlt1TwoTrackMVA line.
 
 {% endchallenge %}
 
-### Exploring a TCK: Properties of trigger lines
+## Exploring a TCK: Properties of trigger lines
 
 If you want to get an overview of an Hlt line and its algorithms, you can do 
 
@@ -216,7 +216,7 @@ The regex is needed to search through all algorithms connected to a line.
 
 <!-- ## Old
 
-### Run Moore from settings (Run1 + Run2)
+## Run Moore from settings (Run1 + Run2)
 The application of the software trigger is called Moore. Moore relies on the same
 algorithms as are used in Brunel to run the reconstruction and in DaVinci to
 select particle decays.
@@ -287,7 +287,7 @@ What is difference in run time of Hlt1 and Hlt2?
 
 {% endchallenge %}
 
-### Run Moore from TCK* (Run1 + Run2)
+## Run Moore from TCK* (Run1 + Run2)
 
 There are two ways to run Moore, from `ThresholdSettings` and from `TCK` (Trigger Configuration Key).
 When you develop a trigger line, it is more convenient to run from ThresholdSettings. The TCK
@@ -352,7 +352,7 @@ Moore().inputFiles = ["TestTCK1.mdf"]
 Moore().EvtMax = 100
 ```
 
-### Adapt an existing trigger line (Run1 + Run2)
+## Adapt an existing trigger line (Run1 + Run2)
 
 HLT2 lines are similar to stripping lines. They combine basic particles to composite objects
 and you apply selections to get a clean sample. The framework in which you write a trigger
