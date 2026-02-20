@@ -15,34 +15,44 @@ You also agree to abide by our [contributor code of conduct][conduct].
 1.  We use the [fork and pull][gh-fork-pull] model to manage changes.
     More information about [forking a repository][gh-fork] and [making a Pull Request][gh-pull].
 
-2.  To build the lessons please install the [dependencies](#DEPENDENCIES).
+2.  To build and check the lessons locally, follow [Dependencies and local checks](#dependencies-and-local-checks).
 
-2.  For our lessons, you should branch from and submit pull requests against the `master` branch.
+3.  For our lessons, you should branch from and submit pull requests against the `master` branch.
 
-3.  When editing lesson pages, you need only commit changes to the Markdown source files.
+4.  When editing lesson pages, you need only commit changes to the Markdown source files.
 
-4.  If you're looking for things to work on, please see [the list of issues for this repository][issues].
+5.  If you're looking for things to work on, please see [the list of issues for this repository][issues].
     Comments on issues and reviews of pull requests are equally welcome.
 
-## Dependencies
+## Dependencies and local checks
 
-To build the lessons locally, install the following:
+The CI workflow builds and link-checks this repository using `starterkit-ci`.
+Use the same commands locally before opening a PR.
 
-1. [starterkit-ci](https://pypi.org/project/starterkit-ci/)
-
-Then build the pages:
-
-```shell
-$ starterkit_ci build --allow-warnings
-$ starterkit_ci check --allow-warnings
-```
-
-and start a web server to host them:
+### Option A: run without installing (recommended)
 
 ```shell
-$ cd build
-$ python -m http.server 8000
+uvx starterkit-ci build --source-dir . --allow-warnings
+uvx starterkit-ci check --source-dir . --allow-warnings
 ```
+
+### Option B: install the tool first
+
+```shell
+pip install starterkit-ci
+starterkit-ci build --source-dir . --allow-warnings
+starterkit-ci check --source-dir . --allow-warnings
+```
+
+Note: `starterkit_ci` (underscore) is still accepted as a legacy alias, but `starterkit-ci` is the preferred command.
+
+To preview the generated docs locally, start a web server:
+
+```shell
+cd build
+uv run python -m http.server 8000
+```
+
 You can see your local version by using a web-browser to navigate to `http://localhost:8000` or wherever it says it's serving the book.
 
 [conduct]: CONDUCT.md
