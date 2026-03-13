@@ -303,7 +303,7 @@ generated for several related projects, and is linked from the projects web
 sites, like [for DaVinci](http://lhcbdoc.web.cern.ch/lhcbdoc/davinci/).
 For example, the doxygen documentation for DaVinci v45r8 is
 [here](https://lhcb-doxygen.web.cern.ch/lhcb-doxygen/davinci/v45r8/index.html).
-See also the [LHCb Computing web page](https://lhcb.web.cern.ch/computing/) for a
+See also the [LHCb Computing web page](https://lhcb.web.cern.ch/computing/index.html) for a
 list of projects.
 
 {% callout "Working with a full project checkout" %}

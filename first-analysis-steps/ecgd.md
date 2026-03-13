@@ -32,7 +32,7 @@ The office monitors the collaboration's performance in terms of diversity and in
 
 ## Who makes up the office?
 
-The office is made up of  **two ECGD officers, and two Early Career (EC) representatives**. You can find the people currently holding these roles on the [ECGD webpage](https://lhcb.web.cern.ch/ecgd_office/ecgd-intro.html).
+The office is made up of  **two ECGD officers, and two Early Career (EC) representatives**. You can find the people currently holding these roles on the [ECGD webpage](https://lhcb.web.cern.ch/ECGD_Office/ECGD-intro.html).
 
 One ECGD officer and one EC representative are invited to attend the CB meetings as non-voting members.
 
@@ -62,7 +62,7 @@ The LHCb EC community is defined by the e-group [lhcb-early-career](mailto:lhcb-
 
 The office has started, or been a part of, many intiatives with the goal of improving the working environment of all LHCb members. These are advertised on the ECGD webpage, which the ECGD officers mantain, and as part of the "Weekly News" newsletter circulated by the LHCb Secretariat on Fridays.
 
-It also organises a plenary session at every LHCb Week, covering a plethora of topics related to ECGD matters, such as (full list on the [ECGD webpage](https://lhcb.web.cern.ch/ecgd_office/ecgd-intro.html)):
+It also organises a plenary session at every LHCb Week, covering a plethora of topics related to ECGD matters, such as (full list on the [ECGD webpage](https://lhcb.web.cern.ch/ECGD_Office/ECGD-intro.html)):
 
  * Accessibility of LHCb meetings.
  * How to provide effective feedback. 
@@ -93,7 +93,7 @@ The EC representatives, along with their other LHC counterparts, are part of the
 Here are some other useful links surrounding LHCb's structure and the ECGD:
 
  - [LHCb's constitution](https://lhcb.web.cern.ch/lhcb_page/collaboration/organization/default.html)
- - [ECGD webpage](https://lhcb.web.cern.ch/ecgd_office/ecgd-intro.html)
+ - [ECGD webpage](https://lhcb.web.cern.ch/ECGD_Office/ECGD-intro.html)
  - [LHCb Code of Conduct](https://lhcb.web.cern.ch/lhcb_page/collaboration/organization/LHCb-Code-of-Conduct.pdf)
  - [ECGD's email contact](mailto:lhcb.ecgd@cern.ch) (note that all members of the office will receive the email. For confidential matters please refer to the individual emails of the ECGD officers.)
 
