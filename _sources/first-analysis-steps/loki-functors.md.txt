@@ -126,7 +126,7 @@ Now, retrieve the transverse momentum and invariant mass (you will probably need
 
 {% callout "A note about units" %}
 
-By the [convention](https://lhcb-comp.web.cern.ch/lhcb-comp/Support/Conventions/units.pdf), the LHCb default units are MeV, millimeters and nanoseconds. It is easy to print the values of interest in other units:
+By the [convention](https://lhcb-comp.web.cern.ch/Support/Conventions/units.pdf), the LHCb default units are MeV, millimeters and nanoseconds. It is easy to print the values of interest in other units:
 ```python
 from LoKiPhys.decorators import GeV
 print (PT(candidate)/GeV)
