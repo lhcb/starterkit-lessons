@@ -212,7 +212,7 @@ In the context of `DaVinci` application, e.g. the Stripping, the things become m
 
 The full list of defined LoKi functors can be found in the `LoKi::Cuts` 
 namespace in the 
-[doxygen](https://lhcb-doxygen.web.cern.ch/lhcb-doxygen/davinci/latest/d7/dae/namespace_lo_ki_1_1_cuts.html).
+[doxygen](https://lhcb-doxygen.web.cern.ch/lhcb-doxygen/davinci/v46r18p1/d3/da3/namespace_lo_ki.html).
 They are quite well documented with examples on how to use them.
 The list can be overwhelming, so it's also worth checking a more curated selection of functors in the TWiki, [here](https://twiki.cern.ch/twiki/bin/view/LHCb/LoKiHybridFilters) and [here](https://twiki.cern.ch/twiki/bin/view/LHCb/LoKiParticleFunctions).
 
