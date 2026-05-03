@@ -70,16 +70,20 @@ This lesson introduces the commands:
  - `git lb-use` and `git lb-checkout` for downloading LHCb software packages
 
 If you want to make changes to a software package, you will need to set up a
-development environment. `lb-dev` is your friend here:
-
+development environment.
+Since Centos7 is not supported anymore on lxplus, you should use a container for the following tasks.
 ```bash
-lb-dev --name DaVinciDev DaVinci/v45r8
+apptainer exec --bind $PWD --env LBENV_SOURCED= --bind /cvmfs:/cvmfs:ro /cvmfs/lhcb.cern.ch/containers/os-base/centos7-devel/prod/amd64/ bash --rcfile /cvmfs/lhcb.cern.ch/lib/LbEnv
+```
+Now, `lb-dev` is your friend here:
+```bash
+lb-dev -c best --name DaVinciDev DaVinci/v45r8
 ```
 
 The output should look similar to this:
 
 ```
-Successfully created the local project DaVinciDev for x86_64-centos7-gcc9-opt in .
+Successfully created the local project DaVinciDev for x86_64_v2-centos7-gcc10-opt in .
 
 To start working:
 
@@ -173,7 +177,7 @@ start by executing the following in the `DaVinciDev` directory:
 
 ```bash
 git lb-use Analysis
-git lb-checkout Analysis/run2-patches Phys/DecayTreeTuple
+git lb-checkout Analysis/v21r8 Phys/DecayTreeTuple
 ```
 
 {% discussion "What if `git` asks for my password?" %}
