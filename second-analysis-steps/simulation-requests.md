@@ -11,7 +11,8 @@ Running Gauss yourself, as in the previous lessons, is fine for tests and genera
 The simulated samples for an analysis are produced centrally on the Grid, and practically every analysis
 requests its own samples (signal, then backgrounds and control modes) with an **MC request**.
 
-Each Physics Working Group has one or two **MC liaisons**. They review and approve every request, so
+Each Physics Working Group has one or two **MC liaisons** (see the
+[list of WG liaisons](https://twiki.cern.ch/twiki/bin/viewauth/LHCbPhysics/LHCbWGLiaisons)). They review and approve every request, so
 get to know yours early. Contact them before preparing a request if a feature you need is marked ⚠️ in
 the [capabilities tables](https://lhcb-simulation.web.cern.ch/WPP/lbmcsubmit-capabilities/).
 
@@ -73,7 +74,9 @@ the documentation below.
 
 ## Where to find the details
 
+* [Run 3 MC samples](https://lhcb-simulation.web.cern.ch/WPP/MCsamples/): the different samples that can be requested for Run 3
 * [What can I request with LbMCSubmit?](https://lhcb-simulation.web.cern.ch/WPP/lbmcsubmit-capabilities/): available options per data-taking period
 * [Request preparation guide](https://lhcb-simulation.web.cern.ch/liaisons/): Stage 0 examples, filtering, Sprucing and the approval workflow
 * [LbMCSubmit YAML schema reference](https://lhcb-simulation.web.cern.ch/WPP/schema-reference/): all fields and allowed values
 * [DecFiles viewer](https://lhcb-decfiles.docs.cern.ch/): find existing event types
+* [List of WG liaisons](https://twiki.cern.ch/twiki/bin/viewauth/LHCbPhysics/LHCbWGLiaisons): find the MC liaison of your WG
