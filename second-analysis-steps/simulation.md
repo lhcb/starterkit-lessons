@@ -18,6 +18,7 @@ and a collection of useful links can be found on the project's website: http://l
 * Read a DecFile and understand what it produces, including generator level cuts
 * Generate an event type with modified channels and generator level cuts
 * Raise awareness about the available options for fast simulation
+* Know how to request an official simulation sample
 
 {% endobjectives %}
 
@@ -53,4 +54,5 @@ simulation-dkfiles.md
 simulation-gencuts.md
 simulation-advanced-dkfiles.md
 simulation-fastsim.md
+simulation-requests.md
 ```
